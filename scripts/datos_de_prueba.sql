@@ -1,4 +1,4 @@
-﻿USE ocio_store;
+USE ocio_store;
 GO
 
 -- Roles

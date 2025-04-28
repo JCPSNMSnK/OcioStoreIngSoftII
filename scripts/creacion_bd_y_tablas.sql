@@ -22,7 +22,7 @@ CREATE TABLE Users (
     mail VARCHAR(100) NOT NULL,
     username VARCHAR(50) NOT NULL,
     pass VARCHAR(255) NOT NULL,
-    baja_user BIT DEFAULT 0,  -- Aquí se usa BIT (0 para falso, 1 para verdadero)
+    baja_user BIT DEFAULT 0,  -- AquÃ­ se usa BIT (0 para falso, 1 para verdadero)
     id_rol INT NOT NULL,
     CONSTRAINT PK_Users PRIMARY KEY (id_user),
     CONSTRAINT UQ_Users_dni UNIQUE (dni),
@@ -44,7 +44,7 @@ CREATE TABLE MetodosPago (
 CREATE TABLE Categorias (
     id_categoria INT IDENTITY(1,1),
     nombre_categoria VARCHAR(100) NOT NULL,
-    baja_categoria BIT DEFAULT 0,  -- Aquí también se usa BIT (0 para falso, 1 para verdadero)
+    baja_categoria BIT DEFAULT 0,  -- AquÃ­ tambiÃ©n se usa BIT (0 para falso, 1 para verdadero)
     CONSTRAINT PK_Categorias PRIMARY KEY (id_categoria),
     CONSTRAINT UQ_Categorias_nombre UNIQUE (nombre_categoria)
 );
@@ -56,7 +56,7 @@ CREATE TABLE Productos (
     fecha_ingreso DATE NOT NULL,
     precio_culata DECIMAL(10,2) NOT NULL,
     precio_venta DECIMAL(10,2) NOT NULL,
-    baja_producto BIT DEFAULT 0,  -- Lo mismo aquí, 0 para falso
+    baja_producto BIT DEFAULT 0,  -- Lo mismo aquÃ­, 0 para falso
     stock INT NOT NULL,
     stock_min INT NOT NULL,
     descripcion TEXT,
