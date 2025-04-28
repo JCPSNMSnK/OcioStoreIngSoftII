@@ -13,7 +13,7 @@ namespace CapaDatos
 {
     public class Producto_Datos
     {
-        public List<Producto> Listar()
+        public List<Producto> Listar()//buscarProducto
         {
             List<Producto> lista = new List<Producto>();
 
@@ -35,7 +35,7 @@ namespace CapaDatos
                     {
                         while (dataReader.Read())
                         {
-                            lista.Add(new Producto()
+                            lista.Add(new Producto() 
                             {
                                 id_producto = Convert.ToInt32(dataReader["id"]),
                                 nombre = dataReader["nombre"].ToString(),

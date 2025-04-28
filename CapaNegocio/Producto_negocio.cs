@@ -12,13 +12,13 @@ namespace CapaNegocio
     {
         private Producto_Datos objProduct_datos = new Producto_Datos();
 
-        public List<Producto> Listar()
+        public List<Producto> Listar()//buscarProducto o mostrarProducto
         {
             return objProduct_datos.Listar();
         }
 
         public int Registrar(Producto obj, out string Mensaje)
-        {
+        {//crearProducto
             Mensaje = string.Empty;
 
             if (obj.nombre == "")
@@ -31,12 +31,12 @@ namespace CapaNegocio
                 Mensaje += "Debe ingresar una descripion\n";
             }
 
-            if (obj.marca == "")
+            if (obj.marca == "")//sacar
             {
                 Mensaje += "Debe ingresar un marca\n";
             }
 
-            if (obj.modelo == "")
+            if (obj.modelo == "")//sacar
             {
                 Mensaje += "Debe ingresar una contraseña\n";
             }
@@ -52,7 +52,7 @@ namespace CapaNegocio
 
         }
         public bool Editar(Producto obj, out string Mensaje)
-        {
+        {//modificarProducto
             Mensaje = string.Empty;
 
             if (obj.nombre == "")
@@ -65,12 +65,12 @@ namespace CapaNegocio
                 Mensaje += "Debe ingresar una descripion\n";
             }
 
-            if (obj.marca == "")
+            if (obj.marca == "")//sacar
             {
                 Mensaje += "Debe ingresar un marca\n";
             }
 
-            if (obj.modelo == "")
+            if (obj.modelo == "")//sacar
             {
                 Mensaje += "Debe ingresar una contraseña\n";
             }
@@ -85,7 +85,7 @@ namespace CapaNegocio
             }
         }
         public bool Eliminar(Producto obj, out string Mensaje)
-        {
+        {//quitarProducto
             return objProduct_datos.Eliminar(obj, out Mensaje);
         }
     }
