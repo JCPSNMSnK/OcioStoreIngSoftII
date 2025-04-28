@@ -122,6 +122,3 @@ CREATE TABLE InformeDetalle (
     CONSTRAINT FK_InformeDetalle_Categoria FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria) ON DELETE CASCADE,
     CONSTRAINT UQ_InformeDetalle_Combinacion UNIQUE (id_informe, id_venta, id_user, id_producto, id_categoria)
 );
-
-
-
