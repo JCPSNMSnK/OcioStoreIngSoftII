@@ -67,10 +67,10 @@
             this.BCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BCancelar.BackColor = System.Drawing.Color.Firebrick;
+            this.BCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
             this.BCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BCancelar.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BCancelar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BCancelar.ForeColor = System.Drawing.Color.White;
             this.BCancelar.Location = new System.Drawing.Point(51, 319);
             this.BCancelar.Name = "BCancelar";
@@ -109,9 +109,9 @@
             this.BLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BLogin.BackColor = System.Drawing.Color.Gray;
+            this.BLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.BLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BLogin.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BLogin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BLogin.ForeColor = System.Drawing.Color.White;
             this.BLogin.Location = new System.Drawing.Point(51, 281);
             this.BLogin.Name = "BLogin";
@@ -142,13 +142,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LPass.AutoSize = true;
-            this.LPass.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LPass.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPass.Location = new System.Drawing.Point(47, 206);
+            this.LPass.Location = new System.Drawing.Point(48, 211);
             this.LPass.Name = "LPass";
-            this.LPass.Size = new System.Drawing.Size(82, 23);
+            this.LPass.Size = new System.Drawing.Size(102, 18);
             this.LPass.TabIndex = 2;
             this.LPass.Text = "Contraseña";
+            this.LPass.Click += new System.EventHandler(this.LPass_Click_1);
             // 
             // TUser
             // 
@@ -170,11 +171,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LUser.AutoSize = true;
-            this.LUser.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LUser.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LUser.Location = new System.Drawing.Point(47, 150);
+            this.LUser.Location = new System.Drawing.Point(48, 155);
             this.LUser.Name = "LUser";
-            this.LUser.Size = new System.Drawing.Size(58, 23);
+            this.LUser.Size = new System.Drawing.Size(70, 18);
             this.LUser.TabIndex = 0;
             this.LUser.Text = "Usuario";
             // 
