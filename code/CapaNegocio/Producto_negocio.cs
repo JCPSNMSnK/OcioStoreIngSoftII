@@ -12,7 +12,7 @@ namespace CapaNegocio
     {
         private Producto_Datos objProduct_datos = new Producto_Datos();
 
-        public List<Producto> Listar()//buscarProducto o mostrarProducto
+        public List<Producto> Listar()//mostrarProducto
         {
             return objProduct_datos.Listar();
         }

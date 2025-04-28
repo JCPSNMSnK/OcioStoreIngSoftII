@@ -132,7 +132,7 @@ namespace CapaDatos
             }
             return lista;
         }
-        public int Registrar(Producto obj, out string Mensaje)//crearProducto
+        public int Registrar(Producto obj, out string Mensaje)
         {
             int id_producto_generado = 0;
             Mensaje = string.Empty;
@@ -173,7 +173,7 @@ namespace CapaDatos
             return id_producto_generado;
         }
 
-        public bool Editar(Producto obj, out string Mensaje)//modificarProducto
+        public bool Editar(Producto obj, out string Mensaje)
         {
             bool resultado = false;
             Mensaje = string.Empty;
@@ -215,7 +215,7 @@ namespace CapaDatos
             return resultado;
         }
 
-        public bool Eliminar(Producto obj, out string Mensaje)//quitarProducto
+        public bool Eliminar(Producto obj, out string Mensaje)
         {
             bool respuesta = false;
             Mensaje = string.Empty;
