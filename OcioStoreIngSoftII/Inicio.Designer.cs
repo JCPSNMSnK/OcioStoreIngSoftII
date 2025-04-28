@@ -304,6 +304,7 @@
             // 
             // contenedor
             // 
+            this.contenedor.BackgroundImage = global::OcioStoreIngSoftII.Properties.Resources.BibliotecaJuegos_1;
             this.contenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(174, 3);
