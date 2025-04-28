@@ -28,19 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.menu = new System.Windows.Forms.TableLayoutPanel();
-            this.LogOutButton = new FontAwesome.Sharp.IconButton();
+            this.ReceiptsButton = new FontAwesome.Sharp.IconButton();
+            this.StatsButton = new FontAwesome.Sharp.IconButton();
             this.UsersButton = new FontAwesome.Sharp.IconButton();
+            this.SellButton = new FontAwesome.Sharp.IconButton();
+            this.ProductsButton = new FontAwesome.Sharp.IconButton();
+            this.RestoreButton = new FontAwesome.Sharp.IconButton();
+            this.LogOutButton = new FontAwesome.Sharp.IconButton();
+            this.HomeButton = new FontAwesome.Sharp.IconButton();
             this.contenedor = new System.Windows.Forms.Panel();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton7 = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.menu.SuspendLayout();
+            this.contenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -71,14 +76,14 @@
             this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
             this.menu.ColumnCount = 1;
             this.menu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.menu.Controls.Add(this.iconButton7, 0, 4);
-            this.menu.Controls.Add(this.iconButton1, 0, 5);
-            this.menu.Controls.Add(this.iconButton6, 0, 1);
-            this.menu.Controls.Add(this.iconButton4, 0, 2);
-            this.menu.Controls.Add(this.iconButton3, 0, 3);
-            this.menu.Controls.Add(this.iconButton5, 0, 6);
+            this.menu.Controls.Add(this.ReceiptsButton, 0, 4);
+            this.menu.Controls.Add(this.StatsButton, 0, 5);
+            this.menu.Controls.Add(this.UsersButton, 0, 1);
+            this.menu.Controls.Add(this.SellButton, 0, 2);
+            this.menu.Controls.Add(this.ProductsButton, 0, 3);
+            this.menu.Controls.Add(this.RestoreButton, 0, 6);
             this.menu.Controls.Add(this.LogOutButton, 0, 7);
-            this.menu.Controls.Add(this.UsersButton, 0, 0);
+            this.menu.Controls.Add(this.HomeButton, 0, 0);
             this.menu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menu.Location = new System.Drawing.Point(3, 3);
             this.menu.Name = "menu";
@@ -94,6 +99,155 @@
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.menu.Size = new System.Drawing.Size(165, 555);
             this.menu.TabIndex = 5;
+            // 
+            // ReceiptsButton
+            // 
+            this.ReceiptsButton.AutoSize = true;
+            this.ReceiptsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ReceiptsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.ReceiptsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReceiptsButton.FlatAppearance.BorderSize = 0;
+            this.ReceiptsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReceiptsButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReceiptsButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.ReceiptsButton.IconChar = FontAwesome.Sharp.IconChar.Receipt;
+            this.ReceiptsButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.ReceiptsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ReceiptsButton.IconSize = 25;
+            this.ReceiptsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ReceiptsButton.Location = new System.Drawing.Point(3, 279);
+            this.ReceiptsButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.ReceiptsButton.Name = "ReceiptsButton";
+            this.ReceiptsButton.Size = new System.Drawing.Size(159, 63);
+            this.ReceiptsButton.TabIndex = 31;
+            this.ReceiptsButton.Text = "Recibos";
+            this.ReceiptsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ReceiptsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ReceiptsButton.UseVisualStyleBackColor = false;
+            // 
+            // StatsButton
+            // 
+            this.StatsButton.AutoSize = true;
+            this.StatsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.StatsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.StatsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StatsButton.FlatAppearance.BorderSize = 0;
+            this.StatsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StatsButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatsButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.StatsButton.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
+            this.StatsButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.StatsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.StatsButton.IconSize = 25;
+            this.StatsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StatsButton.Location = new System.Drawing.Point(3, 348);
+            this.StatsButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.StatsButton.Name = "StatsButton";
+            this.StatsButton.Size = new System.Drawing.Size(159, 63);
+            this.StatsButton.TabIndex = 30;
+            this.StatsButton.Text = "Estadísticas";
+            this.StatsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.StatsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.StatsButton.UseVisualStyleBackColor = false;
+            // 
+            // UsersButton
+            // 
+            this.UsersButton.AutoSize = true;
+            this.UsersButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UsersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.UsersButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UsersButton.FlatAppearance.BorderSize = 0;
+            this.UsersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UsersButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsersButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.UsersButton.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
+            this.UsersButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.UsersButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.UsersButton.IconSize = 25;
+            this.UsersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UsersButton.Location = new System.Drawing.Point(3, 72);
+            this.UsersButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.UsersButton.Name = "UsersButton";
+            this.UsersButton.Size = new System.Drawing.Size(159, 63);
+            this.UsersButton.TabIndex = 28;
+            this.UsersButton.Text = "Usuarios";
+            this.UsersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UsersButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UsersButton.UseVisualStyleBackColor = false;
+            // 
+            // SellButton
+            // 
+            this.SellButton.AutoSize = true;
+            this.SellButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SellButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.SellButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SellButton.FlatAppearance.BorderSize = 0;
+            this.SellButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SellButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SellButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.SellButton.IconChar = FontAwesome.Sharp.IconChar.CartShopping;
+            this.SellButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.SellButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SellButton.IconSize = 25;
+            this.SellButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SellButton.Location = new System.Drawing.Point(3, 141);
+            this.SellButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.SellButton.Name = "SellButton";
+            this.SellButton.Size = new System.Drawing.Size(159, 63);
+            this.SellButton.TabIndex = 27;
+            this.SellButton.Text = "Vender";
+            this.SellButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SellButton.UseVisualStyleBackColor = false;
+            // 
+            // ProductsButton
+            // 
+            this.ProductsButton.AutoSize = true;
+            this.ProductsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ProductsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.ProductsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProductsButton.FlatAppearance.BorderSize = 0;
+            this.ProductsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProductsButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductsButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.ProductsButton.IconChar = FontAwesome.Sharp.IconChar.Cube;
+            this.ProductsButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.ProductsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ProductsButton.IconSize = 25;
+            this.ProductsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ProductsButton.Location = new System.Drawing.Point(3, 210);
+            this.ProductsButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.ProductsButton.Name = "ProductsButton";
+            this.ProductsButton.Size = new System.Drawing.Size(159, 63);
+            this.ProductsButton.TabIndex = 26;
+            this.ProductsButton.Text = "Productos";
+            this.ProductsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ProductsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ProductsButton.UseVisualStyleBackColor = false;
+            // 
+            // RestoreButton
+            // 
+            this.RestoreButton.AutoSize = true;
+            this.RestoreButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.RestoreButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.RestoreButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RestoreButton.FlatAppearance.BorderSize = 0;
+            this.RestoreButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RestoreButton.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.RestoreButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.RestoreButton.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.RestoreButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.RestoreButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RestoreButton.IconSize = 25;
+            this.RestoreButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RestoreButton.Location = new System.Drawing.Point(3, 417);
+            this.RestoreButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.RestoreButton.Name = "RestoreButton";
+            this.RestoreButton.Size = new System.Drawing.Size(159, 63);
+            this.RestoreButton.TabIndex = 23;
+            this.RestoreButton.Text = "Restauración";
+            this.RestoreButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RestoreButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.RestoreButton.UseVisualStyleBackColor = false;
             // 
             // LogOutButton
             // 
@@ -121,190 +275,68 @@
             this.LogOutButton.UseVisualStyleBackColor = false;
             this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
-            // UsersButton
+            // HomeButton
             // 
-            this.UsersButton.AutoSize = true;
-            this.UsersButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.UsersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.UsersButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UsersButton.FlatAppearance.BorderSize = 0;
-            this.UsersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UsersButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsersButton.ForeColor = System.Drawing.Color.AliceBlue;
-            this.UsersButton.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
-            this.UsersButton.IconColor = System.Drawing.Color.AliceBlue;
-            this.UsersButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.UsersButton.IconSize = 25;
-            this.UsersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UsersButton.Location = new System.Drawing.Point(3, 3);
-            this.UsersButton.MinimumSize = new System.Drawing.Size(75, 37);
-            this.UsersButton.Name = "UsersButton";
-            this.UsersButton.Size = new System.Drawing.Size(159, 63);
-            this.UsersButton.TabIndex = 5;
-            this.UsersButton.Text = "Inicio";
-            this.UsersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UsersButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.UsersButton.UseVisualStyleBackColor = false;
-            this.UsersButton.Click += new System.EventHandler(this.UsersButton_Click);
+            this.HomeButton.AutoSize = true;
+            this.HomeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.HomeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.HomeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HomeButton.FlatAppearance.BorderSize = 0;
+            this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HomeButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HomeButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.HomeButton.IconChar = FontAwesome.Sharp.IconChar.House;
+            this.HomeButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.HomeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.HomeButton.IconSize = 25;
+            this.HomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HomeButton.Location = new System.Drawing.Point(3, 3);
+            this.HomeButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.HomeButton.Name = "HomeButton";
+            this.HomeButton.Size = new System.Drawing.Size(159, 63);
+            this.HomeButton.TabIndex = 5;
+            this.HomeButton.Text = "Inicio";
+            this.HomeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.HomeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.HomeButton.UseVisualStyleBackColor = false;
+            this.HomeButton.Click += new System.EventHandler(this.UsersButton_Click);
             // 
             // contenedor
             // 
             this.contenedor.BackgroundImage = global::OcioStoreIngSoftII.Properties.Resources.BibliotecaJuegos_1;
-            this.contenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.contenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.contenedor.Controls.Add(this.label1);
+            this.contenedor.Controls.Add(this.pictureBox1);
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(174, 3);
             this.contenedor.Name = "contenedor";
             this.contenedor.Size = new System.Drawing.Size(887, 555);
             this.contenedor.TabIndex = 6;
             // 
-            // iconButton5
+            // label1
             // 
-            this.iconButton5.AutoSize = true;
-            this.iconButton5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.iconButton5.ForeColor = System.Drawing.Color.AliceBlue;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
-            this.iconButton5.IconColor = System.Drawing.Color.AliceBlue;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 25;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(3, 417);
-            this.iconButton5.MinimumSize = new System.Drawing.Size(75, 37);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(159, 63);
-            this.iconButton5.TabIndex = 23;
-            this.iconButton5.Text = "Restauración";
-            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton5.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(223, 180);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(568, 195);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Bienvenido al Sistema de \nAdministración de \nOcio Store";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // iconButton3
+            // pictureBox1
             // 
-            this.iconButton3.AutoSize = true;
-            this.iconButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.ForeColor = System.Drawing.Color.AliceBlue;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Cube;
-            this.iconButton3.IconColor = System.Drawing.Color.AliceBlue;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 25;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(3, 210);
-            this.iconButton3.MinimumSize = new System.Drawing.Size(75, 37);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(159, 63);
-            this.iconButton3.TabIndex = 26;
-            this.iconButton3.Text = "Productos";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = false;
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.AutoSize = true;
-            this.iconButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton4.ForeColor = System.Drawing.Color.AliceBlue;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.CartShopping;
-            this.iconButton4.IconColor = System.Drawing.Color.AliceBlue;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 25;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(3, 141);
-            this.iconButton4.MinimumSize = new System.Drawing.Size(75, 37);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(159, 63);
-            this.iconButton4.TabIndex = 27;
-            this.iconButton4.Text = "Vender";
-            this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton4.UseVisualStyleBackColor = false;
-            // 
-            // iconButton6
-            // 
-            this.iconButton6.AutoSize = true;
-            this.iconButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.iconButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton6.FlatAppearance.BorderSize = 0;
-            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton6.ForeColor = System.Drawing.Color.AliceBlue;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
-            this.iconButton6.IconColor = System.Drawing.Color.AliceBlue;
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.IconSize = 25;
-            this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton6.Location = new System.Drawing.Point(3, 72);
-            this.iconButton6.MinimumSize = new System.Drawing.Size(75, 37);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(159, 63);
-            this.iconButton6.TabIndex = 28;
-            this.iconButton6.Text = "Usuarios";
-            this.iconButton6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton6.UseVisualStyleBackColor = false;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.AutoSize = true;
-            this.iconButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
-            this.iconButton1.IconColor = System.Drawing.Color.AliceBlue;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 25;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(3, 348);
-            this.iconButton1.MinimumSize = new System.Drawing.Size(75, 37);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(159, 63);
-            this.iconButton1.TabIndex = 30;
-            this.iconButton1.Text = "Estadísticas";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            // 
-            // iconButton7
-            // 
-            this.iconButton7.AutoSize = true;
-            this.iconButton7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.iconButton7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton7.FlatAppearance.BorderSize = 0;
-            this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton7.ForeColor = System.Drawing.Color.AliceBlue;
-            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.Receipt;
-            this.iconButton7.IconColor = System.Drawing.Color.AliceBlue;
-            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton7.IconSize = 25;
-            this.iconButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton7.Location = new System.Drawing.Point(3, 279);
-            this.iconButton7.MinimumSize = new System.Drawing.Size(75, 37);
-            this.iconButton7.Name = "iconButton7";
-            this.iconButton7.Size = new System.Drawing.Size(159, 63);
-            this.iconButton7.TabIndex = 31;
-            this.iconButton7.Text = "Recibos";
-            this.iconButton7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton7.UseVisualStyleBackColor = false;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(95, 212);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(122, 122);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // Inicio
             // 
@@ -320,6 +352,9 @@
             this.tableLayoutPanel2.PerformLayout();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
+            this.contenedor.ResumeLayout(false);
+            this.contenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,12 +365,14 @@
         private System.Windows.Forms.Panel contenedor;
         private System.Windows.Forms.TableLayoutPanel menu;
         private FontAwesome.Sharp.IconButton LogOutButton;
+        private FontAwesome.Sharp.IconButton HomeButton;
         private FontAwesome.Sharp.IconButton UsersButton;
-        private FontAwesome.Sharp.IconButton iconButton6;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private FontAwesome.Sharp.IconButton iconButton7;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton SellButton;
+        private FontAwesome.Sharp.IconButton ProductsButton;
+        private FontAwesome.Sharp.IconButton RestoreButton;
+        private FontAwesome.Sharp.IconButton ReceiptsButton;
+        private FontAwesome.Sharp.IconButton StatsButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

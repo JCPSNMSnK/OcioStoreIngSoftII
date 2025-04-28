@@ -22,25 +22,25 @@ namespace OcioStoreIngSoftII
         private static Form FormularioActivo = null;
 
 
-        public Inicio(Usuario objUser)
+        public Inicio() //Usuario objUser
         {
-            usuarioActual = objUser;
+            //usuarioActual = objUser;
             InitializeComponent();
         }
         private void Inicio_Load(object sender, EventArgs e)
         {
-            List<Permiso> ListaPermisos = new Permiso_negocio().Listar(usuarioActual.id_usuario);
+            //List<Permiso> ListaPermisos = new Permiso_negocio().Listar(usuarioActual.id_usuario);
 
-            foreach (Control control in menu.Controls)
-            {
-                if (control is IconButton iconMenu)
-                {
-                    bool encontrado = ListaPermisos.Any(m => m.nombreAcceso == iconMenu.Name);
+            //foreach (Control control in menu.Controls)
+            //{
+            //    if (control is IconButton iconMenu)
+            //    {
+            //        bool encontrado = ListaPermisos.Any(m => m.nombreAcceso == iconMenu.Name);
 
-                    // Si el permiso no se encuentra, oculta el botón
-                    iconMenu.Visible = encontrado;
-                }
-            }
+            //        // Si el permiso no se encuentra, oculta el botón
+            //        iconMenu.Visible = encontrado;
+            //    }
+            //}
 
             LogOutButton.Visible = true;
 
@@ -126,6 +126,11 @@ namespace OcioStoreIngSoftII
         private void ConsultasButton_Click_1(object sender, EventArgs e)
         {
             
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
