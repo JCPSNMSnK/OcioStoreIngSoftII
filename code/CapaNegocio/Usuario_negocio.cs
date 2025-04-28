@@ -14,12 +14,12 @@ namespace CapaNegocio
     {
         private Usuario_Datos objUser_datos = new Usuario_Datos();
 
-        public List<Usuario> Listar()
+        public List<Usuario> Listar()//mostrarUsuarios -> mostrarEmpleados
         {
             return objUser_datos.Listar();
         }
         
-        public int Registrar(Usuario obj, out string Mensaje)
+        public int Registrar(Usuario obj, out string Mensaje)//crearUsuario
         {
             Mensaje = string.Empty;
 
@@ -68,7 +68,7 @@ namespace CapaNegocio
             }
 
         }
-        public bool Editar(Usuario obj, out string Mensaje)
+        public bool Editar(Usuario obj, out string Mensaje)//editarUsuario
         {
             Mensaje = string.Empty;
 
@@ -116,7 +116,7 @@ namespace CapaNegocio
                 return objUser_datos.Editar(obj, out Mensaje);
             }
         }
-        public bool Eliminar(Usuario obj, out string Mensaje)
+        public bool Eliminar(Usuario obj, out string Mensaje)//eliminarUsuario
         {
             return objUser_datos.Eliminar(obj, out Mensaje);
         }

@@ -12,7 +12,7 @@ namespace CapaDatos
 {
     public class Categoria_Datos
     {
-        public List<Categoria> Listar()
+        public List<Categoria> Listar()//mostrarCategorías
         {
             List<Categoria> lista = new List<Categoria>();
 

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    public class MetodoPago
+    public class MediosPago
     {
         public int id_medioPago { get; set; }
+        public string nombre_medio { get; set; }
         public float comision { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace CapaNegocio
     {
         private Categoria_Datos objCategoria_datos = new Categoria_Datos();
 
-        public List<Categoria> Listar()
+        public List<Categoria> Listar()//mostrarCategorias
         {
             return objCategoria_datos.Listar();
         }

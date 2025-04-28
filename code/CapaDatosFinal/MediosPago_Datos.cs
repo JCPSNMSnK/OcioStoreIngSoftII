@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    public class Consulta_Datos
+    public class MedioPago_Datos
     {
-        public List<Consulta> Listar()
+        public List<MediosPago> Listar()//mostrarMediosPago
         {
-            List<Consulta> lista = new List<Consulta>();
+            List<MediosPago> lista = new List<MediosPago>();
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select id,usuario,nombre,apellido,correo,mensaje,leido,created_at,updated_at,respuesta from consultas c");
+                    query.AppendLine("SELECT id,nombre,correo,mensaje,leido,created_at,updated_at,respuesta FROM mediosPago");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -32,13 +32,11 @@ namespace CapaDatos
                     {
                         while (dataReader.Read())
                         {
-                            lista.Add(new Consulta()
+                            lista.Add(new MediosPago()
                             {
-                                id_consulta = Convert.ToInt32(dataReader["id"]),
-                                usuarioCliente = dataReader["usuario"].ToString(),
+                                id_mensaje = Convert.ToInt32(dataReader["id"]),
                                 nombreCliente = dataReader["nombre"].ToString(),
-                                apellidoCliente = dataReader["apellido"].ToString(),
-                                correoCliente = dataReader["correo"].ToString(),
+                                emailCliente = dataReader["correo"].ToString(),
                                 mensaje = dataReader["mensaje"].ToString(),
                                 created_at = dataReader["created_at"].ToString(),
                                 updated_at = dataReader["updated_at"].ToString(),
@@ -49,22 +47,22 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<Consulta>();
+                    lista = new List<MediosPago>();
                 }
             }
             return lista;
         }
-        public bool Registrar(Consulta obj, out string Consulta)
+        public bool Registrar(MediosPago obj, out string MediosPago)//crearMediosPago
         {
             bool resultado = false;
-            Consulta = string.Empty;
+            Mensaje = string.Empty;
 
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_RESPUESTA_CONSULTA", oconexion);
-                    cmd.Parameters.AddWithValue("id_consulta", obj.id_consulta);
+                    SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_RESPUESTA", oconexion);
+                    cmd.Parameters.AddWithValue("id_mensaje", obj.id_mensaje);
                     cmd.Parameters.AddWithValue("respuesta", obj.respuesta);
                     cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
@@ -75,13 +73,13 @@ namespace CapaDatos
                     cmd.ExecuteNonQuery();
 
                     resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
-                    Consulta = cmd.Parameters["mensaje"].Value.ToString();
+                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)
             {
                 resultado = false;
-                Consulta = ex.Message;
+                MediosPago = ex.Message;
             }
 
             return resultado;
