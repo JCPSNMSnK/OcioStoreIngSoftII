@@ -14,7 +14,7 @@ using OcioStoreIngSoftII;
 using CapaEntidades;
 using CapaNegocio;
 
-namespace ProyectoTallerG8
+namespace OcioStoreIngSoftII
 {
     public partial class Login : Form
     {
@@ -136,6 +136,11 @@ namespace ProyectoTallerG8
         }
 
         private void panel1_Paint_2(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }
