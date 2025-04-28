@@ -184,15 +184,15 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\proyectoTaller\CapaDatosFinal\CapaDatos.csproj">
+    <ProjectReference Include="..\CapaDatosFinal\CapaDatos.csproj">
       <Project>{1d57cb6e-57f5-48b6-8310-059440516079}</Project>
       <Name>CapaDatos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\proyectoTaller\CapaEntidades\CapaEntidades.csproj">
+    <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj">
       <Project>{176a63cf-bae9-4e91-9fc9-dbe0f3f02373}</Project>
       <Name>CapaEntidades</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\proyectoTaller\CapaNegocio\CapaNegocio.csproj">
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
       <Project>{5edcde2a-2715-473c-8db7-23359f237791}</Project>
       <Name>CapaNegocio</Name>
     </ProjectReference>

@@ -5,11 +5,11 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcioStoreIngSoftII", "OcioStoreIngSoftII\OcioStoreIngSoftII.csproj", "{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaEntidades", "..\proyectoTaller\CapaEntidades\CapaEntidades.csproj", "{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaNegocio", "CapaNegocio\CapaNegocio.csproj", "{5EDCDE2A-2715-473C-8DB7-23359F237791}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaNegocio", "..\proyectoTaller\CapaNegocio\CapaNegocio.csproj", "{5EDCDE2A-2715-473C-8DB7-23359F237791}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaEntidades", "CapaEntidades\CapaEntidades.csproj", "{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "..\proyectoTaller\CapaDatosFinal\CapaDatos.csproj", "{1D57CB6E-57F5-48B6-8310-059440516079}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDatosFinal\CapaDatos.csproj", "{1D57CB6E-57F5-48B6-8310-059440516079}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +21,14 @@ Global
 		{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5EDCDE2A-2715-473C-8DB7-23359F237791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5EDCDE2A-2715-473C-8DB7-23359F237791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EDCDE2A-2715-473C-8DB7-23359F237791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EDCDE2A-2715-473C-8DB7-23359F237791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D57CB6E-57F5-48B6-8310-059440516079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D57CB6E-57F5-48B6-8310-059440516079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D57CB6E-57F5-48B6-8310-059440516079}.Release|Any CPU.ActiveCfg = Release|Any CPU
