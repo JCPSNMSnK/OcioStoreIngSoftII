@@ -32,7 +32,7 @@ namespace CapaDatos
                     {
                         while (dataReader.Read())
                         {
-                            lista.Add(new MetodoPago()
+                            lista.Add(new MediosPago()
                             {
                                 id_medioPago = Convert.ToInt32(dataReader["id_medioPago"]),
                                 nombre_medio = dataReader["nombre_medio"].ToString(),
@@ -48,37 +48,37 @@ namespace CapaDatos
             }
             return lista;
         }
-        public bool Registrar(MediosPago obj, out string MediosPago)//crearMediosPago
-        {
-            bool resultado = false;
-            Mensaje = string.Empty;
+        //public bool Registrar(MediosPago obj, out string MediosPago)//crearMediosPago
+        //{
+        //    bool resultado = false;
+        //    Mensaje = string.Empty;
 
-            try
-            {
-                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-                {
-                    SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_RESPUESTA", oconexion);
-                    cmd.Parameters.AddWithValue("id_mensaje", obj.id_mensaje);
-                    cmd.Parameters.AddWithValue("respuesta", obj.respuesta);
-                    cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+        //    try
+        //    {
+        //        using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+        //        {
+        //            SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_RESPUESTA", oconexion);
+        //            cmd.Parameters.AddWithValue("id_mensaje", obj.id_mensaje);
+        //            cmd.Parameters.AddWithValue("respuesta", obj.respuesta);
+        //            cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+        //            cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-                    cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.CommandType = CommandType.StoredProcedure;
 
-                    oconexion.Open();
-                    cmd.ExecuteNonQuery();
+        //            oconexion.Open();
+        //            cmd.ExecuteNonQuery();
 
-                    resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
-                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                resultado = false;
-                MediosPago = ex.Message;
-            }
+        //            resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
+        //            Mensaje = cmd.Parameters["mensaje"].Value.ToString();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        resultado = false;
+        //        MediosPago = ex.Message;
+        //    }
 
-            return resultado;
-        }
+        //    return resultado;
+        //}
     }
 }

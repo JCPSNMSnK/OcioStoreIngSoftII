@@ -37,8 +37,8 @@ namespace CapaDatos
                                 lista.Add(new Roles()
                                 {
                                     id_rol = Convert.ToInt32(dataReader["id_rol"]),
-                                    descripcion = dataReader["nombre_rol"].ToString(),
-                                    descripcion_completa = dataReader["descripcion"] != DBNull.Value
+                                    nombre_rol = dataReader["nombre_rol"].ToString(),
+                                    descripcion = dataReader["descripcion"] != DBNull.Value
                                                         ? dataReader["descripcion"].ToString()
                                                         : string.Empty
                                 });
