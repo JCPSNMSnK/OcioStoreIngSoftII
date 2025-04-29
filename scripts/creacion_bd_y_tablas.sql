@@ -122,3 +122,13 @@ CREATE TABLE InformeDetalle (
     CONSTRAINT FK_InformeDetalle_Categoria FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria) ON DELETE CASCADE,
     CONSTRAINT UQ_InformeDetalle_Combinacion UNIQUE (id_informe, id_venta, id_user, id_producto, id_categoria)
 );
+
+--Tabla Permisos
+CREATE TABLE Permisos (
+    id_permiso INT IDENTITY(1,1) NOT NULL,
+    id_rol INT NOT NULL,
+    nombre_acceso VARCHAR(150) NOT NULL,
+    fecha_creacion DATETIME DEFAULT GETDATE(),
+    CONSTRAINT PK_Permisos PRIMARY KEY (id_permiso),
+    CONSTRAINT FK_Permisos_Rol FOREIGN KEY (id_rol) REFERENCES Roles(id_rol) ON DELETE CASCADE
+);
