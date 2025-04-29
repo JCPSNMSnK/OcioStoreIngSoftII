@@ -70,3 +70,17 @@ INSERT INTO InformeDetalle (id_informe, id_venta, id_user, id_producto, id_categ
 (1, 1, 1, 1, 1), -- Ajedrez vendido por María
 (1, 2, 2, 2, 1), -- Damas vendido por Juan
 (1, 2, 2, 3, 2); -- Baraja vendida por Juan
+
+--Permisos
+INSERT INTO Permisos (id_rol, nombre_acceso) VALUES
+(1, 'UserButton'),
+(1, 'ProductsButton'),
+(1, 'CategoriesButton'),
+(2, 'ReceiptsButton'),
+(2, 'StatsButton'),
+(2, 'UserButton'),
+(3, 'SellButton'),
+(3, 'StatsButton'),
+(3, 'ReceiptsButton'),
+(4, 'RestoreButton'),
+(4, 'BackupButton');
