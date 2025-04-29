@@ -251,6 +251,7 @@
             this.LogOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LogOutButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.LogOutButton.UseVisualStyleBackColor = false;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
             // UsersButton
             // 

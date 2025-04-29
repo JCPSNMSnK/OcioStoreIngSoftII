@@ -148,5 +148,54 @@ namespace OcioStoreIngSoftII
         {
 
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            TPass.Text = "Contraseña";
+            TPass.ForeColor = Color.Gray;
+            TPass.UseSystemPasswordChar = false;
+
+            TUser.Text = "Usuario";
+            TUser.ForeColor = Color.Gray;
+        }
+
+        // Evento Enter
+        private void TPass_Enter(object sender, EventArgs e)
+        {
+            if (TPass.Text == "Contraseña")
+            {
+                TPass.Text = "";
+                TPass.ForeColor = Color.Black;
+                TPass.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void TPass_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TPass.Text))
+            {
+                TPass.Text = "Contraseña";
+                TPass.ForeColor = Color.Gray;
+                TPass.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void TUser_Enter(object sender, EventArgs e)
+        {
+            if (TUser.Text == "Usuario")
+            {
+                TUser.Text = "";
+                TUser.ForeColor = Color.Black;
+            }
+        }
+
+        private void TUser_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TUser.Text))
+            {
+                TUser.Text = "Usuario";
+                TUser.ForeColor = Color.Gray;
+            }
+        }
     }
 }

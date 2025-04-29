@@ -35,9 +35,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BLogin = new System.Windows.Forms.Button();
             this.TPass = new System.Windows.Forms.TextBox();
-            this.LPass = new System.Windows.Forms.Label();
             this.TUser = new System.Windows.Forms.TextBox();
-            this.LUser = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,9 +50,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.BLogin);
             this.panel1.Controls.Add(this.TPass);
-            this.panel1.Controls.Add(this.LPass);
             this.panel1.Controls.Add(this.TUser);
-            this.panel1.Controls.Add(this.LUser);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -67,10 +63,10 @@
             this.BCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            this.BCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.BCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BCancelar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BCancelar.ForeColor = System.Drawing.Color.White;
             this.BCancelar.Location = new System.Drawing.Point(51, 319);
             this.BCancelar.Name = "BCancelar";
@@ -111,7 +107,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.BLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BLogin.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BLogin.ForeColor = System.Drawing.Color.White;
             this.BLogin.Location = new System.Drawing.Point(51, 281);
             this.BLogin.Name = "BLogin";
@@ -128,28 +124,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.TPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPass.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPass.ForeColor = System.Drawing.Color.Black;
-            this.TPass.Location = new System.Drawing.Point(51, 232);
+            this.TPass.Location = new System.Drawing.Point(51, 215);
             this.TPass.Name = "TPass";
-            this.TPass.Size = new System.Drawing.Size(193, 27);
+            this.TPass.Size = new System.Drawing.Size(193, 29);
             this.TPass.TabIndex = 3;
             this.TPass.UseSystemPasswordChar = true;
-            // 
-            // LPass
-            // 
-            this.LPass.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LPass.AutoSize = true;
-            this.LPass.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPass.Location = new System.Drawing.Point(48, 211);
-            this.LPass.Name = "LPass";
-            this.LPass.Size = new System.Drawing.Size(102, 18);
-            this.LPass.TabIndex = 2;
-            this.LPass.Text = "Contraseña";
-            this.LPass.Click += new System.EventHandler(this.LPass_Click_1);
+            this.TPass.Enter += new System.EventHandler(this.TPass_Enter);
+            this.TPass.Leave += new System.EventHandler(this.TPass_Leave);
             // 
             // TUser
             // 
@@ -158,29 +141,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.TUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TUser.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TUser.ForeColor = System.Drawing.Color.Black;
             this.TUser.Location = new System.Drawing.Point(51, 176);
             this.TUser.Name = "TUser";
-            this.TUser.Size = new System.Drawing.Size(193, 27);
+            this.TUser.Size = new System.Drawing.Size(193, 29);
             this.TUser.TabIndex = 1;
-            // 
-            // LUser
-            // 
-            this.LUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LUser.AutoSize = true;
-            this.LUser.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LUser.Location = new System.Drawing.Point(48, 155);
-            this.LUser.Name = "LUser";
-            this.LUser.Size = new System.Drawing.Size(70, 18);
-            this.LUser.TabIndex = 0;
-            this.LUser.Text = "Usuario";
+            this.TUser.Enter += new System.EventHandler(this.TUser_Enter);
+            this.TUser.Leave += new System.EventHandler(this.TUser_Leave);
             // 
             // Login
             // 
+            this.AcceptButton = this.BLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
@@ -190,6 +162,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -205,9 +178,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BLogin;
         private System.Windows.Forms.TextBox TPass;
-        private System.Windows.Forms.Label LPass;
         private System.Windows.Forms.TextBox TUser;
-        private System.Windows.Forms.Label LUser;
         private System.Windows.Forms.Button BCancelar;
     }
 }
