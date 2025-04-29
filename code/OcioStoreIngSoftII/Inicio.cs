@@ -66,71 +66,48 @@ namespace OcioStoreIngSoftII
 
         private void AbrirFormulario(IconButton boton, Form formulario)
         {
-
             if (BotonActivo != null)
             {
-                BotonActivo.BackColor = ColorTranslator.FromHtml("#1c7fbf");
+                BotonActivo.BackColor = ColorTranslator.FromHtml("#283593");
             }
-            boton.BackColor = ColorTranslator.FromHtml("#2a97df");
-            BotonActivo = boton;
+
+            if (boton != null)
+            {
+                boton.BackColor = ColorTranslator.FromHtml("#3c64ce");
+                BotonActivo = boton;
+            }
+            else
+            {
+                BotonActivo = null;
+            }
 
             if (FormularioActivo != null)
             {
                 FormularioActivo.Close();
+                FormularioActivo = null;
             }
 
-            FormularioActivo = formulario;
-            formulario.TopLevel = false;
-            formulario.FormBorderStyle = FormBorderStyle.None;
-            formulario.Dock = DockStyle.Fill;
-
-            contenedor.Controls.Add(formulario);
-            formulario.Show();
+            if (formulario != null)
+            {
+                FormularioActivo = formulario;
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                contenedor.Controls.Add(formulario);
+                formulario.Show();
+            }
         }
 
-        private void UsersButton_Click(object sender, EventArgs e)
+
+        private void HomeButton_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconButton)sender, new Form1());
+            AbrirFormulario(null, null);
         }
 
-        private void MsgButton_Click(object sender, EventArgs e)
-        {
-            
-        }
 
-        private void StatsButton_Click(object sender, EventArgs e)
+        private void UsersButton_Click_1(object sender, EventArgs e)
         {
-            
-        }
-
-        private void ReceiptsButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void ProductsButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void BackupButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void LogOutButton_Click(object sender, EventArgs e)
-        {
-            this.Close();   
-        }
-
-        private void ConsultasButton_Click_1(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            AbrirFormulario((IconButton)sender, new Users());
         }
     }
 }
