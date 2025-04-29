@@ -21,7 +21,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select c.id_categoria, c.descripcion_categoria from categorias_pc c");
+                    query.AppendLine("SELECT id_categoria, nombre_categoria, baja_categoria FROM Categorias;");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -35,7 +35,8 @@ namespace CapaDatos
                             lista.Add(new Categoria()
                             {
                                 id_categoria = Convert.ToInt32(dataReader["id_categoria"]),
-                                descripcion_categoria = dataReader["descripcion_categoria"].ToString(),
+                                nombre_categoria = dataReader["nombre_categoria"].ToString(),
+                                baja_categoria = Convert.ToBoolean(dataReader["baja_categoria"])
                             });
                         }
                     }

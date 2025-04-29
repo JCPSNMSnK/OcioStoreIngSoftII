@@ -22,14 +22,14 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT pr.id_perfiles, p.nombreAcceso FROM permiso p");
-                    query.AppendLine("INNER JOIN perfiles pr ON pr.id_perfiles = p.id_perfil");
-                    query.AppendLine("INNER JOIN usuarios u ON u.perfil_id = pr.id_perfiles");
-                    query.AppendLine("WHERE u.id = @idusuario");
+                    query.AppendLine("SELECT r.id_rol, p.nombre_acceso FROM permisos p");
+                    query.AppendLine("INNER JOIN roles r ON r.id_rol = p.id_rol");
+                    query.AppendLine("INNER JOIN users u ON u.id_rol = r.id_rol");
+                    query.AppendLine("WHERE u.id_user = @idusuario;");
 
                     using (SqlCommand cmd = new SqlCommand(query.ToString(), oconexion))
                     {
-                        cmd.Parameters.Add("@idusuario", SqlDbType.Int).Value = idusuario; // Ajusta SqlDbType según el tipo de idusuario
+                        cmd.Parameters.Add("@idusuario", SqlDbType.Int).Value = idusuario;
                         cmd.CommandType = CommandType.Text;
 
                         oconexion.Open();
@@ -40,13 +40,12 @@ namespace CapaDatos
                             {
                                 lista.Add(new Permiso()
                                 {
-                                    objPerfil = new Perfil() { id_perfil = Convert.ToInt32(dataReader["id_perfiles"]) },
-                                    nombreAcceso = dataReader["nombreAcceso"].ToString(),
+                                    objRoles = new Roles() { id_rol = Convert.ToInt32(dataReader["id_rol"]) },
+                                    nombreAcceso = dataReader["nombre_acceso"].ToString(),
                                 });
                             }
                         }
                     }
-
                 }
                 catch (Exception ex)
                 {

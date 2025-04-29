@@ -22,9 +22,12 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT p.id, p.nombre, p.descripcion, p.marca, p.modelo, p.precio, p.stock, p.baja, c.id_categoria, c.descripcion_categoria, s.id_subcategoria, s.descripcion_subcategoria FROM productos_pc p");
-                    query.AppendLine("left join categorias_pc c on c.id_categoria = p.id_categoria");
-                    query.AppendLine("left join subcategorias_pc s on s.id_categoria = c.id_categoria and s.id_subcategoria = p.id_subcategoria");
+                    query.AppendLine("SELECT p.id_producto, p.nombre_producto, p.descripcion, p.precioVenta as precio, ");
+                    query.AppendLine("p.stock, p.baja_producto as baja, c.id_categoria, c.nombre_categoria as descripcion_categoria ");
+                    query.AppendLine("FROM Productos p ");
+                    query.AppendLine("LEFT JOIN ProductosCategorias pc ON p.id_producto = pc.id_producto ");
+                    query.AppendLine("LEFT JOIN Categorias c ON pc.id_categoria = c.id_categoria ");
+                    //query.AppendLine("WHERE p.baja_producto = 0"); // Filtro para productos activos
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -35,31 +38,19 @@ namespace CapaDatos
                     {
                         while (dataReader.Read())
                         {
-                            lista.Add(new Producto() 
+                            lista.Add(new Producto()
                             {
-                                id_producto = Convert.ToInt32(dataReader["id"]),
-                                nombre = dataReader["nombre"].ToString(),
-                                descripcion = dataReader["descripcion"].ToString(),
-                                marca = dataReader["marca"].ToString(),
-                                modelo = dataReader["modelo"].ToString(),
-                                precio = Convert.ToDecimal(dataReader["precio"]),
+                                id_producto = Convert.ToInt32(dataReader["id_producto"]),
+                                nombre_producto = dataReader["nombre_producto"].ToString(),
+                                fechaIngreso = Convert.ToDateTime(dataReader["fechaIngreso"]),
+                                precioLista = Convert.ToDecimal(dataReader["precioLista"]),
+                                precioVenta = Convert.ToDecimal(dataReader["precioVenta"]),
+                                baja_producto = Convert.ToBoolean(dataReader["baja_producto"]),
+                                stock_min = Convert.ToInt32(dataReader["stock_min"]),
                                 stock = Convert.ToInt32(dataReader["stock"]),
-                                baja = Convert.ToBoolean(dataReader["baja"]),
-                                objCategoria = new Categoria()
-                                {
-                                    id_categoria = dataReader["id_categoria"] != DBNull.Value ? Convert.ToInt32(dataReader["id_categoria"]) : 0,
-                                    descripcion_categoria = dataReader["descripcion_categoria"] != DBNull.Value ? dataReader["descripcion_categoria"].ToString() : string.Empty
-                                },
-                                objSubCategoria = new SubCategoria()
-                                {
-                                    id_subcategoria = dataReader["id_subcategoria"] != DBNull.Value ? Convert.ToInt32(dataReader["id_subcategoria"]) : 0,
-                                    objCategoria_subCat = new Categoria()
-                                    {
-                                        id_categoria = dataReader["id_categoria"] != DBNull.Value ? Convert.ToInt32(dataReader["id_categoria"]) : 0,
-                                        descripcion_categoria = dataReader["descripcion_categoria"] != DBNull.Value ? dataReader["descripcion_categoria"].ToString() : string.Empty
-                                    },
-                                    descripcion_subcategoria = dataReader["descripcion_subcategoria"] != DBNull.Value ? dataReader["descripcion_subcategoria"].ToString() : string.Empty
-                                },
+                                descripcion = dataReader["descripcion"] != DBNull.Value
+                                             ? dataReader["descripcion"].ToString()
+                                             : string.Empty,
                             });
                         }
                     }

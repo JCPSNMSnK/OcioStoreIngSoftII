@@ -21,7 +21,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT id,nombre,correo,mensaje,leido,created_at,updated_at,respuesta FROM mediosPago");
+                    query.AppendLine("SELECT id_medioPago, nombre_medio, comision FROM MetodosPago;");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -32,15 +32,11 @@ namespace CapaDatos
                     {
                         while (dataReader.Read())
                         {
-                            lista.Add(new MediosPago()
+                            lista.Add(new MetodoPago()
                             {
-                                id_mensaje = Convert.ToInt32(dataReader["id"]),
-                                nombreCliente = dataReader["nombre"].ToString(),
-                                emailCliente = dataReader["correo"].ToString(),
-                                mensaje = dataReader["mensaje"].ToString(),
-                                created_at = dataReader["created_at"].ToString(),
-                                updated_at = dataReader["updated_at"].ToString(),
-                                respuesta = dataReader["respuesta"].ToString(),
+                                id_medioPago = Convert.ToInt32(dataReader["id_medioPago"]),
+                                nombre_medio = dataReader["nombre_medio"].ToString(),
+                                comision = Convert.ToDecimal(dataReader["comision"])
                             });
                         }
                     }

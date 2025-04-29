@@ -10,39 +10,45 @@ using CapaEntidades;
 
 namespace CapaDatos
 {
-    public class Perfiles_Datos
+    public class Roles_Datos
     {
-        public List<Perfil> Listar()
+        public List<Roles> Listar()
         {
-            List<Perfil> lista = new List<Perfil>();
+            List<Roles> lista = new List<Roles>();
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select id_perfiles, descripcion from perfiles");
+                    query.AppendLine("SELECT id_rol, nombre_rol, descripcion FROM Roles");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
-                    oconexion.Open();
-
-                    using (SqlDataReader dataReader = cmd.ExecuteReader())
+                    using (oconexion)
                     {
-                        while (dataReader.Read())
+                        oconexion.Open();
+
+                        using (SqlDataReader dataReader = cmd.ExecuteReader())
                         {
-                            lista.Add(new Perfil()
+                            while (dataReader.Read())
                             {
-                                id_perfil = Convert.ToInt32(dataReader["id_perfiles"]),
-                                descripcion = dataReader["descripcion"].ToString(),
-                            });
+                                lista.Add(new Roles()
+                                {
+                                    id_rol = Convert.ToInt32(dataReader["id_rol"]),
+                                    descripcion = dataReader["nombre_rol"].ToString(),
+                                    descripcion_completa = dataReader["descripcion"] != DBNull.Value
+                                                        ? dataReader["descripcion"].ToString()
+                                                        : string.Empty
+                                });
+                            }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<Perfil>();
+                    lista = new List<Roles>();
                 }
             }
             return lista;

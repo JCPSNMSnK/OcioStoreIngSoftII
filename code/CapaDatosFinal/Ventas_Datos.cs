@@ -21,7 +21,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT id_venta,total,id_medio,id_user,fechaVenta FROM ventas v");
+                    query.AppendLine("SELECT id_venta,total,id_medio,id_user,fecha_venta FROM ventas v");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -38,28 +38,28 @@ namespace CapaDatos
                                 total = Convert.ToSingle(dataReader["total"]),
                                 objMediosPago = new MediosPago()
                                 {
-                                    id_medioPago = Convert.ToInt32(dataReader["id_mediodePago"]),
-                                    nombre_medio = dataReader["nombre_mediodePago"].ToString()
+                                    id_medioPago = Convert.ToInt32(dataReader["id_medioPago"]),
+                                    nombre_medio = dataReader["nombre_medio"].ToString()
                                     comision = Convert.ToSingle(dataReader["comision"]),
                                 }
 
                                 objUsuario = new Usuario()
                                 {
                                     id_usuario = Convert.ToInt32(dataReader["id_user"]),
-                                    nombre = dataReader["nombre"].ToString(),
                                     apellido = dataReader["apellido"].ToString(),
+                                    nombre = dataReader["nombre"].ToString(),
                                     dni = Convert.ToInt32(dataReader["dni"]),
+                                    mail = dataReader["mail"].ToString(),
+                                    username = dataReader["username"].ToString(),
+                                    pass = dataReader["pass"].ToString(),
+                                    baja_user = Convert.ToBoolean(dataReader["baja_user"]);
                                     objRoles = new Roles(){
                                         id_rol = Convert.ToInt32(dataReader["id_rol"]),
                                         nombre_rol = dataReader["nombre_rol"].ToString(),
                                     }
-                                    baja_user = Convert.ToBoolean(dataReader["baja_user"]);
-                                    username = dataReader["username"].ToString(),
-                                    pass = dataReader["pass"].ToString(),
-                                    email = dataReader["email"].ToString(),
                                 }
                                 
-                                fecha_venta = Convert.ToDateTime(dataReader["fechaVenta"]),
+                                fecha_venta = Convert.ToDateTime(dataReader["fecha_venta"]),
                             });
                         }
                     }

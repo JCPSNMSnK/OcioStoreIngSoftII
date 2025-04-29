@@ -53,14 +53,16 @@ CREATE TABLE Categorias (
 CREATE TABLE Productos (
     id_producto INT IDENTITY(1,1),
     nombre_producto VARCHAR(100) NOT NULL,
-    fecha_ingreso DATE NOT NULL,
-    precio_culata DECIMAL(10,2) NOT NULL,
-    precio_venta DECIMAL(10,2) NOT NULL,
+    fechaIngreso DATE NOT NULL DEFAULT GETDATE(),
+    precioLista DECIMAL(10,2) NOT NULL,
+    precioVenta DECIMAL(10,2) NOT NULL,
     baja_producto BIT DEFAULT 0,  -- Lo mismo aquí, 0 para falso
     stock INT NOT NULL,
     stock_min INT NOT NULL,
     descripcion TEXT,
-    CONSTRAINT PK_Productos PRIMARY KEY (id_producto)
+    CONSTRAINT PK_Productos PRIMARY KEY (id_producto),
+	CONSTRAINT CHK_Productos_stock CHECK (stock >= 0),
+    CONSTRAINT CHK_Productos_precio CHECK (precioVenta > precioLista)
 );
 
 -- Tabla ProductosCategorias (tabla puente muchos a muchos)
@@ -75,6 +77,7 @@ CREATE TABLE ProductosCategorias (
 -- Tabla Ventas
 CREATE TABLE Ventas (
     id_venta INT IDENTITY(1,1),
+	total DECIMAL(12,2) NOT NULL,
     id_medio INT NOT NULL,
     id_user INT NOT NULL,
     fecha_venta DATETIME NOT NULL,
@@ -91,7 +94,8 @@ CREATE TABLE DetalleVentas (
     subtotal DECIMAL(10,2) NOT NULL,
     CONSTRAINT PK_DetalleVentas PRIMARY KEY (id_venta, id_producto),
     CONSTRAINT FK_DetalleVentas_Venta FOREIGN KEY (id_venta) REFERENCES Ventas(id_venta) ON DELETE CASCADE,
-    CONSTRAINT FK_DetalleVentas_Producto FOREIGN KEY (id_producto) REFERENCES Productos(id_producto) ON DELETE CASCADE
+    CONSTRAINT FK_DetalleVentas_Producto FOREIGN KEY (id_producto) REFERENCES Productos(id_producto) ON DELETE CASCADE,
+	CONSTRAINT CHK_DetalleVentas_cantidad CHECK (cantidad > 0)
 );
 
 -- Tabla Informe
@@ -99,7 +103,7 @@ CREATE TABLE Informe (
     id_informe INT IDENTITY(1,1),
     titulo VARCHAR(100) NOT NULL,
     descripcion TEXT,
-    fecha_generacion DATETIME NOT NULL,
+    fechaGeneracion DATETIME NOT NULL DEFAULT GETDATE(),
     tipo_informe VARCHAR(50) NOT NULL,
     id_user INT NOT NULL,
     CONSTRAINT PK_Informe PRIMARY KEY (id_informe),
