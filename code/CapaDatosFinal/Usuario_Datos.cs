@@ -23,8 +23,9 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select u.id,u.nombre,u.apellido,u.zipcode,u.domicilio,u.email,u.usuario,u.pass,p.id_perfiles,p.descripcion,u.baja from usuarios u");
-                    query.AppendLine("inner join perfiles p on p.id_perfiles = u.perfil_id;");
+                    query.AppendLine("SELECT u.id_user, u.apellido, u.nombre, u.dni, u.mail, u.username, u.pass, u.id_rol, u.baja_user");
+                    query.AppendLine("FROM Users u");
+                    query.AppendLine("INNER JOIN Roles r ON r.id_rol = u.id_rol;");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -37,19 +38,24 @@ namespace CapaDatos
                         {
                             lista.Add(new Usuario()
                             {
-                                id_usuario = Convert.ToInt32(dataReader["id"]),
+                                id_usuario = Convert.ToInt32(dataReader["id_user"]),
                                 nombre = dataReader["nombre"].ToString(),
                                 apellido = dataReader["apellido"].ToString(),
-                                CP = Convert.ToInt32(dataReader["zipcode"]),
-                                domicilio = dataReader["domicilio"].ToString(),
-                                email = dataReader["email"].ToString(),
-                                user = dataReader["usuario"].ToString(),
+                                dni = dataReader["dni"].ToString(),
+                                mail = dataReader["mail"].ToString(),
+                                username = dataReader["username"].ToString(),
                                 pass = dataReader["pass"].ToString(),
-                                objPerfil = new Perfil() { id_perfil = Convert.ToInt32(dataReader["id_perfiles"]), descripcion = dataReader["descripcion"].ToString() },
-                                baja = Convert.ToBoolean(dataReader["baja"]),
+                                baja = Convert.ToBoolean(dataReader["baja_user"]),
+                                objRol = new Roles()
+                                {
+                                    id_rol = Convert.ToInt32(dataReader["id_rol"]),
+                                    nombre_rol = dataReader["nombre_rol"].ToString(),
+                                    descripcion = dataReader["descripcion"].ToString()
+                                }
                             });
                         }
                     }
+
                 }
                 catch (Exception ex)
                 {
