@@ -21,7 +21,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT id_venta,total,id_medio,id_user,fechaVenta FROM ventas v");
+                    query.AppendLine("SELECT id_venta,total,id_medio,id_user,fecha_venta FROM ventas v");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -38,28 +38,28 @@ namespace CapaDatos
                                 total = Convert.ToSingle(dataReader["total"]),
                                 objMediosPago = new MediosPago()
                                 {
-                                    id_medioPago = Convert.ToInt32(dataReader["id_mediodePago"]),
-                                    nombre_medio = dataReader["nombre_mediodePago"].ToString()
-                                    comision = Convert.ToSingle(dataReader["comision"]),
-                                }
+                                    id_medioPago = Convert.ToInt32(dataReader["id_medioPago"]),
+                                    nombre_medio = dataReader["nombre_medio"].ToString(),
+                                    comision = Convert.ToDecimal(dataReader["comision"]),
+                                },
 
                                 objUsuario = new Usuario()
                                 {
-                                    id_usuario = Convert.ToInt32(dataReader["id_user"]),
-                                    nombre = dataReader["nombre"].ToString(),
+                                    id_user = Convert.ToInt32(dataReader["id_user"]),
                                     apellido = dataReader["apellido"].ToString(),
+                                    nombre = dataReader["nombre"].ToString(),
                                     dni = Convert.ToInt32(dataReader["dni"]),
+                                    mail = dataReader["mail"].ToString(),
+                                    username = dataReader["username"].ToString(),
+                                    pass = dataReader["pass"].ToString(),
+                                    baja_user = Convert.ToBoolean(dataReader["baja_user"]),
                                     objRoles = new Roles(){
                                         id_rol = Convert.ToInt32(dataReader["id_rol"]),
                                         nombre_rol = dataReader["nombre_rol"].ToString(),
                                     }
-                                    baja_user = Convert.ToBoolean(dataReader["baja_user"]);
-                                    username = dataReader["username"].ToString(),
-                                    pass = dataReader["pass"].ToString(),
-                                    email = dataReader["email"].ToString(),
-                                }
+                                },
                                 
-                                fecha_venta = Convert.ToDateTime(dataReader["fechaVenta"]),
+                                fecha_venta = Convert.ToDateTime(dataReader["fecha_venta"]),
                             });
                         }
                     }
@@ -71,37 +71,37 @@ namespace CapaDatos
             }
             return lista;
         }
-        public bool Registrar(Ventas obj, out string Ventas)//crearVenta hay que cambiar el procedimiento almac
-        {
-            bool resultado = false;
-            Ventas = string.Empty;
+        //public bool Registrar(Ventas obj, out string Ventas)//crearVenta hay que cambiar el procedimiento almac
+        //{
+        //    bool resultado = false;
+        //    Ventas = string.Empty;
 
-            try
-            {
-                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-                {
-                    SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_RESPUESTA_CONSULTA", oconexion);
-                    cmd.Parameters.AddWithValue("id_consulta", obj.id_consulta);
-                    cmd.Parameters.AddWithValue("respuesta", obj.respuesta);
-                    cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+        //    try
+        //    {
+        //        using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+        //        {
+        //            SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_RESPUESTA_CONSULTA", oconexion);
+        //            cmd.Parameters.AddWithValue("id_consulta", obj.id_consulta);
+        //            cmd.Parameters.AddWithValue("respuesta", obj.respuesta);
+        //            cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+        //            cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-                    cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.CommandType = CommandType.StoredProcedure;
 
-                    oconexion.Open();
-                    cmd.ExecuteNonQuery();
+        //            oconexion.Open();
+        //            cmd.ExecuteNonQuery();
 
-                    resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
-                    Ventas = cmd.Parameters["mensaje"].Value.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                resultado = false;
-                Ventas = ex.Message;
-            }
+        //            resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
+        //            Ventas = cmd.Parameters["mensaje"].Value.ToString();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        resultado = false;
+        //        Ventas = ex.Message;
+        //    }
 
-            return resultado;
-        }
+        //    return resultado;
+        //}
     }
 }

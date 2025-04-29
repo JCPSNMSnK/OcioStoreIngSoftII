@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class Perfil_negocio
+    public class Roles_negocio
     {
-        private Perfiles_Datos objPerfil_datos = new Perfiles_Datos();
+        private Roles_Datos objRoles_datos = new Roles_Datos();
 
-        public List<Perfil> Listar()
+        public List<Roles> Listar()
         {
-            return objPerfil_datos.Listar();
+            return objRoles_datos.Listar();
         }
     }
 }

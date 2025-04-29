@@ -21,7 +21,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT id,nombre,correo,mensaje,leido,created_at,updated_at,respuesta FROM mediosPago");
+                    query.AppendLine("SELECT id_medioPago, nombre_medio, comision FROM MetodosPago;");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -34,13 +34,9 @@ namespace CapaDatos
                         {
                             lista.Add(new MediosPago()
                             {
-                                id_mensaje = Convert.ToInt32(dataReader["id"]),
-                                nombreCliente = dataReader["nombre"].ToString(),
-                                emailCliente = dataReader["correo"].ToString(),
-                                mensaje = dataReader["mensaje"].ToString(),
-                                created_at = dataReader["created_at"].ToString(),
-                                updated_at = dataReader["updated_at"].ToString(),
-                                respuesta = dataReader["respuesta"].ToString(),
+                                id_medioPago = Convert.ToInt32(dataReader["id_medioPago"]),
+                                nombre_medio = dataReader["nombre_medio"].ToString(),
+                                comision = Convert.ToDecimal(dataReader["comision"])
                             });
                         }
                     }
@@ -52,37 +48,37 @@ namespace CapaDatos
             }
             return lista;
         }
-        public bool Registrar(MediosPago obj, out string MediosPago)//crearMediosPago
-        {
-            bool resultado = false;
-            Mensaje = string.Empty;
+        //public bool Registrar(MediosPago obj, out string MediosPago)//crearMediosPago
+        //{
+        //    bool resultado = false;
+        //    Mensaje = string.Empty;
 
-            try
-            {
-                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-                {
-                    SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_RESPUESTA", oconexion);
-                    cmd.Parameters.AddWithValue("id_mensaje", obj.id_mensaje);
-                    cmd.Parameters.AddWithValue("respuesta", obj.respuesta);
-                    cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+        //    try
+        //    {
+        //        using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+        //        {
+        //            SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_RESPUESTA", oconexion);
+        //            cmd.Parameters.AddWithValue("id_mensaje", obj.id_mensaje);
+        //            cmd.Parameters.AddWithValue("respuesta", obj.respuesta);
+        //            cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+        //            cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-                    cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.CommandType = CommandType.StoredProcedure;
 
-                    oconexion.Open();
-                    cmd.ExecuteNonQuery();
+        //            oconexion.Open();
+        //            cmd.ExecuteNonQuery();
 
-                    resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
-                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                resultado = false;
-                MediosPago = ex.Message;
-            }
+        //            resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
+        //            Mensaje = cmd.Parameters["mensaje"].Value.ToString();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        resultado = false;
+        //        MediosPago = ex.Message;
+        //    }
 
-            return resultado;
-        }
+        //    return resultado;
+        //}
     }
 }
