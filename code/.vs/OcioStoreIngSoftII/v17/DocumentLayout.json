@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|c:\\users\\gpiaz\\source\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\dataset1.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\dataset1.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -15,24 +35,16 @@
       "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\capaentidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\capanegocio\\usuario_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\usuario_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\capanegocio\\usuario_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\usuario_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\capaentidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 26,
+          "SelectedChildIndex": 21,
           "Children": [
             {
               "$type": "Bookmark",
@@ -130,19 +142,57 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Form1.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Form1.cs",
+              "ToolTip": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Form1.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Form1.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T09:06:27.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DataSet1.xsd",
+              "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\DataSet1.xsd",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\DataSet1.xsd",
+              "ToolTip": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\DataSet1.xsd",
+              "RelativeToolTip": "OcioStoreIngSoftII\\DataSet1.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2025-04-29T08:58:44.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Form1.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Form1.cs",
+              "ToolTip": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T08:49:48.741Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\App.config",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\App.config",
               "ToolTip": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\App.config",
               "RelativeToolTip": "OcioStoreIngSoftII\\App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAACfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-04-29T06:03:40.514Z"
+              "WhenOpened": "2025-04-29T06:03:40.514Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\CapaEntidades\\Usuario.cs",
               "RelativeDocumentMoniker": "CapaEntidades\\Usuario.cs",
@@ -154,19 +204,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Program.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Program.cs",
               "ToolTip": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Program.cs",
               "RelativeToolTip": "OcioStoreIngSoftII\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T05:54:14.011Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Usuario_negocio.cs",
               "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\CapaNegocio\\Usuario_negocio.cs",
               "RelativeDocumentMoniker": "CapaNegocio\\Usuario_negocio.cs",
@@ -178,43 +228,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Inicio.cs",
               "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Inicio.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Inicio.cs",
               "ToolTip": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Inicio.cs",
               "RelativeToolTip": "OcioStoreIngSoftII\\Inicio.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowFwAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T05:10:46.71Z"
+              "WhenOpened": "2025-04-29T05:10:46.71Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Login.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Login.cs",
               "ToolTip": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Login.cs",
               "RelativeToolTip": "OcioStoreIngSoftII\\Login.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAADIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAswGUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T05:10:39.193Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Inicio.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Inicio.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Inicio.cs",
               "ToolTip": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Inicio.cs [Dise\u00F1o]",
               "RelativeToolTip": "OcioStoreIngSoftII\\Inicio.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T02:04:16.461Z"
+              "WhenOpened": "2025-04-29T02:04:16.461Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Login.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Login.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Login.cs",

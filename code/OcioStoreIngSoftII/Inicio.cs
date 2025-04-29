@@ -90,7 +90,7 @@ namespace OcioStoreIngSoftII
 
         private void UsersButton_Click(object sender, EventArgs e)
         {
-            
+            AbrirFormulario((IconButton)sender, new Form1());
         }
 
         private void MsgButton_Click(object sender, EventArgs e)
