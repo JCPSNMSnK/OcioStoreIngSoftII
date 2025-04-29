@@ -51,24 +51,8 @@ namespace OcioStoreIngSoftII
         {
             List<Usuario> TEST = new Usuario_negocio().Listar();
 
-            Usuario ousuario = new Usuario_negocio().Listar().Where(u => u.user == TUser.Text && u.pass == TPass.Text).FirstOrDefault();
-            //Inicio form_inicio = new Inicio(ousuario);
 
 
-            if (ousuario != null)
-            {
-                Inicio form_inicio = new Inicio();
-
-                // Caso de éxito: Mostrar la nueva ventana y ocultar la actual
-                form_inicio.Show();
-                this.Hide();
-
-                form_inicio.FormClosing += form_closing;
-            }
-            else
-            {
-                MessageBox.Show("No se encontro el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
             string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["cadena_conexion"].ConnectionString;
             string usuario = TUser.Text;
@@ -85,15 +69,21 @@ namespace OcioStoreIngSoftII
                 {
                     if (reader.Read()) // Si el usuario existe
                     {
-                        string storedPassword = reader["pass"].ToString();
+                        string storedHash = reader["pass"].ToString();
                         int perfilId = Convert.ToInt32(reader["id_rol"]);
-                        Usuario ousuario = new Usuario_negocio().Listar()
-                            .Where(u => u.user == TUser.Text && u.pass == storedPassword)
-                            .FirstOrDefault();
+                        Usuario ousuario = new Usuario_negocio().Listar().Where(u => u.username == TUser.Text && u.pass == storedHash).FirstOrDefault();
                         Inicio form_inicio = new Inicio(ousuario);
 
-                        // Solo comparamos directamente las contraseñas
-                        bool isAuthenticated = pass == storedPassword;
+                        // Verificamos si la contraseña está hasheada o en texto claro
+                        bool isAuthenticated = false;
+                        if (storedHash.Length == 60) // Longitud típica de un hash BCrypt
+                        {
+                            isAuthenticated = BCrypt.Net.BCrypt.Verify(pass, storedHash);
+                        }
+                        else
+                        {
+                            isAuthenticated = pass == storedHash; // Compara directamente si no está hasheada
+                        }
 
                         // Verificamos si la autenticación fue exitosa y que el perfil_id sea distinto de 0
                         if (isAuthenticated && perfilId != 0)
@@ -118,7 +108,6 @@ namespace OcioStoreIngSoftII
                     {
                         MessageBox.Show("Usuario o Contraseña no válidos");
                     }
-
                 }
             }
         }

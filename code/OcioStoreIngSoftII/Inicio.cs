@@ -22,9 +22,9 @@ namespace OcioStoreIngSoftII
         private static Form FormularioActivo = null;
 
 
-        public Inicio() //Usuario objUser
+        public Inicio(Usuario objUser) //Usuario objUser
         {
-            //usuarioActual = objUser;
+            usuarioActual = objUser;
             InitializeComponent();
         }
         private void Inicio_Load(object sender, EventArgs e)
