@@ -42,12 +42,8 @@
             this.ProductsButton = new FontAwesome.Sharp.IconButton();
             this.HomeButton = new FontAwesome.Sharp.IconButton();
             this.contenedor = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.menu.SuspendLayout();
-            this.contenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -355,44 +351,17 @@
             this.HomeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.HomeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.HomeButton.UseVisualStyleBackColor = false;
-            this.HomeButton.Click += new System.EventHandler(this.UsersButton_Click);
+            this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
             // contenedor
             // 
-            this.contenedor.BackgroundImage = global::OcioStoreIngSoftII.Properties.Resources.BibliotecaJuegos_1;
+            this.contenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("contenedor.BackgroundImage")));
             this.contenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.contenedor.Controls.Add(this.label1);
-            this.contenedor.Controls.Add(this.pictureBox1);
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(174, 3);
             this.contenedor.Name = "contenedor";
             this.contenedor.Size = new System.Drawing.Size(887, 555);
             this.contenedor.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(223, 180);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(568, 195);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Bienvenido al Sistema de \nAdministración de \nOcio Store";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(95, 212);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(122, 122);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
             // 
             // Inicio
             // 
@@ -408,9 +377,6 @@
             this.tableLayoutPanel2.PerformLayout();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
-            this.contenedor.ResumeLayout(false);
-            this.contenedor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,8 +390,6 @@
         private FontAwesome.Sharp.IconButton UsersButton;
         private FontAwesome.Sharp.IconButton SellButton;
         private FontAwesome.Sharp.IconButton ProductsButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton CategoriesButton;
         private FontAwesome.Sharp.IconButton ReceiptsButton;
         private FontAwesome.Sharp.IconButton StatsButton;
