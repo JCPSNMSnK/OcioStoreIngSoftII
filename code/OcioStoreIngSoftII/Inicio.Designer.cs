@@ -52,8 +52,8 @@
             this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.07143F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.92857F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.menu, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.contenedor, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -61,9 +61,8 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 561F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1064, 561);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1263, 688);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // menu
@@ -99,7 +98,7 @@
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0001F));
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0001F));
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.9991F));
-            this.menu.Size = new System.Drawing.Size(165, 555);
+            this.menu.Size = new System.Drawing.Size(166, 682);
             this.menu.TabIndex = 5;
             // 
             // CategoriesButton
@@ -117,10 +116,10 @@
             this.CategoriesButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CategoriesButton.IconSize = 25;
             this.CategoriesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CategoriesButton.Location = new System.Drawing.Point(3, 223);
+            this.CategoriesButton.Location = new System.Drawing.Point(3, 275);
             this.CategoriesButton.MinimumSize = new System.Drawing.Size(75, 37);
             this.CategoriesButton.Name = "CategoriesButton";
-            this.CategoriesButton.Size = new System.Drawing.Size(159, 49);
+            this.CategoriesButton.Size = new System.Drawing.Size(160, 62);
             this.CategoriesButton.TabIndex = 40;
             this.CategoriesButton.Text = "Categorias";
             this.CategoriesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -142,10 +141,10 @@
             this.ReceiptsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ReceiptsButton.IconSize = 25;
             this.ReceiptsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReceiptsButton.Location = new System.Drawing.Point(3, 278);
+            this.ReceiptsButton.Location = new System.Drawing.Point(3, 343);
             this.ReceiptsButton.MinimumSize = new System.Drawing.Size(75, 37);
             this.ReceiptsButton.Name = "ReceiptsButton";
-            this.ReceiptsButton.Size = new System.Drawing.Size(159, 49);
+            this.ReceiptsButton.Size = new System.Drawing.Size(160, 62);
             this.ReceiptsButton.TabIndex = 39;
             this.ReceiptsButton.Text = "Recibos";
             this.ReceiptsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -167,10 +166,10 @@
             this.StatsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.StatsButton.IconSize = 25;
             this.StatsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.StatsButton.Location = new System.Drawing.Point(3, 333);
+            this.StatsButton.Location = new System.Drawing.Point(3, 411);
             this.StatsButton.MinimumSize = new System.Drawing.Size(75, 37);
             this.StatsButton.Name = "StatsButton";
-            this.StatsButton.Size = new System.Drawing.Size(159, 49);
+            this.StatsButton.Size = new System.Drawing.Size(160, 62);
             this.StatsButton.TabIndex = 38;
             this.StatsButton.Text = "Estadísticas";
             this.StatsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -192,10 +191,10 @@
             this.RestoreButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RestoreButton.IconSize = 25;
             this.RestoreButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RestoreButton.Location = new System.Drawing.Point(3, 388);
+            this.RestoreButton.Location = new System.Drawing.Point(3, 479);
             this.RestoreButton.MinimumSize = new System.Drawing.Size(75, 37);
             this.RestoreButton.Name = "RestoreButton";
-            this.RestoreButton.Size = new System.Drawing.Size(159, 49);
+            this.RestoreButton.Size = new System.Drawing.Size(160, 62);
             this.RestoreButton.TabIndex = 37;
             this.RestoreButton.Text = "Restaurar BD";
             this.RestoreButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -217,10 +216,10 @@
             this.BackupButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BackupButton.IconSize = 25;
             this.BackupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BackupButton.Location = new System.Drawing.Point(3, 443);
+            this.BackupButton.Location = new System.Drawing.Point(3, 547);
             this.BackupButton.MinimumSize = new System.Drawing.Size(75, 37);
             this.BackupButton.Name = "BackupButton";
-            this.BackupButton.Size = new System.Drawing.Size(159, 49);
+            this.BackupButton.Size = new System.Drawing.Size(160, 62);
             this.BackupButton.TabIndex = 36;
             this.BackupButton.Text = "Backup BD";
             this.BackupButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -242,10 +241,10 @@
             this.LogOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.LogOutButton.IconSize = 25;
             this.LogOutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LogOutButton.Location = new System.Drawing.Point(3, 498);
+            this.LogOutButton.Location = new System.Drawing.Point(3, 615);
             this.LogOutButton.MinimumSize = new System.Drawing.Size(75, 37);
             this.LogOutButton.Name = "LogOutButton";
-            this.LogOutButton.Size = new System.Drawing.Size(159, 54);
+            this.LogOutButton.Size = new System.Drawing.Size(160, 64);
             this.LogOutButton.TabIndex = 35;
             this.LogOutButton.Text = "Cerrar Sesión";
             this.LogOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -268,10 +267,10 @@
             this.UsersButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.UsersButton.IconSize = 25;
             this.UsersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UsersButton.Location = new System.Drawing.Point(3, 58);
+            this.UsersButton.Location = new System.Drawing.Point(3, 71);
             this.UsersButton.MinimumSize = new System.Drawing.Size(75, 37);
             this.UsersButton.Name = "UsersButton";
-            this.UsersButton.Size = new System.Drawing.Size(159, 49);
+            this.UsersButton.Size = new System.Drawing.Size(160, 62);
             this.UsersButton.TabIndex = 28;
             this.UsersButton.Text = "Usuarios";
             this.UsersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -294,10 +293,10 @@
             this.SellButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SellButton.IconSize = 25;
             this.SellButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SellButton.Location = new System.Drawing.Point(3, 113);
+            this.SellButton.Location = new System.Drawing.Point(3, 139);
             this.SellButton.MinimumSize = new System.Drawing.Size(75, 37);
             this.SellButton.Name = "SellButton";
-            this.SellButton.Size = new System.Drawing.Size(159, 49);
+            this.SellButton.Size = new System.Drawing.Size(160, 62);
             this.SellButton.TabIndex = 27;
             this.SellButton.Text = "Vender";
             this.SellButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -318,10 +317,10 @@
             this.ProductsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ProductsButton.IconSize = 25;
             this.ProductsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ProductsButton.Location = new System.Drawing.Point(3, 168);
+            this.ProductsButton.Location = new System.Drawing.Point(3, 207);
             this.ProductsButton.MinimumSize = new System.Drawing.Size(75, 37);
             this.ProductsButton.Name = "ProductsButton";
-            this.ProductsButton.Size = new System.Drawing.Size(159, 49);
+            this.ProductsButton.Size = new System.Drawing.Size(160, 62);
             this.ProductsButton.TabIndex = 26;
             this.ProductsButton.Text = "Productos";
             this.ProductsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -346,7 +345,7 @@
             this.HomeButton.Location = new System.Drawing.Point(3, 3);
             this.HomeButton.MinimumSize = new System.Drawing.Size(75, 37);
             this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(159, 49);
+            this.HomeButton.Size = new System.Drawing.Size(160, 62);
             this.HomeButton.TabIndex = 5;
             this.HomeButton.Text = "Inicio";
             this.HomeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -359,16 +358,16 @@
             this.contenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("contenedor.BackgroundImage")));
             this.contenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contenedor.Location = new System.Drawing.Point(174, 3);
+            this.contenedor.Location = new System.Drawing.Point(175, 3);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(887, 555);
+            this.contenedor.Size = new System.Drawing.Size(1085, 682);
             this.contenedor.TabIndex = 6;
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 561);
+            this.ClientSize = new System.Drawing.Size(1263, 688);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "Inicio";
             this.Text = "Inicio";
@@ -385,7 +384,6 @@
 
         #endregion
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Panel contenedor;
         private System.Windows.Forms.TableLayoutPanel menu;
         private FontAwesome.Sharp.IconButton HomeButton;
         private FontAwesome.Sharp.IconButton UsersButton;
@@ -397,5 +395,6 @@
         private FontAwesome.Sharp.IconButton RestoreButton;
         private FontAwesome.Sharp.IconButton BackupButton;
         private FontAwesome.Sharp.IconButton LogOutButton;
+        private System.Windows.Forms.Panel contenedor;
     }
 }

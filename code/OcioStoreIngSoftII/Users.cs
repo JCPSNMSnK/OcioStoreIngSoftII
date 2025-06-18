@@ -79,10 +79,55 @@ namespace OcioStoreIngSoftII
 
         private void Users_Load(object sender, EventArgs e)
         {
+
+
+            CentrarTodosLosPaneles();
+
             this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
-            this.dataSet1.PROC_BUSCAR_USUARIO,
-            null, null, null, null, null, null, null, null, null
-    );
+                this.dataSet1.PROC_BUSCAR_USUARIO,
+                null, null, null, null, null, null, null, null, null
+            );
         }
+        private void PanelAltaUser_Resize(object sender, EventArgs e)
+        {
+            CentrarTodosLosPaneles();
+        }
+        private void PanelModificarUser_Resize(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CentrarPanel(Panel panel)
+        {
+            panel.Left = (PanelAltaUser.Width - panel.Width) / 2;
+            panel.Top = (PanelAltaUser.Height - panel.Height) / 2;
+        }
+
+        private void CentrarTodosLosPaneles()
+        {
+            CentrarPanel(panelInternoAlta);
+            CentrarPanel(panelInternoModif);
+        }
+
+        private void panelInternoModif_Resize(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelInterno_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PanelAltaUser_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PanelModificarUser_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 }
