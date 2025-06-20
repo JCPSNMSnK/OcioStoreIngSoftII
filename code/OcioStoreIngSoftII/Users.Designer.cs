@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.TCUsuarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -58,17 +58,16 @@
             this.TID_user = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.PanelModificarUser = new System.Windows.Forms.Panel();
+            this.panelInternoModif = new System.Windows.Forms.Panel();
             this.TModificarConfirmPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TModificarPass = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.BEliminar = new System.Windows.Forms.Button();
-            this.TBModificarIndice = new System.Windows.Forms.TextBox();
-            this.TModificarID_user = new System.Windows.Forms.TextBox();
-            this.CBModificarPerfil = new System.Windows.Forms.ComboBox();
+            this.CBModificarRol = new System.Windows.Forms.ComboBox();
             this.LModificarEstado = new System.Windows.Forms.Label();
             this.CBModificarEstado = new System.Windows.Forms.ComboBox();
-            this.LModificarPerfil = new System.Windows.Forms.Label();
+            this.LModificarRol = new System.Windows.Forms.Label();
             this.TModificarEmail = new System.Windows.Forms.TextBox();
             this.LModificarEmail = new System.Windows.Forms.Label();
             this.TModificarAp = new System.Windows.Forms.TextBox();
@@ -78,6 +77,8 @@
             this.TModificarUser = new System.Windows.Forms.TextBox();
             this.LModificarUsuario = new System.Windows.Forms.Label();
             this.BModificar = new System.Windows.Forms.Button();
+            this.TBModificarIndice = new System.Windows.Forms.TextBox();
+            this.TModificarID_user = new System.Windows.Forms.TextBox();
             this.pROC_BUSCAR_USUARIODataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,7 +95,6 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.pROC_BUSCAR_USUARIOTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.PROC_BUSCAR_USUARIOTableAdapter();
             this.tableAdapterManager = new OcioStoreIngSoftII.DataSet1TableAdapters.TableAdapterManager();
-            this.panelInternoModif = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.TCUsuarios.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -102,11 +102,11 @@
             this.panelInternoAlta.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.PanelModificarUser.SuspendLayout();
+            this.panelInternoModif.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pROC_BUSCAR_USUARIODataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pROC_BUSCAR_USUARIOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panelInternoModif.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -123,7 +123,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(990, 734);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(990, 626);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // TCUsuarios
@@ -189,7 +189,7 @@
             this.panelInternoAlta.Controls.Add(this.LUser);
             this.panelInternoAlta.Location = new System.Drawing.Point(201, 49);
             this.panelInternoAlta.Name = "panelInternoAlta";
-            this.panelInternoAlta.Size = new System.Drawing.Size(568, 286);
+            this.panelInternoAlta.Size = new System.Drawing.Size(568, 303);
             this.panelInternoAlta.TabIndex = 51;
             this.panelInternoAlta.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInterno_Paint);
             // 
@@ -197,7 +197,7 @@
             // 
             this.CBEstado.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.CBEstado.FormattingEnabled = true;
-            this.CBEstado.Location = new System.Drawing.Point(301, 139);
+            this.CBEstado.Location = new System.Drawing.Point(301, 151);
             this.CBEstado.Name = "CBEstado";
             this.CBEstado.Size = new System.Drawing.Size(232, 26);
             this.CBEstado.TabIndex = 25;
@@ -207,7 +207,7 @@
             this.CBroles.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.CBroles.DisplayMember = "id_rol";
             this.CBroles.FormattingEnabled = true;
-            this.CBroles.Location = new System.Drawing.Point(301, 86);
+            this.CBroles.Location = new System.Drawing.Point(301, 92);
             this.CBroles.Name = "CBroles";
             this.CBroles.Size = new System.Drawing.Size(231, 26);
             this.CBroles.TabIndex = 24;
@@ -218,7 +218,7 @@
             this.LEstado.AutoSize = true;
             this.LEstado.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEstado.Location = new System.Drawing.Point(297, 113);
+            this.LEstado.Location = new System.Drawing.Point(297, 123);
             this.LEstado.Name = "LEstado";
             this.LEstado.Size = new System.Drawing.Size(52, 23);
             this.LEstado.TabIndex = 24;
@@ -229,7 +229,7 @@
             this.LRol.AutoSize = true;
             this.LRol.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LRol.Location = new System.Drawing.Point(297, 58);
+            this.LRol.Location = new System.Drawing.Point(297, 64);
             this.LRol.Name = "LRol";
             this.LRol.Size = new System.Drawing.Size(30, 23);
             this.LRol.TabIndex = 22;
@@ -241,7 +241,7 @@
             this.BRegisterUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BRegisterUser.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BRegisterUser.ForeColor = System.Drawing.Color.White;
-            this.BRegisterUser.Location = new System.Drawing.Point(350, 242);
+            this.BRegisterUser.Location = new System.Drawing.Point(346, 259);
             this.BRegisterUser.Name = "BRegisterUser";
             this.BRegisterUser.Size = new System.Drawing.Size(143, 32);
             this.BRegisterUser.TabIndex = 20;
@@ -254,7 +254,7 @@
             this.TPassConf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TPassConf.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPassConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TPassConf.Location = new System.Drawing.Point(301, 193);
+            this.TPassConf.Location = new System.Drawing.Point(301, 210);
             this.TPassConf.Name = "TPassConf";
             this.TPassConf.PasswordChar = '*';
             this.TPassConf.Size = new System.Drawing.Size(232, 27);
@@ -266,7 +266,7 @@
             this.LPassConf.AutoSize = true;
             this.LPassConf.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LPassConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPassConf.Location = new System.Drawing.Point(297, 168);
+            this.LPassConf.Location = new System.Drawing.Point(297, 182);
             this.LPassConf.Name = "LPassConf";
             this.LPassConf.Size = new System.Drawing.Size(150, 23);
             this.LPassConf.TabIndex = 18;
@@ -278,7 +278,7 @@
             this.TEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TEmail.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TEmail.Location = new System.Drawing.Point(31, 138);
+            this.TEmail.Location = new System.Drawing.Point(31, 150);
             this.TEmail.Name = "TEmail";
             this.TEmail.Size = new System.Drawing.Size(232, 27);
             this.TEmail.TabIndex = 13;
@@ -288,7 +288,7 @@
             this.LEmail.AutoSize = true;
             this.LEmail.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEmail.Location = new System.Drawing.Point(27, 113);
+            this.LEmail.Location = new System.Drawing.Point(27, 123);
             this.LEmail.Name = "LEmail";
             this.LEmail.Size = new System.Drawing.Size(52, 23);
             this.LEmail.TabIndex = 12;
@@ -300,7 +300,7 @@
             this.TApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TApellido.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TApellido.Location = new System.Drawing.Point(31, 85);
+            this.TApellido.Location = new System.Drawing.Point(31, 91);
             this.TApellido.Name = "TApellido";
             this.TApellido.Size = new System.Drawing.Size(232, 27);
             this.TApellido.TabIndex = 11;
@@ -310,7 +310,7 @@
             this.LApellido.AutoSize = true;
             this.LApellido.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LApellido.Location = new System.Drawing.Point(27, 60);
+            this.LApellido.Location = new System.Drawing.Point(27, 64);
             this.LApellido.Name = "LApellido";
             this.LApellido.Size = new System.Drawing.Size(60, 23);
             this.LApellido.TabIndex = 10;
@@ -322,7 +322,7 @@
             this.TNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TNombre.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TNombre.Location = new System.Drawing.Point(31, 30);
+            this.TNombre.Location = new System.Drawing.Point(31, 32);
             this.TNombre.Name = "TNombre";
             this.TNombre.Size = new System.Drawing.Size(232, 27);
             this.TNombre.TabIndex = 9;
@@ -332,7 +332,7 @@
             this.LNombre.AutoSize = true;
             this.LNombre.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LNombre.Location = new System.Drawing.Point(26, 5);
+            this.LNombre.Location = new System.Drawing.Point(27, 4);
             this.LNombre.Name = "LNombre";
             this.LNombre.Size = new System.Drawing.Size(58, 23);
             this.LNombre.TabIndex = 8;
@@ -344,7 +344,7 @@
             this.TPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TPass.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TPass.Location = new System.Drawing.Point(31, 193);
+            this.TPass.Location = new System.Drawing.Point(31, 210);
             this.TPass.Name = "TPass";
             this.TPass.PasswordChar = '*';
             this.TPass.Size = new System.Drawing.Size(232, 27);
@@ -356,7 +356,7 @@
             this.LPass.AutoSize = true;
             this.LPass.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPass.Location = new System.Drawing.Point(27, 167);
+            this.LPass.Location = new System.Drawing.Point(27, 182);
             this.LPass.Name = "LPass";
             this.LPass.Size = new System.Drawing.Size(82, 23);
             this.LPass.TabIndex = 6;
@@ -368,7 +368,7 @@
             this.TUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TUser.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TUser.Location = new System.Drawing.Point(301, 30);
+            this.TUser.Location = new System.Drawing.Point(301, 32);
             this.TUser.Name = "TUser";
             this.TUser.Size = new System.Drawing.Size(232, 27);
             this.TUser.TabIndex = 5;
@@ -441,6 +441,32 @@
             this.PanelModificarUser.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelModificarUser_Paint);
             this.PanelModificarUser.Resize += new System.EventHandler(this.PanelModificarUser_Resize);
             // 
+            // panelInternoModif
+            // 
+            this.panelInternoModif.Controls.Add(this.TModificarConfirmPass);
+            this.panelInternoModif.Controls.Add(this.label2);
+            this.panelInternoModif.Controls.Add(this.TModificarPass);
+            this.panelInternoModif.Controls.Add(this.label3);
+            this.panelInternoModif.Controls.Add(this.BEliminar);
+            this.panelInternoModif.Controls.Add(this.CBModificarRol);
+            this.panelInternoModif.Controls.Add(this.LModificarEstado);
+            this.panelInternoModif.Controls.Add(this.CBModificarEstado);
+            this.panelInternoModif.Controls.Add(this.LModificarRol);
+            this.panelInternoModif.Controls.Add(this.TModificarEmail);
+            this.panelInternoModif.Controls.Add(this.LModificarEmail);
+            this.panelInternoModif.Controls.Add(this.TModificarAp);
+            this.panelInternoModif.Controls.Add(this.LModificarApellido);
+            this.panelInternoModif.Controls.Add(this.TModificarNombre);
+            this.panelInternoModif.Controls.Add(this.LModificarNombre);
+            this.panelInternoModif.Controls.Add(this.TModificarUser);
+            this.panelInternoModif.Controls.Add(this.LModificarUsuario);
+            this.panelInternoModif.Controls.Add(this.BModificar);
+            this.panelInternoModif.Location = new System.Drawing.Point(211, 33);
+            this.panelInternoModif.Name = "panelInternoModif";
+            this.panelInternoModif.Size = new System.Drawing.Size(549, 311);
+            this.panelInternoModif.TabIndex = 54;
+            this.panelInternoModif.Resize += new System.EventHandler(this.panelInternoModif_Resize);
+            // 
             // TModificarConfirmPass
             // 
             this.TModificarConfirmPass.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -502,41 +528,16 @@
             this.BEliminar.Text = "Eliminar";
             this.BEliminar.UseVisualStyleBackColor = false;
             // 
-            // TBModificarIndice
+            // CBModificarRol
             // 
-            this.TBModificarIndice.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TBModificarIndice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TBModificarIndice.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBModificarIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TBModificarIndice.Location = new System.Drawing.Point(20, 14);
-            this.TBModificarIndice.Name = "TBModificarIndice";
-            this.TBModificarIndice.Size = new System.Drawing.Size(36, 27);
-            this.TBModificarIndice.TabIndex = 48;
-            this.TBModificarIndice.Text = "-1";
-            this.TBModificarIndice.Visible = false;
-            // 
-            // TModificarID_user
-            // 
-            this.TModificarID_user.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TModificarID_user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarID_user.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarID_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarID_user.Location = new System.Drawing.Point(63, 14);
-            this.TModificarID_user.Name = "TModificarID_user";
-            this.TModificarID_user.Size = new System.Drawing.Size(36, 27);
-            this.TModificarID_user.TabIndex = 47;
-            this.TModificarID_user.Visible = false;
-            // 
-            // CBModificarPerfil
-            // 
-            this.CBModificarPerfil.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.CBModificarPerfil.DisplayMember = "id_perfiles";
-            this.CBModificarPerfil.FormattingEnabled = true;
-            this.CBModificarPerfil.Location = new System.Drawing.Point(296, 104);
-            this.CBModificarPerfil.Name = "CBModificarPerfil";
-            this.CBModificarPerfil.Size = new System.Drawing.Size(231, 26);
-            this.CBModificarPerfil.TabIndex = 46;
-            this.CBModificarPerfil.ValueMember = "id_perfiles";
+            this.CBModificarRol.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.CBModificarRol.DisplayMember = "id_rol";
+            this.CBModificarRol.FormattingEnabled = true;
+            this.CBModificarRol.Location = new System.Drawing.Point(296, 104);
+            this.CBModificarRol.Name = "CBModificarRol";
+            this.CBModificarRol.Size = new System.Drawing.Size(231, 26);
+            this.CBModificarRol.TabIndex = 46;
+            this.CBModificarRol.ValueMember = "id_rol";
             // 
             // LModificarEstado
             // 
@@ -558,16 +559,16 @@
             this.CBModificarEstado.Size = new System.Drawing.Size(232, 26);
             this.CBModificarEstado.TabIndex = 43;
             // 
-            // LModificarPerfil
+            // LModificarRol
             // 
-            this.LModificarPerfil.AutoSize = true;
-            this.LModificarPerfil.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.LModificarPerfil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarPerfil.Location = new System.Drawing.Point(292, 76);
-            this.LModificarPerfil.Name = "LModificarPerfil";
-            this.LModificarPerfil.Size = new System.Drawing.Size(43, 23);
-            this.LModificarPerfil.TabIndex = 42;
-            this.LModificarPerfil.Text = "Perfil";
+            this.LModificarRol.AutoSize = true;
+            this.LModificarRol.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.LModificarRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarRol.Location = new System.Drawing.Point(292, 78);
+            this.LModificarRol.Name = "LModificarRol";
+            this.LModificarRol.Size = new System.Drawing.Size(43, 23);
+            this.LModificarRol.TabIndex = 42;
+            this.LModificarRol.Text = "Perfil";
             // 
             // TModificarEmail
             // 
@@ -670,20 +671,45 @@
             this.BModificar.Text = "Modificar Usuario";
             this.BModificar.UseVisualStyleBackColor = false;
             // 
+            // TBModificarIndice
+            // 
+            this.TBModificarIndice.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TBModificarIndice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TBModificarIndice.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBModificarIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TBModificarIndice.Location = new System.Drawing.Point(20, 14);
+            this.TBModificarIndice.Name = "TBModificarIndice";
+            this.TBModificarIndice.Size = new System.Drawing.Size(36, 27);
+            this.TBModificarIndice.TabIndex = 48;
+            this.TBModificarIndice.Text = "-1";
+            this.TBModificarIndice.Visible = false;
+            // 
+            // TModificarID_user
+            // 
+            this.TModificarID_user.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarID_user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TModificarID_user.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarID_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TModificarID_user.Location = new System.Drawing.Point(63, 14);
+            this.TModificarID_user.Name = "TModificarID_user";
+            this.TModificarID_user.Size = new System.Drawing.Size(36, 27);
+            this.TModificarID_user.TabIndex = 47;
+            this.TModificarID_user.Visible = false;
+            // 
             // pROC_BUSCAR_USUARIODataGridView
             // 
             this.pROC_BUSCAR_USUARIODataGridView.AutoGenerateColumns = false;
             this.pROC_BUSCAR_USUARIODataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.pROC_BUSCAR_USUARIODataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.pROC_BUSCAR_USUARIODataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.pROC_BUSCAR_USUARIODataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.pROC_BUSCAR_USUARIODataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.pROC_BUSCAR_USUARIODataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.pROC_BUSCAR_USUARIODataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -695,28 +721,28 @@
             this.dataGridViewCheckBoxColumn1,
             this.dataGridViewTextBoxColumn7});
             this.pROC_BUSCAR_USUARIODataGridView.DataSource = this.pROC_BUSCAR_USUARIOBindingSource;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.pROC_BUSCAR_USUARIODataGridView.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.pROC_BUSCAR_USUARIODataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.pROC_BUSCAR_USUARIODataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pROC_BUSCAR_USUARIODataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.pROC_BUSCAR_USUARIODataGridView.Location = new System.Drawing.Point(3, 555);
             this.pROC_BUSCAR_USUARIODataGridView.Name = "pROC_BUSCAR_USUARIODataGridView";
             this.pROC_BUSCAR_USUARIODataGridView.ReadOnly = true;
             this.pROC_BUSCAR_USUARIODataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.pROC_BUSCAR_USUARIODataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.pROC_BUSCAR_USUARIODataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.pROC_BUSCAR_USUARIODataGridView.RowHeadersVisible = false;
             this.pROC_BUSCAR_USUARIODataGridView.Size = new System.Drawing.Size(984, 176);
             this.pROC_BUSCAR_USUARIODataGridView.TabIndex = 8;
@@ -843,38 +869,12 @@
             this.tableAdapterManager.UsersTableAdapter = null;
             this.tableAdapterManager.VentasTableAdapter = null;
             // 
-            // panelInternoModif
-            // 
-            this.panelInternoModif.Controls.Add(this.TModificarConfirmPass);
-            this.panelInternoModif.Controls.Add(this.label2);
-            this.panelInternoModif.Controls.Add(this.TModificarPass);
-            this.panelInternoModif.Controls.Add(this.label3);
-            this.panelInternoModif.Controls.Add(this.BEliminar);
-            this.panelInternoModif.Controls.Add(this.CBModificarPerfil);
-            this.panelInternoModif.Controls.Add(this.LModificarEstado);
-            this.panelInternoModif.Controls.Add(this.CBModificarEstado);
-            this.panelInternoModif.Controls.Add(this.LModificarPerfil);
-            this.panelInternoModif.Controls.Add(this.TModificarEmail);
-            this.panelInternoModif.Controls.Add(this.LModificarEmail);
-            this.panelInternoModif.Controls.Add(this.TModificarAp);
-            this.panelInternoModif.Controls.Add(this.LModificarApellido);
-            this.panelInternoModif.Controls.Add(this.TModificarNombre);
-            this.panelInternoModif.Controls.Add(this.LModificarNombre);
-            this.panelInternoModif.Controls.Add(this.TModificarUser);
-            this.panelInternoModif.Controls.Add(this.LModificarUsuario);
-            this.panelInternoModif.Controls.Add(this.BModificar);
-            this.panelInternoModif.Location = new System.Drawing.Point(211, 33);
-            this.panelInternoModif.Name = "panelInternoModif";
-            this.panelInternoModif.Size = new System.Drawing.Size(549, 311);
-            this.panelInternoModif.TabIndex = 54;
-            this.panelInternoModif.Resize += new System.EventHandler(this.panelInternoModif_Resize);
-            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ClientSize = new System.Drawing.Size(990, 734);
+            this.ClientSize = new System.Drawing.Size(990, 626);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Users";
             this.Text = "Users";
@@ -889,13 +889,13 @@
             this.tabPage2.ResumeLayout(false);
             this.PanelModificarUser.ResumeLayout(false);
             this.PanelModificarUser.PerformLayout();
+            this.panelInternoModif.ResumeLayout(false);
+            this.panelInternoModif.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pROC_BUSCAR_USUARIODataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pROC_BUSCAR_USUARIOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelInternoModif.ResumeLayout(false);
-            this.panelInternoModif.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -940,10 +940,10 @@
         private System.Windows.Forms.Button BEliminar;
         private System.Windows.Forms.TextBox TBModificarIndice;
         private System.Windows.Forms.TextBox TModificarID_user;
-        private System.Windows.Forms.ComboBox CBModificarPerfil;
+        private System.Windows.Forms.ComboBox CBModificarRol;
         private System.Windows.Forms.Label LModificarEstado;
         private System.Windows.Forms.ComboBox CBModificarEstado;
-        private System.Windows.Forms.Label LModificarPerfil;
+        private System.Windows.Forms.Label LModificarRol;
         private System.Windows.Forms.TextBox TModificarEmail;
         private System.Windows.Forms.Label LModificarEmail;
         private System.Windows.Forms.TextBox TModificarAp;

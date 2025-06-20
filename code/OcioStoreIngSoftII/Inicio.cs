@@ -109,10 +109,15 @@ namespace OcioStoreIngSoftII
         {
             AbrirFormulario((IconButton)sender, new Users());
         }
+        private void ProductsButton_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconButton)sender, new Products());
+        }
 
         private void LogOutButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

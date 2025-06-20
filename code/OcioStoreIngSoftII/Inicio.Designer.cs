@@ -326,6 +326,7 @@
             this.ProductsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ProductsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ProductsButton.UseVisualStyleBackColor = false;
+            this.ProductsButton.Click += new System.EventHandler(this.ProductsButton_Click);
             // 
             // HomeButton
             // 
