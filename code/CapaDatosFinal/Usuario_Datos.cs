@@ -112,119 +112,120 @@ namespace CapaDatos
         //    return lista;
         //}
 
-        //public int Registrar(Usuario obj, out string Mensaje)
-        //{
-        //    int idusuariogenerado = 0;
-        //    Mensaje = string.Empty;
+        public int Registrar(Usuario obj, out string Mensaje)
+        {
+            int idusuariogenerado = 0;
+            Mensaje = string.Empty;
 
-        //    try
-        //    {
-        //        using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-        //        {
-        //            SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_USUARIO", oconexion);
-        //            cmd.Parameters.AddWithValue("nombre", obj.nombre);
-        //            cmd.Parameters.AddWithValue("apellido", obj.apellido);
-        //            cmd.Parameters.AddWithValue("zipcode", obj.CP);
-        //            cmd.Parameters.AddWithValue("domicilio", obj.domicilio);
-        //            cmd.Parameters.AddWithValue("email", obj.email);
-        //            cmd.Parameters.AddWithValue("usuario", obj.user);
-        //            cmd.Parameters.AddWithValue("pass", obj.pass);
-        //            cmd.Parameters.AddWithValue("id_perfil", obj.objPerfil.id_perfil);
-        //            cmd.Parameters.AddWithValue("baja", obj.baja);
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_USUARIO", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-        //            cmd.Parameters.Add("id_user_resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-        //            cmd.Parameters.Add("mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("nombre", obj.nombre);
+                    cmd.Parameters.AddWithValue("apellido", obj.apellido);
+                    cmd.Parameters.AddWithValue("dni", obj.dni);
+                    cmd.Parameters.AddWithValue("mail", obj.mail);
+                    cmd.Parameters.AddWithValue("username", obj.username);
+                    cmd.Parameters.AddWithValue("pass", obj.pass);
+                    cmd.Parameters.AddWithValue("baja_user", obj.baja_user);
+                    cmd.Parameters.AddWithValue("id_rol", obj.objRoles.id_rol); // Asumiendo que Roles tiene id_rol
 
-        //            cmd.CommandType = CommandType.StoredProcedure;
 
-        //            oconexion.Open();
-        //            cmd.ExecuteNonQuery();
+                    cmd.Parameters.Add("id_user_resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-        //            idusuariogenerado = Convert.ToInt32(cmd.Parameters["id_user_resultado"].Value);
-        //            Mensaje = cmd.Parameters["mensaje"].Value.ToString();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        idusuariogenerado = 0;
-        //        Mensaje = ex.Message;
-        //    }
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-        //    return idusuariogenerado;
-        //}
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
 
-        //public bool Editar(Usuario obj, out string Mensaje)
-        //{
-        //    bool respuesta = false;
-        //    Mensaje = string.Empty;
+                    idusuariogenerado = Convert.ToInt32(cmd.Parameters["id_user_resultado"].Value);
+                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                idusuariogenerado = 0;
+                Mensaje = ex.Message;
+            }
 
-        //    try
-        //    {
-        //        using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-        //        {
-        //            SqlCommand cmd = new SqlCommand("PROC_EDITAR_USUARIO", oconexion);
-        //            cmd.Parameters.AddWithValue("id_user", obj.id_usuario);
-        //            cmd.Parameters.AddWithValue("nombre", obj.nombre);
-        //            cmd.Parameters.AddWithValue("apellido", obj.apellido);
-        //            cmd.Parameters.AddWithValue("zipcode", obj.CP);
-        //            cmd.Parameters.AddWithValue("domicilio", obj.domicilio);
-        //            cmd.Parameters.AddWithValue("email", obj.email);
-        //            cmd.Parameters.AddWithValue("usuario", obj.user);
-        //            cmd.Parameters.AddWithValue("pass", obj.pass);
-        //            cmd.Parameters.AddWithValue("id_perfil", obj.objPerfil.id_perfil);
-        //            cmd.Parameters.AddWithValue("baja", obj.baja);
+            return idusuariogenerado;
+        }
 
-        //            cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-        //            cmd.Parameters.Add("mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+        public bool Editar(Usuario obj, out string Mensaje)
+        {
+            bool respuesta = false;
+            Mensaje = string.Empty;
 
-        //            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_EDITAR_USUARIO", oconexion);
+                    cmd.Parameters.AddWithValue("id_user", obj.id_user);
+                    cmd.Parameters.AddWithValue("nombre", obj.nombre);
+                    cmd.Parameters.AddWithValue("apellido", obj.apellido);
+                    cmd.Parameters.AddWithValue("dni", obj.dni);
+                    cmd.Parameters.AddWithValue("mail", obj.mail);
+                    cmd.Parameters.AddWithValue("username", obj.username);
+                    cmd.Parameters.AddWithValue("pass", obj.pass);
+                    cmd.Parameters.AddWithValue("id_rol", obj.objRoles.id_rol); // Asumiendo que existe esta propiedad
+                    cmd.Parameters.AddWithValue("baja_user", obj.baja_user);
 
-        //            oconexion.Open();
-        //            cmd.ExecuteNonQuery();
+                    cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-        //            respuesta = Convert.ToBoolean(cmd.Parameters["respuesta"].Value);
-        //            Mensaje = cmd.Parameters["mensaje"].Value.ToString();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        respuesta = false;
-        //        Mensaje = ex.Message;
-        //    }
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-        //    return respuesta;
-        //}
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
 
-        //public bool Eliminar(Usuario obj, out string Mensaje)
-        //{
-        //    bool respuesta = false;
-        //    Mensaje = string.Empty;
+                    respuesta = Convert.ToBoolean(cmd.Parameters["respuesta"].Value);
+                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+                Mensaje = ex.Message;
+            }
 
-        //    try
-        //    {
-        //        using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-        //        {
-        //            SqlCommand cmd = new SqlCommand("PROC_ELIMINAR_USUARIO", oconexion);
-        //            cmd.Parameters.AddWithValue("id_user", obj.id_usuario);
-        //            cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-        //            cmd.Parameters.Add("mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+            return respuesta;
+        }
 
-        //            cmd.CommandType = CommandType.StoredProcedure;
+        public bool Eliminar(Usuario obj, out string Mensaje)
+        {
+            bool respuesta = false;
+            Mensaje = string.Empty;
 
-        //            oconexion.Open();
-        //            cmd.ExecuteNonQuery();
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_ELIMINAR_USUARIO", oconexion);
+                    cmd.Parameters.AddWithValue("id_user", obj.id_user);
+                    cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-        //            respuesta = Convert.ToBoolean(cmd.Parameters["respuesta"].Value);
-        //            Mensaje = cmd.Parameters["mensaje"].Value.ToString();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        respuesta = false;
-        //        Mensaje = ex.Message;
-        //    }
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-        //    return respuesta;
-        //}
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["respuesta"].Value);
+                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+                Mensaje = ex.Message;
+            }
+
+            return respuesta;
+        }
     }
 }

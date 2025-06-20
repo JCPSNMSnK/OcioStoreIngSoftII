@@ -193,6 +193,153 @@ namespace OcioStoreIngSoftII
                 e.Graphics.DrawImage(Properties.Resources.checkbox, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        } 
+        private void BRegisterUser_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+
+            if (string.IsNullOrWhiteSpace(TNombre.Text))
+            {
+                MessageBox.Show("El campo Nombre es obligatorio.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TApellido.Text))
+            {
+                MessageBox.Show("El campo Apellido es obligatorio.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TDni.Text))
+            {
+                MessageBox.Show("El campo Apellido es obligatorio.");
+                return;
+            }
+
+            if (CBroles.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un perfil.");
+                return;
+            }
+
+            if (CBEstado.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un estado.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TUser.Text))
+            {
+                MessageBox.Show("El campo Usuario es obligatorio.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TPass.Text) || TPass.Text.Length < 6)
+            {
+                MessageBox.Show("La contraseña debe tener al menos 6 caracteres.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TEmail.Text) || !TEmail.Text.Contains("@"))
+            {
+                MessageBox.Show("Debe ingresar un correo electrónico válido.");
+                return;
+            }
+
+            Usuario objUser = new Usuario()
+            {
+                id_user = Convert.ToInt32(TID_user.Text),
+                apellido = TApellido.Text,
+                nombre = TNombre.Text,
+                dni = Convert.ToInt32(TDni.Text),
+                mail = TEmail.Text,
+                username = TUser.Text,
+                pass = TPass.Text,
+                baja_user = Convert.ToInt32(((OpcionSelect)CBEstado.SelectedItem).Valor) == 1 ? true : false,
+                objRoles = new Roles() { id_rol = Convert.ToInt32(((OpcionSelect)CBroles.SelectedItem).Valor), descripcion = ((OpcionSelect)CBroles.SelectedItem).Texto },
+            };
+
+            if (objUser.id_user == 0)
+            {
+                int idusuarioregistrado = new Usuario_negocio().Registrar(objUser, out mensaje);
+
+                if (idusuarioregistrado != 0)
+                {
+                    //usuariosDataGridView.Rows.Add(new object[] {
+                    //    "",
+                    //    idusuarioregistrado,
+                    //    TApellido.Text,
+                    //    TNombre.Text,
+                    //    TDni.Text,
+                    //    TEmail.Text,
+                    //    TUser.Text,
+                    //    ((OpcionSelect)CBEstado.SelectedItem).Valor.ToString(),
+                    //    ((OpcionSelect)CBEstado.SelectedItem).Texto.ToString(),
+                    //    ((OpcionSelect)CBroles.SelectedItem).Valor.ToString(),
+                    //    ((OpcionSelect)CBroles.SelectedItem).Texto.ToString(),
+                    //    //TPass.Text,
+                    //});
+
+                    VaciarCampos();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
+            }
+            else
+            {
+                bool resultado = new Usuario_negocio().Editar(objUser, out mensaje);
+
+                if (resultado)
+                {
+                    DataGridViewRow row = usuariosDataGridView.Rows[Convert.ToInt32(TIndice.Text)];
+
+                    row.Cells["id_user"].Value = TModificarID_user.Text;
+                    row.Cells["apellido"].Value = TModificarAp.Text;
+                    row.Cells["dni"].Value = TModificarDni.Text;
+                    row.Cells["nombre"].Value = TModificarNombre.Text;
+                    row.Cells["email"].Value = TModificarEmail.Text;
+                    row.Cells["user"].Value = TModificarUser.Text;
+                    row.Cells["id_rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Valor.ToString();
+                    row.Cells["rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Texto.ToString();
+                    row.Cells["estado"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Valor.ToString();
+                    //row.Cells["baja"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Texto.ToString();
+
+
+
+                    VaciarCampos();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
+            }
+        }
+
+        private void VaciarCampos()
+        {
+            TID_user.Text = "0";
+            TApellido.Text = "";
+            TNombre.Text = "";
+            TDni.Text = "";
+            TEmail.Text = "";
+            TUser.Text = "";
+            TPass.Text = "";
+            TPassConf.Text = "";
+            CBroles.SelectedIndex = 0;
+            CBEstado.SelectedIndex = 0;
+
+            TModificarID_user.Text = "0";
+            TModificarAp.Text = "";
+            TModificarNombre.Text = "";
+            TModificarDni.Text = "";
+            TModificarEmail.Text = "";
+            TModificarUser.Text = "";
+            CBModificarRoles.SelectedIndex = 0;
+            CBModificarEstado.SelectedIndex = 0;
+            //TModificarPass.Text = "";
+            //TModificarConfirmPass.Text = "";
         }
 
         private void pROC_BUSCAR_USUARIODataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -208,8 +355,9 @@ namespace OcioStoreIngSoftII
                     TBModificarIndice.Text = indice.ToString();
 
                     TModificarID_user.Text = usuariosDataGridView.Rows[indice].Cells["id_user"].Value.ToString();
-                    TModificarNombre.Text = usuariosDataGridView.Rows[indice].Cells["nombre"].Value.ToString();
                     TModificarAp.Text = usuariosDataGridView.Rows[indice].Cells["apellido"].Value.ToString();
+                    TModificarNombre.Text = usuariosDataGridView.Rows[indice].Cells["nombre"].Value.ToString();
+                    TModificarDni.Text = usuariosDataGridView.Rows[indice].Cells["dni"].Value.ToString();
                     TModificarEmail.Text = usuariosDataGridView.Rows[indice].Cells["email"].Value.ToString();
                     TModificarUser.Text = usuariosDataGridView.Rows[indice].Cells["user"].Value.ToString();
                     //TModificarPass.Text = usuariosDataGridView.Rows[indice].Cells["pass"].Value.ToString();
@@ -273,6 +421,16 @@ namespace OcioStoreIngSoftII
         }
 
         private void panelInternoModif_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TModificarEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LModificarEmail_Click(object sender, EventArgs e)
         {
 
         }

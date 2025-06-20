@@ -99,6 +99,10 @@
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LDni = new System.Windows.Forms.Label();
+            this.TDni = new System.Windows.Forms.TextBox();
+            this.LModificarDni = new System.Windows.Forms.Label();
+            this.TModificarDni = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.TCUsuarios.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -153,7 +157,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(976, 383);
+            this.tabPage1.Size = new System.Drawing.Size(1128, 383);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Alta de Usuario";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -168,7 +172,7 @@
             this.PanelAltaUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelAltaUser.Location = new System.Drawing.Point(3, 3);
             this.PanelAltaUser.Name = "PanelAltaUser";
-            this.PanelAltaUser.Size = new System.Drawing.Size(970, 377);
+            this.PanelAltaUser.Size = new System.Drawing.Size(1122, 377);
             this.PanelAltaUser.TabIndex = 7;
             this.PanelAltaUser.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelAltaUser_Paint);
             this.PanelAltaUser.Resize += new System.EventHandler(this.PanelAltaUser_Resize);
@@ -186,15 +190,17 @@
             this.panelInternoAlta.Controls.Add(this.LEmail);
             this.panelInternoAlta.Controls.Add(this.TApellido);
             this.panelInternoAlta.Controls.Add(this.LApellido);
+            this.panelInternoAlta.Controls.Add(this.TDni);
             this.panelInternoAlta.Controls.Add(this.TNombre);
+            this.panelInternoAlta.Controls.Add(this.LDni);
             this.panelInternoAlta.Controls.Add(this.LNombre);
             this.panelInternoAlta.Controls.Add(this.TPass);
             this.panelInternoAlta.Controls.Add(this.LPass);
             this.panelInternoAlta.Controls.Add(this.TUser);
             this.panelInternoAlta.Controls.Add(this.LUser);
-            this.panelInternoAlta.Location = new System.Drawing.Point(201, 49);
+            this.panelInternoAlta.Location = new System.Drawing.Point(277, 3);
             this.panelInternoAlta.Name = "panelInternoAlta";
-            this.panelInternoAlta.Size = new System.Drawing.Size(568, 303);
+            this.panelInternoAlta.Size = new System.Drawing.Size(568, 371);
             this.panelInternoAlta.TabIndex = 51;
             this.panelInternoAlta.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInterno_Paint);
             // 
@@ -202,7 +208,7 @@
             // 
             this.CBEstado.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.CBEstado.FormattingEnabled = true;
-            this.CBEstado.Location = new System.Drawing.Point(301, 151);
+            this.CBEstado.Location = new System.Drawing.Point(297, 211);
             this.CBEstado.Name = "CBEstado";
             this.CBEstado.Size = new System.Drawing.Size(232, 26);
             this.CBEstado.TabIndex = 25;
@@ -212,7 +218,7 @@
             this.CBroles.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.CBroles.DisplayMember = "id_rol";
             this.CBroles.FormattingEnabled = true;
-            this.CBroles.Location = new System.Drawing.Point(301, 92);
+            this.CBroles.Location = new System.Drawing.Point(297, 152);
             this.CBroles.Name = "CBroles";
             this.CBroles.Size = new System.Drawing.Size(231, 26);
             this.CBroles.TabIndex = 24;
@@ -223,7 +229,7 @@
             this.LEstado.AutoSize = true;
             this.LEstado.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEstado.Location = new System.Drawing.Point(297, 123);
+            this.LEstado.Location = new System.Drawing.Point(293, 183);
             this.LEstado.Name = "LEstado";
             this.LEstado.Size = new System.Drawing.Size(52, 23);
             this.LEstado.TabIndex = 24;
@@ -234,7 +240,7 @@
             this.LRol.AutoSize = true;
             this.LRol.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LRol.Location = new System.Drawing.Point(297, 64);
+            this.LRol.Location = new System.Drawing.Point(293, 124);
             this.LRol.Name = "LRol";
             this.LRol.Size = new System.Drawing.Size(30, 23);
             this.LRol.TabIndex = 22;
@@ -246,12 +252,13 @@
             this.BRegisterUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BRegisterUser.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BRegisterUser.ForeColor = System.Drawing.Color.White;
-            this.BRegisterUser.Location = new System.Drawing.Point(346, 259);
+            this.BRegisterUser.Location = new System.Drawing.Point(213, 326);
             this.BRegisterUser.Name = "BRegisterUser";
             this.BRegisterUser.Size = new System.Drawing.Size(143, 32);
             this.BRegisterUser.TabIndex = 20;
             this.BRegisterUser.Text = "Registrar Usuario";
             this.BRegisterUser.UseVisualStyleBackColor = false;
+            this.BRegisterUser.Click += new System.EventHandler(this.BRegisterUser_Click);
             // 
             // TPassConf
             // 
@@ -259,7 +266,7 @@
             this.TPassConf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TPassConf.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPassConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TPassConf.Location = new System.Drawing.Point(301, 210);
+            this.TPassConf.Location = new System.Drawing.Point(31, 268);
             this.TPassConf.Name = "TPassConf";
             this.TPassConf.PasswordChar = '*';
             this.TPassConf.Size = new System.Drawing.Size(232, 27);
@@ -271,7 +278,7 @@
             this.LPassConf.AutoSize = true;
             this.LPassConf.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LPassConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPassConf.Location = new System.Drawing.Point(297, 182);
+            this.LPassConf.Location = new System.Drawing.Point(27, 240);
             this.LPassConf.Name = "LPassConf";
             this.LPassConf.Size = new System.Drawing.Size(150, 23);
             this.LPassConf.TabIndex = 18;
@@ -373,7 +380,7 @@
             this.TUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TUser.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TUser.Location = new System.Drawing.Point(301, 32);
+            this.TUser.Location = new System.Drawing.Point(297, 92);
             this.TUser.Name = "TUser";
             this.TUser.Size = new System.Drawing.Size(232, 27);
             this.TUser.TabIndex = 5;
@@ -383,7 +390,7 @@
             this.LUser.AutoSize = true;
             this.LUser.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LUser.Location = new System.Drawing.Point(297, 4);
+            this.LUser.Location = new System.Drawing.Point(293, 64);
             this.LUser.Name = "LUser";
             this.LUser.Size = new System.Drawing.Size(58, 23);
             this.LUser.TabIndex = 4;
@@ -400,7 +407,7 @@
             this.TIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TIndice.Location = new System.Drawing.Point(20, 16);
             this.TIndice.Name = "TIndice";
-            this.TIndice.Size = new System.Drawing.Size(36, 27);
+            this.TIndice.Size = new System.Drawing.Size(27, 27);
             this.TIndice.TabIndex = 50;
             this.TIndice.Text = "-1";
             this.TIndice.Visible = false;
@@ -416,7 +423,7 @@
             this.TID_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TID_user.Location = new System.Drawing.Point(63, 16);
             this.TID_user.Name = "TID_user";
-            this.TID_user.Size = new System.Drawing.Size(36, 27);
+            this.TID_user.Size = new System.Drawing.Size(26, 27);
             this.TID_user.TabIndex = 49;
             this.TID_user.Text = "0";
             this.TID_user.Visible = false;
@@ -457,16 +464,18 @@
             this.panelInternoModif.Controls.Add(this.LModificarEstado);
             this.panelInternoModif.Controls.Add(this.CBModificarEstado);
             this.panelInternoModif.Controls.Add(this.LModificarRol);
-            this.panelInternoModif.Controls.Add(this.TModificarEmail);
-            this.panelInternoModif.Controls.Add(this.LModificarEmail);
-            this.panelInternoModif.Controls.Add(this.TModificarAp);
+            this.panelInternoModif.Controls.Add(this.TModificarDni);
+            this.panelInternoModif.Controls.Add(this.LModificarDni);
+            this.panelInternoModif.Controls.Add(this.LModificarUsuario);
+            this.panelInternoModif.Controls.Add(this.TModificarUser);
             this.panelInternoModif.Controls.Add(this.LModificarApellido);
+            this.panelInternoModif.Controls.Add(this.TModificarEmail);
+            this.panelInternoModif.Controls.Add(this.TModificarAp);
+            this.panelInternoModif.Controls.Add(this.LModificarEmail);
             this.panelInternoModif.Controls.Add(this.TModificarNombre);
             this.panelInternoModif.Controls.Add(this.LModificarNombre);
-            this.panelInternoModif.Controls.Add(this.TModificarUser);
-            this.panelInternoModif.Controls.Add(this.LModificarUsuario);
             this.panelInternoModif.Controls.Add(this.BModificar);
-            this.panelInternoModif.Location = new System.Drawing.Point(211, 33);
+            this.panelInternoModif.Location = new System.Drawing.Point(287, 33);
             this.panelInternoModif.Name = "panelInternoModif";
             this.panelInternoModif.Size = new System.Drawing.Size(549, 311);
             this.panelInternoModif.TabIndex = 54;
@@ -479,7 +488,7 @@
             this.TModificarConfirmPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarConfirmPass.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarConfirmPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarConfirmPass.Location = new System.Drawing.Point(795, 242);
+            this.TModificarConfirmPass.Location = new System.Drawing.Point(875, 171);
             this.TModificarConfirmPass.Name = "TModificarConfirmPass";
             this.TModificarConfirmPass.PasswordChar = '*';
             this.TModificarConfirmPass.Size = new System.Drawing.Size(232, 27);
@@ -493,7 +502,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Location = new System.Drawing.Point(791, 217);
+            this.label2.Location = new System.Drawing.Point(871, 146);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 23);
             this.label2.TabIndex = 52;
@@ -507,7 +516,7 @@
             this.TModificarPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarPass.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarPass.Location = new System.Drawing.Point(795, 177);
+            this.TModificarPass.Location = new System.Drawing.Point(875, 106);
             this.TModificarPass.Name = "TModificarPass";
             this.TModificarPass.PasswordChar = '*';
             this.TModificarPass.Size = new System.Drawing.Size(232, 27);
@@ -520,7 +529,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Location = new System.Drawing.Point(791, 151);
+            this.label3.Location = new System.Drawing.Point(871, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 23);
             this.label3.TabIndex = 50;
@@ -533,7 +542,7 @@
             this.BEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BEliminar.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BEliminar.ForeColor = System.Drawing.Color.White;
-            this.BEliminar.Location = new System.Drawing.Point(71, 230);
+            this.BEliminar.Location = new System.Drawing.Point(68, 260);
             this.BEliminar.Name = "BEliminar";
             this.BEliminar.Size = new System.Drawing.Size(143, 32);
             this.BEliminar.TabIndex = 49;
@@ -544,7 +553,7 @@
             // 
             this.CBModificarRoles.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.CBModificarRoles.FormattingEnabled = true;
-            this.CBModificarRoles.Location = new System.Drawing.Point(296, 131);
+            this.CBModificarRoles.Location = new System.Drawing.Point(299, 104);
             this.CBModificarRoles.Name = "CBModificarRoles";
             this.CBModificarRoles.Size = new System.Drawing.Size(231, 26);
             this.CBModificarRoles.TabIndex = 46;
@@ -555,7 +564,7 @@
             this.LModificarEstado.AutoSize = true;
             this.LModificarEstado.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarEstado.Location = new System.Drawing.Point(292, 158);
+            this.LModificarEstado.Location = new System.Drawing.Point(295, 131);
             this.LModificarEstado.Name = "LModificarEstado";
             this.LModificarEstado.Size = new System.Drawing.Size(52, 23);
             this.LModificarEstado.TabIndex = 44;
@@ -566,7 +575,7 @@
             this.CBModificarEstado.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.CBModificarEstado.DisplayMember = "estado";
             this.CBModificarEstado.FormattingEnabled = true;
-            this.CBModificarEstado.Location = new System.Drawing.Point(295, 184);
+            this.CBModificarEstado.Location = new System.Drawing.Point(298, 157);
             this.CBModificarEstado.Name = "CBModificarEstado";
             this.CBModificarEstado.Size = new System.Drawing.Size(232, 26);
             this.CBModificarEstado.TabIndex = 43;
@@ -577,7 +586,7 @@
             this.LModificarRol.AutoSize = true;
             this.LModificarRol.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LModificarRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarRol.Location = new System.Drawing.Point(292, 105);
+            this.LModificarRol.Location = new System.Drawing.Point(295, 78);
             this.LModificarRol.Name = "LModificarRol";
             this.LModificarRol.Size = new System.Drawing.Size(30, 23);
             this.LModificarRol.TabIndex = 42;
@@ -589,21 +598,23 @@
             this.TModificarEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarEmail.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarEmail.Location = new System.Drawing.Point(26, 183);
+            this.TModificarEmail.Location = new System.Drawing.Point(24, 210);
             this.TModificarEmail.Name = "TModificarEmail";
             this.TModificarEmail.Size = new System.Drawing.Size(232, 27);
             this.TModificarEmail.TabIndex = 34;
+            this.TModificarEmail.TextChanged += new System.EventHandler(this.TModificarEmail_TextChanged);
             // 
             // LModificarEmail
             // 
             this.LModificarEmail.AutoSize = true;
             this.LModificarEmail.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LModificarEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarEmail.Location = new System.Drawing.Point(22, 158);
+            this.LModificarEmail.Location = new System.Drawing.Point(21, 185);
             this.LModificarEmail.Name = "LModificarEmail";
             this.LModificarEmail.Size = new System.Drawing.Size(52, 23);
             this.LModificarEmail.TabIndex = 33;
             this.LModificarEmail.Text = "E-mail";
+            this.LModificarEmail.Click += new System.EventHandler(this.LModificarEmail_Click);
             // 
             // TModificarAp
             // 
@@ -611,7 +622,7 @@
             this.TModificarAp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarAp.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarAp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarAp.Location = new System.Drawing.Point(26, 130);
+            this.TModificarAp.Location = new System.Drawing.Point(298, 48);
             this.TModificarAp.Name = "TModificarAp";
             this.TModificarAp.Size = new System.Drawing.Size(232, 27);
             this.TModificarAp.TabIndex = 32;
@@ -621,7 +632,7 @@
             this.LModificarApellido.AutoSize = true;
             this.LModificarApellido.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LModificarApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarApellido.Location = new System.Drawing.Point(22, 105);
+            this.LModificarApellido.Location = new System.Drawing.Point(294, 23);
             this.LModificarApellido.Name = "LModificarApellido";
             this.LModificarApellido.Size = new System.Drawing.Size(60, 23);
             this.LModificarApellido.TabIndex = 31;
@@ -633,7 +644,7 @@
             this.TModificarNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarNombre.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarNombre.Location = new System.Drawing.Point(26, 75);
+            this.TModificarNombre.Location = new System.Drawing.Point(25, 48);
             this.TModificarNombre.Name = "TModificarNombre";
             this.TModificarNombre.Size = new System.Drawing.Size(232, 27);
             this.TModificarNombre.TabIndex = 30;
@@ -643,7 +654,7 @@
             this.LModificarNombre.AutoSize = true;
             this.LModificarNombre.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarNombre.Location = new System.Drawing.Point(21, 50);
+            this.LModificarNombre.Location = new System.Drawing.Point(20, 23);
             this.LModificarNombre.Name = "LModificarNombre";
             this.LModificarNombre.Size = new System.Drawing.Size(58, 23);
             this.LModificarNombre.TabIndex = 29;
@@ -655,7 +666,7 @@
             this.TModificarUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarUser.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarUser.Location = new System.Drawing.Point(296, 75);
+            this.TModificarUser.Location = new System.Drawing.Point(25, 156);
             this.TModificarUser.Name = "TModificarUser";
             this.TModificarUser.Size = new System.Drawing.Size(232, 27);
             this.TModificarUser.TabIndex = 26;
@@ -665,7 +676,7 @@
             this.LModificarUsuario.AutoSize = true;
             this.LModificarUsuario.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
             this.LModificarUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarUsuario.Location = new System.Drawing.Point(292, 49);
+            this.LModificarUsuario.Location = new System.Drawing.Point(21, 131);
             this.LModificarUsuario.Name = "LModificarUsuario";
             this.LModificarUsuario.Size = new System.Drawing.Size(58, 23);
             this.LModificarUsuario.TabIndex = 25;
@@ -677,7 +688,7 @@
             this.BModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BModificar.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BModificar.ForeColor = System.Drawing.Color.White;
-            this.BModificar.Location = new System.Drawing.Point(340, 230);
+            this.BModificar.Location = new System.Drawing.Point(342, 259);
             this.BModificar.Name = "BModificar";
             this.BModificar.Size = new System.Drawing.Size(143, 32);
             this.BModificar.TabIndex = 21;
@@ -917,6 +928,52 @@
             this.rol.Name = "rol";
             this.rol.ReadOnly = true;
             // 
+            // LDni
+            // 
+            this.LDni.AutoSize = true;
+            this.LDni.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LDni.Location = new System.Drawing.Point(293, 4);
+            this.LDni.Name = "LDni";
+            this.LDni.Size = new System.Drawing.Size(30, 23);
+            this.LDni.TabIndex = 8;
+            this.LDni.Text = "DNI";
+            // 
+            // TDni
+            // 
+            this.TDni.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TDni.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TDni.Location = new System.Drawing.Point(297, 32);
+            this.TDni.Name = "TDni";
+            this.TDni.Size = new System.Drawing.Size(232, 27);
+            this.TDni.TabIndex = 9;
+            // 
+            // LModificarDni
+            // 
+            this.LModificarDni.AutoSize = true;
+            this.LModificarDni.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.LModificarDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarDni.Location = new System.Drawing.Point(21, 77);
+            this.LModificarDni.Name = "LModificarDni";
+            this.LModificarDni.Size = new System.Drawing.Size(30, 23);
+            this.LModificarDni.TabIndex = 33;
+            this.LModificarDni.Text = "DNI";
+            this.LModificarDni.Click += new System.EventHandler(this.LModificarEmail_Click);
+            // 
+            // TModificarDni
+            // 
+            this.TModificarDni.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TModificarDni.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TModificarDni.Location = new System.Drawing.Point(24, 102);
+            this.TModificarDni.Name = "TModificarDni";
+            this.TModificarDni.Size = new System.Drawing.Size(232, 27);
+            this.TModificarDni.TabIndex = 34;
+            this.TModificarDni.TextChanged += new System.EventHandler(this.TModificarEmail_TextChanged);
+            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1017,5 +1074,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_rol;
         private System.Windows.Forms.DataGridViewTextBoxColumn rol;
+        private System.Windows.Forms.TextBox TDni;
+        private System.Windows.Forms.Label LDni;
+        private System.Windows.Forms.TextBox TModificarDni;
+        private System.Windows.Forms.Label LModificarDni;
     }
 }
