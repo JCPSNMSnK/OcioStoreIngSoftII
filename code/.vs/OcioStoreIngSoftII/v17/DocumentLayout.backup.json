@@ -3,36 +3,32 @@
   "WorkspaceRootPath": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,8 +38,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 20,
+          "SelectedChildIndex": 26,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Program.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Program.cs",
+              "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Program.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T22:21:40.656Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:143:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -126,20 +136,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Inicio.cs",
               "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Inicio.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Inicio.cs",
               "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Inicio.cs",
               "RelativeToolTip": "OcioStoreIngSoftII\\Inicio.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAYwHAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-20T15:13:58.066Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Inicio.cs [Dise\u00F1o]",
               "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Inicio.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Inicio.cs",
@@ -151,20 +161,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Products.cs",
               "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Products.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Products.cs",
               "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Products.cs",
               "RelativeToolTip": "OcioStoreIngSoftII\\Products.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAcwDIAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAMwCwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-20T14:46:44.138Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Products.cs [Dise\u00F1o]",
               "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Products.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Products.cs",
@@ -176,20 +186,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Users.cs",
               "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Users.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Users.cs",
               "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Users.cs",
               "RelativeToolTip": "OcioStoreIngSoftII\\Users.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAAwGkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAAAOYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T05:33:51.091Z",
+              "WhenOpened": "2025-06-20T21:58:09.863Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Users.cs [Dise\u00F1o]",
               "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Users.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Users.cs",
@@ -198,30 +208,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T07:18:41.09Z",
               "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Program.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Program.cs",
-              "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Program.cs",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T07:27:55.273Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Login.cs [Dise\u00F1o]",
-              "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Login.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Login.cs",
-              "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Login.cs [Dise\u00F1o]",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Login.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T02:01:06.214Z"
             }
           ]
         }

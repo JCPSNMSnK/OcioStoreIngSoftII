@@ -4350,6 +4350,8 @@ namespace OcioStoreIngSoftII {
             
             private global::System.Data.DataColumn columnnombre_rol;
             
+            private global::System.Data.DataColumn columnid_rol;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PROC_BUSCAR_USUARIODataTable() {
@@ -4449,6 +4451,14 @@ namespace OcioStoreIngSoftII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn id_rolColumn {
+                get {
+                    return this.columnid_rol;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4484,7 +4494,7 @@ namespace OcioStoreIngSoftII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PROC_BUSCAR_USUARIORow AddPROC_BUSCAR_USUARIORow(string apellido, string nombre, string dni, string mail, string username, bool baja_user, string nombre_rol) {
+            public PROC_BUSCAR_USUARIORow AddPROC_BUSCAR_USUARIORow(string apellido, string nombre, string dni, string mail, string username, bool baja_user, string nombre_rol, int id_rol) {
                 PROC_BUSCAR_USUARIORow rowPROC_BUSCAR_USUARIORow = ((PROC_BUSCAR_USUARIORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4494,7 +4504,8 @@ namespace OcioStoreIngSoftII {
                         mail,
                         username,
                         baja_user,
-                        nombre_rol};
+                        nombre_rol,
+                        id_rol};
                 rowPROC_BUSCAR_USUARIORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPROC_BUSCAR_USUARIORow);
                 return rowPROC_BUSCAR_USUARIORow;
@@ -4532,6 +4543,7 @@ namespace OcioStoreIngSoftII {
                 this.columnusername = base.Columns["username"];
                 this.columnbaja_user = base.Columns["baja_user"];
                 this.columnnombre_rol = base.Columns["nombre_rol"];
+                this.columnid_rol = base.Columns["id_rol"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4553,6 +4565,8 @@ namespace OcioStoreIngSoftII {
                 base.Columns.Add(this.columnbaja_user);
                 this.columnnombre_rol = new global::System.Data.DataColumn("nombre_rol", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre_rol);
+                this.columnid_rol = new global::System.Data.DataColumn("id_rol", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_rol);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_user}, true));
                 this.columnid_user.AutoIncrement = true;
@@ -4571,6 +4585,7 @@ namespace OcioStoreIngSoftII {
                 this.columnusername.MaxLength = 50;
                 this.columnnombre_rol.AllowDBNull = false;
                 this.columnnombre_rol.MaxLength = 50;
+                this.columnid_rol.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5987,6 +6002,17 @@ namespace OcioStoreIngSoftII {
                 }
                 set {
                     this[this.tablePROC_BUSCAR_USUARIO.nombre_rolColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int id_rol {
+                get {
+                    return ((int)(this[this.tablePROC_BUSCAR_USUARIO.id_rolColumn]));
+                }
+                set {
+                    this[this.tablePROC_BUSCAR_USUARIO.id_rolColumn] = value;
                 }
             }
             
@@ -10587,7 +10613,22 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
             tableMapping.ColumnMappings.Add("username", "username");
             tableMapping.ColumnMappings.Add("baja_user", "baja_user");
             tableMapping.ColumnMappings.Add("nombre_rol", "nombre_rol");
+            tableMapping.ColumnMappings.Add("id_rol", "id_rol");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "dbo.PROC_BUSCAR_USUARIO";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@apellido", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "apellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dni", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "dni", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mail", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "mail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@baja_user", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, "baja_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rol", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "id_rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_rol", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10747,6 +10788,110 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
             DataSet1.PROC_BUSCAR_USUARIODataTable dataTable = new DataSet1.PROC_BUSCAR_USUARIODataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSet1.PROC_BUSCAR_USUARIODataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSet1 dataSet) {
+            return this.Adapter.Update(dataSet, "PROC_BUSCAR_USUARIO");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> id_user, string apellido, string nombre, string dni, string mail, string username, global::System.Nullable<bool> baja_user, global::System.Nullable<int> id_rol, string nombre_rol) {
+            if ((id_user.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_user.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((apellido == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(apellido));
+            }
+            if ((nombre == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(nombre));
+            }
+            if ((dni == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(dni));
+            }
+            if ((mail == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(mail));
+            }
+            if ((username == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(username));
+            }
+            if ((baja_user.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(baja_user.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((id_rol.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(id_rol.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((nombre_rol == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(nombre_rol));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
         }
     }
     
@@ -11230,6 +11375,8 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
         
         private VentasTableAdapter _ventasTableAdapter;
         
+        private PROC_BUSCAR_USUARIOTableAdapter _pROC_BUSCAR_USUARIOTableAdapter;
+        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -11401,6 +11548,20 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public PROC_BUSCAR_USUARIOTableAdapter PROC_BUSCAR_USUARIOTableAdapter {
+            get {
+                return this._pROC_BUSCAR_USUARIOTableAdapter;
+            }
+            set {
+                this._pROC_BUSCAR_USUARIOTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -11462,6 +11623,10 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
                             && (this._ventasTableAdapter.Connection != null))) {
                     return this._ventasTableAdapter.Connection;
                 }
+                if (((this._pROC_BUSCAR_USUARIOTableAdapter != null) 
+                            && (this._pROC_BUSCAR_USUARIOTableAdapter.Connection != null))) {
+                    return this._pROC_BUSCAR_USUARIOTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -11506,6 +11671,9 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
                     count = (count + 1);
                 }
                 if ((this._ventasTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._pROC_BUSCAR_USUARIOTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -11618,6 +11786,15 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._pROC_BUSCAR_USUARIOTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PROC_BUSCAR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pROC_BUSCAR_USUARIOTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -11716,6 +11893,14 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._pROC_BUSCAR_USUARIOTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PROC_BUSCAR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pROC_BUSCAR_USUARIOTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -11726,6 +11911,14 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._pROC_BUSCAR_USUARIOTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PROC_BUSCAR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pROC_BUSCAR_USUARIOTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._productosCategoriasTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.ProductosCategorias.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -11908,6 +12101,11 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
                 throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
                         "sma cadena de conexión.");
             }
+            if (((this._pROC_BUSCAR_USUARIOTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._pROC_BUSCAR_USUARIOTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
+                        "sma cadena de conexión.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager no contiene información de conexión. Establezca cada propieda" +
@@ -12039,6 +12237,15 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
                         adaptersWithAcceptChangesDuringUpdate.Add(this._ventasTableAdapter.Adapter);
                     }
                 }
+                if ((this._pROC_BUSCAR_USUARIOTableAdapter != null)) {
+                    revertConnections.Add(this._pROC_BUSCAR_USUARIOTableAdapter, this._pROC_BUSCAR_USUARIOTableAdapter.Connection);
+                    this._pROC_BUSCAR_USUARIOTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._pROC_BUSCAR_USUARIOTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._pROC_BUSCAR_USUARIOTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._pROC_BUSCAR_USUARIOTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._pROC_BUSCAR_USUARIOTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -12140,6 +12347,10 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
                 if ((this._ventasTableAdapter != null)) {
                     this._ventasTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._ventasTableAdapter]));
                     this._ventasTableAdapter.Transaction = null;
+                }
+                if ((this._pROC_BUSCAR_USUARIOTableAdapter != null)) {
+                    this._pROC_BUSCAR_USUARIOTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pROC_BUSCAR_USUARIOTableAdapter]));
+                    this._pROC_BUSCAR_USUARIOTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
