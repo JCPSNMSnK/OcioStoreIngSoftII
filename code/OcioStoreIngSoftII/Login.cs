@@ -22,41 +22,59 @@ namespace OcioStoreIngSoftII
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        public void form_closing(object sender, FormClosingEventArgs e)
+        {
+            TUser.Content = "";
+            TPass.Content = "";
+            this.Show();
+        }
+
+        private void panel1_Paint_2(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void LLogin_Click(object sender, EventArgs e)
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
+            TPass.PlaceholderText = "Contraseña";
+            TPass.PlaceholderColor = Color.Gray;
 
+            TUser.PlaceholderText = "Usuario";
+            TUser.PlaceholderColor = Color.Gray;
         }
 
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        // Evento Enter
+        private void TPass_Enter(object sender, EventArgs e)
         {
-
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void TPass_Leave(object sender, EventArgs e)
         {
-
         }
 
-        private void BLogin_Click_1(object sender, EventArgs e)
+        private void TUser_Enter(object sender, EventArgs e)
         {
+        }
+
+        private void TUser_Leave(object sender, EventArgs e)
+        {
+        }
+
+        private void BLogin_Click(object sender, EventArgs e)
+        {
+
+
             List<Usuario> TEST = new Usuario_negocio().Listar();
 
 
-
-
             string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["cadena_conexion"].ConnectionString;
-            string usuario = TUser.Text;
-            string pass = TPass.Text;
+            string usuario = TUser.Content;
+            string pass = TPass.Content;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -71,7 +89,7 @@ namespace OcioStoreIngSoftII
                     {
                         string storedHash = reader["pass"].ToString();
                         int perfilId = Convert.ToInt32(reader["id_rol"]);
-                        Usuario ousuario = new Usuario_negocio().Listar().Where(u => u.username == TUser.Text && u.pass == storedHash).FirstOrDefault();
+                        Usuario ousuario = new Usuario_negocio().Listar().Where(u => u.username == usuario && u.pass == storedHash).FirstOrDefault();
                         Inicio form_inicio = new Inicio(ousuario);
 
                         // Verificamos si la contraseña está hasheada o en texto claro
@@ -112,11 +130,9 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        public void form_closing(object sender, FormClosingEventArgs e)
+        private void BCancelar_Click_1(object sender, EventArgs e)
         {
-            TUser.Text = "";
-            TPass.Text = "";
-            this.Show();
+            this.Close();
         }
 
         private void TPass_TextChanged(object sender, EventArgs e)
@@ -124,78 +140,9 @@ namespace OcioStoreIngSoftII
 
         }
 
-        private void LPass_Click(object sender, EventArgs e)
+        private void TPass_ContentChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void BCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void panel1_Paint_2(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LPass_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-            TPass.Text = "Contraseña";
-            TPass.ForeColor = Color.Gray;
-            TPass.UseSystemPasswordChar = false;
-
-            TUser.Text = "Usuario";
-            TUser.ForeColor = Color.Gray;
-        }
-
-        // Evento Enter
-        private void TPass_Enter(object sender, EventArgs e)
-        {
-            if (TPass.Text == "Contraseña")
-            {
-                TPass.Text = "";
-                TPass.ForeColor = Color.Black;
-                TPass.UseSystemPasswordChar = true;
-            }
-        }
-
-        private void TPass_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(TPass.Text))
-            {
-                TPass.Text = "Contraseña";
-                TPass.ForeColor = Color.Gray;
-                TPass.UseSystemPasswordChar = false;
-            }
-        }
-
-        private void TUser_Enter(object sender, EventArgs e)
-        {
-            if (TUser.Text == "Usuario")
-            {
-                TUser.Text = "";
-                TUser.ForeColor = Color.Black;
-            }
-        }
-
-        private void TUser_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(TUser.Text))
-            {
-                TUser.Text = "Usuario";
-                TUser.ForeColor = Color.Gray;
-            }
         }
     }
 }
