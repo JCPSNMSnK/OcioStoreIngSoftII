@@ -54,8 +54,6 @@ namespace OcioStoreIngSoftII
             CBModificarRoles.ValueMember = "Valor";
             CBModificarRoles.SelectedIndex = 0;
 
-            CentrarTodosLosPaneles();
-
             actualizarDatosTabla();
         }
         
@@ -130,24 +128,6 @@ namespace OcioStoreIngSoftII
 
         }
 
-
-        private void PanelAltaUser_Resize(object sender, EventArgs e)
-        {
-            CentrarTodosLosPaneles();
-        }
-        
-
-        private void CentrarPanel(Panel panel)
-        {
-            panel.Left = (PanelAltaUser.Width - panel.Width) / 2;
-            panel.Top = (PanelAltaUser.Height - panel.Height) / 2;
-        }
-
-        private void CentrarTodosLosPaneles()
-        {
-            CentrarPanel(panelInternoAlta);
-            CentrarPanel(panelInternoModif);
-        }
 
         //private void CargarUsuariosEnDataGridView(List<Usuario> listaUsuario)
         //{
