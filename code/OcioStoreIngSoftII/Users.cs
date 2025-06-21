@@ -154,9 +154,7 @@ namespace OcioStoreIngSoftII
         //    }
         //}
 
-        
-
-        private void pROC_BUSCAR_USUARIODataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void usuariosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
             {
@@ -175,7 +173,8 @@ namespace OcioStoreIngSoftII
                 e.Graphics.DrawImage(Properties.Resources.checkbox, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-        } 
+        }
+
         private void BRegisterUser_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
@@ -315,7 +314,8 @@ namespace OcioStoreIngSoftII
             //TModificarConfirmPass.Text = "";
         }
 
-        private void pROC_BUSCAR_USUARIODataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void usuariosDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (usuariosDataGridView.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
@@ -356,6 +356,7 @@ namespace OcioStoreIngSoftII
                 }
             }
         }
+
 
 
         private void BModificar_Click(object sender, EventArgs e)
@@ -520,6 +521,11 @@ namespace OcioStoreIngSoftII
         }
 
         private void LModificarEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BRegisterUser_Click_1(object sender, EventArgs e)
         {
 
         }

@@ -91,7 +91,8 @@ namespace OcioStoreIngSoftII
             panel.Left = (PanelAltaProducts.Width - panel.Width) / 2;
             panel.Top = (PanelAltaProducts.Height - panel.Height) / 2;
         }
-        private void usuariosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+
+        private void productosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
             {
@@ -253,7 +254,7 @@ namespace OcioStoreIngSoftII
             CBModificarEstado.SelectedIndex = 0;
         }
 
-        private void productosDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void productosDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (productosDataGridView.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
@@ -428,5 +429,6 @@ namespace OcioStoreIngSoftII
             }
 
         }
+
     }
 }
