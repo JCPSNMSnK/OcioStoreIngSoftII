@@ -48,37 +48,41 @@ namespace CapaDatos
             }
             return lista;
         }
-        //public bool Registrar(MediosPago obj, out string MediosPago)//crearMediosPago
-        //{
-        //    bool resultado = false;
-        //    Mensaje = string.Empty;
+        
+        public bool RegistrarMedioDePago(MediosPago objMetPago, out string Metodos)//crearVenta ()
+        {
 
-        //    try
-        //    {
-        //        using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-        //        {
-        //            SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_RESPUESTA", oconexion);
-        //            cmd.Parameters.AddWithValue("id_mensaje", obj.id_mensaje);
-        //            cmd.Parameters.AddWithValue("respuesta", obj.respuesta);
-        //            cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-        //            cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+            Ventas = string.Empty;
 
-        //            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_METODO", oconexion);
+                    cmd.Parameters.AddWithValue("comision", obj.comision);
+                    cmd.Parameters.AddWithValue("nombre_medio", obj.nombre_medio);
 
-        //            oconexion.Open();
-        //            cmd.ExecuteNonQuery();
+                    cmd.Parameters.Add("id_medio_registrado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-        //            resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
-        //            Mensaje = cmd.Parameters["mensaje"].Value.ToString();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        resultado = false;
-        //        MediosPago = ex.Message;
-        //    }
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-        //    return resultado;
-        //}
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    id_medio_registrado = Convert.ToInt32(cmd.Parameters["id_medio_registrado"].Value);
+                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                id_medio_registrado = 0;
+                Mensaje = ex.Message;
+            }
+
+            return id_medio_registrado;
+
+            
+        }
     }
 }
