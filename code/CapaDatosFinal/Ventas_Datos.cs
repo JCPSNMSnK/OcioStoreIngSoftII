@@ -12,7 +12,7 @@ namespace CapaDatos
 {
     public class Ventas_Datos
     {
-        public List<Ventas> Listar()//mostrarVentas
+        public List<Ventas> ListarVentas()//mostrarVentas
         {
             List<Ventas> lista = new List<Ventas>();
 
@@ -53,12 +53,13 @@ namespace CapaDatos
                                     username = dataReader["username"].ToString(),
                                     pass = dataReader["pass"].ToString(),
                                     baja_user = Convert.ToBoolean(dataReader["baja_user"]),
-                                    objRoles = new Roles(){
+                                    objRoles = new Roles()
+                                    {
                                         id_rol = Convert.ToInt32(dataReader["id_rol"]),
                                         nombre_rol = dataReader["nombre_rol"].ToString(),
                                     }
                                 },
-                                
+
                                 fecha_venta = Convert.ToDateTime(dataReader["fecha_venta"]),
                             });
                         }
@@ -71,38 +72,42 @@ namespace CapaDatos
             }
             return lista;
         }
-        //public bool Registrar(Ventas obj, MetodoPago objMetPago, out string Ventas)//crearVenta hay que cambiar el procedimiento almac
-        //{
-        //    
-        //    Ventas = string.Empty;
 
-        //    try
-        //    {
-        //        using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-        //        {
-        //            SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_VENTA", oconexion);
-        //            cmd.Parameters.AddWithValue("total", obj.total);
-        //            cmd.Parameters.AddWithValue("id_medioPago", obj.objMediosPago);
-        //            cmd.Parameters.AddWithValue("id_usuario", obj.objUsuario);
-        //            cmd.Parameters.AddWithValue("fecha_venta", obj.fecha_venta);
-        //           
+        public bool RegistrarVenta(Ventas obj, MetodoPago objMetPago, out string Ventas)//crearVenta ()
+        {
 
-        //            cmd.CommandType = CommandType.StoredProcedure;
+            Ventas = string.Empty;
 
-        //            oconexion.Open();
-        //            cmd.ExecuteNonQuery();
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_VENTA", oconexion);
+                    cmd.Parameters.AddWithValue("total", obj.total);
+                    cmd.Parameters.AddWithValue("id_medioPago", obj.objMediosPago);
+                    cmd.Parameters.AddWithValue("id_usuario", obj.objUsuario);
+                    cmd.Parameters.AddWithValue("fecha_venta", obj.fecha_venta);
 
-        //           
-        //            Ventas = cmd.Parameters["mensaje"].Value.ToString();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        resultado = false;
-        //        Ventas = ex.Message;
-        //    }
+                    cmd.Parameters.Add("id_venta_registrada", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-        //    return resultado;
-        //}
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    id_venta_registrada = Convert.ToInt32(cmd.Parameters["id_venta_registrada"].Value);
+                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                id_venta_registrada = 0;
+                Mensaje = ex.Message;
+            }
+
+            return id_venta_registrada;
+
+            
+        }
     }
-}
