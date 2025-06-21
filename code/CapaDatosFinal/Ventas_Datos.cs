@@ -73,7 +73,7 @@ namespace CapaDatos
             return lista;
         }
 
-        public bool RegistrarVenta(Ventas obj, MetodoPago objMetPago, out string Ventas)//crearVenta ()
+        public bool RegistrarVenta(Ventas obj, MediosPago objMetPago, out string Ventas)//crearVenta ()
         {
 
             Ventas = string.Empty;
