@@ -52,7 +52,8 @@ namespace CapaDatos
         public bool RegistrarMedioDePago(MediosPago objMetPago, out string Metodos)//crearVenta ()
         {
 
-            Ventas = string.Empty;
+            int id_medio_registrado = 0;
+            Mensaje = string.Empty;
 
             try
             {
