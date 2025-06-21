@@ -109,6 +109,8 @@ namespace CapaDatos
 
             return id_venta_registrada;
 
-            
+
         }
+
     }
+}
