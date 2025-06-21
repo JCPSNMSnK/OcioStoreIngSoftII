@@ -49,8 +49,6 @@ namespace OcioStoreIngSoftII
             CBModificarCategoria.ValueMember = "Valor";
             CBModificarCategoria.SelectedIndex = 0;
 
-            CentrarTodosLosPaneles();
-
             actualizarDatosTabla();
         }
 
@@ -68,28 +66,6 @@ namespace OcioStoreIngSoftII
                     row.Cells["estado"].Value = estado ? "Alta" : "Baja";
                 }
             }
-        }
-
-        private void PanelAltaProducts_Resize(object sender, EventArgs e)
-        {
-            CentrarTodosLosPaneles();
-        }
-
-        private void TCProductos_Resize(object sender, EventArgs e)
-        {
-            CentrarTodosLosPaneles();
-        }
-
-        private void CentrarTodosLosPaneles()
-        {
-            CentrarPanel(panelInternoAlta);
-            CentrarPanel(panelInternoModif);
-        }
-
-        private void CentrarPanel(Panel panel)
-        {
-            panel.Left = (PanelAltaProducts.Width - panel.Width) / 2;
-            panel.Top = (PanelAltaProducts.Height - panel.Height) / 2;
         }
 
         private void productosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -113,7 +89,76 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void BRegisterProduct_Click(object sender, EventArgs e)
+        private void VaciarCampos()
+        {
+            // Registro
+            TID_prod.Text = "0";
+            TNombre.Text = "";
+            TDescripcion.Text = "";
+            TPrecioLista.Text = "";
+            TPrecioVenta.Text = "";
+            NStock.Text = "";
+            NStockMin.Text = "";
+            CBCategoria.SelectedIndex = 0;
+            CBEstado.SelectedIndex = 0;
+
+            // Modificación (si usás campos separados)
+            TModificarID_prod.Text = "0";
+            TModificarNombre.Text = "";
+            TModificarDescripcion.Text = "";
+            TModificarPrecioLista.Text = "";
+            TModificarPrecioVenta.Text = "";
+            NModificarStock.Text = "";
+            NModificarStockMin.Text = "";
+            CBModificarCategoria.SelectedIndex = 0;
+            CBModificarEstado.SelectedIndex = 0;
+        }
+
+        private void productosDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (productosDataGridView.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            {
+                int indice = e.RowIndex;
+
+                if (indice >= 0)
+                {
+                    TCProductos.SelectedIndex = 1; // Cambia al tab de modificación
+
+                    TBModificarIndice.Text = indice.ToString();
+
+                    TModificarID_prod.Text = productosDataGridView.Rows[indice].Cells["id_producto"].Value.ToString();
+                    TModificarNombre.Text = productosDataGridView.Rows[indice].Cells["nombre_producto"].Value.ToString();
+                    TModificarDescripcion.Text = productosDataGridView.Rows[indice].Cells["descripcion"].Value.ToString();
+                    TModificarPrecioLista.Text = productosDataGridView.Rows[indice].Cells["precioLista"].Value.ToString();
+                    TModificarPrecioVenta.Text = productosDataGridView.Rows[indice].Cells["precioVenta"].Value.ToString();
+                    NModificarStock.Text = productosDataGridView.Rows[indice].Cells["stock"].Value.ToString();
+                    NModificarStockMin.Text = productosDataGridView.Rows[indice].Cells["stock_min"].Value.ToString();
+
+                    foreach (OpcionSelect opcionSelect in CBModificarCategoria.Items)
+                    {
+                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(productosDataGridView.Rows[indice].Cells["id_categoria"].Value))
+                        {
+                            int indice_select = CBModificarCategoria.Items.IndexOf(opcionSelect);
+                            CBModificarCategoria.SelectedIndex = indice_select;
+                            break;
+                        }
+                    }
+
+                    foreach (OpcionSelect opcionSelect in CBModificarEstado.Items)
+                    {
+                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(productosDataGridView.Rows[indice].Cells["estadoValor"].Value))
+                        {
+                            int indice_select = CBModificarEstado.Items.IndexOf(opcionSelect);
+                            CBModificarEstado.SelectedIndex = indice_select;
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private void BRegisterProduct_Click_1(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
 
@@ -229,76 +274,7 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void VaciarCampos()
-        {
-            // Registro
-            TID_prod.Text = "0";
-            TNombre.Text = "";
-            TDescripcion.Text = "";
-            TPrecioLista.Text = "";
-            TPrecioVenta.Text = "";
-            NStock.Text = "";
-            NStockMin.Text = "";
-            CBCategoria.SelectedIndex = 0;
-            CBEstado.SelectedIndex = 0;
-
-            // Modificación (si usás campos separados)
-            TModificarID_prod.Text = "0";
-            TModificarNombre.Text = "";
-            TModificarDescripcion.Text = "";
-            TModificarPrecioLista.Text = "";
-            TModificarPrecioVenta.Text = "";
-            NModificarStock.Text = "";
-            NModificarStockMin.Text = "";
-            CBModificarCategoria.SelectedIndex = 0;
-            CBModificarEstado.SelectedIndex = 0;
-        }
-
-        private void productosDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (productosDataGridView.Columns[e.ColumnIndex].Name == "btnSeleccionar")
-            {
-                int indice = e.RowIndex;
-
-                if (indice >= 0)
-                {
-                    TCProductos.SelectedIndex = 1; // Cambia al tab de modificación
-
-                    TBModificarIndice.Text = indice.ToString();
-
-                    TModificarID_prod.Text = productosDataGridView.Rows[indice].Cells["id_producto"].Value.ToString();
-                    TModificarNombre.Text = productosDataGridView.Rows[indice].Cells["nombre_producto"].Value.ToString();
-                    TModificarDescripcion.Text = productosDataGridView.Rows[indice].Cells["descripcion"].Value.ToString();
-                    TModificarPrecioLista.Text = productosDataGridView.Rows[indice].Cells["precioLista"].Value.ToString();
-                    TModificarPrecioVenta.Text = productosDataGridView.Rows[indice].Cells["precioVenta"].Value.ToString();
-                    NModificarStock.Text = productosDataGridView.Rows[indice].Cells["stock"].Value.ToString();
-                    NModificarStockMin.Text = productosDataGridView.Rows[indice].Cells["stock_min"].Value.ToString();
-
-                    foreach (OpcionSelect opcionSelect in CBModificarCategoria.Items)
-                    {
-                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(productosDataGridView.Rows[indice].Cells["id_categoria"].Value))
-                        {
-                            int indice_select = CBModificarCategoria.Items.IndexOf(opcionSelect);
-                            CBModificarCategoria.SelectedIndex = indice_select;
-                            break;
-                        }
-                    }
-
-                    foreach (OpcionSelect opcionSelect in CBModificarEstado.Items)
-                    {
-                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(productosDataGridView.Rows[indice].Cells["estadoValor"].Value))
-                        {
-                            int indice_select = CBModificarEstado.Items.IndexOf(opcionSelect);
-                            CBModificarEstado.SelectedIndex = indice_select;
-                            break;
-                        }
-                    }
-                }
-            }
-
-        }
-
-        private void BModificar_Click(object sender, EventArgs e)
+        private void BModificar_Click_1(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
 
@@ -399,7 +375,6 @@ namespace OcioStoreIngSoftII
             {
                 MessageBox.Show(mensaje);
             }
-
         }
 
         private void BEliminar_Click(object sender, EventArgs e)
@@ -427,8 +402,6 @@ namespace OcioStoreIngSoftII
                     }
                 }
             }
-
         }
-
     }
 }

@@ -175,7 +175,74 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void BRegisterUser_Click(object sender, EventArgs e)
+        private void VaciarCampos()
+        {
+            TID_user.Text = "0";
+            TApellido.Text = "";
+            TNombre.Text = "";
+            TDni.Text = "";
+            TEmail.Text = "";
+            TUser.Text = "";
+            TPass.Text = "";
+            TPassConf.Text = "";
+            CBroles.SelectedIndex = 0;
+            CBEstado.SelectedIndex = 0;
+
+            TModificarID_user.Text = "0";
+            TModificarAp.Text = "";
+            TModificarNombre.Text = "";
+            TModificarDni.Text = "";
+            TModificarEmail.Text = "";
+            TModificarUser.Text = "";
+            CBModificarRoles.SelectedIndex = 0;
+            CBModificarEstado.SelectedIndex = 0;
+            //TModificarPass.Text = "";
+            //TModificarConfirmPass.Text = "";
+        }
+
+        private void usuariosDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (usuariosDataGridView.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            {
+                int indice = e.RowIndex;
+
+                if (indice >= 0)
+                {
+                    TCUsuarios.SelectedIndex = 1;
+
+                    TBModificarIndice.Text = indice.ToString();
+
+                    TModificarID_user.Text = usuariosDataGridView.Rows[indice].Cells["id_user"].Value.ToString();
+                    TModificarAp.Text = usuariosDataGridView.Rows[indice].Cells["apellido"].Value.ToString();
+                    TModificarNombre.Text = usuariosDataGridView.Rows[indice].Cells["nombre"].Value.ToString();
+                    TModificarDni.Text = usuariosDataGridView.Rows[indice].Cells["dni"].Value.ToString();
+                    TModificarEmail.Text = usuariosDataGridView.Rows[indice].Cells["email"].Value.ToString();
+                    TModificarUser.Text = usuariosDataGridView.Rows[indice].Cells["user"].Value.ToString();
+
+                    foreach (OpcionSelect opcionSelect in CBModificarRoles.Items)
+                    {
+                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(usuariosDataGridView.Rows[indice].Cells["id_rol"].Value))
+                        {
+                            int indice_select = CBModificarRoles.Items.IndexOf(opcionSelect);
+                            CBModificarRoles.SelectedIndex = indice_select;
+                            break;
+                        }
+                    }
+
+                    foreach (OpcionSelect opcionSelect in CBModificarEstado.Items)
+                    {
+                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(usuariosDataGridView.Rows[indice].Cells["estadoValor"].Value))
+                        {
+                            int indice_select = CBModificarEstado.Items.IndexOf(opcionSelect);
+                            CBModificarEstado.SelectedIndex = indice_select;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void BRegisterUser_Click_1(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
 
@@ -237,10 +304,11 @@ namespace OcioStoreIngSoftII
                 username = TUser.Text,
                 pass = TPass.Text,
                 baja_user = Convert.ToInt32(((OpcionSelect)CBEstado.SelectedItem).Valor) == 1 ? true : false,
-                objRoles = new Roles() { 
-                                            id_rol = Convert.ToInt32(((OpcionSelect)CBroles.SelectedItem).Valor), 
-                                            descripcion = ((OpcionSelect)CBroles.SelectedItem).Texto 
-                                        },
+                objRoles = new Roles()
+                {
+                    id_rol = Convert.ToInt32(((OpcionSelect)CBroles.SelectedItem).Valor),
+                    descripcion = ((OpcionSelect)CBroles.SelectedItem).Texto
+                },
             };
 
             if (objUser.id_user == 0)
@@ -289,77 +357,34 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void VaciarCampos()
+        private void BEliminar_Click_1(object sender, EventArgs e)
         {
-            TID_user.Text = "0";
-            TApellido.Text = "";
-            TNombre.Text = "";
-            TDni.Text = "";
-            TEmail.Text = "";
-            TUser.Text = "";
-            TPass.Text = "";
-            TPassConf.Text = "";
-            CBroles.SelectedIndex = 0;
-            CBEstado.SelectedIndex = 0;
-
-            TModificarID_user.Text = "0";
-            TModificarAp.Text = "";
-            TModificarNombre.Text = "";
-            TModificarDni.Text = "";
-            TModificarEmail.Text = "";
-            TModificarUser.Text = "";
-            CBModificarRoles.SelectedIndex = 0;
-            CBModificarEstado.SelectedIndex = 0;
-            //TModificarPass.Text = "";
-            //TModificarConfirmPass.Text = "";
-        }
-
-
-        private void usuariosDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (usuariosDataGridView.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            if (Convert.ToInt32(TModificarID_user.Text) != 0)
             {
-                int indice = e.RowIndex;
-
-                if (indice >= 0)
+                if (MessageBox.Show("¿Desea eliminar el usuario?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    TCUsuarios.SelectedIndex = 1;
-
-                    TBModificarIndice.Text = indice.ToString();
-
-                    TModificarID_user.Text = usuariosDataGridView.Rows[indice].Cells["id_user"].Value.ToString();
-                    TModificarAp.Text = usuariosDataGridView.Rows[indice].Cells["apellido"].Value.ToString();
-                    TModificarNombre.Text = usuariosDataGridView.Rows[indice].Cells["nombre"].Value.ToString();
-                    TModificarDni.Text = usuariosDataGridView.Rows[indice].Cells["dni"].Value.ToString();
-                    TModificarEmail.Text = usuariosDataGridView.Rows[indice].Cells["email"].Value.ToString();
-                    TModificarUser.Text = usuariosDataGridView.Rows[indice].Cells["user"].Value.ToString();
-
-                    foreach (OpcionSelect opcionSelect in CBModificarRoles.Items)
+                    string mensaje = string.Empty;
+                    Usuario objusuario = new Usuario()
                     {
-                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(usuariosDataGridView.Rows[indice].Cells["id_rol"].Value))
-                        {
-                            int indice_select = CBModificarRoles.Items.IndexOf(opcionSelect);
-                            CBModificarRoles.SelectedIndex = indice_select;
-                            break;
-                        }
+                        id_user = Convert.ToInt32(TModificarID_user.Text)
+                    };
+
+                    bool respuesta = new Usuario_negocio().Eliminar(objusuario, out mensaje);
+
+                    if (respuesta)
+                    {
+                        usuariosDataGridView.Rows.RemoveAt(Convert.ToInt32(TBModificarIndice.Text));
+                        VaciarCampos();
                     }
-
-                    foreach (OpcionSelect opcionSelect in CBModificarEstado.Items)
+                    else
                     {
-                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(usuariosDataGridView.Rows[indice].Cells["estadoValor"].Value))
-                        {
-                            int indice_select = CBModificarEstado.Items.IndexOf(opcionSelect);
-                            CBModificarEstado.SelectedIndex = indice_select;
-                            break;
-                        }
+                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
         }
 
-
-
-        private void BModificar_Click(object sender, EventArgs e)
+        private void BModificar_Click_1(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
 
@@ -449,86 +474,5 @@ namespace OcioStoreIngSoftII
                 MessageBox.Show(mensaje);
             }
         }
-        private void BEliminar_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(TModificarID_user.Text) != 0)
-            {
-                if (MessageBox.Show("¿Desea eliminar el usuario?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    string mensaje = string.Empty;
-                    Usuario objusuario = new Usuario()
-                    {
-                        id_user = Convert.ToInt32(TModificarID_user.Text)
-                    };
-
-                    bool respuesta = new Usuario_negocio().Eliminar(objusuario, out mensaje);
-
-                    if (respuesta)
-                    {
-                        usuariosDataGridView.Rows.RemoveAt(Convert.ToInt32(TBModificarIndice.Text));
-                        VaciarCampos();
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-            }
-        }
-
-        private void PanelModificarUser_Resize(object sender, EventArgs e)
-        {
-
-        }
-        private void panelInternoModif_Resize(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelInterno_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void PanelAltaUser_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void PanelModificarUser_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TModificarConfirmPass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelInternoModif_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TModificarEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LModificarEmail_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BRegisterUser_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
