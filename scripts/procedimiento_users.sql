@@ -136,7 +136,7 @@ END
 ------------------------------------PRUEBAS------------------------------------
 
 
-select * from users
+select * from Productos
 
 -- INSERTAR --
 
@@ -144,39 +144,39 @@ DECLARE @idResultado INT
 DECLARE @mensaje VARCHAR(500)
 
 EXEC PROC_REGISTRAR_USUARIO
-    @nombre = 'Valentina',
-    @apellido = 'Rossi',
-    @dni = '30456789',
-    @mail = 'valentina.rossi@example.com',
-    @username = 'valenr',
-    @pass = 'claveSegura123',
+    @nombre = 'prueba',
+    @apellido = 'prueba',
+    @dni = '11111111',
+    @mail = 'prueba@example.com',
+    @username = 'prueba',
+    @pass = '123',
     @id_rol = 2,
     @baja_user = 0,
     @id_user_resultado = @idResultado OUTPUT,
     @mensaje = @mensaje OUTPUT
 
 SELECT @idResultado AS ID_Usuario_Creado, @mensaje AS Mensaje
-
+select * from users
 -- EDITAR --
 
 DECLARE @respuesta BIT
 DECLARE @mensaje VARCHAR(500)
 
 EXEC PROC_EDITAR_USUARIO
-    @id_user = 8,
-    @nombre = 'Valentina',
-    @apellido = 'Rossi',
-    @dni = '30456789',
-    @mail = 'valentina.rossi@actualizado.com',
-    @username = 'valenr_updated',
-    @pass = 'nuevaClave456',
+    @id_user = 9,
+    @nombre = 'pruebaEditar',
+    @apellido = 'pruebaEditar',
+    @dni = '22222222',
+    @mail = 'pruebaEditar@actualizado.com',
+    @username = 'pruebaEditar',
+    @pass = '456',
     @id_rol = 3,
-    @baja_user = 0,
+    @baja_user = 1,
     @respuesta = @respuesta OUTPUT,
     @mensaje = @mensaje OUTPUT
 
 SELECT @respuesta AS ResultadoEdicion, @mensaje AS Mensaje
-
+select * from users
 
 -- ELIMINAR --
 
@@ -184,8 +184,9 @@ DECLARE @respuesta BIT
 DECLARE @mensaje VARCHAR(500)
 
 EXEC PROC_ELIMINAR_USUARIO
-    @id_user = 7,
+    @id_user = 9,
     @respuesta = @respuesta OUTPUT,
     @mensaje = @mensaje OUTPUT
 
 SELECT @respuesta AS ResultadoEliminacion, @mensaje AS Mensaje
+select * from users

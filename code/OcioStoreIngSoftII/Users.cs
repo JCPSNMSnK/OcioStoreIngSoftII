@@ -267,21 +267,6 @@ namespace OcioStoreIngSoftII
 
                 if (idusuarioregistrado != 0)
                 {
-                    //usuariosDataGridView.Rows.Add(new object[] {
-                    //    "",
-                    //    idusuarioregistrado,
-                    //    TApellido.Text,
-                    //    TNombre.Text,
-                    //    TDni.Text,
-                    //    TEmail.Text,
-                    //    TUser.Text,
-                    //    ((OpcionSelect)CBEstado.SelectedItem).Valor.ToString(),
-                    //    ((OpcionSelect)CBEstado.SelectedItem).Texto.ToString(),
-                    //    ((OpcionSelect)CBroles.SelectedItem).Valor.ToString(),
-                    //    ((OpcionSelect)CBroles.SelectedItem).Texto.ToString(),
-                    //    //TPass.Text,
-                    //});
-
                     VaciarCampos();
 
                     actualizarDatosTabla();
@@ -365,8 +350,6 @@ namespace OcioStoreIngSoftII
                     TModificarDni.Text = usuariosDataGridView.Rows[indice].Cells["dni"].Value.ToString();
                     TModificarEmail.Text = usuariosDataGridView.Rows[indice].Cells["email"].Value.ToString();
                     TModificarUser.Text = usuariosDataGridView.Rows[indice].Cells["user"].Value.ToString();
-                    //TModificarPass.Text = usuariosDataGridView.Rows[indice].Cells["pass"].Value.ToString();
-                    //TModificarConfirmPass.Text = usuariosDataGridView.Rows[indice].Cells["pass"].Value.ToString();
 
                     foreach (OpcionSelect opcionSelect in CBModificarRoles.Items)
                     {

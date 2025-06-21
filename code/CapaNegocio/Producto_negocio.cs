@@ -17,76 +17,76 @@ namespace CapaNegocio
             return objProduct_datos.Listar();
         }
 
-        //public int Registrar(Producto obj, out string Mensaje)
-        //{//crearProducto
-        //    Mensaje = string.Empty;
+        public int Registrar(Producto obj, out string Mensaje)
+        {//crearProducto
+            Mensaje = string.Empty;
 
-        //    if (obj.nombre == "")
-        //    {
-        //        Mensaje += "Debe ingresar un nombre\n";
-        //    }
+            if (obj.nombre_producto == "")
+            {
+                Mensaje += "Debe ingresar un nombre\n";
+            }
 
-        //    if (obj.descripcion == "")
-        //    {
-        //        Mensaje += "Debe ingresar una descripion\n";
-        //    }
+            if (obj.descripcion == "")
+            {
+                Mensaje += "Debe ingresar una descripion\n";
+            }
 
-        //    if (obj.marca == "")//sacar
-        //    {
-        //        Mensaje += "Debe ingresar un marca\n";
-        //    }
+            if (obj.marca == "")//sacar
+            {
+                Mensaje += "Debe ingresar un marca\n";
+            }
 
-        //    if (obj.modelo == "")//sacar
-        //    {
-        //        Mensaje += "Debe ingresar una contraseña\n";
-        //    }
+            if (obj.modelo == "")//sacar
+            {
+                Mensaje += "Debe ingresar una contraseña\n";
+            }
 
-        //    if (Mensaje != string.Empty)
-        //    {
-        //        return 0;
-        //    }
-        //    else
-        //    {
-        //        return objProduct_datos.Registrar(obj, out Mensaje);
-        //    }
+            if (Mensaje != string.Empty)
+            {
+                return 0;
+            }
+            else
+            {
+                return objProduct_datos.Registrar(obj, out Mensaje);
+            }
 
-        //}
-        //public bool Editar(Producto obj, out string Mensaje)
-        //{//modificarProducto
-        //    Mensaje = string.Empty;
+        }
+        public bool Editar(Producto obj, out string Mensaje)
+        {//modificarProducto
+            Mensaje = string.Empty;
 
-        //    if (obj.nombre == "")
-        //    {
-        //        Mensaje += "Debe ingresar un nombre\n";
-        //    }
+            if (obj.nombre == "")
+            {
+                Mensaje += "Debe ingresar un nombre\n";
+            }
 
-        //    if (obj.descripcion == "")
-        //    {
-        //        Mensaje += "Debe ingresar una descripion\n";
-        //    }
+            if (obj.descripcion == "")
+            {
+                Mensaje += "Debe ingresar una descripion\n";
+            }
 
-        //    if (obj.marca == "")//sacar
-        //    {
-        //        Mensaje += "Debe ingresar un marca\n";
-        //    }
+            if (obj.marca == "")//sacar
+            {
+                Mensaje += "Debe ingresar un marca\n";
+            }
 
-        //    if (obj.modelo == "")//sacar
-        //    {
-        //        Mensaje += "Debe ingresar una contraseña\n";
-        //    }
+            if (obj.modelo == "")//sacar
+            {
+                Mensaje += "Debe ingresar una contraseña\n";
+            }
 
-        //    if (Mensaje != string.Empty)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        return objProduct_datos.Editar(obj, out Mensaje);
-        //    }
-        //}
-        //public bool Eliminar(Producto obj, out string Mensaje)
-        //{//quitarProducto
-        //    return objProduct_datos.Eliminar(obj, out Mensaje);
-        //}
+            if (Mensaje != string.Empty)
+            {
+                return false;
+            }
+            else
+            {
+                return objProduct_datos.Editar(obj, out Mensaje);
+            }
+        }
+        public bool Eliminar(Producto obj, out string Mensaje)
+        {//quitarProducto
+            return objProduct_datos.Eliminar(obj, out Mensaje);
+        }
     }
 }
