@@ -403,5 +403,45 @@ namespace OcioStoreIngSoftII
                 }
             }
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.Trim();
+
+            // Si está vacío, muestra todos
+            if (string.IsNullOrEmpty(filtro))
+            {
+                this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
+                    this.dataSet1.PROC_BUSCAR_PRODUCTO,
+                    null, null, null, null, null, null, null, null, null, null, null
+                );
+                return;
+            }
+
+            // Intentar buscar por id_producto si es numérico
+            if (int.TryParse(filtro, out int idVal))
+            {
+                this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
+                    this.dataSet1.PROC_BUSCAR_PRODUCTO,
+                    idVal, null, null, null, null, null, null, null, null, null, null
+                );
+                return;
+            }
+
+            // Si no es numérico, intenta por los campos de texto
+
+            this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
+                this.dataSet1.PROC_BUSCAR_PRODUCTO,
+                null, filtro, null, null, null, null, null, null, null, null, null // nombre producto
+            );
+            if (this.dataSet1.PROC_BUSCAR_PRODUCTO.Rows.Count == 0)
+            {
+                this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_PRODUCTO, null, null, null, null, null, null, null, null, filtro, null, null); // descripcion
+            }
+            if (this.dataSet1.PROC_BUSCAR_PRODUCTO.Rows.Count == 0)
+            {
+                this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_PRODUCTO, null, null, null, null, null, null, null, null, null, null, filtro); // nombre categoria
+            }
+        }
     }
 }
