@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -58,6 +59,7 @@ namespace CapaDatos
                 catch (Exception ex)
                 {
                     lista = new List<Producto>();
+                    string Mensaje = ex.Message;
                 }
             }
             return lista;

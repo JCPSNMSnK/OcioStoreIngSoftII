@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -68,12 +69,13 @@ namespace CapaDatos
                 catch (Exception ex)
                 {
                     lista = new List<Ventas>();
+                    string Mensaje = ex.Message;
                 }
             }
             return lista;
         }
 
-        public int  RegistrarVenta(Ventas obj, MediosPago objMetPago, out string Ventas)//crearVenta ()
+        public int  RegistrarVenta(Ventas obj, MediosPago objMetPago, out string Mensaje)//crearVenta ()
         {
 
             int id_venta_registrada = 0;
