@@ -23,7 +23,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT u.id_user, u.apellido, u.nombre, u.dni, u.mail, u.username, u.pass, u.id_rol, u.baja_user");
+                    query.AppendLine("SELECT u.id_user, u.apellido, u.nombre, u.dni, u.mail, u.username, u.pass, u.baja_user, r.id_rol, r.nombre_rol, r.descripcion");
                     query.AppendLine("FROM Users u");
                     query.AppendLine("INNER JOIN Roles r ON r.id_rol = u.id_rol;");
 

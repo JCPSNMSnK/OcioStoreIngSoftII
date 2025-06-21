@@ -29,18 +29,18 @@ namespace OcioStoreIngSoftII
         }
         private void Inicio_Load(object sender, EventArgs e)
         {
-            //List<Permiso> ListaPermisos = new Permiso_negocio().Listar(usuarioActual.id_usuario);
+            List<Permiso> ListaPermisos = new Permiso_negocio().Listar(usuarioActual.id_user);
 
-            //foreach (Control control in menu.Controls)
-            //{
-            //    if (control is IconButton iconMenu)
-            //    {
-            //        bool encontrado = ListaPermisos.Any(m => m.nombreAcceso == iconMenu.Name);
+            foreach (Control control in menu.Controls)
+            {
+                if (control is IconButton iconMenu)
+                {
+                    bool encontrado = ListaPermisos.Any(m => m.nombreAcceso == iconMenu.Name);
 
-            //        // Si el permiso no se encuentra, oculta el botón
-            //        iconMenu.Visible = encontrado;
-            //    }
-            //}
+                    // Si el permiso no se encuentra, oculta el botón
+                    iconMenu.Visible = encontrado;
+                }
+            }
 
             LogOutButton.Visible = true;
 

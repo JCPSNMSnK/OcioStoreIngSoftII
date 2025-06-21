@@ -17,7 +17,7 @@ namespace OcioStoreIngSoftII
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Products());
+            Application.Run(new Login());
         }
     }
 }

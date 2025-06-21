@@ -37,7 +37,7 @@
             this.RestoreButton = new FontAwesome.Sharp.IconButton();
             this.BackupButton = new FontAwesome.Sharp.IconButton();
             this.LogOutButton = new FontAwesome.Sharp.IconButton();
-            this.UsersButton = new FontAwesome.Sharp.IconButton();
+            this.UserButton = new FontAwesome.Sharp.IconButton();
             this.SellButton = new FontAwesome.Sharp.IconButton();
             this.ProductsButton = new FontAwesome.Sharp.IconButton();
             this.HomeButton = new FontAwesome.Sharp.IconButton();
@@ -81,7 +81,7 @@
             this.menu.Controls.Add(this.RestoreButton, 0, 7);
             this.menu.Controls.Add(this.BackupButton, 0, 8);
             this.menu.Controls.Add(this.LogOutButton, 0, 9);
-            this.menu.Controls.Add(this.UsersButton, 0, 1);
+            this.menu.Controls.Add(this.UserButton, 0, 1);
             this.menu.Controls.Add(this.SellButton, 0, 2);
             this.menu.Controls.Add(this.ProductsButton, 0, 3);
             this.menu.Controls.Add(this.HomeButton, 0, 0);
@@ -252,31 +252,31 @@
             this.LogOutButton.UseVisualStyleBackColor = false;
             this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
-            // UsersButton
+            // UserButton
             // 
-            this.UsersButton.AutoSize = true;
-            this.UsersButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.UsersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.UsersButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UsersButton.FlatAppearance.BorderSize = 0;
-            this.UsersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UsersButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsersButton.ForeColor = System.Drawing.Color.AliceBlue;
-            this.UsersButton.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
-            this.UsersButton.IconColor = System.Drawing.Color.AliceBlue;
-            this.UsersButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.UsersButton.IconSize = 25;
-            this.UsersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UsersButton.Location = new System.Drawing.Point(3, 71);
-            this.UsersButton.MinimumSize = new System.Drawing.Size(75, 37);
-            this.UsersButton.Name = "UsersButton";
-            this.UsersButton.Size = new System.Drawing.Size(160, 62);
-            this.UsersButton.TabIndex = 28;
-            this.UsersButton.Text = "Usuarios";
-            this.UsersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UsersButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.UsersButton.UseVisualStyleBackColor = false;
-            this.UsersButton.Click += new System.EventHandler(this.UsersButton_Click_1);
+            this.UserButton.AutoSize = true;
+            this.UserButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UserButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.UserButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserButton.FlatAppearance.BorderSize = 0;
+            this.UserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UserButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.UserButton.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
+            this.UserButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.UserButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.UserButton.IconSize = 25;
+            this.UserButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UserButton.Location = new System.Drawing.Point(3, 71);
+            this.UserButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.UserButton.Name = "UserButton";
+            this.UserButton.Size = new System.Drawing.Size(160, 62);
+            this.UserButton.TabIndex = 28;
+            this.UserButton.Text = "Usuarios";
+            this.UserButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UserButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UserButton.UseVisualStyleBackColor = false;
+            this.UserButton.Click += new System.EventHandler(this.UsersButton_Click_1);
             // 
             // SellButton
             // 
@@ -387,7 +387,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel menu;
         private FontAwesome.Sharp.IconButton HomeButton;
-        private FontAwesome.Sharp.IconButton UsersButton;
+        private FontAwesome.Sharp.IconButton UserButton;
         private FontAwesome.Sharp.IconButton SellButton;
         private FontAwesome.Sharp.IconButton ProductsButton;
         private FontAwesome.Sharp.IconButton CategoriesButton;
