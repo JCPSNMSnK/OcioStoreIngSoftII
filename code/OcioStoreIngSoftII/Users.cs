@@ -258,7 +258,10 @@ namespace OcioStoreIngSoftII
                 username = TUser.Text,
                 pass = TPass.Text,
                 baja_user = Convert.ToInt32(((OpcionSelect)CBEstado.SelectedItem).Valor) == 1 ? true : false,
-                objRoles = new Roles() { id_rol = Convert.ToInt32(((OpcionSelect)CBroles.SelectedItem).Valor), descripcion = ((OpcionSelect)CBroles.SelectedItem).Texto },
+                objRoles = new Roles() { 
+                                            id_rol = Convert.ToInt32(((OpcionSelect)CBroles.SelectedItem).Valor), 
+                                            descripcion = ((OpcionSelect)CBroles.SelectedItem).Texto 
+                                        },
             };
 
             if (objUser.id_user == 0)

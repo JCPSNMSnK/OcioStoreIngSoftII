@@ -193,7 +193,7 @@ namespace OcioStoreIngSoftII
 
             if (objProducto.id_producto == 0)
             {
-                int idRegistrado = new Producto_negocio().Registrar(objProducto, out mensaje);
+                int idRegistrado = new Producto_negocio().Registrar(objProducto, objCategoria, out mensaje);
 
                 if (idRegistrado != 0)
                 {
@@ -207,7 +207,7 @@ namespace OcioStoreIngSoftII
             }
             else
             {
-                bool resultado = new Producto_negocio().Editar(objProducto, out mensaje);
+                bool resultado = new Producto_negocio().Editar(objProducto, objCategoria, out mensaje);
 
                 if (resultado)
                 {
@@ -382,7 +382,7 @@ namespace OcioStoreIngSoftII
                 nombre_categoria = ((OpcionSelect)CBModificarCategoria.SelectedItem).Texto
             };
 
-            bool resultado = new Producto_negocio().Editar(objProducto, out mensaje);
+            bool resultado = new Producto_negocio().Editar(objProducto, objCategoria, out mensaje);
 
             if (resultado)
             {

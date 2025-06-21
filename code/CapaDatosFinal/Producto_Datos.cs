@@ -23,7 +23,7 @@ namespace CapaDatos
                 {
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("SELECT p.id_producto, p.nombre_producto, p.descripcion, p.precioLista, p.precioVenta,");
-                    query.AppendLine("p.stock, p.stock_min, p.baja_producto as baja, c.id_categoria, c.nombre_categoria");
+                    query.AppendLine("p.stock, p.stock_min, p.baja_producto, c.id_categoria, c.nombre_categoria");
                     query.AppendLine("FROM Productos p ");
                     query.AppendLine("LEFT JOIN ProductosCategorias pc ON p.id_producto = pc.id_producto ");
                     query.AppendLine("LEFT JOIN Categorias c ON pc.id_categoria = c.id_categoria ");
@@ -123,7 +123,7 @@ namespace CapaDatos
         //    }
         //    return lista;
         //}
-        public int Registrar(Producto obj, out string Mensaje)//crearProducto
+        public int Registrar(Producto obj, Categoria objCat, out string Mensaje)//crearProducto
         {
             int id_producto_generado = 0;
             Mensaje = string.Empty;
@@ -133,7 +133,7 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_PRODUCTO", oconexion);
-                    cmd.Parameters.AddWithValue("nombre", obj.nombre_producto);
+                    cmd.Parameters.AddWithValue("nombre_producto", obj.nombre_producto);
                     cmd.Parameters.AddWithValue("fechaIngreso", obj.fechaIngreso);
                     cmd.Parameters.AddWithValue("precioLista", obj.precioLista);
                     cmd.Parameters.AddWithValue("precioVenta", obj.precioVenta);
@@ -141,9 +141,9 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("stock", obj.stock);
                     cmd.Parameters.AddWithValue("stock_min", obj.stock_min);
                     cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
-                    cmd.Parameters.AddWithValue("id_categoria", obj.objCategoria.id_categoria);
+                    cmd.Parameters.AddWithValue("id_categoria", objCat.id_categoria);
 
-                    cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("id_producto_resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -151,7 +151,7 @@ namespace CapaDatos
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    id_producto_generado = Convert.ToInt32(cmd.Parameters["resultado"].Value);
+                    id_producto_generado = Convert.ToInt32(cmd.Parameters["id_producto_resultado"].Value);
                     Mensaje = cmd.Parameters["mensaje"].Value.ToString();
                 }
             }
@@ -164,7 +164,7 @@ namespace CapaDatos
             return id_producto_generado;
         }
 
-        public bool Editar(Producto obj, out string Mensaje)//modificarProducto
+        public bool Editar(Producto obj, Categoria objCat, out string Mensaje)//modificarProducto
         {
             bool resultado = false;
             Mensaje = string.Empty;
@@ -174,18 +174,17 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     SqlCommand cmd = new SqlCommand("PROC_EDITAR_PRODUCTO", oconexion);
-                    cmd.Parameters.AddWithValue("id_prod", obj.id_producto);
-                    cmd.Parameters.AddWithValue("nombre", obj.nombre);
-                    cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
-                    cmd.Parameters.AddWithValue("marca", obj.marca);
-                    cmd.Parameters.AddWithValue("modelo", obj.modelo);
-                    cmd.Parameters.AddWithValue("precio", obj.precio);
+                    cmd.Parameters.AddWithValue("id_producto", obj.id_producto);
+                    cmd.Parameters.AddWithValue("nombre_producto", obj.nombre_producto);
+                    cmd.Parameters.AddWithValue("precioLista", obj.precioLista);
+                    cmd.Parameters.AddWithValue("precioVenta", obj.precioVenta);
+                    cmd.Parameters.AddWithValue("baja_producto", obj.baja_producto);
                     cmd.Parameters.AddWithValue("stock", obj.stock);
-                    cmd.Parameters.AddWithValue("baja", obj.baja);
-                    cmd.Parameters.AddWithValue("id_categoria", obj.objCategoria.id_categoria);
-                    cmd.Parameters.AddWithValue("id_subcategoria", obj.objSubCategoria.id_subcategoria);
+                    cmd.Parameters.AddWithValue("stock_min", obj.stock_min);
+                    cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
+                    cmd.Parameters.AddWithValue("id_categoria", objCat.id_categoria);
 
-                    cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -193,7 +192,7 @@ namespace CapaDatos
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
+                    resultado = Convert.ToBoolean(cmd.Parameters["respuesta"].Value);
                     Mensaje = cmd.Parameters["mensaje"].Value.ToString();
                 }
             }
@@ -216,7 +215,7 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     SqlCommand cmd = new SqlCommand("PROC_ELIMINAR_PRODUCTO", oconexion);
-                    cmd.Parameters.AddWithValue("id_prod", obj.id_producto);
+                    cmd.Parameters.AddWithValue("id_producto", obj.id_producto);
                     cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 

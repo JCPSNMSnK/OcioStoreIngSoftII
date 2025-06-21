@@ -29,32 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.productosDataGridView = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pROCBUSCARPRODUCTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.TCProductos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.PanelAltaProducts = new System.Windows.Forms.Panel();
             this.panelInternoAlta = new System.Windows.Forms.Panel();
+            this.NStockMin = new System.Windows.Forms.NumericUpDown();
             this.NStock = new System.Windows.Forms.NumericUpDown();
             this.CBEstado = new System.Windows.Forms.ComboBox();
+            this.LStockMin = new System.Windows.Forms.Label();
             this.CBCategoria = new System.Windows.Forms.ComboBox();
             this.LStock = new System.Windows.Forms.Label();
             this.LEstado = new System.Windows.Forms.Label();
@@ -73,10 +60,12 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.PanelModificarProducts = new System.Windows.Forms.Panel();
             this.panelInternoModif = new System.Windows.Forms.Panel();
+            this.NModificarStockMin = new System.Windows.Forms.NumericUpDown();
             this.NModificarStock = new System.Windows.Forms.NumericUpDown();
             this.CBModificarEstado = new System.Windows.Forms.ComboBox();
             this.CBModificarCategoria = new System.Windows.Forms.ComboBox();
             this.BEliminar = new System.Windows.Forms.Button();
+            this.LModificarStockMin = new System.Windows.Forms.Label();
             this.LModificarStock = new System.Windows.Forms.Label();
             this.LModificarEstado = new System.Windows.Forms.Label();
             this.LModificarCategoria = new System.Windows.Forms.Label();
@@ -94,27 +83,38 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.pROCBUSCARPRODUCTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.pROC_BUSCAR_PRODUCTOTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.PROC_BUSCAR_PRODUCTOTableAdapter();
-            this.LStockMin = new System.Windows.Forms.Label();
-            this.NStockMin = new System.Windows.Forms.NumericUpDown();
-            this.LModificarStockMin = new System.Windows.Forms.Label();
-            this.NModificarStockMin = new System.Windows.Forms.NumericUpDown();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pROCBUSCARPRODUCTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.TCProductos.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.PanelAltaProducts.SuspendLayout();
             this.panelInternoAlta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NStockMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NStock)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.PanelModificarProducts.SuspendLayout();
             this.panelInternoModif.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NModificarStockMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NModificarStock)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NStockMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NModificarStockMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pROCBUSCARPRODUCTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -143,23 +143,23 @@
             this.productosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productosDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.productosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.productosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
             this.id_producto,
-            this.nombre,
+            this.nombre_producto,
             this.fechaIngreso,
             this.precioLista,
             this.precioVenta,
-            this.stockMin,
+            this.stock_min,
             this.stock,
             this.descripcion,
             this.id_categoria,
@@ -167,142 +167,33 @@
             this.estadoValor,
             this.estado});
             this.productosDataGridView.DataSource = this.pROCBUSCARPRODUCTOBindingSource;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productosDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productosDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.productosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productosDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.productosDataGridView.Location = new System.Drawing.Point(3, 523);
             this.productosDataGridView.Name = "productosDataGridView";
             this.productosDataGridView.ReadOnly = true;
             this.productosDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.productosDataGridView.RowHeadersVisible = false;
             this.productosDataGridView.Size = new System.Drawing.Size(1121, 176);
             this.productosDataGridView.TabIndex = 10;
             this.productosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productosDataGridView_CellContentClick);
             this.productosDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.usuariosDataGridView_CellPainting);
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 110;
-            // 
-            // id_producto
-            // 
-            this.id_producto.DataPropertyName = "id_producto";
-            this.id_producto.HeaderText = "ID Producto";
-            this.id_producto.Name = "id_producto";
-            this.id_producto.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre_producto";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // fechaIngreso
-            // 
-            this.fechaIngreso.DataPropertyName = "fechaIngreso";
-            this.fechaIngreso.HeaderText = "Fecha Ingreso";
-            this.fechaIngreso.Name = "fechaIngreso";
-            this.fechaIngreso.ReadOnly = true;
-            // 
-            // precioLista
-            // 
-            this.precioLista.DataPropertyName = "precioLista";
-            this.precioLista.HeaderText = "Precio Lista";
-            this.precioLista.Name = "precioLista";
-            this.precioLista.ReadOnly = true;
-            // 
-            // precioVenta
-            // 
-            this.precioVenta.DataPropertyName = "precioVenta";
-            this.precioVenta.HeaderText = "Precio Venta";
-            this.precioVenta.Name = "precioVenta";
-            this.precioVenta.ReadOnly = true;
-            // 
-            // stockMin
-            // 
-            this.stockMin.DataPropertyName = "stock_min";
-            this.stockMin.HeaderText = "Stock Min.";
-            this.stockMin.Name = "stockMin";
-            this.stockMin.ReadOnly = true;
-            // 
-            // stock
-            // 
-            this.stock.DataPropertyName = "stock";
-            this.stock.HeaderText = "Stock";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "descripcion";
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // id_categoria
-            // 
-            this.id_categoria.DataPropertyName = "id_categoria";
-            this.id_categoria.HeaderText = "id_categoria";
-            this.id_categoria.Name = "id_categoria";
-            this.id_categoria.ReadOnly = true;
-            this.id_categoria.Visible = false;
-            // 
-            // categoria
-            // 
-            this.categoria.DataPropertyName = "nombre_categoria";
-            this.categoria.HeaderText = "Categoria";
-            this.categoria.Name = "categoria";
-            this.categoria.ReadOnly = true;
-            // 
-            // estadoValor
-            // 
-            this.estadoValor.DataPropertyName = "baja_producto";
-            this.estadoValor.HeaderText = "estadoValor";
-            this.estadoValor.Name = "estadoValor";
-            this.estadoValor.ReadOnly = true;
-            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.estadoValor.Visible = false;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Dado de Baja?";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // pROCBUSCARPRODUCTOBindingSource
-            // 
-            this.pROCBUSCARPRODUCTOBindingSource.DataMember = "PROC_BUSCAR_PRODUCTO";
-            this.pROCBUSCARPRODUCTOBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // TCProductos
             // 
@@ -370,6 +261,15 @@
             this.panelInternoAlta.Size = new System.Drawing.Size(731, 360);
             this.panelInternoAlta.TabIndex = 51;
             // 
+            // NStockMin
+            // 
+            this.NStockMin.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.NStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.NStockMin.Location = new System.Drawing.Point(519, 33);
+            this.NStockMin.Name = "NStockMin";
+            this.NStockMin.Size = new System.Drawing.Size(74, 26);
+            this.NStockMin.TabIndex = 26;
+            // 
             // NStock
             // 
             this.NStock.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -387,6 +287,17 @@
             this.CBEstado.Name = "CBEstado";
             this.CBEstado.Size = new System.Drawing.Size(144, 26);
             this.CBEstado.TabIndex = 25;
+            // 
+            // LStockMin
+            // 
+            this.LStockMin.AutoSize = true;
+            this.LStockMin.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.LStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LStockMin.Location = new System.Drawing.Point(515, 7);
+            this.LStockMin.Name = "LStockMin";
+            this.LStockMin.Size = new System.Drawing.Size(72, 23);
+            this.LStockMin.TabIndex = 24;
+            this.LStockMin.Text = "Stock Min";
             // 
             // CBCategoria
             // 
@@ -618,6 +529,15 @@
             this.panelInternoModif.Size = new System.Drawing.Size(731, 360);
             this.panelInternoModif.TabIndex = 52;
             // 
+            // NModificarStockMin
+            // 
+            this.NModificarStockMin.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.NModificarStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.NModificarStockMin.Location = new System.Drawing.Point(533, 33);
+            this.NModificarStockMin.Name = "NModificarStockMin";
+            this.NModificarStockMin.Size = new System.Drawing.Size(74, 26);
+            this.NModificarStockMin.TabIndex = 26;
+            // 
             // NModificarStock
             // 
             this.NModificarStock.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -660,6 +580,17 @@
             this.BEliminar.Text = "Eliminar";
             this.BEliminar.UseVisualStyleBackColor = false;
             this.BEliminar.Click += new System.EventHandler(this.BEliminar_Click);
+            // 
+            // LModificarStockMin
+            // 
+            this.LModificarStockMin.AutoSize = true;
+            this.LModificarStockMin.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
+            this.LModificarStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarStockMin.Location = new System.Drawing.Point(529, 7);
+            this.LModificarStockMin.Name = "LModificarStockMin";
+            this.LModificarStockMin.Size = new System.Drawing.Size(72, 23);
+            this.LModificarStockMin.TabIndex = 24;
+            this.LModificarStockMin.Text = "Stock Min";
             // 
             // LModificarStock
             // 
@@ -858,49 +789,118 @@
             this.txtBuscar.Size = new System.Drawing.Size(226, 22);
             this.txtBuscar.TabIndex = 5;
             // 
+            // pROCBUSCARPRODUCTOBindingSource
+            // 
+            this.pROCBUSCARPRODUCTOBindingSource.DataMember = "PROC_BUSCAR_PRODUCTO";
+            this.pROCBUSCARPRODUCTOBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // pROC_BUSCAR_PRODUCTOTableAdapter
             // 
             this.pROC_BUSCAR_PRODUCTOTableAdapter.ClearBeforeFill = true;
             // 
-            // LStockMin
+            // btnSeleccionar
             // 
-            this.LStockMin.AutoSize = true;
-            this.LStockMin.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.LStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LStockMin.Location = new System.Drawing.Point(515, 7);
-            this.LStockMin.Name = "LStockMin";
-            this.LStockMin.Size = new System.Drawing.Size(72, 23);
-            this.LStockMin.TabIndex = 24;
-            this.LStockMin.Text = "Stock Min";
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 110;
             // 
-            // NStockMin
+            // id_producto
             // 
-            this.NStockMin.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.NStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.NStockMin.Location = new System.Drawing.Point(519, 33);
-            this.NStockMin.Name = "NStockMin";
-            this.NStockMin.Size = new System.Drawing.Size(74, 26);
-            this.NStockMin.TabIndex = 26;
+            this.id_producto.DataPropertyName = "id_producto";
+            this.id_producto.HeaderText = "ID Producto";
+            this.id_producto.Name = "id_producto";
+            this.id_producto.ReadOnly = true;
             // 
-            // LModificarStockMin
+            // nombre_producto
             // 
-            this.LModificarStockMin.AutoSize = true;
-            this.LModificarStockMin.Font = new System.Drawing.Font("Bahnschrift Condensed", 14F);
-            this.LModificarStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarStockMin.Location = new System.Drawing.Point(529, 7);
-            this.LModificarStockMin.Name = "LModificarStockMin";
-            this.LModificarStockMin.Size = new System.Drawing.Size(72, 23);
-            this.LModificarStockMin.TabIndex = 24;
-            this.LModificarStockMin.Text = "Stock Min";
+            this.nombre_producto.DataPropertyName = "nombre_producto";
+            this.nombre_producto.HeaderText = "Nombre";
+            this.nombre_producto.Name = "nombre_producto";
+            this.nombre_producto.ReadOnly = true;
             // 
-            // NModificarStockMin
+            // fechaIngreso
             // 
-            this.NModificarStockMin.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.NModificarStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.NModificarStockMin.Location = new System.Drawing.Point(533, 33);
-            this.NModificarStockMin.Name = "NModificarStockMin";
-            this.NModificarStockMin.Size = new System.Drawing.Size(74, 26);
-            this.NModificarStockMin.TabIndex = 26;
+            this.fechaIngreso.DataPropertyName = "fechaIngreso";
+            this.fechaIngreso.HeaderText = "Fecha Ingreso";
+            this.fechaIngreso.Name = "fechaIngreso";
+            this.fechaIngreso.ReadOnly = true;
+            // 
+            // precioLista
+            // 
+            this.precioLista.DataPropertyName = "precioLista";
+            this.precioLista.HeaderText = "Precio Lista";
+            this.precioLista.Name = "precioLista";
+            this.precioLista.ReadOnly = true;
+            // 
+            // precioVenta
+            // 
+            this.precioVenta.DataPropertyName = "precioVenta";
+            this.precioVenta.HeaderText = "Precio Venta";
+            this.precioVenta.Name = "precioVenta";
+            this.precioVenta.ReadOnly = true;
+            // 
+            // stock_min
+            // 
+            this.stock_min.DataPropertyName = "stock_min";
+            this.stock_min.HeaderText = "Stock Min.";
+            this.stock_min.Name = "stock_min";
+            this.stock_min.ReadOnly = true;
+            // 
+            // stock
+            // 
+            this.stock.DataPropertyName = "stock";
+            this.stock.HeaderText = "Stock";
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "descripcion";
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // id_categoria
+            // 
+            this.id_categoria.DataPropertyName = "id_categoria";
+            this.id_categoria.HeaderText = "id_categoria";
+            this.id_categoria.Name = "id_categoria";
+            this.id_categoria.ReadOnly = true;
+            this.id_categoria.Visible = false;
+            // 
+            // categoria
+            // 
+            this.categoria.DataPropertyName = "nombre_categoria";
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
+            this.categoria.ReadOnly = true;
+            // 
+            // estadoValor
+            // 
+            this.estadoValor.DataPropertyName = "baja_producto";
+            this.estadoValor.HeaderText = "estadoValor";
+            this.estadoValor.Name = "estadoValor";
+            this.estadoValor.ReadOnly = true;
+            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estadoValor.Visible = false;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Dado de Baja?";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Products
             // 
@@ -913,25 +913,25 @@
             this.Load += new System.EventHandler(this.Products_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pROCBUSCARPRODUCTOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.TCProductos.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.PanelAltaProducts.ResumeLayout(false);
             this.PanelAltaProducts.PerformLayout();
             this.panelInternoAlta.ResumeLayout(false);
             this.panelInternoAlta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NStockMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NStock)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.PanelModificarProducts.ResumeLayout(false);
             this.PanelModificarProducts.PerformLayout();
             this.panelInternoModif.ResumeLayout(false);
             this.panelInternoModif.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NModificarStockMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NModificarStock)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NStockMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NModificarStockMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pROCBUSCARPRODUCTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -988,22 +988,22 @@
         private DataSet1 dataSet1;
         private DataSet1TableAdapters.PROC_BUSCAR_PRODUCTOTableAdapter pROC_BUSCAR_PRODUCTOTableAdapter;
         private System.Windows.Forms.DataGridView productosDataGridView;
+        private System.Windows.Forms.NumericUpDown NStockMin;
+        private System.Windows.Forms.Label LStockMin;
+        private System.Windows.Forms.NumericUpDown NModificarStockMin;
+        private System.Windows.Forms.Label LModificarStockMin;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioLista;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioVenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockMin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock_min;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.NumericUpDown NStockMin;
-        private System.Windows.Forms.Label LStockMin;
-        private System.Windows.Forms.NumericUpDown NModificarStockMin;
-        private System.Windows.Forms.Label LModificarStockMin;
     }
 }
