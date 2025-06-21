@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,14 +29,14 @@ namespace OcioStoreIngSoftII
             // TODO: esta línea de código carga datos en la tabla 'dataSet1.Users' Puede moverla o quitarla según sea necesario.
             //this.usersTableAdapter.Fill(this.dataSet1.Users);
 
-            CBEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Dado de Alta" });
-            CBEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Dado de Baja" });
+            CBEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Alta" });
+            CBEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Baja" });
             CBEstado.DisplayMember = "Texto";
             CBEstado.ValueMember = "Valor";
             CBEstado.SelectedIndex = 0;
 
-            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Dado de Alta" });
-            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Dado de Baja" });
+            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Alta" });
+            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Baja" });
             CBModificarEstado.DisplayMember = "Texto";
             CBModificarEstado.ValueMember = "Valor";
 
@@ -55,22 +56,23 @@ namespace OcioStoreIngSoftII
 
             CentrarTodosLosPaneles();
 
+            actualizarDatosTabla();
+        }
+        
+        private void actualizarDatosTabla()
+        {
             this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
                 this.dataSet1.PROC_BUSCAR_USUARIO,
                 null, null, null, null, null, null, null, null, null
             );
-        }
-        private void usuariosDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            //cambia el valor booleano a texto, esto es solo estetico
-            //if (usuariosDataGridView.Columns[e.ColumnIndex].Name == "estado")
-            //{
-            //    if (e.Value is bool valor)
-            //    {
-            //        e.Value = valor ? "Alta" : "Baja";
-            //        e.FormattingApplied = true;
-            //    }
-            //}
+
+            foreach (DataGridViewRow row in usuariosDataGridView.Rows)
+            {
+                if (row.Cells["estadoValor"].Value is bool estado)
+                {
+                    row.Cells["estado"].Value = estado ? "Alta" : "Baja";
+                }
+            }
         }
 
 
@@ -281,6 +283,8 @@ namespace OcioStoreIngSoftII
                     //});
 
                     VaciarCampos();
+
+                    actualizarDatosTabla();
                 }
                 else
                 {
@@ -303,12 +307,13 @@ namespace OcioStoreIngSoftII
                     row.Cells["user"].Value = TModificarUser.Text;
                     row.Cells["id_rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Valor.ToString();
                     row.Cells["rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Texto.ToString();
-                    row.Cells["estado"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Valor.ToString();
-                    //row.Cells["baja"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Texto.ToString();
-
-
+                    row.Cells["estadoValor"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Valor.ToString();
+                    row.Cells["estado"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Texto.ToString();
 
                     VaciarCampos();
+
+                    actualizarDatosTabla();
+
                 }
                 else
                 {
@@ -375,12 +380,130 @@ namespace OcioStoreIngSoftII
 
                     foreach (OpcionSelect opcionSelect in CBModificarEstado.Items)
                     {
-                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(usuariosDataGridView.Rows[indice].Cells["estado"].Value))
+                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(usuariosDataGridView.Rows[indice].Cells["estadoValor"].Value))
                         {
                             int indice_select = CBModificarEstado.Items.IndexOf(opcionSelect);
                             CBModificarEstado.SelectedIndex = indice_select;
                             break;
                         }
+                    }
+                }
+            }
+        }
+
+
+        private void BModificar_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+
+            // Validación para nombre
+            if (string.IsNullOrEmpty(TModificarNombre.Text))
+            {
+                MessageBox.Show("El nombre no puede estar vacío.");
+                return;
+            }
+
+            // Validación para apellido
+            if (string.IsNullOrEmpty(TModificarAp.Text))
+            {
+                MessageBox.Show("El apellido no puede estar vacío.");
+                return;
+            }
+
+            // Validación para DNI
+            if (string.IsNullOrEmpty(TModificarDni.Text) || !int.TryParse(TModificarDni.Text, out int dni))
+            {
+                MessageBox.Show("El DNI debe ser un número válido.");
+                return;
+            }
+
+            // Validación para rol
+            if (CBModificarRoles.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un rol.");
+                return;
+            }
+
+            // Validación para estado
+            if (CBModificarEstado.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar el estado.");
+                return;
+            }
+
+            // Validación para usuario
+            if (string.IsNullOrEmpty(TModificarUser.Text))
+            {
+                MessageBox.Show("El nombre de usuario no puede estar vacío.");
+                return;
+            }
+
+            // Validación para email
+            if (string.IsNullOrEmpty(TModificarEmail.Text) || !Regex.IsMatch(TModificarEmail.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("El email no tiene un formato válido.");
+                return;
+            }
+
+            // Crear el objeto Usuario
+            Usuario objUser = new Usuario()
+            {
+                id_user = Convert.ToInt32(TModificarID_user.Text),
+                nombre = TModificarNombre.Text,
+                apellido = TModificarAp.Text,
+                dni = dni,
+                mail = TModificarEmail.Text,
+                username = TModificarUser.Text,
+                baja_user = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1,
+                objRoles = new Roles() { id_rol = Convert.ToInt32(((OpcionSelect)CBModificarRoles.SelectedItem).Valor) }
+            };
+
+            bool resultado = new Usuario_negocio().Editar(objUser, out mensaje);
+
+            if (resultado)
+            {
+                DataGridViewRow row = usuariosDataGridView.Rows[Convert.ToInt32(TBModificarIndice.Text)];
+
+                //row.Cells["id_user"].Value = TModificarID_user.Text;
+                row.Cells["nombre"].Value = TModificarNombre.Text;
+                row.Cells["apellido"].Value = TModificarAp.Text;
+                row.Cells["dni"].Value = TModificarDni.Text;
+                row.Cells["email"].Value = TModificarEmail.Text;
+                row.Cells["user"].Value = TModificarUser.Text;
+                row.Cells["id_rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Valor.ToString();
+                row.Cells["rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Texto.ToString();
+                row.Cells["estadoValor"].Value = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1;
+                row.Cells["estado"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Texto.ToString();
+
+                VaciarCampos();
+            }
+            else
+            {
+                MessageBox.Show(mensaje);
+            }
+        }
+        private void BEliminar_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(TModificarID_user.Text) != 0)
+            {
+                if (MessageBox.Show("¿Desea eliminar el usuario?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string mensaje = string.Empty;
+                    Usuario objusuario = new Usuario()
+                    {
+                        id_user = Convert.ToInt32(TModificarID_user.Text)
+                    };
+
+                    bool respuesta = new Usuario_negocio().Eliminar(objusuario, out mensaje);
+
+                    if (respuesta)
+                    {
+                        usuariosDataGridView.Rows.RemoveAt(Convert.ToInt32(TBModificarIndice.Text));
+                        VaciarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
@@ -434,5 +557,6 @@ namespace OcioStoreIngSoftII
         {
 
         }
+
     }
 }

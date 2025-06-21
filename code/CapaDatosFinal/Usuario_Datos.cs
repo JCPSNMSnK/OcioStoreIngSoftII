@@ -171,7 +171,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("dni", obj.dni);
                     cmd.Parameters.AddWithValue("mail", obj.mail);
                     cmd.Parameters.AddWithValue("username", obj.username);
-                    cmd.Parameters.AddWithValue("pass", obj.pass);
                     cmd.Parameters.AddWithValue("id_rol", obj.objRoles.id_rol); // Asumiendo que existe esta propiedad
                     cmd.Parameters.AddWithValue("baja_user", obj.baja_user);
 
