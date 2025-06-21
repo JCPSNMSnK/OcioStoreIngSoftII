@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -43,13 +44,15 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
+                    string Mensaje;
                     lista = new List<MediosPago>();
+                    Mensaje = ex.Message;
                 }
             }
             return lista;
         }
         
-        public int RegistrarMedioDePago(MediosPago objMetPago, out string Metodos)//crearVenta ()
+        public int RegistrarMedioDePago(MediosPago objMetPago, out string Mensaje)//crearVenta ()
         {
 
             int id_medio_registrado = 0;
@@ -60,8 +63,8 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_METODO", oconexion);
-                    cmd.Parameters.AddWithValue("comision", obj.comision);
-                    cmd.Parameters.AddWithValue("nombre_medio", obj.nombre_medio);
+                    cmd.Parameters.AddWithValue("comision", objMetPago.comision);
+                    cmd.Parameters.AddWithValue("nombre_medio", objMetPago.nombre_medio);
 
                     cmd.Parameters.Add("id_medio_registrado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
