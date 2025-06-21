@@ -22,13 +22,6 @@ namespace OcioStoreIngSoftII
             InitializeComponent();
         }
 
-
-
-        private void PanelModificarUser_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Products_Load(object sender, EventArgs e)
         {
             CBEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Alta" });
