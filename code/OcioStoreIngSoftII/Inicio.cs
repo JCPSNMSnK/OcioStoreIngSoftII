@@ -44,6 +44,8 @@ namespace OcioStoreIngSoftII
 
             LogOutButton.Visible = true;
 
+            ReorganizarMenu();
+            /*
             // Ajusta el layout según la cantidad de botones visibles
             int botonesVisibles = menu.Controls.OfType<IconButton>().Count(b => b.Visible);
 
@@ -59,10 +61,70 @@ namespace OcioStoreIngSoftII
             //foreach (Control control in menu.Controls.OfType<IconButton>().Where(b => b.Visible))
             //{
             //    control.Dock = DockStyle.Fill; // Expande el botón para ocupar todo el ancho y alto de su celda
-            //}
+            //}*/
 
         }
 
+        private void ReorganizarMenu()
+        {
+            menu.SuspendLayout();
+
+            // Define el orden deseado de los botones por su nombre (propiedad Name)
+            // Ajusta esta lista según el orden que necesites
+            string[] ordenDeseado = new string[]
+            {
+                "HomeButton",
+                "UserButton",
+                "ProductsButton",
+                "SellButton",
+                "ProductsButton",
+                "CategoriesButton",
+                "ReceiptsButton",
+                "StatsButton",
+                "RestoreButton",
+                "BackupButton"
+
+                // Agrega aquí los Nombres (Name) de todos tus botones en el orden que quieras
+            };
+
+            var botonesVisiblesActuales = menu.Controls.OfType<IconButton>()
+                                                        .Where(b => b.Visible && b != LogOutButton)
+                                                        .ToList();
+
+            // Ordenar los botones visibles según el array 'ordenDeseado'
+            var botonesAMostrarOrdenados = ordenDeseado
+                .Select(name => botonesVisiblesActuales.FirstOrDefault(b => b.Name == name))
+                .Where(b => b != null) // Filtra los nombres que no corresponden a un botón visible
+                .ToList();
+
+            menu.Controls.Clear();
+            menu.RowStyles.Clear();
+
+            menu.RowCount = botonesAMostrarOrdenados.Count + (LogOutButton.Visible ? 1 : 0);
+
+            for (int i = 0; i < menu.RowCount; i++)
+            {
+                menu.RowStyles.Add(new RowStyle(SizeType.AutoSize)); // Permite que la fila se ajuste al contenido
+            }
+
+            int currentRow = 0;
+            foreach (var btn in botonesAMostrarOrdenados)
+            {
+                menu.Controls.Add(btn, 0, currentRow);
+                btn.Dock = DockStyle.Fill;
+                currentRow++;
+            }
+
+            if (LogOutButton.Visible)
+            {
+                menu.Controls.Add(LogOutButton, 0, currentRow);
+                LogOutButton.Dock = DockStyle.Bottom; // Importante para el tamaño
+                LogOutButton.Margin = new Padding(0, 10, 0, 0); // Opcional: un poco de espacio
+            }
+
+            menu.ResumeLayout();
+            menu.PerformLayout();
+        }
 
         private void AbrirFormulario(IconButton boton, Form formulario)
         {
@@ -119,5 +181,34 @@ namespace OcioStoreIngSoftII
             this.Close();
         }
 
+        private void RestoreButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SellButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CategoriesButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReceiptsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StatsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BackupButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
