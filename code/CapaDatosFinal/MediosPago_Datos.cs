@@ -49,7 +49,7 @@ namespace CapaDatos
             return lista;
         }
         
-        public bool RegistrarMedioDePago(MediosPago objMetPago, out string Metodos)//crearVenta ()
+        public int RegistrarMedioDePago(MediosPago objMetPago, out string Metodos)//crearVenta ()
         {
 
             int id_medio_registrado = 0;
