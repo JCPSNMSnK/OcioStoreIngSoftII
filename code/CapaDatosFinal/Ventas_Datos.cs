@@ -71,27 +71,28 @@ namespace CapaDatos
             }
             return lista;
         }
-        //public bool Registrar(Ventas obj, out string Ventas)//crearVenta hay que cambiar el procedimiento almac
+        //public bool Registrar(Ventas obj, MetodoPago objMetPago, out string Ventas)//crearVenta hay que cambiar el procedimiento almac
         //{
-        //    bool resultado = false;
+        //    
         //    Ventas = string.Empty;
 
         //    try
         //    {
         //        using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
         //        {
-        //            SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_RESPUESTA_CONSULTA", oconexion);
-        //            cmd.Parameters.AddWithValue("id_consulta", obj.id_consulta);
-        //            cmd.Parameters.AddWithValue("respuesta", obj.respuesta);
-        //            cmd.Parameters.Add("resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-        //            cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+        //            SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_VENTA", oconexion);
+        //            cmd.Parameters.AddWithValue("total", obj.total);
+        //            cmd.Parameters.AddWithValue("id_medioPago", obj.objMediosPago);
+        //            cmd.Parameters.AddWithValue("id_usuario", obj.objUsuario);
+        //            cmd.Parameters.AddWithValue("fecha_venta", obj.fecha_venta);
+        //           
 
         //            cmd.CommandType = CommandType.StoredProcedure;
 
         //            oconexion.Open();
         //            cmd.ExecuteNonQuery();
 
-        //            resultado = Convert.ToBoolean(cmd.Parameters["resultado"].Value);
+        //           
         //            Ventas = cmd.Parameters["mensaje"].Value.ToString();
         //        }
         //    }
