@@ -1,92 +1,130 @@
-﻿using CapaDatos;
+﻿using CapaDatos; // Asegúrate de que este using sea correcto
 using CapaEntidades;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
     public class Producto_negocio
     {
-        private Producto_Datos objProduct_datos = new Producto_Datos();
+        // Instancia de la Capa de Datos (dependencia)
+        // Se recomienda inyectar esta dependencia, pero para simplificar, se instancia directamente.
+        private readonly Producto_Datos _objProductoDatos;
 
-        public List<Producto> Listar()//mostrarProducto
+        public Producto_negocio()
         {
-            return objProduct_datos.Listar();
+            _objProductoDatos = new Producto_Datos();
         }
 
-        public int Registrar(Producto obj, Categoria objCat, out string Mensaje)
+
+        public List<Producto> Listar()
         {
-            Mensaje = string.Empty;
+            return _objProductoDatos.Listar();
+        }
 
-            if (string.IsNullOrWhiteSpace(obj.nombre_producto))
-                Mensaje += "Debe ingresar un nombre.\n";
+        public int Registrar(Producto objProducto, Categoria objCategoria, out string mensaje)
+        {
+            mensaje = string.Empty;
 
-            if (string.IsNullOrWhiteSpace(obj.descripcion))
-                Mensaje += "Debe ingresar una descripción.\n";
+            // **Validaciones de Reglas de Negocio (obligatorias y lógicas)**
+            if (string.IsNullOrWhiteSpace(objProducto.nombre_producto))
+            {
+                mensaje += "El nombre del producto es obligatorio.\n";
+            }
+            if (string.IsNullOrWhiteSpace(objProducto.descripcion))
+            {
+                mensaje += "La descripción del producto es obligatoria.\n";
+            }
+            if (objProducto.precioLista < 0)
+            {
+                mensaje += "El precio de lista no puede ser negativo.\n";
+            }
+            if (objProducto.precioVenta < 0)
+            {
+                mensaje += "El precio de venta no puede ser negativo.\n";
+            }
+            if (objProducto.stock < 0)
+            {
+                mensaje += "El stock no puede ser negativo.\n";
+            }
+            if (objProducto.stock_min < 0)
+            {
+                mensaje += "El stock mínimo no puede ser negativo.\n";
+            }
+            // Regla de negocio: El precio de venta no puede ser menor que el precio de lista
+            if (objProducto.precioVenta < objProducto.precioLista)
+            {
+                mensaje += "El precio de venta no puede ser menor que el precio de lista.\n";
+            }
+            // Regla de negocio: El stock mínimo no puede ser mayor que el stock actual
+            if (objProducto.stock_min > objProducto.stock)
+            {
+                mensaje += "El stock mínimo no puede ser mayor que el stock actual.\n";
+            }
 
-            if (Mensaje != string.Empty)
+            // Si hay mensajes de validación de negocio, se retorna 0 (fallo)
+            if (!string.IsNullOrEmpty(mensaje))
+            {
                 return 0;
+            }
 
-            return objProduct_datos.Registrar(obj, objCat, out Mensaje);
+            // Si las validaciones de negocio pasan, se delega a la capa de datos
+            return _objProductoDatos.Registrar(objProducto, objCategoria, out mensaje);
         }
 
+        /// <summary>
+        /// Edita un producto existente, aplicando las reglas de negocio.
+        /// </summary>
+        /// <param name="objProducto">Objeto Producto con los datos actualizados.</param>
+        /// <param name="objCategoria">Objeto Categoria asociado al producto.</param>
+        /// <param name="mensaje">Mensaje de éxito o error de la operación.</param>
+        /// <returns>True si la edición fue exitosa, False en caso contrario.</returns>
         public bool Editar(Producto objProducto, Categoria objCategoria, out string mensaje)
         {
             mensaje = string.Empty;
 
-            // **Business Validations** - Same rules apply for editing as for registering.
+            // **Validaciones de Reglas de Negocio (las mismas que para registrar)**
+            if (string.IsNullOrWhiteSpace(objProducto.nombre_producto))
+            {
+                mensaje += "El nombre del producto es obligatorio.\n";
+            }
+            if (string.IsNullOrWhiteSpace(objProducto.descripcion))
+            {
+                mensaje += "La descripción del producto es obligatoria.\n";
+            }
             if (objProducto.precioLista < 0)
             {
-                mensaje = "El precio de lista no puede ser negativo.";
-                return false;
+                mensaje += "El precio de lista no puede ser negativo.\n";
             }
             if (objProducto.precioVenta < 0)
             {
-                mensaje = "El precio de venta no puede ser negativo.";
-                return false;
+                mensaje += "El precio de venta no puede ser negativo.\n";
             }
             if (objProducto.stock < 0)
             {
-                mensaje = "El stock no puede ser negativo.";
-                return false;
+                mensaje += "El stock no puede ser negativo.\n";
             }
             if (objProducto.stock_min < 0)
             {
-                mensaje = "El stock mínimo no puede ser negativo.";
-                return false;
+                mensaje += "El stock mínimo no puede ser negativo.\n";
             }
             if (objProducto.precioVenta < objProducto.precioLista)
             {
-                mensaje = "El precio de venta no puede ser menor que el precio de lista.";
-                return false;
+                mensaje += "El precio de venta no puede ser menor que el precio de lista.\n";
             }
             if (objProducto.stock_min > objProducto.stock)
             {
-                mensaje = "El stock mínimo no puede ser mayor que el stock actual.";
-                return false;
-            }
-            if (objProducto.nombre_producto == "")
-            {
-                mensaje += "Debe ingresar un nombre\n";
+                mensaje += "El stock mínimo no puede ser mayor que el stock actual.\n";
             }
 
-            if (objProducto.descripcion == "")
-            {
-                mensaje += "Debe ingresar una descripion\n";
-            }
-
-            if (mensaje != string.Empty)
+            // Si hay mensajes de validación de negocio, se retorna false (fallo)
+            if (!string.IsNullOrEmpty(mensaje))
             {
                 return false;
             }
-            else
-            {
-                return objProduct_datos.Editar(objProducto, objCategoria, out mensaje);
-            }
 
+            // Si las validaciones de negocio pasan, se delega a la capa de datos
+            return _objProductoDatos.Editar(objProducto, objCategoria, out mensaje);
         }
     }
 }
