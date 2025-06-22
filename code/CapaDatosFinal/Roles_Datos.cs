@@ -49,6 +49,7 @@ namespace CapaDatos
                 catch (Exception ex)
                 {
                     lista = new List<Roles>();
+                    string Mensaje = ex.Message;
                 }
             }
             return lista;

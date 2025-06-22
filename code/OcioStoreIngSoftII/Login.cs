@@ -40,64 +40,29 @@ namespace OcioStoreIngSoftII
 
         private void BLogin_Click_1(object sender, EventArgs e)
         {
-            List<Usuario> TEST = new Usuario_negocio().Listar();
+            string usuario = TUser.Content?.Trim();
+            string password = TPass.Content;
 
-
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["cadena_conexion"].ConnectionString;
-            string usuario = TUser.Content;
-            string pass = TPass.Content;
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(password))
             {
-                connection.Open();
-                string query = "SELECT pass, id_rol FROM users WHERE username=@usuario";
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@usuario", usuario);
+                MessageBox.Show("Por favor, completá todos los campos.");
+                return;
+            }
 
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    if (reader.Read()) // Si el usuario existe
-                    {
-                        string storedHash = reader["pass"].ToString();
-                        int perfilId = Convert.ToInt32(reader["id_rol"]);
-                        Usuario ousuario = new Usuario_negocio().Listar().Where(u => u.username == usuario && u.pass == storedHash).FirstOrDefault();
-                        Inicio form_inicio = new Inicio(ousuario);
+            string mensaje;
+            Usuario_negocio negocio = new Usuario_negocio();
+            Usuario userAutenticado = negocio.AutenticarUsuario(usuario, password, out mensaje);
 
-                        // Verificamos si la contraseña está hasheada o en texto claro
-                        bool isAuthenticated = false;
-                        if (storedHash.Length == 60) // Longitud típica de un hash BCrypt
-                        {
-                            isAuthenticated = BCrypt.Net.BCrypt.Verify(pass, storedHash);
-                        }
-                        else
-                        {
-                            isAuthenticated = pass == storedHash; // Compara directamente si no está hasheada
-                        }
-
-                        // Verificamos si la autenticación fue exitosa y que el perfil_id sea distinto de 0
-                        if (isAuthenticated && perfilId != 0)
-                        {
-                            // Caso de éxito: Mostrar la nueva ventana y ocultar la actual
-                            form_inicio.Show();
-                            this.Hide();
-
-                            // Aseguramos que el evento form_closing se suscribe antes de mostrar el formulario
-                            form_inicio.FormClosing += form_closing;
-                        }
-                        else if (perfilId == 0)
-                        {
-                            MessageBox.Show("El usuario no tiene permiso para ingresar");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Usuario o Contraseña no válidos");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuario o Contraseña no válidos");
-                    }
-                }
+            if (userAutenticado != null)
+            {
+                Inicio form_inicio = new Inicio(userAutenticado);
+                form_inicio.Show();
+                this.Hide();
+                form_inicio.FormClosing += form_closing;
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

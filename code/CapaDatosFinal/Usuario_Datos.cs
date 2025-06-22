@@ -14,6 +14,61 @@ namespace CapaDatos
 {
     public class Usuario_Datos
     {
+        public Usuario ObtenerUsuarioLogin(string username)
+        {
+            Usuario usuario = null;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                SELECT u.id_user, u.apellido, u.nombre, u.dni, u.mail, u.username, u.pass, u.baja_user,
+                       r.id_rol, r.nombre_rol, r.descripcion
+                FROM Users u
+                INNER JOIN Roles r ON r.id_rol = u.id_rol
+                WHERE u.username = @username COLLATE Latin1_General_CS_AS"; // 💡 case-sensitive
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@username", username);
+
+                    oconexion.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            usuario = new Usuario()
+                            {
+                                id_user = Convert.ToInt32(reader["id_user"]),
+                                apellido = reader["apellido"].ToString(),
+                                nombre = reader["nombre"].ToString(),
+                                dni = Convert.ToInt32(reader["dni"]),
+                                mail = reader["mail"].ToString(),
+                                username = reader["username"].ToString(),
+                                pass = reader["pass"].ToString(),
+                                baja_user = Convert.ToBoolean(reader["baja_user"]),
+                                objRoles = new Roles()
+                                {
+                                    id_rol = Convert.ToInt32(reader["id_rol"]),
+                                    nombre_rol = reader["nombre_rol"].ToString(),
+                                    descripcion = reader["descripcion"].ToString()
+                                }
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    usuario = null;
+                    string Mensaje = ex.Message;
+                }
+            }
+
+            return usuario;
+        }
+
+
         public List<Usuario> Listar()
         {
             List<Usuario> lista = new List<Usuario>();
@@ -60,6 +115,7 @@ namespace CapaDatos
                 catch (Exception ex)
                 {
                     lista = new List<Usuario>();
+                    string Mensaje = ex.Message;
                 }
             }
             return lista;
