@@ -33,32 +33,60 @@ namespace CapaNegocio
             return objProduct_datos.Registrar(obj, objCat, out Mensaje);
         }
 
-        public bool Editar(Producto obj, Categoria objCat, out string Mensaje)
-        {//modificarProducto
-            Mensaje = string.Empty;
+        public bool Editar(Producto objProducto, Categoria objCategoria, out string mensaje)
+        {
+            mensaje = string.Empty;
 
-            if (obj.nombre_producto == "")
+            // **Business Validations** - Same rules apply for editing as for registering.
+            if (objProducto.precioLista < 0)
             {
-                Mensaje += "Debe ingresar un nombre\n";
+                mensaje = "El precio de lista no puede ser negativo.";
+                return false;
+            }
+            if (objProducto.precioVenta < 0)
+            {
+                mensaje = "El precio de venta no puede ser negativo.";
+                return false;
+            }
+            if (objProducto.stock < 0)
+            {
+                mensaje = "El stock no puede ser negativo.";
+                return false;
+            }
+            if (objProducto.stock_min < 0)
+            {
+                mensaje = "El stock mínimo no puede ser negativo.";
+                return false;
+            }
+            if (objProducto.precioVenta < objProducto.precioLista)
+            {
+                mensaje = "El precio de venta no puede ser menor que el precio de lista.";
+                return false;
+            }
+            if (objProducto.stock_min > objProducto.stock)
+            {
+                mensaje = "El stock mínimo no puede ser mayor que el stock actual.";
+                return false;
+            }
+            if (objProducto.nombre_producto == "")
+            {
+                mensaje += "Debe ingresar un nombre\n";
             }
 
-            if (obj.descripcion == "")
+            if (objProducto.descripcion == "")
             {
-                Mensaje += "Debe ingresar una descripion\n";
+                mensaje += "Debe ingresar una descripion\n";
             }
 
-            if (Mensaje != string.Empty)
+            if (mensaje != string.Empty)
             {
                 return false;
             }
             else
             {
-                return objProduct_datos.Editar(obj, objCat,out Mensaje);
+                return objProduct_datos.Editar(objProducto, objCategoria, out mensaje);
             }
-        }
-        public bool Eliminar(Producto obj, out string Mensaje)
-        {//quitarProducto
-            return objProduct_datos.Eliminar(obj, out Mensaje);
+
         }
     }
 }

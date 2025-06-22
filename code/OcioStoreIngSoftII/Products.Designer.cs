@@ -66,7 +66,6 @@
             this.NModificarStock = new System.Windows.Forms.NumericUpDown();
             this.CBModificarEstado = new System.Windows.Forms.ComboBox();
             this.CBModificarCategoria = new System.Windows.Forms.ComboBox();
-            this.BEliminar = new System.Windows.Forms.Button();
             this.LModificarStockMin = new System.Windows.Forms.Label();
             this.LModificarStock = new System.Windows.Forms.Label();
             this.LModificarEstado = new System.Windows.Forms.Label();
@@ -463,7 +462,6 @@
             this.panelInternoModif.Controls.Add(this.NModificarStock);
             this.panelInternoModif.Controls.Add(this.CBModificarEstado);
             this.panelInternoModif.Controls.Add(this.CBModificarCategoria);
-            this.panelInternoModif.Controls.Add(this.BEliminar);
             this.panelInternoModif.Controls.Add(this.LModificarStockMin);
             this.panelInternoModif.Controls.Add(this.LModificarStock);
             this.panelInternoModif.Controls.Add(this.LModificarEstado);
@@ -525,20 +523,6 @@
             this.CBModificarCategoria.TabIndex = 24;
             this.CBModificarCategoria.ValueMember = "id_categoria";
             // 
-            // BEliminar
-            // 
-            this.BEliminar.BackColor = System.Drawing.Color.Firebrick;
-            this.BEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BEliminar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BEliminar.ForeColor = System.Drawing.Color.White;
-            this.BEliminar.Location = new System.Drawing.Point(330, 322);
-            this.BEliminar.Name = "BEliminar";
-            this.BEliminar.Size = new System.Drawing.Size(143, 32);
-            this.BEliminar.TabIndex = 49;
-            this.BEliminar.Text = "Eliminar";
-            this.BEliminar.UseVisualStyleBackColor = false;
-            this.BEliminar.Click += new System.EventHandler(this.BEliminar_Click);
-            // 
             // LModificarStockMin
             // 
             this.LModificarStockMin.AutoSize = true;
@@ -589,7 +573,7 @@
             this.BModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BModificar.ForeColor = System.Drawing.Color.White;
-            this.BModificar.Location = new System.Drawing.Point(557, 322);
+            this.BModificar.Location = new System.Drawing.Point(445, 322);
             this.BModificar.Name = "BModificar";
             this.BModificar.Size = new System.Drawing.Size(143, 32);
             this.BModificar.TabIndex = 20;
@@ -1000,7 +984,6 @@
         private System.Windows.Forms.NumericUpDown NModificarStock;
         private System.Windows.Forms.ComboBox CBModificarEstado;
         private System.Windows.Forms.ComboBox CBModificarCategoria;
-        private System.Windows.Forms.Button BEliminar;
         private System.Windows.Forms.Label LModificarStockMin;
         private System.Windows.Forms.Label LModificarStock;
         private System.Windows.Forms.Label LModificarEstado;
