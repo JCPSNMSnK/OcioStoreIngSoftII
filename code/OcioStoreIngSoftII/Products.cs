@@ -210,7 +210,7 @@ namespace OcioStoreIngSoftII
                 id_producto = Convert.ToInt32(TID_prod.Text), // Asume 0 para nuevos registros
                 nombre_producto = TNombre.Text,
                 descripcion = TDescripcion.Text,
-                fechaIngreso = DateTime.Now.ToString("yyyy-MM-dd"), // Podría ser generado en BLL/DAL
+                fechaIngreso = DateTime.Now, // Podría ser generado en BLL/DAL
                 precioLista = precioLista,
                 precioVenta = precioVenta,
                 stock = stock,
