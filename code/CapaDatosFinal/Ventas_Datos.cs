@@ -36,7 +36,7 @@ namespace CapaDatos
                             lista.Add(new Ventas()
                             {
                                 id_venta = Convert.ToInt32(dataReader["id_venta"]),
-                                total = Convert.ToSingle(dataReader["total"]),
+                                total = Convert.ToDecimal(dataReader["total"]),
                                 objMediosPago = new MediosPago()
                                 {
                                     id_medioPago = Convert.ToInt32(dataReader["id_medioPago"]),
@@ -78,8 +78,8 @@ namespace CapaDatos
         public bool RegistrarVenta(Ventas obj, MediosPago objMetPago, out string Mensaje)//crearVenta ()
         {
 
-            int id_venta_registrada = 0;
-            Mensaje = string.Empty;
+            int idVentaRegistrada = 0;
+            String mensajeSalida = string.Empty;
 
             /*try
             {
@@ -169,9 +169,9 @@ namespace CapaDatos
                     }
 
                     // 2. REGISTRAR LOS DETALLES DE LA VENTA (TU BUCLE ORIGINAL, AHORA CON TRANSACCIÓN)
-                    if (obj.Detalles != null && obj.Detalles.Any()) // Asegurarse de que hay detalles
+                    if (obj.detalles != null && obj.detalles.Any()) // Asegurarse de que hay detalles
                     {
-                        foreach (var detalle in obj.Detalles)
+                        foreach (var detalle in obj.detalles)
                         {
                             using (SqlCommand cmdDetalle = new SqlCommand("PROC_REGISTRAR_DETALLE", oconexion, transaction)) // ¡Asocia a la misma transacción!
                             {
@@ -232,6 +232,8 @@ namespace CapaDatos
                     // La conexión se cierra automáticamente por el 'using' block de SqlConnection
                 }
             }
+
+            Mensaje = null;
             return exito;
         }
 
