@@ -181,7 +181,7 @@ namespace OcioStoreIngSoftII
                 }
 
                 // Si no existe, agregar nueva fila
-                VentaDataGridView.Rows.Add(prod.nombre_producto, prod.precioVenta, cantidad);
+                VentaDataGridView.Rows.Add(prod.id_producto, prod.nombre_producto, prod.precioVenta, cantidad);
             }
             else
             {

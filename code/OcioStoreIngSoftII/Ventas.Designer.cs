@@ -307,13 +307,6 @@
             // NStock
             // TModificarID_prod
             // 
-            this.NStock.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.NStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.NStock.Location = new System.Drawing.Point(536, 128);
-            this.NStock.Name = "NStock";
-            this.NStock.Size = new System.Drawing.Size(74, 29);
-            this.NStock.TabIndex = 26;
             this.TModificarID_prod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TModificarID_prod.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -389,16 +382,6 @@
             // 
             // BAddProduct
             // 
-            this.BRegisterProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.BRegisterProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BRegisterProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BRegisterProduct.ForeColor = System.Drawing.Color.White;
-            this.BRegisterProduct.Location = new System.Drawing.Point(672, 128);
-            this.BRegisterProduct.Name = "BRegisterProduct";
-            this.BRegisterProduct.Size = new System.Drawing.Size(168, 32);
-            this.BRegisterProduct.TabIndex = 20;
-            this.BRegisterProduct.Text = "Agregar a la venta";
-            this.BRegisterProduct.UseVisualStyleBackColor = false;
             this.BAddProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.BAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BAddProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -509,31 +492,6 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(317, 701);
-            this.dataGridView1.TabIndex = 61;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "stock";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "id_categoria";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "nombre_categoria";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Cantidad";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // dataGridViewButtonColumn1
             // 
