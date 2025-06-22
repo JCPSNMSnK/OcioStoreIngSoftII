@@ -99,6 +99,7 @@
             this.BLogin.TabIndex = 9;
             this.BLogin.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BLogin.TextOffset = new System.Drawing.Point(0, 0);
+            this.BLogin.Click += new System.EventHandler(this.BLogin_Click_1);
             // 
             // BCancelar
             // 
@@ -137,6 +138,7 @@
             this.BCancelar.TabIndex = 9;
             this.BCancelar.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BCancelar.TextOffset = new System.Drawing.Point(0, 0);
+            this.BCancelar.Click += new System.EventHandler(this.BCancelar_Click);
             // 
             // TPass
             // 

@@ -55,10 +55,22 @@ namespace OcioStoreIngSoftII
         {
         }
 
-        private void BLogin_Click(object sender, EventArgs e)
+
+        private void TPass_ContentChanged(object sender, EventArgs e)
         {
 
+        }
 
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BLogin.Select();
+            }
+        }
+
+        private void BLogin_Click_1(object sender, EventArgs e)
+        {
             List<Usuario> TEST = new Usuario_negocio().Listar();
 
 
@@ -120,22 +132,9 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void BCancelar_Click_1(object sender, EventArgs e)
+        private void BCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void TPass_ContentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                BLogin.Select();
-            }
         }
     }
 }
