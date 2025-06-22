@@ -194,6 +194,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="MediosPago_Datos.cs" />
     <Compile Include="Permiso_Datos.cs" />
+    <Compile Include="ProductoCategoria_Datos.cs" />
     <Compile Include="Producto_Datos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles_Datos.cs" />

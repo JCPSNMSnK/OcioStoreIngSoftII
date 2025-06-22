@@ -44,6 +44,7 @@ namespace OcioStoreIngSoftII
         private void CargarComboBoxCategorias(ComboBox comboBox)
         {
             // La capa de presentación pide las categorías a la capa de negocio
+            comboBox.Items.Clear(); // importante
             List<Categoria> listaCategorias = _categoriaNegocio.Listar();
             foreach (Categoria item in listaCategorias)
             {
@@ -55,6 +56,7 @@ namespace OcioStoreIngSoftII
         private void CargarComboBoxProductos(ComboBox comboBox)
         {
             // La capa de presentación pide las categorías a la capa de negocio
+            comboBox.Items.Clear(); // importante
             List<Producto> listaProductos = _productoNegocio.Listar();
             foreach (Producto item in listaProductos)
             {
@@ -138,6 +140,117 @@ namespace OcioStoreIngSoftII
                         }
                     }
 
+                }
+            }
+        }
+
+        private void BAddProduct_Click(object sender, EventArgs e)
+        {
+            if (CBProductos.SelectedItem is OpcionSelect productoSeleccionado)
+            {
+                // Obtener producto seleccionado (puedes usar tu negocio para obtener datos exactos)
+                int idProducto = Convert.ToInt32(productoSeleccionado.Valor);
+
+                // Buscamos el objeto producto completo (precio, nombre, etc)
+                Producto prod = _productoNegocio.Listar().FirstOrDefault(p => p.id_producto == idProducto);
+
+                if (prod == null)
+                {
+                    MessageBox.Show("Producto no encontrado.");
+                    return;
+                }
+
+                // Validar cantidad
+                if (!int.TryParse(NCantidad.Text.Trim(), out int cantidad) || cantidad <= 0)
+                {
+                    MessageBox.Show("Ingrese una cantidad válida mayor a 0.");
+                    return;
+                }
+
+                // Verificar si ya existe el producto en el DataGridView
+                foreach (DataGridViewRow row in VentaDataGridView.Rows)
+                {
+                    if (row.Cells["nombre"].Value != null &&
+                        row.Cells["nombre"].Value.ToString() == prod.nombre_producto)
+                    {
+                        // Si ya existe, actualizar cantidad
+                        int cantidadActual = Convert.ToInt32(row.Cells["cantidad"].Value);
+                        row.Cells["cantidad"].Value = cantidadActual + cantidad;
+                        return;
+                    }
+                }
+
+                // Si no existe, agregar nueva fila
+                VentaDataGridView.Rows.Add(prod.id_producto, prod.nombre_producto, prod.precioVenta, cantidad);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un producto primero.");
+            }
+        }
+
+        private void VentaDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            if (e.ColumnIndex == 4) // Asumiendo que es la columna del botón de selección
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = OcioStoreIngSoftII.Properties.Resources.delete_button.Width;
+                var h = OcioStoreIngSoftII.Properties.Resources.delete_button.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - w) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.delete_button, new System.Drawing.Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void CBProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CBProductos.SelectedItem is OpcionSelect productoSeleccionado)
+            {
+                int idProducto = Convert.ToInt32(productoSeleccionado.Valor);
+
+                // Buscar el producto completo en la lista (suponiendo que ya tenés lista cargada)
+                Producto prod = _productoNegocio.Listar().FirstOrDefault(p => p.id_producto == idProducto);
+
+                if (prod != null)
+                {
+                    NCantidad.Maximum = prod.stock > 0 ? prod.stock : 1; // mínimo 1 para no bloquear
+
+                    // Opcional: Resetear el valor actual si es mayor al stock
+                    if (NCantidad.Value > NCantidad.Maximum)
+                        NCantidad.Value = NCantidad.Maximum;
+                }
+                else
+                {
+                    NCantidad.Maximum = 1;
+                    NCantidad.Value = 1;
+                }
+            }
+            else
+            {
+                NCantidad.Maximum = 1;
+                NCantidad.Value = 1;
+            }
+        }
+
+        private void VentaDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificar que no sea una fila de encabezado o nueva
+            if (e.RowIndex >= 0 && VentaDataGridView.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                var resultado = MessageBox.Show("¿Desea eliminar este producto de la venta?",
+                                                "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    VentaDataGridView.Rows.RemoveAt(e.RowIndex);
                 }
             }
         }
