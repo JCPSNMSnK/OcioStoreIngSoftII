@@ -25,5 +25,7 @@ namespace CapaEntidades
             this.nombre_categoria = nombre;
             this.baja_categoria = estaDeBaja;
         }
+
+        public Categoria() { }
     }
 }

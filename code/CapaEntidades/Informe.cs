@@ -38,6 +38,8 @@ namespace CapaEntidades
             this.ventas = listaVentas ?? new List<Ventas>(); // Asegura que la lista no sea null
         }
 
-        
+        public Informe()
+        {
+        }
     }
 }

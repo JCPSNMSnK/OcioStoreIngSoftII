@@ -15,9 +15,9 @@ namespace CapaEntidades
         public decimal precioVenta { get; set; }
         public bool baja_producto { get; set; }
         public int stock { get; set; }
-        public int stock_min { get; private set; }
-        public string descripcion { get; private set; }
-        public List<Categoria> categoria { get; private set; }
+        public int stock_min { get; set; }
+        public string descripcion { get; set; }
+        public List<Categoria> categoria { get; set; }
 
         public Producto(string nombre, List<Categoria> categorias, decimal precioLista, decimal precioVenta, int stockInicial, int stockMinimo, string descripcionProducto)
         {
@@ -60,5 +60,7 @@ namespace CapaEntidades
             this.descripcion = descripcionProducto;
             this.categoria = categorias ?? new List<Categoria>();
         }
+
+        public Producto() {}
     }
 }

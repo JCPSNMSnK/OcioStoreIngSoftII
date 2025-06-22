@@ -44,6 +44,6 @@ namespace CapaEntidades
             this.objRoles = rol;
         }
 
-        
+        public Usuario() { }
     }
 }

@@ -19,6 +19,6 @@ namespace CapaEntidades
             this.descripcion = descripcionRol;
         }
 
-        
+        public Roles() { }
     }
 }

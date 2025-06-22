@@ -18,5 +18,9 @@ namespace CapaEntidades
             this.nombre_medio = nombreMedio;
             this.comision = comisionAplicable;
         }
+
+        public MediosPago() 
+        { 
+        }
     }
 }

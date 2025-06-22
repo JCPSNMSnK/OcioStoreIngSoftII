@@ -34,5 +34,7 @@ namespace CapaEntidades
             this.fecha_venta = fechaVenta;
             this.detalles = detallesVenta ?? new List<DetalleVenta>(); // Si se pasa null, inicializa una nueva lista
         }
+
+        public Ventas() { }
     }
 }

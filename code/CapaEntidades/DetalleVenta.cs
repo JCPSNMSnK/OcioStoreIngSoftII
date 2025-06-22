@@ -29,5 +29,9 @@ namespace CapaEntidades
             this.subtotal = subtotal;
         }
         
+        public DetalleVenta()
+        {
+
+        }
     }
 }
