@@ -156,16 +156,7 @@ namespace OcioStoreIngSoftII
             }
 
             int idProducto = Convert.ToInt32(productoSeleccionado.Valor);
-            Producto producto = null;
-
-            foreach (var p in _listaProductos)
-            {
-                if (p.id_producto == idProducto)
-                {
-                    producto = p;
-                    break;
-                }
-            }
+            Producto producto = _listaProductos.FirstOrDefault(p => p.id_producto == idProducto);
 
             if (producto == null)
             {
@@ -178,7 +169,7 @@ namespace OcioStoreIngSoftII
             string nombre = producto.nombre_producto;
             int cantidadNueva = (int)NCantidad.Value;
 
-            // Buscar si ya existe el producto en la grilla
+            // Verificar si ya está en la grilla
             DataGridViewRow filaExistente = null;
             foreach (DataGridViewRow fila in VentaDataGridView.Rows)
             {
@@ -192,15 +183,15 @@ namespace OcioStoreIngSoftII
             if (filaExistente != null)
             {
                 int cantidadExistente = Convert.ToInt32(filaExistente.Cells["cantidad"].Value);
-                int suma = cantidadExistente + cantidadNueva;
+                int nuevaCantidad = cantidadExistente + cantidadNueva;
 
-                if (suma > stockDisponible)
+                if (nuevaCantidad > stockDisponible)
                 {
                     MessageBox.Show("No se puede agregar más unidades. Stock disponible: " + stockDisponible);
                     return;
                 }
 
-                filaExistente.Cells["cantidad"].Value = suma;
+                filaExistente.Cells["cantidad"].Value = nuevaCantidad;
             }
             else
             {
@@ -212,7 +203,6 @@ namespace OcioStoreIngSoftII
 
                 VentaDataGridView.Rows.Add(idProducto, nombre, precio, cantidadNueva);
             }
-
         }
 
         private void VentaDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -242,14 +232,13 @@ namespace OcioStoreIngSoftII
             {
                 int idProducto = Convert.ToInt32(productoSeleccionado.Valor);
 
-                // Buscar el producto completo en la lista (suponiendo que ya tenés lista cargada)
                 Producto prod = _productoNegocio.Listar().FirstOrDefault(p => p.id_producto == idProducto);
 
                 if (prod != null)
                 {
-                    NCantidad.Maximum = prod.stock > 0 ? prod.stock : 1; // mínimo 1 para no bloquear
+                    // Limita el control a la cantidad de stock disponible (mínimo 1)
+                    NCantidad.Maximum = prod.stock > 0 ? prod.stock : 1;
 
-                    // Opcional: Resetear el valor actual si es mayor al stock
                     if (NCantidad.Value > NCantidad.Maximum)
                         NCantidad.Value = NCantidad.Maximum;
                 }
@@ -268,7 +257,6 @@ namespace OcioStoreIngSoftII
 
         private void VentaDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verificar que no sea una fila de encabezado o nueva
             if (e.RowIndex >= 0 && VentaDataGridView.Columns[e.ColumnIndex].Name == "btnEliminar")
             {
                 var resultado = MessageBox.Show("¿Desea eliminar este producto de la venta?",

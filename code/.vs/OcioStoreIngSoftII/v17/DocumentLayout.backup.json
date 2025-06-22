@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\capadatosfinal\\producto_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\producto_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
@@ -32,7 +36,7 @@
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Program.cs",
               "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Program.cs*",
               "RelativeToolTip": "OcioStoreIngSoftII\\Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-20T22:21:40.656Z",
               "IsPinned": true,
@@ -120,27 +124,40 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Producto_Datos.cs",
+              "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\CapaDatosFinal\\Producto_Datos.cs",
+              "RelativeDocumentMoniker": "CapaDatosFinal\\Producto_Datos.cs",
+              "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\CapaDatosFinal\\Producto_Datos.cs",
+              "RelativeToolTip": "CapaDatosFinal\\Producto_Datos.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAABkAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T23:34:03.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Ventas.cs",
               "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Ventas.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Ventas.cs",
               "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Ventas.cs",
               "RelativeToolTip": "OcioStoreIngSoftII\\Ventas.cs",
-              "ViewState": "AgIAAPwAAAAAAAAAAAAcwBABAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAADgAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T22:49:43.396Z",
+              "WhenOpened": "2025-06-22T23:10:50.723Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Ventas.cs [Dise\u00F1o]",
               "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Ventas.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Ventas.cs",
               "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Ventas.cs [Dise\u00F1o]",
               "RelativeToolTip": "OcioStoreIngSoftII\\Ventas.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T22:50:48.439Z",
+              "WhenOpened": "2025-06-22T23:09:13.933Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]
