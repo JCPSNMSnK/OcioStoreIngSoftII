@@ -238,6 +238,12 @@
     <Reference Include="XamlBuildTask" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categories.Designer.cs">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSet11.cs">
       <DependentUpon>DataSet11.xsd</DependentUpon>
     </Compile>
@@ -278,6 +284,9 @@
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
     <Compile Include="Utillidades\OpcionSelect.cs" />
+    <EmbeddedResource Include="Categories.resx">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>

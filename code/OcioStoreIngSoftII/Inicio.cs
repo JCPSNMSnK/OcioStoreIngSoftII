@@ -193,7 +193,7 @@ namespace OcioStoreIngSoftII
 
         private void CategoriesButton_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario((IconButton)sender, new Categories());
         }
 
         private void ReceiptsButton_Click(object sender, EventArgs e)
