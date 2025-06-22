@@ -8,15 +8,57 @@ namespace CapaEntidades
 {
     public class Producto
     {
-        private int id_producto { get; set; }
-        private string nombre_producto { get; set; }
-        private DateTime fechaIngreso { get; set; }
-        private float precioLista { get; set; }
-        private float precioVenta { get; set; }
-        private bool baja_producto { get; set; }
-        private int stock { get; set; }
-        private int stock_min { get; set; }
-        private string descripcion { get; set; }
-        private List<Categoria> categoria { get; set; }
+        public int id_producto { get; private set; }
+        public string nombre_producto { get; private set; }
+        public DateTime fechaIngreso { get; private set; }
+        public decimal precioLista { get; private set; }
+        public decimal precioVenta { get; private set; }
+        public bool baja_producto { get; private set; }
+        public int stock { get; private set; }
+        public int stock_min { get; private set; }
+        public string descripcion { get; private set; }
+        public List<Categoria> categoria { get; private set; }
+
+        public Producto(string nombre, List<Categoria> categorias, decimal precioLista, decimal precioVenta, int stockInicial, int stockMinimo, string descripcionProducto)
+        {
+            this.id_producto = 0; // ID por defecto, asumiendo que se asignará en persistencia
+            this.nombre_producto = nombre;
+            this.fechaIngreso = DateTime.Now; // Fecha actual al momento de la creación
+            this.precioLista = precioLista;
+            this.precioVenta = precioVenta;
+            this.baja_producto = false; // Por defecto, un producto nuevo no está de baja
+            this.stock = stockInicial;
+            this.stock_min = stockMinimo;
+            this.descripcion = descripcionProducto;
+            this.categoria = categorias ?? new List<Categoria>(); // Asegura que la lista no sea null
+        }
+
+        public Producto(string nombre, List<Categoria> categorias, decimal precioLista, decimal precioVenta, bool estaDeBaja, int stockInicial, int stockMinimo, string descripcionProducto)
+        {
+            this.id_producto = 0; // ID por defecto
+            this.nombre_producto = nombre;
+            this.fechaIngreso = DateTime.Now; // Fecha actual al momento de la creación
+            this.precioLista = precioLista;
+            this.precioVenta = precioVenta;
+            this.baja_producto = estaDeBaja; // Se recibe como parámetro
+            this.stock = stockInicial;
+            this.stock_min = stockMinimo;
+            this.descripcion = descripcionProducto;
+            this.categoria = categorias ?? new List<Categoria>();
+        }
+
+        public Producto(int idProducto, string nombre, DateTime fechaIngreso, decimal precioLista, decimal precioVenta, bool estaDeBaja, int stockActual, int stockMinimo, string descripcionProducto, List<Categoria> categorias)
+        {
+            this.id_producto = idProducto;
+            this.nombre_producto = nombre;
+            this.fechaIngreso = fechaIngreso;
+            this.precioLista = precioLista;
+            this.precioVenta = precioVenta;
+            this.baja_producto = estaDeBaja;
+            this.stock = stockActual;
+            this.stock_min = stockMinimo;
+            this.descripcion = descripcionProducto;
+            this.categoria = categorias ?? new List<Categoria>();
+        }
     }
 }

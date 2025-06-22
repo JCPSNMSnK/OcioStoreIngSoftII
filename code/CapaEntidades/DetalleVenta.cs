@@ -8,8 +8,26 @@ namespace CapaEntidades
 {
     public class DetalleVenta
     {
-        private Ventas objVentas { get; set; }
-        private Producto objProducto { get; set;}
-        private int cantidad { get; set; }
+        public Ventas objVentas { get; private set; }
+        public Producto objProducto { get; private set; }
+        public int cantidad { get; private set; }
+        public decimal subtotal { get; private set; }
+
+        public DetalleVenta(Ventas venta, Producto producto, int cantidad)
+        {
+            this.objVentas = venta;
+            this.objProducto = producto;
+            this.cantidad = cantidad;
+            this.subtotal = cantidad * producto.precioVenta; 
+        }
+
+        public DetalleVenta(Ventas venta, Producto producto, int cantidad, decimal subtotal)
+        {
+            this.objVentas = venta;
+            this.objProducto = producto;
+            this.cantidad = cantidad;
+            this.subtotal = subtotal;
+        }
+        
     }
 }

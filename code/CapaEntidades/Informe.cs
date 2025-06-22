@@ -8,13 +8,36 @@ namespace CapaEntidades
 {
     public class Informe
     {
-        private int id_informe { get; set; }
-        private string titulo { get; set; }
-        private string descripcion { get; set; }
-        private DateTime fecha_generacion
-        { get; set; }
-        private string tipo_informe { get; set; }
-        private Usuario objUsuario { get; set; }
-        private List<Ventas> ventas { get; set; }
+        public int id_informe { get; private set; }
+        public string titulo { get; private set; }
+        public string descripcion { get; private set; }
+        public DateTime fecha_generacion { get; private set; }
+        public string tipo_informe { get; private set; }
+        public Usuario objUsuario { get; private set; }
+        public List<Ventas> ventas { get; private set; }
+
+        public Informe(Usuario usuario, string tituloInforme, string tipoInforme, string descripcionInforme)
+        {
+            this.id_informe = 0; // ID por defecto, asumirá uno real al persistir
+            this.titulo = tituloInforme;
+            this.descripcion = descripcionInforme;
+            this.fecha_generacion = DateTime.Now; // Fecha y hora actuales de generación
+            this.tipo_informe = tipoInforme;
+            this.objUsuario = usuario;
+            this.ventas = new List<Ventas>(); // Inicializa la lista de ventas vacía
+        }
+
+        public Informe(int idInforme, string tituloInforme, string descripcionInforme, DateTime fechaGeneracion, string tipoInforme, Usuario usuario, List<Ventas> listaVentas)
+        {
+            this.id_informe = idInforme;
+            this.titulo = tituloInforme;
+            this.descripcion = descripcionInforme;
+            this.fecha_generacion = fechaGeneracion;
+            this.tipo_informe = tipoInforme;
+            this.objUsuario = usuario;
+            this.ventas = listaVentas ?? new List<Ventas>(); // Asegura que la lista no sea null
+        }
+
+        
     }
 }
