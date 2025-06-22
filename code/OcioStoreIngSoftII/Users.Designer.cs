@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pROC_BUSCAR_USUARIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.pROC_BUSCAR_USUARIOTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.PROC_BUSCAR_USUARIOTableAdapter();
@@ -87,7 +87,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TModificarPass = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.BEliminar = new System.Windows.Forms.Button();
             this.CBModificarRoles = new System.Windows.Forms.ComboBox();
             this.LModificarEstado = new System.Windows.Forms.Label();
             this.CBModificarEstado = new System.Windows.Forms.ComboBox();
@@ -188,14 +187,14 @@
             this.usuariosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.usuariosDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.usuariosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.usuariosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.usuariosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.usuariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usuariosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -210,14 +209,14 @@
             this.id_rol,
             this.rol});
             this.usuariosDataGridView.DataSource = this.pROC_BUSCAR_USUARIOBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.usuariosDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.usuariosDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.usuariosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usuariosDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.usuariosDataGridView.Location = new System.Drawing.Point(15, 85);
@@ -225,14 +224,14 @@
             this.usuariosDataGridView.Name = "usuariosDataGridView";
             this.usuariosDataGridView.ReadOnly = true;
             this.usuariosDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.usuariosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.usuariosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.usuariosDataGridView.RowHeadersVisible = false;
             this.usuariosDataGridView.Size = new System.Drawing.Size(1112, 197);
             this.usuariosDataGridView.TabIndex = 58;
@@ -721,7 +720,6 @@
             this.panelInternoModif.Controls.Add(this.label2);
             this.panelInternoModif.Controls.Add(this.TModificarPass);
             this.panelInternoModif.Controls.Add(this.label3);
-            this.panelInternoModif.Controls.Add(this.BEliminar);
             this.panelInternoModif.Controls.Add(this.CBModificarRoles);
             this.panelInternoModif.Controls.Add(this.LModificarEstado);
             this.panelInternoModif.Controls.Add(this.CBModificarEstado);
@@ -794,20 +792,6 @@
             this.label3.TabIndex = 54;
             this.label3.Text = "Contraseña";
             this.label3.Visible = false;
-            // 
-            // BEliminar
-            // 
-            this.BEliminar.BackColor = System.Drawing.Color.Firebrick;
-            this.BEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BEliminar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BEliminar.ForeColor = System.Drawing.Color.White;
-            this.BEliminar.Location = new System.Drawing.Point(209, 317);
-            this.BEliminar.Name = "BEliminar";
-            this.BEliminar.Size = new System.Drawing.Size(143, 32);
-            this.BEliminar.TabIndex = 49;
-            this.BEliminar.Text = "Eliminar";
-            this.BEliminar.UseVisualStyleBackColor = false;
-            this.BEliminar.Click += new System.EventHandler(this.BEliminar_Click_1);
             // 
             // CBModificarRoles
             // 
@@ -971,7 +955,7 @@
             this.BModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BModificar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BModificar.ForeColor = System.Drawing.Color.White;
-            this.BModificar.Location = new System.Drawing.Point(483, 317);
+            this.BModificar.Location = new System.Drawing.Point(395, 317);
             this.BModificar.Name = "BModificar";
             this.BModificar.Size = new System.Drawing.Size(143, 32);
             this.BModificar.TabIndex = 21;
@@ -1068,7 +1052,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Panel PanelModificarUser;
         private System.Windows.Forms.Panel panelInternoModif;
-        private System.Windows.Forms.Button BEliminar;
         private System.Windows.Forms.ComboBox CBModificarRoles;
         private System.Windows.Forms.Label LModificarEstado;
         private System.Windows.Forms.ComboBox CBModificarEstado;

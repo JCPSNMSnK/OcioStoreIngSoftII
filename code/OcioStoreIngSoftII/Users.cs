@@ -301,33 +301,6 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void BEliminar_Click_1(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(TModificarID_user.Text) != 0)
-            {
-                if (MessageBox.Show("¿Desea eliminar el usuario?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    string mensaje = string.Empty;
-                    Usuario objusuario = new Usuario()
-                    {
-                        id_user = Convert.ToInt32(TModificarID_user.Text)
-                    };
-
-                    bool respuesta = new Usuario_negocio().Eliminar(objusuario, out mensaje);
-
-                    if (respuesta)
-                    {
-                        usuariosDataGridView.Rows.RemoveAt(Convert.ToInt32(TBModificarIndice.Text));
-                        VaciarCampos();
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-            }
-        }
-
         private void BModificar_Click_1(object sender, EventArgs e)
         {
             string mensaje = string.Empty;

@@ -87,11 +87,5 @@ namespace CapaNegocio
                 return objUser_datos.Editar(obj, out Mensaje);
             }
         }
-        public bool Eliminar(Usuario obj, out string Mensaje)//eliminarUsuario
-        {
-            return objUser_datos.Eliminar(obj, out Mensaje);
-        }
     }
-
-
 }

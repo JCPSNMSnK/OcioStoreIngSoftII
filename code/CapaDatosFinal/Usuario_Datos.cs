@@ -194,37 +194,5 @@ namespace CapaDatos
 
             return respuesta;
         }
-
-        public bool Eliminar(Usuario obj, out string Mensaje)
-        {
-            bool respuesta = false;
-            Mensaje = string.Empty;
-
-            try
-            {
-                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-                {
-                    SqlCommand cmd = new SqlCommand("PROC_ELIMINAR_USUARIO", oconexion);
-                    cmd.Parameters.AddWithValue("id_user", obj.id_user);
-                    cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    oconexion.Open();
-                    cmd.ExecuteNonQuery();
-
-                    respuesta = Convert.ToBoolean(cmd.Parameters["respuesta"].Value);
-                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                respuesta = false;
-                Mensaje = ex.Message;
-            }
-
-            return respuesta;
-        }
     }
 }
