@@ -125,14 +125,17 @@ namespace OcioStoreIngSoftII
             this.Close();
         }
 
-        private void TPass_TextChanged(object sender, EventArgs e)
+        private void TPass_ContentChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void TPass_ContentChanged(object sender, EventArgs e)
+        private void Login_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                BLogin.Select();
+            }
         }
     }
 }

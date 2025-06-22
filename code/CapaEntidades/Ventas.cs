@@ -9,7 +9,7 @@ namespace CapaEntidades
     public class Ventas
     {
         public int id_venta { get; private set; }
-        public decimal total { get; private set; }
+        public float total { get; private set; }
         public MediosPago objMediosPago { get; private set; }
         public Usuario objUsuario { get; private set; }
         public DateTime fecha_venta { get; private set; }
