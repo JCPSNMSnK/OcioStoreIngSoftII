@@ -52,11 +52,12 @@ namespace CapaDatos
             return lista;
         }
         
-        public int RegistrarMedioDePago(MediosPago objMetPago, out string Mensaje)//crearVenta ()
+        public bool RegistrarMedioDePago(MediosPago objMetPago, out string Mensaje)//crearVenta ()
         {
 
             int id_medio_registrado = 0;
             Mensaje = string.Empty;
+            bool exito = false;
 
             try
             {
@@ -76,6 +77,8 @@ namespace CapaDatos
 
                     id_medio_registrado = Convert.ToInt32(cmd.Parameters["id_medio_registrado"].Value);
                     Mensaje = cmd.Parameters["mensaje"].Value.ToString();
+
+                    if (id_medio_registrado > 0 && Mensaje!=string.Empty) { exito = true; }
                 }
             }
             catch (Exception ex)
@@ -84,7 +87,7 @@ namespace CapaDatos
                 Mensaje = ex.Message;
             }
 
-            return id_medio_registrado;
+            return exito;
 
             
         }

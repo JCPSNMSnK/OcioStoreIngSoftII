@@ -4,14 +4,34 @@ CREATE PROCEDURE PROC_REGISTRAR_VENTA
     @total DECIMAL(10,2),
     @id_medio INT,
     @id_user INT,
-	@fecha_venta DATE
+	@fecha_venta DATE,
+
+    @id_venta_registrada int output,
+    @mensaje varchar(500) output
 AS
 BEGIN
     INSERT INTO ventas (total, id_medio, id_user, fecha_venta)
     VALUES (@total, @id_medio, @id_user, @fecha_venta);
 
-    PRINT 'Venta registrada exitosamente';
+    SET @id_venta_registrada =  SCOPE_IDENTITY();
+    SET @mensaje = 'Venta registrada exitosamente';
 END;
 
+--2. Procedimiento para registrar los detalles de venta asociados
+
+CREATE PROCEDURE PROC_REGISTRAR_DETALLE
+    @id_venta_registrada INT,
+    @id_producto INT,
+    @cantidad INT,
+    @subtotal DECIMAL(10,2),
+
+    @mensaje varchar(500) output
+AS
+BEGIN
+    INSERT INTO detalleVentas (id_venta, id_producto, cantidad, subtotal)
+    VALUES (@id_venta_registrada, @id_producto, @cantidad, @subtotal);
+
+    SET @mensaje = 'Detalle de Venta registrado exitosamente';
+END;   
 
 
