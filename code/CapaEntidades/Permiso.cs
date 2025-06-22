@@ -8,9 +8,9 @@ namespace CapaEntidades
 {
     public class Permiso
     {
-        public int id_permiso { get; set; }
-        public Roles objRoles { get; set; }
-        public string nombreAcceso { get; set; }
-        public string fecha_registro { get; set; }
+        private int id_permiso { get; set; }
+        private Roles objRoles { get; set; }
+        private DateTime nombreAcceso { get; set; }
+        private string fecha_registro { get; set; }
     }
 }

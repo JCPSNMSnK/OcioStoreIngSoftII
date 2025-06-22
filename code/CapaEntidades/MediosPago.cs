@@ -8,8 +8,8 @@ namespace CapaEntidades
 {
     public class MediosPago
     {
-        public int id_medioPago { get; set; }
-        public string nombre_medio { get; set; }
-        public decimal comision { get; set; }
+        private int id_medioPago { get; set; }
+        private string nombre_medio { get; set; }
+        private decimal comision { get; set; }
     }
 }

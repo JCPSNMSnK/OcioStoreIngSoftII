@@ -8,8 +8,8 @@ namespace CapaEntidades
 {
     public class Roles
     {
-        public int id_rol {  get; set; }
-        public string nombre_rol { get; set; }
-        public string descripcion { get; set; }
+        private int id_rol {  get; set; }
+        private string nombre_rol { get; set; }
+        private string descripcion { get; set; }
     }
 }

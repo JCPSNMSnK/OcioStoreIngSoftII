@@ -8,11 +8,13 @@ namespace CapaEntidades
 {
     public class Informe
     {
-        public int id_informe { get; set; }
-        public string titulo { get; set; }
-        public string descripcion { get; set; }
-        public string fecha_generacion { get; set; }
-        public string tipo_informe { get; set; }
-        public Usuario objUsuario { get; set; }
+        private int id_informe { get; set; }
+        private string titulo { get; set; }
+        private string descripcion { get; set; }
+        private DateTime fecha_generacion
+        { get; set; }
+        private string tipo_informe { get; set; }
+        private Usuario objUsuario { get; set; }
+        private List<Ventas> ventas { get; set; }
     }
 }

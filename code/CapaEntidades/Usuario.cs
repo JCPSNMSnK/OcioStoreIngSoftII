@@ -8,14 +8,14 @@ namespace CapaEntidades
 {
     public class Usuario
     {
-        public int id_user { get; set; }
-        public string apellido { get; set; }
-        public string nombre { get; set; }
-        public int dni { get; set; }
-        public string mail { get; set; }
-        public string username { get; set; }
-        public string pass { get; set; }
-        public bool baja_user { get; set; }
-        public Roles objRoles { get; set; }
+        private int id_user { get; set; }
+        private string apellido { get; set; }
+        private string nombre { get; set; }
+        private int dni { get; set; }
+        private string mail { get; set; }
+        private string username { get; set; }
+        private string pass { get; set; }
+        private bool baja_user { get; set; }
+        private Roles objRoles { get; set; }
     }
 }

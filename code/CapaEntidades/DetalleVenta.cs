@@ -8,8 +8,8 @@ namespace CapaEntidades
 {
     public class DetalleVenta
     {
-        public Ventas objVentas { get; set; }
-        public Producto objProducto { get; set;}
-        public int cantidad { get; set; }
+        private Ventas objVentas { get; set; }
+        private Producto objProducto { get; set;}
+        private int cantidad { get; set; }
     }
 }
