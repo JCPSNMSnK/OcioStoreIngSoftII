@@ -18,6 +18,7 @@ namespace OcioStoreIngSoftII
         // Instancias de la capa de negocio
         private readonly Producto_negocio _productoNegocio;
         private readonly Categoria_negocio _categoriaNegocio;
+        private List<Producto> _listaProductos;
 
         public Ventas()
         {
@@ -28,9 +29,9 @@ namespace OcioStoreIngSoftII
 
         private void Ventas_Load(object sender, EventArgs e)
         {
-            
-            CargarComboBoxCategorias(CBCategoria);
+            _listaProductos = _productoNegocio.Listar();
 
+            CargarComboBoxCategorias(CBCategoria);
             CargarComboBoxProductos(CBProductos);
 
             // Establecer índices por defecto si hay elementos
@@ -55,13 +56,14 @@ namespace OcioStoreIngSoftII
         }
         private void CargarComboBoxProductos(ComboBox comboBox)
         {
-            // La capa de presentación pide las categorías a la capa de negocio
-            comboBox.Items.Clear(); // importante
-            List<Producto> listaProductos = _productoNegocio.Listar();
-            foreach (Producto item in listaProductos)
+            comboBox.Items.Clear();
+            _listaProductos = _productoNegocio.Listar(); // Asignación aquí también
+
+            foreach (Producto item in _listaProductos)
             {
                 comboBox.Items.Add(new OpcionSelect() { Valor = item.id_producto, Texto = item.nombre_producto });
             }
+
             comboBox.DisplayMember = "Texto";
             comboBox.ValueMember = "Valor";
         }
@@ -146,47 +148,71 @@ namespace OcioStoreIngSoftII
 
         private void BAddProduct_Click(object sender, EventArgs e)
         {
-            if (CBProductos.SelectedItem is OpcionSelect productoSeleccionado)
+            var productoSeleccionado = CBProductos.SelectedItem as OpcionSelect;
+            if (productoSeleccionado == null)
             {
-                // Obtener producto seleccionado (puedes usar tu negocio para obtener datos exactos)
-                int idProducto = Convert.ToInt32(productoSeleccionado.Valor);
+                MessageBox.Show("Debe seleccionar un producto.");
+                return;
+            }
 
-                // Buscamos el objeto producto completo (precio, nombre, etc)
-                Producto prod = _productoNegocio.Listar().FirstOrDefault(p => p.id_producto == idProducto);
+            int idProducto = Convert.ToInt32(productoSeleccionado.Valor);
+            Producto producto = null;
 
-                if (prod == null)
+            foreach (var p in _listaProductos)
+            {
+                if (p.id_producto == idProducto)
                 {
-                    MessageBox.Show("Producto no encontrado.");
+                    producto = p;
+                    break;
+                }
+            }
+
+            if (producto == null)
+            {
+                MessageBox.Show("Producto no encontrado en la lista.");
+                return;
+            }
+
+            int stockDisponible = producto.stock;
+            decimal precio = producto.precioVenta;
+            string nombre = producto.nombre_producto;
+            int cantidadNueva = (int)NCantidad.Value;
+
+            // Buscar si ya existe el producto en la grilla
+            DataGridViewRow filaExistente = null;
+            foreach (DataGridViewRow fila in VentaDataGridView.Rows)
+            {
+                if (Convert.ToInt32(fila.Cells["id_producto_venta"].Value) == idProducto)
+                {
+                    filaExistente = fila;
+                    break;
+                }
+            }
+
+            if (filaExistente != null)
+            {
+                int cantidadExistente = Convert.ToInt32(filaExistente.Cells["cantidad"].Value);
+                int suma = cantidadExistente + cantidadNueva;
+
+                if (suma > stockDisponible)
+                {
+                    MessageBox.Show("No se puede agregar más unidades. Stock disponible: " + stockDisponible);
                     return;
                 }
 
-                // Validar cantidad
-                if (!int.TryParse(NCantidad.Text.Trim(), out int cantidad) || cantidad <= 0)
-                {
-                    MessageBox.Show("Ingrese una cantidad válida mayor a 0.");
-                    return;
-                }
-
-                // Verificar si ya existe el producto en el DataGridView
-                foreach (DataGridViewRow row in VentaDataGridView.Rows)
-                {
-                    if (row.Cells["nombre"].Value != null &&
-                        row.Cells["nombre"].Value.ToString() == prod.nombre_producto)
-                    {
-                        // Si ya existe, actualizar cantidad
-                        int cantidadActual = Convert.ToInt32(row.Cells["cantidad"].Value);
-                        row.Cells["cantidad"].Value = cantidadActual + cantidad;
-                        return;
-                    }
-                }
-
-                // Si no existe, agregar nueva fila
-                VentaDataGridView.Rows.Add(prod.id_producto, prod.nombre_producto, prod.precioVenta, cantidad);
+                filaExistente.Cells["cantidad"].Value = suma;
             }
             else
             {
-                MessageBox.Show("Seleccione un producto primero.");
+                if (cantidadNueva > stockDisponible)
+                {
+                    MessageBox.Show("Cantidad supera el stock disponible: " + stockDisponible);
+                    return;
+                }
+
+                VentaDataGridView.Rows.Add(idProducto, nombre, precio, cantidadNueva);
             }
+
         }
 
         private void VentaDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)

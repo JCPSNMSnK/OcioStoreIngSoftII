@@ -43,9 +43,9 @@ namespace CapaDatos
                             {
                                 id_producto = Convert.ToInt32(dataReader["id_producto"]),
                                 nombre_producto = dataReader["nombre_producto"].ToString(),
-                                //fechaIngreso = dataReader["fechaIngreso"] != DBNull.Value
-                                //    ? Convert.ToDateTime(dataReader["fechaIngreso"])
-                                //    : DateTime.Now, 
+                                fechaIngreso = dataReader["fechaIngreso"] != DBNull.Value
+                                    ? Convert.ToDateTime(dataReader["fechaIngreso"])
+                                    : DateTime.Now, 
 
                                 precioLista = Convert.ToDecimal(dataReader["precioLista"]),
                                 precioVenta = Convert.ToDecimal(dataReader["precioVenta"]),
