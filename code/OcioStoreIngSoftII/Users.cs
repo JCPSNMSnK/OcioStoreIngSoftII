@@ -293,6 +293,7 @@ namespace OcioStoreIngSoftII
 
                     actualizarDatosTabla();
 
+                    MessageBox.Show("Usuario registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
