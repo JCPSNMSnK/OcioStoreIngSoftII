@@ -8,12 +8,12 @@ namespace CapaEntidades
 {
     public class Ventas
     {
-        public int id_venta { get; private set; }
-        public float total { get; private set; }
-        public MediosPago objMediosPago { get; private set; }
-        public Usuario objUsuario { get; private set; }
-        public DateTime fecha_venta { get; private set; }
-        public List<DetalleVenta> detalles { get; private set; }
+        public int id_venta { get; set; }
+        public float total { get; set; }
+        public MediosPago objMediosPago { get; set; }
+        public Usuario objUsuario { get; set; }
+        public DateTime fecha_venta { get; set; }
+        public List<DetalleVenta> detalles { get; set; }
 
         public Ventas(Usuario usuario)
         {

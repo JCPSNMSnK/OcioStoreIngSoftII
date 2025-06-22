@@ -8,9 +8,9 @@ namespace CapaEntidades
 {
     public class Categoria
     {
-        public int id_categoria { get; private set; }
-        public string nombre_categoria { get; private set; }
-        public bool baja_categoria { get; private set; }
+        public int id_categoria { get; set; }
+        public string nombre_categoria { get; set; }
+        public bool baja_categoria { get; set; }
 
         public Categoria(string nombre)
         {

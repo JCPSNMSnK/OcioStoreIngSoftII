@@ -8,13 +8,13 @@ namespace CapaEntidades
 {
     public class Producto
     {
-        public int id_producto { get; private set; }
-        public string nombre_producto { get; private set; }
-        public DateTime fechaIngreso { get; private set; }
-        public decimal precioLista { get; private set; }
-        public decimal precioVenta { get; private set; }
-        public bool baja_producto { get; private set; }
-        public int stock { get; private set; }
+        public int id_producto { get; set; }
+        public string nombre_producto { get; set; }
+        public DateTime fechaIngreso { get; set; }
+        public decimal precioLista { get; set; }
+        public decimal precioVenta { get; set; }
+        public bool baja_producto { get; set; }
+        public int stock { get; set; }
         public int stock_min { get; private set; }
         public string descripcion { get; private set; }
         public List<Categoria> categoria { get; private set; }

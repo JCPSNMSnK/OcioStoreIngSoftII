@@ -8,10 +8,10 @@ namespace CapaEntidades
 {
     public class Permiso
     {
-        public int id_permiso { get; private set; }
-        public Roles objRoles { get; private set; }
-        public string NombreAcceso { get; private set; } // Corregido: asumido que el nombre del acceso es un string
-        public DateTime FechaRegistro { get; private set; }
+        public int id_permiso { get; set; }
+        public Roles objRoles { get; set; }
+        public string NombreAcceso { get; set; } // Corregido: asumido que el nombre del acceso es un string
+        public DateTime FechaRegistro { get; set; }
 
         public Permiso(string nombreAcceso)
         {

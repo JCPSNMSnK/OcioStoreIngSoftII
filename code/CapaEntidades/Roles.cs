@@ -8,9 +8,9 @@ namespace CapaEntidades
 {
     public class Roles
     {
-        public int id_rol { get; private set; }
-        public string nombre_rol { get; private set; }
-        public string descripcion { get; private set; }
+        public int id_rol { get; set; }
+        public string nombre_rol { get; set; }
+        public string descripcion { get; set; }
 
         public Roles(int idRol, string nombreRol, string descripcionRol)
         {
