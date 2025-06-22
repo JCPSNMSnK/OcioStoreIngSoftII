@@ -1,74 +1,80 @@
 ﻿using CapaEntidades;
 using CapaNegocio;
-using OcioStoreIngSoftII.Utillidades; // Assuming OpcionSelect is here
+using OcioStoreIngSoftII.Utillidades; // Asumiendo que OpcionSelect está aquí
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
+using System.Data; // Necesario para DataTable/DataSet si se sigue usando TableAdapter
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace OcioStoreIngSoftII
 {
     public partial class Products : Form
     {
+        // Instancias de la capa de negocio
         private readonly Producto_negocio _productoNegocio;
         private readonly Categoria_negocio _categoriaNegocio;
 
         public Products()
         {
             InitializeComponent();
-            // Instantiate business logic classes
             _productoNegocio = new Producto_negocio();
             _categoriaNegocio = new Categoria_negocio();
         }
 
         private void Products_Load(object sender, EventArgs e)
         {
-            // Populate ComboBoxes - UI specific logic
-            // Estado ComboBoxes
-            CBEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Alta" });
-            CBEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Baja" });
-            CBEstado.DisplayMember = "Texto";
-            CBEstado.ValueMember = "Valor";
-            CBEstado.SelectedIndex = 0;
+            // Carga inicial de ComboBoxes (UI específica)
+            CargarComboBoxEstados(CBEstado);
+            CargarComboBoxEstados(CBModificarEstado); // Podría no tener selección inicial si se carga un producto
+            CargarComboBoxCategorias(CBCategoria);
+            CargarComboBoxCategorias(CBModificarCategoria); // Podría no tener selección inicial si se carga un producto
 
-            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Alta" });
-            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Baja" });
-            CBModificarEstado.DisplayMember = "Texto";
-            CBModificarEstado.ValueMember = "Valor";
-            // No default selection here, will be set when loading existing product data
+            // Establecer índices por defecto si hay elementos
+            if (CBEstado.Items.Count > 0) CBEstado.SelectedIndex = 0;
+            // CBModificarEstado.SelectedIndex no se establece inicialmente si la idea es que muestre el estado del producto cargado
+            if (CBCategoria.Items.Count > 0) CBCategoria.SelectedIndex = 0;
+            // CBModificarCategoria.SelectedIndex no se establece inicialmente
 
-            // Category ComboBoxes
-            List<Categoria> listaCategorias = _categoriaNegocio.Listar(); // Call to Business Layer
-            foreach (Categoria item in listaCategorias)
-            {
-                CBCategoria.Items.Add(new OpcionSelect() { Valor = item.id_categoria, Texto = item.nombre_categoria });
-                CBModificarCategoria.Items.Add(new OpcionSelect() { Valor = item.id_categoria, Texto = item.nombre_categoria });
-            }
-            CBCategoria.DisplayMember = "Texto";
-            CBCategoria.ValueMember = "Valor";
-            if (CBCategoria.Items.Count > 0) CBCategoria.SelectedIndex = 0; // Ensure there are items before selecting
-
-            CBModificarCategoria.DisplayMember = "Texto";
-            CBModificarCategoria.ValueMember = "Valor";
-            if (CBModificarCategoria.Items.Count > 0) CBModificarCategoria.SelectedIndex = 0; // Ensure there are items before selecting
-
-            // Load initial data for the grid
             ActualizarDatosTabla();
         }
 
+        /// Carga las opciones de estado (Alta/Baja) en un ComboBox.
+        private void CargarComboBoxEstados(ComboBox comboBox)
+        {
+            comboBox.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Alta" });
+            comboBox.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Baja" });
+            comboBox.DisplayMember = "Texto";
+            comboBox.ValueMember = "Valor";
+        }
+
+        /// Carga las categorías desde la capa de negocio en un ComboBox.
+
+        private void CargarComboBoxCategorias(ComboBox comboBox)
+        {
+            // La capa de presentación pide las categorías a la capa de negocio
+            List<Categoria> listaCategorias = _categoriaNegocio.Listar();
+            foreach (Categoria item in listaCategorias)
+            {
+                comboBox.Items.Add(new OpcionSelect() { Valor = item.id_categoria, Texto = item.nombre_categoria });
+            }
+            comboBox.DisplayMember = "Texto";
+            comboBox.ValueMember = "Valor";
+        }
+
+        /// Idealmente, esta carga de datos debería pasar por la capa de negocio.
         private void ActualizarDatosTabla()
         {
-            // This method directly interacts with your DataSet and TableAdapter.
-            // Ideally, the data retrieval itself would be delegated to the BLL,
-            // which would then get it from the DAL.
-            // For now, keeping it here as it's tightly coupled to your DataSet/TableAdapter.
+            // Esta llamada es al TableAdapter, que es una abstracción de datos
+            // generada por Visual Studio, lo que acopla directamente la UI a la fuente de datos.
+            // Para una separación estricta, la CapaNegocio debería tener un método
+            // que devuelva una lista de Producto o un DataTable, y la UI solo lo consumiría.
             this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
                 this.dataSet1.PROC_BUSCAR_PRODUCTO,
                 null, null, null, null, null, null, null, null, null, null, null
             );
 
-            // UI specific formatting for the 'estado' column
+            // Formato específico de UI para la columna 'estado'
             foreach (DataGridViewRow row in productosDataGridView.Rows)
             {
                 if (row.Cells["estadoValor"].Value is bool estado)
@@ -78,16 +84,20 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        // UI Painting logic - remains in UI layer
+        // Lógica de dibujo de celdas - Pertenece a la capa de Presentación
         private void productosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.RowIndex < 0) return;
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
 
-            if (e.ColumnIndex == 0) // Assuming this is your "select" column
+            if (e.ColumnIndex == 0) // Asumiendo que es la columna del botón de selección
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
                 var w = OcioStoreIngSoftII.Properties.Resources.checkbox.Width;
-                var h = OcioStoreIngSoftII.Properties.Resources.checkbox.Height; // Fixed potential typo
+                var h = OcioStoreIngSoftII.Properties.Resources.checkbox.Height;
                 var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                 var y = e.CellBounds.Top + (e.CellBounds.Height - w) / 2;
 
@@ -96,45 +106,45 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        // UI Utility: Clearing input fields
+        /// Vacía y reinicia los campos de entrada de la UI.
         private void VaciarCampos()
         {
-            // Registration fields
-            TID_prod.Text = "0";
-            TNombre.Text = "";
-            TDescripcion.Text = "";
-            TPrecioLista.Text = "";
-            TPrecioVenta.Text = "";
-            NStock.Text = "";
-            NStockMin.Text = "";
+            // Campos de Registro
+            TID_prod.Text = "0"; // ID 0 para un nuevo registro
+            TNombre.Text = string.Empty;
+            TDescripcion.Text = string.Empty;
+            TPrecioLista.Text = string.Empty;
+            TPrecioVenta.Text = string.Empty;
+            NStock.Text = string.Empty;
+            NStockMin.Text = string.Empty;
             if (CBCategoria.Items.Count > 0) CBCategoria.SelectedIndex = 0;
             if (CBEstado.Items.Count > 0) CBEstado.SelectedIndex = 0;
 
-            // Modification fields
-            TModificarID_prod.Text = "0";
-            TModificarNombre.Text = "";
-            TModificarDescripcion.Text = "";
-            TModificarPrecioLista.Text = "";
-            TModificarPrecioVenta.Text = "";
-            NModificarStock.Text = "";
-            NModificarStockMin.Text = "";
-            if (CBModificarCategoria.Items.Count > 0) CBModificarCategoria.SelectedIndex = 0;
-            if (CBModificarEstado.Items.Count > 0) CBModificarEstado.SelectedIndex = 0;
+            // Campos de Modificación
+            TModificarID_prod.Text = "0"; // ID 0 para indicar que no hay producto cargado
+            TModificarNombre.Text = string.Empty;
+            TModificarDescripcion.Text = string.Empty;
+            TModificarPrecioLista.Text = string.Empty;
+            TModificarPrecioVenta.Text = string.Empty;
+            NModificarStock.Text = string.Empty;
+            NModificarStockMin.Text = string.Empty;
+            // No se reinician los SelectedIndex de modificar, ya que se llenan al seleccionar una fila.
         }
 
-        // UI Logic: Handling cell click to load data for modification
+        // Lógica de UI: Cargar datos en el formulario de modificación al seleccionar una fila
         private void productosDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (productosDataGridView.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
                 int indice = e.RowIndex;
+
                 if (indice >= 0)
                 {
-                    TCProductos.SelectedIndex = 1; // Switch to modification tab
+                    TCProductos.SelectedIndex = 1; // Cambia a la pestaña de modificación
 
-                    TBModificarIndice.Text = indice.ToString();
+                    TBModificarIndice.Text = indice.ToString(); // Guardar índice de la fila para futura actualización
 
-                    // Populate modification fields from selected row
+                    // Cargar datos de la fila seleccionada a los controles de modificación
                     TModificarID_prod.Text = productosDataGridView.Rows[indice].Cells["id_producto"].Value.ToString();
                     TModificarNombre.Text = productosDataGridView.Rows[indice].Cells["nombre_producto"].Value.ToString();
                     TModificarDescripcion.Text = productosDataGridView.Rows[indice].Cells["descripcion"].Value.ToString();
@@ -143,7 +153,7 @@ namespace OcioStoreIngSoftII
                     NModificarStock.Text = productosDataGridView.Rows[indice].Cells["stock"].Value.ToString();
                     NModificarStockMin.Text = productosDataGridView.Rows[indice].Cells["stock_min"].Value.ToString();
 
-                    // Select category in ComboBox
+                    // Seleccionar la categoría correcta en el ComboBox de modificación
                     if (int.TryParse(productosDataGridView.Rows[indice].Cells["id_categoria"].Value.ToString(), out int selectedCategoryId))
                     {
                         foreach (OpcionSelect opcionSelect in CBModificarCategoria.Items)
@@ -156,7 +166,7 @@ namespace OcioStoreIngSoftII
                         }
                     }
 
-                    // Select state in ComboBox
+                    // Seleccionar el estado correcto en el ComboBox de modificación
                     if (productosDataGridView.Rows[indice].Cells["estadoValor"].Value is bool isAlta)
                     {
                         foreach (OpcionSelect opcionSelect in CBModificarEstado.Items)
@@ -172,20 +182,20 @@ namespace OcioStoreIngSoftII
             }
         }
 
+        /// Evento Click para el botón de Registro de Producto.
+        /// La capa de presentación se encarga de la captura, validación de formato y delegación.
         private void BRegisterProduct_Click_1(object sender, EventArgs e)
         {
-            // 1. **UI Validations (format and presence)**
-            // All 'if (string.IsNullOrWhiteSpace(...))' and 'if (!decimal.TryParse(...))' checks
-            // remain here. These are quick checks to ensure input is in the correct format
-            // or not empty before even attempting to pass to the business layer.
-            if (!ValidarCamposRegistro(out string uiValidationMessage))
+            string uiValidationMessage;
+            // 1. Validaciones a nivel de UI (formato y obligatoriedad)
+            // Estas validaciones evitan enviar datos mal formados a la capa de negocio.
+            if (!ValidarCamposRegistro(out uiValidationMessage))
             {
-                MessageBox.Show(uiValidationMessage, "Error de ValidaciÃ³n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(uiValidationMessage, "Error de Validación de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. **Parse/Convert UI Input to appropriate types**
-            // Convert strings from TextBoxes to their respective types (decimal, int, bool)
+            // 2. Parseo de datos de la UI a tipos de datos adecuados
             decimal precioLista = decimal.Parse(TPrecioLista.Text);
             decimal precioVenta = decimal.Parse(TPrecioVenta.Text);
             int stock = int.Parse(NStock.Text);
@@ -194,112 +204,76 @@ namespace OcioStoreIngSoftII
             int idCategoria = Convert.ToInt32(((OpcionSelect)CBCategoria.SelectedItem).Valor);
             string nombreCategoria = ((OpcionSelect)CBCategoria.SelectedItem).Texto;
 
-            // 3. **Create Entity Object(s)**
-            // Populate a Producto object with data from the UI
+            // 3. Creación de objetos de entidad (Producto y Categoria)
             Producto objProducto = new Producto()
             {
-                id_producto = Convert.ToInt32(TID_prod.Text), // Assuming TID_prod is 0 for new records
+                id_producto = Convert.ToInt32(TID_prod.Text), // Asume 0 para nuevos registros
                 nombre_producto = TNombre.Text,
                 descripcion = TDescripcion.Text,
-                fechaIngreso = DateTime.Now.ToString("yyyy-MM-dd"), // This could be handled in BLL or DAL as well
+                fechaIngreso = DateTime.Now.ToString("yyyy-MM-dd"), // Podría ser generado en BLL/DAL
                 precioLista = precioLista,
                 precioVenta = precioVenta,
                 stock = stock,
                 stock_min = stockMin,
                 baja_producto = bajaProducto,
             };
-
             Categoria objCategoria = new Categoria()
             {
                 id_categoria = idCategoria,
                 nombre_categoria = nombreCategoria
             };
 
-            string businessValidationMessage = string.Empty; // Message from the business layer
+            string businessValidationMessage = string.Empty; // Mensaje devuelto por la capa de negocio
 
-            // 4. **Call Business Logic Layer (BLL)**
-            // Delegate the actual registration/editing logic to the business layer
-            if (objProducto.id_producto == 0) // New product registration
+            // 4. Llamada a la Capa de Negocio para el registro
+            // Aquí se valida la lógica de negocio (por ejemplo, precioVenta > precioLista)
+            int idRegistrado = _productoNegocio.Registrar(objProducto, objCategoria, out businessValidationMessage);
+
+            // 5. Manejo del resultado de la operación
+            if (idRegistrado != 0) // Éxito en el registro
             {
-                int idRegistrado = _productoNegocio.Registrar(objProducto, objCategoria, out businessValidationMessage);
-
-                if (idRegistrado != 0)
-                {
-                    MessageBox.Show("Producto registrado exitosamente.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    VaciarCampos();
-                    ActualizarDatosTabla(); // Refresh the grid
-                }
-                else
-                {
-                    // Display business validation message or database error
-                    MessageBox.Show(businessValidationMessage, "Error al Registrar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Producto registrado exitosamente con ID: " + idRegistrado, "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                VaciarCampos();
+                ActualizarDatosTabla(); // Refresca el DataGridView para mostrar el nuevo producto
             }
-            else // Existing product modification (should use BModificar_Click for this)
+            else // Fallo en el registro (puede ser por validación de negocio o error de base de datos)
             {
-                // This block should ideally not be reached if the form flow is correct,
-                // or if BRegisterProduct is only for new records.
-                // For demonstration, let's keep the existing edit logic but flag it.
-                // It's generally better to have separate handlers for Create and Update.
-                // However, since the original code combines them, we'll keep it here for now.
-                bool resultado = _productoNegocio.Editar(objProducto, objCategoria, out businessValidationMessage);
-
-                if (resultado)
-                {
-                    MessageBox.Show("Producto modificado exitosamente.", "ModificaciÃ³n Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Update specific row in DataGridView (more efficient than full refresh)
-                    DataGridViewRow row = productosDataGridView.Rows[Convert.ToInt32(TIndice.Text)]; // Assuming TIndice.Text holds the row index
-                    row.Cells["id_producto"].Value = objProducto.id_producto;
-                    row.Cells["nombre_producto"].Value = objProducto.nombre_producto;
-                    row.Cells["descripcion"].Value = objProducto.descripcion;
-                    row.Cells["precioLista"].Value = objProducto.precioLista;
-                    row.Cells["precioVenta"].Value = objProducto.precioVenta;
-                    row.Cells["stock"].Value = objProducto.stock;
-                    row.Cells["stock_min"].Value = objProducto.stock_min;
-                    row.Cells["id_categoria"].Value = objCategoria.id_categoria;
-                    row.Cells["categoria"].Value = objCategoria.nombre_categoria;
-                    row.Cells["estadoValor"].Value = objProducto.baja_producto; // Use boolean for stateValue
-                    row.Cells["estado"].Value = objProducto.baja_producto ? "Alta" : "Baja"; // Update string representation
-
-                    VaciarCampos();
-                    // If you update row directly, you might not need ActualizarDatosTabla()
-                    // If you prefer simplicity, always call ActualizarDatosTabla().
-                    // ActualizarDatosTabla();
-                }
-                else
-                {
-                    MessageBox.Show(businessValidationMessage, "Error al Modificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(businessValidationMessage, "Error al Registrar Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // Helper method for UI-level validations for registration
+        /// Realiza validaciones de formato y obligatoriedad a nivel de UI para el registro de productos.
         private bool ValidarCamposRegistro(out string mensaje)
         {
             mensaje = string.Empty;
 
             if (string.IsNullOrWhiteSpace(TNombre.Text)) { mensaje = "El nombre del producto es obligatorio."; return false; }
-            if (string.IsNullOrWhiteSpace(TDescripcion.Text)) { mensaje = "La descripciÃ³n es obligatoria."; return false; }
-            if (!decimal.TryParse(TPrecioLista.Text, out _) || decimal.Parse(TPrecioLista.Text) < 0) { mensaje = "El precio de lista debe ser un nÃºmero vÃ¡lido mayor o igual a cero."; return false; }
-            if (!decimal.TryParse(TPrecioVenta.Text, out _) || decimal.Parse(TPrecioVenta.Text) < 0) { mensaje = "El precio de venta debe ser un nÃºmero vÃ¡lido mayor o igual a cero."; return false; }
-            if (!int.TryParse(NStock.Text, out _) || int.Parse(NStock.Text) < 0) { mensaje = "El stock debe ser un nÃºmero entero mayor o igual a cero."; return false; }
-            if (!int.TryParse(NStockMin.Text, out _) || int.Parse(NStockMin.Text) < 0) { mensaje = "El stock mÃ­nimo debe ser un nÃºmero entero mayor o igual a cero."; return false; }
-            if (CBCategoria.SelectedItem == null) { mensaje = "Debe seleccionar una categorÃ­a."; return false; }
+            if (string.IsNullOrWhiteSpace(TDescripcion.Text)) { mensaje = "La descripción es obligatoria."; return false; }
+
+            if (!decimal.TryParse(TPrecioLista.Text, out decimal precioLista)) { mensaje = "El precio de lista debe ser un número válido."; return false; }
+            if (!decimal.TryParse(TPrecioVenta.Text, out decimal precioVenta)) { mensaje = "El precio de venta debe ser un número válido."; return false; }
+            if (!int.TryParse(NStock.Text, out int stock)) { mensaje = "El stock debe ser un número entero válido."; return false; }
+            if (!int.TryParse(NStockMin.Text, out int stockMin)) { mensaje = "El stock mínimo debe ser un número entero válido."; return false; }
+
+            if (CBCategoria.SelectedItem == null) { mensaje = "Debe seleccionar una categoría."; return false; }
             if (CBEstado.SelectedItem == null) { mensaje = "Debe seleccionar un estado."; return false; }
 
             return true;
         }
 
+        /// Evento Click para el botón de Modificar Producto.
+        /// La capa de presentación se encarga de la captura, validación de formato y delegación.
         private void BModificar_Click_1(object sender, EventArgs e)
         {
-            // 1. **UI Validations (format and presence)**
-            if (!ValidarCamposModificacion(out string uiValidationMessage))
+            string uiValidationMessage;
+            // 1. Validaciones a nivel de UI (formato y obligatoriedad)
+            if (!ValidarCamposModificacion(out uiValidationMessage))
             {
-                MessageBox.Show(uiValidationMessage, "Error de ValidaciÃ³n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(uiValidationMessage, "Error de Validación de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. **Parse/Convert UI Input to appropriate types**
+            // 2. Parseo de datos de la UI a tipos de datos adecuados
             decimal precioLista = decimal.Parse(TModificarPrecioLista.Text);
             decimal precioVenta = decimal.Parse(TModificarPrecioVenta.Text);
             int stock = int.Parse(NModificarStock.Text);
@@ -308,7 +282,7 @@ namespace OcioStoreIngSoftII
             int idCategoria = Convert.ToInt32(((OpcionSelect)CBModificarCategoria.SelectedItem).Valor);
             string nombreCategoria = ((OpcionSelect)CBModificarCategoria.SelectedItem).Texto;
 
-            // 3. **Create Entity Object(s)**
+            // 3. Creación de objetos de entidad (Producto y Categoria)
             Producto objProducto = new Producto()
             {
                 id_producto = Convert.ToInt32(TModificarID_prod.Text),
@@ -328,17 +302,16 @@ namespace OcioStoreIngSoftII
 
             string businessValidationMessage = string.Empty;
 
-            // 4. **Call Business Logic Layer (BLL)**
+            // 4. Llamada a la Capa de Negocio para la edición
             bool resultado = _productoNegocio.Editar(objProducto, objCategoria, out businessValidationMessage);
 
-            // 5. **Handle Result and Update UI**
+            // 5. Manejo del resultado de la operación
             if (resultado)
             {
-                MessageBox.Show("Producto modificado exitosamente.", "ModificaciÃ³n Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Update the specific row in the DataGridView
+                MessageBox.Show("Producto modificado exitosamente.", "Modificación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Actualizar la fila específica en el DataGridView
                 DataGridViewRow row = productosDataGridView.Rows[Convert.ToInt32(TBModificarIndice.Text)];
 
-                row.Cells["id_producto"].Value = objProducto.id_producto; // Ensure ID is updated if it was edited (unlikely for primary key)
                 row.Cells["nombre_producto"].Value = objProducto.nombre_producto;
                 row.Cells["descripcion"].Value = objProducto.descripcion;
                 row.Cells["precioLista"].Value = objProducto.precioLista;
@@ -346,50 +319,49 @@ namespace OcioStoreIngSoftII
                 row.Cells["stock"].Value = objProducto.stock;
                 row.Cells["stock_min"].Value = objProducto.stock_min;
                 row.Cells["id_categoria"].Value = objCategoria.id_categoria;
-                row.Cells["categoria"].Value = objCategoria.nombre_categoria; // Display text for category
-                row.Cells["estadoValor"].Value = objProducto.baja_producto; // Store the boolean value
-                row.Cells["estado"].Value = objProducto.baja_producto ? "Alta" : "Baja"; // Display text for state
+                row.Cells["categoria"].Value = objCategoria.nombre_categoria;
+                row.Cells["estadoValor"].Value = objProducto.baja_producto;
+                row.Cells["estado"].Value = objProducto.baja_producto ? "Alta" : "Baja";
 
                 VaciarCampos();
             }
             else
             {
-                MessageBox.Show(businessValidationMessage, "Error al Modificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(businessValidationMessage, "Error al Modificar Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // Helper method for UI-level validations for modification
+        /// Realiza validaciones de formato y obligatoriedad a nivel de UI para la modificación de productos.
         private bool ValidarCamposModificacion(out string mensaje)
         {
             mensaje = string.Empty;
 
-            if (string.IsNullOrWhiteSpace(TModificarNombre.Text)) { mensaje = "El nombre del producto no puede estar vacÃ­o."; return false; }
-            if (string.IsNullOrWhiteSpace(TModificarDescripcion.Text)) { mensaje = "La descripciÃ³n no puede estar vacÃ­a."; return false; }
-            if (!decimal.TryParse(TModificarPrecioLista.Text, out _) || decimal.Parse(TModificarPrecioLista.Text) < 0) { mensaje = "El precio de lista debe ser un nÃºmero vÃ¡lido mayor o igual a cero."; return false; }
-            if (!decimal.TryParse(TModificarPrecioVenta.Text, out _) || decimal.Parse(TModificarPrecioVenta.Text) < 0) { mensaje = "El precio de venta debe ser un nÃºmero vÃ¡lido mayor o igual a cero."; return false; }
-            if (!int.TryParse(NModificarStock.Text, out _) || int.Parse(NModificarStock.Text) < 0) { mensaje = "El stock debe ser un nÃºmero entero mayor o igual a cero."; return false; }
-            if (!int.TryParse(NModificarStockMin.Text, out _) || int.Parse(NModificarStockMin.Text) < 0) { mensaje = "El stock mÃ­nimo debe ser un nÃºmero entero mayor o igual a cero."; return false; }
-            if (CBModificarCategoria.SelectedItem == null) { mensaje = "Debe seleccionar una categorÃ­a."; return false; }
+            if (string.IsNullOrWhiteSpace(TModificarNombre.Text)) { mensaje = "El nombre del producto no puede estar vacío."; return false; }
+            if (string.IsNullOrWhiteSpace(TModificarDescripcion.Text)) { mensaje = "La descripción no puede estar vacía."; return false; }
+
+            if (!decimal.TryParse(TModificarPrecioLista.Text, out decimal precioLista)) { mensaje = "El precio de lista debe ser un número válido."; return false; }
+            if (!decimal.TryParse(TModificarPrecioVenta.Text, out decimal precioVenta)) { mensaje = "El precio de venta debe ser un número válido."; return false; }
+            if (!int.TryParse(NModificarStock.Text, out int stock)) { mensaje = "El stock debe ser un número entero válido."; return false; }
+            if (!int.TryParse(NModificarStockMin.Text, out int stockMin)) { mensaje = "El stock mínimo debe ser un número entero válido."; return false; }
+
+            if (CBModificarCategoria.SelectedItem == null) { mensaje = "Debe seleccionar una categoría."; return false; }
             if (CBModificarEstado.SelectedItem == null) { mensaje = "Debe seleccionar el estado."; return false; }
 
             return true;
         }
 
+
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             string filtro = txtBuscar.Text.Trim();
 
-            // All search logic directly interacts with the TableAdapter, which implies
-            // it's deeply coupled with your Data Layer. This is acceptable for simple UI-driven searches
-            // but for complex business-driven searches, the BLL would expose methods
-            // that then use a DAL.
             if (string.IsNullOrEmpty(filtro))
             {
-                ActualizarDatosTabla(); // Show all when filter is empty
+                ActualizarDatosTabla(); // Si el filtro está vacío, muestra todos los productos
                 return;
             }
 
-            // Attempt to search by id_producto if numeric
+            // Intenta buscar por id_producto si el texto es un número
             if (int.TryParse(filtro, out int idVal))
             {
                 this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
@@ -399,24 +371,26 @@ namespace OcioStoreIngSoftII
                 return;
             }
 
-            // If not numeric, try by text fields
+            // Si no es numérico, intenta buscar por nombre de producto
             this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
                 this.dataSet1.PROC_BUSCAR_PRODUCTO,
-                null, filtro, null, null, null, null, null, null, null, null, null // nombre producto
+                null, filtro, null, null, null, null, null, null, null, null, null // nombre_producto
             );
+            // Si no se encuentran resultados por nombre, intenta por descripción
             if (this.dataSet1.PROC_BUSCAR_PRODUCTO.Rows.Count == 0)
             {
                 this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_PRODUCTO, null, null, null, null, null, null, null, null, filtro, null, null); // descripcion
             }
+            // Si sigue sin resultados, intenta por nombre de categoría
             if (this.dataSet1.PROC_BUSCAR_PRODUCTO.Rows.Count == 0)
             {
-                this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_PRODUCTO, null, null, null, null, null, null, null, null, null, null, filtro); // nombre categoria
+                this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_PRODUCTO, null, null, null, null, null, null, null, null, null, null, filtro); // nombre_categoria
             }
         }
 
         private void TDescripcion_TextChanged(object sender, EventArgs e)
         {
-            // Event handler with no logic - can be removed if not used.
+            // Evento sin lógica, se puede eliminar si no es necesario.
         }
     }
 }
