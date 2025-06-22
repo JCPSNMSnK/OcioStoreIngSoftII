@@ -335,12 +335,11 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(9, 14);
+            this.label1.Location = new System.Drawing.Point(8, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 25);
             this.label1.TabIndex = 6;
@@ -350,11 +349,11 @@
             // 
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.White;
-            this.txtBuscar.Location = new System.Drawing.Point(9, 42);
+            this.txtBuscar.Location = new System.Drawing.Point(8, 40);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(226, 27);
+            this.txtBuscar.Size = new System.Drawing.Size(232, 29);
             this.txtBuscar.TabIndex = 5;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
@@ -431,44 +430,44 @@
             // CBEstado
             // 
             this.CBEstado.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.CBEstado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBEstado.FormattingEnabled = true;
-            this.CBEstado.Location = new System.Drawing.Point(480, 185);
+            this.CBEstado.Location = new System.Drawing.Point(480, 200);
             this.CBEstado.Name = "CBEstado";
-            this.CBEstado.Size = new System.Drawing.Size(232, 28);
+            this.CBEstado.Size = new System.Drawing.Size(232, 29);
             this.CBEstado.TabIndex = 25;
             // 
             // CBroles
             // 
             this.CBroles.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.CBroles.DisplayMember = "id_rol";
-            this.CBroles.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBroles.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBroles.FormattingEnabled = true;
-            this.CBroles.Location = new System.Drawing.Point(480, 133);
+            this.CBroles.Location = new System.Drawing.Point(480, 144);
             this.CBroles.Name = "CBroles";
-            this.CBroles.Size = new System.Drawing.Size(231, 28);
+            this.CBroles.Size = new System.Drawing.Size(231, 29);
             this.CBroles.TabIndex = 24;
             this.CBroles.ValueMember = "id_rol";
             // 
             // LEstado
             // 
             this.LEstado.AutoSize = true;
-            this.LEstado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEstado.Location = new System.Drawing.Point(476, 162);
+            this.LEstado.Location = new System.Drawing.Point(480, 176);
             this.LEstado.Name = "LEstado";
-            this.LEstado.Size = new System.Drawing.Size(54, 20);
+            this.LEstado.Size = new System.Drawing.Size(56, 21);
             this.LEstado.TabIndex = 24;
             this.LEstado.Text = "Estado";
             // 
             // LRol
             // 
             this.LRol.AutoSize = true;
-            this.LRol.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LRol.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LRol.Location = new System.Drawing.Point(476, 110);
+            this.LRol.Location = new System.Drawing.Point(480, 120);
             this.LRol.Name = "LRol";
-            this.LRol.Size = new System.Drawing.Size(31, 20);
+            this.LRol.Size = new System.Drawing.Size(33, 21);
             this.LRol.TabIndex = 22;
             this.LRol.Text = "Rol";
             // 
@@ -478,7 +477,7 @@
             this.BRegisterUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BRegisterUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BRegisterUser.ForeColor = System.Drawing.Color.White;
-            this.BRegisterUser.Location = new System.Drawing.Point(392, 317);
+            this.BRegisterUser.Location = new System.Drawing.Point(392, 304);
             this.BRegisterUser.Name = "BRegisterUser";
             this.BRegisterUser.Size = new System.Drawing.Size(143, 32);
             this.BRegisterUser.TabIndex = 20;
@@ -490,23 +489,23 @@
             // 
             this.TPassConf.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TPassConf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPassConf.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPassConf.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPassConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TPassConf.Location = new System.Drawing.Point(214, 239);
+            this.TPassConf.Location = new System.Drawing.Point(208, 256);
             this.TPassConf.Name = "TPassConf";
             this.TPassConf.PasswordChar = '*';
-            this.TPassConf.Size = new System.Drawing.Size(232, 27);
+            this.TPassConf.Size = new System.Drawing.Size(232, 29);
             this.TPassConf.TabIndex = 19;
             this.TPassConf.UseSystemPasswordChar = true;
             // 
             // LPassConf
             // 
             this.LPassConf.AutoSize = true;
-            this.LPassConf.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LPassConf.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LPassConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPassConf.Location = new System.Drawing.Point(210, 216);
+            this.LPassConf.Location = new System.Drawing.Point(208, 232);
             this.LPassConf.Name = "LPassConf";
-            this.LPassConf.Size = new System.Drawing.Size(153, 20);
+            this.LPassConf.Size = new System.Drawing.Size(164, 21);
             this.LPassConf.TabIndex = 18;
             this.LPassConf.Text = "Confirmar Contraseña";
             // 
@@ -514,21 +513,21 @@
             // 
             this.TEmail.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TEmail.Location = new System.Drawing.Point(214, 133);
+            this.TEmail.Location = new System.Drawing.Point(208, 144);
             this.TEmail.Name = "TEmail";
-            this.TEmail.Size = new System.Drawing.Size(232, 27);
+            this.TEmail.Size = new System.Drawing.Size(232, 29);
             this.TEmail.TabIndex = 13;
             // 
             // LEmail
             // 
             this.LEmail.AutoSize = true;
-            this.LEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEmail.Location = new System.Drawing.Point(210, 110);
+            this.LEmail.Location = new System.Drawing.Point(208, 120);
             this.LEmail.Name = "LEmail";
-            this.LEmail.Size = new System.Drawing.Size(52, 20);
+            this.LEmail.Size = new System.Drawing.Size(54, 21);
             this.LEmail.TabIndex = 12;
             this.LEmail.Text = "E-mail";
             // 
@@ -536,21 +535,21 @@
             // 
             this.TApellido.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TApellido.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TApellido.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TApellido.Location = new System.Drawing.Point(214, 80);
+            this.TApellido.Location = new System.Drawing.Point(208, 88);
             this.TApellido.Name = "TApellido";
-            this.TApellido.Size = new System.Drawing.Size(232, 27);
+            this.TApellido.Size = new System.Drawing.Size(232, 29);
             this.TApellido.TabIndex = 11;
             // 
             // LApellido
             // 
             this.LApellido.AutoSize = true;
-            this.LApellido.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LApellido.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LApellido.Location = new System.Drawing.Point(210, 57);
+            this.LApellido.Location = new System.Drawing.Point(208, 64);
             this.LApellido.Name = "LApellido";
-            this.LApellido.Size = new System.Drawing.Size(66, 20);
+            this.LApellido.Size = new System.Drawing.Size(67, 21);
             this.LApellido.TabIndex = 10;
             this.LApellido.Text = "Apellido";
             // 
@@ -558,43 +557,43 @@
             // 
             this.TDni.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TDni.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TDni.Location = new System.Drawing.Point(480, 27);
+            this.TDni.Location = new System.Drawing.Point(480, 32);
             this.TDni.Name = "TDni";
-            this.TDni.Size = new System.Drawing.Size(232, 27);
+            this.TDni.Size = new System.Drawing.Size(232, 29);
             this.TDni.TabIndex = 9;
             // 
             // TNombre
             // 
             this.TNombre.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TNombre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TNombre.Location = new System.Drawing.Point(214, 27);
+            this.TNombre.Location = new System.Drawing.Point(208, 32);
             this.TNombre.Name = "TNombre";
-            this.TNombre.Size = new System.Drawing.Size(232, 27);
+            this.TNombre.Size = new System.Drawing.Size(232, 29);
             this.TNombre.TabIndex = 9;
             // 
             // LDni
             // 
             this.LDni.AutoSize = true;
-            this.LDni.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LDni.Location = new System.Drawing.Point(476, 4);
+            this.LDni.Location = new System.Drawing.Point(480, 8);
             this.LDni.Name = "LDni";
-            this.LDni.Size = new System.Drawing.Size(35, 20);
+            this.LDni.Size = new System.Drawing.Size(37, 21);
             this.LDni.TabIndex = 8;
             this.LDni.Text = "DNI";
             // 
             // LNombre
             // 
             this.LNombre.AutoSize = true;
-            this.LNombre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LNombre.Location = new System.Drawing.Point(210, 4);
+            this.LNombre.Location = new System.Drawing.Point(208, 8);
             this.LNombre.Name = "LNombre";
-            this.LNombre.Size = new System.Drawing.Size(64, 20);
+            this.LNombre.Size = new System.Drawing.Size(68, 21);
             this.LNombre.TabIndex = 8;
             this.LNombre.Text = "Nombre";
             // 
@@ -602,23 +601,23 @@
             // 
             this.TPass.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TPass.Location = new System.Drawing.Point(214, 186);
+            this.TPass.Location = new System.Drawing.Point(208, 200);
             this.TPass.Name = "TPass";
             this.TPass.PasswordChar = '*';
-            this.TPass.Size = new System.Drawing.Size(232, 27);
+            this.TPass.Size = new System.Drawing.Size(232, 29);
             this.TPass.TabIndex = 7;
             this.TPass.UseSystemPasswordChar = true;
             // 
             // LPass
             // 
             this.LPass.AutoSize = true;
-            this.LPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPass.Location = new System.Drawing.Point(210, 163);
+            this.LPass.Location = new System.Drawing.Point(208, 176);
             this.LPass.Name = "LPass";
-            this.LPass.Size = new System.Drawing.Size(83, 20);
+            this.LPass.Size = new System.Drawing.Size(89, 21);
             this.LPass.TabIndex = 6;
             this.LPass.Text = "Contraseña";
             // 
@@ -626,21 +625,21 @@
             // 
             this.TUser.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TUser.Location = new System.Drawing.Point(480, 80);
+            this.TUser.Location = new System.Drawing.Point(480, 88);
             this.TUser.Name = "TUser";
-            this.TUser.Size = new System.Drawing.Size(232, 27);
+            this.TUser.Size = new System.Drawing.Size(232, 29);
             this.TUser.TabIndex = 5;
             // 
             // LUser
             // 
             this.LUser.AutoSize = true;
-            this.LUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LUser.Location = new System.Drawing.Point(476, 57);
+            this.LUser.Location = new System.Drawing.Point(480, 64);
             this.LUser.Name = "LUser";
-            this.LUser.Size = new System.Drawing.Size(59, 20);
+            this.LUser.Size = new System.Drawing.Size(64, 21);
             this.LUser.TabIndex = 4;
             this.LUser.Text = "Usuario";
             // 
@@ -745,12 +744,12 @@
             // 
             this.TModificarConfirmPass.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TModificarConfirmPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarConfirmPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarConfirmPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarConfirmPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarConfirmPass.Location = new System.Drawing.Point(209, 237);
+            this.TModificarConfirmPass.Location = new System.Drawing.Point(208, 256);
             this.TModificarConfirmPass.Name = "TModificarConfirmPass";
             this.TModificarConfirmPass.PasswordChar = '*';
-            this.TModificarConfirmPass.Size = new System.Drawing.Size(232, 27);
+            this.TModificarConfirmPass.Size = new System.Drawing.Size(232, 29);
             this.TModificarConfirmPass.TabIndex = 57;
             this.TModificarConfirmPass.UseSystemPasswordChar = true;
             this.TModificarConfirmPass.Visible = false;
@@ -758,11 +757,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Location = new System.Drawing.Point(205, 214);
+            this.label2.Location = new System.Drawing.Point(208, 232);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 20);
+            this.label2.Size = new System.Drawing.Size(164, 21);
             this.label2.TabIndex = 56;
             this.label2.Text = "Confirmar Contraseña";
             this.label2.Visible = false;
@@ -771,12 +770,12 @@
             // 
             this.TModificarPass.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TModificarPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarPass.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarPass.Location = new System.Drawing.Point(209, 184);
+            this.TModificarPass.Location = new System.Drawing.Point(208, 200);
             this.TModificarPass.Name = "TModificarPass";
             this.TModificarPass.PasswordChar = '*';
-            this.TModificarPass.Size = new System.Drawing.Size(232, 27);
+            this.TModificarPass.Size = new System.Drawing.Size(232, 29);
             this.TModificarPass.TabIndex = 55;
             this.TModificarPass.UseSystemPasswordChar = true;
             this.TModificarPass.Visible = false;
@@ -784,11 +783,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Location = new System.Drawing.Point(205, 161);
+            this.label3.Location = new System.Drawing.Point(208, 176);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 20);
+            this.label3.Size = new System.Drawing.Size(89, 21);
             this.label3.TabIndex = 54;
             this.label3.Text = "Contraseña";
             this.label3.Visible = false;
@@ -797,22 +796,22 @@
             // 
             this.CBModificarRoles.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.CBModificarRoles.DisplayMember = "id_rol";
-            this.CBModificarRoles.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBModificarRoles.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBModificarRoles.FormattingEnabled = true;
-            this.CBModificarRoles.Location = new System.Drawing.Point(483, 131);
+            this.CBModificarRoles.Location = new System.Drawing.Point(480, 144);
             this.CBModificarRoles.Name = "CBModificarRoles";
-            this.CBModificarRoles.Size = new System.Drawing.Size(231, 28);
+            this.CBModificarRoles.Size = new System.Drawing.Size(231, 29);
             this.CBModificarRoles.TabIndex = 46;
             this.CBModificarRoles.ValueMember = "id_rol";
             // 
             // LModificarEstado
             // 
             this.LModificarEstado.AutoSize = true;
-            this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarEstado.Location = new System.Drawing.Point(479, 162);
+            this.LModificarEstado.Location = new System.Drawing.Point(480, 176);
             this.LModificarEstado.Name = "LModificarEstado";
-            this.LModificarEstado.Size = new System.Drawing.Size(54, 20);
+            this.LModificarEstado.Size = new System.Drawing.Size(56, 21);
             this.LModificarEstado.TabIndex = 44;
             this.LModificarEstado.Text = "Estado";
             // 
@@ -820,22 +819,22 @@
             // 
             this.CBModificarEstado.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.CBModificarEstado.DisplayMember = "estado";
-            this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBModificarEstado.FormattingEnabled = true;
-            this.CBModificarEstado.Location = new System.Drawing.Point(482, 185);
+            this.CBModificarEstado.Location = new System.Drawing.Point(480, 200);
             this.CBModificarEstado.Name = "CBModificarEstado";
-            this.CBModificarEstado.Size = new System.Drawing.Size(232, 28);
+            this.CBModificarEstado.Size = new System.Drawing.Size(232, 29);
             this.CBModificarEstado.TabIndex = 43;
             this.CBModificarEstado.ValueMember = "estado";
             // 
             // LModificarRol
             // 
             this.LModificarRol.AutoSize = true;
-            this.LModificarRol.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarRol.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarRol.Location = new System.Drawing.Point(479, 108);
+            this.LModificarRol.Location = new System.Drawing.Point(480, 120);
             this.LModificarRol.Name = "LModificarRol";
-            this.LModificarRol.Size = new System.Drawing.Size(31, 20);
+            this.LModificarRol.Size = new System.Drawing.Size(33, 21);
             this.LModificarRol.TabIndex = 42;
             this.LModificarRol.Text = "Rol";
             // 
@@ -843,32 +842,32 @@
             // 
             this.TModificarDni.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TModificarDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarDni.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarDni.Location = new System.Drawing.Point(483, 25);
+            this.TModificarDni.Location = new System.Drawing.Point(480, 32);
             this.TModificarDni.Name = "TModificarDni";
-            this.TModificarDni.Size = new System.Drawing.Size(232, 27);
+            this.TModificarDni.Size = new System.Drawing.Size(232, 29);
             this.TModificarDni.TabIndex = 34;
             // 
             // LModificarDni
             // 
             this.LModificarDni.AutoSize = true;
-            this.LModificarDni.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarDni.Location = new System.Drawing.Point(479, 2);
+            this.LModificarDni.Location = new System.Drawing.Point(480, 8);
             this.LModificarDni.Name = "LModificarDni";
-            this.LModificarDni.Size = new System.Drawing.Size(35, 20);
+            this.LModificarDni.Size = new System.Drawing.Size(37, 21);
             this.LModificarDni.TabIndex = 33;
             this.LModificarDni.Text = "DNI";
             // 
             // LModificarUsuario
             // 
             this.LModificarUsuario.AutoSize = true;
-            this.LModificarUsuario.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarUsuario.Location = new System.Drawing.Point(479, 55);
+            this.LModificarUsuario.Location = new System.Drawing.Point(480, 64);
             this.LModificarUsuario.Name = "LModificarUsuario";
-            this.LModificarUsuario.Size = new System.Drawing.Size(59, 20);
+            this.LModificarUsuario.Size = new System.Drawing.Size(64, 21);
             this.LModificarUsuario.TabIndex = 25;
             this.LModificarUsuario.Text = "Usuario";
             // 
@@ -876,21 +875,21 @@
             // 
             this.TModificarUser.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TModificarUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarUser.Location = new System.Drawing.Point(483, 78);
+            this.TModificarUser.Location = new System.Drawing.Point(480, 88);
             this.TModificarUser.Name = "TModificarUser";
-            this.TModificarUser.Size = new System.Drawing.Size(232, 27);
+            this.TModificarUser.Size = new System.Drawing.Size(232, 29);
             this.TModificarUser.TabIndex = 26;
             // 
             // LModificarApellido
             // 
             this.LModificarApellido.AutoSize = true;
-            this.LModificarApellido.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarApellido.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarApellido.Location = new System.Drawing.Point(205, 55);
+            this.LModificarApellido.Location = new System.Drawing.Point(208, 64);
             this.LModificarApellido.Name = "LModificarApellido";
-            this.LModificarApellido.Size = new System.Drawing.Size(66, 20);
+            this.LModificarApellido.Size = new System.Drawing.Size(67, 21);
             this.LModificarApellido.TabIndex = 31;
             this.LModificarApellido.Text = "Apellido";
             // 
@@ -898,32 +897,32 @@
             // 
             this.TModificarEmail.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TModificarEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarEmail.Location = new System.Drawing.Point(209, 131);
+            this.TModificarEmail.Location = new System.Drawing.Point(208, 144);
             this.TModificarEmail.Name = "TModificarEmail";
-            this.TModificarEmail.Size = new System.Drawing.Size(232, 27);
+            this.TModificarEmail.Size = new System.Drawing.Size(232, 29);
             this.TModificarEmail.TabIndex = 34;
             // 
             // TModificarAp
             // 
             this.TModificarAp.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TModificarAp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarAp.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarAp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarAp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarAp.Location = new System.Drawing.Point(209, 78);
+            this.TModificarAp.Location = new System.Drawing.Point(208, 88);
             this.TModificarAp.Name = "TModificarAp";
-            this.TModificarAp.Size = new System.Drawing.Size(232, 27);
+            this.TModificarAp.Size = new System.Drawing.Size(232, 29);
             this.TModificarAp.TabIndex = 32;
             // 
             // LModificarEmail
             // 
             this.LModificarEmail.AutoSize = true;
-            this.LModificarEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarEmail.Location = new System.Drawing.Point(205, 108);
+            this.LModificarEmail.Location = new System.Drawing.Point(208, 120);
             this.LModificarEmail.Name = "LModificarEmail";
-            this.LModificarEmail.Size = new System.Drawing.Size(52, 20);
+            this.LModificarEmail.Size = new System.Drawing.Size(54, 21);
             this.LModificarEmail.TabIndex = 33;
             this.LModificarEmail.Text = "E-mail";
             // 
@@ -931,21 +930,21 @@
             // 
             this.TModificarNombre.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.TModificarNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarNombre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarNombre.Location = new System.Drawing.Point(209, 25);
+            this.TModificarNombre.Location = new System.Drawing.Point(208, 32);
             this.TModificarNombre.Name = "TModificarNombre";
-            this.TModificarNombre.Size = new System.Drawing.Size(232, 27);
+            this.TModificarNombre.Size = new System.Drawing.Size(232, 29);
             this.TModificarNombre.TabIndex = 30;
             // 
             // LModificarNombre
             // 
             this.LModificarNombre.AutoSize = true;
-            this.LModificarNombre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarNombre.Location = new System.Drawing.Point(205, 2);
+            this.LModificarNombre.Location = new System.Drawing.Point(208, 8);
             this.LModificarNombre.Name = "LModificarNombre";
-            this.LModificarNombre.Size = new System.Drawing.Size(64, 20);
+            this.LModificarNombre.Size = new System.Drawing.Size(68, 21);
             this.LModificarNombre.TabIndex = 29;
             this.LModificarNombre.Text = "Nombre";
             // 
@@ -953,9 +952,9 @@
             // 
             this.BModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.BModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BModificar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BModificar.ForeColor = System.Drawing.Color.White;
-            this.BModificar.Location = new System.Drawing.Point(395, 317);
+            this.BModificar.Location = new System.Drawing.Point(392, 304);
             this.BModificar.Name = "BModificar";
             this.BModificar.Size = new System.Drawing.Size(143, 32);
             this.BModificar.TabIndex = 21;
@@ -1044,7 +1043,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_rol;
         private System.Windows.Forms.DataGridViewTextBoxColumn rol;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TabControl TCUsuarios;
         private System.Windows.Forms.TabPage tabPage1;
@@ -1096,5 +1094,6 @@
         private System.Windows.Forms.Label LUser;
         private System.Windows.Forms.TextBox TID_user;
         private System.Windows.Forms.TextBox TIndice;
+        private System.Windows.Forms.Label label1;
     }
 }

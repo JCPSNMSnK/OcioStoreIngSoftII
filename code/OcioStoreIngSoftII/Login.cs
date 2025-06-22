@@ -38,37 +38,6 @@ namespace OcioStoreIngSoftII
             TUser.PlaceholderColor = Color.Gray;
         }
 
-        // Evento Enter
-        private void TPass_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void TPass_Leave(object sender, EventArgs e)
-        {
-        }
-
-        private void TUser_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void TUser_Leave(object sender, EventArgs e)
-        {
-        }
-
-
-        private void TPass_ContentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                BLogin.Select();
-            }
-        }
-
         private void BLogin_Click_1(object sender, EventArgs e)
         {
             List<Usuario> TEST = new Usuario_negocio().Listar();

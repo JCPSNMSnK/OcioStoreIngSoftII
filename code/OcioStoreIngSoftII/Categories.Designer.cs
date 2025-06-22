@@ -29,60 +29,60 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pROCBUSCARCATEGORIABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriasTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.CategoriasTableAdapter();
             this.pROC_BUSCAR_CATEGORIATableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.PROC_BUSCAR_CATEGORIATableAdapter();
             this.TCUsuarios = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.TIndice = new System.Windows.Forms.TextBox();
-            this.TID_user = new System.Windows.Forms.TextBox();
             this.panelInternoAlta = new System.Windows.Forms.Panel();
-            this.LNombre = new System.Windows.Forms.Label();
-            this.TNombre = new System.Windows.Forms.TextBox();
-            this.BRegisterUser = new System.Windows.Forms.Button();
-            this.LEstado = new System.Windows.Forms.Label();
             this.CBEstado = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.categoriasDataGridView = new System.Windows.Forms.DataGridView();
-            this.baja_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.baja_estado_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idcategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.TBModificarIndice = new System.Windows.Forms.TextBox();
-            this.TModificarID_user = new System.Windows.Forms.TextBox();
+            this.LEstado = new System.Windows.Forms.Label();
+            this.BRegisterUser = new System.Windows.Forms.Button();
+            this.TNombre = new System.Windows.Forms.TextBox();
+            this.LNombre = new System.Windows.Forms.Label();
+            this.TID_user = new System.Windows.Forms.TextBox();
+            this.TIndice = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.PanelModificarUser = new System.Windows.Forms.Panel();
             this.panelInternoModif = new System.Windows.Forms.Panel();
-            this.BModificar = new System.Windows.Forms.Button();
-            this.LModificarNombre = new System.Windows.Forms.Label();
-            this.TModificarNombre = new System.Windows.Forms.TextBox();
-            this.CBModificarEstado = new System.Windows.Forms.ComboBox();
             this.LModificarEstado = new System.Windows.Forms.Label();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.CBModificarEstado = new System.Windows.Forms.ComboBox();
+            this.TModificarNombre = new System.Windows.Forms.TextBox();
+            this.LModificarNombre = new System.Windows.Forms.Label();
+            this.BModificar = new System.Windows.Forms.Button();
+            this.TModificarID_user = new System.Windows.Forms.TextBox();
+            this.TBModificarIndice = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.categoriasDataGridView = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.idcategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.baja_estado_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.baja_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pROCBUSCARCATEGORIABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             this.TCUsuarios.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panelInternoAlta.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.PanelModificarUser.SuspendLayout();
+            this.panelInternoModif.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasDataGridView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.PanelModificarUser.SuspendLayout();
-            this.panelInternoModif.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // pROCBUSCARCATEGORIABindingSource
@@ -123,17 +123,6 @@
             this.TCUsuarios.Size = new System.Drawing.Size(1211, 273);
             this.TCUsuarios.TabIndex = 11;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tabPage2.Controls.Add(this.tableLayoutPanel7);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1203, 240);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Modificar Categoría";
-            // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -162,21 +151,74 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1197, 234);
             this.tableLayoutPanel2.TabIndex = 58;
             // 
-            // TIndice
+            // panelInternoAlta
             // 
-            this.TIndice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TIndice.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TIndice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TIndice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TIndice.Location = new System.Drawing.Point(3, 3);
-            this.TIndice.Name = "TIndice";
-            this.TIndice.Size = new System.Drawing.Size(49, 27);
-            this.TIndice.TabIndex = 52;
-            this.TIndice.Text = "-1";
-            this.TIndice.Visible = false;
+            this.panelInternoAlta.Controls.Add(this.CBEstado);
+            this.panelInternoAlta.Controls.Add(this.LEstado);
+            this.panelInternoAlta.Controls.Add(this.BRegisterUser);
+            this.panelInternoAlta.Controls.Add(this.TNombre);
+            this.panelInternoAlta.Controls.Add(this.LNombre);
+            this.panelInternoAlta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelInternoAlta.Location = new System.Drawing.Point(114, 3);
+            this.panelInternoAlta.Name = "panelInternoAlta";
+            this.panelInternoAlta.Size = new System.Drawing.Size(1080, 228);
+            this.panelInternoAlta.TabIndex = 54;
+            // 
+            // CBEstado
+            // 
+            this.CBEstado.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.CBEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBEstado.FormattingEnabled = true;
+            this.CBEstado.Location = new System.Drawing.Point(488, 32);
+            this.CBEstado.Name = "CBEstado";
+            this.CBEstado.Size = new System.Drawing.Size(232, 29);
+            this.CBEstado.TabIndex = 25;
+            // 
+            // LEstado
+            // 
+            this.LEstado.AutoSize = true;
+            this.LEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LEstado.Location = new System.Drawing.Point(488, 8);
+            this.LEstado.Name = "LEstado";
+            this.LEstado.Size = new System.Drawing.Size(56, 21);
+            this.LEstado.TabIndex = 24;
+            this.LEstado.Text = "Estado";
+            // 
+            // BRegisterUser
+            // 
+            this.BRegisterUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.BRegisterUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BRegisterUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BRegisterUser.ForeColor = System.Drawing.Color.White;
+            this.BRegisterUser.Location = new System.Drawing.Point(376, 80);
+            this.BRegisterUser.Name = "BRegisterUser";
+            this.BRegisterUser.Size = new System.Drawing.Size(168, 32);
+            this.BRegisterUser.TabIndex = 20;
+            this.BRegisterUser.Text = "Registrar Categoría";
+            this.BRegisterUser.UseVisualStyleBackColor = false;
+            // 
+            // TNombre
+            // 
+            this.TNombre.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TNombre.Location = new System.Drawing.Point(216, 32);
+            this.TNombre.Name = "TNombre";
+            this.TNombre.Size = new System.Drawing.Size(232, 29);
+            this.TNombre.TabIndex = 9;
+            // 
+            // LNombre
+            // 
+            this.LNombre.AutoSize = true;
+            this.LNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LNombre.Location = new System.Drawing.Point(216, 8);
+            this.LNombre.Name = "LNombre";
+            this.LNombre.Size = new System.Drawing.Size(68, 21);
+            this.LNombre.TabIndex = 8;
+            this.LNombre.Text = "Nombre";
             // 
             // TID_user
             // 
@@ -194,242 +236,49 @@
             this.TID_user.Text = "0";
             this.TID_user.Visible = false;
             // 
-            // panelInternoAlta
+            // TIndice
             // 
-            this.panelInternoAlta.Controls.Add(this.CBEstado);
-            this.panelInternoAlta.Controls.Add(this.LEstado);
-            this.panelInternoAlta.Controls.Add(this.BRegisterUser);
-            this.panelInternoAlta.Controls.Add(this.TNombre);
-            this.panelInternoAlta.Controls.Add(this.LNombre);
-            this.panelInternoAlta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInternoAlta.Location = new System.Drawing.Point(114, 3);
-            this.panelInternoAlta.Name = "panelInternoAlta";
-            this.panelInternoAlta.Size = new System.Drawing.Size(1080, 228);
-            this.panelInternoAlta.TabIndex = 54;
-            // 
-            // LNombre
-            // 
-            this.LNombre.AutoSize = true;
-            this.LNombre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LNombre.Location = new System.Drawing.Point(210, 4);
-            this.LNombre.Name = "LNombre";
-            this.LNombre.Size = new System.Drawing.Size(64, 20);
-            this.LNombre.TabIndex = 8;
-            this.LNombre.Text = "Nombre";
-            // 
-            // TNombre
-            // 
-            this.TNombre.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TNombre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TNombre.Location = new System.Drawing.Point(214, 27);
-            this.TNombre.Name = "TNombre";
-            this.TNombre.Size = new System.Drawing.Size(232, 27);
-            this.TNombre.TabIndex = 9;
-            // 
-            // BRegisterUser
-            // 
-            this.BRegisterUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.BRegisterUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BRegisterUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BRegisterUser.ForeColor = System.Drawing.Color.White;
-            this.BRegisterUser.Location = new System.Drawing.Point(378, 61);
-            this.BRegisterUser.Name = "BRegisterUser";
-            this.BRegisterUser.Size = new System.Drawing.Size(172, 32);
-            this.BRegisterUser.TabIndex = 20;
-            this.BRegisterUser.Text = "Registrar Categoría";
-            this.BRegisterUser.UseVisualStyleBackColor = false;
-            // 
-            // LEstado
-            // 
-            this.LEstado.AutoSize = true;
-            this.LEstado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEstado.Location = new System.Drawing.Point(477, 4);
-            this.LEstado.Name = "LEstado";
-            this.LEstado.Size = new System.Drawing.Size(54, 20);
-            this.LEstado.TabIndex = 24;
-            this.LEstado.Text = "Estado";
-            // 
-            // CBEstado
-            // 
-            this.CBEstado.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.CBEstado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBEstado.FormattingEnabled = true;
-            this.CBEstado.Location = new System.Drawing.Point(481, 27);
-            this.CBEstado.Name = "CBEstado";
-            this.CBEstado.Size = new System.Drawing.Size(232, 28);
-            this.CBEstado.TabIndex = 25;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtBuscar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1211, 78);
-            this.panel1.TabIndex = 57;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.ForeColor = System.Drawing.Color.White;
-            this.txtBuscar.Location = new System.Drawing.Point(9, 42);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(226, 27);
-            this.txtBuscar.TabIndex = 5;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TIndice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(9, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Buscar";
+            this.TIndice.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TIndice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TIndice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TIndice.Location = new System.Drawing.Point(3, 3);
+            this.TIndice.Name = "TIndice";
+            this.TIndice.Size = new System.Drawing.Size(49, 27);
+            this.TIndice.TabIndex = 52;
+            this.TIndice.Text = "-1";
+            this.TIndice.Visible = false;
             // 
-            // categoriasDataGridView
+            // tabPage2
             // 
-            this.categoriasDataGridView.AllowUserToAddRows = false;
-            this.categoriasDataGridView.AllowUserToDeleteRows = false;
-            this.categoriasDataGridView.AutoGenerateColumns = false;
-            this.categoriasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.categoriasDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.categoriasDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.categoriasDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.categoriasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.categoriasDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnSeleccionar,
-            this.idcategoriaDataGridViewTextBoxColumn,
-            this.nombrecategoriaDataGridViewTextBoxColumn,
-            this.baja_estado_valor,
-            this.baja_estado});
-            this.categoriasDataGridView.DataSource = this.pROCBUSCARCATEGORIABindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.categoriasDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.categoriasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.categoriasDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.categoriasDataGridView.Location = new System.Drawing.Point(15, 87);
-            this.categoriasDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
-            this.categoriasDataGridView.Name = "categoriasDataGridView";
-            this.categoriasDataGridView.ReadOnly = true;
-            this.categoriasDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.categoriasDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.categoriasDataGridView.RowHeadersVisible = false;
-            this.categoriasDataGridView.Size = new System.Drawing.Size(1187, 334);
-            this.categoriasDataGridView.TabIndex = 58;
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tabPage2.Controls.Add(this.tableLayoutPanel7);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1203, 240);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Modificar Categoría";
             // 
-            // baja_estado
+            // tableLayoutPanel7
             // 
-            this.baja_estado.HeaderText = "Dado de baja?";
-            this.baja_estado.Name = "baja_estado";
-            this.baja_estado.ReadOnly = true;
-            // 
-            // baja_estado_valor
-            // 
-            this.baja_estado_valor.DataPropertyName = "baja_categoria";
-            this.baja_estado_valor.HeaderText = "baja_categoria";
-            this.baja_estado_valor.Name = "baja_estado_valor";
-            this.baja_estado_valor.ReadOnly = true;
-            this.baja_estado_valor.Visible = false;
-            // 
-            // nombrecategoriaDataGridViewTextBoxColumn
-            // 
-            this.nombrecategoriaDataGridViewTextBoxColumn.DataPropertyName = "nombre_categoria";
-            this.nombrecategoriaDataGridViewTextBoxColumn.HeaderText = "Categoría";
-            this.nombrecategoriaDataGridViewTextBoxColumn.Name = "nombrecategoriaDataGridViewTextBoxColumn";
-            this.nombrecategoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idcategoriaDataGridViewTextBoxColumn
-            // 
-            this.idcategoriaDataGridViewTextBoxColumn.DataPropertyName = "id_categoria";
-            this.idcategoriaDataGridViewTextBoxColumn.HeaderText = "ID de Categoría";
-            this.idcategoriaDataGridViewTextBoxColumn.Name = "idcategoriaDataGridViewTextBoxColumn";
-            this.idcategoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 110;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.categoriasDataGridView, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.TCUsuarios, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.06395F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.5064F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.54481F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1217, 703);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // TBModificarIndice
-            // 
-            this.TBModificarIndice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBModificarIndice.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TBModificarIndice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TBModificarIndice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBModificarIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TBModificarIndice.Location = new System.Drawing.Point(3, 3);
-            this.TBModificarIndice.Name = "TBModificarIndice";
-            this.TBModificarIndice.Size = new System.Drawing.Size(49, 27);
-            this.TBModificarIndice.TabIndex = 49;
-            this.TBModificarIndice.Text = "-1";
-            // 
-            // TModificarID_user
-            // 
-            this.TModificarID_user.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TModificarID_user.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TModificarID_user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarID_user.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarID_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarID_user.Location = new System.Drawing.Point(58, 3);
-            this.TModificarID_user.Name = "TModificarID_user";
-            this.TModificarID_user.Size = new System.Drawing.Size(50, 27);
-            this.TModificarID_user.TabIndex = 50;
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.632153F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.722979F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.64487F));
+            this.tableLayoutPanel7.Controls.Add(this.PanelModificarUser, 2, 0);
+            this.tableLayoutPanel7.Controls.Add(this.TModificarID_user, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.TBModificarIndice, 0, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1197, 234);
+            this.tableLayoutPanel7.TabIndex = 56;
             // 
             // PanelModificarUser
             // 
@@ -454,80 +303,231 @@
             this.panelInternoModif.Size = new System.Drawing.Size(1080, 228);
             this.panelInternoModif.TabIndex = 54;
             // 
-            // BModificar
+            // LModificarEstado
             // 
-            this.BModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.BModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BModificar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BModificar.ForeColor = System.Drawing.Color.White;
-            this.BModificar.Location = new System.Drawing.Point(384, 59);
-            this.BModificar.Name = "BModificar";
-            this.BModificar.Size = new System.Drawing.Size(158, 32);
-            this.BModificar.TabIndex = 21;
-            this.BModificar.Text = "Modificar Categoría";
-            this.BModificar.UseVisualStyleBackColor = false;
-            // 
-            // LModificarNombre
-            // 
-            this.LModificarNombre.AutoSize = true;
-            this.LModificarNombre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarNombre.Location = new System.Drawing.Point(209, 2);
-            this.LModificarNombre.Name = "LModificarNombre";
-            this.LModificarNombre.Size = new System.Drawing.Size(64, 20);
-            this.LModificarNombre.TabIndex = 29;
-            this.LModificarNombre.Text = "Nombre";
-            // 
-            // TModificarNombre
-            // 
-            this.TModificarNombre.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TModificarNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarNombre.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarNombre.Location = new System.Drawing.Point(213, 25);
-            this.TModificarNombre.Name = "TModificarNombre";
-            this.TModificarNombre.Size = new System.Drawing.Size(232, 27);
-            this.TModificarNombre.TabIndex = 30;
+            this.LModificarEstado.AutoSize = true;
+            this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarEstado.Location = new System.Drawing.Point(488, 8);
+            this.LModificarEstado.Name = "LModificarEstado";
+            this.LModificarEstado.Size = new System.Drawing.Size(56, 21);
+            this.LModificarEstado.TabIndex = 44;
+            this.LModificarEstado.Text = "Estado";
             // 
             // CBModificarEstado
             // 
             this.CBModificarEstado.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.CBModificarEstado.DisplayMember = "estado";
-            this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBModificarEstado.FormattingEnabled = true;
-            this.CBModificarEstado.Location = new System.Drawing.Point(482, 25);
+            this.CBModificarEstado.Location = new System.Drawing.Point(488, 32);
             this.CBModificarEstado.Name = "CBModificarEstado";
-            this.CBModificarEstado.Size = new System.Drawing.Size(232, 28);
+            this.CBModificarEstado.Size = new System.Drawing.Size(232, 29);
             this.CBModificarEstado.TabIndex = 43;
             this.CBModificarEstado.ValueMember = "estado";
             // 
-            // LModificarEstado
+            // TModificarNombre
             // 
-            this.LModificarEstado.AutoSize = true;
-            this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarEstado.Location = new System.Drawing.Point(479, 2);
-            this.LModificarEstado.Name = "LModificarEstado";
-            this.LModificarEstado.Size = new System.Drawing.Size(54, 20);
-            this.LModificarEstado.TabIndex = 44;
-            this.LModificarEstado.Text = "Estado";
+            this.TModificarNombre.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TModificarNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TModificarNombre.Location = new System.Drawing.Point(216, 32);
+            this.TModificarNombre.Name = "TModificarNombre";
+            this.TModificarNombre.Size = new System.Drawing.Size(232, 29);
+            this.TModificarNombre.TabIndex = 30;
             // 
-            // tableLayoutPanel7
+            // LModificarNombre
             // 
-            this.tableLayoutPanel7.ColumnCount = 3;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.632153F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.722979F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.64487F));
-            this.tableLayoutPanel7.Controls.Add(this.PanelModificarUser, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.TModificarID_user, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.TBModificarIndice, 0, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1197, 234);
-            this.tableLayoutPanel7.TabIndex = 56;
+            this.LModificarNombre.AutoSize = true;
+            this.LModificarNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarNombre.Location = new System.Drawing.Point(216, 8);
+            this.LModificarNombre.Name = "LModificarNombre";
+            this.LModificarNombre.Size = new System.Drawing.Size(68, 21);
+            this.LModificarNombre.TabIndex = 29;
+            this.LModificarNombre.Text = "Nombre";
+            // 
+            // BModificar
+            // 
+            this.BModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.BModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BModificar.ForeColor = System.Drawing.Color.White;
+            this.BModificar.Location = new System.Drawing.Point(376, 80);
+            this.BModificar.Name = "BModificar";
+            this.BModificar.Size = new System.Drawing.Size(168, 32);
+            this.BModificar.TabIndex = 21;
+            this.BModificar.Text = "Modificar Categoría";
+            this.BModificar.UseVisualStyleBackColor = false;
+            // 
+            // TModificarID_user
+            // 
+            this.TModificarID_user.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TModificarID_user.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarID_user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TModificarID_user.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarID_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TModificarID_user.Location = new System.Drawing.Point(58, 3);
+            this.TModificarID_user.Name = "TModificarID_user";
+            this.TModificarID_user.Size = new System.Drawing.Size(50, 27);
+            this.TModificarID_user.TabIndex = 50;
+            // 
+            // TBModificarIndice
+            // 
+            this.TBModificarIndice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TBModificarIndice.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TBModificarIndice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TBModificarIndice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBModificarIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TBModificarIndice.Location = new System.Drawing.Point(3, 3);
+            this.TBModificarIndice.Name = "TBModificarIndice";
+            this.TBModificarIndice.Size = new System.Drawing.Size(49, 27);
+            this.TBModificarIndice.TabIndex = 49;
+            this.TBModificarIndice.Text = "-1";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtBuscar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1211, 78);
+            this.panel1.TabIndex = 57;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label1.Location = new System.Drawing.Point(8, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Buscar";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.ForeColor = System.Drawing.Color.White;
+            this.txtBuscar.Location = new System.Drawing.Point(8, 40);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(232, 29);
+            this.txtBuscar.TabIndex = 5;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // categoriasDataGridView
+            // 
+            this.categoriasDataGridView.AllowUserToAddRows = false;
+            this.categoriasDataGridView.AllowUserToDeleteRows = false;
+            this.categoriasDataGridView.AutoGenerateColumns = false;
+            this.categoriasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.categoriasDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.categoriasDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.categoriasDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.categoriasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.categoriasDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.btnSeleccionar,
+            this.idcategoriaDataGridViewTextBoxColumn,
+            this.nombrecategoriaDataGridViewTextBoxColumn,
+            this.baja_estado_valor,
+            this.baja_estado});
+            this.categoriasDataGridView.DataSource = this.pROCBUSCARCATEGORIABindingSource;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.categoriasDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            this.categoriasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categoriasDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.categoriasDataGridView.Location = new System.Drawing.Point(15, 87);
+            this.categoriasDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.categoriasDataGridView.Name = "categoriasDataGridView";
+            this.categoriasDataGridView.ReadOnly = true;
+            this.categoriasDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.categoriasDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.categoriasDataGridView.RowHeadersVisible = false;
+            this.categoriasDataGridView.Size = new System.Drawing.Size(1187, 334);
+            this.categoriasDataGridView.TabIndex = 58;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 110;
+            // 
+            // idcategoriaDataGridViewTextBoxColumn
+            // 
+            this.idcategoriaDataGridViewTextBoxColumn.DataPropertyName = "id_categoria";
+            this.idcategoriaDataGridViewTextBoxColumn.HeaderText = "ID de Categoría";
+            this.idcategoriaDataGridViewTextBoxColumn.Name = "idcategoriaDataGridViewTextBoxColumn";
+            this.idcategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombrecategoriaDataGridViewTextBoxColumn
+            // 
+            this.nombrecategoriaDataGridViewTextBoxColumn.DataPropertyName = "nombre_categoria";
+            this.nombrecategoriaDataGridViewTextBoxColumn.HeaderText = "Categoría";
+            this.nombrecategoriaDataGridViewTextBoxColumn.Name = "nombrecategoriaDataGridViewTextBoxColumn";
+            this.nombrecategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // baja_estado_valor
+            // 
+            this.baja_estado_valor.DataPropertyName = "baja_categoria";
+            this.baja_estado_valor.HeaderText = "baja_categoria";
+            this.baja_estado_valor.Name = "baja_estado_valor";
+            this.baja_estado_valor.ReadOnly = true;
+            this.baja_estado_valor.Visible = false;
+            // 
+            // baja_estado
+            // 
+            this.baja_estado.HeaderText = "Dado de baja?";
+            this.baja_estado.Name = "baja_estado";
+            this.baja_estado.ReadOnly = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.categoriasDataGridView, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.TCUsuarios, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.06395F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.5064F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.54481F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1217, 703);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // Categories
             // 
@@ -543,21 +543,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
             this.TCUsuarios.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panelInternoAlta.ResumeLayout(false);
             this.panelInternoAlta.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            this.PanelModificarUser.ResumeLayout(false);
+            this.panelInternoModif.ResumeLayout(false);
+            this.panelInternoModif.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasDataGridView)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.PanelModificarUser.ResumeLayout(false);
-            this.panelInternoModif.ResumeLayout(false);
-            this.panelInternoModif.PerformLayout();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
