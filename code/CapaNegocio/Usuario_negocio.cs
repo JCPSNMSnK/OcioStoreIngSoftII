@@ -19,6 +19,48 @@ namespace CapaNegocio
             return objUser_datos.Listar();
         }
 
+        public Usuario AutenticarUsuario(string username, string password, out string mensaje)
+        {
+            mensaje = "";
+            var usuario = objUser_datos.ObtenerUsuarioLogin(username);
+
+            if (usuario == null)
+            {
+                mensaje = "Usuario o contraseña inválidos.";
+                return null;
+            }
+
+            if (usuario.baja_user)
+            {
+                mensaje = "El usuario ha sido dado de baja.";
+                return null;
+            }
+
+            if (usuario.objRoles == null || usuario.objRoles.id_rol == 0)
+            {
+                mensaje = "El usuario no tiene permisos asignados.";
+                return null;
+            }
+
+            bool isAuthenticated = false;
+
+            if (!string.IsNullOrWhiteSpace(usuario.pass))
+            {
+                if (usuario.pass.Length == 60)
+                    isAuthenticated = BCrypt.Net.BCrypt.Verify(password, usuario.pass);
+                else
+                    isAuthenticated = usuario.pass == password;
+            }
+
+            if (!isAuthenticated)
+            {
+                mensaje = "Usuario o contraseña inválidos.";
+                return null;
+            }
+
+            return usuario;
+        }
+
         public int Registrar(Usuario obj, out string Mensaje)//crearUsuario
         {
             Mensaje = string.Empty;

@@ -1,86 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\",
+  "WorkspaceRootPath": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capadatosfinal\\producto_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\producto_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|c:\\users\\gpiaz\\source\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\ociostoreingsoftii\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|c:\\users\\gpiaz\\source\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capadatosfinal\\permiso_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\permiso_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capadatosfinal\\categoria_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\categoria_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\informe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\informe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\capadatosfinal\\usuario_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\usuario_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\detalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\detalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\mediospago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\mediospago.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\capadatosfinal\\ventas_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\ventas_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capadatosfinal\\mediospago_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\mediospago_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capadatosfinal\\roles_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\roles_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|c:\\users\\gpiaz\\source\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -90,268 +22,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 21,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Ventas_Datos.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Ventas_Datos.cs",
-              "RelativeDocumentMoniker": "CapaDatosFinal\\Ventas_Datos.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Ventas_Datos.cs",
-              "RelativeToolTip": "CapaDatosFinal\\Ventas_Datos.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAD4vy4AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T22:01:07.242Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "MediosPago.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\MediosPago.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\MediosPago.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\MediosPago.cs",
-              "RelativeToolTip": "CapaEntidades\\MediosPago.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:24:34.789Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Permiso.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Permiso.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\Permiso.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Permiso.cs",
-              "RelativeToolTip": "CapaEntidades\\Permiso.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:03:38.507Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Producto.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Producto.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\Producto.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Producto.cs",
-              "RelativeToolTip": "CapaEntidades\\Producto.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA1wAwAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:03:46.109Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Roles.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Roles.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\Roles.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Roles.cs",
-              "RelativeToolTip": "CapaEntidades\\Roles.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:03:57.355Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "DetalleVenta.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\DetalleVenta.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\DetalleVenta.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\DetalleVenta.cs",
-              "RelativeToolTip": "CapaEntidades\\DetalleVenta.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:03:13.493Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Categoria.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Categoria.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\Categoria.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Categoria.cs",
-              "RelativeToolTip": "CapaEntidades\\Categoria.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:02:59.725Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Usuario.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\Usuario.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Usuario.cs",
-              "RelativeToolTip": "CapaEntidades\\Usuario.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAiwAoAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:04:01.673Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Ventas.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Ventas.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\Ventas.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Ventas.cs",
-              "RelativeToolTip": "CapaEntidades\\Ventas.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wA8AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:54:59.455Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Login.cs [Design]",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Login.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Login.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Login.cs [Design]",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Login.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:21:54.397Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Products.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Products.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Products.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Products.cs*",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Products.cs*",
-              "ViewState": "AgIAAMoAAAAAAAAAAAAtwNQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T00:44:22.162Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Usuario_Datos.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Usuario_Datos.cs",
-              "RelativeDocumentMoniker": "CapaDatosFinal\\Usuario_Datos.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Usuario_Datos.cs",
-              "RelativeToolTip": "CapaDatosFinal\\Usuario_Datos.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAjwCYAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:08:13.743Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Informe.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Informe.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\Informe.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Informe.cs",
-              "RelativeToolTip": "CapaEntidades\\Informe.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAiwCoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:03:21.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Categoria_Datos.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Categoria_Datos.cs",
-              "RelativeDocumentMoniker": "CapaDatosFinal\\Categoria_Datos.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Categoria_Datos.cs",
-              "RelativeToolTip": "CapaDatosFinal\\Categoria_Datos.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAjwCIAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:59:16.385Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Inicio.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Inicio.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Inicio.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Inicio.cs",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Inicio.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAlwCUAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:05:52.873Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Permiso_Datos.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Permiso_Datos.cs",
-              "RelativeDocumentMoniker": "CapaDatosFinal\\Permiso_Datos.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Permiso_Datos.cs",
-              "RelativeToolTip": "CapaDatosFinal\\Permiso_Datos.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAtwCsAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:59:21.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Producto_Datos.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Producto_Datos.cs",
-              "RelativeDocumentMoniker": "CapaDatosFinal\\Producto_Datos.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Producto_Datos.cs*",
-              "RelativeToolTip": "CapaDatosFinal\\Producto_Datos.cs*",
-              "ViewState": "AgIAACMAAAAAAAAAAAAAACwAAABbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:59:23.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "MediosPago_Datos.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\MediosPago_Datos.cs",
-              "RelativeDocumentMoniker": "CapaDatosFinal\\MediosPago_Datos.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\MediosPago_Datos.cs",
-              "RelativeToolTip": "CapaDatosFinal\\MediosPago_Datos.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAjwCMAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:59:19.377Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Users.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Users.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Users.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Users.cs",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Users.cs",
-              "ViewState": "AgIAAOsAAAAAAAAAAAAjwPAAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T15:06:58.886Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Roles_Datos.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Roles_Datos.cs",
-              "RelativeDocumentMoniker": "CapaDatosFinal\\Roles_Datos.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Roles_Datos.cs",
-              "RelativeToolTip": "CapaDatosFinal\\Roles_Datos.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwCYAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T14:59:25.733Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:143:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -375,10 +47,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
@@ -430,11 +98,51 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Categories.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Categories.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Categories.cs",
+              "ToolTip": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Categories.cs [Dise\u00F1o]",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Categories.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T16:05:26.744Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Users.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Users.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Users.cs",
+              "ToolTip": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Users.cs [Dise\u00F1o]",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Users.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T15:59:51.036Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Products.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Products.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Products.cs",
+              "ToolTip": "C:\\Users\\gpiaz\\source\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Products.cs [Dise\u00F1o]",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Products.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T15:59:34.206Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

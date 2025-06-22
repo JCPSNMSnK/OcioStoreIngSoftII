@@ -50,6 +50,7 @@ namespace CapaDatos
                 catch (Exception ex)
                 {
                     lista = new List<Permiso>();
+                    string Mensaje = ex.Message;
                 }
             }
             return lista;
