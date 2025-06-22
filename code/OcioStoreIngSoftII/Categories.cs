@@ -72,5 +72,10 @@ namespace OcioStoreIngSoftII
                 }
             }
         }
+
+        private void categoriasDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

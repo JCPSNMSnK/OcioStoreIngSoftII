@@ -185,13 +185,14 @@
             this.usuariosDataGridView.AllowUserToDeleteRows = false;
             this.usuariosDataGridView.AutoGenerateColumns = false;
             this.usuariosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.usuariosDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.usuariosDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.usuariosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.usuariosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -209,15 +210,16 @@
             this.id_rol,
             this.rol});
             this.usuariosDataGridView.DataSource = this.pROC_BUSCAR_USUARIOBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.usuariosDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.usuariosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usuariosDataGridView.EnableHeadersVisualStyles = false;
             this.usuariosDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.usuariosDataGridView.Location = new System.Drawing.Point(15, 85);
             this.usuariosDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
@@ -246,7 +248,7 @@
             this.btnSeleccionar.ReadOnly = true;
             this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 110;
+            this.btnSeleccionar.Width = 112;
             // 
             // id_user
             // 
@@ -335,14 +337,15 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(8, 8);
+            this.label1.Location = new System.Drawing.Point(9, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 25);
-            this.label1.TabIndex = 6;
+            this.label1.TabIndex = 7;
             this.label1.Text = "Buscar";
             // 
             // txtBuscar
@@ -429,7 +432,7 @@
             // 
             // CBEstado
             // 
-            this.CBEstado.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.CBEstado.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CBEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBEstado.FormattingEnabled = true;
             this.CBEstado.Location = new System.Drawing.Point(480, 200);
@@ -439,7 +442,7 @@
             // 
             // CBroles
             // 
-            this.CBroles.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.CBroles.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CBroles.DisplayMember = "id_rol";
             this.CBroles.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBroles.FormattingEnabled = true;
@@ -487,7 +490,7 @@
             // 
             // TPassConf
             // 
-            this.TPassConf.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TPassConf.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TPassConf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TPassConf.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPassConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -511,7 +514,7 @@
             // 
             // TEmail
             // 
-            this.TEmail.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TEmail.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -533,7 +536,7 @@
             // 
             // TApellido
             // 
-            this.TApellido.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TApellido.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TApellido.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -555,7 +558,7 @@
             // 
             // TDni
             // 
-            this.TDni.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TDni.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -566,7 +569,7 @@
             // 
             // TNombre
             // 
-            this.TNombre.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TNombre.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -599,7 +602,7 @@
             // 
             // TPass
             // 
-            this.TPass.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TPass.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -623,7 +626,7 @@
             // 
             // TUser
             // 
-            this.TUser.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TUser.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -715,6 +718,7 @@
             // 
             // panelInternoModif
             // 
+            this.panelInternoModif.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.panelInternoModif.Controls.Add(this.TModificarConfirmPass);
             this.panelInternoModif.Controls.Add(this.label2);
             this.panelInternoModif.Controls.Add(this.TModificarPass);
@@ -742,7 +746,7 @@
             // 
             // TModificarConfirmPass
             // 
-            this.TModificarConfirmPass.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarConfirmPass.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TModificarConfirmPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarConfirmPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarConfirmPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -768,7 +772,7 @@
             // 
             // TModificarPass
             // 
-            this.TModificarPass.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarPass.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TModificarPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -794,7 +798,7 @@
             // 
             // CBModificarRoles
             // 
-            this.CBModificarRoles.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.CBModificarRoles.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CBModificarRoles.DisplayMember = "id_rol";
             this.CBModificarRoles.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBModificarRoles.FormattingEnabled = true;
@@ -817,7 +821,7 @@
             // 
             // CBModificarEstado
             // 
-            this.CBModificarEstado.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.CBModificarEstado.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CBModificarEstado.DisplayMember = "estado";
             this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBModificarEstado.FormattingEnabled = true;
@@ -840,7 +844,7 @@
             // 
             // TModificarDni
             // 
-            this.TModificarDni.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarDni.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TModificarDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -873,7 +877,7 @@
             // 
             // TModificarUser
             // 
-            this.TModificarUser.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarUser.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TModificarUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -895,7 +899,7 @@
             // 
             // TModificarEmail
             // 
-            this.TModificarEmail.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarEmail.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TModificarEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -906,7 +910,7 @@
             // 
             // TModificarAp
             // 
-            this.TModificarAp.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarAp.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TModificarAp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarAp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarAp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -928,7 +932,7 @@
             // 
             // TModificarNombre
             // 
-            this.TModificarNombre.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarNombre.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TModificarNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TModificarNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -974,6 +978,7 @@
             this.TModificarID_user.Name = "TModificarID_user";
             this.TModificarID_user.Size = new System.Drawing.Size(46, 27);
             this.TModificarID_user.TabIndex = 50;
+            this.TModificarID_user.Visible = false;
             // 
             // TBModificarIndice
             // 
@@ -988,6 +993,7 @@
             this.TBModificarIndice.Size = new System.Drawing.Size(45, 27);
             this.TBModificarIndice.TabIndex = 49;
             this.TBModificarIndice.Text = "-1";
+            this.TBModificarIndice.Visible = false;
             // 
             // Users
             // 
