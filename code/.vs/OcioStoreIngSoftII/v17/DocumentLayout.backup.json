@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\capadatosfinal\\producto_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\producto_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\ociostoreingsoftii\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\capadatosfinal\\producto_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\producto_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|a:\\aplicaciones\\microsoft\\visualstudio\\repos\\ociostoreingsoftii\\code\\ociostoreingsoftii\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 22,
           "Children": [
             {
               "$type": "Document",
@@ -48,19 +48,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-20T22:21:40.656Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Producto_Datos.cs",
-              "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\CapaDatosFinal\\Producto_Datos.cs",
-              "RelativeDocumentMoniker": "CapaDatosFinal\\Producto_Datos.cs",
-              "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\CapaDatosFinal\\Producto_Datos.cs*",
-              "RelativeToolTip": "CapaDatosFinal\\Producto_Datos.cs*",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAC8AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T18:36:08.773Z",
               "EditorCaption": ""
             },
             {
@@ -146,12 +133,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Producto_Datos.cs",
+              "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\CapaDatosFinal\\Producto_Datos.cs",
+              "RelativeDocumentMoniker": "CapaDatosFinal\\Producto_Datos.cs",
+              "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\CapaDatosFinal\\Producto_Datos.cs",
+              "RelativeToolTip": "CapaDatosFinal\\Producto_Datos.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAC8AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T18:36:08.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Ventas.cs",
               "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Ventas.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Ventas.cs",
               "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Ventas.cs",
               "RelativeToolTip": "OcioStoreIngSoftII\\Ventas.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAADwvzkAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAcwDkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-22T17:17:09.012Z",
               "EditorCaption": ""
