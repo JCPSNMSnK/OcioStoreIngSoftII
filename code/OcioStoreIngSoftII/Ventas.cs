@@ -188,6 +188,72 @@ namespace OcioStoreIngSoftII
                 MessageBox.Show("Seleccione un producto primero.");
             }
         }
+
+        private void VentaDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            if (e.ColumnIndex == 4) // Asumiendo que es la columna del botón de selección
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = OcioStoreIngSoftII.Properties.Resources.delete_button.Width;
+                var h = OcioStoreIngSoftII.Properties.Resources.delete_button.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - w) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.delete_button, new System.Drawing.Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void CBProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CBProductos.SelectedItem is OpcionSelect productoSeleccionado)
+            {
+                int idProducto = Convert.ToInt32(productoSeleccionado.Valor);
+
+                // Buscar el producto completo en la lista (suponiendo que ya tenés lista cargada)
+                Producto prod = _productoNegocio.Listar().FirstOrDefault(p => p.id_producto == idProducto);
+
+                if (prod != null)
+                {
+                    NCantidad.Maximum = prod.stock > 0 ? prod.stock : 1; // mínimo 1 para no bloquear
+
+                    // Opcional: Resetear el valor actual si es mayor al stock
+                    if (NCantidad.Value > NCantidad.Maximum)
+                        NCantidad.Value = NCantidad.Maximum;
+                }
+                else
+                {
+                    NCantidad.Maximum = 1;
+                    NCantidad.Value = 1;
+                }
+            }
+            else
+            {
+                NCantidad.Maximum = 1;
+                NCantidad.Value = 1;
+            }
+        }
+
+        private void VentaDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificar que no sea una fila de encabezado o nueva
+            if (e.RowIndex >= 0 && VentaDataGridView.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                var resultado = MessageBox.Show("¿Desea eliminar este producto de la venta?",
+                                                "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    VentaDataGridView.Rows.RemoveAt(e.RowIndex);
+                }
+            }
+        }
     }
 
         // Lógica de dibujo de celdas - Pertenece a la capa de Presentación
