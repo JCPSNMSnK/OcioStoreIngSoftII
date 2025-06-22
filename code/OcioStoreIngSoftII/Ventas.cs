@@ -44,6 +44,7 @@ namespace OcioStoreIngSoftII
         private void CargarComboBoxCategorias(ComboBox comboBox)
         {
             // La capa de presentación pide las categorías a la capa de negocio
+            comboBox.Items.Clear(); // importante
             List<Categoria> listaCategorias = _categoriaNegocio.Listar();
             foreach (Categoria item in listaCategorias)
             {
@@ -55,6 +56,7 @@ namespace OcioStoreIngSoftII
         private void CargarComboBoxProductos(ComboBox comboBox)
         {
             // La capa de presentación pide las categorías a la capa de negocio
+            comboBox.Items.Clear(); // importante
             List<Producto> listaProductos = _productoNegocio.Listar();
             foreach (Producto item in listaProductos)
             {
@@ -139,6 +141,51 @@ namespace OcioStoreIngSoftII
                     }
 
                 }
+            }
+        }
+
+        private void BAddProduct_Click(object sender, EventArgs e)
+        {
+            if (CBProductos.SelectedItem is OpcionSelect productoSeleccionado)
+            {
+                // Obtener producto seleccionado (puedes usar tu negocio para obtener datos exactos)
+                int idProducto = Convert.ToInt32(productoSeleccionado.Valor);
+
+                // Buscamos el objeto producto completo (precio, nombre, etc)
+                Producto prod = _productoNegocio.Listar().FirstOrDefault(p => p.id_producto == idProducto);
+
+                if (prod == null)
+                {
+                    MessageBox.Show("Producto no encontrado.");
+                    return;
+                }
+
+                // Validar cantidad
+                if (!int.TryParse(NCantidad.Text.Trim(), out int cantidad) || cantidad <= 0)
+                {
+                    MessageBox.Show("Ingrese una cantidad válida mayor a 0.");
+                    return;
+                }
+
+                // Verificar si ya existe el producto en el DataGridView
+                foreach (DataGridViewRow row in VentaDataGridView.Rows)
+                {
+                    if (row.Cells["nombre"].Value != null &&
+                        row.Cells["nombre"].Value.ToString() == prod.nombre_producto)
+                    {
+                        // Si ya existe, actualizar cantidad
+                        int cantidadActual = Convert.ToInt32(row.Cells["cantidad"].Value);
+                        row.Cells["cantidad"].Value = cantidadActual + cantidad;
+                        return;
+                    }
+                }
+
+                // Si no existe, agregar nueva fila
+                VentaDataGridView.Rows.Add(prod.nombre_producto, prod.precioVenta, cantidad);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un producto primero.");
             }
         }
     }
