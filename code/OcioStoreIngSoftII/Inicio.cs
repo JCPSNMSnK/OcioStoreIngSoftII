@@ -45,24 +45,6 @@ namespace OcioStoreIngSoftII
             LogOutButton.Visible = true;
 
             ReorganizarMenu();
-            /*
-            // Ajusta el layout según la cantidad de botones visibles
-            int botonesVisibles = menu.Controls.OfType<IconButton>().Count(b => b.Visible);
-
-            menu.RowStyles.Clear();
-            menu.RowCount = botonesVisibles;
-
-            for (int i = 0; i < botonesVisibles; i++)
-            {
-                menu.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / botonesVisibles));
-            }
-
-            //// Ajusta cada botón visible para que ocupe el espacio completo de su celda
-            //foreach (Control control in menu.Controls.OfType<IconButton>().Where(b => b.Visible))
-            //{
-            //    control.Dock = DockStyle.Fill; // Expande el botón para ocupar todo el ancho y alto de su celda
-            //}*/
-
         }
 
         private void ReorganizarMenu()
