@@ -99,8 +99,8 @@ namespace CapaDatos
                     {
                         cmdVenta.Parameters.AddWithValue("total", obj.total);
                         // Asegúrate de que objMediosPago y objUsuario son válidos y tienen su ID accesible
-                        cmdVenta.Parameters.AddWithValue("id_medioPago", obj.objMediosPago.id_medioPago); // Acceso al ID
-                        cmdVenta.Parameters.AddWithValue("id_usuario", obj.objUsuario.id_user); // Acceso al ID
+                        cmdVenta.Parameters.AddWithValue("@id_medio", obj.objMediosPago.id_medioPago);
+                        cmdVenta.Parameters.AddWithValue("@id_user", obj.objUsuario.id_user);
                         cmdVenta.Parameters.AddWithValue("fecha_venta", obj.fecha_venta);
 
                         cmdVenta.Parameters.Add("id_venta_registrada", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -186,7 +186,7 @@ namespace CapaDatos
                 }
             }
 
-            Mensaje = null;
+            Mensaje = mensajeSalida;
             return exito;
         }
 
