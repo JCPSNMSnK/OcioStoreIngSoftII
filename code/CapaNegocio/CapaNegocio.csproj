@@ -191,6 +191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categoria_negocio.cs" />
+    <Compile Include="MediosPago_negocio.cs" />
     <Compile Include="Permiso_negocio.cs" />
     <Compile Include="Producto_negocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

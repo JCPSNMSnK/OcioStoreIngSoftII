@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -57,9 +57,9 @@
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VentaDataGridView = new System.Windows.Forms.DataGridView();
-            this.cuiComboBox1 = new CuoreUI.Controls.cuiComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.LMedioPago = new System.Windows.Forms.Label();
             this.panelPago = new System.Windows.Forms.Panel();
+            this.CBMediosPago = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panelConfirmar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentaDataGridView)).BeginInit();
@@ -409,15 +409,15 @@
             this.VentaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.VentaDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.VentaDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VentaDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VentaDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.VentaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VentaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_producto,
@@ -425,14 +425,14 @@
             this.cantidad,
             this.precio,
             this.subtotal});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.VentaDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.VentaDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.VentaDataGridView.EnableHeadersVisualStyles = false;
             this.VentaDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.VentaDataGridView.Location = new System.Drawing.Point(152, 112);
@@ -440,64 +440,47 @@
             this.VentaDataGridView.Name = "VentaDataGridView";
             this.VentaDataGridView.ReadOnly = true;
             this.VentaDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VentaDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VentaDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.VentaDataGridView.RowHeadersVisible = false;
             this.VentaDataGridView.Size = new System.Drawing.Size(792, 257);
             this.VentaDataGridView.TabIndex = 63;
             // 
-            // cuiComboBox1
+            // LMedioPago
             // 
-            this.cuiComboBox1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cuiComboBox1.ButtonCursor = System.Windows.Forms.Cursors.Arrow;
-            this.cuiComboBox1.ButtonHoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
-            this.cuiComboBox1.ButtonHoverOutline = System.Drawing.Color.Empty;
-            this.cuiComboBox1.ButtonNormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.cuiComboBox1.ButtonNormalOutline = System.Drawing.Color.Empty;
-            this.cuiComboBox1.ButtonPressedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.cuiComboBox1.ButtonPressedOutline = System.Drawing.Color.Empty;
-            this.cuiComboBox1.DropDownBackgroundColor = System.Drawing.Color.White;
-            this.cuiComboBox1.DropDownOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cuiComboBox1.ExpandArrowColor = System.Drawing.Color.Gray;
-            this.cuiComboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuiComboBox1.ForeColor = System.Drawing.Color.Gray;
-            this.cuiComboBox1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.cuiComboBox1.Items = new string[0];
-            this.cuiComboBox1.Location = new System.Drawing.Point(7, 8);
-            this.cuiComboBox1.Name = "cuiComboBox1";
-            this.cuiComboBox1.NoSelectionDropdownText = "Empty";
-            this.cuiComboBox1.NoSelectionText = "Método de Pago";
-            this.cuiComboBox1.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cuiComboBox1.OutlineThickness = 1F;
-            this.cuiComboBox1.Rounding = 8;
-            this.cuiComboBox1.Size = new System.Drawing.Size(240, 45);
-            this.cuiComboBox1.TabIndex = 65;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(48, 64);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 21);
-            this.label5.TabIndex = 66;
-            this.label5.Text = "Total y todo el pute\r\n";
+            this.LMedioPago.AutoSize = true;
+            this.LMedioPago.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LMedioPago.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.LMedioPago.Location = new System.Drawing.Point(223, 66);
+            this.LMedioPago.Name = "LMedioPago";
+            this.LMedioPago.Size = new System.Drawing.Size(154, 21);
+            this.LMedioPago.TabIndex = 66;
+            this.LMedioPago.Text = "Medio - Comisión: %";
+            this.LMedioPago.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelPago
             // 
-            this.panelPago.Controls.Add(this.label5);
-            this.panelPago.Controls.Add(this.cuiComboBox1);
-            this.panelPago.Location = new System.Drawing.Point(433, 136);
+            this.panelPago.Controls.Add(this.CBMediosPago);
+            this.panelPago.Controls.Add(this.LMedioPago);
+            this.panelPago.Location = new System.Drawing.Point(262, 149);
             this.panelPago.Name = "panelPago";
-            this.panelPago.Size = new System.Drawing.Size(255, 96);
+            this.panelPago.Size = new System.Drawing.Size(600, 96);
             this.panelPago.TabIndex = 65;
+            // 
+            // CBMediosPago
+            // 
+            this.CBMediosPago.FormattingEnabled = true;
+            this.CBMediosPago.Location = new System.Drawing.Point(178, 19);
+            this.CBMediosPago.Name = "CBMediosPago";
+            this.CBMediosPago.Size = new System.Drawing.Size(240, 21);
+            this.CBMediosPago.TabIndex = 67;
+            this.CBMediosPago.SelectedIndexChanged += new System.EventHandler(this.CBMediosPago_SelectedIndexChanged);
             // 
             // Payment
             // 
@@ -554,8 +537,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
         private System.Windows.Forms.DataGridView VentaDataGridView;
-        private CuoreUI.Controls.cuiComboBox cuiComboBox1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LMedioPago;
         private System.Windows.Forms.Panel panelPago;
+        private System.Windows.Forms.ComboBox CBMediosPago;
     }
 }

@@ -1,4 +1,7 @@
-﻿using CapaNegocio;
+﻿using CapaEntidades;
+using CapaNegocio;
+using CuoreUI.Controls;
+using OcioStoreIngSoftII.Utillidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +19,12 @@ namespace OcioStoreIngSoftII
         private int pasoActual = 0;
         private CapaEntidades.Ventas _ventaActual;
 
+        private readonly MediosPago_negocio _mediosNegocio;
+        private List<MediosPago> _listaMedios;
+
         public Payment(CapaEntidades.Ventas objVenta)
         {
+            _mediosNegocio = new MediosPago_negocio();
             _ventaActual = objVenta;
             InitializeComponent();
         }
@@ -62,6 +69,8 @@ namespace OcioStoreIngSoftII
         {
             MostrarDetallesVenta();
 
+            CargarComboBoxMedios(CBMediosPago);
+
             VentaDataGridView.Visible = false;
             if (pasoActual == 0)
             {
@@ -87,9 +96,18 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void tabPage10_Click(object sender, EventArgs e)
+        private void CargarComboBoxMedios(ComboBox comboBox)
         {
+            comboBox.Items.Clear();
+            _listaMedios = _mediosNegocio.Listar(); // Asignación aquí también
 
+            foreach (MediosPago item in _listaMedios)
+            {
+                comboBox.Items.Add(new OpcionSelect() { Valor = item.id_medioPago, Texto = item.nombre_medio });
+            }
+
+            comboBox.DisplayMember = "Texto";
+            comboBox.ValueMember = "Valor";
         }
 
         private void btnAnterior_Click_1(object sender, EventArgs e)
@@ -116,6 +134,30 @@ namespace OcioStoreIngSoftII
             if ((pasoActual == 4))
             {
                 this.Close();
+            }
+        }
+
+
+        private void CBMediosPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CBMediosPago.SelectedItem is OpcionSelect opcion)
+                {
+                    int idMedio = (int)opcion.Valor;
+
+                    // Buscamos el objeto MediosPago original
+                    MediosPago medioSeleccionado = _listaMedios.FirstOrDefault(m => m.id_medioPago == idMedio);
+
+                    if (medioSeleccionado != null)
+                    {
+                        LMedioPago.Text = $"{medioSeleccionado.nombre_medio} - Comisión: {medioSeleccionado.comision}%";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en selección: " + ex.Message);
             }
         }
     }
