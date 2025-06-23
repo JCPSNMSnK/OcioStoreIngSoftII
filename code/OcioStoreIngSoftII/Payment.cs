@@ -26,22 +26,30 @@ namespace OcioStoreIngSoftII
         {
             if (pasoActual == 0)
             {
-                VentaDataGridView.Visible = false;
+                VentaDataGridView.Visible = true;
+                panelPago.Visible = false;
+                panelConfirmar.Visible = false;
                 btnAnterior.Content = "Cancelar";
             }
             if (pasoActual == 1)
             {
-                VentaDataGridView.Visible = true;
+                VentaDataGridView.Visible = false;
+                panelPago.Visible = true;
+                panelConfirmar.Visible = false;
                 btnAnterior.Content = "Anterior";
             }
             if (pasoActual == 2)
             {
                 VentaDataGridView.Visible = false;
+                panelPago.Visible = false;
+                panelConfirmar.Visible = true;
                 btnSiguiente.Content = "Siguiente";
             }
             if (pasoActual == 3)
             {
                 VentaDataGridView.Visible = false;
+                panelPago.Visible = false;
+                panelConfirmar.Visible = true;
                 btnSiguiente.Content = "Cerrar";
             }
 
