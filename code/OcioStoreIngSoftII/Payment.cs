@@ -52,13 +52,6 @@ namespace OcioStoreIngSoftII
                 VentaDataGridView.Visible = false;
                 panelPago.Visible = false;
                 panelConfirmar.Visible = true;
-                btnSiguiente.Content = "Siguiente";
-            }
-            if (pasoActual == 3)
-            {
-                VentaDataGridView.Visible = false;
-                panelPago.Visible = false;
-                panelConfirmar.Visible = true;
                 btnSiguiente.Content = "Cerrar";
             }
 

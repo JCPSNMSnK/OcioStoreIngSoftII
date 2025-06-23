@@ -78,7 +78,7 @@ namespace CapaDatos
         public bool RegistrarVenta(Ventas obj, MediosPago objMetPago, out int idVentaRegistrada, out string Mensaje)//crearVenta ()
         {
 
-            int idVentaRegistrada = 0;
+            idVentaRegistrada = 0;
             String mensajeSalida = string.Empty;
 
             bool exito = false;

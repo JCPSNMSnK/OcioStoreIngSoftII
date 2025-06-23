@@ -91,6 +91,7 @@ namespace OcioStoreIngSoftII
             // generada por Visual Studio, lo que acopla directamente la UI a la fuente de datos.
             // Para una separación estricta, la CapaNegocio debería tener un método
             // que devuelva una lista de Producto o un DataTable, y la UI solo lo consumiría.
+            VentaDataGridView.Rows.Clear();
             this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
                 this.dataSet1.PROC_BUSCAR_PRODUCTO,
                 null, null, null, null, null, null, null, null, null, null, null
@@ -316,6 +317,7 @@ namespace OcioStoreIngSoftII
                 // Mostrar la vista de pago
                 Payment paymentForm = new Payment(_ventaActual);  // Pasamos la venta actual
                 paymentForm.ShowDialog();
+                ActualizarDatosTabla();
             }
             else
             {
