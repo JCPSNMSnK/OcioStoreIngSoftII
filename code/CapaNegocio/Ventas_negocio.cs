@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.IO;
+using System.Xml;
+
+// Para System.Drawing
+using System.Drawing;
+using System.Drawing.Imaging;
 
 using CapaDatos;
 using CapaEntidades;
@@ -313,7 +320,7 @@ namespace CapaNegocio
                     // Puedes añadir un pequeño retraso para simular el tiempo de respuesta de una API real
                     // System.Threading.Thread.Sleep(500); // Retraso de 500 milisegundos
                     RegistrarVenta(ventaAVerificar, idVentaRegistrada, mensajeDeRegistro);
-                    mensaje = $"Pago de {ventaAVerificar.total:C} con '{ventaAVerificar.objMediosPago.nombre_medio}' verificado exitosamente." + 
+                    mensaje = $"Pago de {ventaAVerificar.total:C} con '{ventaAVerificar.objMediosPago.nombre_medio}' verificado exitosamente." +
                     "\tLa venta nro {idVentaRegistrada} tuvo el siguiente mensaje al ser registrada en la DB: " + mensajeDeRegistro;
                     return true;
                 }
@@ -341,6 +348,166 @@ namespace CapaNegocio
                 // Log.Error(ex, "Error inesperado durante la simulación de verificación de pago.");
                 mensaje = "Ocurrió un error interno al intentar verificar el pago: " + ex.Message;
                 return false;
+            }
+        }
+
+        public string ObtenerFacturaJson(Ventas venta, out string mensaje)
+        {
+            mensaje = string.Empty;
+            try
+            {
+                // Ya no necesitamos buscarla en la base de datos, la recibimos directamente.
+                if (venta == null)
+                {
+                    mensaje = "La instancia de Venta proporcionada es nula.";
+                    return null;
+                }
+
+                // Serializamos directamente la instancia de Ventas a JSON
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string jsonString = JsonSerializer.Serialize(venta, options);
+
+                mensaje = "Datos de factura JSON generados exitosamente.";
+                return jsonString;
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error al generar los datos de la factura en JSON: " + ex.Message;
+                // Loggear el error completo aquí
+                return null;
+            }
+        }
+
+        public string ObtenerFacturaXml(Ventas venta, out string mensaje)
+        {
+            mensaje = string.Empty;
+            try
+            {
+                // Ya no necesitamos buscarla en la base de datos, la recibimos directamente.
+                if (venta == null)
+                {
+                    mensaje = "La instancia de Venta proporcionada es nula.";
+                    return null;
+                }
+
+                // Serializamos directamente la instancia de Ventas a XML
+                var serializer = new XmlSerializer(typeof(Ventas));
+                using (var writer = new StringWriter())
+                {
+                    var settings = new XmlWriterSettings
+                    {
+                        Indent = true,
+                        OmitXmlDeclaration = true
+                    };
+
+                    using (var xmlWriter = XmlWriter.Create(writer, settings))
+                    {
+                        serializer.Serialize(xmlWriter, venta);
+                    }
+                    mensaje = "Datos de factura XML generados exitosamente.";
+                    return writer.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error al generar los datos de la factura en XML: " + ex.Message;
+                // Loggear el error completo aquí
+                return null;
+            }
+        }
+
+        public byte[] GenerarImagenVenta(Ventas venta, out string mensaje)
+        {
+            mensaje = string.Empty;
+            try
+            {
+                // Ya no necesitamos buscarla en la base de datos, la recibimos directamente.
+                if (venta == null)
+                {
+                    mensaje = "La instancia de Venta proporcionada es nula.";
+                    return null;
+                }
+
+                // --- Parámetros de la imagen ---
+                int width = 600; // Ancho de la imagen en píxeles
+                int height = 800; // Alto de la imagen en píxeles (ajustar según el contenido)
+                int padding = 20; // Espaciado desde los bordes
+                int lineHeight = 20; // Altura aproximada de cada línea de texto
+
+                // Crear un Bitmap y un objeto Graphics para dibujar
+                using (Bitmap bitmap = new Bitmap(width, height))
+                {
+                    using (Graphics graphics = Graphics.FromImage(bitmap))
+                    {
+                        graphics.FillRectangle(Brushes.White, 0, 0, width, height);
+
+                        Font headerFont = new Font("Arial", 16, FontStyle.Bold);
+                        Font bodyFont = new Font("Arial", 10);
+                        Font totalFont = new Font("Arial", 12, FontStyle.Bold);
+                        Brush textBrush = Brushes.Black;
+
+                        int currentY = padding;
+
+                        // --- Dibujar Encabezado ---
+                        graphics.DrawString("FACTURA DE VENTA", headerFont, textBrush, new PointF(padding, currentY));
+                        currentY += 40;
+
+                        // Accede directamente a las propiedades de la entidad Ventas
+                        graphics.DrawString($"ID de Venta: {venta.Id_venta}", bodyFont, textBrush, new PointF(padding, currentY));
+                        currentY += lineHeight;
+                        graphics.DrawString($"Fecha: {venta.Fecha_venta:dd/MM/yyyy HH:mm}", bodyFont, textBrush, new PointF(padding, currentY));
+                        currentY += lineHeight;
+                        graphics.DrawString($"Usuario: {venta.ObjUsuario?.username ?? "N/A"} (ID: {venta.ObjUsuario?.id_user.ToString() ?? "N/A"})", bodyFont, textBrush, new PointF(padding, currentY));
+                        currentY += lineHeight * 2;
+
+                        // --- Dibujar Detalles de Productos ---
+                        graphics.DrawString("DETALLES:", totalFont, textBrush, new PointF(padding, currentY));
+                        currentY += lineHeight + 5;
+
+                        graphics.DrawString("Producto", bodyFont, textBrush, new PointF(padding, currentY));
+                        graphics.DrawString("Cantidad", bodyFont, textBrush, new PointF(width - 250, currentY));
+                        graphics.DrawString("P. Unit.", bodyFont, textBrush, new PointF(width - 150, currentY));
+                        graphics.DrawString("Subtotal", bodyFont, textBrush, new PointF(width - 70, currentY));
+                        currentY += lineHeight;
+                        graphics.DrawLine(Pens.Black, padding, currentY, width - padding, currentY);
+                        currentY += 5;
+
+                        // Itera sobre la lista de detalles de la venta
+                        foreach (var detalle in venta.Detalles)
+                        {
+                            graphics.DrawString(detalle.ObjProducto?.nombre ?? "Producto Desconocido", bodyFont, textBrush, new PointF(padding, currentY));
+                            graphics.DrawString(detalle.Cantidad.ToString(), bodyFont, textBrush, new PointF(width - 250, currentY));
+                            // Asumiendo que DetalleVenta.ObjProducto tiene Precio_Unitario y DetalleVenta tiene Subtotal
+                            graphics.DrawString((detalle.ObjProducto?.precio_unitario ?? 0f).ToString("C"), bodyFont, textBrush, new PointF(width - 150, currentY));
+                            graphics.DrawString(detalle.Subtotal.ToString("C"), bodyFont, textBrush, new PointF(width - 70, currentY));
+                            currentY += lineHeight;
+                        }
+                        currentY += 5;
+                        graphics.DrawLine(Pens.Black, padding, currentY, width - padding, currentY);
+                        currentY += lineHeight;
+
+                        // --- Dibujar Totales ---
+                        graphics.DrawString($"Medio de Pago: {venta.ObjMediosPago?.nombre_medio ?? "N/A"} (Comisión: {(float)(venta.ObjMediosPago?.comision ?? 0m):P})", bodyFont, textBrush, new PointF(padding, currentY));
+                        currentY += lineHeight;
+                        graphics.DrawString($"TOTAL A PAGAR: {venta.Total:C}", totalFont, textBrush, new PointF(width - 250, currentY));
+                        currentY += lineHeight * 2;
+
+
+                        // --- Convertir Bitmap a byte[] ---
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            bitmap.Save(ms, ImageFormat.Png);
+                            mensaje = "Imagen de la factura generada exitosamente.";
+                            return ms.ToArray();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error al generar la imagen de la venta: " + ex.Message;
+                // Loggear el error completo aquí
+                return null;
             }
         }
     }
