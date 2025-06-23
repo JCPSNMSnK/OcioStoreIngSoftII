@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -47,21 +49,21 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.btnAnterior = new CuoreUI.Controls.cuiButton();
             this.btnSiguiente = new CuoreUI.Controls.cuiButton();
-            this.VentaDataGridView = new System.Windows.Forms.DataGridView();
-            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelPago = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cuiComboBox1 = new CuoreUI.Controls.cuiComboBox();
-            this.panelConfirmar = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.panelConfirmar = new System.Windows.Forms.Panel();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentaDataGridView = new System.Windows.Forms.DataGridView();
+            this.cuiComboBox1 = new CuoreUI.Controls.cuiComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panelPago = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panelConfirmar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentaDataGridView)).BeginInit();
             this.panelPago.SuspendLayout();
-            this.panelConfirmar.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -347,59 +349,30 @@
             this.btnSiguiente.TextOffset = new System.Drawing.Point(0, 0);
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click_1);
             // 
-            // VentaDataGridView
+            // label4
             // 
-            this.VentaDataGridView.AllowUserToAddRows = false;
-            this.VentaDataGridView.AllowUserToDeleteRows = false;
-            this.VentaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.VentaDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.VentaDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.VentaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.VentaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_producto,
-            this.nombre,
-            this.cantidad,
-            this.precio,
-            this.subtotal});
-            this.VentaDataGridView.EnableHeadersVisualStyles = false;
-            this.VentaDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.VentaDataGridView.Location = new System.Drawing.Point(152, 112);
-            this.VentaDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
-            this.VentaDataGridView.Name = "VentaDataGridView";
-            this.VentaDataGridView.ReadOnly = true;
-            this.VentaDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VentaDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.VentaDataGridView.RowHeadersVisible = false;
-            this.VentaDataGridView.Size = new System.Drawing.Size(792, 257);
-            this.VentaDataGridView.TabIndex = 63;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Location = new System.Drawing.Point(16, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(206, 63);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Total y todo el pute\r\nGracias por su compra y qsy\r\n\r\n";
             // 
-            // id_producto
+            // panelConfirmar
             // 
-            this.id_producto.HeaderText = "id_producto_venta";
-            this.id_producto.Name = "id_producto";
-            this.id_producto.ReadOnly = true;
-            this.id_producto.Visible = false;
+            this.panelConfirmar.Controls.Add(this.label4);
+            this.panelConfirmar.Location = new System.Drawing.Point(440, 195);
+            this.panelConfirmar.Name = "panelConfirmar";
+            this.panelConfirmar.Size = new System.Drawing.Size(240, 80);
+            this.panelConfirmar.TabIndex = 66;
             // 
-            // nombre
+            // subtotal
             // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // cantidad
-            // 
-            this.cantidad.DataPropertyName = "cantidad";
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
+            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.Name = "subtotal";
+            this.subtotal.ReadOnly = true;
             // 
             // precio
             // 
@@ -408,20 +381,103 @@
             this.precio.Name = "precio";
             this.precio.ReadOnly = true;
             // 
-            // subtotal
+            // cantidad
             // 
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
+            this.cantidad.DataPropertyName = "cantidad";
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
             // 
-            // panelPago
+            // nombre
             // 
-            this.panelPago.Controls.Add(this.label5);
-            this.panelPago.Controls.Add(this.cuiComboBox1);
-            this.panelPago.Location = new System.Drawing.Point(440, 136);
-            this.panelPago.Name = "panelPago";
-            this.panelPago.Size = new System.Drawing.Size(240, 96);
-            this.panelPago.TabIndex = 65;
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // id_producto
+            // 
+            this.id_producto.HeaderText = "id_producto_venta";
+            this.id_producto.Name = "id_producto";
+            this.id_producto.ReadOnly = true;
+            this.id_producto.Visible = false;
+            // 
+            // VentaDataGridView
+            // 
+            this.VentaDataGridView.AllowUserToAddRows = false;
+            this.VentaDataGridView.AllowUserToDeleteRows = false;
+            this.VentaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.VentaDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.VentaDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VentaDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.VentaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VentaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_producto,
+            this.nombre,
+            this.cantidad,
+            this.precio,
+            this.subtotal});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.VentaDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.VentaDataGridView.EnableHeadersVisualStyles = false;
+            this.VentaDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.VentaDataGridView.Location = new System.Drawing.Point(152, 112);
+            this.VentaDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.VentaDataGridView.Name = "VentaDataGridView";
+            this.VentaDataGridView.ReadOnly = true;
+            this.VentaDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VentaDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.VentaDataGridView.RowHeadersVisible = false;
+            this.VentaDataGridView.Size = new System.Drawing.Size(792, 257);
+            this.VentaDataGridView.TabIndex = 63;
+            // 
+            // cuiComboBox1
+            // 
+            this.cuiComboBox1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cuiComboBox1.ButtonCursor = System.Windows.Forms.Cursors.Arrow;
+            this.cuiComboBox1.ButtonHoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            this.cuiComboBox1.ButtonHoverOutline = System.Drawing.Color.Empty;
+            this.cuiComboBox1.ButtonNormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.cuiComboBox1.ButtonNormalOutline = System.Drawing.Color.Empty;
+            this.cuiComboBox1.ButtonPressedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.cuiComboBox1.ButtonPressedOutline = System.Drawing.Color.Empty;
+            this.cuiComboBox1.DropDownBackgroundColor = System.Drawing.Color.White;
+            this.cuiComboBox1.DropDownOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cuiComboBox1.ExpandArrowColor = System.Drawing.Color.Gray;
+            this.cuiComboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cuiComboBox1.ForeColor = System.Drawing.Color.Gray;
+            this.cuiComboBox1.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.cuiComboBox1.Items = new string[0];
+            this.cuiComboBox1.Location = new System.Drawing.Point(7, 8);
+            this.cuiComboBox1.Name = "cuiComboBox1";
+            this.cuiComboBox1.NoSelectionDropdownText = "Empty";
+            this.cuiComboBox1.NoSelectionText = "Método de Pago";
+            this.cuiComboBox1.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cuiComboBox1.OutlineThickness = 1F;
+            this.cuiComboBox1.Rounding = 8;
+            this.cuiComboBox1.Size = new System.Drawing.Size(240, 45);
+            this.cuiComboBox1.TabIndex = 65;
             // 
             // label5
             // 
@@ -434,49 +490,14 @@
             this.label5.TabIndex = 66;
             this.label5.Text = "Total y todo el pute\r\n";
             // 
-            // cuiComboBox1
+            // panelPago
             // 
-            this.cuiComboBox1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cuiComboBox1.ButtonCursor = System.Windows.Forms.Cursors.Arrow;
-            this.cuiComboBox1.ButtonHoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.cuiComboBox1.ButtonHoverOutline = System.Drawing.Color.Empty;
-            this.cuiComboBox1.ButtonNormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.cuiComboBox1.ButtonNormalOutline = System.Drawing.Color.Empty;
-            this.cuiComboBox1.ButtonPressedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.cuiComboBox1.ButtonPressedOutline = System.Drawing.Color.Empty;
-            this.cuiComboBox1.DropDownBackgroundColor = System.Drawing.Color.White;
-            this.cuiComboBox1.DropDownOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cuiComboBox1.ExpandArrowColor = System.Drawing.Color.Gray;
-            this.cuiComboBox1.ForeColor = System.Drawing.Color.Gray;
-            this.cuiComboBox1.Items = new string[0];
-            this.cuiComboBox1.Location = new System.Drawing.Point(32, 8);
-            this.cuiComboBox1.Name = "cuiComboBox1";
-            this.cuiComboBox1.NoSelectionDropdownText = "Empty";
-            this.cuiComboBox1.NoSelectionText = "None";
-            this.cuiComboBox1.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.cuiComboBox1.OutlineThickness = 1F;
-            this.cuiComboBox1.Rounding = 8;
-            this.cuiComboBox1.Size = new System.Drawing.Size(169, 45);
-            this.cuiComboBox1.TabIndex = 65;
-            // 
-            // panelConfirmar
-            // 
-            this.panelConfirmar.Controls.Add(this.label4);
-            this.panelConfirmar.Location = new System.Drawing.Point(440, 240);
-            this.panelConfirmar.Name = "panelConfirmar";
-            this.panelConfirmar.Size = new System.Drawing.Size(240, 80);
-            this.panelConfirmar.TabIndex = 66;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(16, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(206, 63);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Total y todo el pute\r\nGracias por su compra y qsy\r\n\r\n";
+            this.panelPago.Controls.Add(this.label5);
+            this.panelPago.Controls.Add(this.cuiComboBox1);
+            this.panelPago.Location = new System.Drawing.Point(433, 136);
+            this.panelPago.Name = "panelPago";
+            this.panelPago.Size = new System.Drawing.Size(255, 96);
+            this.panelPago.TabIndex = 65;
             // 
             // Payment
             // 
@@ -496,11 +517,11 @@
             this.Load += new System.EventHandler(this.Payment_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelConfirmar.ResumeLayout(false);
+            this.panelConfirmar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentaDataGridView)).EndInit();
             this.panelPago.ResumeLayout(false);
             this.panelPago.PerformLayout();
-            this.panelConfirmar.ResumeLayout(false);
-            this.panelConfirmar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -525,16 +546,16 @@
         private System.Windows.Forms.TabPage tabPage8;
         private CuoreUI.Controls.cuiButton btnAnterior;
         private CuoreUI.Controls.cuiButton btnSiguiente;
-        private System.Windows.Forms.DataGridView VentaDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
-        private System.Windows.Forms.Panel panelPago;
-        private CuoreUI.Controls.cuiComboBox cuiComboBox1;
-        private System.Windows.Forms.Panel panelConfirmar;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panelConfirmar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
+        private System.Windows.Forms.DataGridView VentaDataGridView;
+        private CuoreUI.Controls.cuiComboBox cuiComboBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panelPago;
     }
 }
