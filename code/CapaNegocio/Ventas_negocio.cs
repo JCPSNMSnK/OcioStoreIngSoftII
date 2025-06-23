@@ -12,6 +12,7 @@ namespace CapaNegocio
     public class Ventas_negocio
     {
         private Ventas_Datos objVentas_datos = new Ventas_Datos();
+        private readonly Random _random;
 
         public List<Ventas> ListarVentas()
         {
