@@ -21,7 +21,7 @@ namespace OcioStoreIngSoftII
         private readonly Categoria_negocio _categoriaNegocio;
         private List<Producto> _listaProductos;
 
-        private CapaEntidades.Ventas ventaActual;
+        private CapaEntidades.Ventas _ventaActual;
         private Ventas_negocio _ventasNegocio = new Ventas_negocio();
 
 
@@ -36,6 +36,15 @@ namespace OcioStoreIngSoftII
 
         private void Ventas_Load(object sender, EventArgs e)
         {
+            string mensaje;
+            _ventaActual = _ventasNegocio.IniciarVenta(usuarioActual, out mensaje);
+
+            if (_ventaActual == null)
+            {
+                MessageBox.Show("Error al iniciar la venta: " + mensaje);
+                this.Close(); // o bloquear el resto del formulario
+            }
+
             _listaProductos = _productoNegocio.Listar();
 
             CargarComboBoxCategorias(CBCategoria);
@@ -298,14 +307,14 @@ namespace OcioStoreIngSoftII
             }
 
             string mensaje = "";
-            bool resultado = _ventasNegocio.ProcesarDetalles(ventaActual, listaDetalles, out mensaje);
+            bool resultado = _ventasNegocio.ProcesarDetalles(_ventaActual, listaDetalles, out mensaje);
 
             if (resultado)
             {
-                MessageBox.Show("Detalles agregados. Total calculado: $" + ventaActual.total.ToString("0.00"));
+                MessageBox.Show("Detalles agregados. Total calculado: $" + _ventaActual.total.ToString("0.00"));
 
                 // Mostrar la vista de pago
-                Payment paymentForm = new Payment(ventaActual);  // Pasamos la venta actual
+                Payment paymentForm = new Payment(_ventaActual);  // Pasamos la venta actual
                 paymentForm.ShowDialog();
             }
             else

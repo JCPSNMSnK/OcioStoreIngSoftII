@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,9 @@ namespace OcioStoreIngSoftII
     public partial class Payment : Form
     {
         private int pasoActual = 0;
-        private Ventas _ventaActual;
+        private CapaEntidades.Ventas _ventaActual;
 
-        public Payment(Ventas objVenta)
+        public Payment(CapaEntidades.Ventas objVenta)
         {
             _ventaActual = objVenta;
             InitializeComponent();
@@ -51,6 +52,8 @@ namespace OcioStoreIngSoftII
 
         private void Payment_Load(object sender, EventArgs e)
         {
+            MostrarDetallesVenta();
+
             TCPagos.Visible = false;
             if (pasoActual == 0)
             {
@@ -58,6 +61,22 @@ namespace OcioStoreIngSoftII
                 btnAnterior.Text = "Cancelar";
             }
             ActualizarBarraProgreso(pasoActual);
+        }
+
+        private void MostrarDetallesVenta()
+        {
+            VentaDataGridView.Rows.Clear();
+
+            foreach (var detalle in _ventaActual.detalles)
+            {
+                VentaDataGridView.Rows.Add(
+                    detalle.objProducto.id_producto,
+                    detalle.objProducto.nombre_producto,
+                    detalle.cantidad,
+                    detalle.objProducto.precioVenta,
+                    detalle.subtotal
+                );
+            }
         }
 
         private void tabPage10_Click(object sender, EventArgs e)
