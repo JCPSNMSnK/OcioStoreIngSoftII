@@ -47,20 +47,21 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.btnAnterior = new CuoreUI.Controls.cuiButton();
             this.btnSiguiente = new CuoreUI.Controls.cuiButton();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.TCPagos = new System.Windows.Forms.TabControl();
             this.VentaDataGridView = new System.Windows.Forms.DataGridView();
             this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelPago = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cuiComboBox1 = new CuoreUI.Controls.cuiComboBox();
+            this.panelConfirmar = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.tabPage10.SuspendLayout();
-            this.TCPagos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentaDataGridView)).BeginInit();
+            this.panelPago.SuspendLayout();
+            this.panelConfirmar.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -346,54 +347,6 @@
             this.btnSiguiente.TextOffset = new System.Drawing.Point(0, 0);
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click_1);
             // 
-            // tabPage12
-            // 
-            this.tabPage12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.tabPage12.Location = new System.Drawing.Point(4, 29);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(968, 263);
-            this.tabPage12.TabIndex = 2;
-            this.tabPage12.Text = "listo";
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.tabPage11.Location = new System.Drawing.Point(4, 29);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(968, 263);
-            this.tabPage11.TabIndex = 1;
-            this.tabPage11.Text = "pago";
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.tabPage10.Controls.Add(this.VentaDataGridView);
-            this.tabPage10.Location = new System.Drawing.Point(4, 29);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(968, 263);
-            this.tabPage10.TabIndex = 0;
-            this.tabPage10.Text = "carrito";
-            this.tabPage10.Click += new System.EventHandler(this.tabPage10_Click);
-            // 
-            // TCPagos
-            // 
-            this.TCPagos.AllowDrop = true;
-            this.TCPagos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TCPagos.Controls.Add(this.tabPage10);
-            this.TCPagos.Controls.Add(this.tabPage11);
-            this.TCPagos.Controls.Add(this.tabPage12);
-            this.TCPagos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TCPagos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TCPagos.Location = new System.Drawing.Point(80, 87);
-            this.TCPagos.Multiline = true;
-            this.TCPagos.Name = "TCPagos";
-            this.TCPagos.SelectedIndex = 0;
-            this.TCPagos.Size = new System.Drawing.Size(976, 296);
-            this.TCPagos.TabIndex = 13;
-            // 
             // VentaDataGridView
             // 
             this.VentaDataGridView.AllowUserToAddRows = false;
@@ -408,10 +361,9 @@
             this.cantidad,
             this.precio,
             this.subtotal});
-            this.VentaDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VentaDataGridView.EnableHeadersVisualStyles = false;
             this.VentaDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.VentaDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.VentaDataGridView.Location = new System.Drawing.Point(152, 112);
             this.VentaDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.VentaDataGridView.Name = "VentaDataGridView";
             this.VentaDataGridView.ReadOnly = true;
@@ -425,8 +377,8 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.VentaDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.VentaDataGridView.RowHeadersVisible = false;
-            this.VentaDataGridView.Size = new System.Drawing.Size(962, 257);
-            this.VentaDataGridView.TabIndex = 62;
+            this.VentaDataGridView.Size = new System.Drawing.Size(792, 257);
+            this.VentaDataGridView.TabIndex = 63;
             // 
             // id_producto
             // 
@@ -462,15 +414,81 @@
             this.subtotal.Name = "subtotal";
             this.subtotal.ReadOnly = true;
             // 
+            // panelPago
+            // 
+            this.panelPago.Controls.Add(this.label5);
+            this.panelPago.Controls.Add(this.cuiComboBox1);
+            this.panelPago.Location = new System.Drawing.Point(440, 136);
+            this.panelPago.Name = "panelPago";
+            this.panelPago.Size = new System.Drawing.Size(240, 96);
+            this.panelPago.TabIndex = 65;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label5.Location = new System.Drawing.Point(48, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(141, 21);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Total y todo el pute\r\n";
+            // 
+            // cuiComboBox1
+            // 
+            this.cuiComboBox1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cuiComboBox1.ButtonCursor = System.Windows.Forms.Cursors.Arrow;
+            this.cuiComboBox1.ButtonHoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.cuiComboBox1.ButtonHoverOutline = System.Drawing.Color.Empty;
+            this.cuiComboBox1.ButtonNormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.cuiComboBox1.ButtonNormalOutline = System.Drawing.Color.Empty;
+            this.cuiComboBox1.ButtonPressedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.cuiComboBox1.ButtonPressedOutline = System.Drawing.Color.Empty;
+            this.cuiComboBox1.DropDownBackgroundColor = System.Drawing.Color.White;
+            this.cuiComboBox1.DropDownOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cuiComboBox1.ExpandArrowColor = System.Drawing.Color.Gray;
+            this.cuiComboBox1.ForeColor = System.Drawing.Color.Gray;
+            this.cuiComboBox1.Items = new string[0];
+            this.cuiComboBox1.Location = new System.Drawing.Point(32, 8);
+            this.cuiComboBox1.Name = "cuiComboBox1";
+            this.cuiComboBox1.NoSelectionDropdownText = "Empty";
+            this.cuiComboBox1.NoSelectionText = "None";
+            this.cuiComboBox1.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cuiComboBox1.OutlineThickness = 1F;
+            this.cuiComboBox1.Rounding = 8;
+            this.cuiComboBox1.Size = new System.Drawing.Size(169, 45);
+            this.cuiComboBox1.TabIndex = 65;
+            // 
+            // panelConfirmar
+            // 
+            this.panelConfirmar.Controls.Add(this.label4);
+            this.panelConfirmar.Location = new System.Drawing.Point(440, 240);
+            this.panelConfirmar.Name = "panelConfirmar";
+            this.panelConfirmar.Size = new System.Drawing.Size(240, 80);
+            this.panelConfirmar.TabIndex = 66;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Location = new System.Drawing.Point(16, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(206, 63);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Total y todo el pute\r\nGracias por su compra y qsy\r\n\r\n";
+            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
             this.ClientSize = new System.Drawing.Size(1124, 452);
+            this.Controls.Add(this.panelConfirmar);
+            this.Controls.Add(this.panelPago);
+            this.Controls.Add(this.VentaDataGridView);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnAnterior);
-            this.Controls.Add(this.TCPagos);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Payment";
@@ -478,9 +496,11 @@
             this.Load += new System.EventHandler(this.Payment_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabPage10.ResumeLayout(false);
-            this.TCPagos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.VentaDataGridView)).EndInit();
+            this.panelPago.ResumeLayout(false);
+            this.panelPago.PerformLayout();
+            this.panelConfirmar.ResumeLayout(false);
+            this.panelConfirmar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -505,15 +525,16 @@
         private System.Windows.Forms.TabPage tabPage8;
         private CuoreUI.Controls.cuiButton btnAnterior;
         private CuoreUI.Controls.cuiButton btnSiguiente;
-        private System.Windows.Forms.TabPage tabPage12;
-        private System.Windows.Forms.TabPage tabPage11;
-        private System.Windows.Forms.TabPage tabPage10;
-        private System.Windows.Forms.TabControl TCPagos;
         private System.Windows.Forms.DataGridView VentaDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
+        private System.Windows.Forms.Panel panelPago;
+        private CuoreUI.Controls.cuiComboBox cuiComboBox1;
+        private System.Windows.Forms.Panel panelConfirmar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

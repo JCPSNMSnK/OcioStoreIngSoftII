@@ -26,22 +26,22 @@ namespace OcioStoreIngSoftII
         {
             if (pasoActual == 0)
             {
-                TCPagos.Visible = false;
+                VentaDataGridView.Visible = false;
                 btnAnterior.Content = "Cancelar";
             }
             if (pasoActual == 1)
             {
-                TCPagos.Visible = true;
+                VentaDataGridView.Visible = true;
                 btnAnterior.Content = "Anterior";
             }
             if (pasoActual == 2)
             {
-                TCPagos.Visible = false;
+                VentaDataGridView.Visible = false;
                 btnSiguiente.Content = "Siguiente";
             }
             if (pasoActual == 3)
             {
-                TCPagos.Visible = false;
+                VentaDataGridView.Visible = false;
                 btnSiguiente.Content = "Cerrar";
             }
 
@@ -54,10 +54,10 @@ namespace OcioStoreIngSoftII
         {
             MostrarDetallesVenta();
 
-            TCPagos.Visible = false;
+            VentaDataGridView.Visible = false;
             if (pasoActual == 0)
             {
-                TCPagos.Visible = false;
+                VentaDataGridView.Visible = false;
                 btnAnterior.Text = "Cancelar";
             }
             ActualizarBarraProgreso(pasoActual);
