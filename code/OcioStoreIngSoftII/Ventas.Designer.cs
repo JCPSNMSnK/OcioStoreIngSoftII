@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.productosDataGridView = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -61,25 +61,26 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.LCategoria = new System.Windows.Forms.Label();
             this.LProducto = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.VentaDataGridView = new System.Windows.Forms.DataGridView();
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.ProductosTableAdapter();
             this.pROC_BUSCAR_PRODUCTOTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.PROC_BUSCAR_PRODUCTOTableAdapter();
-            this.id_producto_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_producto_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentaDataGridView = new System.Windows.Forms.DataGridView();
+            this.btnRegistrarVenta = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pROCBUSCARPRODUCTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentaDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -106,14 +107,14 @@
             this.productosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productosDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.productosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.productosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -127,14 +128,14 @@
             this.id_categoria,
             this.nombre_categoria});
             this.productosDataGridView.DataSource = this.pROCBUSCARPRODUCTOBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productosDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productosDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.productosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productosDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.productosDataGridView.Location = new System.Drawing.Point(15, 264);
@@ -142,14 +143,14 @@
             this.productosDataGridView.Name = "productosDataGridView";
             this.productosDataGridView.ReadOnly = true;
             this.productosDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.productosDataGridView.RowHeadersVisible = false;
             this.productosDataGridView.Size = new System.Drawing.Size(854, 434);
             this.productosDataGridView.TabIndex = 60;
@@ -401,66 +402,6 @@
             this.LProducto.TabIndex = 8;
             this.LProducto.Text = "Producto";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.VentaDataGridView);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(872, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(317, 701);
-            this.panel2.TabIndex = 2;
-            // 
-            // VentaDataGridView
-            // 
-            this.VentaDataGridView.AllowUserToAddRows = false;
-            this.VentaDataGridView.AllowUserToDeleteRows = false;
-            this.VentaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.VentaDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.VentaDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VentaDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.VentaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.VentaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_producto_venta,
-            this.nombre,
-            this.precio,
-            this.cantidad,
-            this.btnEliminar});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.VentaDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
-            this.VentaDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.VentaDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.VentaDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.VentaDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
-            this.VentaDataGridView.Name = "VentaDataGridView";
-            this.VentaDataGridView.ReadOnly = true;
-            this.VentaDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VentaDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.VentaDataGridView.RowHeadersVisible = false;
-            this.VentaDataGridView.Size = new System.Drawing.Size(317, 701);
-            this.VentaDataGridView.TabIndex = 61;
-            this.VentaDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VentaDataGridView_CellContentClick);
-            this.VentaDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.VentaDataGridView_CellPainting);
-            // 
             // productosBindingSource
             // 
             this.productosBindingSource.DataMember = "Productos";
@@ -474,33 +415,15 @@
             // 
             this.pROC_BUSCAR_PRODUCTOTableAdapter.ClearBeforeFill = true;
             // 
-            // id_producto_venta
+            // panel2
             // 
-            this.id_producto_venta.HeaderText = "id_producto_venta";
-            this.id_producto_venta.Name = "id_producto_venta";
-            this.id_producto_venta.ReadOnly = true;
-            this.id_producto_venta.Visible = false;
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // precio
-            // 
-            this.precio.DataPropertyName = "precio";
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            // 
-            // cantidad
-            // 
-            this.cantidad.DataPropertyName = "cantidad";
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
+            this.panel2.Controls.Add(this.VentaDataGridView);
+            this.panel2.Controls.Add(this.btnRegistrarVenta);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(872, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(317, 701);
+            this.panel2.TabIndex = 2;
             // 
             // btnEliminar
             // 
@@ -511,6 +434,99 @@
             this.btnEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.btnEliminar.Width = 88;
+            // 
+            // cantidad
+            // 
+            this.cantidad.DataPropertyName = "cantidad";
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            // 
+            // precio
+            // 
+            this.precio.DataPropertyName = "precio";
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // id_producto_venta
+            // 
+            this.id_producto_venta.HeaderText = "id_producto_venta";
+            this.id_producto_venta.Name = "id_producto_venta";
+            this.id_producto_venta.ReadOnly = true;
+            this.id_producto_venta.Visible = false;
+            // 
+            // VentaDataGridView
+            // 
+            this.VentaDataGridView.AllowUserToAddRows = false;
+            this.VentaDataGridView.AllowUserToDeleteRows = false;
+            this.VentaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.VentaDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.VentaDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VentaDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.VentaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VentaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_producto_venta,
+            this.nombre,
+            this.precio,
+            this.cantidad,
+            this.btnEliminar});
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.VentaDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
+            this.VentaDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.VentaDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.VentaDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.VentaDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.VentaDataGridView.Name = "VentaDataGridView";
+            this.VentaDataGridView.ReadOnly = true;
+            this.VentaDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VentaDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.VentaDataGridView.RowHeadersVisible = false;
+            this.VentaDataGridView.Size = new System.Drawing.Size(317, 413);
+            this.VentaDataGridView.TabIndex = 61;
+            this.VentaDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VentaDataGridView_CellContentClick);
+            this.VentaDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.VentaDataGridView_CellPainting);
+            // 
+            // btnRegistrarVenta
+            // 
+            this.btnRegistrarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.btnRegistrarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRegistrarVenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarVenta.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrarVenta.Location = new System.Drawing.Point(30, 447);
+            this.btnRegistrarVenta.Name = "btnRegistrarVenta";
+            this.btnRegistrarVenta.Size = new System.Drawing.Size(168, 32);
+            this.btnRegistrarVenta.TabIndex = 20;
+            this.btnRegistrarVenta.Text = "Registrar Venta";
+            this.btnRegistrarVenta.UseVisualStyleBackColor = false;
+            this.btnRegistrarVenta.Click += new System.EventHandler(this.btnRegistrarVenta_Click);
             // 
             // Ventas
             // 
@@ -530,9 +546,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.VentaDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -549,7 +565,6 @@
         private System.Windows.Forms.Label LCategoria;
         private System.Windows.Forms.Button BAddProduct;
         private System.Windows.Forms.Label LProducto;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView productosDataGridView;
         private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource productosBindingSource;
@@ -557,7 +572,6 @@
         private System.Windows.Forms.BindingSource pROCBUSCARPRODUCTOBindingSource;
         private DataSet1TableAdapters.PROC_BUSCAR_PRODUCTOTableAdapter pROC_BUSCAR_PRODUCTOTableAdapter;
         private System.Windows.Forms.ComboBox CBProductos;
-        private System.Windows.Forms.DataGridView VentaDataGridView;
         private System.Windows.Forms.TextBox TModificarID_prod;
         private System.Windows.Forms.TextBox TBModificarIndice;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
@@ -570,10 +584,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_categoria;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView VentaDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto_venta;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;
+        private System.Windows.Forms.Button btnRegistrarVenta;
     }
 }

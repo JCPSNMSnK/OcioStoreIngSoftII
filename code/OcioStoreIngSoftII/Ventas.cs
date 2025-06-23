@@ -16,13 +16,20 @@ namespace OcioStoreIngSoftII
     public partial class Ventas : Form
     {
         // Instancias de la capa de negocio
+        private static Usuario usuarioActual;
         private readonly Producto_negocio _productoNegocio;
         private readonly Categoria_negocio _categoriaNegocio;
         private List<Producto> _listaProductos;
 
-        public Ventas()
+        private CapaEntidades.Ventas ventaActual;
+        private Ventas_negocio _ventasNegocio = new Ventas_negocio();
+
+
+        public Ventas(Usuario objUser)
         {
             InitializeComponent();
+            btnRegistrarVenta.Click += btnRegistrarVenta_Click;
+            usuarioActual = objUser;
             _productoNegocio = new Producto_negocio();
             _categoriaNegocio = new Categoria_negocio();
         }
@@ -266,6 +273,44 @@ namespace OcioStoreIngSoftII
                 {
                     VentaDataGridView.Rows.RemoveAt(e.RowIndex);
                 }
+            }
+        }
+
+        private void btnRegistrarVenta_Click(object sender, EventArgs e)
+        {
+            List<DetalleVenta> listaDetalles = new List<DetalleVenta>();
+
+            foreach (DataGridViewRow fila in VentaDataGridView.Rows)
+            {
+                int idProducto = Convert.ToInt32(fila.Cells["id_producto_venta"].Value);
+                Producto prod = _listaProductos.FirstOrDefault(p => p.id_producto == idProducto);
+                int cantidad = Convert.ToInt32(fila.Cells["cantidad"].Value);
+
+                if (prod != null)
+                {
+                    listaDetalles.Add(new DetalleVenta()
+                    {
+                        objProducto = prod,
+                        cantidad = cantidad,
+                        subtotal = cantidad * prod.precioVenta
+                    });
+                }
+            }
+
+            string mensaje = "";
+            bool resultado = _ventasNegocio.ProcesarDetalles(ventaActual, listaDetalles, out mensaje);
+
+            if (resultado)
+            {
+                MessageBox.Show("Detalles agregados. Total calculado: $" + ventaActual.total.ToString("0.00"));
+
+                // Mostrar la vista de pago
+                Payment paymentForm = new Payment(ventaActual);  // Pasamos la venta actual
+                paymentForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Error al procesar detalles:\n" + mensaje);
             }
         }
     }

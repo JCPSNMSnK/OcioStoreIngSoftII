@@ -87,7 +87,7 @@ namespace CapaNegocio
                     errores.Add($"Detalle {i}: Debe especificar un producto válido para el detalle.");
                     continue; // No podemos seguir sin un producto
                 }
-                if (!this.verificarStock(detalle.cantidad, detalle.objProducto, i))
+                if (!this.verificarStock(detalleDto.cantidad, detalleDto.objProducto, i))
                 {
                     errores.Add("Error al verificar Stock");
                 }
@@ -122,7 +122,7 @@ namespace CapaNegocio
             {
                 errores.Add("La venta actual no puede ser nula.");
             }
-            if (idMedioPago <= 0)
+            if (mediosPago.id_medioPago <= 0)
             {
                 errores.Add("Debe seleccionar un medio de pago válido.");
             }

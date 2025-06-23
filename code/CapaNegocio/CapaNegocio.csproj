@@ -196,6 +196,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles_negocio.cs" />
     <Compile Include="Usuario_negocio.cs" />
+    <Compile Include="Ventas_negocio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatosFinal\CapaDatos.csproj">

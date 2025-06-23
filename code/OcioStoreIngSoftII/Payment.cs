@@ -14,7 +14,7 @@ namespace OcioStoreIngSoftII
     {
         private int pasoActual = 0;
 
-        public Payment()
+        public Payment(Ventas objVenta)
         {
             InitializeComponent();
         }
