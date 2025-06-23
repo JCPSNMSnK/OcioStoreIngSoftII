@@ -176,7 +176,7 @@ namespace CapaNegocio
             mensaje = string.Empty;
             List<string> errores = new List<string>();
 
-            if (objVenta == null)
+            /*if (objVenta == null)
             {
                 errores.Add("El objeto Venta no puede ser nulo.");
             }
@@ -218,7 +218,7 @@ namespace CapaNegocio
                 {
                     errores.Add("El total de la venta no coincide con la suma de los subtotales de los detalles.");
                 }
-            }
+            }*/
 
 
             if (errores.Any())
@@ -233,7 +233,7 @@ namespace CapaNegocio
 
                     //Persistencia de la venta exitosa
                     // La capa de negocio invoca al método de la capa de datos que maneja la transacción
-                    bool registroExitoso = objVentas_datos.RegistrarVenta(objVenta, objVenta.objMediosPago, out mensaje);
+                    bool registroExitoso = objVentas_datos.RegistrarVenta(objVenta, objVenta.objMediosPago, out idVentaGenerada, out mensaje);
 
                     if (!registroExitoso)
                     {

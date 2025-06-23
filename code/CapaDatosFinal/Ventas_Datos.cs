@@ -75,7 +75,7 @@ namespace CapaDatos
             return lista;
         }
 
-        public bool RegistrarVenta(Ventas obj, MediosPago objMetPago, out string Mensaje)//crearVenta ()
+        public bool RegistrarVenta(Ventas obj, MediosPago objMetPago, out int idVentaRegistrada, out string Mensaje)//crearVenta ()
         {
 
             int idVentaRegistrada = 0;
