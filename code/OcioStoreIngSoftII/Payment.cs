@@ -24,44 +24,27 @@ namespace OcioStoreIngSoftII
             if (pasoActual == 0)
             {
                 TCPagos.Visible = false;
-                btnAnterior.Text = "Cancelar";
+                btnAnterior.Content = "Cancelar";
             }
             if (pasoActual == 1)
             {
                 TCPagos.Visible = true;
-                btnAnterior.Text = "Anterior";
+                btnAnterior.Content = "Anterior";
             }
             if (pasoActual == 2)
             {
                 TCPagos.Visible = false;
-                btnAnterior.Text = "Anterior";
+                btnSiguiente.Content = "Siguiente";
             }
-            
+            if (pasoActual == 3)
+            {
+                TCPagos.Visible = false;
+                btnSiguiente.Content = "Cerrar";
+            }
+
             cuiSwitch1.Checked = pasoActual >= 1 ? true : false;
             cuiSwitch2.Checked = pasoActual >= 2 ? true : false;
             cuiSwitch3.Checked = pasoActual >= 3 ? true : false;
-        }
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            if (pasoActual <= 2)
-            {
-                pasoActual++;
-                ActualizarBarraProgreso(pasoActual);
-            }
-        }
-
-        private void btnAnterior_Click(object sender, EventArgs e)
-        {
-            if (pasoActual == 0)
-            {
-                this.Close();
-            }
-            
-            if (pasoActual >= 1)
-            {
-                pasoActual--;
-                ActualizarBarraProgreso(pasoActual);
-            }
         }
 
         private void Payment_Load(object sender, EventArgs e)
@@ -71,6 +54,39 @@ namespace OcioStoreIngSoftII
             {
                 TCPagos.Visible = false;
                 btnAnterior.Text = "Cancelar";
+            }
+            ActualizarBarraProgreso(pasoActual);
+        }
+
+        private void tabPage10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAnterior_Click_1(object sender, EventArgs e)
+        {
+            if (pasoActual == 0)
+            {
+                this.Close();
+            }
+
+            if (pasoActual >= 1)
+            {
+                pasoActual--;
+                ActualizarBarraProgreso(pasoActual);
+            }
+        }
+
+        private void btnSiguiente_Click_1(object sender, EventArgs e)
+        {
+            if (pasoActual <= 3)
+            {
+                pasoActual++;
+                ActualizarBarraProgreso(pasoActual);
+            }
+            if ((pasoActual == 4))
+            {
+                this.Close();
             }
         }
     }
