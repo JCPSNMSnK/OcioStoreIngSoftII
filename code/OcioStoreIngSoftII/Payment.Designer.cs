@@ -49,8 +49,8 @@
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.btnSiguiente = new System.Windows.Forms.Button();
-            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnAnterior = new CuoreUI.Controls.cuiButton();
+            this.btnSiguiente = new CuoreUI.Controls.cuiButton();
             this.panel1.SuspendLayout();
             this.TCPagos.SuspendLayout();
             this.SuspendLayout();
@@ -283,9 +283,10 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 29);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(992, 295);
+            this.tabPage10.Size = new System.Drawing.Size(968, 263);
             this.tabPage10.TabIndex = 0;
             this.tabPage10.Text = "Tarjeta de Crédito";
+            this.tabPage10.Click += new System.EventHandler(this.tabPage10_Click);
             // 
             // tabPage11
             // 
@@ -293,7 +294,7 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 29);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(992, 295);
+            this.tabPage11.Size = new System.Drawing.Size(968, 263);
             this.tabPage11.TabIndex = 1;
             this.tabPage11.Text = "Tarjeta de Débito";
             // 
@@ -303,7 +304,7 @@
             this.tabPage12.Location = new System.Drawing.Point(4, 29);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(992, 295);
+            this.tabPage12.Size = new System.Drawing.Size(968, 263);
             this.tabPage12.TabIndex = 2;
             this.tabPage12.Text = "Efectivo";
             // 
@@ -317,33 +318,83 @@
             this.tabPage13.TabIndex = 3;
             this.tabPage13.Text = "Mercado Pago/Transferencia";
             // 
-            // btnSiguiente
-            // 
-            this.btnSiguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSiguiente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.ForeColor = System.Drawing.Color.White;
-            this.btnSiguiente.Location = new System.Drawing.Point(928, 408);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(143, 32);
-            this.btnSiguiente.TabIndex = 22;
-            this.btnSiguiente.Text = "Siguiente";
-            this.btnSiguiente.UseVisualStyleBackColor = false;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
-            // 
             // btnAnterior
             // 
-            this.btnAnterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAnterior.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnterior.CheckButton = false;
+            this.btnAnterior.Checked = false;
+            this.btnAnterior.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnAnterior.CheckedForeColor = System.Drawing.Color.White;
+            this.btnAnterior.CheckedImageTint = System.Drawing.Color.White;
+            this.btnAnterior.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnAnterior.Content = "Anterior";
+            this.btnAnterior.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnterior.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnAnterior.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnAnterior.ForeColor = System.Drawing.Color.White;
-            this.btnAnterior.Location = new System.Drawing.Point(776, 408);
+            this.btnAnterior.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            this.btnAnterior.HoveredImageTint = System.Drawing.Color.White;
+            this.btnAnterior.HoverForeColor = System.Drawing.Color.White;
+            this.btnAnterior.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnAnterior.Image = null;
+            this.btnAnterior.ImageAutoCenter = true;
+            this.btnAnterior.ImageExpand = new System.Drawing.Point(0, 0);
+            this.btnAnterior.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnAnterior.Location = new System.Drawing.Point(766, 408);
             this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.btnAnterior.NormalForeColor = System.Drawing.Color.White;
+            this.btnAnterior.NormalImageTint = System.Drawing.Color.White;
+            this.btnAnterior.NormalOutline = System.Drawing.Color.Black;
+            this.btnAnterior.OutlineThickness = 1F;
+            this.btnAnterior.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.btnAnterior.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnAnterior.PressedImageTint = System.Drawing.Color.White;
+            this.btnAnterior.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnAnterior.Rounding = new System.Windows.Forms.Padding(8);
             this.btnAnterior.Size = new System.Drawing.Size(143, 32);
-            this.btnAnterior.TabIndex = 23;
-            this.btnAnterior.Text = "Anterior";
-            this.btnAnterior.UseVisualStyleBackColor = false;
-            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            this.btnAnterior.TabIndex = 24;
+            this.btnAnterior.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnAnterior.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click_1);
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.CheckButton = false;
+            this.btnSiguiente.Checked = false;
+            this.btnSiguiente.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            this.btnSiguiente.CheckedForeColor = System.Drawing.Color.White;
+            this.btnSiguiente.CheckedImageTint = System.Drawing.Color.White;
+            this.btnSiguiente.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            this.btnSiguiente.Content = "Siguiente";
+            this.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSiguiente.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnSiguiente.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnSiguiente.ForeColor = System.Drawing.Color.White;
+            this.btnSiguiente.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            this.btnSiguiente.HoveredImageTint = System.Drawing.Color.White;
+            this.btnSiguiente.HoverForeColor = System.Drawing.Color.White;
+            this.btnSiguiente.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnSiguiente.Image = null;
+            this.btnSiguiente.ImageAutoCenter = true;
+            this.btnSiguiente.ImageExpand = new System.Drawing.Point(0, 0);
+            this.btnSiguiente.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnSiguiente.Location = new System.Drawing.Point(930, 408);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.btnSiguiente.NormalForeColor = System.Drawing.Color.White;
+            this.btnSiguiente.NormalImageTint = System.Drawing.Color.White;
+            this.btnSiguiente.NormalOutline = System.Drawing.Color.Black;
+            this.btnSiguiente.OutlineThickness = 1F;
+            this.btnSiguiente.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.btnSiguiente.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnSiguiente.PressedImageTint = System.Drawing.Color.White;
+            this.btnSiguiente.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnSiguiente.Rounding = new System.Windows.Forms.Padding(8);
+            this.btnSiguiente.Size = new System.Drawing.Size(143, 32);
+            this.btnSiguiente.TabIndex = 0;
+            this.btnSiguiente.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnSiguiente.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click_1);
             // 
             // Payment
             // 
@@ -351,8 +402,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
             this.ClientSize = new System.Drawing.Size(1124, 452);
-            this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnSiguiente);
+            this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.TCPagos);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -389,7 +440,7 @@
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.TabPage tabPage12;
         private System.Windows.Forms.TabPage tabPage13;
-        private System.Windows.Forms.Button btnSiguiente;
-        private System.Windows.Forms.Button btnAnterior;
+        private CuoreUI.Controls.cuiButton btnAnterior;
+        private CuoreUI.Controls.cuiButton btnSiguiente;
     }
 }
