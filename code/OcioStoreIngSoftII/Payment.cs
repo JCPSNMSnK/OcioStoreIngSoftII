@@ -13,9 +13,11 @@ namespace OcioStoreIngSoftII
     public partial class Payment : Form
     {
         private int pasoActual = 0;
+        private Ventas _ventaActual;
 
         public Payment(Ventas objVenta)
         {
+            _ventaActual = objVenta;
             InitializeComponent();
         }
 
