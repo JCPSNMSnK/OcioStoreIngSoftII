@@ -45,7 +45,7 @@ namespace OcioStoreIngSoftII
                 VentaDataGridView.Visible = false;
                 panelPago.Visible = true;
                 panelConfirmar.Visible = false;
-                btnAnterior.Content = "Anterior";
+                btnSiguiente.Content = "Confirmar";
             }
             if (pasoActual == 2)
             {
@@ -128,16 +128,41 @@ namespace OcioStoreIngSoftII
 
         private void btnSiguiente_Click_1(object sender, EventArgs e)
         {
-            if (pasoActual <= 3)
+            if (pasoActual == 1)
+            {
+                // Validar medio de pago seleccionado
+                if (CBMediosPago.SelectedItem == null)
+                {
+                    MessageBox.Show("Por favor, seleccione un medio de pago.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string mensaje;
+                bool exito = _ventasNegocio.verificacionPago(_ventaActual, out mensaje);
+
+                if (exito)
+                {
+                    MessageBox.Show(mensaje, "Pago verificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    pasoActual++;
+                    ActualizarBarraProgreso(pasoActual);
+                }
+                else
+                {
+                    MessageBox.Show(mensaje, "Error en el pago", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else if (pasoActual < 3)
             {
                 pasoActual++;
                 ActualizarBarraProgreso(pasoActual);
             }
-            if ((pasoActual == 4))
+            else if (pasoActual == 3)
             {
                 this.Close();
             }
         }
+
 
 
         private void CBMediosPago_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,7 +183,10 @@ namespace OcioStoreIngSoftII
                         {
                             // Asumiendo que _ventaActual tiene propiedad TotalConComision (o similar)
                             // Si no, deberías acceder al total recalculado después de AsignarMedioPago
-                            LListo.Text = $"Total con comisión: ${_ventaActual.total:F2}";
+                            LListo.Text = $"Gracias por su compra.\n" +
+                                          $"Total abonado (incluye comisión): ${_ventaActual.total:F2}\n" +
+                                          $"Medio de pago: {_ventaActual.objMediosPago.nombre_medio}";
+
                             LMedioPago.Text = $"{medioSeleccionado.nombre_medio} - Comisión: {medioSeleccionado.comision}%";
                         }
                         else

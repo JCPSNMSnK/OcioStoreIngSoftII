@@ -81,54 +81,6 @@ namespace CapaDatos
             int idVentaRegistrada = 0;
             String mensajeSalida = string.Empty;
 
-            /*try
-            {
-                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-                {
-                    SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_VENTA", oconexion);
-                    cmd.Parameters.AddWithValue("total", obj.total);
-                    cmd.Parameters.AddWithValue("id_medioPago", obj.objMediosPago);
-                    cmd.Parameters.AddWithValue("id_usuario", obj.objUsuario);
-                    cmd.Parameters.AddWithValue("fecha_venta", obj.fecha_venta);
-
-                    cmd.Parameters.Add("id_venta_registrada", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    oconexion.Open();
-                    cmd.ExecuteNonQuery();
-
-                    id_venta_registrada = Convert.ToInt32(cmd.Parameters["id_venta_registrada"].Value);
-                    Mensaje = cmd.Parameters["mensaje"].Value.ToString();
-
-                    for (int i = 0; i < obj.detalles.Count; i++)
-                    {
-                        SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_DETALLE", oconexion);
-
-                        cmd.Parameters.AddWithValue("id_venta_registrada", id_venta_registrada);
-                        cmd.Parameters.AddWithValue("id_producto", obj.detalles[i].objProducto.id_producto);
-                        cmd.Parameters.AddWithValue("cantidad", obj.detalles[i].cantidad);
-                        cmd.Parameters.AddWithValue("subtotal", obj.detalles[i].subtotal);
-                        cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        oconexion.Open();
-                        cmd.ExecuteNonQuery();
-
-                        Mensaje = cmd.Parameters["mensaje"].Value.ToString();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                id_venta_registrada = 0;
-                Mensaje = ex.Message;
-            }
-
-            return id_venta_registrada;*/
-
             bool exito = false;
             List<string> mensajesDetalle = new List<string>(); // Para recopilar mensajes de detalles
 
