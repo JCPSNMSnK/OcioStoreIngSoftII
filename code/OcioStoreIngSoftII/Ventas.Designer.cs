@@ -63,14 +63,14 @@
             this.LProducto = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.VentaDataGridView = new System.Windows.Forms.DataGridView();
-            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productosTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.ProductosTableAdapter();
-            this.pROC_BUSCAR_PRODUCTOTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.PROC_BUSCAR_PRODUCTOTableAdapter();
             this.id_producto_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productosTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.ProductosTableAdapter();
+            this.pROC_BUSCAR_PRODUCTOTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.PROC_BUSCAR_PRODUCTOTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pROCBUSCARPRODUCTOBindingSource)).BeginInit();
@@ -106,11 +106,12 @@
             this.productosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productosDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.productosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.productosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -127,15 +128,16 @@
             this.id_categoria,
             this.nombre_categoria});
             this.productosDataGridView.DataSource = this.pROCBUSCARPRODUCTOBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.productosDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.productosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productosDataGridView.EnableHeadersVisualStyles = false;
             this.productosDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.productosDataGridView.Location = new System.Drawing.Point(15, 264);
             this.productosDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
@@ -164,7 +166,7 @@
             this.btnSeleccionar.ReadOnly = true;
             this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 110;
+            this.btnSeleccionar.Width = 112;
             // 
             // id_producto
             // 
@@ -297,7 +299,7 @@
             // 
             // NCantidad
             // 
-            this.NCantidad.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.NCantidad.BackColor = System.Drawing.Color.WhiteSmoke;
             this.NCantidad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.NCantidad.Location = new System.Drawing.Point(598, 128);
@@ -331,7 +333,7 @@
             // 
             // CBCategoria
             // 
-            this.CBCategoria.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.CBCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CBCategoria.DisplayMember = "id_categoria";
             this.CBCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBCategoria.FormattingEnabled = true;
@@ -357,7 +359,7 @@
             // 
             // CBProductos
             // 
-            this.CBProductos.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.CBProductos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CBProductos.DisplayMember = "id_categoria";
             this.CBProductos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBProductos.FormattingEnabled = true;
@@ -417,11 +419,12 @@
             this.VentaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.VentaDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.VentaDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.VentaDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
@@ -433,14 +436,15 @@
             this.cantidad,
             this.btnEliminar});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.VentaDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.VentaDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VentaDataGridView.EnableHeadersVisualStyles = false;
             this.VentaDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.VentaDataGridView.Location = new System.Drawing.Point(0, 0);
             this.VentaDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
@@ -460,19 +464,6 @@
             this.VentaDataGridView.TabIndex = 61;
             this.VentaDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VentaDataGridView_CellContentClick);
             this.VentaDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.VentaDataGridView_CellPainting);
-            // 
-            // productosBindingSource
-            // 
-            this.productosBindingSource.DataMember = "Productos";
-            this.productosBindingSource.DataSource = this.dataSet1;
-            // 
-            // productosTableAdapter
-            // 
-            this.productosTableAdapter.ClearBeforeFill = true;
-            // 
-            // pROC_BUSCAR_PRODUCTOTableAdapter
-            // 
-            this.pROC_BUSCAR_PRODUCTOTableAdapter.ClearBeforeFill = true;
             // 
             // id_producto_venta
             // 
@@ -510,7 +501,20 @@
             this.btnEliminar.ReadOnly = true;
             this.btnEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnEliminar.Width = 88;
+            this.btnEliminar.Width = 90;
+            // 
+            // productosBindingSource
+            // 
+            this.productosBindingSource.DataMember = "Productos";
+            this.productosBindingSource.DataSource = this.dataSet1;
+            // 
+            // productosTableAdapter
+            // 
+            this.productosTableAdapter.ClearBeforeFill = true;
+            // 
+            // pROC_BUSCAR_PRODUCTOTableAdapter
+            // 
+            this.pROC_BUSCAR_PRODUCTOTableAdapter.ClearBeforeFill = true;
             // 
             // Ventas
             // 
