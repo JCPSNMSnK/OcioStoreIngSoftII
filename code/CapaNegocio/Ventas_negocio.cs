@@ -25,7 +25,143 @@ namespace CapaNegocio
             }
         }
 
-        public bool RegistrarVenta(Ventas objVenta, out int idVentaGenerada, out string mensaje)
+        public Ventas IniciarVenta(Usuario usuario, out string mensaje)
+        {
+            mensaje = string.Empty;
+            if (usuario == null || usuario.id_user == 0)
+            {
+                mensaje = "Debe proporcionar un usuario válido para iniciar la venta.";
+                return null;
+            }
+
+            try
+            {
+                Ventas nuevaVenta = new Ventas(usuario);
+                mensaje = "Venta iniciada exitosamente. Por favor seleccione los productos.";
+                return nuevaVenta;
+            }
+            catch (Exception ex)
+            {
+                // Loggear la excepción
+                mensaje = "Error al iniciar la venta: " + ex.Message;
+                return null;
+            }
+        }
+
+        public bool ProcesarDetalles(Ventas ventaActual, List<DetalleVenta> detallesNuevos, out string mensaje)
+        {
+            mensaje = string.Empty;
+            List<string> errores = new List<string>();
+
+            if (ventaActual == null)
+            {
+                errores.Add("La venta actual no puede ser nula.");
+            }
+            if (detallesNuevos == null || !detallesNuevos.Any())
+            {
+                errores.Add("Debe proporcionar al menos un detalle de producto.");
+            }
+
+            if (errores.Any())
+            {
+                mensaje = string.Join(Environment.NewLine, errores);
+                return false;
+            }
+
+            // Limpiar los detalles existentes y agregar los nuevos (asumiendo que la UI envía la lista completa cada vez)
+            // Si la UI envía solo los nuevos para agregar, ajustar esta lógica.
+            ventaActual.detalles.Clear(); // Limpiar antes de agregar si es una actualización total
+
+            // Validar y agregar cada detalle
+            int i = 0;
+            foreach (var detalleDto in detallesNuevos) // Renombrado a detalleDto para indicar que puede venir incompleto
+            {
+                i++;
+                if (detalleDto == null)
+                {
+                    errores.Add($"Detalle {i}: El detalle no puede ser nulo.");
+                    continue;
+                }
+                if (detalleDto.objProducto == null || detalleDto.objProducto.id_producto == 0)
+                {
+                    errores.Add($"Detalle {i}: Debe especificar un producto válido para el detalle.");
+                    continue; // No podemos seguir sin un producto
+                }
+                if (!this.verificarStock(detalle.cantidad, detalle.objProducto, i))
+                {
+                    errores.Add("Error al verificar Stock");
+                }
+
+                try
+                {
+                    ventaActual.AgregarDetalle(detalleDto); // Usa el método de la entidad Venta
+                }
+                catch (Exception ex)
+                {
+                    // Loggear el error de un detalle específico
+                    errores.Add($"Detalle {i}: Error al procesar el producto {detalleDto.objProducto.id_producto}: {ex.Message}");
+                }
+            }
+
+            if (errores.Any())
+            {
+                mensaje = string.Join(Environment.NewLine, errores);
+                return false;
+            }
+
+            mensaje = "Detalles de venta procesados y total calculado.";
+            return true;
+        }
+
+        public bool SeleccionarMedioPagoYCalcular(Ventas ventaActual, MediosPago mediosPago, out string mensaje)
+        {
+            mensaje = string.Empty;
+            List<string> errores = new List<string>();
+
+            if (ventaActual == null)
+            {
+                errores.Add("La venta actual no puede ser nula.");
+            }
+            if (idMedioPago <= 0)
+            {
+                errores.Add("Debe seleccionar un medio de pago válido.");
+            }
+
+            if (errores.Any())
+            {
+                mensaje = string.Join(Environment.NewLine, errores);
+                return false;
+            }
+
+            try
+            {
+
+                if (mediosPago == null)
+                {
+                    errores.Add("El medio de pago seleccionado no es válido o no existe.");
+                }
+                else
+                {
+                    ventaActual.AsignarMedioPago(mediosPago); // Usa el método de la entidad Venta
+                }
+            }
+            catch (Exception ex)
+            {
+                // Loggear la excepción
+                errores.Add("Error al obtener el medio de pago: " + ex.Message);
+            }
+
+            if (errores.Any())
+            {
+                mensaje = string.Join(Environment.NewLine, errores);
+                return false;
+            }
+
+            mensaje = "Medio de pago asignado y total recalculado con comisión.";
+            return true;
+        }
+
+        public bool RegistrarVenta(Ventas objVenta, out int idVentaGenerada, out string mensaje) //se dejará en desuso
         {
             idVentaGenerada = 0;
             mensaje = string.Empty;
@@ -37,15 +173,6 @@ namespace CapaNegocio
             }
             else
             {
-                if (objVenta.objUsuario == null || objVenta.objUsuario.id_user == 0)
-                {
-                    errores.Add("Debe especificar un usuario válido para la venta.");
-                }
-
-                if (objVenta.objMediosPago == null || objVenta.objMediosPago.id_medioPago == 0)
-                {
-                    errores.Add("Debe especificar un medio de pago válido para la venta.");
-                }
 
                 if (objVenta.detalles == null || !objVenta.detalles.Any())
                 {
@@ -67,19 +194,6 @@ namespace CapaNegocio
                         {
                             errores.Add($"Detalle {i}: Debe especificar un producto válido para el detalle.");
                         }
-                        /*//verificarStock() sería esto
-                        if (detalle.cantidad <= 0)
-                        {
-                            errores.Add($"Detalle {i}: La cantidad del producto debe ser mayor a cero.");
-                        }
-                        if (detalle.cantidad <= detalle.objProducto.stock)
-                        {
-                            errores.Add($"Detalle {i}: La cantidad del producto excede la cantidad disponible.");
-                        }
-                        if ((detalle.objProducto.stock - detalle.cantidad) >= detalle.objProducto.stockMin)
-                        {
-                            errores.Add($"Detalle {i}: La cantidad del producto excede la cantidad disponible para stock minimo.");
-                        }*/
                         if (!this.verificarStock(detalle.cantidad, detalle.objProducto, i))
                         {
                             errores.Add("Error al verificar Stock");
@@ -90,8 +204,8 @@ namespace CapaNegocio
 
                 // Aquí puedes calcular el total de la venta si no viene calculado
                 // o validar que el total proporcionado coincide con la suma de los subtotales de los detalles.
-                objVenta.total = objVenta.detalles.Sum(d => (decimal)d.subtotal); 
-                if (objVenta.total != objVenta.detalles.Sum(d => (decimal)d.subtotal)) 
+                objVenta.total = objVenta.detalles.Sum(d => (decimal)d.subtotal);
+                if (objVenta.total != objVenta.detalles.Sum(d => (decimal)d.subtotal))
                 {
                     errores.Add("El total de la venta no coincide con la suma de los subtotales de los detalles.");
                 }

@@ -36,5 +36,34 @@ namespace CapaEntidades
         }
 
         public Ventas() { }
+
+        public void AgregarDetalle(DetalleVenta detalle)
+        {
+            if (detalle == null) throw new ArgumentNullException(nameof(detalle));
+            this.detalles.Add(detalle);
+            RecalcularTotal(); // Recalcula el total de la venta
+        }
+
+        public void AsignarMedioPago(MediosPago medioPago)
+        {
+            this.objMediosPago = medioPago;
+            RecalcularTotal(); // Recalcula el total de la venta con la comisión del nuevo medio de pago
+        }
+
+        private void RecalcularTotal()
+        {
+            // Suma los subtotales de todos los detalles
+            decimal subtotalSinComision = detalles.Sum(d => (decimal)d.subtotal); // Asume DetalleVenta.subtotal es float/decimal
+
+            decimal totalCalculado = subtotalSinComision;
+
+            // Aplica la comisión si hay un medio de pago asignado
+            if (objMediosPago != null && objMediosPago.comision > 0)
+            {
+                totalCalculado = totalCalculado * (1 + objMediosPago.comision);
+            }
+
+            this.total = totalCalculado; // Asigna el total recalculado (cuidado con float vs decimal)
+        }
     }
 }

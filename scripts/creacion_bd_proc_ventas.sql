@@ -31,6 +31,10 @@ BEGIN
     INSERT INTO detalleVentas (id_venta, id_producto, cantidad, subtotal)
     VALUES (@id_venta_registrada, @id_producto, @cantidad, @subtotal);
 
+    UPDATE productos
+    SET cantidad = cantidad - @cantidad
+    WHERE id_producto = @id_producto;
+
     SET @mensaje = 'Detalle de Venta registrado exitosamente';
 END;   
 

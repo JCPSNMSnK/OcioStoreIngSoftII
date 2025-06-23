@@ -200,6 +200,7 @@ namespace CapaDatos
                                     // Si tu Proc Almac de detalle retorna '0' o un flag para error, úsalo.
                                 }
                             }
+                            
                         }
                     }
                     else

@@ -13,7 +13,7 @@ namespace CapaDatos
 {
     public class MedioPago_Datos
     {
-        public List<MediosPago> Listar()//mostrarMediosPago
+        public List<MediosPago> ListarMediosPago()//mostrarMediosPago
         {
             List<MediosPago> lista = new List<MediosPago>();
 
