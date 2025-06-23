@@ -320,7 +320,7 @@ namespace CapaNegocio
                 {
                     // Puedes añadir un pequeño retraso para simular el tiempo de respuesta de una API real
                     // System.Threading.Thread.Sleep(500); // Retraso de 500 milisegundos
-                    //RegistrarVenta(ventaAVerificar, out ventaAVerificar.id_venta, out mensaje);
+                    RegistrarVenta(ventaAVerificar, out int idVentaRegistrada, out mensaje);
                     mensaje = $"Pago de {ventaAVerificar.total:C} con '{ventaAVerificar.objMediosPago.nombre_medio}' verificado exitosamente." +
                     "\tLa venta nro {idVentaRegistrada} tuvo el siguiente mensaje al ser registrada en la DB: " + mensaje;
                     return true;
