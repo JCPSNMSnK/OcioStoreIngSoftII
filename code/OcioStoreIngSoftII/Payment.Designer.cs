@@ -49,7 +49,7 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.btnAnterior = new CuoreUI.Controls.cuiButton();
             this.btnSiguiente = new CuoreUI.Controls.cuiButton();
-            this.label4 = new System.Windows.Forms.Label();
+            this.LListo = new System.Windows.Forms.Label();
             this.panelConfirmar = new System.Windows.Forms.Panel();
             this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -349,20 +349,20 @@
             this.btnSiguiente.TextOffset = new System.Drawing.Point(0, 0);
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click_1);
             // 
-            // label4
+            // LListo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(16, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(206, 63);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Total y todo el pute\r\nGracias por su compra y qsy\r\n\r\n";
+            this.LListo.AutoSize = true;
+            this.LListo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LListo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.LListo.Location = new System.Drawing.Point(16, 8);
+            this.LListo.Name = "LListo";
+            this.LListo.Size = new System.Drawing.Size(206, 63);
+            this.LListo.TabIndex = 0;
+            this.LListo.Text = "Total y todo el pute\r\nGracias por su compra y qsy\r\n\r\n";
             // 
             // panelConfirmar
             // 
-            this.panelConfirmar.Controls.Add(this.label4);
+            this.panelConfirmar.Controls.Add(this.LListo);
             this.panelConfirmar.Location = new System.Drawing.Point(440, 195);
             this.panelConfirmar.Name = "panelConfirmar";
             this.panelConfirmar.Size = new System.Drawing.Size(240, 80);
@@ -529,7 +529,7 @@
         private System.Windows.Forms.TabPage tabPage8;
         private CuoreUI.Controls.cuiButton btnAnterior;
         private CuoreUI.Controls.cuiButton btnSiguiente;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LListo;
         private System.Windows.Forms.Panel panelConfirmar;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;

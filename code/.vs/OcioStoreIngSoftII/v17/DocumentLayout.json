@@ -136,8 +136,8 @@
               "Title": "Payment.cs [Dise\u00F1o]",
               "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Payment.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Payment.cs",
-              "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Payment.cs [Dise\u00F1o]",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Payment.cs [Dise\u00F1o]",
+              "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Payment.cs [Dise\u00F1o]*",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Payment.cs [Dise\u00F1o]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-23T07:13:55.604Z",
               "EditorCaption": " [Dise\u00F1o]"
@@ -148,9 +148,9 @@
               "Title": "Payment.cs",
               "DocumentMoniker": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Payment.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Payment.cs",
-              "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Payment.cs",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Payment.cs",
-              "ViewState": "AgIAAIgAAAAAAAAAAAAAAJIAAAA0AAAAAAAAAA==",
+              "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\OcioStoreIngSoftII\\Payment.cs*",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Payment.cs*",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAAwJoAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-23T04:01:14.399Z",
               "EditorCaption": ""
@@ -176,7 +176,7 @@
               "RelativeDocumentMoniker": "CapaNegocio\\Ventas_negocio.cs",
               "ToolTip": "A:\\Aplicaciones\\Microsoft\\VisualStudio\\repos\\OcioStoreIngSoftII\\code\\CapaNegocio\\Ventas_negocio.cs",
               "RelativeToolTip": "CapaNegocio\\Ventas_negocio.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAEwCUAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAAAKAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-23T04:45:51.795Z",
               "EditorCaption": ""

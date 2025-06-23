@@ -18,12 +18,14 @@ namespace OcioStoreIngSoftII
     {
         private int pasoActual = 0;
         private CapaEntidades.Ventas _ventaActual;
+        private readonly Ventas_negocio _ventasNegocio = new Ventas_negocio();
 
         private readonly MediosPago_negocio _mediosNegocio;
         private List<MediosPago> _listaMedios;
 
         public Payment(CapaEntidades.Ventas objVenta)
         {
+            _ventasNegocio = new Ventas_negocio();
             _mediosNegocio = new MediosPago_negocio();
             _ventaActual = objVenta;
             InitializeComponent();
@@ -145,13 +147,24 @@ namespace OcioStoreIngSoftII
                 if (CBMediosPago.SelectedItem is OpcionSelect opcion)
                 {
                     int idMedio = (int)opcion.Valor;
-
-                    // Buscamos el objeto MediosPago original
                     MediosPago medioSeleccionado = _listaMedios.FirstOrDefault(m => m.id_medioPago == idMedio);
 
                     if (medioSeleccionado != null)
                     {
-                        LMedioPago.Text = $"{medioSeleccionado.nombre_medio} - Comisión: {medioSeleccionado.comision}%";
+                        string mensaje;
+                        bool exito = _ventasNegocio.SeleccionarMedioPagoYCalcular(_ventaActual, medioSeleccionado, out mensaje);
+
+                        if (exito)
+                        {
+                            // Asumiendo que _ventaActual tiene propiedad TotalConComision (o similar)
+                            // Si no, deberías acceder al total recalculado después de AsignarMedioPago
+                            LListo.Text = $"Total con comisión: ${_ventaActual.total:F2}";
+                            LMedioPago.Text = $"{medioSeleccionado.nombre_medio} - Comisión: {medioSeleccionado.comision}%";
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                 }
             }
