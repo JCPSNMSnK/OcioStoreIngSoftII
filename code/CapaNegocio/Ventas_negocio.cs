@@ -87,9 +87,9 @@ namespace CapaNegocio
                     errores.Add($"Detalle {i}: Debe especificar un producto válido para el detalle.");
                     continue; // No podemos seguir sin un producto
                 }
-                if (!this.verificarStock(detalleDto.cantidad, detalleDto.objProducto, i))
+                if (!this.verificarStock(detalleDto.cantidad, detalleDto.objProducto, i, mensajeStock))
                 {
-                    errores.Add("Error al verificar Stock");
+                    errores.Add("Error al verificar Stock: " + mensajeStock);
                 }
 
                 try
@@ -161,7 +161,7 @@ namespace CapaNegocio
             return true;
         }
 
-        public bool RegistrarVenta(Ventas objVenta, out int idVentaGenerada, out string mensaje) //se dejará en desuso
+        public bool RegistrarVenta(Ventas objVenta, out int idVentaGenerada, out string mensaje) //se utiliza solo para persistencia en la DB
         {
             idVentaGenerada = 0;
             mensaje = string.Empty;
@@ -222,16 +222,9 @@ namespace CapaNegocio
                 try
                 {
 
-                    MediosPago objMetPago = new MediosPago();
-                    //Seleccionar Medios Pago
-                    //Calcular recargo según la comisión
-                    //Verificar Pago Medio de Pago
-                    //imprimirInfo de la Venta
-                    //Generar Factura de la venta
-
                     //Persistencia de la venta exitosa
                     // La capa de negocio invoca al método de la capa de datos que maneja la transacción
-                    bool registroExitoso = objVentas_datos.RegistrarVenta(objVenta, objMetPago, out mensaje);
+                    bool registroExitoso = objVentas_datos.RegistrarVenta(objVenta, objVenta.objMediosPago, out mensaje);
 
                     if (!registroExitoso)
                     {
@@ -258,7 +251,7 @@ namespace CapaNegocio
             }
         }
 
-        public bool verificarStock(int cantidad, Producto producto, int i)
+        public bool verificarStock(int cantidad, Producto producto, int i, out string mensaje)
         {
             String mensaje = string.Empty;
             int index = i;
@@ -281,6 +274,73 @@ namespace CapaNegocio
             }
 
             return verificado;
+        }
+
+        public bool verificacionPago(Ventas ventaAVerificar, out string mensaje)
+        {
+            mensaje = string.Empty;
+
+            if (ventaAVerificar == null)
+            {
+                mensaje = "El objeto de venta para verificar el pago no puede ser nulo.";
+                return false;
+            }
+            if (ventaAVerificar.total <= 0)
+            {
+                mensaje = "El total de la venta debe ser mayor a cero para procesar el pago.";
+                return false;
+            }
+            if (ventaAVerificar.objMediosPago == null || ventaAVerificar.objMediosPago.id_medioPago == 0)
+            {
+                mensaje = "No se ha seleccionado un medio de pago para esta venta.";
+                return false;
+            }
+
+            // Aquí puedes añadir más lógica de simulación basada en el tipo de medio de pago
+            // Por ejemplo, simular que ciertos medios de pago fallan más a menudo.
+            // if (ventaAVerificar.objMediosPago.nombre_medio.Contains("Tarjeta")) { /* Lógica específica */ }
+
+            try
+            {
+                // Simulación de una llamada a una API externa o POS
+                // Generamos un número aleatorio entre 0 y 99.
+                // Simulamos un 80% de éxito, 20% de fallo.
+                int resultadoSimulacion = _random.Next(100); // Genera un número entre 0 y 99
+
+                if (resultadoSimulacion < 80) // 80% de probabilidad de éxito
+                {
+                    // Puedes añadir un pequeño retraso para simular el tiempo de respuesta de una API real
+                    // System.Threading.Thread.Sleep(500); // Retraso de 500 milisegundos
+                    RegistrarVenta(ventaAVerificar, idVentaRegistrada, mensajeDeRegistro);
+                    mensaje = $"Pago de {ventaAVerificar.total:C} con '{ventaAVerificar.objMediosPago.nombre_medio}' verificado exitosamente." + 
+                    "\tLa venta nro {idVentaRegistrada} tuvo el siguiente mensaje al ser registrada en la DB: " + mensajeDeRegistro;
+                    return true;
+                }
+                else
+                {
+                    // Simular diferentes razones de fallo
+                    if (resultadoSimulacion < 90)
+                    {
+                        mensaje = "Pago rechazado por la entidad bancaria. Fondos insuficientes.";
+                    }
+                    else if (resultadoSimulacion < 95)
+                    {
+                        mensaje = "Error de conexión con la pasarela de pagos. Intente de nuevo.";
+                    }
+                    else
+                    {
+                        mensaje = "Pago denegado. Tarjeta inválida o expirada.";
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Loggear la excepción real si ocurriera algo inesperado en la simulación
+                // Log.Error(ex, "Error inesperado durante la simulación de verificación de pago.");
+                mensaje = "Ocurrió un error interno al intentar verificar el pago: " + ex.Message;
+                return false;
+            }
         }
     }
 }
