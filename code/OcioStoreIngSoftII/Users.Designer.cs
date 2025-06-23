@@ -239,6 +239,7 @@
             this.usuariosDataGridView.TabIndex = 58;
             this.usuariosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usuariosDataGridView_CellContentClick);
             this.usuariosDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.usuariosDataGridView_CellPainting);
+            this.usuariosDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.usuariosDataGridView_DataBindingComplete);
             // 
             // btnSeleccionar
             // 

@@ -26,17 +26,14 @@ namespace OcioStoreIngSoftII
         private void Users_Load(object sender, EventArgs e)
         {
 
-            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Users' Puede moverla o quitarla según sea necesario.
-            //this.usersTableAdapter.Fill(this.dataSet1.Users);
-
-            CBEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Alta" });
-            CBEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Baja" });
+            CBEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Baja" });
+            CBEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Alta" });
             CBEstado.DisplayMember = "Texto";
             CBEstado.ValueMember = "Valor";
             CBEstado.SelectedIndex = 0;
 
-            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Alta" });
-            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Baja" });
+            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Baja" });
+            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Alta" });
             CBModificarEstado.DisplayMember = "Texto";
             CBModificarEstado.ValueMember = "Valor";
 
@@ -63,14 +60,6 @@ namespace OcioStoreIngSoftII
                 this.dataSet1.PROC_BUSCAR_USUARIO,
                 null, null, null, null, null, null, null, null, null
             );
-
-            foreach (DataGridViewRow row in usuariosDataGridView.Rows)
-            {
-                if (row.Cells["estadoValor"].Value is bool estado)
-                {
-                    row.Cells["estado"].Value = estado ? "Alta" : "Baja";
-                }
-            }
         }
 
         //private void CargarUsuariosEnDataGridView(List<Usuario> listaUsuario)
@@ -445,5 +434,25 @@ namespace OcioStoreIngSoftII
                 this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, null, null, null, null, filtro); // rol
             }
         }
+
+        private void usuariosDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in usuariosDataGridView.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var valor = row.Cells["estadoValor"].Value;
+                if (valor != null && valor != DBNull.Value)
+                {
+                    bool estado = Convert.ToBoolean(valor);
+                    row.Cells["estado"].Value = estado ? "Baja" : "Alta";
+                }
+                else
+                {
+                    row.Cells["estado"].Value = "Desconocido";
+                }
+            }
+        }
+
     }
 }
