@@ -269,12 +269,12 @@ namespace CapaNegocio
                 mensaje = $"Detalle {index}: La cantidad del producto debe ser mayor a cero.";
                 verificado = false;
             }
-            if (cantidad <= producto.stock)
+            if (cantidad >= producto.stock)
             {
                 mensaje = $"Detalle {index}: La cantidad del producto excede la cantidad disponible.";
                 verificado = false;
             }
-            if ((producto.stock - cantidad) >= producto.stock_min)
+            if ((producto.stock - cantidad) <= producto.stock_min)
             {
                 mensaje = $"Detalle {index}: La cantidad del producto excede la cantidad disponible para stock minimo.";
                 verificado = false;
