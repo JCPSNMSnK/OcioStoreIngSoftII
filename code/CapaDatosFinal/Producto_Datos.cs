@@ -17,33 +17,33 @@ namespace CapaDatos
 
         // El método Listar ahora acepta todos los parámetros de búsqueda como opcionales
         public List<Producto> Listar(
-            string nombre_producto = null,
-            string descripcion = null,
-            string nombre_categoria = null,
             int? id_producto = null,
+            string? nombre_producto = null,
             DateTime? fechaIngreso = null,
             decimal? precioLista = null,
             decimal? precioVenta = null,
             bool? baja_producto = null,
             int? stock = null,
             int? stock_min = null,
-            int? id_categoria = null,
-            out string mensaje // Para la retroalimentación de errores
+            string? descripcion = null,
+            int? id_categoria = null, // Este id_categoria podría ser usado para filtrar la búsqueda inicial
+            string nombre_categoria = null, // Este nombre_categoria también para filtrar la búsqueda inicial
+            out string mensaje
         )
         {
-            List<Producto> lista = new List<Producto>();
-            mensaje = string.Empty; // Inicializa el mensaje
+            // Usamos un Dictionary para almacenar los productos únicos por su ID
+            // y luego convertiremos sus valores a una List<Producto>
+            Dictionary<int, Producto> productosMap = new Dictionary<int, Producto>();
+            mensaje = string.Empty;
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    // Especificamos el nombre del procedimiento almacenado
                     SqlCommand cmd = new SqlCommand("BUSCAR_PRODUCTO", oconexion);
-                    cmd.CommandType = CommandType.StoredProcedure; // Indicamos que es un procedimiento almacenado
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Añadir todos los parámetros, incluyendo los que pueden ser nulos.
-                    // AddWithValue maneja automáticamente los valores 'null' de C# convirtiéndolos a DBNull.Value.
+                    // Añadir todos los parámetros para el procedimiento almacenado
                     cmd.Parameters.AddWithValue("@id_producto", (object)id_producto ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@nombre_producto", (object)nombre_producto ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@fechaIngreso", (object)fechaIngreso ?? DBNull.Value);
@@ -62,52 +62,70 @@ namespace CapaDatos
                     {
                         while (dataReader.Read())
                         {
-                            lista.Add(new Producto()
+                            int currentProductId = Convert.ToInt32(dataReader["id_producto"]);
+
+                            // Verificar si el producto ya ha sido agregado al diccionario
+                            if (!productosMap.ContainsKey(currentProductId))
                             {
-                                id_producto = Convert.ToInt32(dataReader["id_producto"]),
-                                nombre_producto = dataReader["nombre_producto"].ToString(),
-                                fechaIngreso = dataReader["fechaIngreso"] != DBNull.Value
-                                    ? Convert.ToDateTime(dataReader["fechaIngreso"])
-                                    : DateTime.MinValue, // O un valor por defecto que prefieras si es nulo
-
-                                descripcion = dataReader["descripcion"] != DBNull.Value
-                                    ? dataReader["descripcion"].ToString()
-                                    : string.Empty,
-
-                                precioLista = Convert.ToDecimal(dataReader["precioLista"]),
-                                precioVenta = Convert.ToDecimal(dataReader["precioVenta"]),
-                                stock = Convert.ToInt32(dataReader["stock"]),
-                                stock_min = Convert.ToInt32(dataReader["stock_min"]),
-                                baja_producto = Convert.ToBoolean(dataReader["baja_producto"]),
-
-                                // Asegúrate de que tu clase Producto tenga una propiedad para la Categoría
-                                // Y que el DataReader contenga 'id_categoria' y 'nombre_categoria'
-                                // Si estas propiedades existen en tu clase Producto, asume que se rellenan
-                                // Aquí se crea una nueva instancia de Categoría para el producto
-
-                                ObjCategoria = dataReader["id_categoria"] != DBNull.Value ? new Categoria()
+                                // Si no está, crear una nueva instancia de Producto
+                                Producto nuevoProducto = new Producto()
                                 {
-                                    id_categoria = Convert.ToInt32(dataReader["id_categoria"]),
-                                    nombre_categoria = dataReader["nombre_categoria"].ToString(),
-                                    // Asume que no necesitas 'baja_categoria' de la categoría para el producto
-                                    // Si la necesitaras, el SP también debería devolverla y la leerías aquí.
-                                } : null // Asigna null si no hay categoría asociada
-                            });
+                                    id_producto = currentProductId,
+                                    nombre_producto = dataReader["nombre_producto"].ToString(),
+                                    fechaIngreso = dataReader["fechaIngreso"] != DBNull.Value
+                                        ? Convert.ToDateTime(dataReader["fechaIngreso"])
+                                        : DateTime.MinValue, // O un valor por defecto que prefieras
+
+                                    descripcion = dataReader["descripcion"] != DBNull.Value
+                                        ? dataReader["descripcion"].ToString()
+                                        : string.Empty,
+
+                                    precioLista = Convert.ToDecimal(dataReader["precioLista"]),
+                                    precioVenta = Convert.ToDecimal(dataReader["precioVenta"]),
+                                    stock = Convert.ToInt32(dataReader["stock"]),
+                                    stock_min = Convert.ToInt32(dataReader["stock_min"]),
+                                    baja_producto = Convert.ToBoolean(dataReader["baja_producto"]),
+                                    // Inicializa la lista de categorías para este nuevo producto
+                                    categorias = new List<Categoria>()
+                                };
+                                productosMap.Add(currentProductId, nuevoProducto);
+                            }
+
+                            // Obtener la instancia del producto (ya sea recién creada o existente)
+                            Producto productoActual = productosMap[currentProductId];
+
+                            // Añadir la categoría actual a la lista de categorías del producto
+                            // Solo si la categoría no es nula (puede ocurrir si un producto no tiene categoría o el LEFT JOIN no encuentra match)
+                            // Y si la categoría no ha sido ya agregada a la lista de este producto (para evitar duplicados si el SP devuelve múltiples filas para el mismo producto-categoría).
+                            if (dataReader["id_categoria"] != DBNull.Value)
+                            {
+                                int currentCategoryId = Convert.ToInt32(dataReader["id_categoria"]);
+                                // Verifica si esta categoría ya está en la lista del producto (por si el SP devuelve filas duplicadas o se repite la misma categoría por algún JOIN adicional)
+                                if (!productoActual.categorias.Any(c => c.id_categoria == currentCategoryId))
+                                {
+                                    productoActual.categorias.Add(new Categoria()
+                                    {
+                                        id_categoria = currentCategoryId,
+                                        nombre_categoria = dataReader["nombre_categoria"].ToString(),
+                                        // Asegúrate de que baja_categoria de la categoría se incluya si es relevante
+                                        baja_categoria = dataReader["baja_categoria"] != DBNull.Value ? Convert.ToBoolean(dataReader["baja_categoria"]) : false // Asume false si nulo
+                                    });
+                                }
+                            }
                         }
                     }
                     mensaje = "Búsqueda de productos realizada exitosamente.";
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<Producto>(); // Devuelve una lista vacía en caso de error
+                    productosMap.Clear(); // Limpia el diccionario en caso de error
                     mensaje = "Error al listar productos: " + ex.Message;
-                    // Aquí podrías loggear el error completo para depuración
+                    // Loggear el error completo aquí
                 }
             }
-            return lista;
+            // Devuelve la lista de productos únicos (los valores del diccionario)
+            return productosMap.Values.ToList();
         }
-
-
 
         public int Registrar(Producto obj, Categoria objCat, out string Mensaje)//crearProducto
         {
