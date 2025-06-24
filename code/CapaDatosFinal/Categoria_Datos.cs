@@ -50,5 +50,36 @@ namespace CapaDatos
             return lista;
         }
 
+        public bool registrarCategoria(Categoria categoria, out string mensaje)
+        {
+            bool exito = false;
+            mensaje = string.Empty;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    // Comando para llamar al procedimiento almacenado
+                    SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_CATEGORIA", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Añadir el parámetro de entrada para el nombre de la categoría
+                    // Asumiendo que 'nombre_categoria' es una propiedad pública en tu clase Categoria
+                    cmd.Parameters.AddWithValue("@nombre_categoria", categoria.nombre_categoria);
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery(); // Ejecuta el procedimiento almacenado
+
+                    exito = true; // Si no hay excepción, asumimos que fue exitoso
+                    mensaje = "Categoría registrada exitosamente.";
+                }
+                catch (Exception ex)
+                {
+                    exito = false;
+                    mensaje = "Error al registrar la categoría: " + ex.Message;
+                }
+            }
+            return exito;
+        }
     }
 }
