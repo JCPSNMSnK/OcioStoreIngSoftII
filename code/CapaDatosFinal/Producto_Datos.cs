@@ -17,17 +17,17 @@ namespace CapaDatos
 
         // El método Listar ahora acepta todos los parámetros de búsqueda como opcionales
         public List<Producto> Listar(
-            int? id_producto = null,
             string nombre_producto = null,
+            string descripcion = null,
+            string nombre_categoria = null,
+            int? id_producto = null,
             DateTime? fechaIngreso = null,
             decimal? precioLista = null,
             decimal? precioVenta = null,
             bool? baja_producto = null,
             int? stock = null,
             int? stock_min = null,
-            string descripcion = null,
             int? id_categoria = null,
-            string nombre_categoria = null,
             out string mensaje // Para la retroalimentación de errores
         )
         {
@@ -84,6 +84,7 @@ namespace CapaDatos
                                 // Y que el DataReader contenga 'id_categoria' y 'nombre_categoria'
                                 // Si estas propiedades existen en tu clase Producto, asume que se rellenan
                                 // Aquí se crea una nueva instancia de Categoría para el producto
+
                                 ObjCategoria = dataReader["id_categoria"] != DBNull.Value ? new Categoria()
                                 {
                                     id_categoria = Convert.ToInt32(dataReader["id_categoria"]),
