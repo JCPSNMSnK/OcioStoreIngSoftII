@@ -28,7 +28,6 @@ namespace OcioStoreIngSoftII
         public Ventas(Usuario objUser)
         {
             InitializeComponent();
-            btnRegistrarVenta.Click += btnRegistrarVenta_Click;
             usuarioActual = objUser;
             _productoNegocio = new Producto_negocio();
             _categoriaNegocio = new Categoria_negocio();
@@ -313,7 +312,7 @@ namespace OcioStoreIngSoftII
 
             string mensaje = "";
             bool resultado = _ventasNegocio.ProcesarDetalles(_ventaActual, listaDetalles, out mensaje);
-
+            
             if (resultado)
             {
                 MessageBox.Show("Detalles agregados. Total calculado: $" + _ventaActual.total.ToString("0.00"));
@@ -323,10 +322,12 @@ namespace OcioStoreIngSoftII
                 paymentForm.ShowDialog();
                 ActualizarDatosTabla();
             }
+            
             else
             {
                 MessageBox.Show("Error al procesar detalles:\n" + mensaje);
             }
+            
         }
     }
 

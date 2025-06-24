@@ -70,12 +70,6 @@ namespace CapaNegocio
                 errores.Add("Debe proporcionar al menos un detalle de producto.");
             }
 
-            if (errores.Any())
-            {
-                mensaje = string.Join(Environment.NewLine, errores);
-                return false;
-            }
-
             // Limpiar los detalles existentes y agregar los nuevos (asumiendo que la UI envía la lista completa cada vez)
             ventaActual.detalles.Clear(); // Limpiar antes de agregar si es una actualización total
 
