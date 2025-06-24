@@ -755,6 +755,7 @@
             this.productosDataGridView.TabIndex = 57;
             this.productosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productosDataGridView_CellContentClick_1);
             this.productosDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.productosDataGridView_CellPainting);
+            this.productosDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.productosDataGridView_DataBindingComplete);
             // 
             // btnSeleccionar
             // 
