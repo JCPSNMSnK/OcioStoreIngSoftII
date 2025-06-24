@@ -84,7 +84,7 @@ namespace OcioStoreIngSoftII
             comboBox.ValueMember = "Valor";
         }
 
-        /// Idealmente, esta carga de datos debería pasar por la capa de negocio.
+
         private void ActualizarDatosTabla()
         {
             // Esta llamada es al TableAdapter, que es una abstracción de datos
@@ -94,7 +94,10 @@ namespace OcioStoreIngSoftII
             VentaDataGridView.Rows.Clear();
             this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
                 this.dataSet1.PROC_BUSCAR_PRODUCTO,
-                null, null, null, null, null, null, null, null, null, null, null
+                //Esta lista son los parámetros al procedimiento de buscar producto
+                //Lo ideal sería mandar todo esto como un método a la capa de datos y así preservar la arquitectura
+                //Luego se define el método en la capa de negocio y aquí se lo ejecuta
+                null, null, null, null, null, false, null, null, null, null, null
             );
 
         }
@@ -162,6 +165,7 @@ namespace OcioStoreIngSoftII
                 }
             }
         }
+
 
         private void BAddProduct_Click(object sender, EventArgs e)
         {
