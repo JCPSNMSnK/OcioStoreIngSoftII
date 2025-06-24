@@ -67,7 +67,7 @@ La necesidad de digitalizar y automatizar los procesos de venta y gestión en ti
 
 
 ## 📄 Documentación
-La documentación de este proyecto se encuentra de forma más extensa en la [Carpeta de Documentación](https://github.com/JCPSNMSnK/OcioStoreIngSoftII/tree/master/docum), donde hay una versión en .docx y una en .pdf  
+La documentación de este proyecto y sus manuales de Instalación y de Usuario se encuentran de forma más extensa en la [Carpeta de Documentación](https://github.com/JCPSNMSnK/OcioStoreIngSoftII/tree/master/docum), donde hay una versión en .docx y una en .pdf  
 
 
 
