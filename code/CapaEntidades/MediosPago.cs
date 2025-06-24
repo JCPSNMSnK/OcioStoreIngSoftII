@@ -19,8 +19,50 @@ namespace CapaEntidades
             this.comision = comisionAplicable;
         }
 
-        public MediosPago() 
-        { 
+        public MediosPago()
+        {
         }
+
+        public bool verificacionPago(MediosPago pagoVerificar, out string mensaje)
+        {
+
+            try
+            {
+                // Simulación de una llamada a una API externa o POS
+                // Generamos un número aleatorio entre 0 y 99.
+                // Simulamos un 80% de éxito, 20% de fallo.
+                 Random _random = new Random();
+                int resultadoSimulacion = _random.Next(100); // Genera un número entre 0 y 99
+
+                if (resultadoSimulacion < 80) // 80% de probabilidad de éxito
+                {
+                    mensaje = "Pago exitoso! ";
+                    return true;
+                }
+                else
+                {
+                    // Simular diferentes razones de fallo
+                    if (resultadoSimulacion < 90)
+                    {
+                        mensaje = "Pago rechazado por la entidad bancaria. Fondos insuficientes.";
+                    }
+                    else if (resultadoSimulacion < 95)
+                    {
+                        mensaje = "Error de conexión con la pasarela de pagos. Intente de nuevo.";
+                    }
+                    else
+                    {
+                        mensaje = "Pago denegado. Tarjeta inválida o expirada.";
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Ocurrió un error interno al intentar verificar el pago: " + ex.Message;
+                return false;
+            }
+        }
+
     }
 }

@@ -19,7 +19,6 @@ namespace CapaNegocio
     public class Ventas_negocio
     {
         private Ventas_Datos objVentas_datos = new Ventas_Datos();
-        private readonly Random _random = new Random();
 
         public List<Ventas> ListarVentas()
         {
@@ -250,7 +249,21 @@ namespace CapaNegocio
                 return false;
             }
 
-            try
+            bool resultadoVerifPago = ventaAVerificar.objMediosPago.verificacionPago(ventaAVerificar.objMediosPago, out mensaje);
+
+            if (resultadoVerifPago)
+            {
+                RegistrarVenta(ventaAVerificar, out int idVentaRegistrada, out mensaje);
+                mensaje = $"Pago de ${ventaAVerificar.total} con '{ventaAVerificar.objMediosPago.nombre_medio}' verificado exitosamente." +
+                $"\tLa venta nro {idVentaRegistrada} tuvo el siguiente mensaje al ser registrada en la DB: " + mensaje;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+            /*try
             {
                 // Simulación de una llamada a una API externa o POS
                 // Generamos un número aleatorio entre 0 y 99.
@@ -286,7 +299,7 @@ namespace CapaNegocio
             {
                 mensaje = "Ocurrió un error interno al intentar verificar el pago: " + ex.Message;
                 return false;
-            }
+            }*/
         }
 
         //public string ObtenerFacturaJson(Ventas venta, out string mensaje)
