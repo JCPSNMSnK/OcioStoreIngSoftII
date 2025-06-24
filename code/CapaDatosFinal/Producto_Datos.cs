@@ -17,24 +17,25 @@ namespace CapaDatos
 
         // El método Listar ahora acepta todos los parámetros de búsqueda como opcionales
         public List<Producto> Listar(
+            //out string mensaje,
             int? id_producto = null,
-            string? nombre_producto = null,
+            string nombre_producto = null,
             DateTime? fechaIngreso = null,
             decimal? precioLista = null,
             decimal? precioVenta = null,
             bool? baja_producto = null,
             int? stock = null,
             int? stock_min = null,
-            string? descripcion = null,
+            string descripcion = null,
             int? id_categoria = null, // Este id_categoria podría ser usado para filtrar la búsqueda inicial
-            string nombre_categoria = null, // Este nombre_categoria también para filtrar la búsqueda inicial
-            out string mensaje
+            string nombre_categoria = null // Este nombre_categoria también para filtrar la búsqueda inicial
+            
         )
         {
             // Usamos un Dictionary para almacenar los productos únicos por su ID
             // y luego convertiremos sus valores a una List<Producto>
             Dictionary<int, Producto> productosMap = new Dictionary<int, Producto>();
-            mensaje = string.Empty;
+            //mensaje = string.Empty;
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
@@ -86,7 +87,7 @@ namespace CapaDatos
                                     stock_min = Convert.ToInt32(dataReader["stock_min"]),
                                     baja_producto = Convert.ToBoolean(dataReader["baja_producto"]),
                                     // Inicializa la lista de categorías para este nuevo producto
-                                    categorias = new List<Categoria>()
+                                    categoria = new List<Categoria>()
                                 };
                                 productosMap.Add(currentProductId, nuevoProducto);
                             }
@@ -101,9 +102,9 @@ namespace CapaDatos
                             {
                                 int currentCategoryId = Convert.ToInt32(dataReader["id_categoria"]);
                                 // Verifica si esta categoría ya está en la lista del producto (por si el SP devuelve filas duplicadas o se repite la misma categoría por algún JOIN adicional)
-                                if (!productoActual.categorias.Any(c => c.id_categoria == currentCategoryId))
+                                if (!productoActual.categoria.Any(c => c.id_categoria == currentCategoryId))
                                 {
-                                    productoActual.categorias.Add(new Categoria()
+                                    productoActual.categoria.Add(new Categoria()
                                     {
                                         id_categoria = currentCategoryId,
                                         nombre_categoria = dataReader["nombre_categoria"].ToString(),
@@ -114,12 +115,12 @@ namespace CapaDatos
                             }
                         }
                     }
-                    mensaje = "Búsqueda de productos realizada exitosamente.";
+                    //mensaje = "Búsqueda de productos realizada exitosamente.";
                 }
                 catch (Exception ex)
                 {
                     productosMap.Clear(); // Limpia el diccionario en caso de error
-                    mensaje = "Error al listar productos: " + ex.Message;
+                    String mensaje = "Error al listar productos: " + ex.Message;
                     // Loggear el error completo aquí
                 }
             }
