@@ -77,7 +77,6 @@ namespace CapaNegocio
             }
 
             // Limpiar los detalles existentes y agregar los nuevos (asumiendo que la UI envía la lista completa cada vez)
-            // Si la UI envía solo los nuevos para agregar, ajustar esta lógica.
             ventaActual.detalles.Clear(); // Limpiar antes de agregar si es una actualización total
 
             // Validar y agregar cada detalle
@@ -176,50 +175,6 @@ namespace CapaNegocio
             mensaje = string.Empty;
             List<string> errores = new List<string>();
 
-            /*if (objVenta == null)
-            {
-                errores.Add("El objeto Venta no puede ser nulo.");
-            }
-            else
-            {
-
-                if (objVenta.detalles == null || !objVenta.detalles.Any())
-                {
-                    errores.Add("La venta debe tener al menos un detalle de producto.");
-                }
-                else
-                {
-                    // Validar cada detalle de la venta
-                    int i = 0;
-                    foreach (var detalle in objVenta.detalles)
-                    {
-                        i++;
-                        if (detalle == null)
-                        {
-                            errores.Add($"Detalle {i}: El detalle no puede ser nulo.");
-                            continue;
-                        }
-                        if (detalle.objProducto == null || detalle.objProducto.id_producto == 0)
-                        {
-                            errores.Add($"Detalle {i}: Debe especificar un producto válido para el detalle.");
-                        }
-                        if (!this.verificarStock(detalle.cantidad, detalle.objProducto, i, out mensaje))
-                        {
-                            errores.Add("Error al verificar Stock");
-                        }
-
-                    }
-                }
-
-                // Aquí puedes calcular el total de la venta si no viene calculado
-                // o validar que el total proporcionado coincide con la suma de los subtotales de los detalles.
-                objVenta.total = objVenta.detalles.Sum(d => (decimal)d.subtotal);
-                if (objVenta.total != objVenta.detalles.Sum(d => (decimal)d.subtotal))
-                {
-                    errores.Add("El total de la venta no coincide con la suma de los subtotales de los detalles.");
-                }
-            }*/
-
 
             if (errores.Any())
             {
@@ -242,17 +197,13 @@ namespace CapaNegocio
                     }
                     else
                     {
-                        // Operaciones adicionales de negocio después de un registro exitoso
-                        // Ej: Actualizar stock de productos (llamando a un servicio de Productos) modificarproducto()
-                        // _productoService.ActualizarStock(objVenta.Detalles);
 
                         return true;
                     }
                 }
                 catch (Exception ex)
                 {
-                    // Loggear la excepción (fundamental para entender qué falló)
-                    // Log.Error(ex, "Error inesperado al registrar la venta en la capa de negocio.");
+
                     mensaje = "Ocurrió un error inesperado al registrar la venta. Por favor, inténtelo de nuevo más tarde.";
                     idVentaGenerada = 0;
                     return false;
@@ -305,10 +256,6 @@ namespace CapaNegocio
                 return false;
             }
 
-            // Aquí puedes añadir más lógica de simulación basada en el tipo de medio de pago
-            // Por ejemplo, simular que ciertos medios de pago fallan más a menudo.
-            // if (ventaAVerificar.objMediosPago.nombre_medio.Contains("Tarjeta")) { /* Lógica específica */ }
-
             try
             {
                 // Simulación de una llamada a una API externa o POS
@@ -318,10 +265,8 @@ namespace CapaNegocio
 
                 if (resultadoSimulacion < 80) // 80% de probabilidad de éxito
                 {
-                    // Puedes añadir un pequeño retraso para simular el tiempo de respuesta de una API real
-                    // System.Threading.Thread.Sleep(500); // Retraso de 500 milisegundos
                     RegistrarVenta(ventaAVerificar, out int idVentaRegistrada, out mensaje);
-                    mensaje = $"Pago de {ventaAVerificar.total:C} con '{ventaAVerificar.objMediosPago.nombre_medio}' verificado exitosamente." +
+                    mensaje = $"Pago de ${ventaAVerificar.total} con '{ventaAVerificar.objMediosPago.nombre_medio}' verificado exitosamente." +
                     $"\tLa venta nro {idVentaRegistrada} tuvo el siguiente mensaje al ser registrada en la DB: " + mensaje;
                     return true;
                 }
@@ -345,8 +290,6 @@ namespace CapaNegocio
             }
             catch (Exception ex)
             {
-                // Loggear la excepción real si ocurriera algo inesperado en la simulación
-                // Log.Error(ex, "Error inesperado durante la simulación de verificación de pago.");
                 mensaje = "Ocurrió un error interno al intentar verificar el pago: " + ex.Message;
                 return false;
             }
