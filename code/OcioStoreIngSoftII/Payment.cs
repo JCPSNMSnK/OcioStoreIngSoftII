@@ -46,6 +46,7 @@ namespace OcioStoreIngSoftII
                 panelPago.Visible = true;
                 panelConfirmar.Visible = false;
                 btnSiguiente.Content = "Confirmar";
+                btnAnterior.Content = "Anterior";
             }
             if (pasoActual == 2)
             {
@@ -53,6 +54,7 @@ namespace OcioStoreIngSoftII
                 panelPago.Visible = false;
                 panelConfirmar.Visible = true;
                 btnSiguiente.Content = "Cerrar";
+                btnAnterior.Visible = false;
             }
 
             cuiSwitch1.Checked = pasoActual >= 1 ? true : false;

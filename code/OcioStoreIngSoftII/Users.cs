@@ -58,7 +58,7 @@ namespace OcioStoreIngSoftII
         {
             this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
                 this.dataSet1.PROC_BUSCAR_USUARIO,
-                null, null, null, null, null, null, null, null, null
+                null, null, null, null, null, null, null, null, null, null
             );
         }
 
@@ -129,8 +129,8 @@ namespace OcioStoreIngSoftII
             TModificarUser.Text = "";
             CBModificarRoles.SelectedIndex = 0;
             CBModificarEstado.SelectedIndex = 0;
-            //TModificarPass.Text = "";
-            //TModificarConfirmPass.Text = "";
+            TModificarPass.Text = "";
+            TModificarConfirmPass.Text = "";
         }
 
         private void usuariosDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -151,6 +151,8 @@ namespace OcioStoreIngSoftII
                     TModificarDni.Text = usuariosDataGridView.Rows[indice].Cells["dni"].Value.ToString();
                     TModificarEmail.Text = usuariosDataGridView.Rows[indice].Cells["email"].Value.ToString();
                     TModificarUser.Text = usuariosDataGridView.Rows[indice].Cells["user"].Value.ToString();
+                    TModificarPass.Text = usuariosDataGridView.Rows[indice].Cells["pass"].Value.ToString();
+                    TModificarConfirmPass.Text = usuariosDataGridView.Rows[indice].Cells["pass"].Value.ToString();
 
                     foreach (OpcionSelect opcionSelect in CBModificarRoles.Items)
                     {
@@ -353,6 +355,7 @@ namespace OcioStoreIngSoftII
                 dni = dni,
                 mail = TModificarEmail.Text,
                 username = TModificarUser.Text,
+                pass = TModificarPass.Text,
                 baja_user = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1,
                 objRoles = new Roles() { id_rol = Convert.ToInt32(((OpcionSelect)CBModificarRoles.SelectedItem).Valor) }
             };
@@ -375,6 +378,7 @@ namespace OcioStoreIngSoftII
                 row.Cells["estado"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Texto.ToString();
 
                 VaciarCampos();
+                actualizarDatosTabla();
             }
             else
             {
@@ -391,7 +395,7 @@ namespace OcioStoreIngSoftII
             {
                 this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
                     this.dataSet1.PROC_BUSCAR_USUARIO,
-                    null, null, null, null, null, null, null, null, null
+                    null, null, null, null, null, null, null, null, null, null
                 );
                 return;
             }
@@ -401,7 +405,7 @@ namespace OcioStoreIngSoftII
             {
                 this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
                     this.dataSet1.PROC_BUSCAR_USUARIO,
-                    idVal, null, null, null, null, null, null, null, null
+                    idVal, null, null, null, null, null, null, null, null, null
                 );
                 return;
             }
@@ -410,28 +414,28 @@ namespace OcioStoreIngSoftII
 
             this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
                 this.dataSet1.PROC_BUSCAR_USUARIO,
-                null, filtro, null, null, null, null, null, null, null // apellido
+                null, filtro, null, null, null, null, null, null, null, null // apellido
             );
 
             if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
             {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, filtro, null, null, null, null, null, null); // nombre
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, filtro, null, null, null, null, null, null, null); // nombre
             }
             if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
             {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, filtro, null, null, null, null, null); // dni
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, filtro, null, null, null, null, null, null); // dni
             }
             if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
             {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, filtro, null, null, null, null); // mail
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, filtro, null, null, null, null, null); // mail
             }
             if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
             {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, null, filtro, null, null, null); // username
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, null, filtro, null, null, null, null); // username
             }
             if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
             {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, null, null, null, null, filtro); // rol
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, null, null, null, null, null,filtro); // rol
             }
         }
 

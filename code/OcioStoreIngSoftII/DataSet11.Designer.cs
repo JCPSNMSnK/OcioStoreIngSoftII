@@ -4421,6 +4421,8 @@ namespace OcioStoreIngSoftII {
             
             private global::System.Data.DataColumn columnid_rol;
             
+            private global::System.Data.DataColumn columnpass;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PROC_BUSCAR_USUARIODataTable() {
@@ -4528,6 +4530,14 @@ namespace OcioStoreIngSoftII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn passColumn {
+                get {
+                    return this.columnpass;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4563,7 +4573,7 @@ namespace OcioStoreIngSoftII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PROC_BUSCAR_USUARIORow AddPROC_BUSCAR_USUARIORow(string apellido, string nombre, string dni, string mail, string username, bool baja_user, string nombre_rol, int id_rol) {
+            public PROC_BUSCAR_USUARIORow AddPROC_BUSCAR_USUARIORow(string apellido, string nombre, string dni, string mail, string username, bool baja_user, string nombre_rol, int id_rol, string pass) {
                 PROC_BUSCAR_USUARIORow rowPROC_BUSCAR_USUARIORow = ((PROC_BUSCAR_USUARIORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4574,7 +4584,8 @@ namespace OcioStoreIngSoftII {
                         username,
                         baja_user,
                         nombre_rol,
-                        id_rol};
+                        id_rol,
+                        pass};
                 rowPROC_BUSCAR_USUARIORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPROC_BUSCAR_USUARIORow);
                 return rowPROC_BUSCAR_USUARIORow;
@@ -4613,6 +4624,7 @@ namespace OcioStoreIngSoftII {
                 this.columnbaja_user = base.Columns["baja_user"];
                 this.columnnombre_rol = base.Columns["nombre_rol"];
                 this.columnid_rol = base.Columns["id_rol"];
+                this.columnpass = base.Columns["pass"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4636,6 +4648,8 @@ namespace OcioStoreIngSoftII {
                 base.Columns.Add(this.columnnombre_rol);
                 this.columnid_rol = new global::System.Data.DataColumn("id_rol", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_rol);
+                this.columnpass = new global::System.Data.DataColumn("pass", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpass);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_user}, true));
                 this.columnid_user.AutoIncrement = true;
@@ -4655,6 +4669,8 @@ namespace OcioStoreIngSoftII {
                 this.columnnombre_rol.AllowDBNull = false;
                 this.columnnombre_rol.MaxLength = 50;
                 this.columnid_rol.AllowDBNull = false;
+                this.columnpass.AllowDBNull = false;
+                this.columnpass.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6778,6 +6794,17 @@ namespace OcioStoreIngSoftII {
                 }
                 set {
                     this[this.tablePROC_BUSCAR_USUARIO.id_rolColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string pass {
+                get {
+                    return ((string)(this[this.tablePROC_BUSCAR_USUARIO.passColumn]));
+                }
+                set {
+                    this[this.tablePROC_BUSCAR_USUARIO.passColumn] = value;
                 }
             }
             
@@ -11685,6 +11712,7 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
             tableMapping.ColumnMappings.Add("baja_user", "baja_user");
             tableMapping.ColumnMappings.Add("nombre_rol", "nombre_rol");
             tableMapping.ColumnMappings.Add("id_rol", "id_rol");
+            tableMapping.ColumnMappings.Add("pass", "pass");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -11697,6 +11725,7 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dni", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "dni", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mail", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "mail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pass", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "pass", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@baja_user", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, "baja_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rol", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "id_rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_rol", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "nombre_rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11724,6 +11753,7 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dni", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mail", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pass", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@baja_user", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_rol", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre_rol", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11733,7 +11763,7 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet1.PROC_BUSCAR_USUARIODataTable dataTable, global::System.Nullable<int> id_user, string apellido, string nombre, string dni, string mail, string username, global::System.Nullable<bool> baja_user, global::System.Nullable<int> id_rol, string nombre_rol) {
+        public virtual int Fill(DataSet1.PROC_BUSCAR_USUARIODataTable dataTable, global::System.Nullable<int> id_user, string apellido, string nombre, string dni, string mail, string username, string pass, global::System.Nullable<bool> baja_user, global::System.Nullable<int> id_rol, string nombre_rol) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((id_user.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_user.Value));
@@ -11771,23 +11801,29 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
             else {
                 this.Adapter.SelectCommand.Parameters[6].Value = ((string)(username));
             }
-            if ((baja_user.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[7].Value = ((bool)(baja_user.Value));
-            }
-            else {
+            if ((pass == null)) {
                 this.Adapter.SelectCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((id_rol.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[8].Value = ((int)(id_rol.Value));
+            else {
+                this.Adapter.SelectCommand.Parameters[7].Value = ((string)(pass));
+            }
+            if ((baja_user.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[8].Value = ((bool)(baja_user.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((nombre_rol == null)) {
-                this.Adapter.SelectCommand.Parameters[9].Value = global::System.DBNull.Value;
+            if ((id_rol.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[9].Value = ((int)(id_rol.Value));
             }
             else {
-                this.Adapter.SelectCommand.Parameters[9].Value = ((string)(nombre_rol));
+                this.Adapter.SelectCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((nombre_rol == null)) {
+                this.Adapter.SelectCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[10].Value = ((string)(nombre_rol));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -11800,7 +11836,7 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet1.PROC_BUSCAR_USUARIODataTable GetData(global::System.Nullable<int> id_user, string apellido, string nombre, string dni, string mail, string username, global::System.Nullable<bool> baja_user, global::System.Nullable<int> id_rol, string nombre_rol) {
+        public virtual DataSet1.PROC_BUSCAR_USUARIODataTable GetData(global::System.Nullable<int> id_user, string apellido, string nombre, string dni, string mail, string username, string pass, global::System.Nullable<bool> baja_user, global::System.Nullable<int> id_rol, string nombre_rol) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((id_user.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_user.Value));
@@ -11838,23 +11874,29 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
             else {
                 this.Adapter.SelectCommand.Parameters[6].Value = ((string)(username));
             }
-            if ((baja_user.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[7].Value = ((bool)(baja_user.Value));
-            }
-            else {
+            if ((pass == null)) {
                 this.Adapter.SelectCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((id_rol.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[8].Value = ((int)(id_rol.Value));
+            else {
+                this.Adapter.SelectCommand.Parameters[7].Value = ((string)(pass));
+            }
+            if ((baja_user.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[8].Value = ((bool)(baja_user.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((nombre_rol == null)) {
-                this.Adapter.SelectCommand.Parameters[9].Value = global::System.DBNull.Value;
+            if ((id_rol.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[9].Value = ((int)(id_rol.Value));
             }
             else {
-                this.Adapter.SelectCommand.Parameters[9].Value = ((string)(nombre_rol));
+                this.Adapter.SelectCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((nombre_rol == null)) {
+                this.Adapter.SelectCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[10].Value = ((string)(nombre_rol));
             }
             DataSet1.PROC_BUSCAR_USUARIODataTable dataTable = new DataSet1.PROC_BUSCAR_USUARIODataTable();
             this.Adapter.Fill(dataTable);
@@ -11894,7 +11936,7 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> id_user, string apellido, string nombre, string dni, string mail, string username, global::System.Nullable<bool> baja_user, global::System.Nullable<int> id_rol, string nombre_rol) {
+        public virtual int Update(global::System.Nullable<int> id_user, string apellido, string nombre, string dni, string mail, string username, string pass, global::System.Nullable<bool> baja_user, global::System.Nullable<int> id_rol, string nombre_rol) {
             if ((id_user.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_user.Value));
             }
@@ -11931,23 +11973,29 @@ SELECT id_venta, total, id_medio, id_user, fecha_venta FROM Ventas WHERE (id_ven
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(username));
             }
-            if ((baja_user.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(baja_user.Value));
-            }
-            else {
+            if ((pass == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((id_rol.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(id_rol.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(pass));
+            }
+            if ((baja_user.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(baja_user.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((nombre_rol == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            if ((id_rol.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(id_rol.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(nombre_rol));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((nombre_rol == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(nombre_rol));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
