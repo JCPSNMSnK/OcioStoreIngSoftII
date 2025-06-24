@@ -14,24 +14,47 @@ namespace CapaDatos
 {
     public class Producto_Datos
     {
-        public List<Producto> Listar()//mostrarProductos
+
+        // El método Listar ahora acepta todos los parámetros de búsqueda como opcionales
+        public List<Producto> Listar(
+            int? id_producto = null,
+            string nombre_producto = null,
+            DateTime? fechaIngreso = null,
+            decimal? precioLista = null,
+            decimal? precioVenta = null,
+            bool? baja_producto = null,
+            int? stock = null,
+            int? stock_min = null,
+            string descripcion = null,
+            int? id_categoria = null,
+            string nombre_categoria = null,
+            out string mensaje // Para la retroalimentación de errores
+        )
         {
             List<Producto> lista = new List<Producto>();
+            mensaje = string.Empty; // Inicializa el mensaje
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT p.id_producto, p.nombre_producto, p.fechaIngreso, p.descripcion, p.precioLista, p.precioVenta,");
-                    query.AppendLine("p.stock, p.stock_min, p.baja_producto, c.id_categoria, c.nombre_categoria");
-                    query.AppendLine("FROM Productos p ");
-                    query.AppendLine("LEFT JOIN ProductosCategorias pc ON p.id_producto = pc.id_producto ");
-                    query.AppendLine("LEFT JOIN Categorias c ON pc.id_categoria = c.id_categoria ");
-                    //query.AppendLine("WHERE p.baja_producto = 0"); // Filtro para productos activos
+                    // Especificamos el nombre del procedimiento almacenado
+                    SqlCommand cmd = new SqlCommand("BUSCAR_PRODUCTO", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure; // Indicamos que es un procedimiento almacenado
 
-                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
-                    cmd.CommandType = CommandType.Text;
+                    // Añadir todos los parámetros, incluyendo los que pueden ser nulos.
+                    // AddWithValue maneja automáticamente los valores 'null' de C# convirtiéndolos a DBNull.Value.
+                    cmd.Parameters.AddWithValue("@id_producto", (object)id_producto ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@nombre_producto", (object)nombre_producto ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@fechaIngreso", (object)fechaIngreso ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@precioLista", (object)precioLista ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@precioVenta", (object)precioVenta ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@baja_producto", (object)baja_producto ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@stock", (object)stock ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@stock_min", (object)stock_min ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@descripcion", (object)descripcion ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@id_categoria", (object)id_categoria ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@nombre_categoria", (object)nombre_categoria ?? DBNull.Value);
 
                     oconexion.Open();
 
@@ -45,28 +68,45 @@ namespace CapaDatos
                                 nombre_producto = dataReader["nombre_producto"].ToString(),
                                 fechaIngreso = dataReader["fechaIngreso"] != DBNull.Value
                                     ? Convert.ToDateTime(dataReader["fechaIngreso"])
-                                    : DateTime.Now, 
+                                    : DateTime.MinValue, // O un valor por defecto que prefieras si es nulo
+
+                                descripcion = dataReader["descripcion"] != DBNull.Value
+                                    ? dataReader["descripcion"].ToString()
+                                    : string.Empty,
 
                                 precioLista = Convert.ToDecimal(dataReader["precioLista"]),
                                 precioVenta = Convert.ToDecimal(dataReader["precioVenta"]),
-                                baja_producto = Convert.ToBoolean(dataReader["baja_producto"]),
-                                stock_min = Convert.ToInt32(dataReader["stock_min"]),
                                 stock = Convert.ToInt32(dataReader["stock"]),
-                                descripcion = dataReader["descripcion"] != DBNull.Value
-                                             ? dataReader["descripcion"].ToString()
-                                             : string.Empty,
+                                stock_min = Convert.ToInt32(dataReader["stock_min"]),
+                                baja_producto = Convert.ToBoolean(dataReader["baja_producto"]),
+
+                                // Asegúrate de que tu clase Producto tenga una propiedad para la Categoría
+                                // Y que el DataReader contenga 'id_categoria' y 'nombre_categoria'
+                                // Si estas propiedades existen en tu clase Producto, asume que se rellenan
+                                // Aquí se crea una nueva instancia de Categoría para el producto
+                                ObjCategoria = dataReader["id_categoria"] != DBNull.Value ? new Categoria()
+                                {
+                                    id_categoria = Convert.ToInt32(dataReader["id_categoria"]),
+                                    nombre_categoria = dataReader["nombre_categoria"].ToString(),
+                                    // Asume que no necesitas 'baja_categoria' de la categoría para el producto
+                                    // Si la necesitaras, el SP también debería devolverla y la leerías aquí.
+                                } : null // Asigna null si no hay categoría asociada
                             });
                         }
                     }
+                    mensaje = "Búsqueda de productos realizada exitosamente.";
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<Producto>();
-                    string Mensaje = ex.Message;
+                    lista = new List<Producto>(); // Devuelve una lista vacía en caso de error
+                    mensaje = "Error al listar productos: " + ex.Message;
+                    // Aquí podrías loggear el error completo para depuración
                 }
             }
             return lista;
         }
+
+
 
         public int Registrar(Producto obj, Categoria objCat, out string Mensaje)//crearProducto
         {
