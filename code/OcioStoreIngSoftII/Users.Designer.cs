@@ -34,6 +34,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.usuariosDataGridView = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id_user = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pROC_BUSCAR_USUARIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -87,26 +101,14 @@
             this.BModificar = new System.Windows.Forms.Button();
             this.TModificarID_user = new System.Windows.Forms.TextBox();
             this.TBModificarIndice = new System.Windows.Forms.TextBox();
-            this.pROC_BUSCAR_USUARIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.pROC_BUSCAR_USUARIOTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.PROC_BUSCAR_USUARIOTableAdapter();
             this.tableAdapterManager = new OcioStoreIngSoftII.DataSet1TableAdapters.TableAdapterManager();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.UsersTableAdapter();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id_user = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pROC_BUSCAR_USUARIOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             this.TCUsuarios.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -116,8 +118,6 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.PanelModificarUser.SuspendLayout();
             this.panelInternoModif.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pROC_BUSCAR_USUARIOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,6 +200,108 @@
             this.usuariosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usuariosDataGridView_CellContentClick);
             this.usuariosDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.usuariosDataGridView_CellPainting);
             this.usuariosDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.usuariosDataGridView_DataBindingComplete);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 112;
+            // 
+            // id_user
+            // 
+            this.id_user.DataPropertyName = "id_user";
+            this.id_user.HeaderText = "ID de Usuario";
+            this.id_user.Name = "id_user";
+            this.id_user.ReadOnly = true;
+            // 
+            // apellido
+            // 
+            this.apellido.DataPropertyName = "apellido";
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // dni
+            // 
+            this.dni.DataPropertyName = "dni";
+            this.dni.HeaderText = "DNI";
+            this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "mail";
+            this.email.HeaderText = "E-Mail";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // user
+            // 
+            this.user.DataPropertyName = "username";
+            this.user.HeaderText = "Usuario";
+            this.user.Name = "user";
+            this.user.ReadOnly = true;
+            // 
+            // pass
+            // 
+            this.pass.DataPropertyName = "pass";
+            this.pass.HeaderText = "Contraseña";
+            this.pass.Name = "pass";
+            this.pass.ReadOnly = true;
+            // 
+            // estadoValor
+            // 
+            this.estadoValor.DataPropertyName = "baja_user";
+            this.estadoValor.HeaderText = "baja_user";
+            this.estadoValor.Name = "estadoValor";
+            this.estadoValor.ReadOnly = true;
+            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estadoValor.Visible = false;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Dado de Baja?";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // id_rol
+            // 
+            this.id_rol.DataPropertyName = "id_rol";
+            this.id_rol.HeaderText = "id_rol";
+            this.id_rol.Name = "id_rol";
+            this.id_rol.ReadOnly = true;
+            this.id_rol.Visible = false;
+            // 
+            // rol
+            // 
+            this.rol.DataPropertyName = "nombre_rol";
+            this.rol.HeaderText = "Tipo de Rol";
+            this.rol.Name = "rol";
+            this.rol.ReadOnly = true;
+            // 
+            // pROC_BUSCAR_USUARIOBindingSource
+            // 
+            this.pROC_BUSCAR_USUARIOBindingSource.DataMember = "PROC_BUSCAR_USUARIO";
+            this.pROC_BUSCAR_USUARIOBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel1
             // 
@@ -867,16 +969,6 @@
             this.TBModificarIndice.Text = "-1";
             this.TBModificarIndice.Visible = false;
             // 
-            // pROC_BUSCAR_USUARIOBindingSource
-            // 
-            this.pROC_BUSCAR_USUARIOBindingSource.DataMember = "PROC_BUSCAR_USUARIO";
-            this.pROC_BUSCAR_USUARIOBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // pROC_BUSCAR_USUARIOTableAdapter
             // 
             this.pROC_BUSCAR_USUARIOTableAdapter.ClearBeforeFill = true;
@@ -909,98 +1001,6 @@
             // 
             this.usersTableAdapter.ClearBeforeFill = true;
             // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 112;
-            // 
-            // id_user
-            // 
-            this.id_user.DataPropertyName = "id_user";
-            this.id_user.HeaderText = "ID de Usuario";
-            this.id_user.Name = "id_user";
-            this.id_user.ReadOnly = true;
-            // 
-            // apellido
-            // 
-            this.apellido.DataPropertyName = "apellido";
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // dni
-            // 
-            this.dni.DataPropertyName = "dni";
-            this.dni.HeaderText = "DNI";
-            this.dni.Name = "dni";
-            this.dni.ReadOnly = true;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "mail";
-            this.email.HeaderText = "E-Mail";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
-            // user
-            // 
-            this.user.DataPropertyName = "username";
-            this.user.HeaderText = "Usuario";
-            this.user.Name = "user";
-            this.user.ReadOnly = true;
-            // 
-            // pass
-            // 
-            this.pass.DataPropertyName = "pass";
-            this.pass.HeaderText = "Contraseña";
-            this.pass.Name = "pass";
-            this.pass.ReadOnly = true;
-            // 
-            // estadoValor
-            // 
-            this.estadoValor.DataPropertyName = "baja_user";
-            this.estadoValor.HeaderText = "baja_user";
-            this.estadoValor.Name = "estadoValor";
-            this.estadoValor.ReadOnly = true;
-            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.estadoValor.Visible = false;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Dado de Baja?";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // id_rol
-            // 
-            this.id_rol.DataPropertyName = "id_rol";
-            this.id_rol.HeaderText = "id_rol";
-            this.id_rol.Name = "id_rol";
-            this.id_rol.ReadOnly = true;
-            this.id_rol.Visible = false;
-            // 
-            // rol
-            // 
-            this.rol.DataPropertyName = "nombre_rol";
-            this.rol.HeaderText = "Tipo de Rol";
-            this.rol.Name = "rol";
-            this.rol.ReadOnly = true;
-            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1013,6 +1013,8 @@
             this.Load += new System.EventHandler(this.Users_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pROC_BUSCAR_USUARIOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.TCUsuarios.ResumeLayout(false);
@@ -1027,8 +1029,6 @@
             this.PanelModificarUser.ResumeLayout(false);
             this.panelInternoModif.ResumeLayout(false);
             this.panelInternoModif.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pROC_BUSCAR_USUARIOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             this.ResumeLayout(false);
 

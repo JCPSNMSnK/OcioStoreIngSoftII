@@ -39,11 +39,11 @@ namespace OcioStoreIngSoftII
             ActualizarDatosTabla();
         }
 
-        /// Carga las opciones de estado (Alta/Baja) en un ComboBox.
+        //Carga las opciones de estado (alta/baja)
         private void CargarComboBoxEstados(ComboBox comboBox)
         {
-            comboBox.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Alta" });
-            comboBox.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Baja" });
+            comboBox.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Baja" });
+            comboBox.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Alta" });
             comboBox.DisplayMember = "Texto";
             comboBox.ValueMember = "Valor";
         }
@@ -62,26 +62,13 @@ namespace OcioStoreIngSoftII
             comboBox.ValueMember = "Valor";
         }
 
-        /// Idealmente, esta carga de datos debería pasar por la capa de negocio.
+        /// Idealmente, esta carga de datos debería pasar por la capa de negocio xd
         private void ActualizarDatosTabla()
         {
-            // Esta llamada es al TableAdapter, que es una abstracción de datos
-            // generada por Visual Studio, lo que acopla directamente la UI a la fuente de datos.
-            // Para una separación estricta, la CapaNegocio debería tener un método
-            // que devuelva una lista de Producto o un DataTable, y la UI solo lo consumiría.
             this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
                 this.dataSet1.PROC_BUSCAR_PRODUCTO,
                 null, null, null, null, null, null, null, null, null, null, null
             );
-
-            // Formato específico de UI para la columna 'estado'
-            foreach (DataGridViewRow row in productosDataGridView.Rows)
-            {
-                if (row.Cells["estadoValor"].Value is bool estado)
-                {
-                    row.Cells["estado"].Value = estado ? "Alta" : "Baja";
-                }
-            }
         }
 
         // Lógica de dibujo de celdas - Pertenece a la capa de Presentación
@@ -321,7 +308,7 @@ namespace OcioStoreIngSoftII
                 row.Cells["id_categoria"].Value = objCategoria.id_categoria;
                 row.Cells["categoria"].Value = objCategoria.nombre_categoria;
                 row.Cells["estadoValor"].Value = objProducto.baja_producto;
-                row.Cells["estado"].Value = objProducto.baja_producto ? "Alta" : "Baja";
+                row.Cells["estado"].Value = objProducto.baja_producto ? "Baja" : "Alta";
 
                 VaciarCampos();
             }
@@ -388,9 +375,23 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void TDescripcion_TextChanged(object sender, EventArgs e)
+        private void productosDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            // Evento sin lógica, se puede eliminar si no es necesario.
+            foreach (DataGridViewRow row in productosDataGridView.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var valor = row.Cells["estadoValor"].Value;
+                if (valor != null && valor != DBNull.Value)
+                {
+                    bool estado = Convert.ToBoolean(valor);
+                    row.Cells["estado"].Value = estado ? "Baja" : "Alta";
+                }
+                else
+                {
+                    row.Cells["estado"].Value = "Desconocido";
+                }
+            }
         }
     }
 }

@@ -62,31 +62,6 @@ namespace OcioStoreIngSoftII
             );
         }
 
-        //private void CargarUsuariosEnDataGridView(List<Usuario> listaUsuario)
-        //{
-        //    // Limpia las filas del DataGridView antes de agregar datos nuevos
-        //    usuariosDataGridView.Rows.Clear();
-
-        //    foreach (Usuario item in listaUsuario)
-        //    {
-        //        usuariosDataGridView.Rows.Add(new object[] {
-        //            "",
-        //            item.id_usuario,
-        //            item.nombre,
-        //            item.apellido,
-        //            item.objPerfil.id_perfil,
-        //            item.objPerfil.descripcion,
-        //            item.baja ? 1 : 0,
-        //            item.baja ? "Dado de Baja" : "Dado de Alta",
-        //            item.user,
-        //            item.pass,
-        //            item.email,
-        //            item.domicilio,
-        //            item.CP
-        //        });
-        //    }
-        //}
-
         private void usuariosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
