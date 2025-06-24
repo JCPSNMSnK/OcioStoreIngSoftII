@@ -68,66 +68,6 @@ namespace CapaDatos
             return lista;
         }
 
-        //public List<Producto> BuscarProductos(string criterio)
-        //{
-        //    List<Producto> lista = new List<Producto>();
-
-        //    using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-        //    {
-        //        try
-        //        {
-        //            StringBuilder query = new StringBuilder();
-        //            query.AppendLine("select p.id,p.nombre,p.descripcion,p.marca,p.modelo,p.precio,p.stock,p.baja,c.id_categoria, c.descripcion_categoria, s.id_subcategoria, s.descripcion_subcategoria FROM productos_pc p");
-        //            query.AppendLine("left join categorias_pc c on c.id_categoria = p.id_categoria");
-        //            query.AppendLine("left join subcategorias_pc s on s.id_categoria = c.id_categoria and s.id_subcategoria = p.id_subcategoria");
-        //            query.AppendLine("where p.nombre LIKE @criterio OR p.descripcion LIKE @criterio OR p.marca LIKE @criterio OR p.modelo LIKE @criterio OR p.precio LIKE @criterio OR c.descripcion_categoria LIKE @criterio OR s.descripcion_subcategoria LIKE @criterio;");
-
-        //            SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
-        //            cmd.CommandType = CommandType.Text;
-        //            cmd.Parameters.AddWithValue("@criterio", "%" + criterio + "%");
-
-        //            oconexion.Open();
-
-        //            using (SqlDataReader dataReader = cmd.ExecuteReader())
-        //            {
-        //                while (dataReader.Read())
-        //                {
-        //                    lista.Add(new Producto()
-        //                    {
-        //                        id_producto = Convert.ToInt32(dataReader["id"]),
-        //                        nombre = dataReader["nombre"].ToString(),
-        //                        descripcion = dataReader["descripcion"].ToString(),
-        //                        marca = dataReader["marca"].ToString(),
-        //                        modelo = dataReader["modelo"].ToString(),
-        //                        precio = Convert.ToDecimal(dataReader["precio"]),
-        //                        stock = Convert.ToInt32(dataReader["stock"]),
-        //                        baja = Convert.ToBoolean(dataReader["baja"]),
-        //                        objCategoria = new Categoria()
-        //                        {
-        //                            id_categoria = dataReader["id_categoria"] != DBNull.Value ? Convert.ToInt32(dataReader["id_categoria"]) : 0,
-        //                            descripcion_categoria = dataReader["descripcion_categoria"] != DBNull.Value ? dataReader["descripcion_categoria"].ToString() : string.Empty
-        //                        },
-        //                        objSubCategoria = new SubCategoria()
-        //                        {
-        //                            id_subcategoria = dataReader["id_subcategoria"] != DBNull.Value ? Convert.ToInt32(dataReader["id_subcategoria"]) : 0,
-        //                            objCategoria_subCat = new Categoria()
-        //                            {
-        //                                id_categoria = dataReader["id_categoria"] != DBNull.Value ? Convert.ToInt32(dataReader["id_categoria"]) : 0,
-        //                                descripcion_categoria = dataReader["descripcion_categoria"] != DBNull.Value ? dataReader["descripcion_categoria"].ToString() : string.Empty
-        //                            },
-        //                            descripcion_subcategoria = dataReader["descripcion_subcategoria"] != DBNull.Value ? dataReader["descripcion_subcategoria"].ToString() : string.Empty
-        //                        },
-        //                    });
-        //                }
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            lista = new List<Producto>();
-        //        }
-        //    }
-        //    return lista;
-        //}
         public int Registrar(Producto obj, Categoria objCat, out string Mensaje)//crearProducto
         {
             int id_producto_generado = 0;
