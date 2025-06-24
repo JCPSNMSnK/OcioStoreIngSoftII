@@ -60,7 +60,7 @@ namespace CapaEntidades
             // Aplica la comisión si hay un medio de pago asignado
             if (objMediosPago != null && objMediosPago.comision > 0)
             {
-                totalCalculado = totalCalculado * (1 + objMediosPago.comision);
+                totalCalculado *= (1 + (objMediosPago.comision / 100m)); // ✅ dividido por 100
             }
 
             this.total = totalCalculado; // Asigna el total recalculado (cuidado con float vs decimal)
