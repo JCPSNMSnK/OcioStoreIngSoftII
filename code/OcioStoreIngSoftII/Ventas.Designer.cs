@@ -39,10 +39,17 @@
             this.productosDataGridView = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pROCBUSCARPRODUCTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TModificarID_prod = new System.Windows.Forms.TextBox();
             this.TBModificarIndice = new System.Windows.Forms.TextBox();
@@ -63,24 +70,17 @@
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRegistrarVenta = new System.Windows.Forms.Button();
-            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pROCBUSCARPRODUCTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.ProductosTableAdapter();
             this.pROC_BUSCAR_PRODUCTOTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.PROC_BUSCAR_PRODUCTOTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pROCBUSCARPRODUCTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NCantidad)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentaDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pROCBUSCARPRODUCTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,6 +180,37 @@
             this.id_producto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.id_producto.Visible = false;
             // 
+            // nombre_producto
+            // 
+            this.nombre_producto.DataPropertyName = "nombre_producto";
+            this.nombre_producto.HeaderText = "Nombre";
+            this.nombre_producto.Name = "nombre_producto";
+            this.nombre_producto.ReadOnly = true;
+            this.nombre_producto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // fechaIngreso
+            // 
+            this.fechaIngreso.DataPropertyName = "fechaIngreso";
+            this.fechaIngreso.HeaderText = "Fecha Ingreso";
+            this.fechaIngreso.Name = "fechaIngreso";
+            this.fechaIngreso.ReadOnly = true;
+            // 
+            // precioLista
+            // 
+            this.precioLista.DataPropertyName = "precioLista";
+            this.precioLista.HeaderText = "Precio Lista";
+            this.precioLista.Name = "precioLista";
+            this.precioLista.ReadOnly = true;
+            this.precioLista.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // precioVenta
+            // 
+            this.precioVenta.DataPropertyName = "precioVenta";
+            this.precioVenta.HeaderText = "Precio Venta";
+            this.precioVenta.Name = "precioVenta";
+            this.precioVenta.ReadOnly = true;
+            this.precioVenta.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // stock_min
             // 
             this.stock_min.DataPropertyName = "stock_min";
@@ -194,6 +225,13 @@
             this.stock.Name = "stock";
             this.stock.ReadOnly = true;
             this.stock.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "descripcion";
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
             // 
             // id_categoria
             // 
@@ -210,6 +248,16 @@
             this.nombre_categoria.HeaderText = "Categoria";
             this.nombre_categoria.Name = "nombre_categoria";
             this.nombre_categoria.ReadOnly = true;
+            // 
+            // pROCBUSCARPRODUCTOBindingSource
+            // 
+            this.pROCBUSCARPRODUCTOBindingSource.DataMember = "PROC_BUSCAR_PRODUCTO";
+            this.pROCBUSCARPRODUCTOBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel1
             // 
@@ -476,57 +524,9 @@
             this.btnRegistrarVenta.Name = "btnRegistrarVenta";
             this.btnRegistrarVenta.Size = new System.Drawing.Size(208, 32);
             this.btnRegistrarVenta.TabIndex = 20;
-            this.btnRegistrarVenta.Text = "Agregar Carrito a la Venta";
+            this.btnRegistrarVenta.Text = "Proceder al Pago";
             this.btnRegistrarVenta.UseVisualStyleBackColor = false;
             this.btnRegistrarVenta.Click += new System.EventHandler(this.btnRegistrarVenta_Click);
-            // 
-            // nombre_producto
-            // 
-            this.nombre_producto.DataPropertyName = "nombre_producto";
-            this.nombre_producto.HeaderText = "Nombre";
-            this.nombre_producto.Name = "nombre_producto";
-            this.nombre_producto.ReadOnly = true;
-            this.nombre_producto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // fechaIngreso
-            // 
-            this.fechaIngreso.DataPropertyName = "fechaIngreso";
-            this.fechaIngreso.HeaderText = "Fecha Ingreso";
-            this.fechaIngreso.Name = "fechaIngreso";
-            this.fechaIngreso.ReadOnly = true;
-            // 
-            // precioLista
-            // 
-            this.precioLista.DataPropertyName = "precioLista";
-            this.precioLista.HeaderText = "Precio Lista";
-            this.precioLista.Name = "precioLista";
-            this.precioLista.ReadOnly = true;
-            this.precioLista.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // precioVenta
-            // 
-            this.precioVenta.DataPropertyName = "precioVenta";
-            this.precioVenta.HeaderText = "Precio Venta";
-            this.precioVenta.Name = "precioVenta";
-            this.precioVenta.ReadOnly = true;
-            this.precioVenta.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "descripcion";
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // pROCBUSCARPRODUCTOBindingSource
-            // 
-            this.pROCBUSCARPRODUCTOBindingSource.DataMember = "PROC_BUSCAR_PRODUCTO";
-            this.pROCBUSCARPRODUCTOBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // productosBindingSource
             // 
@@ -554,13 +554,13 @@
             this.Load += new System.EventHandler(this.Ventas_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pROCBUSCARPRODUCTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NCantidad)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.VentaDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pROCBUSCARPRODUCTOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
