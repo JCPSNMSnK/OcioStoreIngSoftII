@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
@@ -22,44 +23,64 @@ namespace CapaNegocio
         public Usuario AutenticarUsuario(string username, string password, out string mensaje)
         {
             mensaje = "";
-            var usuario = objUser_datos.ObtenerUsuarioLogin(username);
 
-            if (usuario == null)
+            try
             {
-                mensaje = "Usuario o contraseña inválidos.";
+                var usuario = objUser_datos.ObtenerUsuarioLogin(username);
+
+                if (usuario == null)
+                {
+                    mensaje = "Usuario o contraseña inválidos.";
+                    return null;
+                }
+
+                if (usuario.baja_user)
+                {
+                    mensaje = "El usuario ha sido dado de baja.";
+                    return null;
+                }
+
+                if (usuario.objRoles == null || usuario.objRoles.id_rol == 0)
+                {
+                    mensaje = "El usuario no tiene permisos asignados.";
+                    return null;
+                }
+
+                bool isAuthenticated = false;
+
+                if (!string.IsNullOrWhiteSpace(usuario.pass))
+                {
+                    if (usuario.pass.Length == 60)
+                        isAuthenticated = BCrypt.Net.BCrypt.Verify(password, usuario.pass);
+                    else
+                        isAuthenticated = usuario.pass == password;
+                }
+
+                if (!isAuthenticated)
+                {
+                    mensaje = "Usuario o contraseña inválidos.";
+                    return null;
+                }
+
+                return usuario;
+            }
+            catch (SqlException ex)
+            {
+                mensaje = "No se pudo conectar con el servidor de base de datos.";
                 return null;
             }
-
-            if (usuario.baja_user)
+            catch (InvalidOperationException ex)
             {
-                mensaje = "El usuario ha sido dado de baja.";
+                mensaje = "Error al intentar acceder a los datos del usuario.";
                 return null;
             }
-
-            if (usuario.objRoles == null || usuario.objRoles.id_rol == 0)
+            catch (Exception ex)
             {
-                mensaje = "El usuario no tiene permisos asignados.";
+                mensaje = "Se produjo un error inesperado: " + ex.Message;
                 return null;
             }
-
-            bool isAuthenticated = false;
-
-            if (!string.IsNullOrWhiteSpace(usuario.pass))
-            {
-                if (usuario.pass.Length == 60)
-                    isAuthenticated = BCrypt.Net.BCrypt.Verify(password, usuario.pass);
-                else
-                    isAuthenticated = usuario.pass == password;
-            }
-
-            if (!isAuthenticated)
-            {
-                mensaje = "Usuario o contraseña inválidos.";
-                return null;
-            }
-
-            return usuario;
         }
+
 
         public int Registrar(Usuario obj, out string Mensaje)//crearUsuario
         {

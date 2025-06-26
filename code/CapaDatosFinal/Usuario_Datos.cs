@@ -20,18 +20,18 @@ namespace CapaDatos
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
+                string query = @"
+            SELECT u.id_user, u.apellido, u.nombre, u.dni, u.mail, u.username, u.pass, u.baja_user,
+                   r.id_rol, r.nombre_rol, r.descripcion
+            FROM Users u
+            INNER JOIN Roles r ON r.id_rol = u.id_rol
+            WHERE u.username = @username COLLATE Latin1_General_CS_AS"; // case-sensitive
+
+                SqlCommand cmd = new SqlCommand(query, oconexion);
+                cmd.Parameters.AddWithValue("@username", username);
+
                 try
                 {
-                    string query = @"
-                SELECT u.id_user, u.apellido, u.nombre, u.dni, u.mail, u.username, u.pass, u.baja_user,
-                       r.id_rol, r.nombre_rol, r.descripcion
-                FROM Users u
-                INNER JOIN Roles r ON r.id_rol = u.id_rol
-                WHERE u.username = @username COLLATE Latin1_General_CS_AS"; // 💡 case-sensitive
-
-                    SqlCommand cmd = new SqlCommand(query, oconexion);
-                    cmd.Parameters.AddWithValue("@username", username);
-
                     oconexion.Open();
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -58,15 +58,15 @@ namespace CapaDatos
                         }
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    usuario = null;
-                    string Mensaje = ex.Message;
+                    throw; // Propagar la excepción a la capa de negocio
                 }
             }
 
             return usuario;
         }
+
 
 
         public List<Usuario> Listar()
