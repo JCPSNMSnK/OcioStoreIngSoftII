@@ -53,6 +53,14 @@ namespace OcioStoreIngSoftII
                 VentaDataGridView.Visible = false;
                 panelPago.Visible = false;
                 panelConfirmar.Visible = true;
+                btnSiguiente.Content = "Siguiente";
+                btnAnterior.Visible = false;
+            }
+            if (pasoActual == 3)
+            {
+                VentaDataGridView.Visible = false;
+                panelPago.Visible = false;
+                panelConfirmar.Visible = true;
                 btnSiguiente.Content = "Cerrar";
                 btnAnterior.Visible = false;
             }
@@ -138,6 +146,7 @@ namespace OcioStoreIngSoftII
                 if (exito)
                 {
                     MessageBox.Show(mensaje, "Pago verificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    pasoActual++;
                     pasoActual++;
                     ActualizarBarraProgreso(pasoActual);
                 }

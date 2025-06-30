@@ -58,8 +58,8 @@
             this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VentaDataGridView = new System.Windows.Forms.DataGridView();
             this.LMedioPago = new System.Windows.Forms.Label();
-            this.panelPago = new System.Windows.Forms.Panel();
             this.CBMediosPago = new System.Windows.Forms.ComboBox();
+            this.panelPago = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panelConfirmar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentaDataGridView)).BeginInit();
@@ -464,15 +464,6 @@
             this.LMedioPago.Text = "Medio - Comisión: %";
             this.LMedioPago.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelPago
-            // 
-            this.panelPago.Controls.Add(this.CBMediosPago);
-            this.panelPago.Controls.Add(this.LMedioPago);
-            this.panelPago.Location = new System.Drawing.Point(262, 149);
-            this.panelPago.Name = "panelPago";
-            this.panelPago.Size = new System.Drawing.Size(600, 96);
-            this.panelPago.TabIndex = 65;
-            // 
             // CBMediosPago
             // 
             this.CBMediosPago.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -482,6 +473,15 @@
             this.CBMediosPago.Size = new System.Drawing.Size(240, 29);
             this.CBMediosPago.TabIndex = 67;
             this.CBMediosPago.SelectedIndexChanged += new System.EventHandler(this.CBMediosPago_SelectedIndexChanged);
+            // 
+            // panelPago
+            // 
+            this.panelPago.Controls.Add(this.CBMediosPago);
+            this.panelPago.Controls.Add(this.LMedioPago);
+            this.panelPago.Location = new System.Drawing.Point(262, 149);
+            this.panelPago.Name = "panelPago";
+            this.panelPago.Size = new System.Drawing.Size(600, 96);
+            this.panelPago.TabIndex = 65;
             // 
             // Payment
             // 
@@ -539,7 +539,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
         private System.Windows.Forms.DataGridView VentaDataGridView;
         private System.Windows.Forms.Label LMedioPago;
-        private System.Windows.Forms.Panel panelPago;
         private System.Windows.Forms.ComboBox CBMediosPago;
+        private System.Windows.Forms.Panel panelPago;
     }
 }
