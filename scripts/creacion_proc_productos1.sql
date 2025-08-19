@@ -1,4 +1,4 @@
-Procedimiento1. -- para Insertar elementos
+--1. Procedimiento para Insertar elementos
 CREATE PROCEDURE PROC_CREAR_PRODUCTO
     @nombre_producto VARCHAR(100),
     @id_categoria INT,
@@ -47,7 +47,7 @@ EXEC PROC_CREAR_PRODUCTO
     @stock = 25,
     @stock_min = 5,
     @eliminado = 0,
-    @descripcion = 'Juego de estrategia de comercio y expansión en una isla. Para 3-4 jugadores.';
+    @descripcion = 'Juego de estrategia de comercio y expansiï¿½n en una isla. Para 3-4 jugadores.';
 
 -- Lote 2: Carcassonne
 EXEC PROC_CREAR_PRODUCTO 
@@ -59,7 +59,7 @@ EXEC PROC_CREAR_PRODUCTO
     @stock = 40,
     @stock_min = 10,
     @eliminado = 0,
-    @descripcion = 'Juego de colocación de losetas con construcción de caminos, ciudades y campos.';
+    @descripcion = 'Juego de colocaciï¿½n de losetas con construcciï¿½n de caminos, ciudades y campos.';
 
 -- Lote 3: Dixit
 EXEC PROC_CREAR_PRODUCTO 
@@ -83,7 +83,7 @@ EXEC PROC_CREAR_PRODUCTO
     @stock = 20,
     @stock_min = 5,
     @eliminado = 0,
-    @descripcion = 'Juego de colocación de fichas basado en patrones de mosaicos portugueses.';
+    @descripcion = 'Juego de colocaciï¿½n de fichas basado en patrones de mosaicos portugueses.';
 
 --2. BAJA PRODUCTO
 
