@@ -285,7 +285,7 @@
             this.btnAnterior.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnAnterior.ForeColor = System.Drawing.Color.White;
             this.btnAnterior.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
-            this.btnAnterior.HoveredImageTint = System.Drawing.Color.White;
+            this.btnAnterior.HoverImageTint = System.Drawing.Color.White;
             this.btnAnterior.HoverForeColor = System.Drawing.Color.White;
             this.btnAnterior.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.btnAnterior.Image = null;
@@ -324,7 +324,7 @@
             this.btnSiguiente.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnSiguiente.ForeColor = System.Drawing.Color.White;
             this.btnSiguiente.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
-            this.btnSiguiente.HoveredImageTint = System.Drawing.Color.White;
+            this.btnSiguiente.HoverImageTint = System.Drawing.Color.White;
             this.btnSiguiente.HoverForeColor = System.Drawing.Color.White;
             this.btnSiguiente.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.btnSiguiente.Image = null;

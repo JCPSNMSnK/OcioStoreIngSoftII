@@ -76,7 +76,7 @@
             this.BLogin.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.BLogin.ForeColor = System.Drawing.Color.Black;
             this.BLogin.HoverBackground = System.Drawing.Color.Gainsboro;
-            this.BLogin.HoveredImageTint = System.Drawing.Color.White;
+            this.BLogin.HoverImageTint = System.Drawing.Color.White;
             this.BLogin.HoverForeColor = System.Drawing.Color.Black;
             this.BLogin.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BLogin.Image = null;
@@ -115,7 +115,7 @@
             this.BCancelar.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.BCancelar.ForeColor = System.Drawing.Color.White;
             this.BCancelar.HoverBackground = System.Drawing.Color.White;
-            this.BCancelar.HoveredImageTint = System.Drawing.Color.White;
+            this.BCancelar.HoverImageTint = System.Drawing.Color.White;
             this.BCancelar.HoverForeColor = System.Drawing.Color.Black;
             this.BCancelar.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BCancelar.Image = null;

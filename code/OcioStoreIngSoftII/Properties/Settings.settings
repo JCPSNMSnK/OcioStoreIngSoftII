@@ -2,13 +2,13 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OcioStoreIngSoftII.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ocio_storeConnectionStringExt" Type="(Connection string)" Scope="Application">
+    <Setting Name="cadena_conexion" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionString&gt;Data Source=181.93.132.60;Initial Catalog=ocio_store;Persist Security Info=True;User ID=user;TrustServerCertificate=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-2FODA1E;Initial Catalog=ocio_store;Integrated Security=True;TrustServerCertificate=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=181.93.132.60;Initial Catalog=ocio_store;Persist Security Info=True;User ID=user;TrustServerCertificate=True</Value>
+      <Value Profile="(Default)">Data Source=DESKTOP-2FODA1E;Initial Catalog=ocio_store;Integrated Security=True;TrustServerCertificate=True</Value>
     </Setting>
   </Settings>
 </SettingsFile>
