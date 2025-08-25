@@ -195,6 +195,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.usuariosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.usuariosDataGridView.RowHeadersVisible = false;
+            this.usuariosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usuariosDataGridView.Size = new System.Drawing.Size(1112, 197);
             this.usuariosDataGridView.TabIndex = 58;
             this.usuariosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usuariosDataGridView_CellContentClick);
