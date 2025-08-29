@@ -74,10 +74,7 @@ END;
 GO
 
 --2. MODIFICAR CLIENTE
-Claro, aquí tienes un procedimiento almacenado para modificar un cliente, asegurando que su DNI e ID permanezcan sin cambios.
 
-Procedimiento Almacenado PROC_MODIFICAR_CLIENTE
-SQL
 
 CREATE PROCEDURE PROC_MODIFICAR_CLIENTE
     @id_cliente INT,
