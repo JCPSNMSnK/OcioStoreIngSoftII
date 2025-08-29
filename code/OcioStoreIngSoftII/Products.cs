@@ -1,9 +1,10 @@
 ﻿using CapaEntidades;
 using CapaNegocio;
-using OcioStoreIngSoftII.Utillidades; // Asumiendo que OpcionSelect está aquí
+using FontAwesome.Sharp;
+using OcioStoreIngSoftII.Utillidades;
 using System;
 using System.Collections.Generic;
-using System.Data; // Necesario para DataTable/DataSet si se sigue usando TableAdapter
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -42,24 +43,39 @@ namespace OcioStoreIngSoftII
         //Carga las opciones de estado (alta/baja)
         private void CargarComboBoxEstados(ComboBox comboBox)
         {
-            comboBox.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Baja" });
-            comboBox.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Alta" });
-            comboBox.DisplayMember = "Texto";
-            comboBox.ValueMember = "Valor";
+            try
+            {
+                comboBox.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Baja" });
+                comboBox.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Alta" });
+                comboBox.DisplayMember = "Texto";
+                comboBox.ValueMember = "Valor";
+            }
+            catch (Exception ex)
+            {
+                // Si hay un error, lo mostraremos en un mensaje
+                MessageBox.Show("Ocurrió un error al cargar las categorías: \n" + ex.Message, "Error de Carga de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// Carga las categorías desde la capa de negocio en un ComboBox.
-
         private void CargarComboBoxCategorias(ComboBox comboBox)
         {
-            // La capa de presentación pide las categorías a la capa de negocio
-            List<Categoria> listaCategorias = _categoriaNegocio.Listar();
-            foreach (Categoria item in listaCategorias)
+            try
             {
-                comboBox.Items.Add(new OpcionSelect() { Valor = item.id_categoria, Texto = item.nombre_categoria });
+                // La capa de presentación pide las categorías a la capa de negocio
+                List<Categoria> listaCategorias = _categoriaNegocio.Listar();
+                foreach (Categoria item in listaCategorias)
+                {
+                    comboBox.Items.Add(new OpcionSelect() { Valor = item.id_categoria, Texto = item.nombre_categoria });
+                }
+                comboBox.DisplayMember = "Texto";
+                comboBox.ValueMember = "Valor";
             }
-            comboBox.DisplayMember = "Texto";
-            comboBox.ValueMember = "Valor";
+            catch (Exception ex)
+            {
+                // Si hay un error, lo mostraremos en un mensaje
+                MessageBox.Show("Ocurrió un error al cargar las categorías: \n" + ex.Message, "Error de Carga de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// Idealmente, esta carga de datos debería pasar por la capa de negocio xd
@@ -73,21 +89,20 @@ namespace OcioStoreIngSoftII
 
         // Lógica de dibujo de celdas - Pertenece a la capa de Presentación
         private void productosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+
         {
             if (e.RowIndex < 0)
             {
                 return;
             }
 
-            if (e.ColumnIndex == 0) // Asumiendo que es la columna del botón de selección
+            if (e.ColumnIndex == 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
                 var w = OcioStoreIngSoftII.Properties.Resources.checkbox.Width;
                 var h = OcioStoreIngSoftII.Properties.Resources.checkbox.Height;
                 var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                 var y = e.CellBounds.Top + (e.CellBounds.Height - w) / 2;
-
                 e.Graphics.DrawImage(Properties.Resources.checkbox, new System.Drawing.Rectangle(x, y, w, h));
                 e.Handled = true;
             }
@@ -392,6 +407,8 @@ namespace OcioStoreIngSoftII
                     row.Cells["estado"].Value = "Desconocido";
                 }
             }
+            productosDataGridView.ClearSelection();
+            productosDataGridView.CurrentCell = null;
         }
     }
 }

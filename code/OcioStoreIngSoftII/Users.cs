@@ -431,6 +431,8 @@ namespace OcioStoreIngSoftII
                     row.Cells["estado"].Value = "Desconocido";
                 }
             }
+            usuariosDataGridView.ClearSelection();
+            usuariosDataGridView.CurrentCell = null;
         }
 
     }
