@@ -1,9 +1,10 @@
 ﻿using CapaEntidades;
 using CapaNegocio;
-using OcioStoreIngSoftII.Utillidades; // Asumiendo que OpcionSelect está aquí
+using FontAwesome.Sharp;
+using OcioStoreIngSoftII.Utillidades;
 using System;
 using System.Collections.Generic;
-using System.Data; // Necesario para DataTable/DataSet si se sigue usando TableAdapter
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -57,7 +58,6 @@ namespace OcioStoreIngSoftII
         }
 
         /// Carga las categorías desde la capa de negocio en un ComboBox.
-
         private void CargarComboBoxCategorias(ComboBox comboBox)
         {
             try
@@ -89,21 +89,20 @@ namespace OcioStoreIngSoftII
 
         // Lógica de dibujo de celdas - Pertenece a la capa de Presentación
         private void productosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+
         {
             if (e.RowIndex < 0)
             {
                 return;
             }
 
-            if (e.ColumnIndex == 0) // Asumiendo que es la columna del botón de selección
+            if (e.ColumnIndex == 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
                 var w = OcioStoreIngSoftII.Properties.Resources.checkbox.Width;
                 var h = OcioStoreIngSoftII.Properties.Resources.checkbox.Height;
                 var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                 var y = e.CellBounds.Top + (e.CellBounds.Height - w) / 2;
-
                 e.Graphics.DrawImage(Properties.Resources.checkbox, new System.Drawing.Rectangle(x, y, w, h));
                 e.Handled = true;
             }

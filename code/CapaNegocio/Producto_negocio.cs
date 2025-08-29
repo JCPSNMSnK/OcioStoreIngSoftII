@@ -72,13 +72,6 @@ namespace CapaNegocio
             return _objProductoDatos.Registrar(objProducto, objCategoria, out mensaje);
         }
 
-        /// <summary>
-        /// Edita un producto existente, aplicando las reglas de negocio.
-        /// </summary>
-        /// <param name="objProducto">Objeto Producto con los datos actualizados.</param>
-        /// <param name="objCategoria">Objeto Categoria asociado al producto.</param>
-        /// <param name="mensaje">Mensaje de éxito o error de la operación.</param>
-        /// <returns>True si la edición fue exitosa, False en caso contrario.</returns>
         public bool Editar(Producto objProducto, Categoria objCategoria, out string mensaje)
         {
             mensaje = string.Empty;
