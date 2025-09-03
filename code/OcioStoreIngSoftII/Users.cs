@@ -62,6 +62,7 @@ namespace OcioStoreIngSoftII
             );
         }
 
+        //Dibujo del botón Seleccionar
         private void usuariosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -152,7 +153,165 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void BRegisterUser_Click_1(object sender, EventArgs e)
+        //Método de Búsqueda
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.Trim();
+
+            // Si está vacío, muestra todos
+            if (string.IsNullOrEmpty(filtro))
+            {
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
+                    this.dataSet1.PROC_BUSCAR_USUARIO,
+                    null, null, null, null, null, null, null, null, null, null
+                );
+                return;
+            }
+
+            // Intentar buscar por id_user si es numérico
+            if (int.TryParse(filtro, out int idVal))
+            {
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
+                    this.dataSet1.PROC_BUSCAR_USUARIO,
+                    idVal, null, null, null, null, null, null, null, null, null
+                );
+                return;
+            }
+
+            // Si no es numérico, intenta por los campos de texto
+
+            this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
+                this.dataSet1.PROC_BUSCAR_USUARIO,
+                null, filtro, null, null, null, null, null, null, null, null // apellido
+            );
+
+            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
+            {
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, filtro, null, null, null, null, null, null, null); // nombre
+            }
+            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
+            {
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, filtro, null, null, null, null, null, null); // dni
+            }
+            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
+            {
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, filtro, null, null, null, null, null); // mail
+            }
+            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
+            {
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, null, filtro, null, null, null, null); // username
+            }
+            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
+            {
+                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, null, null, null, null, null,filtro); // rol
+            }
+        }
+
+        private void usuariosDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in usuariosDataGridView.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var valor = row.Cells["estadoValor"].Value;
+                if (valor != null && valor != DBNull.Value)
+                {
+                    bool estado = Convert.ToBoolean(valor);
+                    row.Cells["estado"].Value = estado ? "Baja" : "Alta";
+                }
+                else
+                {
+                    row.Cells["estado"].Value = "Desconocido";
+                }
+            }
+            usuariosDataGridView.ClearSelection();
+            usuariosDataGridView.CurrentCell = null;
+        }
+
+        //Botones
+        private void BModificar_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+
+            // Validaciones
+            if (string.IsNullOrEmpty(TModificarNombre.Text))
+            {
+                MessageBox.Show("El nombre no puede estar vacío.");
+                return;
+            }
+            if (string.IsNullOrEmpty(TModificarAp.Text))
+            {
+                MessageBox.Show("El apellido no puede estar vacío.");
+                return;
+            }
+            if (string.IsNullOrEmpty(TModificarDni.Text) || !int.TryParse(TModificarDni.Text, out int dni))
+            {
+                MessageBox.Show("El DNI debe ser un número válido.");
+                return;
+            }
+            if (CBModificarRoles.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un rol.");
+                return;
+            }
+            if (CBModificarEstado.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar el estado.");
+                return;
+            }
+            if (string.IsNullOrEmpty(TModificarUser.Text))
+            {
+                MessageBox.Show("El nombre de usuario no puede estar vacío.");
+                return;
+            }
+            if (string.IsNullOrEmpty(TModificarEmail.Text) || !Regex.IsMatch(TModificarEmail.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("El email no tiene un formato válido.");
+                return;
+            }
+
+            //Creación de un nuevo Usuario
+            Usuario objUser = new Usuario()
+            {
+                id_user = Convert.ToInt32(TModificarID_user.Text),
+                nombre = TModificarNombre.Text,
+                apellido = TModificarAp.Text,
+                dni = dni,
+                mail = TModificarEmail.Text,
+                username = TModificarUser.Text,
+                pass = TModificarPass.Text,
+                baja_user = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1,
+                objRoles = new Roles() { id_rol = Convert.ToInt32(((OpcionSelect)CBModificarRoles.SelectedItem).Valor) }
+            };
+
+            bool resultado = new Usuario_negocio().Editar(objUser, out mensaje);
+
+            if (resultado)
+            {
+                DataGridViewRow row = usuariosDataGridView.Rows[Convert.ToInt32(TBModificarIndice.Text)];
+
+                //row.Cells["id_user"].Value = TModificarID_user.Text;
+                row.Cells["nombre"].Value = TModificarNombre.Text;
+                row.Cells["apellido"].Value = TModificarAp.Text;
+                row.Cells["dni"].Value = TModificarDni.Text;
+                row.Cells["email"].Value = TModificarEmail.Text;
+                row.Cells["user"].Value = TModificarUser.Text;
+                row.Cells["id_rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Valor.ToString();
+                row.Cells["rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Texto.ToString();
+                row.Cells["estadoValor"].Value = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1;
+                row.Cells["estado"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Texto.ToString();
+
+                VaciarCampos();
+                actualizarDatosTabla();
+                MessageBox.Show("Usuario modificado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(mensaje);
+            }
+        }
+
+        private void BRegisterUser_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
 
@@ -267,173 +426,5 @@ namespace OcioStoreIngSoftII
                 }
             }
         }
-
-        private void BModificar_Click_1(object sender, EventArgs e)
-        {
-            string mensaje = string.Empty;
-
-            // Validación para nombre
-            if (string.IsNullOrEmpty(TModificarNombre.Text))
-            {
-                MessageBox.Show("El nombre no puede estar vacío.");
-                return;
-            }
-
-            // Validación para apellido
-            if (string.IsNullOrEmpty(TModificarAp.Text))
-            {
-                MessageBox.Show("El apellido no puede estar vacío.");
-                return;
-            }
-
-            // Validación para DNI
-            if (string.IsNullOrEmpty(TModificarDni.Text) || !int.TryParse(TModificarDni.Text, out int dni))
-            {
-                MessageBox.Show("El DNI debe ser un número válido.");
-                return;
-            }
-
-            // Validación para rol
-            if (CBModificarRoles.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar un rol.");
-                return;
-            }
-
-            // Validación para estado
-            if (CBModificarEstado.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar el estado.");
-                return;
-            }
-
-            // Validación para usuario
-            if (string.IsNullOrEmpty(TModificarUser.Text))
-            {
-                MessageBox.Show("El nombre de usuario no puede estar vacío.");
-                return;
-            }
-
-            // Validación para email
-            if (string.IsNullOrEmpty(TModificarEmail.Text) || !Regex.IsMatch(TModificarEmail.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-            {
-                MessageBox.Show("El email no tiene un formato válido.");
-                return;
-            }
-
-            // Crear el objeto Usuario
-            Usuario objUser = new Usuario()
-            {
-                id_user = Convert.ToInt32(TModificarID_user.Text),
-                nombre = TModificarNombre.Text,
-                apellido = TModificarAp.Text,
-                dni = dni,
-                mail = TModificarEmail.Text,
-                username = TModificarUser.Text,
-                pass = TModificarPass.Text,
-                baja_user = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1,
-                objRoles = new Roles() { id_rol = Convert.ToInt32(((OpcionSelect)CBModificarRoles.SelectedItem).Valor) }
-            };
-
-            bool resultado = new Usuario_negocio().Editar(objUser, out mensaje);
-
-            if (resultado)
-            {
-                DataGridViewRow row = usuariosDataGridView.Rows[Convert.ToInt32(TBModificarIndice.Text)];
-
-                //row.Cells["id_user"].Value = TModificarID_user.Text;
-                row.Cells["nombre"].Value = TModificarNombre.Text;
-                row.Cells["apellido"].Value = TModificarAp.Text;
-                row.Cells["dni"].Value = TModificarDni.Text;
-                row.Cells["email"].Value = TModificarEmail.Text;
-                row.Cells["user"].Value = TModificarUser.Text;
-                row.Cells["id_rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Valor.ToString();
-                row.Cells["rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Texto.ToString();
-                row.Cells["estadoValor"].Value = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1;
-                row.Cells["estado"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Texto.ToString();
-
-                VaciarCampos();
-                actualizarDatosTabla();
-            }
-            else
-            {
-                MessageBox.Show(mensaje);
-            }
-        }
-
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            string filtro = txtBuscar.Text.Trim();
-
-            // Si está vacío, muestra todos
-            if (string.IsNullOrEmpty(filtro))
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
-                    this.dataSet1.PROC_BUSCAR_USUARIO,
-                    null, null, null, null, null, null, null, null, null, null
-                );
-                return;
-            }
-
-            // Intentar buscar por id_user si es numérico
-            if (int.TryParse(filtro, out int idVal))
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
-                    this.dataSet1.PROC_BUSCAR_USUARIO,
-                    idVal, null, null, null, null, null, null, null, null, null
-                );
-                return;
-            }
-
-            // Si no es numérico, intenta por los campos de texto
-
-            this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
-                this.dataSet1.PROC_BUSCAR_USUARIO,
-                null, filtro, null, null, null, null, null, null, null, null // apellido
-            );
-
-            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, filtro, null, null, null, null, null, null, null); // nombre
-            }
-            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, filtro, null, null, null, null, null, null); // dni
-            }
-            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, filtro, null, null, null, null, null); // mail
-            }
-            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, null, filtro, null, null, null, null); // username
-            }
-            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, null, null, null, null, null,filtro); // rol
-            }
-        }
-
-        private void usuariosDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            foreach (DataGridViewRow row in usuariosDataGridView.Rows)
-            {
-                if (row.IsNewRow) continue;
-
-                var valor = row.Cells["estadoValor"].Value;
-                if (valor != null && valor != DBNull.Value)
-                {
-                    bool estado = Convert.ToBoolean(valor);
-                    row.Cells["estado"].Value = estado ? "Baja" : "Alta";
-                }
-                else
-                {
-                    row.Cells["estado"].Value = "Desconocido";
-                }
-            }
-            usuariosDataGridView.ClearSelection();
-            usuariosDataGridView.CurrentCell = null;
-        }
-
     }
 }

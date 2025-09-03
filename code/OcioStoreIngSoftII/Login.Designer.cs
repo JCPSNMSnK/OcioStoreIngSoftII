@@ -75,9 +75,9 @@
             this.BLogin.DialogResult = System.Windows.Forms.DialogResult.None;
             this.BLogin.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.BLogin.ForeColor = System.Drawing.Color.Black;
-            this.BLogin.HoverBackground = System.Drawing.Color.Gainsboro;
+            this.BLogin.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.BLogin.HoverForeColor = System.Drawing.Color.White;
             this.BLogin.HoverImageTint = System.Drawing.Color.White;
-            this.BLogin.HoverForeColor = System.Drawing.Color.Black;
             this.BLogin.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BLogin.Image = null;
             this.BLogin.ImageAutoCenter = true;
@@ -85,7 +85,7 @@
             this.BLogin.ImageOffset = new System.Drawing.Point(0, 0);
             this.BLogin.Location = new System.Drawing.Point(48, 288);
             this.BLogin.Name = "BLogin";
-            this.BLogin.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BLogin.NormalBackground = System.Drawing.Color.White;
             this.BLogin.NormalForeColor = System.Drawing.Color.Black;
             this.BLogin.NormalImageTint = System.Drawing.Color.White;
             this.BLogin.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -114,9 +114,9 @@
             this.BCancelar.DialogResult = System.Windows.Forms.DialogResult.None;
             this.BCancelar.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.BCancelar.ForeColor = System.Drawing.Color.White;
-            this.BCancelar.HoverBackground = System.Drawing.Color.White;
+            this.BCancelar.HoverBackground = System.Drawing.Color.Firebrick;
+            this.BCancelar.HoverForeColor = System.Drawing.Color.White;
             this.BCancelar.HoverImageTint = System.Drawing.Color.White;
-            this.BCancelar.HoverForeColor = System.Drawing.Color.Black;
             this.BCancelar.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BCancelar.Image = null;
             this.BCancelar.ImageAutoCenter = true;
