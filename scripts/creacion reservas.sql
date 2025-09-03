@@ -206,3 +206,53 @@ BEGIN
 END;
 GO
 
+--5. Transformar Reserva en Venta
+
+CREATE OR ALTER PROCEDURE PROC_FINALIZAR_RESERVA_A_VENTA
+    @id_reserva INT,
+    @total_venta DECIMAL(12, 2),
+    @id_medio INT,
+    @id_user INT,
+    @id_cliente INT,
+    @mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SET @mensaje = '';
+
+    -- Iniciar la transacción para asegurar la atomicidad
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        DECLARE @id_venta_generada INT;
+
+        -- 1. Insertar la nueva venta
+        INSERT INTO Ventas (total, id_medio, id_user, id_cliente, fecha_venta)
+        VALUES (@total_venta, @id_medio, @id_user, @id_cliente, GETDATE());
+
+        SET @id_venta_generada = SCOPE_IDENTITY();
+
+        -- 2. Copiar los detalles de la reserva a los detalles de la venta
+        -- La clave es que el subtotal en DetalleVentas se basará en el precio unitario
+        INSERT INTO DetalleVentas (id_venta, id_producto, cantidad, subtotal)
+        SELECT @id_venta_generada, id_producto, cantidad, (precio_unitario * cantidad)
+        FROM DetallesReservas
+        WHERE id_reserva = @id_reserva;
+
+        -- 3. Actualizar la reserva para finalizarla (asignar fecha de retiro)
+        UPDATE Reservas
+        SET fecha_retiro_reserva = GETDATE()
+        WHERE id_reserva = @id_reserva;
+
+        -- Si todo es exitoso, confirmar la transacción
+        COMMIT TRANSACTION;
+        SET @mensaje = 'Reserva transformada en venta y finalizada exitosamente.';
+
+    END TRY
+    BEGIN CATCH
+        -- Si algo falla, revertir la transacción
+        ROLLBACK TRANSACTION;
+        SET @mensaje = 'Error al transformar la reserva en venta. La operación ha sido cancelada. ' + ERROR_MESSAGE();
+    END CATCH;
+END;
+GO

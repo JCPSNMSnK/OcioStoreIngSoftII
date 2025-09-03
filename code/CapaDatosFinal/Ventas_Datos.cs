@@ -128,7 +128,7 @@ namespace CapaDatos
                         mensajeSalida = cmdVenta.Parameters["mensaje"].Value.ToString();
 
                         // Si la venta principal no se registró correctamente, lanzar excepción para hacer rollback
-                        if (idVentaRegistrada == 0) 
+                        if (idVentaRegistrada == 0)
                         {
                             throw new Exception($"Error al registrar la venta principal: {mensajeSalida}");
                         }
@@ -165,7 +165,7 @@ namespace CapaDatos
                                     // Si el Proc Almac de detalle retorna '0' o un flag para error, úsalo.
                                 }
                             }
-                            
+
                         }
                     }
                     else
@@ -202,6 +202,8 @@ namespace CapaDatos
             Mensaje = mensajeSalida;
             return exito;
         }
+
+        
 
     }
 }
