@@ -22,7 +22,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT id_venta,total,id_medio,id_user,fecha_venta FROM ventas v");
+                    query.AppendLine("SELECT id_venta,total,id_medio,id_user, id_cliente, fecha_venta FROM ventas v");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -60,6 +60,20 @@ namespace CapaDatos
                                         nombre_rol = dataReader["nombre_rol"].ToString(),
                                     }
                                 },
+
+                                objCliente = new Cliente()
+                                {
+                                    id_cliente = Convert.ToInt32(dataReader["id_cliente"]),
+                                    apellido_cliente = dataReader["apellido_cliente"].ToString(),
+                                    nombre_cliente = dataReader["nombre_cliente"].ToString(),
+                                    dni_cliente = Convert.ToInt32(dataReader["dni_cliente"]),
+                                    mail_cliente = dataReader["email_cliente"].ToString(),
+                                    direccion_cliente = dataReader["direccion_cliente"].ToString(),
+                                    telefono_cliente = dataReader["telefono_cliente"].ToString(),
+                                    localidad_cliente = dataReader["localidad_cliente"].ToString(),
+                                    provincia_cliente = dataReader["provincia_cliente"].ToString()
+                                },
+
 
                                 fecha_venta = Convert.ToDateTime(dataReader["fecha_venta"]),
                             });
@@ -100,6 +114,7 @@ namespace CapaDatos
                         cmdVenta.Parameters.AddWithValue("total", obj.total);
                         cmdVenta.Parameters.AddWithValue("@id_medio", obj.objMediosPago.id_medioPago);
                         cmdVenta.Parameters.AddWithValue("@id_user", obj.objUsuario.id_user);
+                        cmdVenta.Parameters.AddWithValue("@id_cliente", obj.objCliente.id_cliente);
                         cmdVenta.Parameters.AddWithValue("fecha_venta", obj.fecha_venta);
 
                         cmdVenta.Parameters.Add("id_venta_registrada", SqlDbType.Int).Direction = ParameterDirection.Output;

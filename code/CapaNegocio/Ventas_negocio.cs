@@ -114,6 +114,54 @@ namespace CapaNegocio
             return true;
         }
 
+        public bool AsignarClienteSeleccionado(Ventas ventaActual, Cliente cliente, out string mensaje)
+        {
+            mensaje = string.Empty;
+            List<string> errores = new List<string>();
+
+            if (ventaActual == null)
+            {
+                errores.Add("La venta actual no puede ser nula.");
+            }
+            if (cliente.id_cliente <= 0)
+            {
+                errores.Add("Debe seleccionar un cliente válido.");
+            }
+
+            if (errores.Any())
+            {
+                mensaje = string.Join(Environment.NewLine, errores);
+                return false;
+            }
+
+            try
+            {
+
+                if (mediosPago == null)
+                {
+                    errores.Add("El medio de pago seleccionado no es válido o no existe.");
+                }
+                else
+                {
+                    ventaActual.AsignaCliente(cliente); // Usa el método de la entidad Venta
+                }
+            }
+            catch (Exception ex)
+            {
+                // Loggear la excepción
+                errores.Add("Error al asignar el cliente: " + ex.Message);
+            }
+
+            if (errores.Any())
+            {
+                mensaje = string.Join(Environment.NewLine, errores);
+                return false;
+            }
+
+            mensaje = "Cliente asignado correctamente.";
+            return true;
+
+        }
         public bool SeleccionarMedioPagoYCalcular(Ventas ventaActual, MediosPago mediosPago, out string mensaje)
         {
             mensaje = string.Empty;
