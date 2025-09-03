@@ -203,7 +203,72 @@ namespace CapaDatos
             return exito;
         }
 
-        
+        public Venta ObtenerVentaCompleta(int idVenta)
+        {
+            Venta objVenta = null;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_OBTENER_VENTA_COMPLETA", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_venta", idVenta);
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        // Leer el primer conjunto de resultados (Detalles de Venta)
+                        List<DetalleVenta> detalles = new List<DetalleVenta>();
+                        while (dr.Read())
+                        {
+                            detalles.Add(new DetalleVenta()
+                            {
+                                // Aquí se crea el objeto DetalleVenta
+                                objProducto = new Producto()
+                                {
+                                    id_producto = Convert.ToInt32(dr["id_producto"]),
+                                    codigo = dr["codigo"].ToString(),
+                                    nombre_producto = dr["nombre_producto"].ToString(),
+                                    precio_venta = Convert.ToDecimal(dr["precio_venta"])
+                                },
+                                cantidad = Convert.ToInt32(dr["cantidad"]),
+                                subtotal = Convert.ToDecimal(dr["subtotal"])
+                            });
+                        }
+
+                        // Mover al siguiente conjunto de resultados (Datos de la Venta y el Cliente)
+                        if (dr.NextResult())
+                        {
+                            if (dr.Read())
+                            {
+                                // Crear el objeto Venta y asignarle los detalles
+                                objVenta = new Venta()
+                                {
+                                    id_venta = Convert.ToInt32(dr["id_venta"]),
+                                    total = Convert.ToDecimal(dr["total"]),
+                                    fecha_venta = Convert.ToDateTime(dr["fecha_venta"]),
+                                    objCliente = new Cliente()
+                                    {
+                                        id_cliente = Convert.ToInt32(dr["id_cliente"]),
+                                        dni_cliente = Convert.ToInt32(dr["dni_cliente"]),
+                                        nombre_cliente = dr["nombre_cliente"].ToString(),
+                                        apellido_cliente = dr["apellido_cliente"].ToString()
+                                    },
+                                    detalles = detalles
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                objVenta = null;
+            }
+
+            return objVenta;
+        }
 
     }
 }

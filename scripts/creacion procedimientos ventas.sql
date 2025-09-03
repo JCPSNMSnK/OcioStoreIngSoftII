@@ -49,4 +49,46 @@ BEGIN
     SET @mensaje = 'Detalle de Venta registrado exitosamente';
 END;   
 
+--3. OBtener Venta Completa
+
+CREATE OR ALTER PROCEDURE PROC_OBTENER_VENTA_COMPLETA
+    @id_venta INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Seleccionar los detalles de la venta y los datos del producto
+    SELECT 
+        dv.id_producto,
+        dv.cantidad,
+        dv.subtotal,
+        p.codigo,
+        p.nombre_producto,
+        p.precio_venta
+    FROM 
+        DetalleVentas dv
+    INNER JOIN 
+        Productos p ON dv.id_producto = p.id_producto
+    WHERE 
+        dv.id_venta = @id_venta;
+
+    -- Seleccionar los datos de la venta y el cliente
+    SELECT 
+        v.id_venta,
+        v.total,
+        v.fecha_venta,
+        v.id_medio,
+        v.id_user,
+        c.id_cliente,
+        c.dni_cliente,
+        c.nombre_cliente,
+        c.apellido_cliente
+    FROM 
+        Ventas v
+    INNER JOIN 
+        Clientes c ON v.id_cliente = c.id_cliente
+    WHERE 
+        v.id_venta = @id_venta;
+END;
+GO
 
