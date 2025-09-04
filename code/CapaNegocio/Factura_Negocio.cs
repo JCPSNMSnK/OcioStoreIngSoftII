@@ -9,16 +9,16 @@ namespace CapaNegocio
     public class Factura_Negocio
     {
         private readonly Factura_Datos objFacturaDatos;
-        private readonly Venta_Datos objVentaDatos;
+        private readonly Ventas_Datos objVentaDatos;
 
         public Factura_Negocio()
         {
             objFacturaDatos = new Factura_Datos();
-            objVentaDatos = new Venta_Datos();
+            objVentaDatos = new Ventas_Datos();
         }
 
 
-        public int GenerarFactura(Venta objVenta, FacturaTipo objTipoFactura, out string mensaje)
+        public int GenerarFactura(Ventas objVenta, FacturaTipo objTipoFactura, out string mensaje)
         {
             mensaje = string.Empty;
             int idFacturaGenerada = 0;

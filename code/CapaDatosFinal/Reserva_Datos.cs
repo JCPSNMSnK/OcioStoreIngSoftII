@@ -7,7 +7,7 @@ using CapaEntidades;
 
 namespace CapaDatos
 {
-    public class Reservas_Datos
+    public class Reserva_Datos
     {
 
         // Método para registrar una reserva completa en una sola transacción

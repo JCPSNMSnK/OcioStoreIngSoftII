@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using CapaDatos;
+using CapaEntidades;
 
 namespace CapaNegocio
 {
@@ -40,7 +42,7 @@ namespace CapaNegocio
             }
 
             // Si todas las validaciones pasan, se delega a la capa de datos
-            return objBackupDatos.RealizarBackup(rutaDestino, nombreBaseDeDatos, out mensaje);
+            return objBackupDatos.RealizarBackup(rutaDestino, out mensaje);
         }
 
         private bool EsRutaValida(string path)

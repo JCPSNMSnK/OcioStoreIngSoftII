@@ -14,7 +14,7 @@ namespace CapaNegocio
             objComprasDatos = new Compras_Datos();
         }
 
-        public int RegistrarCompra(Compra objCompra, out string mensaje)
+        public int RegistrarCompra(Compra objCompra, List<DetalleCompra> DetallesCompra,out string mensaje)
         {
             mensaje = string.Empty;
             int idCompraGenerada = 0;
@@ -27,14 +27,14 @@ namespace CapaNegocio
             }
 
             // Validación 2: La compra debe tener al menos un producto.
-            if (objCompra.detalles == null || objCompra.detalles.Count < 1)
+            if (DetallesCompra == null || DetallesCompra.Count < 1)
             {
                 mensaje = "La compra debe tener al menos un producto.";
                 return 0;
             }
 
             // Validación 3: Las cantidades de los productos no pueden ser cero o negativas.
-            foreach (DetalleCompra dc in objCompra.detalles)
+            foreach (DetalleCompra dc in DetallesCompra)
             {
                 if (dc.cantidad <= 0)
                 {

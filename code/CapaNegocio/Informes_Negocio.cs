@@ -30,7 +30,7 @@ namespace CapaNegocio
             return resultados;
         }
 
-        public List<VentaPorPeriodo> ObtenerFluctuacionDeVentas(DateTime fechaInicio, DateTime fechaFin)
+        public List<VentaPorPeriodo> ObtenerFluctuacionDeVentas(DateTime fechaInicio, DateTime fechaFin, Usuario usuario)
         {
             if (fechaInicio > fechaFin)
             {
@@ -51,7 +51,7 @@ namespace CapaNegocio
             return resultados;
         }
 
-        public List<CategoriaMasVendida> ObtenerCategoriasMasVendidas(DateTime fechaInicio, DateTime fechaFin)
+        public List<CategoriaMasVendida> ObtenerCategoriasMasVendidas(DateTime fechaInicio, DateTime fechaFin, Usuario usuario)
         {
             if (fechaInicio > fechaFin)
             {
@@ -72,7 +72,7 @@ namespace CapaNegocio
             return resultados;
         }
 
-        public List<VendedorConMasVentas> ObtenerVendedoresConMasVentas(DateTime fechaInicio, DateTime fechaFin)
+        public List<VendedorConMasVentas> ObtenerVendedoresConMasVentas(DateTime fechaInicio, DateTime fechaFin, Usuario usuario)
         {
             if (fechaInicio > fechaFin)
             {

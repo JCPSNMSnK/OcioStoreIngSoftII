@@ -9,7 +9,6 @@ namespace OcioStoreIngSoftII.Themes
 {
     public static class PaletaColores
     {
-        // Esta es una propiedad estática y de solo lectura que contiene tu paleta.
         public static SKColor[] OcioStore { get; } = new[]
         {
             new SKColor(28, 127, 251),   // Azul

@@ -114,7 +114,7 @@ namespace CapaNegocio
             mensaje = string.Empty;
 
             // 1. 
-            if (reserva.id_reserva == null || reserva.id_reserva < 1)
+            if (reserva.id_reserva == 0 || reserva.id_reserva < 1)
             {
                 mensaje = "La reserva no existe.";
                 return false;

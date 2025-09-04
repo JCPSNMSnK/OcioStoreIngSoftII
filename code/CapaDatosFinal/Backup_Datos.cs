@@ -1,6 +1,8 @@
+using CapaEntidades;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace CapaDatos
 {
@@ -10,7 +12,7 @@ namespace CapaDatos
         {
             mensaje = string.Empty;
             bool exito = false;
-            string nombreBaseDeDatos = ocio_store;
+            string nombreBaseDeDatos = "ocio_store";
 
             // Validación de seguridad: Asegurar que la ruta no sea maliciosa.
             // Para un entorno de producción, es crucial validar la ruta.
@@ -47,7 +49,7 @@ namespace CapaDatos
         public List<HistorialBackup> ObtenerHistorialBackups()
         {
             List<HistorialBackup> historial = new List<HistorialBackup>();
-            string nombreBaseDeDatos = ocio_store;
+            string nombreBaseDeDatos = "ocio_store";
 
             try
             {
