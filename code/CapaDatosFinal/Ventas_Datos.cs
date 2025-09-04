@@ -270,5 +270,42 @@ namespace CapaDatos
             return objVenta;
         }
 
+        public bool FinalizarReservaComoVenta(int idReserva, decimal totalFinal, int idMedioPago, int idUser, int idCliente, out string mensaje)
+        {
+            mensaje = string.Empty;
+            bool exito = false;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_FINALIZAR_RESERVA_A_VENTA", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Asignar los parámetros que se pasan a la base de datos
+                    cmd.Parameters.AddWithValue("@id_reserva", idReserva);
+                    cmd.Parameters.AddWithValue("@total_venta", totalFinal);
+                    cmd.Parameters.AddWithValue("@id_medio", idMedioPago);
+                    cmd.Parameters.AddWithValue("@id_user", idUser);
+                    cmd.Parameters.AddWithValue("@id_cliente", idCliente);
+
+                    // Parámetro de salida del procedimiento para el mensaje de éxito o error
+                    cmd.Parameters.Add("@mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    mensaje = cmd.Parameters["@mensaje"].Value.ToString();
+                    exito = !mensaje.Contains("Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                exito = false;
+                mensaje = "Error en la capa de datos: " + ex.Message;
+            }
+
+            return exito;
+        }
     }
 }

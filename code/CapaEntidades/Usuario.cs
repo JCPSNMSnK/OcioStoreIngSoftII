@@ -17,8 +17,12 @@ namespace CapaEntidades
         public string pass { get; set; }
         public bool baja_user { get; set; }
         public Roles objRoles { get; set; }
+        public string telefono_user { get; set; }
+        public string direccion_user { get; set; }
+        public string localidad_user { get; set; }
+        public string provincia_user { get; set; }
 
-        public Usuario(string apellido, string nombre, int dni, string mail, string username, string pass, Roles rol)
+        public Usuario(string apellido, string nombre, int dni, string mail, string username, string pass, Roles rol, string telefono_user, string direccion_user, string localidad_user, string provincia_user)
         {
             this.id_user = 0; // ID por defecto, asumirá uno real al persistir
             this.apellido = apellido;
@@ -29,9 +33,13 @@ namespace CapaEntidades
             this.pass = pass;
             this.baja_user = false; // Por defecto, un usuario nuevo no está de baja
             this.objRoles = rol;
+            this.telefono_user = telefono_user;
+            this.direccion_user = direccion_user;
+            this.localidad_user = localidad_user;
+            this.provincia_user = provincia_user;
         }
 
-        public Usuario(int idUser, string apellido, string nombre, int dni, string mail, string username, string pass, bool bajaUser, Roles rol)
+        public Usuario(int idUser, string apellido, string nombre, int dni, string mail, string username, string pass, bool bajaUser, Roles rol, string telefono_user, string direccion_user, string localidad_user, string provincia_user)
         {
             this.id_user = idUser;
             this.apellido = apellido;
@@ -42,6 +50,10 @@ namespace CapaEntidades
             this.pass = pass;
             this.baja_user = bajaUser;
             this.objRoles = rol;
+            this.telefono_user = telefono_user;
+            this.direccion_user = direccion_user;
+            this.localidad_user = localidad_user;
+            this.provincia_user = provincia_user;
         }
 
         public Usuario() { }

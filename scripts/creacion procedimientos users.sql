@@ -7,7 +7,11 @@ CREATE PROC PROC_REGISTRAR_USUARIO(
     @pass varchar(255),
     @id_rol int,
     @baja_user bit = 0,
-
+    @telefono_user VARCHAR(20),
+    @direccion_user VARCHAR(100),
+    @localidad_user VARCHAR(50),
+    @provincia_user VARCHAR(50),
+    
     @id_user_resultado int output,
     @mensaje varchar(500) output
 )
@@ -38,8 +42,8 @@ BEGIN
     END
     
     -- Insertar el nuevo usuario
-    INSERT INTO Users (nombre, apellido, dni, mail, username, pass, baja_user, id_rol) 
-    VALUES (@nombre, @apellido, @dni, @mail, @username, @pass, @baja_user, @id_rol)
+    INSERT INTO Users (nombre, apellido, dni, mail, username, pass, baja_user, id_rol, telefono_user, direccion_user, localidad_user, provincia_user) 
+    VALUES (@nombre, @apellido, @dni, @mail, @username, @pass, @baja_user, @id_rol, @telefono_user, @direccion_user, @localidad_user, @provincia_user)
 
     SET @id_user_resultado = SCOPE_IDENTITY()
 END
@@ -54,6 +58,10 @@ CREATE PROC PROC_EDITAR_USUARIO(
     @pass varchar(255),
     @id_rol int,
     @baja_user bit,
+    @telefono_user VARCHAR(20),
+    @direccion_user VARCHAR(100),
+    @localidad_user VARCHAR(50),
+    @provincia_user VARCHAR(50),
 
     @respuesta bit output,
     @mensaje varchar(500) output
@@ -93,7 +101,11 @@ BEGIN
         username = @username,
         pass = @pass,
         id_rol = @id_rol,
-        baja_user = @baja_user
+        baja_user = @baja_user,
+        telefono_user = @telefono_user,
+        direccion_user = @direccion_user,
+        localidad_user = @localidad_user,
+        provincia_user = @provincia_user
     WHERE id_user = @id_user
 
     SET @respuesta = 1

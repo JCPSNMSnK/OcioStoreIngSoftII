@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaDatos;
+using CapaEntidades;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -8,6 +10,7 @@ using System.Threading.Tasks;
 
 using CapaDatos;
 using CapaEntidades;
+using Org.BouncyCastle.Crypto.Generators;
 
 namespace CapaNegocio
 {
@@ -107,6 +110,23 @@ namespace CapaNegocio
                 Mensaje += "Debe ingresar un nombre de usuario\n";
             }
 
+            if (string.IsNullOrWhiteSpace(obj.telefono_user))
+            {
+                Mensaje += "El TELEFONO del usuario es obligatorio.\n";
+            }
+            if (string.IsNullOrWhiteSpace(obj.direccion_user))
+            {
+                Mensaje += "La DIRECCIÓN del usuario es obligatorio.\n";
+            }
+            if (string.IsNullOrWhiteSpace(obj.localidad_user))
+            {
+                Mensaje += "La LOCALIDAD del usuario es obligatorio.\n";
+            }
+            if (string.IsNullOrWhiteSpace(obj.provincia_user))
+            {
+                Mensaje += "La PROVINCIA del usuario es obligatorio.\n";
+            }
+
             if (Mensaje != string.Empty)
             {
                 return 0;
@@ -115,6 +135,7 @@ namespace CapaNegocio
             {
                 return objUser_datos.Registrar(obj, out Mensaje);
             }
+            
 
         }
         public bool Editar(Usuario obj, out string Mensaje)//editarUsuario
@@ -139,6 +160,23 @@ namespace CapaNegocio
             if (obj.username == "")
             {
                 Mensaje += "Debe ingresar un nombre de usuario\n";
+            }
+
+            if (string.IsNullOrWhiteSpace(obj.telefono_user))
+            {
+                Mensaje += "El TELEFONO del usuario es obligatorio.\n";
+            }
+            if (string.IsNullOrWhiteSpace(obj.direccion_user))
+            {
+                Mensaje += "La DIRECCIÓN del usuario es obligatorio.\n";
+            }
+            if (string.IsNullOrWhiteSpace(obj.localidad_user))
+            {
+                Mensaje += "La LOCALIDAD del usuario es obligatorio.\n";
+            }
+            if (string.IsNullOrWhiteSpace(obj.provincia_user))
+            {
+                Mensaje += "La PROVINCIA del usuario es obligatorio.\n";
             }
 
             if (Mensaje != string.Empty)

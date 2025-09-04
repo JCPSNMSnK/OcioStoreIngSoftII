@@ -156,6 +156,69 @@ namespace CapaDatos
 
             return resultado;
         }
+
+        public Producto obtenerProducto(int id_producto)
+        {
+            Producto productoObtenido = null;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_OBTENER_PRODUCTO_COMPLETO", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_producto", id_producto);
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        // 1. Leer el primer conjunto de resultados (datos del producto)
+                        if (dr.Read())
+                        {
+                            productoObtenido = new Producto()
+                            {
+                                id_producto = Convert.ToInt32(dr["id_producto"]),
+                                nombre_producto = dr["nombre_producto"].ToString(),
+                                fechaIngreso = Convert.ToDateTime(dr["fechaIngreso"]),
+                                precioLista = Convert.ToDecimal(dr["precioLista"]),
+                                precioVenta = Convert.ToDecimal(dr["precioVenta"]),
+                                baja_producto = Convert.ToBoolean(dr["baja_producto"]),
+                                stock = Convert.ToInt32(dr["stock"]),
+                                stock_min = Convert.ToInt32(dr["stock_min"]),
+                                descripcion = dr["descripcion"].ToString(),
+                                cod_producto = Convert.ToInt32(dr["cod_producto"]),
+                                id_proveedor = Convert.ToInt32(dr["id_proveedor"]),
+
+                                // Inicializar la lista de categorías
+                                categoria = new List<Categoria>()
+                            };
+                        }
+
+                        // 2. Mover al siguiente conjunto de resultados (categorías)
+                        if (dr.NextResult())
+                        {
+                            while (dr.Read())
+                            {
+                                // Agregar cada categoría a la lista del producto
+                                productoObtenido.categoria.Add(new Categoria()
+                                {
+                                    id_categoria = Convert.ToInt32(dr["id_categoria"]),
+                                    nombre_categoria = dr["nombre_categoria"].ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                productoObtenido = null;
+            }
+
+            return productoObtenido;
+        }
+
     }
 }
 

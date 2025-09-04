@@ -22,7 +22,8 @@ namespace CapaDatos
             {
                 string query = @"
             SELECT u.id_user, u.apellido, u.nombre, u.dni, u.mail, u.username, u.pass, u.baja_user,
-                   r.id_rol, r.nombre_rol, r.descripcion
+                 u.telefono_user, u.direccion_user, u.localidad_user, u.provincia_user,
+                 r.id_rol, r.nombre_rol, r.descripcion
             FROM Users u
             INNER JOIN Roles r ON r.id_rol = u.id_rol
             WHERE u.username = @username COLLATE Latin1_General_CS_AS"; // case-sensitive
@@ -53,7 +54,11 @@ namespace CapaDatos
                                     id_rol = Convert.ToInt32(reader["id_rol"]),
                                     nombre_rol = reader["nombre_rol"].ToString(),
                                     descripcion = reader["descripcion"].ToString()
-                                }
+                                },
+                                telefono_user = reader["telefono_user"].ToString(),
+                                direccion_user = reader["direccion_user"].ToString(),
+                                localidad_user = reader["localidad_user"].ToString(),
+                                provincia_user = reader["provincia_user"].ToString()
                             };
                         }
                     }
@@ -78,7 +83,9 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT u.id_user, u.apellido, u.nombre, u.dni, u.mail, u.username, u.pass, u.baja_user, r.id_rol, r.nombre_rol, r.descripcion");
+                    query.AppendLine("SELECT u.id_user, u.apellido, u.nombre, u.dni, u.mail, u.username, u.pass, u.baja_user, " +
+                        "u.telefono_user, u.direccion_user, u.localidad_user, u.provincia_user," +
+                        "r.id_rol, r.nombre_rol, r.descripcion");
                     query.AppendLine("FROM Users u");
                     query.AppendLine("INNER JOIN Roles r ON r.id_rol = u.id_rol;");
 
@@ -106,7 +113,11 @@ namespace CapaDatos
                                     id_rol = Convert.ToInt32(dataReader["id_rol"]),
                                     nombre_rol = dataReader["nombre_rol"].ToString(),
                                     descripcion = dataReader["descripcion"].ToString()
-                                }
+                                },
+                                telefono_user = dataReader["telefono_user"].ToString(),
+                                direccion_user = dataReader["direccion_user"].ToString(),
+                                localidad_user = dataReader["localidad_user"].ToString(),
+                                provincia_user = dataReader["provincia_user"].ToString()
                             });
                         }
                     }
@@ -188,7 +199,10 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("pass", obj.pass);
                     cmd.Parameters.AddWithValue("baja_user", obj.baja_user);
                     cmd.Parameters.AddWithValue("id_rol", obj.objRoles.id_rol); // Asumiendo que Roles tiene id_rol
-
+                    cmd.Parameters.AddWithValue("telefono_user", obj.telefono_user);
+                    cmd.Parameters.AddWithValue("direccion_user", obj.direccion_user);
+                    cmd.Parameters.AddWithValue("localidad_user", obj.localidad_user);
+                    cmd.Parameters.AddWithValue("provincia_user", obj.provincia_user);
 
                     cmd.Parameters.Add("id_user_resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
@@ -230,6 +244,10 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("pass", obj.pass);
                     cmd.Parameters.AddWithValue("id_rol", obj.objRoles.id_rol); // Asumiendo que existe esta propiedad
                     cmd.Parameters.AddWithValue("baja_user", obj.baja_user);
+                    cmd.Parameters.AddWithValue("telefono_user", obj.telefono_user);
+                    cmd.Parameters.AddWithValue("direccion_user", obj.direccion_user);
+                    cmd.Parameters.AddWithValue("localidad_user", obj.localidad_user);
+                    cmd.Parameters.AddWithValue("provincia_user", obj.provincia_user);
 
                     cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;

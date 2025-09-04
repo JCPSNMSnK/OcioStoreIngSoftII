@@ -16,7 +16,7 @@ namespace CapaNegocio
             objVentaDatos = new Ventas_Datos();
         }
 
-        public int RegistrarReserva(Reserva objReserva, out string mensaje)
+        public int RegistrarReserva(Reserva objReserva, List<DetalleReserva> detalles, out string mensaje)
         {
             mensaje = string.Empty;
             int idReservaGenerada = 0;
@@ -29,7 +29,7 @@ namespace CapaNegocio
             }
 
             // Validación 2: La reserva debe tener al menos un producto.
-            if (objReserva.detalles == null || objReserva.detalles.Count < 1)
+            if (detalles.Count < 1)
             {
                 mensaje = "La reserva debe tener al menos un producto.";
                 return 0;
@@ -43,7 +43,7 @@ namespace CapaNegocio
             }
 
             // Validación 4: Las cantidades de los productos no pueden ser cero o negativas.
-            foreach (DetalleReserva dr in objReserva.detalles)
+            foreach (DetalleReserva dr in detalles)
             {
                 if (dr.cantidad <= 0)
                 {
@@ -54,11 +54,11 @@ namespace CapaNegocio
 
             // Validación 5: Verificar que hay suficiente stock disponible para la reserva.
             // A diferencia del caso anterior, el stock_reservado ya no existe.
-            foreach (DetalleReserva dr in objReserva.detalles)
+            foreach (DetalleReserva dr in detalles)
             {
                 // Usamos la capa de datos de Producto para obtener el stock
                 Producto_Datos objProductoDatos = new Producto_Datos();
-                Producto producto = objProductoDatos.ObtenerProducto(dr.id_producto);
+                Producto producto = objProductoDatos.obtenerProducto(dr.objProducto.id_producto);
                 if (producto != null)
                 {
                     if (producto.stock < dr.cantidad)
@@ -75,7 +75,7 @@ namespace CapaNegocio
             }
 
             // Si todas las validaciones pasan, se delega a la capa de datos.
-            idReservaGenerada = objReservasDatos.Registrar(objReserva, out mensaje);
+            idReservaGenerada = objReservasDatos.Registrar(objReserva, detalles, out mensaje);
 
             return idReservaGenerada;
         }

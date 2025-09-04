@@ -24,6 +24,10 @@ CREATE TABLE Users (
     pass VARCHAR(255) NOT NULL,
     baja_user BIT DEFAULT 0,  -- Aquí se usa BIT (0 para falso, 1 para verdadero)
     id_rol INT NOT NULL,
+    telefono_user VARCHAR(20),
+    direccion_user VARCHAR(100),
+    localidad_user VARCHAR(50),
+    provincia_user VARCHAR(50),
     CONSTRAINT PK_Users PRIMARY KEY (id_user),
     CONSTRAINT UQ_Users_dni UNIQUE (dni),
     CONSTRAINT UQ_Users_mail UNIQUE (mail),
@@ -60,7 +64,10 @@ CREATE TABLE Productos (
     stock INT NOT NULL,
     stock_min INT NOT NULL,
     descripcion TEXT,
+    cod_producto INT NOT NULL,
+    id_proveedor INT NOT NULL,
     CONSTRAINT PK_Productos PRIMARY KEY (id_producto),
+    CONSTRAINT FK_Productos FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id_proveedor) ON DELETE CASCADE,
 	CONSTRAINT CHK_Productos_stock CHECK (stock >= 0),
     CONSTRAINT CHK_Productos_precio CHECK (precioVenta > precioLista)
 );

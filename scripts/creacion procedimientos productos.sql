@@ -139,69 +139,42 @@ BEGIN
 END
 GO
 
+--4 OBTENER PRODUCTO POR ID
+CREATE OR ALTER PROCEDURE PROC_OBTENER_PRODUCTO_COMPLETO
+    @id_producto INT
+AS
+BEGIN
+    SET NOCOUNT ON;
 
------------------------
---PRUEBAS
-SELECT * FROM Productos
---1. INSERTAR PRODUCTOS
+    -- Primer SELECT: Obtener los datos del producto
+    SELECT
+        id_producto,
+        nombre_producto,
+        fechaIngreso,
+        precioLista,
+        precioVenta,
+        baja_producto,
+        stock,
+        stock_min,
+        descripcion,
+        cod_producto,
+        id_proveedor
+    FROM
+        Productos
+    WHERE
+        id_producto = @id_producto;
 
--- Lote 1: Catan
-EXEC PROC_CREAR_PRODUCTO 
-    @nombre_producto = 'Catan',
-    @id_categoria = 1,  -- Ej: Estrategia
-    @fechaIngreso = '2025-04-01',
-    @precioLista = 45.00,
-    @precioVenta = 59.99,
-    @stock = 25,
-    @stock_min = 5,
-    @eliminado = 0,
-    @descripcion = 'Juego de estrategia de comercio y expansi�n en una isla. Para 3-4 jugadores.';
-
--- Lote 2: Carcassonne
-EXEC PROC_CREAR_PRODUCTO 
-    @nombre_producto = 'Carcassonne',
-    @id_categoria = 1,  -- Ej: Estrategia
-    @fechaIngreso = '2025-04-03',
-    @precioLista = 30.00,
-    @precioVenta = 39.99,
-    @stock = 40,
-    @stock_min = 10,
-    @eliminado = 0,
-    @descripcion = 'Juego de colocaci�n de losetas con construcci�n de caminos, ciudades y campos.';
-
--- Lote 3: Dixit
-EXEC PROC_CREAR_PRODUCTO 
-    @nombre_producto = 'Dixit',
-    @id_categoria = 2,  -- Ej: Creatividad / Familiar
-    @fechaIngreso = '2025-04-05',
-    @precioLista = 32.00,
-    @precioVenta = 44.99,
-    @stock = 35,
-    @stock_min = 8,
-    @eliminado = 0,
-    @descripcion = 'Juego de cartas ilustradas donde se gana interpretando pistas creativas. Ideal para familias.';
-
--- Lote 4: Azul
-EXEC PROC_CREAR_PRODUCTO 
-    @nombre_producto = 'Azul',
-    @id_categoria = 3,  -- Ej: Abstracto
-    @fechaIngreso = '2025-04-07',
-    @precioLista = 35.00,
-    @precioVenta = 49.99,
-    @stock = 20,
-    @stock_min = 5,
-    @eliminado = 0,
-    @descripcion = 'Juego de colocaci�n de fichas basado en patrones de mosaicos portugueses.';
-
---2. BAJA PRODUCTO
-
--- Dar de baja 'Dixit'
-EXEC PROC_BAJA_PRODUCTO @nombre_producto = 'Dixit';
-
--- Dar de baja 'Azul'
-EXEC PROC_BAJA_PRODUCTO @nombre_producto = 'Azul';
-
-
-
+    -- Segundo SELECT: Obtener la lista de categorías asociadas
+    SELECT
+        c.id_categoria,
+        c.nombre_categoria
+    FROM
+        ProductosCategorias pc
+    INNER JOIN
+        Categorias c ON pc.id_categoria = c.id_categoria
+    WHERE
+        pc.id_producto = @id_producto;
+END;
+GO
 
 
