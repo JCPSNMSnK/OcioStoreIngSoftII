@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capanegocio\\reserva_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\reserva_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -70,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 24,
+          "SelectedChildIndex": 20,
           "Children": [
             {
               "$type": "Bookmark",
@@ -154,7 +158,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Program.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Program.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Program.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Program.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T20:05:44.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Ventas_Datos.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Ventas_Datos.cs",
               "RelativeDocumentMoniker": "CapaDatosFinal\\Ventas_Datos.cs",
@@ -167,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DetalleReserva.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\DetalleReserva.cs",
               "RelativeDocumentMoniker": "CapaEntidades\\DetalleReserva.cs",
@@ -180,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Reserva.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Reserva.cs",
               "RelativeDocumentMoniker": "CapaEntidades\\Reserva.cs",
@@ -193,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Reserva_Datos.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Reserva_Datos.cs",
               "RelativeDocumentMoniker": "CapaDatosFinal\\Reserva_Datos.cs",
@@ -206,20 +223,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Reserva_negocio.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Reserva_negocio.cs",
               "RelativeDocumentMoniker": "CapaNegocio\\Reserva_negocio.cs",
               "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Reserva_negocio.cs",
               "RelativeToolTip": "CapaNegocio\\Reserva_negocio.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAkwIIAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAkwIcAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-04T19:40:45.286Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Proveedor_negocio.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Proveedor_negocio.cs",
               "RelativeDocumentMoniker": "CapaNegocio\\Proveedor_negocio.cs",
@@ -232,7 +249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Ventas.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Ventas.cs",
               "RelativeDocumentMoniker": "CapaEntidades\\Ventas.cs",
@@ -245,12 +262,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Compras_negocio.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Compras_negocio.cs",
               "RelativeDocumentMoniker": "CapaNegocio\\Compras_negocio.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Compras_negocio.cs*",
-              "RelativeToolTip": "CapaNegocio\\Compras_negocio.cs*",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Compras_negocio.cs",
+              "RelativeToolTip": "CapaNegocio\\Compras_negocio.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAkwCcAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-04T19:33:23.513Z",
@@ -258,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Factura_Negocio.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Factura_Negocio.cs",
               "RelativeDocumentMoniker": "CapaNegocio\\Factura_Negocio.cs",
@@ -271,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Clientes_negocio.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Clientes_negocio.cs",
               "RelativeDocumentMoniker": "CapaNegocio\\Clientes_negocio.cs",
@@ -284,7 +301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Backup_negocio.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Backup_negocio.cs",
               "RelativeDocumentMoniker": "CapaNegocio\\Backup_negocio.cs",
@@ -297,7 +314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Backup_Datos.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Backup_Datos.cs",
               "RelativeDocumentMoniker": "CapaDatosFinal\\Backup_Datos.cs",
@@ -310,7 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Informes_Negocio.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Informes_Negocio.cs",
               "RelativeDocumentMoniker": "CapaNegocio\\Informes_Negocio.cs",
@@ -323,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Stats.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Stats.cs",
@@ -336,7 +353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Stats.cs [Design]",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs",
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Stats.cs",
