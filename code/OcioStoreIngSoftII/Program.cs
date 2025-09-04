@@ -4,6 +4,8 @@ using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
 
 namespace OcioStoreIngSoftII
 {
@@ -15,6 +17,9 @@ namespace OcioStoreIngSoftII
         [STAThread]
         static void Main()
         {
+            LiveCharts.Configure(config =>
+            config.AddDarkTheme());
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());

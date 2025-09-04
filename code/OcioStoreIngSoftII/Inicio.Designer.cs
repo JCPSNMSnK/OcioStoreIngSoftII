@@ -59,6 +59,7 @@
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -85,7 +86,8 @@
             this.menu.Controls.Add(this.SellButton, 0, 2);
             this.menu.Controls.Add(this.ProductsButton, 0, 3);
             this.menu.Controls.Add(this.HomeButton, 0, 0);
-            this.menu.Location = new System.Drawing.Point(3, 3);
+            this.menu.Location = new System.Drawing.Point(0, 0);
+            this.menu.Margin = new System.Windows.Forms.Padding(0);
             this.menu.Name = "menu";
             this.menu.RowCount = 10;
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -98,7 +100,7 @@
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menu.Size = new System.Drawing.Size(176, 682);
+            this.menu.Size = new System.Drawing.Size(176, 688);
             this.menu.TabIndex = 5;
             // 
             // CategoriesButton
@@ -375,9 +377,9 @@
             this.contenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("contenedor.BackgroundImage")));
             this.contenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contenedor.Location = new System.Drawing.Point(185, 3);
+            this.contenedor.Location = new System.Drawing.Point(179, 3);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(1075, 682);
+            this.contenedor.Size = new System.Drawing.Size(1081, 682);
             this.contenedor.TabIndex = 6;
             // 
             // Inicio

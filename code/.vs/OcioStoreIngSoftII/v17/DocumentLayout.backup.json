@@ -3,18 +3,28 @@
   "WorkspaceRootPath": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\dataset11.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\dataset11.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\ociostoreingsoftii\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\dataset11.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\dataset11.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\ociostoreingsoftii\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|OcioStoreIngSoftII||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\ociostoreingsoftii\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\stats.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\stats.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\themes\\paletacolores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\themes\\paletacolores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 20,
+          "SelectedChildIndex": 25,
           "Children": [
             {
               "$type": "Bookmark",
@@ -108,40 +118,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DataSet11.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\DataSet11.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\DataSet11.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\DataSet11.cs*",
-              "RelativeToolTip": "OcioStoreIngSoftII\\DataSet11.cs*",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAEAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "Stats.Designer.cs",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.Designer.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Stats.Designer.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.Designer.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Stats.Designer.cs",
+              "ViewState": "AgIAALIBAAAAAAAAAAAiwLwBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T14:13:41.811Z",
+              "WhenOpened": "2025-09-04T19:07:50.958Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DataSet11.xsd",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\DataSet11.xsd",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\DataSet11.xsd",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\DataSet11.xsd",
-              "RelativeToolTip": "OcioStoreIngSoftII\\DataSet11.xsd",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2025-08-13T14:12:56.776Z",
+              "DocumentIndex": 5,
+              "Title": "PaletaColores.cs",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Themes\\PaletaColores.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Themes\\PaletaColores.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Themes\\PaletaColores.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Themes\\PaletaColores.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T17:24:53.473Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Users.cs [Design]",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Users.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Users.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Users.cs [Design]",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Users.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T13:55:06.171Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "OcioStoreIngSoftII",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj",
-              "RelativeToolTip": "OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-08-13T14:10:20.188Z",
+              "Title": "Login.cs [Design]",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Login.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Login.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Login.cs [Design]",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Login.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T06:33:58.564Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Stats.cs",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Stats.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Stats.cs",
+              "ViewState": "AgIAALwAAAAAAAAAAAAAAMUAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T04:52:03.694Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Stats.cs [Design]",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Stats.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs [Design]",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Stats.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T04:30:46.484Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

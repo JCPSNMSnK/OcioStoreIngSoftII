@@ -317,7 +317,7 @@ namespace OcioStoreIngSoftII
 
             if (string.IsNullOrWhiteSpace(TNombre.Text))
             {
-                MessageBox.Show("El campo Nombre es obligatorio.");
+                MessageBox.Show("El campo Nombre interfaz es obligatorio.");
                 return;
             }
 
@@ -327,6 +327,7 @@ namespace OcioStoreIngSoftII
                 return;
             }
 
+            //Validar también que sea solo numérico
             if (string.IsNullOrWhiteSpace(TDni.Text))
             {
                 MessageBox.Show("El campo Apellido es obligatorio.");
