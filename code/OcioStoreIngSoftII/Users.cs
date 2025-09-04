@@ -389,6 +389,8 @@ namespace OcioStoreIngSoftII
                     VaciarCampos();
 
                     actualizarDatosTabla();
+
+                    MessageBox.Show("Usuario registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
