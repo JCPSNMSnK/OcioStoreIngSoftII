@@ -114,7 +114,7 @@ namespace CapaNegocio
             return true;
         }
 
-        public bool AsignarClienteSeleccionado(Ventas ventaActual, Cliente cliente, out string mensaje)
+        public bool AsignarClienteSeleccionado(Ventas ventaActual, MediosPago mediosPago, Cliente cliente, out string mensaje)
         {
             mensaje = string.Empty;
             List<string> errores = new List<string>();
@@ -143,7 +143,7 @@ namespace CapaNegocio
                 }
                 else
                 {
-                    ventaActual.AsignaCliente(cliente); // Usa el método de la entidad Venta
+                    ventaActual.AsignarCliente(cliente); // Usa el método de la entidad Venta
                 }
             }
             catch (Exception ex)

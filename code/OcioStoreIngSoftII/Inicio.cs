@@ -185,7 +185,7 @@ namespace OcioStoreIngSoftII
 
         private void StatsButton_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario((IconButton)sender, new Stats());
         }
 
         private void BackupButton_Click(object sender, EventArgs e)

@@ -67,7 +67,7 @@ namespace CapaDatos
                                     apellido_cliente = dataReader["apellido_cliente"].ToString(),
                                     nombre_cliente = dataReader["nombre_cliente"].ToString(),
                                     dni_cliente = Convert.ToInt32(dataReader["dni_cliente"]),
-                                    mail_cliente = dataReader["email_cliente"].ToString(),
+                                    email_cliente = dataReader["email_cliente"].ToString(),
                                     direccion_cliente = dataReader["direccion_cliente"].ToString(),
                                     telefono_cliente = dataReader["telefono_cliente"].ToString(),
                                     localidad_cliente = dataReader["localidad_cliente"].ToString(),
@@ -203,9 +203,9 @@ namespace CapaDatos
             return exito;
         }
 
-        public Venta ObtenerVentaCompleta(int idVenta)
+        public Ventas ObtenerVentaCompleta(int idVenta)
         {
-            Venta objVenta = null;
+            Ventas objVenta = null;
 
             try
             {
@@ -228,9 +228,9 @@ namespace CapaDatos
                                 objProducto = new Producto()
                                 {
                                     id_producto = Convert.ToInt32(dr["id_producto"]),
-                                    codigo = dr["codigo"].ToString(),
+                                    cod_producto = Convert.ToInt32(dr["codigo"]),
                                     nombre_producto = dr["nombre_producto"].ToString(),
-                                    precio_venta = Convert.ToDecimal(dr["precio_venta"])
+                                    precioVenta = Convert.ToDecimal(dr["precio_venta"])
                                 },
                                 cantidad = Convert.ToInt32(dr["cantidad"]),
                                 subtotal = Convert.ToDecimal(dr["subtotal"])
@@ -243,7 +243,7 @@ namespace CapaDatos
                             if (dr.Read())
                             {
                                 // Crear el objeto Venta y asignarle los detalles
-                                objVenta = new Venta()
+                                objVenta = new Ventas()
                                 {
                                     id_venta = Convert.ToInt32(dr["id_venta"]),
                                     total = Convert.ToDecimal(dr["total"]),
