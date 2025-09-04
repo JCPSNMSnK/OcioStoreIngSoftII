@@ -31,12 +31,12 @@ namespace CapaDatos
                     // Llenamos el DataTable con los datos de los detalles de la compra
                     foreach (DetalleCompra dc in objCompra.detalles)
                     {
-                        dtDetalles.Rows.Add(new object[] { dc.id_producto, dc.cantidad, dc.precio_unitario });
+                        dtDetalles.Rows.Add(new object[] { dc.objProducto.id_producto, dc.cantidad, dc.precio_unitario });
                     }
 
                     // Asignamos los parámetros del procedimiento almacenado
                     cmd.Parameters.AddWithValue("@id_proveedor", objCompra.objProveedor.id_proveedor);
-                    cmd.Parameters.AddWithValue("@total_compra", objCompra.total_compra);
+                    cmd.Parameters.AddWithValue("@total_compra", objCompra.total);
                     // Pasamos el DataTable como un parámetro de tipo tabla
                     cmd.Parameters.AddWithValue("@detalles_compra", dtDetalles);
 
@@ -86,7 +86,7 @@ namespace CapaDatos
                             {
                                 id_compra = Convert.ToInt32(dr["id_compra"]),
                                 fecha_compra = Convert.ToDateTime(dr["fecha_compra"]),
-                                total_compra = Convert.ToDecimal(dr["total_compra"]),
+                                total = Convert.ToDecimal(dr["total_compra"]),
                                 objProveedor = new Proveedor()
                                 {
                                     id_proveedor = Convert.ToInt32(dr["id_proveedor"]),
