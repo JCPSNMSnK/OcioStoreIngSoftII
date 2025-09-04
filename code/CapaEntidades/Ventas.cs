@@ -14,7 +14,7 @@ namespace CapaEntidades
         public Usuario objUsuario { get; set; }
         public DateTime fecha_venta { get; set; }
         public List<DetalleVenta> detalles { get; set; }
-
+        public Cliente objCliente { get; set; }
         public Ventas(Usuario usuario)
         {
             this.id_venta = 0; // O un valor que indique que aún no tiene ID
@@ -23,9 +23,10 @@ namespace CapaEntidades
             this.objUsuario = usuario; // Asigna el usuario proporcionado
             this.fecha_venta = DateTime.Now; // Toma la fecha y hora actual
             this.detalles = new List<DetalleVenta>(); // Inicializa la lista de detalles
+            this.objCliente = null;
         }
 
-        public Ventas(int idVenta, decimal totalVenta, MediosPago mediosPago, Usuario usuario, DateTime fechaVenta, List<DetalleVenta> detallesVenta)
+        public Ventas(int idVenta, decimal totalVenta, MediosPago mediosPago, Usuario usuario, DateTime fechaVenta, List<DetalleVenta> detallesVenta, Cliente objCliente)
         {
             this.id_venta = idVenta;
             this.total = totalVenta;
@@ -33,6 +34,7 @@ namespace CapaEntidades
             this.objUsuario = usuario;
             this.fecha_venta = fechaVenta;
             this.detalles = detallesVenta ?? new List<DetalleVenta>(); // Si se pasa null, inicializa una nueva lista
+            this.objCliente = objCliente;
         }
 
         public Ventas() { }
@@ -60,10 +62,15 @@ namespace CapaEntidades
             // Aplica la comisión si hay un medio de pago asignado
             if (objMediosPago != null && objMediosPago.comision > 0)
             {
-                totalCalculado *= (1 + (objMediosPago.comision / 100m)); // ✅ dividido por 100
+                totalCalculado *= (1 + (objMediosPago.comision / 100m)); // dividido por 100
             }
 
             this.total = totalCalculado; // Asigna el total recalculado (cuidado con float vs decimal)
+        }
+
+        public void AsignarCliente(Cliente cliente)
+        {
+            this.objCliente = cliente;
         }
     }
 }

@@ -22,7 +22,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT id_venta,total,id_medio,id_user,fecha_venta FROM ventas v");
+                    query.AppendLine("SELECT id_venta,total,id_medio,id_user, id_cliente, fecha_venta FROM ventas v");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -60,6 +60,20 @@ namespace CapaDatos
                                         nombre_rol = dataReader["nombre_rol"].ToString(),
                                     }
                                 },
+
+                                objCliente = new Cliente()
+                                {
+                                    id_cliente = Convert.ToInt32(dataReader["id_cliente"]),
+                                    apellido_cliente = dataReader["apellido_cliente"].ToString(),
+                                    nombre_cliente = dataReader["nombre_cliente"].ToString(),
+                                    dni_cliente = Convert.ToInt32(dataReader["dni_cliente"]),
+                                    mail_cliente = dataReader["email_cliente"].ToString(),
+                                    direccion_cliente = dataReader["direccion_cliente"].ToString(),
+                                    telefono_cliente = dataReader["telefono_cliente"].ToString(),
+                                    localidad_cliente = dataReader["localidad_cliente"].ToString(),
+                                    provincia_cliente = dataReader["provincia_cliente"].ToString()
+                                },
+
 
                                 fecha_venta = Convert.ToDateTime(dataReader["fecha_venta"]),
                             });
@@ -100,6 +114,7 @@ namespace CapaDatos
                         cmdVenta.Parameters.AddWithValue("total", obj.total);
                         cmdVenta.Parameters.AddWithValue("@id_medio", obj.objMediosPago.id_medioPago);
                         cmdVenta.Parameters.AddWithValue("@id_user", obj.objUsuario.id_user);
+                        cmdVenta.Parameters.AddWithValue("@id_cliente", obj.objCliente.id_cliente);
                         cmdVenta.Parameters.AddWithValue("fecha_venta", obj.fecha_venta);
 
                         cmdVenta.Parameters.Add("id_venta_registrada", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -113,7 +128,7 @@ namespace CapaDatos
                         mensajeSalida = cmdVenta.Parameters["mensaje"].Value.ToString();
 
                         // Si la venta principal no se registró correctamente, lanzar excepción para hacer rollback
-                        if (idVentaRegistrada == 0) 
+                        if (idVentaRegistrada == 0)
                         {
                             throw new Exception($"Error al registrar la venta principal: {mensajeSalida}");
                         }
@@ -150,7 +165,7 @@ namespace CapaDatos
                                     // Si el Proc Almac de detalle retorna '0' o un flag para error, úsalo.
                                 }
                             }
-                            
+
                         }
                     }
                     else
@@ -186,6 +201,73 @@ namespace CapaDatos
 
             Mensaje = mensajeSalida;
             return exito;
+        }
+
+        public Venta ObtenerVentaCompleta(int idVenta)
+        {
+            Venta objVenta = null;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_OBTENER_VENTA_COMPLETA", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_venta", idVenta);
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        // Leer el primer conjunto de resultados (Detalles de Venta)
+                        List<DetalleVenta> detalles = new List<DetalleVenta>();
+                        while (dr.Read())
+                        {
+                            detalles.Add(new DetalleVenta()
+                            {
+                                // Aquí se crea el objeto DetalleVenta
+                                objProducto = new Producto()
+                                {
+                                    id_producto = Convert.ToInt32(dr["id_producto"]),
+                                    codigo = dr["codigo"].ToString(),
+                                    nombre_producto = dr["nombre_producto"].ToString(),
+                                    precio_venta = Convert.ToDecimal(dr["precio_venta"])
+                                },
+                                cantidad = Convert.ToInt32(dr["cantidad"]),
+                                subtotal = Convert.ToDecimal(dr["subtotal"])
+                            });
+                        }
+
+                        // Mover al siguiente conjunto de resultados (Datos de la Venta y el Cliente)
+                        if (dr.NextResult())
+                        {
+                            if (dr.Read())
+                            {
+                                // Crear el objeto Venta y asignarle los detalles
+                                objVenta = new Venta()
+                                {
+                                    id_venta = Convert.ToInt32(dr["id_venta"]),
+                                    total = Convert.ToDecimal(dr["total"]),
+                                    fecha_venta = Convert.ToDateTime(dr["fecha_venta"]),
+                                    objCliente = new Cliente()
+                                    {
+                                        id_cliente = Convert.ToInt32(dr["id_cliente"]),
+                                        dni_cliente = Convert.ToInt32(dr["dni_cliente"]),
+                                        nombre_cliente = dr["nombre_cliente"].ToString(),
+                                        apellido_cliente = dr["apellido_cliente"].ToString()
+                                    },
+                                    detalles = detalles
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                objVenta = null;
+            }
+
+            return objVenta;
         }
 
     }

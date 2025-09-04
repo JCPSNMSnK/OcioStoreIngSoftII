@@ -17,6 +17,30 @@ namespace CapaNegocio
             return objCategoria_datos.Listar();
         }
 
+        public int Registrar(Categoria categoria, out string mensaje)
+        {
+            mensaje = string.Empty;
+
+            // Validación 1: El nombre de la categoría no puede estar vacío.
+            if (string.IsNullOrWhiteSpace(categoria.nombre_categoria))
+            {
+                mensaje = "El nombre de la categoría no puede ser vacío.";
+                return 0; // Se retorna 0 si la validación falla
+            }
+
+            // Validación 2: El nombre no puede ser un duplicado de una categoría existente.
+            // Para un nuevo registro, el ID es 0, por lo que la función de validación
+            // en la capa de datos debe manejar este caso correctamente.
+            if (objCategoria_datos.NombreExiste(0, categoria.nombre_categoria))
+            {
+                mensaje = "Ya existe una categoría con el mismo nombre.";
+                return 0; // Se retorna 0 si la validación falla
+            }
+
+            // Si las validaciones de negocio pasan, se delega el registro a la capa de datos.
+            return objCategoria_datos.registrarCategoria(categoria, out mensaje);
+        }
+
         public bool Modificar(Categoria categoria, out string mensaje)
         {
             mensaje = string.Empty;

@@ -23,7 +23,7 @@ namespace CapaDatos
                 {
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("SELECT p.id_producto, p.nombre_producto, p.fechaIngreso, p.descripcion, p.precioLista, p.precioVenta,");
-                    query.AppendLine("p.stock, p.stock_min, p.baja_producto, c.id_categoria, c.nombre_categoria");
+                    query.AppendLine("p.stock, p.stock_min, p.baja_producto, c.id_categoria, c.nombre_categoria, p.cod_producto, p.id_proveedor");
                     query.AppendLine("FROM Productos p ");
                     query.AppendLine("LEFT JOIN ProductosCategorias pc ON p.id_producto = pc.id_producto ");
                     query.AppendLine("LEFT JOIN Categorias c ON pc.id_categoria = c.id_categoria ");
@@ -55,6 +55,8 @@ namespace CapaDatos
                                 descripcion = dataReader["descripcion"] != DBNull.Value
                                     ? dataReader["descripcion"].ToString()
                                     : string.Empty,
+                                cod_producto = Convert.ToInt32(dataReader["cod_producto"]),
+                                id_proveedor = Convert.ToInt32(dataReader["id_proveedor"])
                             });
                         }
                     }
@@ -88,6 +90,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("stock_min", obj.stock_min);
                     cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
                     cmd.Parameters.AddWithValue("id_categoria", objCat.id_categoria);
+                    cmd.Parameters.AddWithValue("cod_producto", obj.cod_producto);
+                    cmd.Parameters.AddWithValue("id_proveedor", obj.id_proveedor);
 
                     cmd.Parameters.Add("id_producto_resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
@@ -129,6 +133,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("stock_min", obj.stock_min);
                     cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
                     cmd.Parameters.AddWithValue("id_categoria", objCat.id_categoria);
+                    cmd.Parameters.AddWithValue("cod_producto", obj.cod_producto);
+                    cmd.Parameters.AddWithValue("id_proveedor", obj.id_proveedor);
 
                     cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;

@@ -80,10 +80,12 @@ CREATE TABLE Ventas (
 	total DECIMAL(12,2) NOT NULL,
     id_medio INT NOT NULL,
     id_user INT NOT NULL,
+    id_cliente INT NULL,
     fecha_venta DATETIME NOT NULL,
     CONSTRAINT PK_Ventas PRIMARY KEY (id_venta),
-    CONSTRAINT FK_Ventas_MetodoPago FOREIGN KEY (id_medio) REFERENCES MetodosPago(id_medioPago) ON DELETE CASCADE,
-    CONSTRAINT FK_Ventas_User FOREIGN KEY (id_user) REFERENCES Users(id_user) ON DELETE CASCADE
+    CONSTRAINT FK_Ventas_MetodosPago FOREIGN KEY (id_medio) REFERENCES MetodosPago(id_medioPago) ON DELETE CASCADE,
+    CONSTRAINT FK_Ventas_Users FOREIGN KEY (id_user) REFERENCES Users(id_user) ON DELETE CASCADE,
+    CONSTRAINT FK_Ventas_Clientes FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente) ON DELETE CASCADE
 );
 
 -- Tabla DetalleVentas
