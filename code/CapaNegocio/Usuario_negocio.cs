@@ -7,9 +7,6 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
-
-using CapaDatos;
-using CapaEntidades;
 using Org.BouncyCastle.Crypto.Generators;
 
 namespace CapaNegocio

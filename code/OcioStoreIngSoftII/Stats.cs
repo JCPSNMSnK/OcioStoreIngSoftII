@@ -15,6 +15,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static iText.Svg.SvgConstants;
+using CapaEntidades;
+using CapaNegocio;
 
 namespace OcioStoreIngSoftII
 {
@@ -25,230 +27,136 @@ namespace OcioStoreIngSoftII
             InitializeComponent();
         }
 
-        private void cuiFolderDropper1_FolderDropped(object sender, CuoreUI.Controls.FolderDroppedEventArgs e)
+        private Informes_Negocio objNegocio = new Informes_Negocio();
+
+        private void Stats_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(e.FolderName);
+            DtpFechaFin.Content = DateTime.Now;
+            DtpFechaInicio.Content = DateTime.Now.AddMonths(-1);
+
+            CargarDashboard();
         }
 
-        private void cartesianChart1_Load(object sender, EventArgs e)
+        private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            cartesianChart1.Series = new ISeries[]
+            // Valida las fechas antes de continuar
+            if (DtpFechaInicio.Content > DtpFechaFin.Content)
             {
-                new LineSeries<double>
-                {
-                    Values = new double[] { 2, 1, 3, 5, 3, 4, 6 },
-                    Fill = null
-                }
-            };
-        }
-
-        private void cuiLabel1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cuiLabel2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void cartesianChart1_Load_2(object sender, EventArgs e)
-        {
-            var seriesColors = PaletaColores.OcioStore;
-            cartesianChart1.Series = new ISeries[]
-            {
-                new LineSeries<double>
-                {
-                    Name = "Ventas",
-                    Values = new double[] { 2, 1, 35, 5, 3, 4, 6 },
-                    Fill = new SolidColorPaint(seriesColors[0]),
-                }
-            };
-
-            cartesianChart1.XAxes = new[]
-            {
-                new Axis
-                {
-                    Name = "Día",
-                    NamePaint = new SolidColorPaint(new SKColor(180, 180, 180)),
-                    LabelsPaint = new SolidColorPaint(new SKColor(180, 180, 180)),
-                    SeparatorsPaint = new SolidColorPaint(new SKColor(255, 255, 255, 40))
-                }
-            };
-
-            cartesianChart1.YAxes = new[]
-            {
-                new Axis
-                {
-                    Name = "Total Vendido",
-                    NamePaint = new SolidColorPaint(new SKColor(180, 180, 180)),
-                    LabelsPaint = new SolidColorPaint(new SKColor(180, 180, 180)),
-                    SeparatorsPaint = new SolidColorPaint(new SKColor(255, 255, 255, 40)),
-                    MinLimit = 0 // Asegura que el eje empiece en 0
-                }
-            };
-
-            // 5. Configura el Título, Tooltip y Leyenda
-            cartesianChart1.Title = new LabelVisual
-            {
-                Text = "Productos más Vendidos",
-                TextSize = 22,
-                Paint = new SolidColorPaint(SKColors.White)
-            };
-
-            cartesianChart1.TooltipTextPaint = new SolidColorPaint(SKColors.White);
-            cartesianChart1.TooltipBackgroundPaint = new SolidColorPaint(new SKColor(40, 40, 40));
-            cartesianChart1.LegendTextPaint = new SolidColorPaint(new SKColor(180, 180, 180));
-            cartesianChart1.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
-        }
-
-        private void pieChart1_Load_1(object sender, EventArgs e)
-        {
-            var seriesColors = PaletaColores.OcioStore;
-
-            var datos = new[]
-            {
-                new PieSeries<double> { Values = new double[] { 2 }, Name = "Producto A" },
-                new PieSeries<double> { Values = new double[] { 4 }, Name = "Producto B" },
-                new PieSeries<double> { Values = new double[] { 1 }, Name = "Producto C" },
-                new PieSeries<double> { Values = new double[] { 4 }, Name = "Producto D" },
-                new PieSeries<double> { Values = new double[] { 3 }, Name = "Producto E" }
-            };
-
-            int colorIndex = 0;
-            foreach (var serie in datos)
-            {
-                // Asigna el color correspondiente de la paleta.
-                // El operador '%' asegura que si hay más series que colores, los colores se repitan.
-                serie.Fill = new SolidColorPaint(seriesColors[colorIndex % seriesColors.Length]);
-
-                // (Opcional) Pinta las etiquetas de los datos para que se vean bien
-                serie.DataLabelsPaint = new SolidColorPaint(SKColors.White);
-                serie.DataLabelsPosition = LiveChartsCore.Measure.PolarLabelsPosition.Outer;
-
-                colorIndex++;
+                MessageBox.Show("La fecha de inicio no puede ser posterior a la fecha de fin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            pieChart1.Title = new LabelVisual
-            {
-                Text = "Productos mas Vendidos",
-                TextSize = 22,
-                Paint = new SolidColorPaint(SKColors.White)
-            };
-
-            pieChart1.Series = datos;
-            pieChart1.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
+            CargarDashboard();
         }
 
-        private void pieChart2_Load_1(object sender, EventArgs e)
+        private void CargarDashboard()
         {
-            var seriesColors = PaletaColores.OcioStore;
+            DateTime fechaInicio = DtpFechaInicio.Content;
+            DateTime fechaFin = DtpFechaFin.Content;
 
-            var datos = new[]
+            CargarGraficoFluctuacionVentas(fechaInicio, fechaFin);
+            CargarGraficoProductosMasVendidos(fechaInicio, fechaFin);
+            CargarGraficoCategoriasMasVendidas(fechaInicio, fechaFin);
+            //CargarGraficoVendedoresMasVentas(fechaInicio, fechaFin);
+        }
+
+        private void CargarGraficoFluctuacionVentas(DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<VentaPorPeriodo> resultados = objNegocio.ObtenerFluctuacionDeVentas(fechaInicio, fechaFin);
+
+            var chart = GraphFluctuacionVentas;
+
+            if (resultados.Count == 0)
             {
-                new PieSeries<double> { Values = new double[] { 12 }, Name = "Producto A" },
-                new PieSeries<double> { Values = new double[] { 6 }, Name = "Producto B" },
-                new PieSeries<double> { Values = new double[] { 1 }, Name = "Producto C" },
-                new PieSeries<double> { Values = new double[] { 4 }, Name = "Producto D" },
-                new PieSeries<double> { Values = new double[] { 3 }, Name = "Producto E" }
-            };
-
-            int colorIndex = 0;
-            foreach (var serie in datos)
-            {
-                // Asigna el color correspondiente de la paleta.
-                // El operador '%' asegura que si hay más series que colores, los colores se repitan.
-                serie.Fill = new SolidColorPaint(seriesColors[colorIndex % seriesColors.Length]);
-
-                // (Opcional) Pinta las etiquetas de los datos para que se vean bien
-                serie.DataLabelsPaint = new SolidColorPaint(SKColors.White);
-                serie.DataLabelsPosition = LiveChartsCore.Measure.PolarLabelsPosition.Outer;
-
-                colorIndex++;
+                chart.Series = new ISeries[0];
+                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay productos vendidos en este período");
+                return;
             }
 
-            pieChart2.Title = new LabelVisual
+            // Adapta los datos para LiveCharts usando LINQ
+            var valores = resultados.Select(v => v.total_ventas).ToArray();
+            var etiquetas = resultados.Select(v => v.fecha_periodo.ToString("dd/MM")).ToArray();
+
+            chart.Series = new ISeries[]
             {
-                Text = "Categorías mas Vendidas",
-                TextSize = 22,
-                Paint = new SolidColorPaint(SKColors.White)
-            };
-
-            pieChart2.Series = datos;
-            pieChart2.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
-
-        }
-
-        private void cartesianChart2_Load_1(object sender, EventArgs e)
+        new LineSeries<decimal>
         {
-            var seriesColors = PaletaColores.OcioStore;
-            var datos = new double[] { 2, 5, 4 };
-            var datos2 = new double[] { 7, 2, 4 };
-
-            cartesianChart2.ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.X;
-            cartesianChart2.Series = new ISeries[] {
-            new ColumnSeries<double>
-                {
-                Name = "Marita",
-                Values = datos
-                },
-            new ColumnSeries<double>
-                {
-                Name = "Josefa",
-                Values = datos2
-                }
-            };
-
-            cartesianChart2.YAxes = new[]
-            {
-                new Axis
-                {
-                    Name = "Total Comprado(?",
-                    NamePaint = new SolidColorPaint(new SKColor(180, 180, 180)),
-                    SeparatorsPaint = new SolidColorPaint(new SKColor(255, 255, 255, 40)),
-                    MinLimit = 0 // El límite mínimo va en el eje de valores (Y)
-                }
-            };
-
-            cartesianChart2.XAxes = new[]
-            {
-                new Axis
-                {
-                    Name = "Productos",
-                    Labels = new string [] {"Producto 1", "Producto 2", "Producto 3" },
-                    LabelsRotation = 0,
-                    NamePaint = new SolidColorPaint(new SKColor(180, 180, 180)),
-                    SeparatorsAtCenter = false,
-                    TicksAtCenter = true,
-                    SeparatorsPaint = new SolidColorPaint(new SKColor(255, 255, 255, 40)),
-                    MinLimit = 0 // Asegura que el eje empiece en 0
-                }
-            };
-
-            cartesianChart2.Title = new LabelVisual
-            {
-                Text = "Vendedor con más Ventas",
-                TextSize = 22,
-                Paint = new SolidColorPaint(SKColors.White)
-            };
-
-
-            cartesianChart2.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
+            Name = "Total de Ventas",
+            Values = valores,
+            Fill = null // Muestra solo la línea
         }
+            };
 
-        private void cuiButton1_Click(object sender, EventArgs e)
+            chart.XAxes = new[] { new Axis { Name = "Fecha", Labels = etiquetas } };
+            chart.YAxes = new[] { new Axis { Name = "Ingresos", MinLimit = 0 } };
+            chart.Title = FabricaGraficos.CrearTituloGrapf("Fluctuación de Ventas");
+        }
+        
+        private void CargarGraficoProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
         {
+            // Llama a la capa de negocio
+            List<ProductoVendido> resultados = objNegocio.ObtenerProductosMasVendidos(fechaInicio, fechaFin);
 
+            var chart = GraphVendedoresMasVentas; // Asigna el gráfico correcto
+
+            if (resultados.Count == 0)
+            {
+                chart.Series = new ISeries[0];
+                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay productos vendidos en este período");
+                return;
+            }
+
+            // Adapta los datos para un gráfico de barras horizontales
+            var valores = resultados.Select(p => (double)p.cantidad_vendida).ToArray();
+            var etiquetas = resultados.Select(p => p.nombre_producto).ToArray();
+
+            chart.Series = new ISeries[]
+            {
+                new ColumnSeries<double>
+                {
+                    Name = "Cantidad",
+                    Values = valores
+                }
+            };
+
+            chart.XAxes = new[] { new Axis { Labels = etiquetas, LabelsRotation = 90 }  };
+            chart.YAxes = new[] { new Axis { MinLimit = 0 } };
+            chart.Title = FabricaGraficos.CrearTituloGrapf("Top Productos Vendidos");
+            chart.ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.PanX;
+        }
+        
+
+        private void CargarGraficoCategoriasMasVendidas(DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<CategoriaMasVendida> resultados = objNegocio.ObtenerCategoriasMasVendidas(fechaInicio, fechaFin);
+
+            var chart = GraphCategoriasMasVendidas; // Asigna el gráfico correcto
+
+            if (resultados.Count == 0)
+            {
+                chart.Series = new ISeries[0];
+                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay ventas por categoría en este período");
+                return;
+            }
+
+            var datos = resultados.Select(categoria => new PieSeries<double>
+            {
+                Values = new double[] { (double)categoria.cantidad_vendida },
+                Name = categoria.nombre_categoria
+            }).ToArray();
+
+            chart.Title = FabricaGraficos.CrearTituloGrapf("Ventas por Categoría");
+
+            for (int i = 0; i < datos.Length; i++)
+            {
+                // Operador '%' para que los colores se repitan si hay más series que colores
+                datos[i].Fill = new SolidColorPaint(PaletaColores.OcioStore[i % PaletaColores.OcioStore.Length]);
+            }
+
+            chart.Series = datos;
+            chart.LegendPosition = LiveChartsCore.Measure.LegendPosition.Bottom;
+
+            chart.Title = FabricaGraficos.CrearTituloGrapf("Ventas por Categoría");
         }
     }
 }

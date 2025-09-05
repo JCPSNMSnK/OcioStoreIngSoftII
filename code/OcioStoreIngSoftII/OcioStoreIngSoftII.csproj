@@ -358,6 +358,7 @@
     <Compile Include="Stats.Designer.cs">
       <DependentUpon>Stats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Themes\FabricaGraficos.cs" />
     <Compile Include="Themes\PaletaColores.cs" />
     <Compile Include="Users.cs">
       <SubType>Form</SubType>

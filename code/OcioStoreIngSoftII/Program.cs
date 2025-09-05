@@ -22,7 +22,7 @@ namespace OcioStoreIngSoftII
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Stats());
+            Application.Run(new Login());
         }
     }
 }
