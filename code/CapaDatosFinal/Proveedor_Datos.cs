@@ -17,7 +17,7 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT id_proveedor, nombre_proveedor, telefono_proveedor, cuit_proveedor FROM Proveedores", oconexion);
+                    SqlCommand cmd = new SqlCommand("SELECT id_proveedor, nombre_proveedor, telefono_proveedor, cuit_proveedor, baja_proveedor FROM Proveedores", oconexion);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -31,7 +31,7 @@ namespace CapaDatos
                                 id_proveedor = Convert.ToInt32(dr["id_proveedor"]),
                                 nombre_proveedor = dr["nombre_proveedor"].ToString(),
                                 telefono_proveedor = dr["telefono_proveedor"].ToString(),
-                                cuit_proveedor = dr["cuit_proveedor"].ToString()
+                                cuit_proveedor = dr["cuit_proveedor"].ToString(),
                             });
                         }
                     }

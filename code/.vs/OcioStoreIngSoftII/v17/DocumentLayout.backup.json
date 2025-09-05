@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capanegocio\\informes_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\informes_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\informedetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\informedetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\informe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\informe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\ociostoreingsoftii\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\ociostoreingsoftii\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,8 +15,24 @@
       "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\ociostoreingsoftii\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\capanegocio\\informes_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\informes_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capanegocio\\usuario_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\usuario_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\capadatosfinal\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\ociostoreingsoftii\\properties\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\properties\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\ociostoreingsoftii\\dataset11.xsd||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\dataset11.xsd||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,20 +42,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 22,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "InformeDetalle.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\InformeDetalle.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\InformeDetalle.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\InformeDetalle.cs",
-              "RelativeToolTip": "CapaEntidades\\InformeDetalle.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBAAAAAFAAAAAAAAAA==",
+              "Title": "Stats.cs",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Stats.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs*",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Stats.cs*",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAewJoAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T20:42:55.03Z",
+              "WhenOpened": "2025-09-04T04:52:03.694Z",
+              "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Stats.cs [Design]",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Stats.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs [Design]*",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Stats.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T04:30:46.484Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Bookmark",
@@ -132,66 +154,78 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Informe.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Informe.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\Informe.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Informe.cs",
-              "RelativeToolTip": "CapaEntidades\\Informe.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAIwCkAAAABAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Program.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Program.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Program.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Program.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwBgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T20:42:02.768Z",
+              "WhenOpened": "2025-09-05T04:43:20.775Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "Usuario_negocio.cs",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Usuario_negocio.cs",
+              "RelativeDocumentMoniker": "CapaNegocio\\Usuario_negocio.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Usuario_negocio.cs",
+              "RelativeToolTip": "CapaNegocio\\Usuario_negocio.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwBwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T03:49:08.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Settings.Designer.cs",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Properties\\Settings.Designer.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Properties\\Settings.Designer.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Properties\\Settings.Designer.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Properties\\Settings.Designer.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAqwB4AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T03:48:44.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DataSet11.xsd",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\DataSet11.xsd",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\DataSet11.xsd",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\DataSet11.xsd",
+              "RelativeToolTip": "OcioStoreIngSoftII\\DataSet11.xsd",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABXAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2025-09-05T03:48:34.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Informes_Negocio.cs",
               "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Informes_Negocio.cs",
               "RelativeDocumentMoniker": "CapaNegocio\\Informes_Negocio.cs",
               "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Informes_Negocio.cs",
               "RelativeToolTip": "CapaNegocio\\Informes_Negocio.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowEwAAABwAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAIA5wFMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-04T20:07:00.434Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Program.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Program.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Program.cs",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Program.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBgAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T20:05:44.404Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Stats.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Stats.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Stats.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAADwv0YAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T04:52:03.694Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Stats.cs [Design]",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Stats.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Stats.cs [Design]",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Stats.cs [Design]",
+              "Title": "Conexion.cs",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Conexion.cs",
+              "RelativeDocumentMoniker": "CapaDatosFinal\\Conexion.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Conexion.cs",
+              "RelativeToolTip": "CapaDatosFinal\\Conexion.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwAsAAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T04:30:46.484Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-05T03:48:14.533Z",
+              "EditorCaption": ""
             }
           ]
         }

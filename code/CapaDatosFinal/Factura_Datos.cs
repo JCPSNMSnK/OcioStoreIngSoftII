@@ -74,7 +74,7 @@ namespace CapaDatos
                                 id_factura = Convert.ToInt32(dr["id_factura"]),
                                 fecha_emision = Convert.ToDateTime(dr["fecha_emision"]),
                                 // Mapeo de la Venta
-                                objVenta = new Venta()
+                                objVenta = new Ventas()
                                 {
                                     total = Convert.ToDecimal(dr["total_venta"]),
                                     // Mapeo del Cliente
@@ -123,7 +123,7 @@ namespace CapaDatos
                             {
                                 id_factura = Convert.ToInt32(dr["id_factura"]),
                                 fecha_emision = Convert.ToDateTime(dr["fecha_emision"]),
-                                objVenta = new Venta()
+                                objVenta = new Ventas()
                                 {
                                     id_venta = Convert.ToInt32(dr["id_venta"]),
                                     total = Convert.ToDecimal(dr["total"]),
@@ -139,7 +139,6 @@ namespace CapaDatos
                                 {
                                     id_tipo_factura = Convert.ToInt32(dr["id_tipo_factura"]),
                                     nombre_tipo_factura = dr["nombre_tipo_factura"].ToString(),
-                                    descripcion = dr["descripcion"].ToString()
                                 }
                             };
                         }
