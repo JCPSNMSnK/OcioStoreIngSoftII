@@ -206,6 +206,7 @@
     <Compile Include="Proveedor_negocio.cs" />
     <Compile Include="Reserva_negocio.cs" />
     <Compile Include="Roles_negocio.cs" />
+    <Compile Include="Seguridad\PasswordHasher.cs" />
     <Compile Include="Usuario_negocio.cs" />
     <Compile Include="Ventas_negocio.cs" />
   </ItemGroup>

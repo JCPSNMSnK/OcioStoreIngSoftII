@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using CapaDatos;
 using CapaEntidades;
 using CapaNegocio;
+using CapaNegocio.Seguridad;
 
 using OcioStoreIngSoftII.Utillidades;
 
@@ -23,14 +24,15 @@ namespace OcioStoreIngSoftII
         {
             InitializeComponent();
         }
+
         private void Users_Load(object sender, EventArgs e)
         {
 
-            CBEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Baja" });
-            CBEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Alta" });
-            CBEstado.DisplayMember = "Texto";
-            CBEstado.ValueMember = "Valor";
-            CBEstado.SelectedIndex = 0;
+            CBestado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Baja" });
+            CBestado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Alta" });
+            CBestado.DisplayMember = "Texto";
+            CBestado.ValueMember = "Valor";
+            CBestado.SelectedIndex = 0;
 
             CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Baja" });
             CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Alta" });
@@ -53,6 +55,7 @@ namespace OcioStoreIngSoftII
 
             actualizarDatosTabla();
         }
+
         
         private void actualizarDatosTabla()
         {
@@ -95,7 +98,7 @@ namespace OcioStoreIngSoftII
             TPass.Text = "";
             TPassConf.Text = "";
             CBroles.SelectedIndex = 0;
-            CBEstado.SelectedIndex = 0;
+            CBestado.SelectedIndex = 0;
 
             TModificarID_user.Text = "0";
             TModificarAp.Text = "";
@@ -315,71 +318,156 @@ namespace OcioStoreIngSoftII
         {
             string mensaje = string.Empty;
 
-            if (string.IsNullOrWhiteSpace(TNombre.Text))
+            //ARRANCAN LAS GIGAVALIDACIONES
+            //Nombre
+            if (string.IsNullOrWhiteSpace(TNombre.Content))
             {
-                MessageBox.Show("El campo Nombre interfaz es obligatorio.");
+                MessageBox.Show("El campo Nombre es obligatorio.");
+                return;
+            }
+            if (TNombre.Content.Any(char.IsDigit))
+            {
+                MessageBox.Show("El campo Nombre no puede contener números.");
+                return;
+            }
+            if (TNombre.Content.Length > 30)
+            {
+                MessageBox.Show("El nombre no puede tener más de 30 caracteres.");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(TApellido.Text))
+            //Apellido
+            if (string.IsNullOrWhiteSpace(TApellido.Content))
             {
                 MessageBox.Show("El campo Apellido es obligatorio.");
                 return;
             }
+            if (TApellido.Content.Any(char.IsDigit))
+            {
+                MessageBox.Show("El campo Apellido no puede contener números.");
+                return;
+            }
+            if (TApellido.Content.Length > 30)
+            {
+                MessageBox.Show("El Apellido no puede tener más de 30 caracteres.");
+                return;
+            }
 
-            //Validar también que sea solo numérico
-            if (string.IsNullOrWhiteSpace(TDni.Text))
+            //DNI
+            if (string.IsNullOrWhiteSpace(TDni.Content))
             {
                 MessageBox.Show("El campo Apellido es obligatorio.");
                 return;
             }
+            if (!TDni.Content.All(char.IsDigit))
+            {
+                MessageBox.Show("El campo DNI solo puede contener números, sin puntos.");
+                return;
+            }
 
+            //Roles
             if (CBroles.SelectedItem == null)
             {
                 MessageBox.Show("Debe seleccionar un perfil.");
                 return;
             }
 
-            if (CBEstado.SelectedItem == null)
+            //Estado
+            if (CBestado.SelectedItem == null)
             {
                 MessageBox.Show("Debe seleccionar un estado.");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(TUser.Text))
+            //Usuario
+            if (string.IsNullOrWhiteSpace(TUser.Content))
             {
                 MessageBox.Show("El campo Usuario es obligatorio.");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(TPass.Text) || TPass.Text.Length < 6)
+            //Contraseña
+            if (string.IsNullOrWhiteSpace(TPass.Content) || TPass.Content.Length < 6)
             {
                 MessageBox.Show("La contraseña debe tener al menos 6 caracteres.");
                 return;
             }
-
-            if (string.IsNullOrWhiteSpace(TEmail.Text) || !TEmail.Text.Contains("@"))
+            if (TPass.Content != TPassConf.Content)
             {
-                MessageBox.Show("Debe ingresar un correo electrónico válido.");
+                MessageBox.Show("Las contraseñas no coinciden. Por favor, verifíquelas.");
+                TPass.Content = "";
+                TPassConf.Content = "";
+                TPass.Focus(); // Pone el cursor de vuelta en el primer campo de contraseña, epico
                 return;
             }
 
-            Usuario objUser = new Usuario()
+            //Email
+            //Me tomé la molestia de buscar una expresión regular para que pegue el formato
+            var emailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (!emailRegex.IsMatch(TEmail.Content))
             {
-                id_user = Convert.ToInt32(TID_user.Text),
-                apellido = TApellido.Text,
-                nombre = TNombre.Text,
-                dni = Convert.ToInt32(TDni.Text),
-                mail = TEmail.Text,
-                username = TUser.Text,
-                pass = TPass.Text,
-                baja_user = Convert.ToInt32(((OpcionSelect)CBEstado.SelectedItem).Valor) == 1 ? true : false,
-                objRoles = new Roles()
+                MessageBox.Show("El formato del correo electrónico no es válido.");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(TEmail.Content))
+            {
+                MessageBox.Show("El campo Email es obligatorio.");
+                return;
+            }
+
+            //Telefono
+            if (TTelefono.Content.Length < 7)
+            {
+                MessageBox.Show("El número de teléfono es demasiado corto.");
+                return;
+            }
+
+            //Direccion
+            if (string.IsNullOrWhiteSpace(TDireccion.Content))
+            {
+                MessageBox.Show("El campo Dirección es obligatorio.");
+                return;
+            }
+
+            //Localidad
+            if (string.IsNullOrWhiteSpace(TLocalidad.Content))
+            {
+                MessageBox.Show("El campo Localidad es obligatorio.");
+                return;
+            }
+
+            //Provincia
+            if (string.IsNullOrWhiteSpace(TProvincia.Content))
+            {
+                MessageBox.Show("El campo Provincia es obligatorio.");
+                return;
+            }
+
+            const int comparacion = 1;
+            bool estadoSeleccionado = (Convert.ToInt32(((OpcionSelect)CBestado.SelectedItem).Valor) == comparacion);
+            string contraseña = TPass.Content;
+            string contraseñaHasheada = PasswordHasher.HashPassword(contraseña);
+
+            //Ahora si, creación del user
+            Usuario objUser = new Usuario(
+                //Convert.ToInt32(TID_user.Content),
+                TApellido.Content,
+                TNombre.Content,
+                Convert.ToInt32(TDni.Content),
+                TEmail.Content,
+                TUser.Content,
+                contraseñaHasheada,
+                //estadoSeleccionado,
+               new Roles()
                 {
                     id_rol = Convert.ToInt32(((OpcionSelect)CBroles.SelectedItem).Valor),
                     descripcion = ((OpcionSelect)CBroles.SelectedItem).Texto
                 },
-            };
+                TDireccion.Content,
+                TLocalidad.Content,
+                TProvincia.Content,
+                TTelefono.Content
+            );
 
             if (objUser.id_user == 0)
             {
