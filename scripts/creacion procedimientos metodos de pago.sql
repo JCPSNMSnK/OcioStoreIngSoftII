@@ -1,5 +1,5 @@
 --1. Procedimiento para registrar medio de pago
-CREATE PROCEDURE PROC_REGISTRAR_METODO
+CREATE OR ALTER PROCEDURE PROC_REGISTRAR_METODO
     @comision DECIMAL(5,2),
 	@nombre_medio VARCHAR(50),
 

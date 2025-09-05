@@ -35,6 +35,13 @@ CREATE TABLE Users (
     CONSTRAINT FK_Users_Rol FOREIGN KEY (id_rol) REFERENCES Roles(id_rol) ON DELETE CASCADE
 );
 
+ALTER TABLE Users
+ADD 
+    telefono_user VARCHAR(20),
+    direccion_user VARCHAR(100),
+    localidad_user VARCHAR(50),
+    provincia_user VARCHAR(50)
+
 -- Tabla MetodosPago
 CREATE TABLE MetodosPago (
     id_medioPago INT IDENTITY(1,1),

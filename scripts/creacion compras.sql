@@ -18,7 +18,7 @@ CREATE TABLE DetallesCompras (
 
 --1.. PROCEDIMIENTO BUSCAR COMPRAS
 
-CREATE PROCEDURE PROC_BUSCAR_COMPRAS
+CREATE OR ALTER PROCEDURE PROC_BUSCAR_COMPRAS
     @id_proveedor INT = NULL,
     @fecha_inicio DATE = NULL,
     @fecha_fin DATE = NULL,
@@ -77,7 +77,7 @@ BEGIN
 
     BEGIN TRY
         -- 1. Insertar la compra principal en la tabla Compras
-        INSERT INTO Compras (id_proveedor, total_compra, fecha_compra)
+        INSERT INTO Compras (id_proveedor, total, fecha_compra)
         VALUES (@id_proveedor, @total_compra, GETDATE());
 
         SET @id_compra_generado = SCOPE_IDENTITY();

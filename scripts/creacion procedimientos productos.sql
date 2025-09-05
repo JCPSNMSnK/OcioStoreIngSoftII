@@ -1,5 +1,5 @@
---1. Procedimiento para Insertar elementos
-CREATE PROCEDURE PROC_CREAR_PRODUCTO
+--1. Procedimiento para Insertar elementos DEPRECADO, VER ULTIMO AÑADIDO
+CREATE OR ALTER PROCEDURE PROC_CREAR_PRODUCTO
     @nombre_producto VARCHAR(100),
     @id_categoria INT,
 	@fechaIngreso DATE,
@@ -30,8 +30,8 @@ BEGIN
 END;
 
 --2. Procedimiento para Delete elemento por codigo
-CREATE PROCEDURE PROC_BAJA_PRODUCTO
-    @cod_producto_producto VARCHAR(100) 
+CREATE OR ALTER PROCEDURE PROC_BAJA_PRODUCTO
+    @cod_producto VARCHAR(100) 
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -45,7 +45,7 @@ END;
 
 --3.MODIFICAR PRODUCTO
 
-CREATE PROCEDURE [dbo].[PROC_EDITAR_PRODUCTO]
+CREATE OR ALTER PROCEDURE [dbo].[PROC_EDITAR_PRODUCTO]
 (
     @id_producto INT,
     @nombre_producto VARCHAR(100),
@@ -178,3 +178,66 @@ END;
 GO
 
 
+--5. CREAR PRODUCTO CON VARIAS CATEGORIAS
+CREATE TYPE TipoIds AS TABLE
+(
+    id INT
+);
+
+CREATE OR ALTER PROCEDURE PROC_CREAR_PRODUCTO
+    @nombre_producto VARCHAR(100),
+    @id_categorias TipoIds READONLY, -- Nuevo parámetro de tabla
+    @fechaIngreso DATE,
+    @precioLista DECIMAL(10,2),
+    @precioVenta DECIMAL(10,2),
+    @stock INT,
+    @stock_min INT,
+    @eliminado BIT,
+    @descripcion VARCHAR(MAX) = NULL,
+    @cod_producto INT,
+    @id_proveedor INT,
+    @id_producto_generado INT OUTPUT,
+    @mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SET @id_producto_generado = 0;
+    SET @mensaje = '';
+
+    -- Iniciar una transacción
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- 1. Validar si el código de producto ya existe
+        IF EXISTS (SELECT 1 FROM Productos WHERE cod_producto = @cod_producto)
+        BEGIN
+            SET @mensaje = 'Error: El código de producto ya existe.';
+            ROLLBACK TRANSACTION;
+            RETURN;
+        END
+
+        -- 2. Insertar el nuevo producto
+        INSERT INTO Productos (nombre_producto, fechaIngreso, precioLista, precioVenta, baja_producto, stock, stock_min, descripcion, cod_producto, id_proveedor)
+        VALUES (@nombre_producto, @fechaIngreso, @precioLista, @precioVenta, @eliminado, @stock, @stock_min, @descripcion, @cod_producto, @id_proveedor);
+
+        -- Obtener el ID del producto recién insertado
+        SET @id_producto_generado = SCOPE_IDENTITY();
+
+        -- 3. Insertar las categorías en la tabla intermedia ProductosCategorias
+        INSERT INTO ProductosCategorias (id_producto, id_categoria)
+        SELECT @id_producto_generado, id
+        FROM @id_categorias;
+        
+        -- Confirmar la transacción
+        COMMIT TRANSACTION;
+        SET @mensaje = 'Producto y categorías registrados exitosamente.';
+        
+    END TRY
+    BEGIN CATCH
+        -- En caso de error, revertir la transacción
+        SET @id_producto_generado = 0;
+        SET @mensaje = 'Error al registrar el producto. Detalles: ' + ERROR_MESSAGE();
+        ROLLBACK TRANSACTION;
+    END CATCH;
+END;
+GO

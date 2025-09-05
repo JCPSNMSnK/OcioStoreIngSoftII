@@ -10,7 +10,7 @@ ALTER TABLE Ventas
 
 --1. Procedimiento para registrar ventas
 
-CREATE PROCEDURE PROC_REGISTRAR_VENTA
+CREATE OR ALTER PROCEDURE PROC_REGISTRAR_VENTA
     @total DECIMAL(10,2),
     @id_medio INT,
     @id_user INT,
@@ -30,7 +30,7 @@ END;
 
 --2. Procedimiento para registrar los detalles de venta asociados
 
-CREATE PROCEDURE PROC_REGISTRAR_DETALLE
+CREATE OR ALTER PROCEDURE PROC_REGISTRAR_DETALLE
     @id_venta_registrada INT,
     @id_producto INT,
     @cantidad INT,
@@ -43,7 +43,7 @@ BEGIN
     VALUES (@id_venta_registrada, @id_producto, @cantidad, @subtotal);
 
     UPDATE productos
-    SET cantidad = cantidad - @cantidad
+    SET stock = stock - @cantidad
     WHERE id_producto = @id_producto;
 
     SET @mensaje = 'Detalle de Venta registrado exitosamente';
@@ -62,9 +62,9 @@ BEGIN
         dv.id_producto,
         dv.cantidad,
         dv.subtotal,
-        p.codigo,
+        p.cod_producto,
         p.nombre_producto,
-        p.precio_venta
+        p.precioVenta
     FROM 
         DetalleVentas dv
     INNER JOIN 

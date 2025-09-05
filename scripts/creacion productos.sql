@@ -47,3 +47,7 @@ ALTER TABLE Productos
 ADD 
     cod_producto INT NULL,
     id_proveedor INT NULL;
+
+ALTER TABLE Productos
+ADD CONSTRAINT FK_Productos_Proveedores
+FOREIGN KEY (id_proveedor) REFERENCES Proveedores(id_proveedor);

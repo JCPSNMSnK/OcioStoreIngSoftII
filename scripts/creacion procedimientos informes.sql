@@ -1,6 +1,6 @@
 --1.PROCEDIMIENTO PRODUCTO MÁS VENDIDO
 
-CREATE PROCEDURE PROC_INFORME_PRODUCTOS_MAS_VENDIDOS
+CREATE OR ALTER PROCEDURE PROC_INFORME_PRODUCTOS_MAS_VENDIDOS
     @fecha_inicio DATE,
     @fecha_fin DATE
 AS
@@ -13,7 +13,7 @@ BEGIN
     FROM
         Ventas v
     JOIN
-        DetalleVenta dv ON v.id_venta = dv.id_venta
+        DetalleVentas dv ON v.id_venta = dv.id_venta
     JOIN
         Productos p ON dv.id_producto = p.id_producto
     WHERE
@@ -27,7 +27,7 @@ GO
 
 --2. PROCEDIMIENTO FLUCTUACION DE VENTAS
 
-CREATE PROCEDURE PROC_INFORME_FLUCTUACION_VENTAS
+CREATE OR ALTER PROCEDURE PROC_INFORME_FLUCTUACION_VENTAS
     @fecha_inicio DATE,
     @fecha_fin DATE
 AS
@@ -50,7 +50,7 @@ GO
 
 --3. PROCEDIMIENTO CATEGORIAS MAS VENDIDA
 
-CREATE PROCEDURE PROC_INFORME_CATEGORIAS_MAS_VENDIDAS
+CREATE  OR ALTER PROCEDURE PROC_INFORME_CATEGORIAS_MAS_VENDIDAS
     @fecha_inicio DATE,
     @fecha_fin DATE
 AS
@@ -63,9 +63,9 @@ BEGIN
     FROM
         Ventas v
     JOIN
-        DetalleVenta dv ON v.id_venta = dv.id_venta
+        DetalleVentas dv ON v.id_venta = dv.id_venta
     JOIN
-        Productos_Categorias pc ON dv.id_producto = pc.id_producto
+        ProductosCategorias pc ON dv.id_producto = pc.id_producto
     JOIN
         Categorias c ON pc.id_categoria = c.id_categoria
     WHERE
@@ -79,7 +79,7 @@ GO
 
 --4. VENDEDOR CON MÁS VENTAS
 
-CREATE PROCEDURE PROC_INFORME_VENDEDORES_MAS_VENTAS
+CREATE  OR ALTER PROCEDURE PROC_INFORME_VENDEDORES_MAS_VENTAS
     @fecha_inicio DATE,
     @fecha_fin DATE
 AS
@@ -92,7 +92,7 @@ BEGIN
     FROM
         Ventas v
     JOIN
-        Usuarios u ON v.id_usuario = u.id_usuario
+        Users u ON v.id_user = u.id_user
     WHERE
         v.fecha_venta >= @fecha_inicio AND v.fecha_venta <= @fecha_fin
     GROUP BY
@@ -104,7 +104,7 @@ GO
 
 --5. REGISTRAR INFORME
 
-CREATE PROCEDURE PROC_REGISTRAR_INFORME
+CREATE OR ALTER PROCEDURE PROC_REGISTRAR_INFORME
     @titulo NVARCHAR(100),
     @descripcion NVARCHAR(255),
     @fecha_generacion DATETIME,

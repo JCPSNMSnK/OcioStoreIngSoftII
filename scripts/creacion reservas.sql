@@ -7,6 +7,8 @@ CREATE TABLE Reservas (
     FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
 );
 
+EXEC sp_rename 'Reservas.fecha_vencimiento_reserva', 'fecha_retiro_reserva', 'COLUMN';
+
 CREATE TABLE DetallesReservas (
     id_detalle_reserva INT IDENTITY(1,1) PRIMARY KEY,
     id_reserva INT,
@@ -16,6 +18,9 @@ CREATE TABLE DetallesReservas (
     FOREIGN KEY (id_reserva) REFERENCES Reservas(id_reserva),
     FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
 );
+
+EXEC sp_rename 'DetallesReservas.subtotal', 'precio_unitario', 'COLUMN';
+
 
 --1.REGISTRAR RESERVAS Y DETALLES
 CREATE TYPE TIPO_DETALLE_RESERVA AS TABLE
@@ -80,7 +85,7 @@ GO
 
 --2. BUSCAR RESERVAS
 
-CREATE PROCEDURE PROC_BUSCAR_RESERVAS
+CREATE OR ALTER PROCEDURE PROC_BUSCAR_RESERVAS
     @id_cliente INT = NULL,
     @fecha_emision_inicio DATE = NULL,
     @fecha_emision_fin DATE = NULL
@@ -138,10 +143,11 @@ BEGIN
         END
 
         -- 2. Actualiza la reserva en su retiro
-        UPDATE Reservas
-        SET fecha_retiro_reserva = @fecha_retiro_reserva,
+        UPDATE R
+        SET fecha_retiro_reserva = @fecha_retiro_reserva
+		FROM Reservas R
             -- tomamos fecha de retiro != NULL como reserva completada
-            --total_reserva = total_reserva --el total de la reserva podríamos recalcularlo en base a algun interes diario
+            -- total_reserva = total_reserva --el total de la reserva podríamos recalcularlo en base a algun interes diario
         WHERE id_reserva = @id_reserva;
 
         -- 3. Si todo va bien, confirma la transacción
@@ -240,8 +246,9 @@ BEGIN
         WHERE id_reserva = @id_reserva;
 
         -- 3. Actualizar la reserva para finalizarla (asignar fecha de retiro)
-        UPDATE Reservas
+        UPDATE R
         SET fecha_retiro_reserva = GETDATE()
+		FROM Reservas R
         WHERE id_reserva = @id_reserva;
 
         -- Si todo es exitoso, confirmar la transacción
@@ -256,3 +263,8 @@ BEGIN
     END CATCH;
 END;
 GO
+
+ALTER TABLE Ventas
+ADD 
+    id_cliente INT
+	FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente);

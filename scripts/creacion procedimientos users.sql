@@ -1,4 +1,6 @@
-CREATE PROC PROC_REGISTRAR_USUARIO(
+--1. REGISTRAR USUARIO
+
+CREATE OR ALTER PROC PROC_REGISTRAR_USUARIO(
     @nombre varchar(100),
     @apellido varchar(100),
     @dni varchar(20),
@@ -48,7 +50,9 @@ BEGIN
     SET @id_user_resultado = SCOPE_IDENTITY()
 END
 
-CREATE PROC PROC_EDITAR_USUARIO(
+--2. EDITAR USUARIO
+
+CREATE OR ALTER PROC PROC_EDITAR_USUARIO(
     @id_user int,
     @nombre varchar(100),
     @apellido varchar(100),
@@ -111,6 +115,7 @@ BEGIN
     SET @respuesta = 1
 END
 
+--3. ELIMINAR USUARIO
 
 CREATE PROC PROC_ELIMINAR_USUARIO(
     @id_user int,
@@ -148,57 +153,3 @@ END
 ------------------------------------PRUEBAS------------------------------------
 
 
-select * from Productos
-
--- INSERTAR --
-
-DECLARE @idResultado INT
-DECLARE @mensaje VARCHAR(500)
-
-EXEC PROC_REGISTRAR_USUARIO
-    @nombre = 'prueba',
-    @apellido = 'prueba',
-    @dni = '11111111',
-    @mail = 'prueba@example.com',
-    @username = 'prueba',
-    @pass = '123',
-    @id_rol = 2,
-    @baja_user = 0,
-    @id_user_resultado = @idResultado OUTPUT,
-    @mensaje = @mensaje OUTPUT
-
-SELECT @idResultado AS ID_Usuario_Creado, @mensaje AS Mensaje
-select * from users
--- EDITAR --
-
-DECLARE @respuesta BIT
-DECLARE @mensaje VARCHAR(500)
-
-EXEC PROC_EDITAR_USUARIO
-    @id_user = 9,
-    @nombre = 'pruebaEditar',
-    @apellido = 'pruebaEditar',
-    @dni = '22222222',
-    @mail = 'pruebaEditar@actualizado.com',
-    @username = 'pruebaEditar',
-    @pass = '456',
-    @id_rol = 3,
-    @baja_user = 1,
-    @respuesta = @respuesta OUTPUT,
-    @mensaje = @mensaje OUTPUT
-
-SELECT @respuesta AS ResultadoEdicion, @mensaje AS Mensaje
-select * from users
-
--- ELIMINAR --
-
-DECLARE @respuesta BIT
-DECLARE @mensaje VARCHAR(500)
-
-EXEC PROC_ELIMINAR_USUARIO
-    @id_user = 9,
-    @respuesta = @respuesta OUTPUT,
-    @mensaje = @mensaje OUTPUT
-
-SELECT @respuesta AS ResultadoEliminacion, @mensaje AS Mensaje
-select * from users
