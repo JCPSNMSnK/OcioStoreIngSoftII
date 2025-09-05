@@ -38,8 +38,8 @@
             this.KPI_CantVentas = new CuoreUI.Controls.cuiLabel();
             this.cuiLabel4 = new CuoreUI.Controls.cuiLabel();
             this.GraphFluctuacionVentas = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
-            this.GraphVendedoresMasVentas = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
-            this.GraphProductosMasVendidos = new LiveChartsCore.SkiaSharpView.WinForms.PieChart();
+            this.GraphProductosMasVendidos = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
+            this.GraphVendedoresConMasVentas = new LiveChartsCore.SkiaSharpView.WinForms.PieChart();
             this.GraphCategoriasMasVendidas = new LiveChartsCore.SkiaSharpView.WinForms.PieChart();
             this.cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             this.KPI_Ingresos = new CuoreUI.Controls.cuiLabel();
@@ -80,8 +80,8 @@
             this.tableLayoutPanelStats.Controls.Add(this.cuiPanel3, 2, 1);
             this.tableLayoutPanelStats.Controls.Add(this.cuiPanel2, 1, 1);
             this.tableLayoutPanelStats.Controls.Add(this.GraphFluctuacionVentas, 0, 2);
-            this.tableLayoutPanelStats.Controls.Add(this.GraphVendedoresMasVentas, 0, 3);
-            this.tableLayoutPanelStats.Controls.Add(this.GraphProductosMasVendidos, 1, 3);
+            this.tableLayoutPanelStats.Controls.Add(this.GraphProductosMasVendidos, 0, 3);
+            this.tableLayoutPanelStats.Controls.Add(this.GraphVendedoresConMasVentas, 1, 3);
             this.tableLayoutPanelStats.Controls.Add(this.GraphCategoriasMasVendidas, 2, 3);
             this.tableLayoutPanelStats.Controls.Add(this.cuiPanel1, 0, 1);
             this.tableLayoutPanelStats.Controls.Add(this.cuiPanel4, 0, 0);
@@ -116,7 +116,7 @@
             // KPI_PromedioVentas
             // 
             this.KPI_PromedioVentas.BackColor = System.Drawing.Color.Transparent;
-            this.KPI_PromedioVentas.Content = "Your\\ text\\ here!";
+            this.KPI_PromedioVentas.Content = "Ejemplo";
             this.KPI_PromedioVentas.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KPI_PromedioVentas.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.KPI_PromedioVentas.Location = new System.Drawing.Point(0, 50);
@@ -125,6 +125,7 @@
             this.KPI_PromedioVentas.Size = new System.Drawing.Size(347, 69);
             this.KPI_PromedioVentas.TabIndex = 4;
             this.KPI_PromedioVentas.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.KPI_PromedioVentas.Load += new System.EventHandler(this.Stats_Load);
             // 
             // cuiLabel6
             // 
@@ -158,7 +159,7 @@
             // KPI_CantVentas
             // 
             this.KPI_CantVentas.BackColor = System.Drawing.Color.Transparent;
-            this.KPI_CantVentas.Content = "Your\\ text\\ here!";
+            this.KPI_CantVentas.Content = "de";
             this.KPI_CantVentas.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KPI_CantVentas.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.KPI_CantVentas.Location = new System.Drawing.Point(0, 50);
@@ -167,6 +168,7 @@
             this.KPI_CantVentas.Size = new System.Drawing.Size(347, 69);
             this.KPI_CantVentas.TabIndex = 4;
             this.KPI_CantVentas.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.KPI_CantVentas.Load += new System.EventHandler(this.Stats_Load);
             // 
             // cuiLabel4
             // 
@@ -193,31 +195,31 @@
             this.GraphFluctuacionVentas.TabIndex = 3;
             this.GraphFluctuacionVentas.Load += new System.EventHandler(this.Stats_Load);
             // 
-            // GraphVendedoresMasVentas
-            // 
-            this.GraphVendedoresMasVentas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GraphVendedoresMasVentas.Location = new System.Drawing.Point(10, 720);
-            this.GraphVendedoresMasVentas.Margin = new System.Windows.Forms.Padding(10, 10, 10, 15);
-            this.GraphVendedoresMasVentas.MatchAxesScreenDataRatio = false;
-            this.GraphVendedoresMasVentas.Name = "GraphVendedoresMasVentas";
-            this.GraphVendedoresMasVentas.Size = new System.Drawing.Size(354, 455);
-            this.GraphVendedoresMasVentas.TabIndex = 5;
-            this.GraphVendedoresMasVentas.Load += new System.EventHandler(this.Stats_Load);
-            // 
             // GraphProductosMasVendidos
             // 
             this.GraphProductosMasVendidos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GraphProductosMasVendidos.InitialRotation = 0D;
-            this.GraphProductosMasVendidos.IsClockwise = true;
-            this.GraphProductosMasVendidos.Location = new System.Drawing.Point(384, 720);
+            this.GraphProductosMasVendidos.Location = new System.Drawing.Point(10, 720);
             this.GraphProductosMasVendidos.Margin = new System.Windows.Forms.Padding(10, 10, 10, 15);
-            this.GraphProductosMasVendidos.MaxAngle = 360D;
-            this.GraphProductosMasVendidos.MaxValue = double.NaN;
-            this.GraphProductosMasVendidos.MinValue = 0D;
+            this.GraphProductosMasVendidos.MatchAxesScreenDataRatio = false;
             this.GraphProductosMasVendidos.Name = "GraphProductosMasVendidos";
-            this.GraphProductosMasVendidos.Size = new System.Drawing.Size(355, 455);
-            this.GraphProductosMasVendidos.TabIndex = 6;
+            this.GraphProductosMasVendidos.Size = new System.Drawing.Size(354, 455);
+            this.GraphProductosMasVendidos.TabIndex = 5;
             this.GraphProductosMasVendidos.Load += new System.EventHandler(this.Stats_Load);
+            // 
+            // GraphVendedoresConMasVentas
+            // 
+            this.GraphVendedoresConMasVentas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GraphVendedoresConMasVentas.InitialRotation = 0D;
+            this.GraphVendedoresConMasVentas.IsClockwise = true;
+            this.GraphVendedoresConMasVentas.Location = new System.Drawing.Point(384, 720);
+            this.GraphVendedoresConMasVentas.Margin = new System.Windows.Forms.Padding(10, 10, 10, 15);
+            this.GraphVendedoresConMasVentas.MaxAngle = 360D;
+            this.GraphVendedoresConMasVentas.MaxValue = double.NaN;
+            this.GraphVendedoresConMasVentas.MinValue = 0D;
+            this.GraphVendedoresConMasVentas.Name = "GraphVendedoresConMasVentas";
+            this.GraphVendedoresConMasVentas.Size = new System.Drawing.Size(355, 455);
+            this.GraphVendedoresConMasVentas.TabIndex = 6;
+            this.GraphVendedoresConMasVentas.Load += new System.EventHandler(this.Stats_Load);
             // 
             // GraphCategoriasMasVendidas
             // 
@@ -253,7 +255,7 @@
             // KPI_Ingresos
             // 
             this.KPI_Ingresos.BackColor = System.Drawing.Color.Transparent;
-            this.KPI_Ingresos.Content = "Your\\ text\\ here!";
+            this.KPI_Ingresos.Content = "Texto";
             this.KPI_Ingresos.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KPI_Ingresos.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.KPI_Ingresos.Location = new System.Drawing.Point(0, 50);
@@ -262,6 +264,7 @@
             this.KPI_Ingresos.Size = new System.Drawing.Size(347, 69);
             this.KPI_Ingresos.TabIndex = 4;
             this.KPI_Ingresos.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.KPI_Ingresos.Load += new System.EventHandler(this.Stats_Load);
             // 
             // cuiLabel2
             // 
@@ -278,7 +281,7 @@
             // 
             // cuiPanel4
             // 
-            this.cuiPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cuiPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tableLayoutPanelStats.SetColumnSpan(this.cuiPanel4, 3);
             this.cuiPanel4.Controls.Add(this.cuiLabel9);
             this.cuiPanel4.Controls.Add(this.cuiLabel8);
@@ -304,7 +307,7 @@
             this.cuiLabel9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLabel9.ForeColor = System.Drawing.Color.White;
             this.cuiLabel9.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.cuiLabel9.Location = new System.Drawing.Point(837, -3);
+            this.cuiLabel9.Location = new System.Drawing.Point(856, -3);
             this.cuiLabel9.Margin = new System.Windows.Forms.Padding(5);
             this.cuiLabel9.Name = "cuiLabel9";
             this.cuiLabel9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -348,7 +351,7 @@
             this.btnFiltrar.ImageAutoCenter = true;
             this.btnFiltrar.ImageExpand = new System.Drawing.Point(0, 0);
             this.btnFiltrar.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnFiltrar.Location = new System.Drawing.Point(998, 24);
+            this.btnFiltrar.Location = new System.Drawing.Point(1032, 25);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
             this.btnFiltrar.NormalForeColor = System.Drawing.Color.White;
@@ -376,7 +379,7 @@
             this.DtpFechaFin.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.DtpFechaFin.Icon = ((System.Drawing.Image)(resources.GetObject("DtpFechaFin.Icon")));
             this.DtpFechaFin.IconTint = System.Drawing.Color.Gray;
-            this.DtpFechaFin.Location = new System.Drawing.Point(837, 25);
+            this.DtpFechaFin.Location = new System.Drawing.Point(856, 25);
             this.DtpFechaFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DtpFechaFin.Name = "DtpFechaFin";
             this.DtpFechaFin.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(128)))));
@@ -420,7 +423,7 @@
             // cuiLabel7
             // 
             this.cuiLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.cuiLabel7.Content = "Dashboard\\ de\\ Ventas";
+            this.cuiLabel7.Content = "\\ \\ \\ \\ \\ Dashboard\\ de\\ Ventas";
             this.cuiLabel7.Dock = System.Windows.Forms.DockStyle.Left;
             this.cuiLabel7.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLabel7.ForeColor = System.Drawing.Color.White;
@@ -461,8 +464,8 @@
         private CuoreUI.Controls.cuiPanel cuiPanel2;
         private CuoreUI.Controls.cuiLabel cuiLabel4;
         private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart GraphFluctuacionVentas;
-        private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart GraphVendedoresMasVentas;
-        private LiveChartsCore.SkiaSharpView.WinForms.PieChart GraphProductosMasVendidos;
+        private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart GraphProductosMasVendidos;
+        private LiveChartsCore.SkiaSharpView.WinForms.PieChart GraphVendedoresConMasVentas;
         private LiveChartsCore.SkiaSharpView.WinForms.PieChart GraphCategoriasMasVendidas;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private CuoreUI.Controls.cuiLabel KPI_Ingresos;

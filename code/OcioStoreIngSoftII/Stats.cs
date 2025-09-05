@@ -54,10 +54,40 @@ namespace OcioStoreIngSoftII
             DateTime fechaInicio = DtpFechaInicio.Content;
             DateTime fechaFin = DtpFechaFin.Content;
 
+            CargarKPI(fechaInicio, fechaFin);
             CargarGraficoFluctuacionVentas(fechaInicio, fechaFin);
             CargarGraficoProductosMasVendidos(fechaInicio, fechaFin);
             CargarGraficoCategoriasMasVendidas(fechaInicio, fechaFin);
-            //CargarGraficoVendedoresMasVentas(fechaInicio, fechaFin);
+            CargarGraficoVendedoresMasVentas(fechaInicio, fechaFin);
+        }
+
+        private void CargarKPI (DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<VentaPorPeriodo> resultados = objNegocio.ObtenerFluctuacionDeVentas(fechaInicio, fechaFin);
+            int cantVentas = resultados.Count;
+            
+
+            if (resultados.Count == 0)
+            {
+                KPI_CantVentas.Content = "0";
+                KPI_Ingresos.Content = "$0";
+                KPI_PromedioVentas.Content = "$0";
+                return;
+            }
+            else
+            {
+                decimal ingresos = 0;
+                for(int i = 0; i <cantVentas; i++)
+                {
+                    ingresos += resultados[i].total_ventas;
+                }
+                decimal promedioVentas = ingresos / cantVentas;
+
+
+                KPI_CantVentas.Content = cantVentas.ToString();
+                KPI_Ingresos.Content = $"${ingresos:N2}";
+                KPI_PromedioVentas.Content = $"${promedioVentas:N2}";
+            }
         }
 
         private void CargarGraficoFluctuacionVentas(DateTime fechaInicio, DateTime fechaFin)
@@ -69,40 +99,40 @@ namespace OcioStoreIngSoftII
             if (resultados.Count == 0)
             {
                 chart.Series = new ISeries[0];
-                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay productos vendidos en este período");
+                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay ventas en el periodo");
                 return;
             }
 
-            // Adapta los datos para LiveCharts usando LINQ
             var valores = resultados.Select(v => v.total_ventas).ToArray();
-            var etiquetas = resultados.Select(v => v.fecha_periodo.ToString("dd/MM")).ToArray();
+            var etiquetas = resultados.Select(v => v.fecha_periodo.ToString("dd/MM/yy")).ToArray();
 
             chart.Series = new ISeries[]
             {
-        new LineSeries<decimal>
-        {
-            Name = "Total de Ventas",
-            Values = valores,
-            Fill = null // Muestra solo la línea
-        }
+                new LineSeries<decimal>
+                {
+                    Name = "Total de Ventas",
+                    Values = valores,
+                    Fill = null
+                }
             };
 
             chart.XAxes = new[] { new Axis { Name = "Fecha", Labels = etiquetas } };
             chart.YAxes = new[] { new Axis { Name = "Ingresos", MinLimit = 0 } };
             chart.Title = FabricaGraficos.CrearTituloGrapf("Fluctuación de Ventas");
         }
-        
+       
+
         private void CargarGraficoProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
         {
             // Llama a la capa de negocio
             List<ProductoVendido> resultados = objNegocio.ObtenerProductosMasVendidos(fechaInicio, fechaFin);
 
-            var chart = GraphVendedoresMasVentas; // Asigna el gráfico correcto
+            var chart = GraphProductosMasVendidos; 
 
             if (resultados.Count == 0)
             {
                 chart.Series = new ISeries[0];
-                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay productos vendidos en este período");
+                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay ventas en el periodo");
                 return;
             }
 
@@ -122,7 +152,7 @@ namespace OcioStoreIngSoftII
             chart.XAxes = new[] { new Axis { Labels = etiquetas, LabelsRotation = 90 }  };
             chart.YAxes = new[] { new Axis { MinLimit = 0 } };
             chart.Title = FabricaGraficos.CrearTituloGrapf("Top Productos Vendidos");
-            chart.ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.PanX;
+            chart.ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.X;
         }
         
 
@@ -130,12 +160,12 @@ namespace OcioStoreIngSoftII
         {
             List<CategoriaMasVendida> resultados = objNegocio.ObtenerCategoriasMasVendidas(fechaInicio, fechaFin);
 
-            var chart = GraphCategoriasMasVendidas; // Asigna el gráfico correcto
+            var chart = GraphCategoriasMasVendidas; 
 
             if (resultados.Count == 0)
             {
                 chart.Series = new ISeries[0];
-                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay ventas por categoría en este período");
+                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay ventas en el periodo");
                 return;
             }
 
@@ -155,8 +185,40 @@ namespace OcioStoreIngSoftII
 
             chart.Series = datos;
             chart.LegendPosition = LiveChartsCore.Measure.LegendPosition.Bottom;
-
-            chart.Title = FabricaGraficos.CrearTituloGrapf("Ventas por Categoría");
         }
+
+
+        private void CargarGraficoVendedoresMasVentas(DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<VendedorConMasVentas> resultados = objNegocio.ObtenerVendedoresConMasVentas(fechaInicio, fechaFin);
+
+            var chart = GraphVendedoresConMasVentas;
+
+            if (resultados.Count == 0)
+            {
+                chart.Series = new ISeries[0];
+                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay ventas en el periodo");
+                return;
+            }
+
+            var datos = resultados.Select(VendedorConMasVentas => new PieSeries<double>
+            {
+                Values = new double[] { (double)VendedorConMasVentas.total_ventas },
+                Name = VendedorConMasVentas.nombre_vendedor,
+                MaxRadialColumnWidth = 50
+            }).ToArray();
+
+            chart.Title = FabricaGraficos.CrearTituloGrapf("Vendedores con mas Ventas");
+
+            for (int i = 0; i < datos.Length; i++)
+            {
+                // Operador '%' para que los colores se repitan si hay más series que colores
+                datos[i].Fill = new SolidColorPaint(PaletaColores.OcioStore[i % PaletaColores.OcioStore.Length]);
+            }
+
+            chart.Series = datos;
+            chart.LegendPosition = LiveChartsCore.Measure.LegendPosition.Bottom;
+        }
+
     }
 }
