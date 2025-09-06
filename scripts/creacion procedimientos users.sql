@@ -206,24 +206,6 @@ BEGIN
         (@nombre_rol IS NULL OR r.nombre_rol COLLATE Latin1_General_CI_AI LIKE '%' + @nombre_rol + '%' COLLATE Latin1_General_CI_AI)
 END
 
--- 5. Verificación de DNI
-    
-CREATE OR ALTER PROCEDURE [dbo].[PROC_VERIFICAR_DNI_EXISTE]
-    @dni VARCHAR(20),
-    @id_usuario_actual INT
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    -- Si el ID es 0, significa que es un nuevo usuario, por lo que no excluimos a nadie.
-    -- Si el ID es diferente de 0, es una edición, y se excluye a ese usuario de la búsqueda.
-    IF EXISTS (SELECT 1 FROM Users WHERE dni = @dni AND id_user <> @id_usuario_actual)
-        SELECT 1 -- Retorna 1 (verdadero) si el DNI existe en OTRO usuario
-    ELSE
-        SELECT 0 -- Retorna 0 (falso) si no existe
-END
-
-
 
 
 
