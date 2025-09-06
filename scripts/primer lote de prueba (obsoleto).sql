@@ -6,7 +6,7 @@ INSERT INTO Roles (nombre_rol, descripcion) VALUES
 ('Administrador', 'Gestiona usuarios, productos y categorias'),
 ('Analista de Ventas', 'Genera informes y análisis de ventas, empleados y productos'),
 ('Vendedor', 'Atiende ventas y ve estaditicas propias'),
-('Administrador de Bases de Datos', 'Realiza copia de seguridad de BD y tambien puede restaurarlas.');
+('Super Admin', 'Gestiona usuarios, proveedores, backup, ve todas las facturaciones.');
 -- Users
 INSERT INTO Users (apellido, nombre, dni, mail, username, pass, id_rol) VALUES
 ('González', 'María', '30222444', 'maria_gonzalez@gmail.com', 'mariaG', 'pass123', 3), -- Vendedor
