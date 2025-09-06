@@ -22,6 +22,11 @@ namespace CapaEntidades
         public string localidad_user { get; set; }
         public string provincia_user { get; set; }
 
+        public string NombreRol
+        {
+            get { return objRoles != null ? objRoles.nombre_rol : ""; }
+        }
+
         public Usuario(string apellido, string nombre, int dni, string mail, string username, string pass, Roles rol, string telefono_user, string direccion_user, string localidad_user, string provincia_user)
         {
             this.id_user = 0; // ID por defecto, asumirá uno real al persistir
@@ -32,6 +37,23 @@ namespace CapaEntidades
             this.username = username;
             this.pass = pass;
             this.baja_user = false; // Por defecto, un usuario nuevo no está de baja
+            this.objRoles = rol;
+            this.telefono_user = telefono_user;
+            this.direccion_user = direccion_user;
+            this.localidad_user = localidad_user;
+            this.provincia_user = provincia_user;
+        }
+
+        public Usuario(string apellido, string nombre, int dni, string mail, string username, string pass, bool bajaUser, Roles rol, string telefono_user, string direccion_user, string localidad_user, string provincia_user)
+        {
+            this.id_user = 0; // ID por defecto, asumirá uno real al persistir
+            this.apellido = apellido;
+            this.nombre = nombre;
+            this.dni = dni;
+            this.mail = mail;
+            this.username = username;
+            this.pass = pass;
+            this.baja_user = bajaUser;
             this.objRoles = rol;
             this.telefono_user = telefono_user;
             this.direccion_user = direccion_user;

@@ -28,32 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.usuariosDataGridView = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id_user = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pROC_BUSCAR_USUARIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BBuscar = new CuoreUI.Controls.cuiButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.usuariosDataGridView = new System.Windows.Forms.DataGridView();
+            this.LayoutUsuarios = new System.Windows.Forms.TableLayoutPanel();
             this.TCUsuarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TIndice = new CuoreUI.Controls.cuiTextBox();
+            this.CBestado = new System.Windows.Forms.ComboBox();
+            this.CBroles = new System.Windows.Forms.ComboBox();
             this.TProvincia = new CuoreUI.Controls.cuiTextBox();
             this.TPassConf = new CuoreUI.Controls.cuiTextBox();
             this.TPass = new CuoreUI.Controls.cuiTextBox();
@@ -80,79 +71,147 @@
             this.LPass = new System.Windows.Forms.Label();
             this.LUser = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.PanelModificarUser = new System.Windows.Forms.Panel();
-            this.panelInternoModif = new System.Windows.Forms.Panel();
-            this.BModificar = new CuoreUI.Controls.cuiButton();
-            this.TModificarConfirmPass = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.TModificarID_user = new CuoreUI.Controls.cuiTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TModificarPass = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.CBModificarRoles = new System.Windows.Forms.ComboBox();
-            this.LModificarEstado = new System.Windows.Forms.Label();
+            this.TModificarIndice = new CuoreUI.Controls.cuiTextBox();
             this.CBModificarEstado = new System.Windows.Forms.ComboBox();
-            this.LModificarRol = new System.Windows.Forms.Label();
-            this.TModificarDni = new System.Windows.Forms.TextBox();
-            this.LModificarDni = new System.Windows.Forms.Label();
-            this.LModificarUsuario = new System.Windows.Forms.Label();
-            this.TModificarUser = new System.Windows.Forms.TextBox();
-            this.LModificarApellido = new System.Windows.Forms.Label();
-            this.TModificarEmail = new System.Windows.Forms.TextBox();
-            this.TModificarAp = new System.Windows.Forms.TextBox();
-            this.LModificarEmail = new System.Windows.Forms.Label();
-            this.TModificarNombre = new System.Windows.Forms.TextBox();
-            this.LModificarNombre = new System.Windows.Forms.Label();
-            this.TModificarID_user = new System.Windows.Forms.TextBox();
-            this.TBModificarIndice = new System.Windows.Forms.TextBox();
-            this.pROC_BUSCAR_USUARIOTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.PROC_BUSCAR_USUARIOTableAdapter();
-            this.tableAdapterManager = new OcioStoreIngSoftII.DataSet1TableAdapters.TableAdapterManager();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usersTableAdapter = new OcioStoreIngSoftII.DataSet1TableAdapters.UsersTableAdapter();
-            this.CBroles = new System.Windows.Forms.ComboBox();
-            this.CBestado = new System.Windows.Forms.ComboBox();
-            this.TID_user = new CuoreUI.Controls.cuiTextBox();
-            this.TIndice = new CuoreUI.Controls.cuiTextBox();
+            this.CBModificarRoles = new System.Windows.Forms.ComboBox();
+            this.TModificarProvincia = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarConfirmPass = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarPass = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarDireccion = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarLocalidad = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarUser = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarTelefono = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarEmail = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarDni = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarAp = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarNombre = new CuoreUI.Controls.cuiTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pROC_BUSCAR_USUARIOBindingSource)).BeginInit();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.BModificar = new CuoreUI.Controls.cuiButton();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id_user = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Teléfono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dirección = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).BeginInit();
+            this.LayoutUsuarios.SuspendLayout();
             this.TCUsuarios.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.PanelModificarUser.SuspendLayout();
-            this.panelInternoModif.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // dataSet1
             // 
-            this.tableLayoutPanel1.AutoScroll = true;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.usuariosDataGridView, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.TCUsuarios, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 500F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 500F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1142, 688);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.BBuscar);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtBuscar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1136, 94);
+            this.panel1.TabIndex = 57;
+            // 
+            // BBuscar
+            // 
+            this.BBuscar.CheckButton = false;
+            this.BBuscar.Checked = false;
+            this.BBuscar.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.BBuscar.CheckedForeColor = System.Drawing.Color.White;
+            this.BBuscar.CheckedImageTint = System.Drawing.Color.White;
+            this.BBuscar.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.BBuscar.Content = "Buscar";
+            this.BBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BBuscar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.BBuscar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.BBuscar.ForeColor = System.Drawing.Color.Black;
+            this.BBuscar.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.BBuscar.HoverForeColor = System.Drawing.Color.White;
+            this.BBuscar.HoverImageTint = System.Drawing.Color.White;
+            this.BBuscar.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BBuscar.Image = null;
+            this.BBuscar.ImageAutoCenter = true;
+            this.BBuscar.ImageExpand = new System.Drawing.Point(0, 0);
+            this.BBuscar.ImageOffset = new System.Drawing.Point(0, 0);
+            this.BBuscar.Location = new System.Drawing.Point(272, 40);
+            this.BBuscar.Name = "BBuscar";
+            this.BBuscar.NormalBackground = System.Drawing.Color.White;
+            this.BBuscar.NormalForeColor = System.Drawing.Color.Black;
+            this.BBuscar.NormalImageTint = System.Drawing.Color.White;
+            this.BBuscar.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BBuscar.OutlineThickness = 1F;
+            this.BBuscar.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.BBuscar.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.BBuscar.PressedImageTint = System.Drawing.Color.White;
+            this.BBuscar.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BBuscar.Rounding = new System.Windows.Forms.Padding(8);
+            this.BBuscar.Size = new System.Drawing.Size(91, 29);
+            this.BBuscar.TabIndex = 10;
+            this.BBuscar.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BBuscar.TextOffset = new System.Drawing.Point(0, 0);
+            this.BBuscar.Click += new System.EventHandler(this.BBuscar_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label1.Location = new System.Drawing.Point(21, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Buscar";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.ForeColor = System.Drawing.Color.White;
+            this.txtBuscar.Location = new System.Drawing.Point(17, 40);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(232, 29);
+            this.txtBuscar.TabIndex = 5;
             // 
             // usuariosDataGridView
             // 
             this.usuariosDataGridView.AllowUserToAddRows = false;
             this.usuariosDataGridView.AllowUserToDeleteRows = false;
-            this.usuariosDataGridView.AutoGenerateColumns = false;
-            this.usuariosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.usuariosDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.usuariosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -168,17 +227,19 @@
             this.usuariosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
             this.id_user,
+            this.rol,
             this.apellido,
             this.nombre,
             this.dni,
-            this.email,
             this.user,
             this.pass,
             this.estadoValor,
             this.estado,
-            this.id_rol,
-            this.rol});
-            this.usuariosDataGridView.DataSource = this.pROC_BUSCAR_USUARIOBindingSource;
+            this.email,
+            this.Teléfono,
+            this.Dirección,
+            this.Localidad,
+            this.Provincia});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -190,7 +251,7 @@
             this.usuariosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usuariosDataGridView.EnableHeadersVisualStyles = false;
             this.usuariosDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.usuariosDataGridView.Location = new System.Drawing.Point(15, 73);
+            this.usuariosDataGridView.Location = new System.Drawing.Point(15, 103);
             this.usuariosDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.usuariosDataGridView.Name = "usuariosDataGridView";
             this.usuariosDataGridView.ReadOnly = true;
@@ -205,148 +266,29 @@
             this.usuariosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.usuariosDataGridView.RowHeadersVisible = false;
             this.usuariosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usuariosDataGridView.Size = new System.Drawing.Size(1112, 494);
+            this.usuariosDataGridView.Size = new System.Drawing.Size(1112, 394);
             this.usuariosDataGridView.TabIndex = 58;
             this.usuariosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usuariosDataGridView_CellContentClick);
             this.usuariosDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.usuariosDataGridView_CellPainting);
             this.usuariosDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.usuariosDataGridView_DataBindingComplete);
             // 
-            // btnSeleccionar
+            // LayoutUsuarios
             // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 112;
-            // 
-            // id_user
-            // 
-            this.id_user.DataPropertyName = "id_user";
-            this.id_user.HeaderText = "ID de Usuario";
-            this.id_user.Name = "id_user";
-            this.id_user.ReadOnly = true;
-            // 
-            // apellido
-            // 
-            this.apellido.DataPropertyName = "apellido";
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // dni
-            // 
-            this.dni.DataPropertyName = "dni";
-            this.dni.HeaderText = "DNI";
-            this.dni.Name = "dni";
-            this.dni.ReadOnly = true;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "mail";
-            this.email.HeaderText = "E-Mail";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
-            // user
-            // 
-            this.user.DataPropertyName = "username";
-            this.user.HeaderText = "Usuario";
-            this.user.Name = "user";
-            this.user.ReadOnly = true;
-            // 
-            // pass
-            // 
-            this.pass.DataPropertyName = "pass";
-            this.pass.HeaderText = "Contraseña";
-            this.pass.Name = "pass";
-            this.pass.ReadOnly = true;
-            // 
-            // estadoValor
-            // 
-            this.estadoValor.DataPropertyName = "baja_user";
-            this.estadoValor.HeaderText = "baja_user";
-            this.estadoValor.Name = "estadoValor";
-            this.estadoValor.ReadOnly = true;
-            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.estadoValor.Visible = false;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Dado de Baja?";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // id_rol
-            // 
-            this.id_rol.DataPropertyName = "id_rol";
-            this.id_rol.HeaderText = "id_rol";
-            this.id_rol.Name = "id_rol";
-            this.id_rol.ReadOnly = true;
-            this.id_rol.Visible = false;
-            // 
-            // rol
-            // 
-            this.rol.DataPropertyName = "nombre_rol";
-            this.rol.HeaderText = "Tipo de Rol";
-            this.rol.Name = "rol";
-            this.rol.ReadOnly = true;
-            // 
-            // pROC_BUSCAR_USUARIOBindingSource
-            // 
-            this.pROC_BUSCAR_USUARIOBindingSource.DataMember = "PROC_BUSCAR_USUARIO";
-            this.pROC_BUSCAR_USUARIOBindingSource.DataSource = this.dataSet1;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtBuscar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1136, 64);
-            this.panel1.TabIndex = 57;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(9, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 25);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Buscar";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.ForeColor = System.Drawing.Color.White;
-            this.txtBuscar.Location = new System.Drawing.Point(8, 40);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(232, 29);
-            this.txtBuscar.TabIndex = 5;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.LayoutUsuarios.AutoScroll = true;
+            this.LayoutUsuarios.ColumnCount = 1;
+            this.LayoutUsuarios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.LayoutUsuarios.Controls.Add(this.usuariosDataGridView, 0, 1);
+            this.LayoutUsuarios.Controls.Add(this.panel1, 0, 0);
+            this.LayoutUsuarios.Controls.Add(this.TCUsuarios, 0, 2);
+            this.LayoutUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LayoutUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.LayoutUsuarios.Name = "LayoutUsuarios";
+            this.LayoutUsuarios.RowCount = 3;
+            this.LayoutUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.LayoutUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
+            this.LayoutUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
+            this.LayoutUsuarios.Size = new System.Drawing.Size(1142, 688);
+            this.LayoutUsuarios.TabIndex = 0;
             // 
             // TCUsuarios
             // 
@@ -356,11 +298,11 @@
             this.TCUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCUsuarios.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TCUsuarios.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TCUsuarios.Location = new System.Drawing.Point(3, 573);
+            this.TCUsuarios.Location = new System.Drawing.Point(3, 503);
             this.TCUsuarios.Multiline = true;
             this.TCUsuarios.Name = "TCUsuarios";
             this.TCUsuarios.SelectedIndex = 0;
-            this.TCUsuarios.Size = new System.Drawing.Size(1136, 494);
+            this.TCUsuarios.Size = new System.Drawing.Size(1136, 594);
             this.TCUsuarios.TabIndex = 11;
             // 
             // tabPage1
@@ -377,9 +319,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.TIndice);
-            this.panel2.Controls.Add(this.TID_user);
             this.panel2.Controls.Add(this.CBestado);
             this.panel2.Controls.Add(this.CBroles);
             this.panel2.Controls.Add(this.TProvincia);
@@ -412,6 +352,64 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1122, 455);
             this.panel2.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label9.Location = new System.Drawing.Point(19, 389);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 21);
+            this.label9.TabIndex = 79;
+            this.label9.Text = "Indice";
+            this.label9.Visible = false;
+            // 
+            // TIndice
+            // 
+            this.TIndice.BackgroundColor = System.Drawing.Color.White;
+            this.TIndice.Content = "-1";
+            this.TIndice.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TIndice.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TIndice.FocusImageTint = System.Drawing.Color.White;
+            this.TIndice.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TIndice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TIndice.ForeColor = System.Drawing.Color.Gray;
+            this.TIndice.Image = null;
+            this.TIndice.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TIndice.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TIndice.Location = new System.Drawing.Point(19, 414);
+            this.TIndice.Margin = new System.Windows.Forms.Padding(4);
+            this.TIndice.Multiline = false;
+            this.TIndice.Name = "TIndice";
+            this.TIndice.NormalImageTint = System.Drawing.Color.White;
+            this.TIndice.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TIndice.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TIndice.PasswordChar = false;
+            this.TIndice.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TIndice.PlaceholderText = "";
+            this.TIndice.Rounding = new System.Windows.Forms.Padding(8);
+            this.TIndice.Size = new System.Drawing.Size(51, 28);
+            this.TIndice.TabIndex = 78;
+            this.TIndice.TextOffset = new System.Drawing.Size(0, 0);
+            this.TIndice.UnderlinedStyle = true;
+            this.TIndice.Visible = false;
+            // 
+            // CBestado
+            // 
+            this.CBestado.FormattingEnabled = true;
+            this.CBestado.Location = new System.Drawing.Point(720, 153);
+            this.CBestado.Name = "CBestado";
+            this.CBestado.Size = new System.Drawing.Size(233, 28);
+            this.CBestado.TabIndex = 76;
+            // 
+            // CBroles
+            // 
+            this.CBroles.FormattingEnabled = true;
+            this.CBroles.Location = new System.Drawing.Point(720, 97);
+            this.CBroles.Name = "CBroles";
+            this.CBroles.Size = new System.Drawing.Size(233, 28);
+            this.CBroles.TabIndex = 75;
             // 
             // TProvincia
             // 
@@ -515,11 +513,11 @@
             this.TDireccion.ImageOffset = new System.Drawing.Point(0, 0);
             this.TDireccion.Location = new System.Drawing.Point(448, 152);
             this.TDireccion.Margin = new System.Windows.Forms.Padding(4);
-            this.TDireccion.Multiline = false;
+            this.TDireccion.Multiline = true;
             this.TDireccion.Name = "TDireccion";
             this.TDireccion.NormalImageTint = System.Drawing.Color.White;
             this.TDireccion.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TDireccion.Padding = new System.Windows.Forms.Padding(15, 63, 15, 0);
+            this.TDireccion.Padding = new System.Windows.Forms.Padding(15, 5, 15, 5);
             this.TDireccion.PasswordChar = false;
             this.TDireccion.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TDireccion.PlaceholderText = "";
@@ -917,68 +915,517 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tabPage2.Controls.Add(this.tableLayoutPanel7);
+            this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1128, 461);
+            this.tabPage2.Size = new System.Drawing.Size(1128, 561);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar Usuario";
             // 
-            // tableLayoutPanel7
+            // panel3
             // 
-            this.tableLayoutPanel7.ColumnCount = 3;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.632153F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.722979F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.64487F));
-            this.tableLayoutPanel7.Controls.Add(this.PanelModificarUser, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.TModificarID_user, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.TBModificarIndice, 0, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1122, 455);
-            this.tableLayoutPanel7.TabIndex = 56;
+            this.panel3.Controls.Add(this.label21);
+            this.panel3.Controls.Add(this.TModificarID_user);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.TModificarIndice);
+            this.panel3.Controls.Add(this.CBModificarEstado);
+            this.panel3.Controls.Add(this.CBModificarRoles);
+            this.panel3.Controls.Add(this.TModificarProvincia);
+            this.panel3.Controls.Add(this.TModificarConfirmPass);
+            this.panel3.Controls.Add(this.TModificarPass);
+            this.panel3.Controls.Add(this.TModificarDireccion);
+            this.panel3.Controls.Add(this.TModificarLocalidad);
+            this.panel3.Controls.Add(this.TModificarUser);
+            this.panel3.Controls.Add(this.TModificarTelefono);
+            this.panel3.Controls.Add(this.TModificarEmail);
+            this.panel3.Controls.Add(this.TModificarDni);
+            this.panel3.Controls.Add(this.TModificarAp);
+            this.panel3.Controls.Add(this.TModificarNombre);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Controls.Add(this.BModificar);
+            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.label18);
+            this.panel3.Controls.Add(this.label19);
+            this.panel3.Controls.Add(this.label20);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1122, 555);
+            this.panel3.TabIndex = 0;
             // 
-            // PanelModificarUser
+            // label21
             // 
-            this.PanelModificarUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.PanelModificarUser.Controls.Add(this.panelInternoModif);
-            this.PanelModificarUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelModificarUser.Location = new System.Drawing.Point(106, 3);
-            this.PanelModificarUser.Name = "PanelModificarUser";
-            this.PanelModificarUser.Size = new System.Drawing.Size(1013, 449);
-            this.PanelModificarUser.TabIndex = 51;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label21.Location = new System.Drawing.Point(88, 389);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(61, 21);
+            this.label21.TabIndex = 110;
+            this.label21.Text = "ID Mod";
+            this.label21.Visible = false;
             // 
-            // panelInternoModif
+            // TModificarID_user
             // 
-            this.panelInternoModif.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.panelInternoModif.Controls.Add(this.BModificar);
-            this.panelInternoModif.Controls.Add(this.TModificarConfirmPass);
-            this.panelInternoModif.Controls.Add(this.label2);
-            this.panelInternoModif.Controls.Add(this.TModificarPass);
-            this.panelInternoModif.Controls.Add(this.label3);
-            this.panelInternoModif.Controls.Add(this.CBModificarRoles);
-            this.panelInternoModif.Controls.Add(this.LModificarEstado);
-            this.panelInternoModif.Controls.Add(this.CBModificarEstado);
-            this.panelInternoModif.Controls.Add(this.LModificarRol);
-            this.panelInternoModif.Controls.Add(this.TModificarDni);
-            this.panelInternoModif.Controls.Add(this.LModificarDni);
-            this.panelInternoModif.Controls.Add(this.LModificarUsuario);
-            this.panelInternoModif.Controls.Add(this.TModificarUser);
-            this.panelInternoModif.Controls.Add(this.LModificarApellido);
-            this.panelInternoModif.Controls.Add(this.TModificarEmail);
-            this.panelInternoModif.Controls.Add(this.TModificarAp);
-            this.panelInternoModif.Controls.Add(this.LModificarEmail);
-            this.panelInternoModif.Controls.Add(this.TModificarNombre);
-            this.panelInternoModif.Controls.Add(this.LModificarNombre);
-            this.panelInternoModif.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInternoModif.Location = new System.Drawing.Point(0, 0);
-            this.panelInternoModif.Name = "panelInternoModif";
-            this.panelInternoModif.Size = new System.Drawing.Size(1013, 449);
-            this.panelInternoModif.TabIndex = 54;
+            this.TModificarID_user.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarID_user.Content = "0";
+            this.TModificarID_user.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarID_user.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarID_user.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarID_user.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarID_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarID_user.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarID_user.Image = null;
+            this.TModificarID_user.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarID_user.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarID_user.Location = new System.Drawing.Point(88, 414);
+            this.TModificarID_user.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarID_user.Multiline = false;
+            this.TModificarID_user.Name = "TModificarID_user";
+            this.TModificarID_user.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarID_user.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarID_user.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarID_user.PasswordChar = false;
+            this.TModificarID_user.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarID_user.PlaceholderText = "";
+            this.TModificarID_user.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarID_user.Size = new System.Drawing.Size(51, 28);
+            this.TModificarID_user.TabIndex = 109;
+            this.TModificarID_user.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarID_user.UnderlinedStyle = true;
+            this.TModificarID_user.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label2.Location = new System.Drawing.Point(19, 389);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 21);
+            this.label2.TabIndex = 108;
+            this.label2.Text = "Indice";
+            this.label2.Visible = false;
+            // 
+            // TModificarIndice
+            // 
+            this.TModificarIndice.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarIndice.Content = "-1";
+            this.TModificarIndice.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarIndice.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarIndice.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarIndice.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarIndice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarIndice.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarIndice.Image = null;
+            this.TModificarIndice.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarIndice.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarIndice.Location = new System.Drawing.Point(19, 414);
+            this.TModificarIndice.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarIndice.Multiline = false;
+            this.TModificarIndice.Name = "TModificarIndice";
+            this.TModificarIndice.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarIndice.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarIndice.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarIndice.PasswordChar = false;
+            this.TModificarIndice.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarIndice.PlaceholderText = "";
+            this.TModificarIndice.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarIndice.Size = new System.Drawing.Size(51, 28);
+            this.TModificarIndice.TabIndex = 107;
+            this.TModificarIndice.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarIndice.UnderlinedStyle = true;
+            this.TModificarIndice.Visible = false;
+            // 
+            // CBModificarEstado
+            // 
+            this.CBModificarEstado.DisplayMember = "Valor";
+            this.CBModificarEstado.FormattingEnabled = true;
+            this.CBModificarEstado.Location = new System.Drawing.Point(720, 153);
+            this.CBModificarEstado.Name = "CBModificarEstado";
+            this.CBModificarEstado.Size = new System.Drawing.Size(233, 28);
+            this.CBModificarEstado.TabIndex = 106;
+            // 
+            // CBModificarRoles
+            // 
+            this.CBModificarRoles.DisplayMember = "Valor";
+            this.CBModificarRoles.FormattingEnabled = true;
+            this.CBModificarRoles.Location = new System.Drawing.Point(720, 97);
+            this.CBModificarRoles.Name = "CBModificarRoles";
+            this.CBModificarRoles.Size = new System.Drawing.Size(233, 28);
+            this.CBModificarRoles.TabIndex = 105;
+            // 
+            // TModificarProvincia
+            // 
+            this.TModificarProvincia.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarProvincia.Content = "";
+            this.TModificarProvincia.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarProvincia.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarProvincia.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarProvincia.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarProvincia.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarProvincia.Image = null;
+            this.TModificarProvincia.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarProvincia.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarProvincia.Location = new System.Drawing.Point(448, 40);
+            this.TModificarProvincia.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarProvincia.Multiline = false;
+            this.TModificarProvincia.Name = "TModificarProvincia";
+            this.TModificarProvincia.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarProvincia.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarProvincia.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarProvincia.PasswordChar = false;
+            this.TModificarProvincia.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarProvincia.PlaceholderText = "";
+            this.TModificarProvincia.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarProvincia.Size = new System.Drawing.Size(233, 28);
+            this.TModificarProvincia.TabIndex = 104;
+            this.TModificarProvincia.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarProvincia.UnderlinedStyle = true;
+            // 
+            // TModificarConfirmPass
+            // 
+            this.TModificarConfirmPass.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarConfirmPass.Content = "";
+            this.TModificarConfirmPass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarConfirmPass.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarConfirmPass.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarConfirmPass.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarConfirmPass.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarConfirmPass.Image = null;
+            this.TModificarConfirmPass.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarConfirmPass.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarConfirmPass.Location = new System.Drawing.Point(720, 264);
+            this.TModificarConfirmPass.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarConfirmPass.Multiline = false;
+            this.TModificarConfirmPass.Name = "TModificarConfirmPass";
+            this.TModificarConfirmPass.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarConfirmPass.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarConfirmPass.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarConfirmPass.PasswordChar = true;
+            this.TModificarConfirmPass.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarConfirmPass.PlaceholderText = "";
+            this.TModificarConfirmPass.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarConfirmPass.Size = new System.Drawing.Size(233, 28);
+            this.TModificarConfirmPass.TabIndex = 103;
+            this.TModificarConfirmPass.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarConfirmPass.UnderlinedStyle = true;
+            // 
+            // TModificarPass
+            // 
+            this.TModificarPass.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarPass.Content = "";
+            this.TModificarPass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarPass.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarPass.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarPass.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarPass.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarPass.Image = null;
+            this.TModificarPass.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarPass.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarPass.Location = new System.Drawing.Point(720, 208);
+            this.TModificarPass.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarPass.Multiline = false;
+            this.TModificarPass.Name = "TModificarPass";
+            this.TModificarPass.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarPass.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarPass.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarPass.PasswordChar = true;
+            this.TModificarPass.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarPass.PlaceholderText = "";
+            this.TModificarPass.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarPass.Size = new System.Drawing.Size(233, 28);
+            this.TModificarPass.TabIndex = 102;
+            this.TModificarPass.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarPass.UnderlinedStyle = true;
+            // 
+            // TModificarDireccion
+            // 
+            this.TModificarDireccion.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarDireccion.Content = "";
+            this.TModificarDireccion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarDireccion.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarDireccion.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarDireccion.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarDireccion.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarDireccion.Image = null;
+            this.TModificarDireccion.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarDireccion.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarDireccion.Location = new System.Drawing.Point(448, 152);
+            this.TModificarDireccion.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarDireccion.Multiline = true;
+            this.TModificarDireccion.Name = "TModificarDireccion";
+            this.TModificarDireccion.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarDireccion.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarDireccion.Padding = new System.Windows.Forms.Padding(15, 5, 15, 5);
+            this.TModificarDireccion.PasswordChar = false;
+            this.TModificarDireccion.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarDireccion.PlaceholderText = "";
+            this.TModificarDireccion.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarDireccion.Size = new System.Drawing.Size(233, 140);
+            this.TModificarDireccion.TabIndex = 101;
+            this.TModificarDireccion.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarDireccion.UnderlinedStyle = true;
+            // 
+            // TModificarLocalidad
+            // 
+            this.TModificarLocalidad.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarLocalidad.Content = "";
+            this.TModificarLocalidad.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarLocalidad.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarLocalidad.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarLocalidad.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarLocalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarLocalidad.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarLocalidad.Image = null;
+            this.TModificarLocalidad.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarLocalidad.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarLocalidad.Location = new System.Drawing.Point(448, 96);
+            this.TModificarLocalidad.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarLocalidad.Multiline = false;
+            this.TModificarLocalidad.Name = "TModificarLocalidad";
+            this.TModificarLocalidad.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarLocalidad.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarLocalidad.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarLocalidad.PasswordChar = false;
+            this.TModificarLocalidad.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarLocalidad.PlaceholderText = "";
+            this.TModificarLocalidad.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarLocalidad.Size = new System.Drawing.Size(233, 28);
+            this.TModificarLocalidad.TabIndex = 100;
+            this.TModificarLocalidad.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarLocalidad.UnderlinedStyle = true;
+            // 
+            // TModificarUser
+            // 
+            this.TModificarUser.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarUser.Content = "";
+            this.TModificarUser.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarUser.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarUser.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarUser.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarUser.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarUser.Image = null;
+            this.TModificarUser.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarUser.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarUser.Location = new System.Drawing.Point(720, 40);
+            this.TModificarUser.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarUser.Multiline = false;
+            this.TModificarUser.Name = "TModificarUser";
+            this.TModificarUser.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarUser.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarUser.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarUser.PasswordChar = false;
+            this.TModificarUser.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarUser.PlaceholderText = "";
+            this.TModificarUser.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarUser.Size = new System.Drawing.Size(233, 28);
+            this.TModificarUser.TabIndex = 99;
+            this.TModificarUser.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarUser.UnderlinedStyle = true;
+            // 
+            // TModificarTelefono
+            // 
+            this.TModificarTelefono.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarTelefono.Content = "";
+            this.TModificarTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarTelefono.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarTelefono.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarTelefono.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarTelefono.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarTelefono.Image = null;
+            this.TModificarTelefono.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarTelefono.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarTelefono.Location = new System.Drawing.Point(176, 264);
+            this.TModificarTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarTelefono.Multiline = false;
+            this.TModificarTelefono.Name = "TModificarTelefono";
+            this.TModificarTelefono.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarTelefono.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarTelefono.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarTelefono.PasswordChar = false;
+            this.TModificarTelefono.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarTelefono.PlaceholderText = "";
+            this.TModificarTelefono.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarTelefono.Size = new System.Drawing.Size(233, 28);
+            this.TModificarTelefono.TabIndex = 98;
+            this.TModificarTelefono.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarTelefono.UnderlinedStyle = true;
+            // 
+            // TModificarEmail
+            // 
+            this.TModificarEmail.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarEmail.Content = "";
+            this.TModificarEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarEmail.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarEmail.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarEmail.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarEmail.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarEmail.Image = null;
+            this.TModificarEmail.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarEmail.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarEmail.Location = new System.Drawing.Point(176, 208);
+            this.TModificarEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarEmail.Multiline = false;
+            this.TModificarEmail.Name = "TModificarEmail";
+            this.TModificarEmail.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarEmail.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarEmail.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarEmail.PasswordChar = false;
+            this.TModificarEmail.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarEmail.PlaceholderText = "";
+            this.TModificarEmail.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarEmail.Size = new System.Drawing.Size(233, 28);
+            this.TModificarEmail.TabIndex = 97;
+            this.TModificarEmail.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarEmail.UnderlinedStyle = true;
+            // 
+            // TModificarDni
+            // 
+            this.TModificarDni.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarDni.Content = "";
+            this.TModificarDni.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarDni.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarDni.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarDni.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarDni.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarDni.Image = null;
+            this.TModificarDni.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarDni.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarDni.Location = new System.Drawing.Point(176, 152);
+            this.TModificarDni.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarDni.Multiline = false;
+            this.TModificarDni.Name = "TModificarDni";
+            this.TModificarDni.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarDni.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarDni.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarDni.PasswordChar = false;
+            this.TModificarDni.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarDni.PlaceholderText = "";
+            this.TModificarDni.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarDni.Size = new System.Drawing.Size(233, 28);
+            this.TModificarDni.TabIndex = 96;
+            this.TModificarDni.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarDni.UnderlinedStyle = true;
+            // 
+            // TModificarAp
+            // 
+            this.TModificarAp.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarAp.Content = "";
+            this.TModificarAp.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarAp.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarAp.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarAp.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarAp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarAp.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarAp.Image = null;
+            this.TModificarAp.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarAp.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarAp.Location = new System.Drawing.Point(176, 96);
+            this.TModificarAp.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarAp.Multiline = false;
+            this.TModificarAp.Name = "TModificarAp";
+            this.TModificarAp.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarAp.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarAp.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarAp.PasswordChar = false;
+            this.TModificarAp.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarAp.PlaceholderText = "";
+            this.TModificarAp.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarAp.Size = new System.Drawing.Size(233, 28);
+            this.TModificarAp.TabIndex = 95;
+            this.TModificarAp.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarAp.UnderlinedStyle = true;
+            // 
+            // TModificarNombre
+            // 
+            this.TModificarNombre.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarNombre.Content = "";
+            this.TModificarNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarNombre.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarNombre.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarNombre.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarNombre.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarNombre.Image = null;
+            this.TModificarNombre.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarNombre.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarNombre.Location = new System.Drawing.Point(176, 40);
+            this.TModificarNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarNombre.Multiline = false;
+            this.TModificarNombre.Name = "TModificarNombre";
+            this.TModificarNombre.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarNombre.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarNombre.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarNombre.PasswordChar = false;
+            this.TModificarNombre.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarNombre.PlaceholderText = "";
+            this.TModificarNombre.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarNombre.Size = new System.Drawing.Size(233, 28);
+            this.TModificarNombre.TabIndex = 94;
+            this.TModificarNombre.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarNombre.UnderlinedStyle = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label3.Location = new System.Drawing.Point(456, 128);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 21);
+            this.label3.TabIndex = 93;
+            this.label3.Text = "Dirección";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label8.Location = new System.Drawing.Point(456, 76);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 21);
+            this.label8.TabIndex = 92;
+            this.label8.Text = "Localidad";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label10.Location = new System.Drawing.Point(456, 16);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 21);
+            this.label10.TabIndex = 91;
+            this.label10.Text = "Provincia";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label11.Location = new System.Drawing.Point(184, 240);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 21);
+            this.label11.TabIndex = 90;
+            this.label11.Text = "Teléfono";
             // 
             // BModificar
             // 
@@ -991,7 +1438,7 @@
             this.BModificar.Content = "Modificar Usuario";
             this.BModificar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BModificar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.BModificar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.BModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BModificar.ForeColor = System.Drawing.Color.White;
             this.BModificar.HoverBackground = System.Drawing.Color.White;
             this.BModificar.HoverForeColor = System.Drawing.Color.Black;
@@ -1001,7 +1448,7 @@
             this.BModificar.ImageAutoCenter = true;
             this.BModificar.ImageExpand = new System.Drawing.Point(0, 0);
             this.BModificar.ImageOffset = new System.Drawing.Point(0, 0);
-            this.BModificar.Location = new System.Drawing.Point(393, 305);
+            this.BModificar.Location = new System.Drawing.Point(496, 312);
             this.BModificar.Name = "BModificar";
             this.BModificar.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.BModificar.NormalForeColor = System.Drawing.Color.White;
@@ -1014,371 +1461,252 @@
             this.BModificar.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BModificar.Rounding = new System.Windows.Forms.Padding(8);
             this.BModificar.Size = new System.Drawing.Size(143, 32);
-            this.BModificar.TabIndex = 58;
+            this.BModificar.TabIndex = 89;
             this.BModificar.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BModificar.TextOffset = new System.Drawing.Point(0, 0);
             this.BModificar.Click += new System.EventHandler(this.BModificar_Click);
             // 
-            // TModificarConfirmPass
+            // label12
             // 
-            this.TModificarConfirmPass.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TModificarConfirmPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarConfirmPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarConfirmPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarConfirmPass.Location = new System.Drawing.Point(208, 256);
-            this.TModificarConfirmPass.Name = "TModificarConfirmPass";
-            this.TModificarConfirmPass.PasswordChar = '*';
-            this.TModificarConfirmPass.Size = new System.Drawing.Size(232, 29);
-            this.TModificarConfirmPass.TabIndex = 57;
-            this.TModificarConfirmPass.UseSystemPasswordChar = true;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label12.Location = new System.Drawing.Point(726, 128);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 21);
+            this.label12.TabIndex = 88;
+            this.label12.Text = "Estado";
             // 
-            // label2
+            // label13
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Location = new System.Drawing.Point(208, 232);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(164, 21);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Confirmar Contraseña";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label13.Location = new System.Drawing.Point(726, 72);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 21);
+            this.label13.TabIndex = 87;
+            this.label13.Text = "Rol";
             // 
-            // TModificarPass
+            // label14
             // 
-            this.TModificarPass.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TModificarPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarPass.Location = new System.Drawing.Point(208, 200);
-            this.TModificarPass.Name = "TModificarPass";
-            this.TModificarPass.PasswordChar = '*';
-            this.TModificarPass.Size = new System.Drawing.Size(232, 29);
-            this.TModificarPass.TabIndex = 55;
-            this.TModificarPass.UseSystemPasswordChar = true;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label14.Location = new System.Drawing.Point(726, 240);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(164, 21);
+            this.label14.TabIndex = 86;
+            this.label14.Text = "Confirmar Contraseña";
             // 
-            // label3
+            // label15
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Location = new System.Drawing.Point(208, 176);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 21);
-            this.label3.TabIndex = 54;
-            this.label3.Text = "Contraseña";
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label15.Location = new System.Drawing.Point(184, 184);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(54, 21);
+            this.label15.TabIndex = 85;
+            this.label15.Text = "E-mail";
             // 
-            // CBModificarRoles
+            // label16
             // 
-            this.CBModificarRoles.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.CBModificarRoles.DisplayMember = "id_rol";
-            this.CBModificarRoles.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBModificarRoles.FormattingEnabled = true;
-            this.CBModificarRoles.Location = new System.Drawing.Point(480, 144);
-            this.CBModificarRoles.Name = "CBModificarRoles";
-            this.CBModificarRoles.Size = new System.Drawing.Size(231, 29);
-            this.CBModificarRoles.TabIndex = 46;
-            this.CBModificarRoles.ValueMember = "id_rol";
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label16.Location = new System.Drawing.Point(184, 72);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(67, 21);
+            this.label16.TabIndex = 84;
+            this.label16.Text = "Apellido";
             // 
-            // LModificarEstado
+            // label17
             // 
-            this.LModificarEstado.AutoSize = true;
-            this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarEstado.Location = new System.Drawing.Point(480, 176);
-            this.LModificarEstado.Name = "LModificarEstado";
-            this.LModificarEstado.Size = new System.Drawing.Size(56, 21);
-            this.LModificarEstado.TabIndex = 44;
-            this.LModificarEstado.Text = "Estado";
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label17.Location = new System.Drawing.Point(184, 128);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(37, 21);
+            this.label17.TabIndex = 83;
+            this.label17.Text = "DNI";
             // 
-            // CBModificarEstado
+            // label18
             // 
-            this.CBModificarEstado.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.CBModificarEstado.DisplayMember = "estado";
-            this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBModificarEstado.FormattingEnabled = true;
-            this.CBModificarEstado.Location = new System.Drawing.Point(480, 200);
-            this.CBModificarEstado.Name = "CBModificarEstado";
-            this.CBModificarEstado.Size = new System.Drawing.Size(232, 29);
-            this.CBModificarEstado.TabIndex = 43;
-            this.CBModificarEstado.ValueMember = "estado";
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label18.Location = new System.Drawing.Point(184, 16);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(68, 21);
+            this.label18.TabIndex = 82;
+            this.label18.Text = "Nombre";
             // 
-            // LModificarRol
+            // label19
             // 
-            this.LModificarRol.AutoSize = true;
-            this.LModificarRol.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarRol.Location = new System.Drawing.Point(480, 120);
-            this.LModificarRol.Name = "LModificarRol";
-            this.LModificarRol.Size = new System.Drawing.Size(33, 21);
-            this.LModificarRol.TabIndex = 42;
-            this.LModificarRol.Text = "Rol";
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label19.Location = new System.Drawing.Point(726, 184);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(89, 21);
+            this.label19.TabIndex = 81;
+            this.label19.Text = "Contraseña";
             // 
-            // TModificarDni
+            // label20
             // 
-            this.TModificarDni.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TModificarDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarDni.Location = new System.Drawing.Point(480, 32);
-            this.TModificarDni.Name = "TModificarDni";
-            this.TModificarDni.Size = new System.Drawing.Size(232, 29);
-            this.TModificarDni.TabIndex = 34;
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label20.Location = new System.Drawing.Point(726, 16);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(64, 21);
+            this.label20.TabIndex = 80;
+            this.label20.Text = "Usuario";
             // 
-            // LModificarDni
+            // btnSeleccionar
             // 
-            this.LModificarDni.AutoSize = true;
-            this.LModificarDni.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarDni.Location = new System.Drawing.Point(480, 8);
-            this.LModificarDni.Name = "LModificarDni";
-            this.LModificarDni.Size = new System.Drawing.Size(37, 21);
-            this.LModificarDni.TabIndex = 33;
-            this.LModificarDni.Text = "DNI";
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.MinimumWidth = 110;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 112;
             // 
-            // LModificarUsuario
+            // id_user
             // 
-            this.LModificarUsuario.AutoSize = true;
-            this.LModificarUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarUsuario.Location = new System.Drawing.Point(480, 64);
-            this.LModificarUsuario.Name = "LModificarUsuario";
-            this.LModificarUsuario.Size = new System.Drawing.Size(64, 21);
-            this.LModificarUsuario.TabIndex = 25;
-            this.LModificarUsuario.Text = "Usuario";
+            this.id_user.DataPropertyName = "id_user";
+            this.id_user.HeaderText = "ID de Usuario";
+            this.id_user.MinimumWidth = 60;
+            this.id_user.Name = "id_user";
+            this.id_user.ReadOnly = true;
+            this.id_user.Visible = false;
+            this.id_user.Width = 110;
             // 
-            // TModificarUser
+            // rol
             // 
-            this.TModificarUser.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TModificarUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarUser.Location = new System.Drawing.Point(480, 88);
-            this.TModificarUser.Name = "TModificarUser";
-            this.TModificarUser.Size = new System.Drawing.Size(232, 29);
-            this.TModificarUser.TabIndex = 26;
+            this.rol.DataPropertyName = "NombreRol";
+            this.rol.HeaderText = "Tipo de Rol";
+            this.rol.MinimumWidth = 110;
+            this.rol.Name = "rol";
+            this.rol.ReadOnly = true;
+            this.rol.Width = 110;
             // 
-            // LModificarApellido
+            // apellido
             // 
-            this.LModificarApellido.AutoSize = true;
-            this.LModificarApellido.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarApellido.Location = new System.Drawing.Point(208, 64);
-            this.LModificarApellido.Name = "LModificarApellido";
-            this.LModificarApellido.Size = new System.Drawing.Size(67, 21);
-            this.LModificarApellido.TabIndex = 31;
-            this.LModificarApellido.Text = "Apellido";
+            this.apellido.DataPropertyName = "apellido";
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.MinimumWidth = 110;
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            this.apellido.Width = 110;
             // 
-            // TModificarEmail
+            // nombre
             // 
-            this.TModificarEmail.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TModificarEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarEmail.Location = new System.Drawing.Point(208, 144);
-            this.TModificarEmail.Name = "TModificarEmail";
-            this.TModificarEmail.Size = new System.Drawing.Size(232, 29);
-            this.TModificarEmail.TabIndex = 34;
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 110;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 110;
             // 
-            // TModificarAp
+            // dni
             // 
-            this.TModificarAp.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TModificarAp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarAp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarAp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarAp.Location = new System.Drawing.Point(208, 88);
-            this.TModificarAp.Name = "TModificarAp";
-            this.TModificarAp.Size = new System.Drawing.Size(232, 29);
-            this.TModificarAp.TabIndex = 32;
+            this.dni.DataPropertyName = "dni";
+            this.dni.HeaderText = "DNI";
+            this.dni.MinimumWidth = 110;
+            this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
+            this.dni.Width = 110;
             // 
-            // LModificarEmail
+            // user
             // 
-            this.LModificarEmail.AutoSize = true;
-            this.LModificarEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarEmail.Location = new System.Drawing.Point(208, 120);
-            this.LModificarEmail.Name = "LModificarEmail";
-            this.LModificarEmail.Size = new System.Drawing.Size(54, 21);
-            this.LModificarEmail.TabIndex = 33;
-            this.LModificarEmail.Text = "E-mail";
+            this.user.DataPropertyName = "username";
+            this.user.HeaderText = "Usuario";
+            this.user.MinimumWidth = 110;
+            this.user.Name = "user";
+            this.user.ReadOnly = true;
+            this.user.Width = 110;
             // 
-            // TModificarNombre
+            // pass
             // 
-            this.TModificarNombre.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TModificarNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarNombre.Location = new System.Drawing.Point(208, 32);
-            this.TModificarNombre.Name = "TModificarNombre";
-            this.TModificarNombre.Size = new System.Drawing.Size(232, 29);
-            this.TModificarNombre.TabIndex = 30;
+            this.pass.DataPropertyName = "pass";
+            this.pass.HeaderText = "Contraseña";
+            this.pass.MinimumWidth = 110;
+            this.pass.Name = "pass";
+            this.pass.ReadOnly = true;
+            this.pass.Visible = false;
+            this.pass.Width = 110;
             // 
-            // LModificarNombre
+            // estadoValor
             // 
-            this.LModificarNombre.AutoSize = true;
-            this.LModificarNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarNombre.Location = new System.Drawing.Point(208, 8);
-            this.LModificarNombre.Name = "LModificarNombre";
-            this.LModificarNombre.Size = new System.Drawing.Size(68, 21);
-            this.LModificarNombre.TabIndex = 29;
-            this.LModificarNombre.Text = "Nombre";
+            this.estadoValor.DataPropertyName = "baja_user";
+            this.estadoValor.HeaderText = "baja_user";
+            this.estadoValor.MinimumWidth = 110;
+            this.estadoValor.Name = "estadoValor";
+            this.estadoValor.ReadOnly = true;
+            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estadoValor.Visible = false;
+            this.estadoValor.Width = 110;
             // 
-            // TModificarID_user
+            // estado
             // 
-            this.TModificarID_user.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TModificarID_user.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TModificarID_user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarID_user.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarID_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarID_user.Location = new System.Drawing.Point(54, 3);
-            this.TModificarID_user.Name = "TModificarID_user";
-            this.TModificarID_user.Size = new System.Drawing.Size(46, 27);
-            this.TModificarID_user.TabIndex = 50;
-            this.TModificarID_user.Visible = false;
+            this.estado.HeaderText = "Estado";
+            this.estado.MinimumWidth = 110;
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estado.Width = 110;
             // 
-            // TBModificarIndice
+            // email
             // 
-            this.TBModificarIndice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TBModificarIndice.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TBModificarIndice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TBModificarIndice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBModificarIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TBModificarIndice.Location = new System.Drawing.Point(3, 3);
-            this.TBModificarIndice.Name = "TBModificarIndice";
-            this.TBModificarIndice.Size = new System.Drawing.Size(45, 27);
-            this.TBModificarIndice.TabIndex = 49;
-            this.TBModificarIndice.Text = "-1";
-            this.TBModificarIndice.Visible = false;
+            this.email.DataPropertyName = "mail";
+            this.email.HeaderText = "E-Mail";
+            this.email.MinimumWidth = 110;
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 110;
             // 
-            // pROC_BUSCAR_USUARIOTableAdapter
+            // Teléfono
             // 
-            this.pROC_BUSCAR_USUARIOTableAdapter.ClearBeforeFill = true;
+            this.Teléfono.DataPropertyName = "telefono_user";
+            this.Teléfono.HeaderText = "Teléfono";
+            this.Teléfono.MinimumWidth = 110;
+            this.Teléfono.Name = "Teléfono";
+            this.Teléfono.ReadOnly = true;
+            this.Teléfono.Width = 110;
             // 
-            // tableAdapterManager
+            // Dirección
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CategoriasTableAdapter = null;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.DetalleVentasTableAdapter = null;
-            this.tableAdapterManager.InformeDetalleTableAdapter = null;
-            this.tableAdapterManager.InformeTableAdapter = null;
-            this.tableAdapterManager.MetodosPagoTableAdapter = null;
-            this.tableAdapterManager.PermisosTableAdapter = null;
-            this.tableAdapterManager.PROC_BUSCAR_PRODUCTOTableAdapter = null;
-            this.tableAdapterManager.PROC_BUSCAR_USUARIOTableAdapter = null;
-            this.tableAdapterManager.ProductosCategoriasTableAdapter = null;
-            this.tableAdapterManager.ProductosTableAdapter = null;
-            this.tableAdapterManager.RolesTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = OcioStoreIngSoftII.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsersTableAdapter = null;
-            this.tableAdapterManager.VentasTableAdapter = null;
+            this.Dirección.DataPropertyName = "direccion_user";
+            this.Dirección.HeaderText = "Dirección";
+            this.Dirección.MinimumWidth = 110;
+            this.Dirección.Name = "Dirección";
+            this.Dirección.ReadOnly = true;
+            this.Dirección.Width = 110;
             // 
-            // usersBindingSource
+            // Localidad
             // 
-            this.usersBindingSource.DataMember = "Users";
-            this.usersBindingSource.DataSource = this.dataSet1;
+            this.Localidad.DataPropertyName = "localidad_user";
+            this.Localidad.HeaderText = "Localidad";
+            this.Localidad.MinimumWidth = 110;
+            this.Localidad.Name = "Localidad";
+            this.Localidad.ReadOnly = true;
+            this.Localidad.Width = 110;
             // 
-            // usersTableAdapter
+            // Provincia
             // 
-            this.usersTableAdapter.ClearBeforeFill = true;
-            // 
-            // CBroles
-            // 
-            this.CBroles.FormattingEnabled = true;
-            this.CBroles.Location = new System.Drawing.Point(720, 97);
-            this.CBroles.Name = "CBroles";
-            this.CBroles.Size = new System.Drawing.Size(233, 28);
-            this.CBroles.TabIndex = 75;
-            // 
-            // CBestado
-            // 
-            this.CBestado.FormattingEnabled = true;
-            this.CBestado.Location = new System.Drawing.Point(720, 153);
-            this.CBestado.Name = "CBestado";
-            this.CBestado.Size = new System.Drawing.Size(233, 28);
-            this.CBestado.TabIndex = 76;
-            // 
-            // TID_user
-            // 
-            this.TID_user.BackgroundColor = System.Drawing.Color.White;
-            this.TID_user.Content = "";
-            this.TID_user.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TID_user.FocusBackgroundColor = System.Drawing.Color.White;
-            this.TID_user.FocusImageTint = System.Drawing.Color.White;
-            this.TID_user.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TID_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TID_user.ForeColor = System.Drawing.Color.Gray;
-            this.TID_user.Image = null;
-            this.TID_user.ImageExpand = new System.Drawing.Point(0, 0);
-            this.TID_user.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TID_user.Location = new System.Drawing.Point(19, 414);
-            this.TID_user.Margin = new System.Windows.Forms.Padding(4);
-            this.TID_user.Multiline = false;
-            this.TID_user.Name = "TID_user";
-            this.TID_user.NormalImageTint = System.Drawing.Color.White;
-            this.TID_user.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TID_user.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
-            this.TID_user.PasswordChar = false;
-            this.TID_user.PlaceholderColor = System.Drawing.SystemColors.WindowText;
-            this.TID_user.PlaceholderText = "";
-            this.TID_user.Rounding = new System.Windows.Forms.Padding(8);
-            this.TID_user.Size = new System.Drawing.Size(51, 28);
-            this.TID_user.TabIndex = 77;
-            this.TID_user.TextOffset = new System.Drawing.Size(0, 0);
-            this.TID_user.UnderlinedStyle = true;
-            // 
-            // TIndice
-            // 
-            this.TIndice.BackgroundColor = System.Drawing.Color.White;
-            this.TIndice.Content = "-1";
-            this.TIndice.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TIndice.FocusBackgroundColor = System.Drawing.Color.White;
-            this.TIndice.FocusImageTint = System.Drawing.Color.White;
-            this.TIndice.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TIndice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TIndice.ForeColor = System.Drawing.Color.Gray;
-            this.TIndice.Image = null;
-            this.TIndice.ImageExpand = new System.Drawing.Point(0, 0);
-            this.TIndice.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TIndice.Location = new System.Drawing.Point(94, 414);
-            this.TIndice.Margin = new System.Windows.Forms.Padding(4);
-            this.TIndice.Multiline = false;
-            this.TIndice.Name = "TIndice";
-            this.TIndice.NormalImageTint = System.Drawing.Color.White;
-            this.TIndice.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TIndice.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
-            this.TIndice.PasswordChar = false;
-            this.TIndice.PlaceholderColor = System.Drawing.SystemColors.WindowText;
-            this.TIndice.PlaceholderText = "";
-            this.TIndice.Rounding = new System.Windows.Forms.Padding(8);
-            this.TIndice.Size = new System.Drawing.Size(51, 28);
-            this.TIndice.TabIndex = 78;
-            this.TIndice.TextOffset = new System.Drawing.Size(0, 0);
-            this.TIndice.UnderlinedStyle = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label8.Location = new System.Drawing.Point(15, 389);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 21);
-            this.label8.TabIndex = 79;
-            this.label8.Text = "ID User";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label9.Location = new System.Drawing.Point(94, 389);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 21);
-            this.label9.TabIndex = 79;
-            this.label9.Text = "Indice";
+            this.Provincia.DataPropertyName = "provincia_user";
+            this.Provincia.HeaderText = "Provincia";
+            this.Provincia.MinimumWidth = 110;
+            this.Provincia.Name = "Provincia";
+            this.Provincia.ReadOnly = true;
+            this.Provincia.Width = 110;
             // 
             // Users
             // 
@@ -1386,83 +1714,52 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1142, 688);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.LayoutUsuarios);
+            this.KeyPreview = true;
             this.Name = "Users";
             this.Text = "Users";
             this.Load += new System.EventHandler(this.Users_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pROC_BUSCAR_USUARIOBindingSource)).EndInit();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Users_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).EndInit();
+            this.LayoutUsuarios.ResumeLayout(false);
             this.TCUsuarios.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            this.PanelModificarUser.ResumeLayout(false);
-            this.panelInternoModif.ResumeLayout(false);
-            this.panelInternoModif.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private DataSet1 dataSet1;
-        private System.Windows.Forms.BindingSource pROC_BUSCAR_USUARIOBindingSource;
-        private DataSet1TableAdapters.PROC_BUSCAR_USUARIOTableAdapter pROC_BUSCAR_USUARIOTableAdapter;
-        private DataSet1TableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingSource usersBindingSource;
-        private DataSet1TableAdapters.UsersTableAdapter usersTableAdapter;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView usuariosDataGridView;
         private System.Windows.Forms.Panel panel1;
+        private CuoreUI.Controls.cuiButton BBuscar;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.DataGridView usuariosDataGridView;
+        private System.Windows.Forms.TableLayoutPanel LayoutUsuarios;
         private System.Windows.Forms.TabControl TCUsuarios;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Panel PanelModificarUser;
-        private System.Windows.Forms.Panel panelInternoModif;
-        private System.Windows.Forms.ComboBox CBModificarRoles;
-        private System.Windows.Forms.Label LModificarEstado;
-        private System.Windows.Forms.ComboBox CBModificarEstado;
-        private System.Windows.Forms.Label LModificarRol;
-        private System.Windows.Forms.TextBox TModificarDni;
-        private System.Windows.Forms.Label LModificarDni;
-        private System.Windows.Forms.Label LModificarUsuario;
-        private System.Windows.Forms.TextBox TModificarUser;
-        private System.Windows.Forms.Label LModificarApellido;
-        private System.Windows.Forms.TextBox TModificarEmail;
-        private System.Windows.Forms.TextBox TModificarAp;
-        private System.Windows.Forms.Label LModificarEmail;
-        private System.Windows.Forms.TextBox TModificarNombre;
-        private System.Windows.Forms.Label LModificarNombre;
-        private System.Windows.Forms.TextBox TModificarID_user;
-        private System.Windows.Forms.TextBox TBModificarIndice;
-        private System.Windows.Forms.TextBox TModificarConfirmPass;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TModificarPass;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_user;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_rol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rol;
-        private CuoreUI.Controls.cuiButton BModificar;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label9;
+        private CuoreUI.Controls.cuiTextBox TIndice;
+        private System.Windows.Forms.ComboBox CBestado;
+        private System.Windows.Forms.ComboBox CBroles;
+        private CuoreUI.Controls.cuiTextBox TProvincia;
+        private CuoreUI.Controls.cuiTextBox TPassConf;
+        private CuoreUI.Controls.cuiTextBox TPass;
+        private CuoreUI.Controls.cuiTextBox TDireccion;
+        private CuoreUI.Controls.cuiTextBox TLocalidad;
+        private CuoreUI.Controls.cuiTextBox TUser;
+        private CuoreUI.Controls.cuiTextBox TTelefono;
+        private CuoreUI.Controls.cuiTextBox TEmail;
+        private CuoreUI.Controls.cuiTextBox TDni;
         private CuoreUI.Controls.cuiTextBox TApellido;
         private CuoreUI.Controls.cuiTextBox TNombre;
         private System.Windows.Forms.Label label7;
@@ -1479,20 +1776,53 @@
         private System.Windows.Forms.Label LNombre;
         private System.Windows.Forms.Label LPass;
         private System.Windows.Forms.Label LUser;
-        private CuoreUI.Controls.cuiTextBox TDireccion;
-        private CuoreUI.Controls.cuiTextBox TLocalidad;
-        private CuoreUI.Controls.cuiTextBox TUser;
-        private CuoreUI.Controls.cuiTextBox TTelefono;
-        private CuoreUI.Controls.cuiTextBox TEmail;
-        private CuoreUI.Controls.cuiTextBox TDni;
-        private CuoreUI.Controls.cuiTextBox TProvincia;
-        private CuoreUI.Controls.cuiTextBox TPassConf;
-        private CuoreUI.Controls.cuiTextBox TPass;
-        private System.Windows.Forms.ComboBox CBestado;
-        private System.Windows.Forms.ComboBox CBroles;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label2;
+        private CuoreUI.Controls.cuiTextBox TModificarIndice;
+        private System.Windows.Forms.ComboBox CBModificarEstado;
+        private System.Windows.Forms.ComboBox CBModificarRoles;
+        private CuoreUI.Controls.cuiTextBox TModificarProvincia;
+        private CuoreUI.Controls.cuiTextBox TModificarConfirmPass;
+        private CuoreUI.Controls.cuiTextBox TModificarPass;
+        private CuoreUI.Controls.cuiTextBox TModificarDireccion;
+        private CuoreUI.Controls.cuiTextBox TModificarLocalidad;
+        private CuoreUI.Controls.cuiTextBox TModificarUser;
+        private CuoreUI.Controls.cuiTextBox TModificarTelefono;
+        private CuoreUI.Controls.cuiTextBox TModificarEmail;
+        private CuoreUI.Controls.cuiTextBox TModificarDni;
+        private CuoreUI.Controls.cuiTextBox TModificarAp;
+        private CuoreUI.Controls.cuiTextBox TModificarNombre;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
-        private CuoreUI.Controls.cuiTextBox TIndice;
-        private CuoreUI.Controls.cuiTextBox TID_user;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private CuoreUI.Controls.cuiButton BModificar;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private CuoreUI.Controls.cuiTextBox TModificarID_user;
+        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_user;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Teléfono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dirección;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Localidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Provincia;
     }
 }

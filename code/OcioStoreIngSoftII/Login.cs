@@ -45,7 +45,7 @@ namespace OcioStoreIngSoftII
 
             if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Por favor, completá todos los campos.");
+                MessageBox.Show("Por favor, completá todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -69,6 +69,18 @@ namespace OcioStoreIngSoftII
         private void BCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        //Que el enter sirva para el login uwu
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BLogin_Click_1(BLogin, EventArgs.Empty);
+
+                // Evita el sonido "ding" de Windows al presionar Enter en algunos contextos
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

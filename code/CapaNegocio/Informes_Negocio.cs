@@ -95,17 +95,17 @@ namespace CapaNegocio
             return objInformes_datos.RegistrarInforme(informe, out mensaje);
         }
 
-        public List<VentaData.VentaDetalle> ObtenerVentasVendedor(int id_vendedor, DateTime fechaInicio, DateTime fechaFin)
+        public List<Informes_Datos.VentaDetalle> ObtenerVentasVendedor(int id_vendedor, DateTime fechaInicio, DateTime fechaFin)
         {
             // Validación de fechas
             if (fechaInicio > fechaFin)
             {
                 // Devuelve una lista vacía si las fechas son inconsistentes
-                return new List<VentaData.VentaDetalle>();
+                return new List<Informes_Datos.VentaDetalle>();
             }
 
             // Se invoca el método de la capa de datos con los parámetros correctos
-            List<VentaData.VentaDetalle> resultados = objInformes_datos.ObtenerVentasVendedor(id_vendedor, fechaInicio, fechaFin);
+            List<Informes_Datos.VentaDetalle> resultados = objInformes_datos.ObtenerVentasVendedor(id_vendedor, fechaInicio, fechaFin);
 
             return resultados;
         }

@@ -25,6 +25,9 @@ namespace OcioStoreIngSoftII
             InitializeComponent();
         }
 
+        private Usuario_negocio objUNegocio = new Usuario_negocio();
+
+        //Carga Inicial de Datos
         private void Users_Load(object sender, EventArgs e)
         {
 
@@ -56,16 +59,52 @@ namespace OcioStoreIngSoftII
             actualizarDatosTabla();
         }
 
-        
-        private void actualizarDatosTabla()
+        private void actualizarDatosTabla(string filtros = null)
         {
-            this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
-                this.dataSet1.PROC_BUSCAR_USUARIO,
-                null, null, null, null, null, null, null, null, null, null
-            );
+            if (filtros == null)
+            {
+                filtros = "";
+            }
+
+            List<Usuario> resultados = objUNegocio.BuscarUsuariosGeneral(filtros);
+            usuariosDataGridView.AutoGenerateColumns = false;
+            usuariosDataGridView.DataSource = null;
+            usuariosDataGridView.DataSource = resultados;
         }
 
-        //Dibujo del botón Seleccionar
+        private void VaciarCampos()
+        {
+            TApellido.Content = "";
+            TNombre.Content = "";
+            TDni.Content = "";
+            TEmail.Content = "";
+            TUser.Content = "";
+            TPass.Content = "";
+            TPassConf.Content = "";
+            CBroles.SelectedIndex = 0;
+            CBestado.SelectedIndex = 0;
+            TDireccion.Content = "";
+            TLocalidad.Content = "";
+            TProvincia.Content = "";
+            TTelefono.Content = "";
+
+            TModificarAp.Content = "";
+            TModificarNombre.Content = "";
+            TModificarDni.Content = "";
+            TModificarEmail.Content = "";
+            TModificarUser.Content = "";
+            CBModificarRoles.SelectedIndex = 0;
+            CBModificarEstado.SelectedIndex = 0;
+            TModificarPass.Content = "";
+            TModificarConfirmPass.Content = "";
+            TModificarDireccion.Content = "";
+            TModificarLocalidad.Content = "";
+            TModificarProvincia.Content = "";
+            TModificarTelefono.Content = "";
+
+        }
+
+        //DGV - Dibujo del botón Seleccionar
         private void usuariosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -87,129 +126,7 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void VaciarCampos()
-        {
-            TID_user.Text = "0";
-            TApellido.Text = "";
-            TNombre.Text = "";
-            TDni.Text = "";
-            TEmail.Text = "";
-            TUser.Text = "";
-            TPass.Text = "";
-            TPassConf.Text = "";
-            CBroles.SelectedIndex = 0;
-            CBestado.SelectedIndex = 0;
-
-            TModificarID_user.Text = "0";
-            TModificarAp.Text = "";
-            TModificarNombre.Text = "";
-            TModificarDni.Text = "";
-            TModificarEmail.Text = "";
-            TModificarUser.Text = "";
-            CBModificarRoles.SelectedIndex = 0;
-            CBModificarEstado.SelectedIndex = 0;
-            TModificarPass.Text = "";
-            TModificarConfirmPass.Text = "";
-        }
-
-        private void usuariosDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (usuariosDataGridView.Columns[e.ColumnIndex].Name == "btnSeleccionar")
-            {
-                int indice = e.RowIndex;
-
-                if (indice >= 0)
-                {
-                    TCUsuarios.SelectedIndex = 1;
-
-                    TBModificarIndice.Text = indice.ToString();
-
-                    TModificarID_user.Text = usuariosDataGridView.Rows[indice].Cells["id_user"].Value.ToString();
-                    TModificarAp.Text = usuariosDataGridView.Rows[indice].Cells["apellido"].Value.ToString();
-                    TModificarNombre.Text = usuariosDataGridView.Rows[indice].Cells["nombre"].Value.ToString();
-                    TModificarDni.Text = usuariosDataGridView.Rows[indice].Cells["dni"].Value.ToString();
-                    TModificarEmail.Text = usuariosDataGridView.Rows[indice].Cells["email"].Value.ToString();
-                    TModificarUser.Text = usuariosDataGridView.Rows[indice].Cells["user"].Value.ToString();
-                    TModificarPass.Text = usuariosDataGridView.Rows[indice].Cells["pass"].Value.ToString();
-                    TModificarConfirmPass.Text = usuariosDataGridView.Rows[indice].Cells["pass"].Value.ToString();
-
-                    foreach (OpcionSelect opcionSelect in CBModificarRoles.Items)
-                    {
-                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(usuariosDataGridView.Rows[indice].Cells["id_rol"].Value))
-                        {
-                            int indice_select = CBModificarRoles.Items.IndexOf(opcionSelect);
-                            CBModificarRoles.SelectedIndex = indice_select;
-                            break;
-                        }
-                    }
-
-                    foreach (OpcionSelect opcionSelect in CBModificarEstado.Items)
-                    {
-                        if (Convert.ToInt32(opcionSelect.Valor) == Convert.ToInt32(usuariosDataGridView.Rows[indice].Cells["estadoValor"].Value))
-                        {
-                            int indice_select = CBModificarEstado.Items.IndexOf(opcionSelect);
-                            CBModificarEstado.SelectedIndex = indice_select;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-
-        //Método de Búsqueda
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            string filtro = txtBuscar.Text.Trim();
-
-            // Si está vacío, muestra todos
-            if (string.IsNullOrEmpty(filtro))
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
-                    this.dataSet1.PROC_BUSCAR_USUARIO,
-                    null, null, null, null, null, null, null, null, null, null
-                );
-                return;
-            }
-
-            // Intentar buscar por id_user si es numérico
-            if (int.TryParse(filtro, out int idVal))
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
-                    this.dataSet1.PROC_BUSCAR_USUARIO,
-                    idVal, null, null, null, null, null, null, null, null, null
-                );
-                return;
-            }
-
-            // Si no es numérico, intenta por los campos de texto
-
-            this.pROC_BUSCAR_USUARIOTableAdapter.Fill(
-                this.dataSet1.PROC_BUSCAR_USUARIO,
-                null, filtro, null, null, null, null, null, null, null, null // apellido
-            );
-
-            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, filtro, null, null, null, null, null, null, null); // nombre
-            }
-            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, filtro, null, null, null, null, null, null); // dni
-            }
-            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, filtro, null, null, null, null, null); // mail
-            }
-            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, null, filtro, null, null, null, null); // username
-            }
-            if (this.dataSet1.PROC_BUSCAR_USUARIO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_USUARIOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_USUARIO, null, null, null, null, null, null, null, null, null,filtro); // rol
-            }
-        }
-
+        //DGV - Texto para la columna estado
         private void usuariosDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             foreach (DataGridViewRow row in usuariosDataGridView.Rows)
@@ -220,7 +137,7 @@ namespace OcioStoreIngSoftII
                 if (valor != null && valor != DBNull.Value)
                 {
                     bool estado = Convert.ToBoolean(valor);
-                    row.Cells["estado"].Value = estado ? "Baja" : "Alta";
+                    row.Cells["estado"].Value = estado ? "Dado de Baja" : "Alta";
                 }
                 else
                 {
@@ -231,247 +148,144 @@ namespace OcioStoreIngSoftII
             usuariosDataGridView.CurrentCell = null;
         }
 
-        //Botones
-        private void BModificar_Click(object sender, EventArgs e)
+        //Evento Selección
+        private void usuariosDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string mensaje = string.Empty;
+            if (e.RowIndex < 0) return;
 
-            // Validaciones
-            if (string.IsNullOrEmpty(TModificarNombre.Text))
+            if (usuariosDataGridView.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
-                MessageBox.Show("El nombre no puede estar vacío.");
-                return;
-            }
-            if (string.IsNullOrEmpty(TModificarAp.Text))
-            {
-                MessageBox.Show("El apellido no puede estar vacío.");
-                return;
-            }
-            if (string.IsNullOrEmpty(TModificarDni.Text) || !int.TryParse(TModificarDni.Text, out int dni))
-            {
-                MessageBox.Show("El DNI debe ser un número válido.");
-                return;
-            }
-            if (CBModificarRoles.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar un rol.");
-                return;
-            }
-            if (CBModificarEstado.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar el estado.");
-                return;
-            }
-            if (string.IsNullOrEmpty(TModificarUser.Text))
-            {
-                MessageBox.Show("El nombre de usuario no puede estar vacío.");
-                return;
-            }
-            if (string.IsNullOrEmpty(TModificarEmail.Text) || !Regex.IsMatch(TModificarEmail.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-            {
-                MessageBox.Show("El email no tiene un formato válido.");
-                return;
-            }
+                Usuario usuarioSeleccionado = (Usuario)usuariosDataGridView.Rows[e.RowIndex].DataBoundItem;
 
-            //Creación de un nuevo Usuario
-            Usuario objUser = new Usuario()
-            {
-                id_user = Convert.ToInt32(TModificarID_user.Text),
-                nombre = TModificarNombre.Text,
-                apellido = TModificarAp.Text,
-                dni = dni,
-                mail = TModificarEmail.Text,
-                username = TModificarUser.Text,
-                pass = TModificarPass.Text,
-                baja_user = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1,
-                objRoles = new Roles() { id_rol = Convert.ToInt32(((OpcionSelect)CBModificarRoles.SelectedItem).Valor) }
-            };
+                if (usuarioSeleccionado != null)
+                {
+                    TCUsuarios.SelectedIndex = 1;
+                    TModificarIndice.Content = e.RowIndex.ToString();
+                    TModificarID_user.Content = usuarioSeleccionado.id_user.ToString();
+                    TModificarAp.Content = usuarioSeleccionado.apellido;
+                    TModificarNombre.Content = usuarioSeleccionado.nombre;
+                    TModificarDni.Content = usuarioSeleccionado.dni.ToString();
+                    TModificarEmail.Content = usuarioSeleccionado.mail;
+                    TModificarUser.Content = usuarioSeleccionado.username;
+                    TModificarPass.Content = "";
+                    TModificarConfirmPass.Content = "";
+                    CBModificarRoles.SelectedValue = usuarioSeleccionado.objRoles.nombre_rol;
+                    TModificarDireccion.Content = usuarioSeleccionado.direccion_user;
+                    TModificarLocalidad.Content = usuarioSeleccionado.localidad_user;
+                    TModificarProvincia.Content = usuarioSeleccionado.provincia_user;
+                    TModificarTelefono.Content = usuarioSeleccionado.telefono_user;
 
-            bool resultado = new Usuario_negocio().Editar(objUser, out mensaje);
+                    string valorASeleccionar = usuarioSeleccionado.baja_user ? "1" : "0";
+                    for (int i = 0; i < CBModificarEstado.Items.Count; i++)
+                    {
+                        OpcionSelect opcion = (OpcionSelect)CBModificarEstado.Items[i];
+                        if (opcion.Valor.ToString() == valorASeleccionar)
+                        {
+                            CBModificarEstado.SelectedIndex = i;
+                            break;
+                        }
+                    }
 
-            if (resultado)
-            {
-                DataGridViewRow row = usuariosDataGridView.Rows[Convert.ToInt32(TBModificarIndice.Text)];
+                    CBModificarEstado.SelectedValue = valorASeleccionar;
 
-                //row.Cells["id_user"].Value = TModificarID_user.Text;
-                row.Cells["nombre"].Value = TModificarNombre.Text;
-                row.Cells["apellido"].Value = TModificarAp.Text;
-                row.Cells["dni"].Value = TModificarDni.Text;
-                row.Cells["email"].Value = TModificarEmail.Text;
-                row.Cells["user"].Value = TModificarUser.Text;
-                row.Cells["id_rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Valor.ToString();
-                row.Cells["rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Texto.ToString();
-                row.Cells["estadoValor"].Value = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1;
-                row.Cells["estado"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Texto.ToString();
 
-                VaciarCampos();
-                actualizarDatosTabla();
-                MessageBox.Show("Usuario modificado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show(mensaje);
+                    LayoutUsuarios.ScrollControlIntoView(TCUsuarios);
+                }
             }
         }
 
+        //Buscar
+        private void BBuscar_Click(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.Trim();
+
+            List<Usuario> resultados = objUNegocio.BuscarUsuariosGeneral(filtro);
+            usuariosDataGridView.DataSource = null;
+            usuariosDataGridView.DataSource = resultados;
+        }
+
+        //Modificar Usuario
+        private void BModificar_Click(object sender, EventArgs e)
+        {
+            // Validaciones
+            if (ValidacionesUsuario(TModificarNombre.Content, TModificarAp.Content, TModificarDni.Content, TModificarEmail.Content, TModificarUser.Content,
+                TModificarPass.Content, TModificarConfirmPass.Content, (OpcionSelect)CBModificarRoles.SelectedItem, (OpcionSelect)CBModificarEstado.SelectedItem,
+                Convert.ToInt32(TModificarID_user.Content), TModificarTelefono.Content, TModificarDireccion.Content, TModificarLocalidad.Content, TModificarProvincia.Content,
+                out string mensajeError))
+            {
+                string contraseña = TModificarPass.Content;
+                string contraseñaHasheada = PasswordHasher.HashPassword(contraseña);
+
+                //Creación de un nuevo Usuario
+                Usuario objUser = new Usuario()
+                {
+                    id_user = Convert.ToInt32(TModificarID_user.Content),
+                    apellido = TModificarAp.Content,
+                    nombre = TModificarNombre.Content,
+                    dni = Convert.ToInt32(TModificarDni.Content),
+                    mail = TModificarEmail.Content,
+                    username = TModificarUser.Content,
+                    pass = contraseñaHasheada,
+                    baja_user = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1,
+                    objRoles = new Roles() { id_rol = Convert.ToInt32(((OpcionSelect)CBModificarRoles.SelectedItem).Valor) },
+                    telefono_user = TModificarTelefono.Content,
+                    direccion_user = TModificarDireccion.Content,
+                    localidad_user = TModificarLocalidad.Content,
+                    provincia_user = TModificarProvincia.Content
+                };
+
+                bool resultado = new Usuario_negocio().Editar(objUser, out string mensaje);
+
+                if (resultado)
+                {
+                    VaciarCampos();
+                    actualizarDatosTabla();
+                    MessageBox.Show("Usuario modificado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
+            }
+            else
+            {
+                MessageBox.Show(mensajeError, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        //Registrar Usuario
         private void BRegisterUser_Click(object sender, EventArgs e)
         {
-            string mensaje = string.Empty;
+            if (ValidacionesUsuario(TNombre.Content, TApellido.Content, TDni.Content, TEmail.Content, TUser.Content,
+                TPass.Content, TPassConf.Content, (OpcionSelect)CBroles.SelectedItem, (OpcionSelect)CBestado.SelectedItem,
+                0, TTelefono.Content, TDireccion.Content, TLocalidad.Content, TProvincia.Content, out string mensajeError))
+            {
+                const int comparacion = 1;
+                bool estadoSeleccionado = (Convert.ToInt32(((OpcionSelect)CBestado.SelectedItem).Valor) == comparacion);
+                string contraseña = TPass.Content;
+                string contraseñaHasheada = PasswordHasher.HashPassword(contraseña);
 
-            //ARRANCAN LAS GIGAVALIDACIONES
-            //Nombre
-            if (string.IsNullOrWhiteSpace(TNombre.Content))
-            {
-                MessageBox.Show("El campo Nombre es obligatorio.");
-                return;
-            }
-            if (TNombre.Content.Any(char.IsDigit))
-            {
-                MessageBox.Show("El campo Nombre no puede contener números.");
-                return;
-            }
-            if (TNombre.Content.Length > 30)
-            {
-                MessageBox.Show("El nombre no puede tener más de 30 caracteres.");
-                return;
-            }
+                //Ahora si, creación del user
+                Usuario objUser = new Usuario(
+                    TApellido.Content,
+                    TNombre.Content,
+                    Convert.ToInt32(TDni.Content),
+                    TEmail.Content,
+                    TUser.Content,
+                    contraseñaHasheada,
+                    estadoSeleccionado,
+                   new Roles()
+                   {
+                       id_rol = Convert.ToInt32(((OpcionSelect)CBroles.SelectedItem).Valor),
+                       descripcion = ((OpcionSelect)CBroles.SelectedItem).Texto
+                   },
+                    TDireccion.Content,
+                    TLocalidad.Content,
+                    TProvincia.Content,
+                    TTelefono.Content
+                );
 
-            //Apellido
-            if (string.IsNullOrWhiteSpace(TApellido.Content))
-            {
-                MessageBox.Show("El campo Apellido es obligatorio.");
-                return;
-            }
-            if (TApellido.Content.Any(char.IsDigit))
-            {
-                MessageBox.Show("El campo Apellido no puede contener números.");
-                return;
-            }
-            if (TApellido.Content.Length > 30)
-            {
-                MessageBox.Show("El Apellido no puede tener más de 30 caracteres.");
-                return;
-            }
-
-            //DNI
-            if (string.IsNullOrWhiteSpace(TDni.Content))
-            {
-                MessageBox.Show("El campo Apellido es obligatorio.");
-                return;
-            }
-            if (!TDni.Content.All(char.IsDigit))
-            {
-                MessageBox.Show("El campo DNI solo puede contener números, sin puntos.");
-                return;
-            }
-
-            //Roles
-            if (CBroles.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar un perfil.");
-                return;
-            }
-
-            //Estado
-            if (CBestado.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar un estado.");
-                return;
-            }
-
-            //Usuario
-            if (string.IsNullOrWhiteSpace(TUser.Content))
-            {
-                MessageBox.Show("El campo Usuario es obligatorio.");
-                return;
-            }
-
-            //Contraseña
-            if (string.IsNullOrWhiteSpace(TPass.Content) || TPass.Content.Length < 6)
-            {
-                MessageBox.Show("La contraseña debe tener al menos 6 caracteres.");
-                return;
-            }
-            if (TPass.Content != TPassConf.Content)
-            {
-                MessageBox.Show("Las contraseñas no coinciden. Por favor, verifíquelas.");
-                TPass.Content = "";
-                TPassConf.Content = "";
-                TPass.Focus(); // Pone el cursor de vuelta en el primer campo de contraseña, epico
-                return;
-            }
-
-            //Email
-            //Me tomé la molestia de buscar una expresión regular para que pegue el formato
-            var emailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            if (!emailRegex.IsMatch(TEmail.Content))
-            {
-                MessageBox.Show("El formato del correo electrónico no es válido.");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(TEmail.Content))
-            {
-                MessageBox.Show("El campo Email es obligatorio.");
-                return;
-            }
-
-            //Telefono
-            if (TTelefono.Content.Length < 7)
-            {
-                MessageBox.Show("El número de teléfono es demasiado corto.");
-                return;
-            }
-
-            //Direccion
-            if (string.IsNullOrWhiteSpace(TDireccion.Content))
-            {
-                MessageBox.Show("El campo Dirección es obligatorio.");
-                return;
-            }
-
-            //Localidad
-            if (string.IsNullOrWhiteSpace(TLocalidad.Content))
-            {
-                MessageBox.Show("El campo Localidad es obligatorio.");
-                return;
-            }
-
-            //Provincia
-            if (string.IsNullOrWhiteSpace(TProvincia.Content))
-            {
-                MessageBox.Show("El campo Provincia es obligatorio.");
-                return;
-            }
-
-            const int comparacion = 1;
-            bool estadoSeleccionado = (Convert.ToInt32(((OpcionSelect)CBestado.SelectedItem).Valor) == comparacion);
-            string contraseña = TPass.Content;
-            string contraseñaHasheada = PasswordHasher.HashPassword(contraseña);
-
-            //Ahora si, creación del user
-            Usuario objUser = new Usuario(
-                //Convert.ToInt32(TID_user.Content),
-                TApellido.Content,
-                TNombre.Content,
-                Convert.ToInt32(TDni.Content),
-                TEmail.Content,
-                TUser.Content,
-                contraseñaHasheada,
-                //estadoSeleccionado,
-               new Roles()
-                {
-                    id_rol = Convert.ToInt32(((OpcionSelect)CBroles.SelectedItem).Valor),
-                    descripcion = ((OpcionSelect)CBroles.SelectedItem).Texto
-                },
-                TDireccion.Content,
-                TLocalidad.Content,
-                TProvincia.Content,
-                TTelefono.Content
-            );
-
-            if (objUser.id_user == 0)
-            {
-                int idusuarioregistrado = new Usuario_negocio().Registrar(objUser, out mensaje);
+                int idusuarioregistrado = objUNegocio.Registrar(objUser, out string mensaje);
 
                 if (idusuarioregistrado != 0)
                 {
@@ -485,36 +299,163 @@ namespace OcioStoreIngSoftII
                 {
                     MessageBox.Show(mensaje);
                 }
+
             }
             else
             {
-                bool resultado = new Usuario_negocio().Editar(objUser, out mensaje);
+                MessageBox.Show(mensajeError, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
-                if (resultado)
-                {
-                    DataGridViewRow row = usuariosDataGridView.Rows[Convert.ToInt32(TIndice.Text)];
+        //Mega ultra requete hiper giga validaciones
+        private bool ValidacionesUsuario(string nombre, string apellido, string dni, string email, string user,
+            string pass, string passConf, OpcionSelect rol, OpcionSelect estado, int idUsuarioActual,
+            string telefono, string direccion, string localidad, string provincia, out string mensajeError)
+        {
+            mensajeError = string.Empty;
 
-                    row.Cells["id_user"].Value = TModificarID_user.Text;
-                    row.Cells["apellido"].Value = TModificarAp.Text;
-                    row.Cells["dni"].Value = TModificarDni.Text;
-                    row.Cells["nombre"].Value = TModificarNombre.Text;
-                    row.Cells["email"].Value = TModificarEmail.Text;
-                    row.Cells["user"].Value = TModificarUser.Text;
-                    row.Cells["id_rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Valor.ToString();
-                    row.Cells["rol"].Value = ((OpcionSelect)CBModificarRoles.SelectedItem).Texto.ToString();
-                    row.Cells["estadoValor"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Valor.ToString();
-                    row.Cells["estado"].Value = ((OpcionSelect)CBModificarEstado.SelectedItem).Texto.ToString();
+            //ARRANCAN LAS GIGAVALIDACIONES
+            //Nombre
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                mensajeError = "El campo Nombre es obligatorio.";
+                return false;
+            }
+            if (nombre.Any(char.IsDigit))
+            {
+                mensajeError = "El campo Nombre no puede contener números.";
+                return false;
+            }
+            if (nombre.Length > 30)
+            {
+                mensajeError = "El nombre no puede tener más de 30 caracteres.";
+                return false;
+            }
 
-                    VaciarCampos();
+            //Apellido
+            if (string.IsNullOrWhiteSpace(apellido))
+            {
+                mensajeError = "El campo Apellido es obligatorio.";
+                return false;
+            }
+            if (apellido.Any(char.IsDigit))
+            {
+                mensajeError = "El campo Apellido no puede contener números.";
+                return false;
+            }
+            if (apellido.Length > 30)
+            {
+                mensajeError = "El Apellido no puede tener más de 30 caracteres.";
+                return false;
+            }
 
-                    actualizarDatosTabla();
+            if (string.IsNullOrWhiteSpace(dni))
+            {
+                mensajeError = "El campo DNI es obligatorio.";
+                return false;
+            }
+            if (!dni.All(char.IsDigit))
+            {
+                mensajeError = "El campo DNI solo puede contener números, sin puntos.";
+                return false;
+            }
 
-                    MessageBox.Show("Usuario registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
+
+            //Roles
+            if (rol == null)
+            {
+                mensajeError = "Debe seleccionar un perfil.";
+                return false;
+            }
+
+            //Estado
+            if (estado == null)
+            {
+                mensajeError = "Debe seleccionar un estado.";
+                return false;
+            }
+
+            //Usuario
+            if (string.IsNullOrWhiteSpace(user))
+            {
+                mensajeError = "El campo Usuario es obligatorio.";
+                return false;
+            }
+
+            //Contraseña
+            if (string.IsNullOrWhiteSpace(pass) || pass.Length < 6)
+            {
+                mensajeError = "La contraseña debe tener al menos 6 caracteres.";
+                return false;
+            }
+            if (pass != passConf)
+            {
+                mensajeError = "Las contraseñas no coinciden. Por favor, verifíquelas.";
+                TPass.Content = "";
+                TPassConf.Content = "";
+                TPass.Focus(); // Pone el cursor de vuelta en el primer campo de contraseña, epico
+                return false;
+            }
+
+            //Email
+            //Me tomé la molestia de buscar una expresión regular para que pegue el formato
+            var emailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$");
+            if (!emailRegex.IsMatch(email))
+            {
+                mensajeError = "El formato del correo electrónico no es válido.";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                mensajeError = "El campo Email es obligatorio.";
+                return false;
+            }
+
+            //Telefono
+            if (telefono.Length < 7)
+            {
+                mensajeError = "El número de teléfono es demasiado corto.";
+                return false;
+            }
+            if (!telefono.All(char.IsDigit))
+            {
+                mensajeError = "El campo telefono solo puede contener números, sin guiones o " + ".";
+                return false;
+            }
+
+            //Direccion
+            if (string.IsNullOrWhiteSpace(direccion))
+            {
+                mensajeError = "El campo Dirección es obligatorio.";
+                return false;
+            }
+
+            //Localidad
+            if (string.IsNullOrWhiteSpace(localidad))
+            {
+                mensajeError = "El campo Localidad es obligatorio.";
+                return false;
+            }
+
+            //Provincia
+            if (string.IsNullOrWhiteSpace(provincia))
+            {
+                mensajeError = "El campo Provincia es obligatorio.";
+                return false;
+            }
+            return true;
+
+        }
+
+        //Que el enter sirva para buscar
+        private void Users_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BBuscar_Click(BBuscar, EventArgs.Empty);
+
+                // Evita el sonido "ding" de Windows al presionar Enter en algunos contextos
+                e.SuppressKeyPress = true;
             }
         }
     }

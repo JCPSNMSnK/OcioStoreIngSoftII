@@ -1,14 +1,14 @@
-﻿using System;
+﻿using CapaEntidades;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Data;
 using System.Data.SqlClient;
-using CapaEntidades;
-using System.Collections;
+using System.Linq;
 using System.Reflection.Emit;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -132,52 +132,130 @@ namespace CapaDatos
             return lista;
         }
 
-        //public List<Usuario> BuscarUsuarios(string criterio)
-        //{
-        //    List<Usuario> lista = new List<Usuario>();
+        public List<Usuario> BuscarUsuarios(Usuario filtros)
+        {
+            List<Usuario> lista = new List<Usuario>();
 
-        //    using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-        //    {
-        //        try
-        //        {
-        //            StringBuilder query = new StringBuilder();
-        //            query.AppendLine("select u.id,u.nombre,u.apellido,u.zipcode,u.domicilio,u.email,u.usuario,u.pass,p.id_perfiles,p.descripcion,u.baja from usuarios u");
-        //            query.AppendLine("inner join perfiles p on p.id_perfiles = u.perfil_id");
-        //            query.AppendLine("where u.nombre LIKE @criterio OR u.apellido LIKE @criterio OR u.email LIKE @criterio OR u.usuario LIKE @criterio OR u.domicilio LIKE @criterio OR u.zipcode LIKE @criterio;");
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_BUSCAR_USUARIO", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-        //            SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
-        //            cmd.CommandType = CommandType.Text;
-        //            cmd.Parameters.AddWithValue("@criterio", "%" + criterio + "%");
+                    cmd.Parameters.AddWithValue("@id_user", filtros.id_user == 0 ? (object)DBNull.Value : filtros.id_user);
+                    cmd.Parameters.AddWithValue("@apellido", string.IsNullOrEmpty(filtros.apellido) ? (object)DBNull.Value : filtros.apellido);
+                    cmd.Parameters.AddWithValue("@nombre", string.IsNullOrEmpty(filtros.nombre) ? (object)DBNull.Value : filtros.nombre);
+                    cmd.Parameters.AddWithValue("@dni", filtros.dni == 0 ? (object)DBNull.Value : filtros.dni);
+                    cmd.Parameters.AddWithValue("@mail", string.IsNullOrEmpty(filtros.mail) ? (object)DBNull.Value : filtros.mail);
+                    cmd.Parameters.AddWithValue("@username", string.IsNullOrEmpty(filtros.username) ? (object)DBNull.Value : filtros.username);
 
-        //            oconexion.Open();
+                    if (filtros.objRoles != null && filtros.objRoles.id_rol != 0)
+                    {
+                        cmd.Parameters.AddWithValue("@id_rol", filtros.objRoles.id_rol);
+                        cmd.Parameters.AddWithValue("@nombre_rol", string.IsNullOrEmpty(filtros.objRoles.nombre_rol) ? (object)DBNull.Value : filtros.objRoles.nombre_rol);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@id_rol", (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@nombre_rol", (object)DBNull.Value);
+                    }
 
-        //            using (SqlDataReader dataReader = cmd.ExecuteReader())
-        //            {
-        //                while (dataReader.Read())
-        //                {
-        //                    lista.Add(new Usuario()
-        //                    {
-        //                        id_usuario = Convert.ToInt32(dataReader["id"]),
-        //                        nombre = dataReader["nombre"].ToString(),
-        //                        apellido = dataReader["apellido"].ToString(),
-        //                        CP = Convert.ToInt32(dataReader["zipcode"]),
-        //                        domicilio = dataReader["domicilio"].ToString(),
-        //                        email = dataReader["email"].ToString(),
-        //                        user = dataReader["usuario"].ToString(),
-        //                        pass = dataReader["pass"].ToString(),
-        //                        objPerfil = new Perfil() { id_perfil = Convert.ToInt32(dataReader["id_perfiles"]), descripcion = dataReader["descripcion"].ToString() },
-        //                        baja = Convert.ToBoolean(dataReader["baja"]),
-        //                    });
-        //                }
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            lista = new List<Usuario>();
-        //        }
-        //    }
-        //    return lista;
-        //}
+                    oconexion.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new Usuario()
+                            {
+                                id_user = Convert.ToInt32(reader["id_user"]),
+                                apellido = reader["apellido"].ToString(),
+                                nombre = reader["nombre"].ToString(),
+                                dni = Convert.ToInt32(reader["dni"]),
+                                mail = reader["mail"].ToString(),
+                                username = reader["username"].ToString(),
+                                pass = reader["pass"].ToString(),
+                                baja_user = Convert.ToBoolean(reader["baja_user"]),
+                                objRoles = new Roles()
+                                {
+                                    id_rol = Convert.ToInt32(reader["id_rol"]),
+                                    nombre_rol = reader["nombre_rol"].ToString()
+                                },
+                                telefono_user = reader["telefono_user"].ToString(),
+                                direccion_user = reader["direccion_user"].ToString(),
+                                localidad_user = reader["localidad_user"].ToString(),
+                                provincia_user = reader["provincia_user"].ToString()
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                    "Ocurrió un error al buscar los usuarios:\n\n" + ex.ToString(),
+                    "Error de Base de Datos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                    lista = new List<Usuario>();
+                }
+            }
+            return lista;
+        }
+
+        public List<Usuario> BuscarUsuariosGeneral(string busqueda)
+        {
+            List<Usuario> lista = new List<Usuario>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_BUSCAR_USUARIO", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@busqueda_general", busqueda);
+
+                    oconexion.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new Usuario()
+                            {
+                                id_user = Convert.ToInt32(reader["id_user"]),
+                                apellido = reader["apellido"].ToString(),
+                                nombre = reader["nombre"].ToString(),
+                                dni = Convert.ToInt32(reader["dni"]),
+                                mail = reader["mail"].ToString(),
+                                username = reader["username"].ToString(),
+                                pass = reader["pass"].ToString(),
+                                baja_user = Convert.ToBoolean(reader["baja_user"]),
+                                objRoles = new Roles()
+                                {
+                                    id_rol = Convert.ToInt32(reader["id_rol"]),
+                                    nombre_rol = reader["nombre_rol"].ToString()
+                                },
+                                telefono_user = reader["telefono_user"].ToString(),
+                                direccion_user = reader["direccion_user"].ToString(),
+                                localidad_user = reader["localidad_user"].ToString(),
+                                provincia_user = reader["provincia_user"].ToString()
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                    "Ocurrió un error al buscar los usuarios:\n\n" + ex.ToString(),
+                    "Error de Base de Datos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                    lista = new List<Usuario>();
+                }
+            }
+            return lista;
+        }
+
 
         public int Registrar(Usuario obj, out string Mensaje)
         {

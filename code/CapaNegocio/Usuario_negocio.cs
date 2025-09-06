@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using Org.BouncyCastle.Crypto.Generators;
+using CapaNegocio.Seguridad;
 
 namespace CapaNegocio
 {
@@ -50,10 +51,15 @@ namespace CapaNegocio
 
                 if (!string.IsNullOrWhiteSpace(usuario.pass))
                 {
-                    if (usuario.pass.Length == 60)
-                        isAuthenticated = BCrypt.Net.BCrypt.Verify(password, usuario.pass);
-                    else
-                        isAuthenticated = usuario.pass == password;
+                    isAuthenticated = PasswordHasher.VerifyPassword(password, usuario.pass);
+                    //Para pruebas comentar el PasswordHasher.VerifyPassword y utilizar la siguiente en su lugar
+                    //isAuthenticated = password == usuario.pass;
+                    //
+                    //
+                    //admin - admin123
+                    //juanP - pass123
+                    //prueba - 123456
+                    //
                 }
 
                 if (!isAuthenticated)
@@ -80,7 +86,6 @@ namespace CapaNegocio
                 return null;
             }
         }
-
 
         public int Registrar(Usuario obj, out string Mensaje)//crearUsuario
         {
@@ -135,6 +140,17 @@ namespace CapaNegocio
             
 
         }
+
+        public List<Usuario> BuscarUsuarios(Usuario filtros)
+        {
+            return objUser_datos.BuscarUsuarios(filtros);
+        }
+
+        public List<Usuario> BuscarUsuariosGeneral(string filtros)
+        {
+            return objUser_datos.BuscarUsuariosGeneral(filtros);
+        }
+        
         public bool Editar(Usuario obj, out string Mensaje)//editarUsuario
         {
             Mensaje = string.Empty;
