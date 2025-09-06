@@ -131,3 +131,34 @@ BEGIN
 END
 GO
 
+--6. VENDEDOR VENTAS
+
+CREATE OR ALTER PROCEDURE PROC_INFORME_VENDEDOR_VENTAS
+    @id_user INT,
+    @fecha_inicio DATE,
+    @fecha_fin DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Seleccionar datos detallados de cada venta
+    SELECT
+        v.id_venta,
+        v.fecha_venta,
+        v.total AS total_venta,
+        u.nombre + ' ' + u.apellido AS nombre_vendedor,
+        c.nombre_cliente + ' ' + c.apellido_cliente AS nombre_cliente
+    FROM
+        Ventas v
+    JOIN
+        Users u ON v.id_user = u.id_user
+    JOIN
+        Clientes c ON v.id_cliente = c.id_cliente
+    WHERE
+        v.id_user = @id_user -- Filtra por el ID del vendedor
+        AND v.fecha_venta >= @fecha_inicio
+        AND v.fecha_venta <= @fecha_fin
+    ORDER BY
+        v.fecha_venta DESC;
+END
+GO

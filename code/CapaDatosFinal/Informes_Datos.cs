@@ -9,6 +9,15 @@ namespace CapaDatos
     public class Informes_Datos
     {
 
+        public class VentaDetalle
+        {
+            public int id_venta { get; set; }
+            public DateTime fecha_venta { get; set; }
+            public decimal total_venta { get; set; }
+            public string nombre_vendedor { get; set; }
+            public string nombre_cliente { get; set; }
+        }
+
         public bool RegistrarInforme(Informe informe, out string mensaje)
         {
             bool exito = false;
@@ -184,6 +193,48 @@ namespace CapaDatos
                 }
             }
             return lista;
+        }
+
+        public List<VentaDetalle> ObtenerVentasVendedor(int id_vendedor, DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<VentaDetalle> listaVentas = new List<VentaDetalle>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_INFORME_VENDEDOR_VENTAS", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Ahora enviamos el ID del vendedor como parámetro
+                    cmd.Parameters.AddWithValue("@id_user", id_vendedor);
+                    cmd.Parameters.AddWithValue("@fecha_inicio", fechaInicio);
+                    cmd.Parameters.AddWithValue("@fecha_fin", fechaFin);
+
+                    oconexion.Open();
+                    using (SqlDataReader dataReader = cmd.ExecuteReader())
+                    {
+                        // Recorremos cada fila del resultado
+                        while (dataReader.Read())
+                        {
+                            VentaDetalle venta = new VentaDetalle()
+                            {
+                                id_venta = Convert.ToInt32(dataReader["id_venta"]),
+                                fecha_venta = Convert.ToDateTime(dataReader["fecha_venta"]),
+                                total_venta = Convert.ToDecimal(dataReader["total_venta"]),
+                                nombre_vendedor = dataReader["nombre_vendedor"].ToString(),
+                                nombre_cliente = dataReader["nombre_cliente"].ToString()
+                            };
+                            listaVentas.Add(venta);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return listaVentas;
         }
 
 

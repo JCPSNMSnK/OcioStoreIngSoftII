@@ -8,6 +8,7 @@ namespace CapaNegocio
 {
     public class Informes_Negocio
     {
+
         private Informes_Datos objInformes_datos = new Informes_Datos();
 
         public List<ProductoVendido> ObtenerProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
@@ -50,7 +51,7 @@ namespace CapaNegocio
             Informe informe = new Informe("Informe de Ventas por Periodo de Tiempo", "Total de Ventas Realizadas",
                 $"Ventas desde {fechaInicio.ToShortDateString()} hasta {fechaFin.ToShortDateString()}",
                 usuario);
-            
+
             return objInformes_datos.RegistrarInforme(informe, out mensaje);
         }
 
@@ -92,6 +93,21 @@ namespace CapaNegocio
                 $"Informe de mejores vendedores desde {fechaInicio.ToShortDateString()} hasta {fechaFin.ToShortDateString()}",
                 usuario);
             return objInformes_datos.RegistrarInforme(informe, out mensaje);
+        }
+
+        public List<VentaData.VentaDetalle> ObtenerVentasVendedor(int id_vendedor, DateTime fechaInicio, DateTime fechaFin)
+        {
+            // Validación de fechas
+            if (fechaInicio > fechaFin)
+            {
+                // Devuelve una lista vacía si las fechas son inconsistentes
+                return new List<VentaData.VentaDetalle>();
+            }
+
+            // Se invoca el método de la capa de datos con los parámetros correctos
+            List<VentaData.VentaDetalle> resultados = objInformes_datos.ObtenerVentasVendedor(id_vendedor, fechaInicio, fechaFin);
+
+            return resultados;
         }
 
     }
