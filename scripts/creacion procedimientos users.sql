@@ -150,6 +150,81 @@ BEGIN
     SET @respuesta = 1
 END
 
+
+-- 4. BUSCAR USUARIO
+
+CREATE OR ALTER PROCEDURE [dbo].[PROC_BUSCAR_USUARIO]
+    @id_user INT = NULL,
+    @apellido VARCHAR(100) = NULL,
+    @nombre VARCHAR(100) = NULL,
+    @dni VARCHAR(20) = NULL,
+    @mail VARCHAR(100) = NULL,
+    @username VARCHAR(50) = NULL,
+	@pass VARCHAR(255) = NULL,
+    @baja_user BIT = NULL,
+    @id_rol INT = NULL,
+    @nombre_rol VARCHAR(50) = NULL, 
+    @busqueda_general VARCHAR(100) = NULL --  NUEVO PARÁMETRO
+
+AS
+BEGIN
+    SELECT 
+        u.id_user,
+        u.apellido,
+        u.nombre,
+        u.dni,
+        u.mail,
+        u.username,
+		u.pass,
+        u.baja_user,
+        u.id_rol,
+        r.nombre_rol,
+        u.telefono_user,
+        u.direccion_user,
+        u.localidad_user,
+        u.provincia_user
+    FROM dbo.Users u
+    INNER JOIN dbo.Roles r ON u.id_rol = r.id_rol
+    WHERE 
+            -- Búsqueda general
+        (@busqueda_general IS NULL OR
+            u.apellido LIKE '%' + @busqueda_general + '%' OR
+            u.nombre LIKE '%' + @busqueda_general + '%' OR
+            u.dni LIKE '%' + @busqueda_general + '%' OR
+            u.mail LIKE '%' + @busqueda_general + '%' OR
+            u.username LIKE '%' + @busqueda_general + '%' OR
+            r.nombre_rol LIKE '%' + @busqueda_general + '%')
+        AND
+        (@id_user IS NULL OR u.id_user = @id_user) AND
+        (@apellido IS NULL OR u.apellido COLLATE Latin1_General_CI_AI LIKE '%' + @apellido + '%' COLLATE Latin1_General_CI_AI) AND
+        (@nombre IS NULL OR u.nombre COLLATE Latin1_General_CI_AI LIKE '%' + @nombre + '%' COLLATE Latin1_General_CI_AI) AND
+        (@dni IS NULL OR u.dni LIKE '%' + @dni + '%') AND
+        (@mail IS NULL OR u.mail LIKE '%' + @mail + '%') AND
+        (@username IS NULL OR u.username LIKE '%' + @username + '%') AND
+        (@baja_user IS NULL OR u.baja_user = @baja_user) AND
+        (@id_rol IS NULL OR u.id_rol = @id_rol) AND
+        (@nombre_rol IS NULL OR r.nombre_rol COLLATE Latin1_General_CI_AI LIKE '%' + @nombre_rol + '%' COLLATE Latin1_General_CI_AI)
+END
+
+-- 5. Verificación de DNI
+    
+CREATE OR ALTER PROCEDURE [dbo].[PROC_VERIFICAR_DNI_EXISTE]
+    @dni VARCHAR(20),
+    @id_usuario_actual INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Si el ID es 0, significa que es un nuevo usuario, por lo que no excluimos a nadie.
+    -- Si el ID es diferente de 0, es una edición, y se excluye a ese usuario de la búsqueda.
+    IF EXISTS (SELECT 1 FROM Users WHERE dni = @dni AND id_user <> @id_usuario_actual)
+        SELECT 1 -- Retorna 1 (verdadero) si el DNI existe en OTRO usuario
+    ELSE
+        SELECT 0 -- Retorna 0 (falso) si no existe
+END
+
+
+
 ------------------------------------PRUEBAS------------------------------------
 
 
