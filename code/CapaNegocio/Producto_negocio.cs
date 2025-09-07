@@ -185,5 +185,11 @@ namespace CapaNegocio
 
             return string.Empty; // Retorna cadena vacía si el stock es adecuado
         }
+
+        public List<Producto> BuscarProductosGeneral(string filtros)
+        {
+            return _objProductoDatos.BuscarProductosGeneral(filtros);
+        }
+
     }
 }

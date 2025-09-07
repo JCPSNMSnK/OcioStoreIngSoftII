@@ -15,7 +15,7 @@ namespace OcioStoreIngSoftII
         // Instancias de la capa de negocio
         private readonly Producto_negocio _productoNegocio;
         private readonly Categoria_negocio _categoriaNegocio;
-
+        private readonly Proveedores_negocio _proveedorNegocio;
         public Products()
         {
             InitializeComponent();
@@ -30,14 +30,15 @@ namespace OcioStoreIngSoftII
             CargarComboBoxEstados(CBModificarEstado); // Podría no tener selección inicial si se carga un producto
             CargarComboBoxCategorias(CBCategoria);
             CargarComboBoxCategorias(CBModificarCategoria); // Podría no tener selección inicial si se carga un producto
-
+            CargarComboBoxProveedor(CBProveedor);
+            CargarComboBoxProveedor(CBModificarProveedor); // Podría no tener selección inicial si se carga un producto
             // Establecer índices por defecto si hay elementos
             if (CBEstado.Items.Count > 0) CBEstado.SelectedIndex = 0;
             // CBModificarEstado.SelectedIndex no se establece inicialmente si la idea es que muestre el estado del producto cargado
             if (CBCategoria.Items.Count > 0) CBCategoria.SelectedIndex = 0;
             // CBModificarCategoria.SelectedIndex no se establece inicialmente
 
-            ActualizarDatosTabla();
+            actualizarDatosTabla();
         }
 
         //Carga las opciones de estado (alta/baja)
@@ -78,13 +79,39 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        /// Idealmente, esta carga de datos debería pasar por la capa de negocio xd
-        private void ActualizarDatosTabla()
+        /// Carga las categorías desde la capa de negocio en un ComboBox.
+        private void CargarComboBoxProveedor(ComboBox comboBox)
         {
-            this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
-                this.dataSet1.PROC_BUSCAR_PRODUCTO,
-                null, null, null, null, null, null, null, null, null, null, null
-            );
+            try
+            {
+                // La capa de presentación pide las categorías a la capa de negocio
+                List<Proveedor> listaProveedores = _proveedorNegocio.ListarProveedores();
+                foreach (Proveedor item in listaProveedores)
+                {
+                    comboBox.Items.Add(new OpcionSelect() { Valor = item.id_proveedor, Texto = item.nombre_proveedor });
+                }
+                comboBox.DisplayMember = "Texto";
+                comboBox.ValueMember = "Valor";
+            }
+            catch (Exception ex)
+            {
+                // Si hay un error, lo mostraremos en un mensaje
+                MessageBox.Show("Ocurrió un error al cargar los proveedores: \n" + ex.Message, "Error de Carga de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// Idealmente, esta carga de datos debería pasar por la capa de negocio xd
+        private void actualizarDatosTabla(string filtros = null)
+        {
+            if (filtros == null)
+            {
+                filtros = "";
+            }
+
+            List<Producto> resultados = _productoNegocio.BuscarProductosGeneral(filtros);
+            productosDataGridView.AutoGenerateColumns = false;
+            productosDataGridView.DataSource = null;
+            productosDataGridView.DataSource = resultados;
         }
 
         // Lógica de dibujo de celdas - Pertenece a la capa de Presentación
@@ -113,23 +140,26 @@ namespace OcioStoreIngSoftII
         {
             // Campos de Registro
             TID_prod.Text = "0"; // ID 0 para un nuevo registro
-            TNombre.Text = string.Empty;
-            TDescripcion.Text = string.Empty;
-            TPrecioLista.Text = string.Empty;
-            TPrecioVenta.Text = string.Empty;
+            TNombreProducto.Content = string.Empty;
+            TDescripcion.Content = string.Empty;
+            TPrecioLista.Content = string.Empty;
+            TPrecioVenta.Content = string.Empty;
             NStock.Text = string.Empty;
             NStockMin.Text = string.Empty;
+            TCodigo.Content = "0"; //
             if (CBCategoria.Items.Count > 0) CBCategoria.SelectedIndex = 0;
             if (CBEstado.Items.Count > 0) CBEstado.SelectedIndex = 0;
+            if (CBProveedor.Items.Count > 0) CBProveedor.SelectedIndex = 0;
 
             // Campos de Modificación
             TModificarID_prod.Text = "0"; // ID 0 para indicar que no hay producto cargado
-            TModificarNombre.Text = string.Empty;
+            TModificarNombreProducto.Text = string.Empty;
             TModificarDescripcion.Text = string.Empty;
             TModificarPrecioLista.Text = string.Empty;
             TModificarPrecioVenta.Text = string.Empty;
             NModificarStock.Text = string.Empty;
             NModificarStockMin.Text = string.Empty;
+            TModificarCodigo.Content = "0";
             // No se reinician los SelectedIndex de modificar, ya que se llenan al seleccionar una fila.
         }
 
@@ -148,7 +178,7 @@ namespace OcioStoreIngSoftII
 
                     // Cargar datos de la fila seleccionada a los controles de modificación
                     TModificarID_prod.Text = productosDataGridView.Rows[indice].Cells["id_producto"].Value.ToString();
-                    TModificarNombre.Text = productosDataGridView.Rows[indice].Cells["nombre_producto"].Value.ToString();
+                    TModificarNombreProducto.Text = productosDataGridView.Rows[indice].Cells["nombre_producto"].Value.ToString();
                     TModificarDescripcion.Text = productosDataGridView.Rows[indice].Cells["descripcion"].Value.ToString();
                     TModificarPrecioLista.Text = productosDataGridView.Rows[indice].Cells["precioLista"].Value.ToString();
                     TModificarPrecioVenta.Text = productosDataGridView.Rows[indice].Cells["precioVenta"].Value.ToString();
@@ -210,7 +240,7 @@ namespace OcioStoreIngSoftII
             Producto objProducto = new Producto()
             {
                 id_producto = Convert.ToInt32(TID_prod.Text), // Asume 0 para nuevos registros
-                nombre_producto = TNombre.Text,
+                nombre_producto = TNombreProducto.Text,
                 descripcion = TDescripcion.Text,
                 fechaIngreso = DateTime.Now, // Podría ser generado en BLL/DAL
                 precioLista = precioLista,
@@ -236,7 +266,7 @@ namespace OcioStoreIngSoftII
             {
                 MessageBox.Show("Producto registrado exitosamente con ID: " + idRegistrado, "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 VaciarCampos();
-                ActualizarDatosTabla(); // Refresca el DataGridView para mostrar el nuevo producto
+                actualizarDatosTabla(); // Refresca el DataGridView para mostrar el nuevo producto
             }
             else // Fallo en el registro (puede ser por validación de negocio o error de base de datos)
             {
@@ -249,7 +279,7 @@ namespace OcioStoreIngSoftII
         {
             mensaje = string.Empty;
 
-            if (string.IsNullOrWhiteSpace(TNombre.Text)) { mensaje = "El nombre del producto es obligatorio."; return false; }
+            if (string.IsNullOrWhiteSpace(TNombreProducto.Text)) { mensaje = "El nombre del producto es obligatorio."; return false; }
             if (string.IsNullOrWhiteSpace(TDescripcion.Text)) { mensaje = "La descripción es obligatoria."; return false; }
 
             if (!decimal.TryParse(TPrecioLista.Text, out decimal precioLista)) { mensaje = "El precio de lista debe ser un número válido."; return false; }
@@ -288,7 +318,7 @@ namespace OcioStoreIngSoftII
             Producto objProducto = new Producto()
             {
                 id_producto = Convert.ToInt32(TModificarID_prod.Text),
-                nombre_producto = TModificarNombre.Text,
+                nombre_producto = TModificarNombreProducto.Text,
                 descripcion = TModificarDescripcion.Text,
                 precioLista = precioLista,
                 precioVenta = precioVenta,
@@ -338,7 +368,7 @@ namespace OcioStoreIngSoftII
         {
             mensaje = string.Empty;
 
-            if (string.IsNullOrWhiteSpace(TModificarNombre.Text)) { mensaje = "El nombre del producto no puede estar vacío."; return false; }
+            if (string.IsNullOrWhiteSpace(TModificarNombreProducto.Text)) { mensaje = "El nombre del producto no puede estar vacío."; return false; }
             if (string.IsNullOrWhiteSpace(TModificarDescripcion.Text)) { mensaje = "La descripción no puede estar vacía."; return false; }
 
             if (!decimal.TryParse(TModificarPrecioLista.Text, out decimal precioLista)) { mensaje = "El precio de lista debe ser un número válido."; return false; }
@@ -359,7 +389,7 @@ namespace OcioStoreIngSoftII
 
             if (string.IsNullOrEmpty(filtro))
             {
-                ActualizarDatosTabla(); // Si el filtro está vacío, muestra todos los productos
+                actualizarDatosTabla(); // Si el filtro está vacío, muestra todos los productos
                 return;
             }
 

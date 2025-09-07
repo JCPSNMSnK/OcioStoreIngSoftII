@@ -35,61 +35,70 @@
             this.TCProductos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.PanelAltaProducts = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.panelInternoAlta = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.TIndice = new System.Windows.Forms.TextBox();
+            this.TID_prod = new System.Windows.Forms.TextBox();
+            this.BRegisterProduct = new CuoreUI.Controls.cuiButton();
+            this.CBProveedor = new System.Windows.Forms.ComboBox();
+            this.LProveedor = new System.Windows.Forms.Label();
+            this.TCodigo = new CuoreUI.Controls.cuiTextBox();
+            this.LCodigo = new System.Windows.Forms.Label();
+            this.TDescripcion = new CuoreUI.Controls.cuiTextBox();
+            this.CBCategoria = new System.Windows.Forms.ComboBox();
+            this.TPrecioVenta = new CuoreUI.Controls.cuiTextBox();
+            this.TPrecioLista = new CuoreUI.Controls.cuiTextBox();
+            this.TNombreProducto = new CuoreUI.Controls.cuiTextBox();
             this.NStockMin = new System.Windows.Forms.NumericUpDown();
             this.NStock = new System.Windows.Forms.NumericUpDown();
             this.CBEstado = new System.Windows.Forms.ComboBox();
             this.LStockMin = new System.Windows.Forms.Label();
-            this.CBCategoria = new System.Windows.Forms.ComboBox();
             this.LStock = new System.Windows.Forms.Label();
             this.LEstado = new System.Windows.Forms.Label();
             this.LCategoria = new System.Windows.Forms.Label();
-            this.BRegisterProduct = new System.Windows.Forms.Button();
-            this.TPrecioVenta = new System.Windows.Forms.TextBox();
             this.LPrecioVenta = new System.Windows.Forms.Label();
-            this.TPrecioLista = new System.Windows.Forms.TextBox();
             this.LPrecioLista = new System.Windows.Forms.Label();
-            this.TNombre = new System.Windows.Forms.TextBox();
-            this.LNombre = new System.Windows.Forms.Label();
-            this.TDescripcion = new System.Windows.Forms.TextBox();
+            this.LNombreProducto = new System.Windows.Forms.Label();
             this.LDescripcion = new System.Windows.Forms.Label();
-            this.TID_prod = new System.Windows.Forms.TextBox();
-            this.TIndice = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panelInternoModif = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.TBModificarIndice = new System.Windows.Forms.TextBox();
+            this.TModificarID_prod = new System.Windows.Forms.TextBox();
+            this.BModificarProducto = new CuoreUI.Controls.cuiButton();
+            this.CBModificarProveedor = new System.Windows.Forms.ComboBox();
+            this.LModificarProveedor = new System.Windows.Forms.Label();
+            this.TModificarCodigo = new CuoreUI.Controls.cuiTextBox();
+            this.LModificarCodigo = new System.Windows.Forms.Label();
+            this.TModificarDescripcion = new CuoreUI.Controls.cuiTextBox();
+            this.CBModificarCategoria = new System.Windows.Forms.ComboBox();
+            this.TModificarPrecioVenta = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarPrecioLista = new CuoreUI.Controls.cuiTextBox();
+            this.TModificarNombreProducto = new CuoreUI.Controls.cuiTextBox();
             this.NModificarStockMin = new System.Windows.Forms.NumericUpDown();
             this.NModificarStock = new System.Windows.Forms.NumericUpDown();
             this.CBModificarEstado = new System.Windows.Forms.ComboBox();
-            this.CBModificarCategoria = new System.Windows.Forms.ComboBox();
             this.LModificarStockMin = new System.Windows.Forms.Label();
             this.LModificarStock = new System.Windows.Forms.Label();
             this.LModificarEstado = new System.Windows.Forms.Label();
             this.LModificarCategoria = new System.Windows.Forms.Label();
-            this.BModificar = new System.Windows.Forms.Button();
-            this.TModificarPrecioVenta = new System.Windows.Forms.TextBox();
             this.LModificarPrecioVenta = new System.Windows.Forms.Label();
-            this.TModificarPrecioLista = new System.Windows.Forms.TextBox();
             this.LModificarPrecioLista = new System.Windows.Forms.Label();
-            this.TModificarNombre = new System.Windows.Forms.TextBox();
-            this.LModificarNombre = new System.Windows.Forms.Label();
-            this.TModificarDescripcion = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.TModificarID_prod = new System.Windows.Forms.TextBox();
-            this.TBModificarIndice = new System.Windows.Forms.TextBox();
+            this.LModificarNombreProducto = new System.Windows.Forms.Label();
+            this.LModificarDescripcion = new System.Windows.Forms.Label();
             this.productosDataGridView = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pROCBUSCARPRODUCTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -102,13 +111,11 @@
             this.TCProductos.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.PanelAltaProducts.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.panelInternoAlta.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NStockMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NStock)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.panelInternoModif.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NModificarStockMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NModificarStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).BeginInit();
@@ -148,74 +155,310 @@
             // 
             this.PanelAltaProducts.AutoScroll = true;
             this.PanelAltaProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.PanelAltaProducts.Controls.Add(this.tableLayoutPanel5);
+            this.PanelAltaProducts.Controls.Add(this.panel2);
             this.PanelAltaProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelAltaProducts.Location = new System.Drawing.Point(3, 3);
             this.PanelAltaProducts.Name = "PanelAltaProducts";
             this.PanelAltaProducts.Size = new System.Drawing.Size(1107, 363);
             this.PanelAltaProducts.TabIndex = 7;
             // 
-            // tableLayoutPanel5
+            // panel2
             // 
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.632153F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.722979F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.64487F));
-            this.tableLayoutPanel5.Controls.Add(this.panelInternoAlta, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.TID_prod, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.TIndice, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1107, 363);
-            this.tableLayoutPanel5.TabIndex = 56;
+            this.panel2.Controls.Add(this.TIndice);
+            this.panel2.Controls.Add(this.TID_prod);
+            this.panel2.Controls.Add(this.BRegisterProduct);
+            this.panel2.Controls.Add(this.CBProveedor);
+            this.panel2.Controls.Add(this.LProveedor);
+            this.panel2.Controls.Add(this.TCodigo);
+            this.panel2.Controls.Add(this.LCodigo);
+            this.panel2.Controls.Add(this.TDescripcion);
+            this.panel2.Controls.Add(this.CBCategoria);
+            this.panel2.Controls.Add(this.TPrecioVenta);
+            this.panel2.Controls.Add(this.TPrecioLista);
+            this.panel2.Controls.Add(this.TNombreProducto);
+            this.panel2.Controls.Add(this.NStockMin);
+            this.panel2.Controls.Add(this.NStock);
+            this.panel2.Controls.Add(this.CBEstado);
+            this.panel2.Controls.Add(this.LStockMin);
+            this.panel2.Controls.Add(this.LStock);
+            this.panel2.Controls.Add(this.LEstado);
+            this.panel2.Controls.Add(this.LCategoria);
+            this.panel2.Controls.Add(this.LPrecioVenta);
+            this.panel2.Controls.Add(this.LPrecioLista);
+            this.panel2.Controls.Add(this.LNombreProducto);
+            this.panel2.Controls.Add(this.LDescripcion);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1107, 363);
+            this.panel2.TabIndex = 0;
             // 
-            // panelInternoAlta
+            // TIndice
             // 
-            this.panelInternoAlta.Controls.Add(this.NStockMin);
-            this.panelInternoAlta.Controls.Add(this.NStock);
-            this.panelInternoAlta.Controls.Add(this.CBEstado);
-            this.panelInternoAlta.Controls.Add(this.LStockMin);
-            this.panelInternoAlta.Controls.Add(this.CBCategoria);
-            this.panelInternoAlta.Controls.Add(this.LStock);
-            this.panelInternoAlta.Controls.Add(this.LEstado);
-            this.panelInternoAlta.Controls.Add(this.LCategoria);
-            this.panelInternoAlta.Controls.Add(this.BRegisterProduct);
-            this.panelInternoAlta.Controls.Add(this.TPrecioVenta);
-            this.panelInternoAlta.Controls.Add(this.LPrecioVenta);
-            this.panelInternoAlta.Controls.Add(this.TPrecioLista);
-            this.panelInternoAlta.Controls.Add(this.LPrecioLista);
-            this.panelInternoAlta.Controls.Add(this.TNombre);
-            this.panelInternoAlta.Controls.Add(this.LNombre);
-            this.panelInternoAlta.Controls.Add(this.TDescripcion);
-            this.panelInternoAlta.Controls.Add(this.LDescripcion);
-            this.panelInternoAlta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInternoAlta.Location = new System.Drawing.Point(106, 3);
-            this.panelInternoAlta.Name = "panelInternoAlta";
-            this.panelInternoAlta.Size = new System.Drawing.Size(998, 357);
-            this.panelInternoAlta.TabIndex = 53;
+            this.TIndice.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TIndice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TIndice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TIndice.Location = new System.Drawing.Point(2, 331);
+            this.TIndice.Name = "TIndice";
+            this.TIndice.Size = new System.Drawing.Size(45, 29);
+            this.TIndice.TabIndex = 107;
+            this.TIndice.Text = "-1";
+            this.TIndice.Visible = false;
+            // 
+            // TID_prod
+            // 
+            this.TID_prod.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TID_prod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TID_prod.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TID_prod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TID_prod.Location = new System.Drawing.Point(53, 331);
+            this.TID_prod.Name = "TID_prod";
+            this.TID_prod.Size = new System.Drawing.Size(46, 29);
+            this.TID_prod.TabIndex = 106;
+            this.TID_prod.Text = "0";
+            this.TID_prod.Visible = false;
+            // 
+            // BRegisterProduct
+            // 
+            this.BRegisterProduct.CheckButton = false;
+            this.BRegisterProduct.Checked = false;
+            this.BRegisterProduct.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.BRegisterProduct.CheckedForeColor = System.Drawing.Color.White;
+            this.BRegisterProduct.CheckedImageTint = System.Drawing.Color.White;
+            this.BRegisterProduct.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.BRegisterProduct.Content = "Registrar Producto";
+            this.BRegisterProduct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BRegisterProduct.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.BRegisterProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BRegisterProduct.ForeColor = System.Drawing.Color.White;
+            this.BRegisterProduct.HoverBackground = System.Drawing.Color.White;
+            this.BRegisterProduct.HoverForeColor = System.Drawing.Color.Black;
+            this.BRegisterProduct.HoverImageTint = System.Drawing.Color.White;
+            this.BRegisterProduct.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BRegisterProduct.Image = null;
+            this.BRegisterProduct.ImageAutoCenter = true;
+            this.BRegisterProduct.ImageExpand = new System.Drawing.Point(0, 0);
+            this.BRegisterProduct.ImageOffset = new System.Drawing.Point(0, 0);
+            this.BRegisterProduct.Location = new System.Drawing.Point(468, 310);
+            this.BRegisterProduct.Name = "BRegisterProduct";
+            this.BRegisterProduct.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.BRegisterProduct.NormalForeColor = System.Drawing.Color.White;
+            this.BRegisterProduct.NormalImageTint = System.Drawing.Color.White;
+            this.BRegisterProduct.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BRegisterProduct.OutlineThickness = 1F;
+            this.BRegisterProduct.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.BRegisterProduct.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.BRegisterProduct.PressedImageTint = System.Drawing.Color.White;
+            this.BRegisterProduct.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BRegisterProduct.Rounding = new System.Windows.Forms.Padding(8);
+            this.BRegisterProduct.Size = new System.Drawing.Size(143, 32);
+            this.BRegisterProduct.TabIndex = 105;
+            this.BRegisterProduct.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BRegisterProduct.TextOffset = new System.Drawing.Point(0, 0);
+            // 
+            // CBProveedor
+            // 
+            this.CBProveedor.FormattingEnabled = true;
+            this.CBProveedor.Location = new System.Drawing.Point(687, 40);
+            this.CBProveedor.Name = "CBProveedor";
+            this.CBProveedor.Size = new System.Drawing.Size(233, 28);
+            this.CBProveedor.TabIndex = 104;
+            // 
+            // LProveedor
+            // 
+            this.LProveedor.AutoSize = true;
+            this.LProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LProveedor.Location = new System.Drawing.Point(695, 16);
+            this.LProveedor.Name = "LProveedor";
+            this.LProveedor.Size = new System.Drawing.Size(82, 21);
+            this.LProveedor.TabIndex = 103;
+            this.LProveedor.Text = "Proveedor";
+            // 
+            // TCodigo
+            // 
+            this.TCodigo.BackgroundColor = System.Drawing.Color.White;
+            this.TCodigo.Content = "";
+            this.TCodigo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TCodigo.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TCodigo.FocusImageTint = System.Drawing.Color.White;
+            this.TCodigo.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCodigo.ForeColor = System.Drawing.Color.Gray;
+            this.TCodigo.Image = null;
+            this.TCodigo.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TCodigo.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TCodigo.Location = new System.Drawing.Point(430, 40);
+            this.TCodigo.Margin = new System.Windows.Forms.Padding(4);
+            this.TCodigo.Multiline = false;
+            this.TCodigo.Name = "TCodigo";
+            this.TCodigo.NormalImageTint = System.Drawing.Color.White;
+            this.TCodigo.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TCodigo.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TCodigo.PasswordChar = false;
+            this.TCodigo.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TCodigo.PlaceholderText = "";
+            this.TCodigo.Rounding = new System.Windows.Forms.Padding(8);
+            this.TCodigo.Size = new System.Drawing.Size(233, 28);
+            this.TCodigo.TabIndex = 102;
+            this.TCodigo.TextOffset = new System.Drawing.Size(0, 0);
+            this.TCodigo.UnderlinedStyle = true;
+            // 
+            // LCodigo
+            // 
+            this.LCodigo.AutoSize = true;
+            this.LCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LCodigo.Location = new System.Drawing.Point(438, 17);
+            this.LCodigo.Name = "LCodigo";
+            this.LCodigo.Size = new System.Drawing.Size(148, 21);
+            this.LCodigo.TabIndex = 101;
+            this.LCodigo.Text = "Código de Producto";
+            // 
+            // TDescripcion
+            // 
+            this.TDescripcion.BackgroundColor = System.Drawing.Color.White;
+            this.TDescripcion.Content = "";
+            this.TDescripcion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TDescripcion.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TDescripcion.FocusImageTint = System.Drawing.Color.White;
+            this.TDescripcion.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TDescripcion.ForeColor = System.Drawing.Color.Gray;
+            this.TDescripcion.Image = null;
+            this.TDescripcion.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TDescripcion.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TDescripcion.Location = new System.Drawing.Point(430, 112);
+            this.TDescripcion.Margin = new System.Windows.Forms.Padding(4);
+            this.TDescripcion.Multiline = true;
+            this.TDescripcion.Name = "TDescripcion";
+            this.TDescripcion.NormalImageTint = System.Drawing.Color.White;
+            this.TDescripcion.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TDescripcion.Padding = new System.Windows.Forms.Padding(15, 5, 15, 5);
+            this.TDescripcion.PasswordChar = false;
+            this.TDescripcion.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TDescripcion.PlaceholderText = "";
+            this.TDescripcion.Rounding = new System.Windows.Forms.Padding(8);
+            this.TDescripcion.Size = new System.Drawing.Size(233, 173);
+            this.TDescripcion.TabIndex = 100;
+            this.TDescripcion.TextOffset = new System.Drawing.Size(0, 0);
+            this.TDescripcion.UnderlinedStyle = true;
+            // 
+            // CBCategoria
+            // 
+            this.CBCategoria.FormattingEnabled = true;
+            this.CBCategoria.Location = new System.Drawing.Point(687, 184);
+            this.CBCategoria.Name = "CBCategoria";
+            this.CBCategoria.Size = new System.Drawing.Size(233, 28);
+            this.CBCategoria.TabIndex = 99;
+            // 
+            // TPrecioVenta
+            // 
+            this.TPrecioVenta.BackgroundColor = System.Drawing.Color.White;
+            this.TPrecioVenta.Content = "";
+            this.TPrecioVenta.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TPrecioVenta.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TPrecioVenta.FocusImageTint = System.Drawing.Color.White;
+            this.TPrecioVenta.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPrecioVenta.ForeColor = System.Drawing.Color.Gray;
+            this.TPrecioVenta.Image = null;
+            this.TPrecioVenta.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TPrecioVenta.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TPrecioVenta.Location = new System.Drawing.Point(312, 113);
+            this.TPrecioVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.TPrecioVenta.Multiline = false;
+            this.TPrecioVenta.Name = "TPrecioVenta";
+            this.TPrecioVenta.NormalImageTint = System.Drawing.Color.White;
+            this.TPrecioVenta.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TPrecioVenta.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TPrecioVenta.PasswordChar = false;
+            this.TPrecioVenta.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TPrecioVenta.PlaceholderText = "";
+            this.TPrecioVenta.Rounding = new System.Windows.Forms.Padding(8);
+            this.TPrecioVenta.Size = new System.Drawing.Size(97, 28);
+            this.TPrecioVenta.TabIndex = 98;
+            this.TPrecioVenta.TextOffset = new System.Drawing.Size(0, 0);
+            this.TPrecioVenta.UnderlinedStyle = true;
+            // 
+            // TPrecioLista
+            // 
+            this.TPrecioLista.BackgroundColor = System.Drawing.Color.White;
+            this.TPrecioLista.Content = "";
+            this.TPrecioLista.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TPrecioLista.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TPrecioLista.FocusImageTint = System.Drawing.Color.White;
+            this.TPrecioLista.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TPrecioLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPrecioLista.ForeColor = System.Drawing.Color.Gray;
+            this.TPrecioLista.Image = null;
+            this.TPrecioLista.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TPrecioLista.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TPrecioLista.Location = new System.Drawing.Point(176, 113);
+            this.TPrecioLista.Margin = new System.Windows.Forms.Padding(4);
+            this.TPrecioLista.Multiline = false;
+            this.TPrecioLista.Name = "TPrecioLista";
+            this.TPrecioLista.NormalImageTint = System.Drawing.Color.White;
+            this.TPrecioLista.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TPrecioLista.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TPrecioLista.PasswordChar = false;
+            this.TPrecioLista.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TPrecioLista.PlaceholderText = "";
+            this.TPrecioLista.Rounding = new System.Windows.Forms.Padding(8);
+            this.TPrecioLista.Size = new System.Drawing.Size(97, 28);
+            this.TPrecioLista.TabIndex = 97;
+            this.TPrecioLista.TextOffset = new System.Drawing.Size(0, 0);
+            this.TPrecioLista.UnderlinedStyle = true;
+            // 
+            // TNombreProducto
+            // 
+            this.TNombreProducto.BackgroundColor = System.Drawing.Color.White;
+            this.TNombreProducto.Content = "";
+            this.TNombreProducto.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TNombreProducto.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TNombreProducto.FocusImageTint = System.Drawing.Color.White;
+            this.TNombreProducto.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TNombreProducto.ForeColor = System.Drawing.Color.Gray;
+            this.TNombreProducto.Image = null;
+            this.TNombreProducto.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TNombreProducto.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TNombreProducto.Location = new System.Drawing.Point(176, 40);
+            this.TNombreProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.TNombreProducto.Multiline = false;
+            this.TNombreProducto.Name = "TNombreProducto";
+            this.TNombreProducto.NormalImageTint = System.Drawing.Color.White;
+            this.TNombreProducto.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TNombreProducto.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TNombreProducto.PasswordChar = false;
+            this.TNombreProducto.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TNombreProducto.PlaceholderText = "";
+            this.TNombreProducto.Rounding = new System.Windows.Forms.Padding(8);
+            this.TNombreProducto.Size = new System.Drawing.Size(233, 28);
+            this.TNombreProducto.TabIndex = 96;
+            this.TNombreProducto.TextOffset = new System.Drawing.Size(0, 0);
+            this.TNombreProducto.UnderlinedStyle = true;
             // 
             // NStockMin
             // 
             this.NStockMin.BackColor = System.Drawing.Color.WhiteSmoke;
             this.NStockMin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NStockMin.ForeColor = System.Drawing.Color.Black;
-            this.NStockMin.Location = new System.Drawing.Point(608, 32);
+            this.NStockMin.Location = new System.Drawing.Point(314, 183);
             this.NStockMin.Name = "NStockMin";
-            this.NStockMin.Size = new System.Drawing.Size(74, 29);
-            this.NStockMin.TabIndex = 26;
+            this.NStockMin.Size = new System.Drawing.Size(95, 29);
+            this.NStockMin.TabIndex = 95;
             // 
             // NStock
             // 
             this.NStock.BackColor = System.Drawing.Color.WhiteSmoke;
             this.NStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NStock.ForeColor = System.Drawing.Color.Black;
-            this.NStock.Location = new System.Drawing.Point(696, 32);
+            this.NStock.Location = new System.Drawing.Point(176, 183);
             this.NStock.Name = "NStock";
-            this.NStock.Size = new System.Drawing.Size(74, 29);
-            this.NStock.TabIndex = 26;
+            this.NStock.Size = new System.Drawing.Size(97, 29);
+            this.NStock.TabIndex = 94;
             // 
             // CBEstado
             // 
@@ -223,44 +466,31 @@
             this.CBEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBEstado.ForeColor = System.Drawing.Color.Black;
             this.CBEstado.FormattingEnabled = true;
-            this.CBEstado.Location = new System.Drawing.Point(400, 32);
+            this.CBEstado.Location = new System.Drawing.Point(687, 112);
             this.CBEstado.Name = "CBEstado";
-            this.CBEstado.Size = new System.Drawing.Size(144, 29);
-            this.CBEstado.TabIndex = 25;
+            this.CBEstado.Size = new System.Drawing.Size(233, 29);
+            this.CBEstado.TabIndex = 93;
             // 
             // LStockMin
             // 
             this.LStockMin.AutoSize = true;
             this.LStockMin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LStockMin.Location = new System.Drawing.Point(608, 8);
+            this.LStockMin.Location = new System.Drawing.Point(317, 159);
             this.LStockMin.Name = "LStockMin";
             this.LStockMin.Size = new System.Drawing.Size(78, 21);
-            this.LStockMin.TabIndex = 24;
+            this.LStockMin.TabIndex = 92;
             this.LStockMin.Text = "Stock Min";
-            // 
-            // CBCategoria
-            // 
-            this.CBCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.CBCategoria.DisplayMember = "id_categoria";
-            this.CBCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBCategoria.ForeColor = System.Drawing.Color.Black;
-            this.CBCategoria.FormattingEnabled = true;
-            this.CBCategoria.Location = new System.Drawing.Point(96, 248);
-            this.CBCategoria.Name = "CBCategoria";
-            this.CBCategoria.Size = new System.Drawing.Size(231, 29);
-            this.CBCategoria.TabIndex = 24;
-            this.CBCategoria.ValueMember = "id_categoria";
             // 
             // LStock
             // 
             this.LStock.AutoSize = true;
             this.LStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LStock.Location = new System.Drawing.Point(696, 8);
+            this.LStock.Location = new System.Drawing.Point(181, 159);
             this.LStock.Name = "LStock";
             this.LStock.Size = new System.Drawing.Size(47, 21);
-            this.LStock.TabIndex = 24;
+            this.LStock.TabIndex = 91;
             this.LStock.Text = "Stock";
             // 
             // LEstado
@@ -268,10 +498,10 @@
             this.LEstado.AutoSize = true;
             this.LEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEstado.Location = new System.Drawing.Point(400, 8);
+            this.LEstado.Location = new System.Drawing.Point(692, 88);
             this.LEstado.Name = "LEstado";
             this.LEstado.Size = new System.Drawing.Size(56, 21);
-            this.LEstado.TabIndex = 24;
+            this.LEstado.TabIndex = 90;
             this.LEstado.Text = "Estado";
             // 
             // LCategoria
@@ -279,151 +509,60 @@
             this.LCategoria.AutoSize = true;
             this.LCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LCategoria.Location = new System.Drawing.Point(96, 224);
+            this.LCategoria.Location = new System.Drawing.Point(695, 160);
             this.LCategoria.Name = "LCategoria";
             this.LCategoria.Size = new System.Drawing.Size(77, 21);
-            this.LCategoria.TabIndex = 22;
+            this.LCategoria.TabIndex = 89;
             this.LCategoria.Text = "Categoria";
-            // 
-            // BRegisterProduct
-            // 
-            this.BRegisterProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.BRegisterProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BRegisterProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BRegisterProduct.ForeColor = System.Drawing.Color.White;
-            this.BRegisterProduct.Location = new System.Drawing.Point(400, 312);
-            this.BRegisterProduct.Name = "BRegisterProduct";
-            this.BRegisterProduct.Size = new System.Drawing.Size(168, 32);
-            this.BRegisterProduct.TabIndex = 20;
-            this.BRegisterProduct.Text = "Registrar Producto";
-            this.BRegisterProduct.UseVisualStyleBackColor = false;
-            this.BRegisterProduct.Click += new System.EventHandler(this.BRegisterProduct_Click_1);
-            // 
-            // TPrecioVenta
-            // 
-            this.TPrecioVenta.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TPrecioVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPrecioVenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TPrecioVenta.ForeColor = System.Drawing.Color.Black;
-            this.TPrecioVenta.Location = new System.Drawing.Point(96, 176);
-            this.TPrecioVenta.Name = "TPrecioVenta";
-            this.TPrecioVenta.Size = new System.Drawing.Size(232, 29);
-            this.TPrecioVenta.TabIndex = 13;
             // 
             // LPrecioVenta
             // 
             this.LPrecioVenta.AutoSize = true;
             this.LPrecioVenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LPrecioVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPrecioVenta.Location = new System.Drawing.Point(96, 152);
+            this.LPrecioVenta.Location = new System.Drawing.Point(314, 90);
             this.LPrecioVenta.Name = "LPrecioVenta";
             this.LPrecioVenta.Size = new System.Drawing.Size(96, 21);
-            this.LPrecioVenta.TabIndex = 12;
+            this.LPrecioVenta.TabIndex = 88;
             this.LPrecioVenta.Text = "Precio Venta";
-            // 
-            // TPrecioLista
-            // 
-            this.TPrecioLista.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TPrecioLista.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TPrecioLista.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TPrecioLista.ForeColor = System.Drawing.Color.Black;
-            this.TPrecioLista.Location = new System.Drawing.Point(96, 104);
-            this.TPrecioLista.Name = "TPrecioLista";
-            this.TPrecioLista.Size = new System.Drawing.Size(232, 29);
-            this.TPrecioLista.TabIndex = 11;
             // 
             // LPrecioLista
             // 
             this.LPrecioLista.AutoSize = true;
             this.LPrecioLista.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LPrecioLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPrecioLista.Location = new System.Drawing.Point(96, 80);
+            this.LPrecioLista.Location = new System.Drawing.Point(179, 90);
             this.LPrecioLista.Name = "LPrecioLista";
             this.LPrecioLista.Size = new System.Drawing.Size(89, 21);
-            this.LPrecioLista.TabIndex = 10;
+            this.LPrecioLista.TabIndex = 87;
             this.LPrecioLista.Text = "Precio Lista";
             // 
-            // TNombre
+            // LNombreProducto
             // 
-            this.TNombre.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TNombre.ForeColor = System.Drawing.Color.Black;
-            this.TNombre.Location = new System.Drawing.Point(96, 32);
-            this.TNombre.Name = "TNombre";
-            this.TNombre.Size = new System.Drawing.Size(232, 29);
-            this.TNombre.TabIndex = 9;
-            // 
-            // LNombre
-            // 
-            this.LNombre.AutoSize = true;
-            this.LNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LNombre.Location = new System.Drawing.Point(96, 8);
-            this.LNombre.Name = "LNombre";
-            this.LNombre.Size = new System.Drawing.Size(68, 21);
-            this.LNombre.TabIndex = 8;
-            this.LNombre.Text = "Nombre";
-            // 
-            // TDescripcion
-            // 
-            this.TDescripcion.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TDescripcion.ForeColor = System.Drawing.Color.Black;
-            this.TDescripcion.Location = new System.Drawing.Point(400, 104);
-            this.TDescripcion.Multiline = true;
-            this.TDescripcion.Name = "TDescripcion";
-            this.TDescripcion.PasswordChar = '*';
-            this.TDescripcion.Size = new System.Drawing.Size(370, 176);
-            this.TDescripcion.TabIndex = 7;
-            this.TDescripcion.UseSystemPasswordChar = true;
+            this.LNombreProducto.AutoSize = true;
+            this.LNombreProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LNombreProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LNombreProducto.Location = new System.Drawing.Point(185, 17);
+            this.LNombreProducto.Name = "LNombreProducto";
+            this.LNombreProducto.Size = new System.Drawing.Size(68, 21);
+            this.LNombreProducto.TabIndex = 86;
+            this.LNombreProducto.Text = "Nombre";
             // 
             // LDescripcion
             // 
             this.LDescripcion.AutoSize = true;
             this.LDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LDescripcion.Location = new System.Drawing.Point(400, 80);
+            this.LDescripcion.Location = new System.Drawing.Point(435, 89);
             this.LDescripcion.Name = "LDescripcion";
             this.LDescripcion.Size = new System.Drawing.Size(91, 21);
-            this.LDescripcion.TabIndex = 6;
+            this.LDescripcion.TabIndex = 85;
             this.LDescripcion.Text = "Descripcion";
-            // 
-            // TID_prod
-            // 
-            this.TID_prod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TID_prod.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TID_prod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TID_prod.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TID_prod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TID_prod.Location = new System.Drawing.Point(54, 3);
-            this.TID_prod.Name = "TID_prod";
-            this.TID_prod.Size = new System.Drawing.Size(46, 29);
-            this.TID_prod.TabIndex = 52;
-            this.TID_prod.Text = "0";
-            this.TID_prod.Visible = false;
-            // 
-            // TIndice
-            // 
-            this.TIndice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TIndice.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TIndice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TIndice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TIndice.Location = new System.Drawing.Point(3, 3);
-            this.TIndice.Name = "TIndice";
-            this.TIndice.Size = new System.Drawing.Size(45, 29);
-            this.TIndice.TabIndex = 51;
-            this.TIndice.Text = "-1";
-            this.TIndice.Visible = false;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tabPage2.Controls.Add(this.tableLayoutPanel3);
+            this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -431,252 +570,36 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar Productos";
             // 
-            // tableLayoutPanel3
+            // panel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.632153F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.722979F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.64487F));
-            this.tableLayoutPanel3.Controls.Add(this.panelInternoModif, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.TModificarID_prod, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.TBModificarIndice, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1107, 363);
-            this.tableLayoutPanel3.TabIndex = 56;
-            // 
-            // panelInternoModif
-            // 
-            this.panelInternoModif.Controls.Add(this.NModificarStockMin);
-            this.panelInternoModif.Controls.Add(this.NModificarStock);
-            this.panelInternoModif.Controls.Add(this.CBModificarEstado);
-            this.panelInternoModif.Controls.Add(this.CBModificarCategoria);
-            this.panelInternoModif.Controls.Add(this.LModificarStockMin);
-            this.panelInternoModif.Controls.Add(this.LModificarStock);
-            this.panelInternoModif.Controls.Add(this.LModificarEstado);
-            this.panelInternoModif.Controls.Add(this.LModificarCategoria);
-            this.panelInternoModif.Controls.Add(this.BModificar);
-            this.panelInternoModif.Controls.Add(this.TModificarPrecioVenta);
-            this.panelInternoModif.Controls.Add(this.LModificarPrecioVenta);
-            this.panelInternoModif.Controls.Add(this.TModificarPrecioLista);
-            this.panelInternoModif.Controls.Add(this.LModificarPrecioLista);
-            this.panelInternoModif.Controls.Add(this.TModificarNombre);
-            this.panelInternoModif.Controls.Add(this.LModificarNombre);
-            this.panelInternoModif.Controls.Add(this.TModificarDescripcion);
-            this.panelInternoModif.Controls.Add(this.label8);
-            this.panelInternoModif.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInternoModif.Location = new System.Drawing.Point(106, 3);
-            this.panelInternoModif.Name = "panelInternoModif";
-            this.panelInternoModif.Size = new System.Drawing.Size(998, 357);
-            this.panelInternoModif.TabIndex = 53;
-            // 
-            // NModificarStockMin
-            // 
-            this.NModificarStockMin.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.NModificarStockMin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NModificarStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.NModificarStockMin.Location = new System.Drawing.Point(608, 32);
-            this.NModificarStockMin.Name = "NModificarStockMin";
-            this.NModificarStockMin.Size = new System.Drawing.Size(74, 29);
-            this.NModificarStockMin.TabIndex = 26;
-            // 
-            // NModificarStock
-            // 
-            this.NModificarStock.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.NModificarStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NModificarStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.NModificarStock.Location = new System.Drawing.Point(696, 32);
-            this.NModificarStock.Name = "NModificarStock";
-            this.NModificarStock.Size = new System.Drawing.Size(74, 29);
-            this.NModificarStock.TabIndex = 26;
-            // 
-            // CBModificarEstado
-            // 
-            this.CBModificarEstado.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBModificarEstado.FormattingEnabled = true;
-            this.CBModificarEstado.Location = new System.Drawing.Point(400, 32);
-            this.CBModificarEstado.Name = "CBModificarEstado";
-            this.CBModificarEstado.Size = new System.Drawing.Size(144, 29);
-            this.CBModificarEstado.TabIndex = 25;
-            // 
-            // CBModificarCategoria
-            // 
-            this.CBModificarCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.CBModificarCategoria.DisplayMember = "id_categoria";
-            this.CBModificarCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBModificarCategoria.FormattingEnabled = true;
-            this.CBModificarCategoria.Location = new System.Drawing.Point(96, 248);
-            this.CBModificarCategoria.Name = "CBModificarCategoria";
-            this.CBModificarCategoria.Size = new System.Drawing.Size(231, 29);
-            this.CBModificarCategoria.TabIndex = 24;
-            this.CBModificarCategoria.ValueMember = "id_categoria";
-            // 
-            // LModificarStockMin
-            // 
-            this.LModificarStockMin.AutoSize = true;
-            this.LModificarStockMin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarStockMin.Location = new System.Drawing.Point(608, 8);
-            this.LModificarStockMin.Name = "LModificarStockMin";
-            this.LModificarStockMin.Size = new System.Drawing.Size(78, 21);
-            this.LModificarStockMin.TabIndex = 24;
-            this.LModificarStockMin.Text = "Stock Min";
-            // 
-            // LModificarStock
-            // 
-            this.LModificarStock.AutoSize = true;
-            this.LModificarStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarStock.Location = new System.Drawing.Point(696, 8);
-            this.LModificarStock.Name = "LModificarStock";
-            this.LModificarStock.Size = new System.Drawing.Size(47, 21);
-            this.LModificarStock.TabIndex = 24;
-            this.LModificarStock.Text = "Stock";
-            // 
-            // LModificarEstado
-            // 
-            this.LModificarEstado.AutoSize = true;
-            this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarEstado.Location = new System.Drawing.Point(400, 8);
-            this.LModificarEstado.Name = "LModificarEstado";
-            this.LModificarEstado.Size = new System.Drawing.Size(56, 21);
-            this.LModificarEstado.TabIndex = 24;
-            this.LModificarEstado.Text = "Estado";
-            // 
-            // LModificarCategoria
-            // 
-            this.LModificarCategoria.AutoSize = true;
-            this.LModificarCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarCategoria.Location = new System.Drawing.Point(96, 224);
-            this.LModificarCategoria.Name = "LModificarCategoria";
-            this.LModificarCategoria.Size = new System.Drawing.Size(77, 21);
-            this.LModificarCategoria.TabIndex = 22;
-            this.LModificarCategoria.Text = "Categoria";
-            // 
-            // BModificar
-            // 
-            this.BModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.BModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BModificar.ForeColor = System.Drawing.Color.White;
-            this.BModificar.Location = new System.Drawing.Point(400, 312);
-            this.BModificar.Name = "BModificar";
-            this.BModificar.Size = new System.Drawing.Size(168, 32);
-            this.BModificar.TabIndex = 20;
-            this.BModificar.Text = "Modificar Producto";
-            this.BModificar.UseVisualStyleBackColor = false;
-            this.BModificar.Click += new System.EventHandler(this.BModificar_Click_1);
-            // 
-            // TModificarPrecioVenta
-            // 
-            this.TModificarPrecioVenta.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TModificarPrecioVenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarPrecioVenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarPrecioVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarPrecioVenta.Location = new System.Drawing.Point(96, 176);
-            this.TModificarPrecioVenta.Name = "TModificarPrecioVenta";
-            this.TModificarPrecioVenta.Size = new System.Drawing.Size(232, 29);
-            this.TModificarPrecioVenta.TabIndex = 13;
-            // 
-            // LModificarPrecioVenta
-            // 
-            this.LModificarPrecioVenta.AutoSize = true;
-            this.LModificarPrecioVenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarPrecioVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarPrecioVenta.Location = new System.Drawing.Point(96, 152);
-            this.LModificarPrecioVenta.Name = "LModificarPrecioVenta";
-            this.LModificarPrecioVenta.Size = new System.Drawing.Size(96, 21);
-            this.LModificarPrecioVenta.TabIndex = 12;
-            this.LModificarPrecioVenta.Text = "Precio Venta";
-            // 
-            // TModificarPrecioLista
-            // 
-            this.TModificarPrecioLista.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TModificarPrecioLista.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarPrecioLista.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarPrecioLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarPrecioLista.Location = new System.Drawing.Point(96, 104);
-            this.TModificarPrecioLista.Name = "TModificarPrecioLista";
-            this.TModificarPrecioLista.Size = new System.Drawing.Size(232, 29);
-            this.TModificarPrecioLista.TabIndex = 11;
-            // 
-            // LModificarPrecioLista
-            // 
-            this.LModificarPrecioLista.AutoSize = true;
-            this.LModificarPrecioLista.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarPrecioLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarPrecioLista.Location = new System.Drawing.Point(96, 80);
-            this.LModificarPrecioLista.Name = "LModificarPrecioLista";
-            this.LModificarPrecioLista.Size = new System.Drawing.Size(89, 21);
-            this.LModificarPrecioLista.TabIndex = 10;
-            this.LModificarPrecioLista.Text = "Precio Lista";
-            // 
-            // TModificarNombre
-            // 
-            this.TModificarNombre.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TModificarNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarNombre.Location = new System.Drawing.Point(96, 32);
-            this.TModificarNombre.Name = "TModificarNombre";
-            this.TModificarNombre.Size = new System.Drawing.Size(232, 29);
-            this.TModificarNombre.TabIndex = 9;
-            // 
-            // LModificarNombre
-            // 
-            this.LModificarNombre.AutoSize = true;
-            this.LModificarNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarNombre.Location = new System.Drawing.Point(96, 8);
-            this.LModificarNombre.Name = "LModificarNombre";
-            this.LModificarNombre.Size = new System.Drawing.Size(68, 21);
-            this.LModificarNombre.TabIndex = 8;
-            this.LModificarNombre.Text = "Nombre";
-            // 
-            // TModificarDescripcion
-            // 
-            this.TModificarDescripcion.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TModificarDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarDescripcion.Location = new System.Drawing.Point(400, 104);
-            this.TModificarDescripcion.Multiline = true;
-            this.TModificarDescripcion.Name = "TModificarDescripcion";
-            this.TModificarDescripcion.PasswordChar = '*';
-            this.TModificarDescripcion.Size = new System.Drawing.Size(370, 176);
-            this.TModificarDescripcion.TabIndex = 7;
-            this.TModificarDescripcion.UseSystemPasswordChar = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label8.Location = new System.Drawing.Point(400, 80);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 21);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Descripcion";
-            // 
-            // TModificarID_prod
-            // 
-            this.TModificarID_prod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TModificarID_prod.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TModificarID_prod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarID_prod.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarID_prod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarID_prod.Location = new System.Drawing.Point(54, 3);
-            this.TModificarID_prod.Name = "TModificarID_prod";
-            this.TModificarID_prod.Size = new System.Drawing.Size(46, 29);
-            this.TModificarID_prod.TabIndex = 50;
-            this.TModificarID_prod.Visible = false;
+            this.panel3.Controls.Add(this.TBModificarIndice);
+            this.panel3.Controls.Add(this.TModificarID_prod);
+            this.panel3.Controls.Add(this.BModificarProducto);
+            this.panel3.Controls.Add(this.CBModificarProveedor);
+            this.panel3.Controls.Add(this.LModificarProveedor);
+            this.panel3.Controls.Add(this.TModificarCodigo);
+            this.panel3.Controls.Add(this.LModificarCodigo);
+            this.panel3.Controls.Add(this.TModificarDescripcion);
+            this.panel3.Controls.Add(this.CBModificarCategoria);
+            this.panel3.Controls.Add(this.TModificarPrecioVenta);
+            this.panel3.Controls.Add(this.TModificarPrecioLista);
+            this.panel3.Controls.Add(this.TModificarNombreProducto);
+            this.panel3.Controls.Add(this.NModificarStockMin);
+            this.panel3.Controls.Add(this.NModificarStock);
+            this.panel3.Controls.Add(this.CBModificarEstado);
+            this.panel3.Controls.Add(this.LModificarStockMin);
+            this.panel3.Controls.Add(this.LModificarStock);
+            this.panel3.Controls.Add(this.LModificarEstado);
+            this.panel3.Controls.Add(this.LModificarCategoria);
+            this.panel3.Controls.Add(this.LModificarPrecioVenta);
+            this.panel3.Controls.Add(this.LModificarPrecioLista);
+            this.panel3.Controls.Add(this.LModificarNombreProducto);
+            this.panel3.Controls.Add(this.LModificarDescripcion);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1107, 363);
+            this.panel3.TabIndex = 0;
             // 
             // TBModificarIndice
             // 
@@ -686,12 +609,366 @@
             this.TBModificarIndice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TBModificarIndice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBModificarIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TBModificarIndice.Location = new System.Drawing.Point(3, 3);
+            this.TBModificarIndice.Location = new System.Drawing.Point(1, 332);
             this.TBModificarIndice.Name = "TBModificarIndice";
             this.TBModificarIndice.Size = new System.Drawing.Size(45, 29);
-            this.TBModificarIndice.TabIndex = 49;
+            this.TBModificarIndice.TabIndex = 151;
             this.TBModificarIndice.Text = "-1";
             this.TBModificarIndice.Visible = false;
+            // 
+            // TModificarID_prod
+            // 
+            this.TModificarID_prod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TModificarID_prod.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TModificarID_prod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TModificarID_prod.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarID_prod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TModificarID_prod.Location = new System.Drawing.Point(52, 332);
+            this.TModificarID_prod.Name = "TModificarID_prod";
+            this.TModificarID_prod.Size = new System.Drawing.Size(46, 29);
+            this.TModificarID_prod.TabIndex = 150;
+            this.TModificarID_prod.Visible = false;
+            // 
+            // BModificarProducto
+            // 
+            this.BModificarProducto.CheckButton = false;
+            this.BModificarProducto.Checked = false;
+            this.BModificarProducto.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.BModificarProducto.CheckedForeColor = System.Drawing.Color.White;
+            this.BModificarProducto.CheckedImageTint = System.Drawing.Color.White;
+            this.BModificarProducto.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.BModificarProducto.Content = "Modificar Producto";
+            this.BModificarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BModificarProducto.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.BModificarProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BModificarProducto.ForeColor = System.Drawing.Color.White;
+            this.BModificarProducto.HoverBackground = System.Drawing.Color.White;
+            this.BModificarProducto.HoverForeColor = System.Drawing.Color.Black;
+            this.BModificarProducto.HoverImageTint = System.Drawing.Color.White;
+            this.BModificarProducto.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BModificarProducto.Image = null;
+            this.BModificarProducto.ImageAutoCenter = true;
+            this.BModificarProducto.ImageExpand = new System.Drawing.Point(0, 0);
+            this.BModificarProducto.ImageOffset = new System.Drawing.Point(0, 0);
+            this.BModificarProducto.Location = new System.Drawing.Point(468, 310);
+            this.BModificarProducto.Name = "BModificarProducto";
+            this.BModificarProducto.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.BModificarProducto.NormalForeColor = System.Drawing.Color.White;
+            this.BModificarProducto.NormalImageTint = System.Drawing.Color.White;
+            this.BModificarProducto.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BModificarProducto.OutlineThickness = 1F;
+            this.BModificarProducto.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.BModificarProducto.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.BModificarProducto.PressedImageTint = System.Drawing.Color.White;
+            this.BModificarProducto.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BModificarProducto.Rounding = new System.Windows.Forms.Padding(8);
+            this.BModificarProducto.Size = new System.Drawing.Size(143, 32);
+            this.BModificarProducto.TabIndex = 149;
+            this.BModificarProducto.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BModificarProducto.TextOffset = new System.Drawing.Point(0, 0);
+            // 
+            // CBModificarProveedor
+            // 
+            this.CBModificarProveedor.FormattingEnabled = true;
+            this.CBModificarProveedor.Location = new System.Drawing.Point(684, 40);
+            this.CBModificarProveedor.Name = "CBModificarProveedor";
+            this.CBModificarProveedor.Size = new System.Drawing.Size(233, 28);
+            this.CBModificarProveedor.TabIndex = 148;
+            // 
+            // LModificarProveedor
+            // 
+            this.LModificarProveedor.AutoSize = true;
+            this.LModificarProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarProveedor.Location = new System.Drawing.Point(695, 16);
+            this.LModificarProveedor.Name = "LModificarProveedor";
+            this.LModificarProveedor.Size = new System.Drawing.Size(82, 21);
+            this.LModificarProveedor.TabIndex = 147;
+            this.LModificarProveedor.Text = "Proveedor";
+            // 
+            // TModificarCodigo
+            // 
+            this.TModificarCodigo.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarCodigo.Content = "";
+            this.TModificarCodigo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarCodigo.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarCodigo.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarCodigo.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarCodigo.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarCodigo.Image = null;
+            this.TModificarCodigo.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarCodigo.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarCodigo.Location = new System.Drawing.Point(428, 40);
+            this.TModificarCodigo.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarCodigo.Multiline = false;
+            this.TModificarCodigo.Name = "TModificarCodigo";
+            this.TModificarCodigo.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarCodigo.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarCodigo.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarCodigo.PasswordChar = false;
+            this.TModificarCodigo.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarCodigo.PlaceholderText = "";
+            this.TModificarCodigo.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarCodigo.Size = new System.Drawing.Size(233, 28);
+            this.TModificarCodigo.TabIndex = 146;
+            this.TModificarCodigo.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarCodigo.UnderlinedStyle = true;
+            // 
+            // LModificarCodigo
+            // 
+            this.LModificarCodigo.AutoSize = true;
+            this.LModificarCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarCodigo.Location = new System.Drawing.Point(439, 18);
+            this.LModificarCodigo.Name = "LModificarCodigo";
+            this.LModificarCodigo.Size = new System.Drawing.Size(148, 21);
+            this.LModificarCodigo.TabIndex = 145;
+            this.LModificarCodigo.Text = "Código de Producto";
+            // 
+            // TModificarDescripcion
+            // 
+            this.TModificarDescripcion.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarDescripcion.Content = "";
+            this.TModificarDescripcion.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarDescripcion.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarDescripcion.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarDescripcion.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarDescripcion.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarDescripcion.Image = null;
+            this.TModificarDescripcion.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarDescripcion.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarDescripcion.Location = new System.Drawing.Point(428, 112);
+            this.TModificarDescripcion.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarDescripcion.Multiline = true;
+            this.TModificarDescripcion.Name = "TModificarDescripcion";
+            this.TModificarDescripcion.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarDescripcion.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarDescripcion.Padding = new System.Windows.Forms.Padding(15, 5, 15, 5);
+            this.TModificarDescripcion.PasswordChar = false;
+            this.TModificarDescripcion.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarDescripcion.PlaceholderText = "";
+            this.TModificarDescripcion.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarDescripcion.Size = new System.Drawing.Size(233, 173);
+            this.TModificarDescripcion.TabIndex = 144;
+            this.TModificarDescripcion.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarDescripcion.UnderlinedStyle = true;
+            // 
+            // CBModificarCategoria
+            // 
+            this.CBModificarCategoria.FormattingEnabled = true;
+            this.CBModificarCategoria.Location = new System.Drawing.Point(684, 184);
+            this.CBModificarCategoria.Name = "CBModificarCategoria";
+            this.CBModificarCategoria.Size = new System.Drawing.Size(233, 28);
+            this.CBModificarCategoria.TabIndex = 143;
+            // 
+            // TModificarPrecioVenta
+            // 
+            this.TModificarPrecioVenta.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarPrecioVenta.Content = "";
+            this.TModificarPrecioVenta.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarPrecioVenta.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarPrecioVenta.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarPrecioVenta.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarPrecioVenta.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarPrecioVenta.Image = null;
+            this.TModificarPrecioVenta.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarPrecioVenta.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarPrecioVenta.Location = new System.Drawing.Point(312, 113);
+            this.TModificarPrecioVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarPrecioVenta.Multiline = false;
+            this.TModificarPrecioVenta.Name = "TModificarPrecioVenta";
+            this.TModificarPrecioVenta.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarPrecioVenta.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarPrecioVenta.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarPrecioVenta.PasswordChar = false;
+            this.TModificarPrecioVenta.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarPrecioVenta.PlaceholderText = "";
+            this.TModificarPrecioVenta.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarPrecioVenta.Size = new System.Drawing.Size(97, 28);
+            this.TModificarPrecioVenta.TabIndex = 142;
+            this.TModificarPrecioVenta.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarPrecioVenta.UnderlinedStyle = true;
+            // 
+            // TModificarPrecioLista
+            // 
+            this.TModificarPrecioLista.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarPrecioLista.Content = "";
+            this.TModificarPrecioLista.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarPrecioLista.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarPrecioLista.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarPrecioLista.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarPrecioLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarPrecioLista.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarPrecioLista.Image = null;
+            this.TModificarPrecioLista.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarPrecioLista.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarPrecioLista.Location = new System.Drawing.Point(174, 113);
+            this.TModificarPrecioLista.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarPrecioLista.Multiline = false;
+            this.TModificarPrecioLista.Name = "TModificarPrecioLista";
+            this.TModificarPrecioLista.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarPrecioLista.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarPrecioLista.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarPrecioLista.PasswordChar = false;
+            this.TModificarPrecioLista.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarPrecioLista.PlaceholderText = "";
+            this.TModificarPrecioLista.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarPrecioLista.Size = new System.Drawing.Size(97, 28);
+            this.TModificarPrecioLista.TabIndex = 141;
+            this.TModificarPrecioLista.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarPrecioLista.UnderlinedStyle = true;
+            // 
+            // TModificarNombreProducto
+            // 
+            this.TModificarNombreProducto.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarNombreProducto.Content = "";
+            this.TModificarNombreProducto.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarNombreProducto.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarNombreProducto.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarNombreProducto.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarNombreProducto.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarNombreProducto.Image = null;
+            this.TModificarNombreProducto.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarNombreProducto.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarNombreProducto.Location = new System.Drawing.Point(176, 40);
+            this.TModificarNombreProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarNombreProducto.Multiline = false;
+            this.TModificarNombreProducto.Name = "TModificarNombreProducto";
+            this.TModificarNombreProducto.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarNombreProducto.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarNombreProducto.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarNombreProducto.PasswordChar = false;
+            this.TModificarNombreProducto.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarNombreProducto.PlaceholderText = "";
+            this.TModificarNombreProducto.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarNombreProducto.Size = new System.Drawing.Size(233, 28);
+            this.TModificarNombreProducto.TabIndex = 140;
+            this.TModificarNombreProducto.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarNombreProducto.UnderlinedStyle = true;
+            // 
+            // NModificarStockMin
+            // 
+            this.NModificarStockMin.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.NModificarStockMin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NModificarStockMin.ForeColor = System.Drawing.Color.Black;
+            this.NModificarStockMin.Location = new System.Drawing.Point(314, 183);
+            this.NModificarStockMin.Name = "NModificarStockMin";
+            this.NModificarStockMin.Size = new System.Drawing.Size(95, 29);
+            this.NModificarStockMin.TabIndex = 139;
+            // 
+            // NModificarStock
+            // 
+            this.NModificarStock.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.NModificarStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NModificarStock.ForeColor = System.Drawing.Color.Black;
+            this.NModificarStock.Location = new System.Drawing.Point(176, 183);
+            this.NModificarStock.Name = "NModificarStock";
+            this.NModificarStock.Size = new System.Drawing.Size(97, 29);
+            this.NModificarStock.TabIndex = 138;
+            // 
+            // CBModificarEstado
+            // 
+            this.CBModificarEstado.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBModificarEstado.ForeColor = System.Drawing.Color.Black;
+            this.CBModificarEstado.FormattingEnabled = true;
+            this.CBModificarEstado.Location = new System.Drawing.Point(684, 112);
+            this.CBModificarEstado.Name = "CBModificarEstado";
+            this.CBModificarEstado.Size = new System.Drawing.Size(233, 29);
+            this.CBModificarEstado.TabIndex = 137;
+            // 
+            // LModificarStockMin
+            // 
+            this.LModificarStockMin.AutoSize = true;
+            this.LModificarStockMin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarStockMin.Location = new System.Drawing.Point(317, 159);
+            this.LModificarStockMin.Name = "LModificarStockMin";
+            this.LModificarStockMin.Size = new System.Drawing.Size(78, 21);
+            this.LModificarStockMin.TabIndex = 136;
+            this.LModificarStockMin.Text = "Stock Min";
+            // 
+            // LModificarStock
+            // 
+            this.LModificarStock.AutoSize = true;
+            this.LModificarStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarStock.Location = new System.Drawing.Point(181, 159);
+            this.LModificarStock.Name = "LModificarStock";
+            this.LModificarStock.Size = new System.Drawing.Size(47, 21);
+            this.LModificarStock.TabIndex = 135;
+            this.LModificarStock.Text = "Stock";
+            // 
+            // LModificarEstado
+            // 
+            this.LModificarEstado.AutoSize = true;
+            this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarEstado.Location = new System.Drawing.Point(695, 89);
+            this.LModificarEstado.Name = "LModificarEstado";
+            this.LModificarEstado.Size = new System.Drawing.Size(56, 21);
+            this.LModificarEstado.TabIndex = 134;
+            this.LModificarEstado.Text = "Estado";
+            // 
+            // LModificarCategoria
+            // 
+            this.LModificarCategoria.AutoSize = true;
+            this.LModificarCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarCategoria.Location = new System.Drawing.Point(695, 160);
+            this.LModificarCategoria.Name = "LModificarCategoria";
+            this.LModificarCategoria.Size = new System.Drawing.Size(77, 21);
+            this.LModificarCategoria.TabIndex = 133;
+            this.LModificarCategoria.Text = "Categoria";
+            // 
+            // LModificarPrecioVenta
+            // 
+            this.LModificarPrecioVenta.AutoSize = true;
+            this.LModificarPrecioVenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarPrecioVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarPrecioVenta.Location = new System.Drawing.Point(314, 90);
+            this.LModificarPrecioVenta.Name = "LModificarPrecioVenta";
+            this.LModificarPrecioVenta.Size = new System.Drawing.Size(96, 21);
+            this.LModificarPrecioVenta.TabIndex = 132;
+            this.LModificarPrecioVenta.Text = "Precio Venta";
+            // 
+            // LModificarPrecioLista
+            // 
+            this.LModificarPrecioLista.AutoSize = true;
+            this.LModificarPrecioLista.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarPrecioLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarPrecioLista.Location = new System.Drawing.Point(178, 90);
+            this.LModificarPrecioLista.Name = "LModificarPrecioLista";
+            this.LModificarPrecioLista.Size = new System.Drawing.Size(89, 21);
+            this.LModificarPrecioLista.TabIndex = 131;
+            this.LModificarPrecioLista.Text = "Precio Lista";
+            // 
+            // LModificarNombreProducto
+            // 
+            this.LModificarNombreProducto.AutoSize = true;
+            this.LModificarNombreProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarNombreProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarNombreProducto.Location = new System.Drawing.Point(185, 17);
+            this.LModificarNombreProducto.Name = "LModificarNombreProducto";
+            this.LModificarNombreProducto.Size = new System.Drawing.Size(68, 21);
+            this.LModificarNombreProducto.TabIndex = 130;
+            this.LModificarNombreProducto.Text = "Nombre";
+            // 
+            // LModificarDescripcion
+            // 
+            this.LModificarDescripcion.AutoSize = true;
+            this.LModificarDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarDescripcion.Location = new System.Drawing.Point(439, 89);
+            this.LModificarDescripcion.Name = "LModificarDescripcion";
+            this.LModificarDescripcion.Size = new System.Drawing.Size(91, 21);
+            this.LModificarDescripcion.TabIndex = 129;
+            this.LModificarDescripcion.Text = "Descripcion";
             // 
             // productosDataGridView
             // 
@@ -713,16 +990,19 @@
             this.productosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
+            this.Codigo,
             this.id_producto,
             this.nombre_producto,
-            this.fechaIngreso,
+            this.categoria,
             this.precioLista,
             this.precioVenta,
-            this.stock_min,
+            this.Proveedor,
+            this.fechaIngreso,
+            this.id_proveedor,
             this.stock,
+            this.stock_min,
             this.descripcion,
             this.id_categoria,
-            this.categoria,
             this.estadoValor,
             this.estado});
             this.productosDataGridView.DataSource = this.pROCBUSCARPRODUCTOBindingSource;
@@ -768,12 +1048,19 @@
             this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.btnSeleccionar.Width = 112;
             // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
             // id_producto
             // 
             this.id_producto.DataPropertyName = "id_producto";
             this.id_producto.HeaderText = "ID Producto";
             this.id_producto.Name = "id_producto";
             this.id_producto.ReadOnly = true;
+            this.id_producto.Visible = false;
             // 
             // nombre_producto
             // 
@@ -782,12 +1069,12 @@
             this.nombre_producto.Name = "nombre_producto";
             this.nombre_producto.ReadOnly = true;
             // 
-            // fechaIngreso
+            // categoria
             // 
-            this.fechaIngreso.DataPropertyName = "fechaIngreso";
-            this.fechaIngreso.HeaderText = "Fecha Ingreso";
-            this.fechaIngreso.Name = "fechaIngreso";
-            this.fechaIngreso.ReadOnly = true;
+            this.categoria.DataPropertyName = "nombre_categoria";
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
+            this.categoria.ReadOnly = true;
             // 
             // precioLista
             // 
@@ -803,12 +1090,25 @@
             this.precioVenta.Name = "precioVenta";
             this.precioVenta.ReadOnly = true;
             // 
-            // stock_min
+            // Proveedor
             // 
-            this.stock_min.DataPropertyName = "stock_min";
-            this.stock_min.HeaderText = "Stock Min.";
-            this.stock_min.Name = "stock_min";
-            this.stock_min.ReadOnly = true;
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.ReadOnly = true;
+            // 
+            // fechaIngreso
+            // 
+            this.fechaIngreso.DataPropertyName = "fechaIngreso";
+            this.fechaIngreso.HeaderText = "Fecha Ingreso";
+            this.fechaIngreso.Name = "fechaIngreso";
+            this.fechaIngreso.ReadOnly = true;
+            // 
+            // id_proveedor
+            // 
+            this.id_proveedor.HeaderText = "id_proveedor";
+            this.id_proveedor.Name = "id_proveedor";
+            this.id_proveedor.ReadOnly = true;
+            this.id_proveedor.Visible = false;
             // 
             // stock
             // 
@@ -816,6 +1116,13 @@
             this.stock.HeaderText = "Stock";
             this.stock.Name = "stock";
             this.stock.ReadOnly = true;
+            // 
+            // stock_min
+            // 
+            this.stock_min.DataPropertyName = "stock_min";
+            this.stock_min.HeaderText = "Stock Min.";
+            this.stock_min.Name = "stock_min";
+            this.stock_min.ReadOnly = true;
             // 
             // descripcion
             // 
@@ -831,13 +1138,6 @@
             this.id_categoria.Name = "id_categoria";
             this.id_categoria.ReadOnly = true;
             this.id_categoria.Visible = false;
-            // 
-            // categoria
-            // 
-            this.categoria.DataPropertyName = "nombre_categoria";
-            this.categoria.HeaderText = "Categoria";
-            this.categoria.Name = "categoria";
-            this.categoria.ReadOnly = true;
             // 
             // estadoValor
             // 
@@ -936,17 +1236,13 @@
             this.TCProductos.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.PanelAltaProducts.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            this.panelInternoAlta.ResumeLayout(false);
-            this.panelInternoAlta.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NStockMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NStock)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.panelInternoModif.ResumeLayout(false);
-            this.panelInternoModif.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NModificarStockMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NModificarStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).EndInit();
@@ -966,66 +1262,75 @@
         private System.Windows.Forms.TabControl TCProductos;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel PanelAltaProducts;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Panel panelInternoAlta;
-        private System.Windows.Forms.NumericUpDown NStockMin;
-        private System.Windows.Forms.NumericUpDown NStock;
-        private System.Windows.Forms.ComboBox CBEstado;
-        private System.Windows.Forms.Label LStockMin;
-        private System.Windows.Forms.ComboBox CBCategoria;
-        private System.Windows.Forms.Label LStock;
-        private System.Windows.Forms.Label LEstado;
-        private System.Windows.Forms.Label LCategoria;
-        private System.Windows.Forms.Button BRegisterProduct;
-        private System.Windows.Forms.TextBox TPrecioVenta;
-        private System.Windows.Forms.Label LPrecioVenta;
-        private System.Windows.Forms.TextBox TPrecioLista;
-        private System.Windows.Forms.Label LPrecioLista;
-        private System.Windows.Forms.TextBox TNombre;
-        private System.Windows.Forms.Label LNombre;
-        private System.Windows.Forms.TextBox TDescripcion;
-        private System.Windows.Forms.Label LDescripcion;
-        private System.Windows.Forms.TextBox TID_prod;
-        private System.Windows.Forms.TextBox TIndice;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Panel panelInternoModif;
-        private System.Windows.Forms.NumericUpDown NModificarStockMin;
-        private System.Windows.Forms.NumericUpDown NModificarStock;
-        private System.Windows.Forms.ComboBox CBModificarEstado;
-        private System.Windows.Forms.ComboBox CBModificarCategoria;
-        private System.Windows.Forms.Label LModificarStockMin;
-        private System.Windows.Forms.Label LModificarStock;
-        private System.Windows.Forms.Label LModificarEstado;
-        private System.Windows.Forms.Label LModificarCategoria;
-        private System.Windows.Forms.Button BModificar;
-        private System.Windows.Forms.TextBox TModificarPrecioVenta;
-        private System.Windows.Forms.Label LModificarPrecioVenta;
-        private System.Windows.Forms.TextBox TModificarPrecioLista;
-        private System.Windows.Forms.Label LModificarPrecioLista;
-        private System.Windows.Forms.TextBox TModificarNombre;
-        private System.Windows.Forms.Label LModificarNombre;
-        private System.Windows.Forms.TextBox TModificarDescripcion;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox TModificarID_prod;
-        private System.Windows.Forms.TextBox TBModificarIndice;
         private System.Windows.Forms.DataGridView productosDataGridView;
-        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioLista;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioVenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stock_min;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estadoValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox TIndice;
+        private System.Windows.Forms.TextBox TID_prod;
+        private CuoreUI.Controls.cuiButton BRegisterProduct;
+        private System.Windows.Forms.ComboBox CBProveedor;
+        private System.Windows.Forms.Label LProveedor;
+        private CuoreUI.Controls.cuiTextBox TCodigo;
+        private System.Windows.Forms.Label LCodigo;
+        private CuoreUI.Controls.cuiTextBox TDescripcion;
+        private System.Windows.Forms.ComboBox CBCategoria;
+        private CuoreUI.Controls.cuiTextBox TPrecioVenta;
+        private CuoreUI.Controls.cuiTextBox TPrecioLista;
+        private CuoreUI.Controls.cuiTextBox TNombreProducto;
+        private System.Windows.Forms.NumericUpDown NStockMin;
+        private System.Windows.Forms.NumericUpDown NStock;
+        private System.Windows.Forms.ComboBox CBEstado;
+        private System.Windows.Forms.Label LStockMin;
+        private System.Windows.Forms.Label LStock;
+        private System.Windows.Forms.Label LEstado;
+        private System.Windows.Forms.Label LCategoria;
+        private System.Windows.Forms.Label LPrecioVenta;
+        private System.Windows.Forms.Label LPrecioLista;
+        private System.Windows.Forms.Label LNombreProducto;
+        private System.Windows.Forms.Label LDescripcion;
+        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioLista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock_min;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadoValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox TBModificarIndice;
+        private System.Windows.Forms.TextBox TModificarID_prod;
+        private CuoreUI.Controls.cuiButton BModificarProducto;
+        private System.Windows.Forms.ComboBox CBModificarProveedor;
+        private System.Windows.Forms.Label LModificarProveedor;
+        private CuoreUI.Controls.cuiTextBox TModificarCodigo;
+        private System.Windows.Forms.Label LModificarCodigo;
+        private CuoreUI.Controls.cuiTextBox TModificarDescripcion;
+        private System.Windows.Forms.ComboBox CBModificarCategoria;
+        private CuoreUI.Controls.cuiTextBox TModificarPrecioVenta;
+        private CuoreUI.Controls.cuiTextBox TModificarPrecioLista;
+        private CuoreUI.Controls.cuiTextBox TModificarNombreProducto;
+        private System.Windows.Forms.NumericUpDown NModificarStockMin;
+        private System.Windows.Forms.NumericUpDown NModificarStock;
+        private System.Windows.Forms.ComboBox CBModificarEstado;
+        private System.Windows.Forms.Label LModificarStockMin;
+        private System.Windows.Forms.Label LModificarStock;
+        private System.Windows.Forms.Label LModificarEstado;
+        private System.Windows.Forms.Label LModificarCategoria;
+        private System.Windows.Forms.Label LModificarPrecioVenta;
+        private System.Windows.Forms.Label LModificarPrecioLista;
+        private System.Windows.Forms.Label LModificarNombreProducto;
+        private System.Windows.Forms.Label LModificarDescripcion;
     }
 }
