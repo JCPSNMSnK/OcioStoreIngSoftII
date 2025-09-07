@@ -97,3 +97,46 @@ BEGIN
 END
 GO
 
+--5. BUSCAR CATEGORIA
+
+CREATE OR ALTER PROCEDURE PROC_BUSCAR_CATEGORIA
+    @busqueda_general VARCHAR(100) = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        id_categoria,
+        nombre_categoria,
+        baja_categoria
+    FROM 
+        Categorias
+    WHERE 
+        (@busqueda_general IS NULL OR 
+        nombre_categoria COLLATE Latin1_General_CI_AI LIKE '%' + @busqueda_general + '%' COLLATE Latin1_General_CI_AI);
+END
+GO
+
+--6. CONTAR PRODUCTOS POR CATEGORIA
+
+CREATE OR ALTER PROCEDURE PROC_CONTAR_PRODUCTOS_POR_CATEGORIA
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        c.id_categoria,
+        c.nombre_categoria,
+        COUNT(pc.id_producto) AS cantidad_productos
+    FROM
+        Categorias AS c
+    INNER JOIN
+        ProductosCategorias AS pc ON c.id_categoria = pc.id_categoria
+    GROUP BY
+        c.id_categoria, c.nombre_categoria
+    ORDER BY
+        cantidad_productos DESC, c.nombre_categoria ASC;
+END
+GO
+
+

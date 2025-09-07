@@ -2,11 +2,12 @@
 using CapaEntidades;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -180,6 +181,80 @@ namespace CapaDatos
                 }
             }
             return exito;
+        }
+
+        public List<Categoria> BuscarCategoriasGeneral(string busqueda)
+        {
+            List<Categoria> lista = new List<Categoria>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_BUSCAR_CATEGORIA", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@busqueda_general", busqueda);
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dataReader = cmd.ExecuteReader())
+                    {
+                        while (dataReader.Read())
+                        {
+                            lista.Add(new Categoria()
+                            {
+                                id_categoria = Convert.ToInt32(dataReader["id_categoria"]),
+                                nombre_categoria = dataReader["nombre_categoria"].ToString(),
+                                baja_categoria = Convert.ToBoolean(dataReader["baja_categoria"])
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                    "Ocurrió un error al buscar las categorias:\n\n" + ex.ToString(),
+                    "Error de Base de Datos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                    lista = new List<Categoria>();
+                }
+            }
+            return lista;
+        }
+
+        public Dictionary<int, int> ContarProductosPorCategoria()
+        {
+            Dictionary<int, int> conteoProductos = new Dictionary<int, int>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_CONTAR_PRODUCTOS_POR_CATEGORIA", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    oconexion.Open();
+
+                    using (SqlDataReader dataReader = cmd.ExecuteReader())
+                    {
+                        while (dataReader.Read())
+                        {
+                            // Se lee el ID de la categoría y la cantidad de productos
+                            int idCategoria = Convert.ToInt32(dataReader["id_categoria"]);
+                            int cantidadProductos = Convert.ToInt32(dataReader["cantidad_productos"]);
+
+                            // Se añade la pareja de valores al diccionario
+                            conteoProductos.Add(idCategoria, cantidadProductos);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    // En la capa de datos, es mejor lanzar la excepción
+                    // para que una capa superior (negocio o presentación) la maneje.
+                    throw;
+                }
+            }
+            return conteoProductos;
         }
     }
 

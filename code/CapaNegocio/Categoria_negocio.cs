@@ -71,5 +71,17 @@ namespace CapaNegocio
             return objCategoria_datos.DarDeBajaCategoria(id_categoria, out mensaje);
         }
 
+        public List<Categoria> BuscarCategoriasGeneral(string filtros)
+        {
+            return objCategoria_datos.BuscarCategoriasGeneral(filtros);
+        }
+
+        public Dictionary<int, int> ContarProductosPorCategoria()
+        {
+            // La capa de negocio invoca el método de la capa de datos
+            // y devuelve directamente el resultado.
+            return objCategoria_datos.ContarProductosPorCategoria();
+        }
+
     }
 }
