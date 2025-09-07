@@ -36,12 +36,13 @@
             this.StatsButton = new FontAwesome.Sharp.IconButton();
             this.RestoreButton = new FontAwesome.Sharp.IconButton();
             this.BackupButton = new FontAwesome.Sharp.IconButton();
-            this.LogOutButton = new FontAwesome.Sharp.IconButton();
             this.UserButton = new FontAwesome.Sharp.IconButton();
             this.SellButton = new FontAwesome.Sharp.IconButton();
             this.ProductsButton = new FontAwesome.Sharp.IconButton();
             this.HomeButton = new FontAwesome.Sharp.IconButton();
             this.contenedor = new System.Windows.Forms.Panel();
+            this.ClientsButton = new FontAwesome.Sharp.IconButton();
+            this.LogOutButton = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel2.SuspendLayout();
             this.menu.SuspendLayout();
             this.SuspendLayout();
@@ -76,12 +77,13 @@
             this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
             this.menu.ColumnCount = 1;
             this.menu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.menu.Controls.Add(this.LogOutButton, 0, 10);
             this.menu.Controls.Add(this.CategoriesButton, 0, 4);
             this.menu.Controls.Add(this.ReceiptsButton, 0, 5);
             this.menu.Controls.Add(this.StatsButton, 0, 6);
             this.menu.Controls.Add(this.RestoreButton, 0, 7);
             this.menu.Controls.Add(this.BackupButton, 0, 8);
-            this.menu.Controls.Add(this.LogOutButton, 0, 9);
+            this.menu.Controls.Add(this.ClientsButton, 0, 9);
             this.menu.Controls.Add(this.UserButton, 0, 1);
             this.menu.Controls.Add(this.SellButton, 0, 2);
             this.menu.Controls.Add(this.ProductsButton, 0, 3);
@@ -89,7 +91,7 @@
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Margin = new System.Windows.Forms.Padding(0);
             this.menu.Name = "menu";
-            this.menu.RowCount = 10;
+            this.menu.RowCount = 12;
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -100,6 +102,8 @@
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.menu.Size = new System.Drawing.Size(176, 688);
             this.menu.TabIndex = 5;
             // 
@@ -238,33 +242,6 @@
             this.BackupButton.UseVisualStyleBackColor = false;
             this.BackupButton.Click += new System.EventHandler(this.BackupButton_Click);
             // 
-            // LogOutButton
-            // 
-            this.LogOutButton.AutoSize = true;
-            this.LogOutButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.LogOutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.LogOutButton.FlatAppearance.BorderSize = 0;
-            this.LogOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogOutButton.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.LogOutButton.ForeColor = System.Drawing.Color.AliceBlue;
-            this.LogOutButton.IconChar = FontAwesome.Sharp.IconChar.RightFromBracket;
-            this.LogOutButton.IconColor = System.Drawing.Color.AliceBlue;
-            this.LogOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.LogOutButton.IconSize = 25;
-            this.LogOutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LogOutButton.Location = new System.Drawing.Point(3, 462);
-            this.LogOutButton.MaximumSize = new System.Drawing.Size(250, 50);
-            this.LogOutButton.MinimumSize = new System.Drawing.Size(75, 37);
-            this.LogOutButton.Name = "LogOutButton";
-            this.LogOutButton.Padding = new System.Windows.Forms.Padding(5);
-            this.LogOutButton.Size = new System.Drawing.Size(170, 45);
-            this.LogOutButton.TabIndex = 35;
-            this.LogOutButton.Text = "Cerrar Sesión";
-            this.LogOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LogOutButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.LogOutButton.UseVisualStyleBackColor = false;
-            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
-            // 
             // UserButton
             // 
             this.UserButton.AutoSize = true;
@@ -382,6 +359,60 @@
             this.contenedor.Size = new System.Drawing.Size(1081, 682);
             this.contenedor.TabIndex = 6;
             // 
+            // ClientsButton
+            // 
+            this.ClientsButton.AutoSize = true;
+            this.ClientsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.ClientsButton.FlatAppearance.BorderSize = 0;
+            this.ClientsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClientsButton.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.ClientsButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.ClientsButton.IconChar = FontAwesome.Sharp.IconChar.PersonHiking;
+            this.ClientsButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.ClientsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ClientsButton.IconSize = 25;
+            this.ClientsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ClientsButton.Location = new System.Drawing.Point(3, 462);
+            this.ClientsButton.MaximumSize = new System.Drawing.Size(250, 50);
+            this.ClientsButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.ClientsButton.Name = "ClientsButton";
+            this.ClientsButton.Padding = new System.Windows.Forms.Padding(5);
+            this.ClientsButton.Size = new System.Drawing.Size(124, 45);
+            this.ClientsButton.TabIndex = 35;
+            this.ClientsButton.Text = "Clientes";
+            this.ClientsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ClientsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ClientsButton.UseVisualStyleBackColor = false;
+            this.ClientsButton.Click += new System.EventHandler(this.ClientsButton_Click);
+            // 
+            // LogOutButton
+            // 
+            this.LogOutButton.AutoSize = true;
+            this.LogOutButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.LogOutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.LogOutButton.FlatAppearance.BorderSize = 0;
+            this.LogOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogOutButton.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.LogOutButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.LogOutButton.IconChar = FontAwesome.Sharp.IconChar.RightFromBracket;
+            this.LogOutButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.LogOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LogOutButton.IconSize = 25;
+            this.LogOutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LogOutButton.Location = new System.Drawing.Point(3, 513);
+            this.LogOutButton.MaximumSize = new System.Drawing.Size(250, 50);
+            this.LogOutButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Padding = new System.Windows.Forms.Padding(5);
+            this.LogOutButton.Size = new System.Drawing.Size(170, 45);
+            this.LogOutButton.TabIndex = 41;
+            this.LogOutButton.Text = "Cerrar Sesión";
+            this.LogOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LogOutButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.LogOutButton.UseVisualStyleBackColor = false;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,7 +445,8 @@
         private FontAwesome.Sharp.IconButton StatsButton;
         private FontAwesome.Sharp.IconButton RestoreButton;
         private FontAwesome.Sharp.IconButton BackupButton;
-        private FontAwesome.Sharp.IconButton LogOutButton;
         private System.Windows.Forms.Panel contenedor;
+        private FontAwesome.Sharp.IconButton LogOutButton;
+        private FontAwesome.Sharp.IconButton ClientsButton;
     }
 }

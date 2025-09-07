@@ -1,8 +1,9 @@
+using CapaEntidades;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using CapaEntidades;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -136,6 +137,51 @@ namespace CapaDatos
                 lista = new List<Cliente>(); //lista vacia por error en la busqueda
             }
 
+            return lista;
+        }
+
+        public List<Cliente> BuscarClientesGeneral(string busqueda)
+        {
+            List<Cliente> lista = new List<Cliente>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_BUSCAR_CLIENTE", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@busqueda_general", busqueda);
+
+                    oconexion.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new Cliente()
+                            {
+                                id_cliente = Convert.ToInt32(reader["id_cliente"]),
+                                dni_cliente = Convert.ToInt32(reader["dni_cliente"]),
+                                nombre_cliente = reader["nombre_cliente"].ToString(),
+                                apellido_cliente = reader["apellido_cliente"].ToString(),
+                                telefono_cliente = reader["telefono_cliente"].ToString(),
+                                email_cliente = reader["email_cliente"].ToString(),
+                                direccion_cliente = reader["direccion_cliente"].ToString(),
+                                localidad_cliente = reader["localidad_cliente"].ToString(),
+                                provincia_cliente = reader["provincia_cliente"].ToString()
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                    "Ocurrió un error al buscar los clientes:\n\n" + ex.ToString(),
+                    "Error de Base de Datos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                    lista = new List<Cliente>();
+                }
+            }
             return lista;
         }
     }

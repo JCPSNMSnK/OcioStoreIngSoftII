@@ -52,12 +52,12 @@ namespace OcioStoreIngSoftII
             menu.SuspendLayout();
 
             // Define el orden deseado de los botones por su nombre (propiedad Name)
-            // Ajusta esta lista según el orden que necesites
             string[] ordenDeseado = new string[]
             {
                 "HomeButton",
                 "UserButton",
                 "ProductsButton",
+                "ClientsButton",
                 "SellButton",
                 "ProductsButton",
                 "CategoriesButton",
@@ -192,5 +192,12 @@ namespace OcioStoreIngSoftII
         {
 
         }
+
+        private void ClientsButton_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconButton)sender, new Clientes());
+        }
+
+
     }
 }

@@ -135,5 +135,12 @@ namespace CapaNegocio
             List<Cliente> clientesEncontrados = objClienteDatos.Buscar(dni: dni);
             return clientesEncontrados.Count > 0; //retorna TRUE si hay DNI ya registrado en DB
         }
+
+        public List<Cliente> BuscarClienteGeneral(string filtros)
+        {
+            return objClienteDatos.BuscarClientesGeneral(filtros);
+        }
+
+
     }
 }

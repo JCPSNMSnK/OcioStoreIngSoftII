@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capaentidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{176A63CF-BAE9-4E91-9FC9-DBE0F3F02373}|CapaEntidades\\CapaEntidades.csproj|solutionrelative:capaentidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capadatosfinal\\clientes_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\clientes_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capanegocio\\usuario_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\usuario_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,22 +30,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 21,
+          "SelectedChildIndex": 20,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Usuario.cs",
-              "RelativeDocumentMoniker": "CapaEntidades\\Usuario.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaEntidades\\Usuario.cs",
-              "RelativeToolTip": "CapaEntidades\\Usuario.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAYwA0AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T06:43:07.951Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:143:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -129,27 +115,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Users.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Users.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Users.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Users.cs",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Users.cs",
-              "ViewState": "AgIAAMABAAAAAAAAAAAAAMMBAAAMAAAAAAAAAA==",
+              "Title": "Clientes.cs [Design]",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Clientes.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Clientes.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Clientes.cs [Design]*",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Clientes.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T05:40:42.893Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T04:22:16.234Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Users.cs [Design]",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Users.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Users.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Users.cs [Design]",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Users.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "Clientes_Datos.cs",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Clientes_Datos.cs",
+              "RelativeDocumentMoniker": "CapaDatosFinal\\Clientes_Datos.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Clientes_Datos.cs",
+              "RelativeToolTip": "CapaDatosFinal\\Clientes_Datos.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAuwKkAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T06:05:40.693Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-07T04:19:19.04Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -159,23 +145,35 @@
               "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Program.cs",
               "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Program.cs",
               "RelativeToolTip": "OcioStoreIngSoftII\\Program.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAgwBgAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBgAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T04:43:20.775Z",
+              "WhenOpened": "2025-09-07T04:14:42.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Inicio.cs",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Inicio.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Inicio.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Inicio.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Inicio.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowDsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T04:12:10.736Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Usuario_negocio.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Usuario_negocio.cs",
-              "RelativeDocumentMoniker": "CapaNegocio\\Usuario_negocio.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Usuario_negocio.cs",
-              "RelativeToolTip": "CapaNegocio\\Usuario_negocio.cs",
-              "ViewState": "AgIAAIMAAAAAAAAAAAAwwIkAAAAiAAAAAAAAAA==",
+              "Title": "Inicio.cs [Design]",
+              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Inicio.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Inicio.cs",
+              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Inicio.cs [Design]",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Inicio.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T03:49:08.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T03:56:40.646Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

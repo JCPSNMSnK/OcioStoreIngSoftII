@@ -28,21 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BBuscar = new CuoreUI.Controls.cuiButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.usuariosDataGridView = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id_user = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Teléfono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dirección = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LayoutUsuarios = new System.Windows.Forms.TableLayoutPanel();
             this.TCUsuarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.TIndice = new CuoreUI.Controls.cuiTextBox();
             this.CBestado = new System.Windows.Forms.ComboBox();
             this.CBroles = new System.Windows.Forms.ComboBox();
             this.TProvincia = new CuoreUI.Controls.cuiTextBox();
@@ -103,21 +116,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id_user = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Teléfono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dirección = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosDataGridView)).BeginInit();
@@ -193,9 +191,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label1.Location = new System.Drawing.Point(21, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.Size = new System.Drawing.Size(146, 25);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Buscar";
+            this.label1.Text = "Buscar Usuarios";
             // 
             // txtBuscar
             // 
@@ -214,15 +212,15 @@
             this.usuariosDataGridView.AllowUserToDeleteRows = false;
             this.usuariosDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.usuariosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.usuariosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.usuariosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.usuariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usuariosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -240,14 +238,14 @@
             this.Dirección,
             this.Localidad,
             this.Provincia});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.usuariosDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.usuariosDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.usuariosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usuariosDataGridView.EnableHeadersVisualStyles = false;
             this.usuariosDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
@@ -256,14 +254,14 @@
             this.usuariosDataGridView.Name = "usuariosDataGridView";
             this.usuariosDataGridView.ReadOnly = true;
             this.usuariosDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.usuariosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.usuariosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.usuariosDataGridView.RowHeadersVisible = false;
             this.usuariosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usuariosDataGridView.Size = new System.Drawing.Size(1112, 394);
@@ -271,6 +269,149 @@
             this.usuariosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usuariosDataGridView_CellContentClick);
             this.usuariosDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.usuariosDataGridView_CellPainting);
             this.usuariosDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.usuariosDataGridView_DataBindingComplete);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.MinimumWidth = 110;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 112;
+            // 
+            // id_user
+            // 
+            this.id_user.DataPropertyName = "id_user";
+            this.id_user.HeaderText = "ID de Usuario";
+            this.id_user.MinimumWidth = 60;
+            this.id_user.Name = "id_user";
+            this.id_user.ReadOnly = true;
+            this.id_user.Visible = false;
+            this.id_user.Width = 110;
+            // 
+            // rol
+            // 
+            this.rol.DataPropertyName = "NombreRol";
+            this.rol.HeaderText = "Tipo de Rol";
+            this.rol.MinimumWidth = 110;
+            this.rol.Name = "rol";
+            this.rol.ReadOnly = true;
+            this.rol.Width = 110;
+            // 
+            // apellido
+            // 
+            this.apellido.DataPropertyName = "apellido";
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.MinimumWidth = 110;
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            this.apellido.Width = 110;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 110;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 110;
+            // 
+            // dni
+            // 
+            this.dni.DataPropertyName = "dni";
+            this.dni.HeaderText = "DNI";
+            this.dni.MinimumWidth = 110;
+            this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
+            this.dni.Width = 110;
+            // 
+            // user
+            // 
+            this.user.DataPropertyName = "username";
+            this.user.HeaderText = "Usuario";
+            this.user.MinimumWidth = 110;
+            this.user.Name = "user";
+            this.user.ReadOnly = true;
+            this.user.Width = 110;
+            // 
+            // pass
+            // 
+            this.pass.DataPropertyName = "pass";
+            this.pass.HeaderText = "Contraseña";
+            this.pass.MinimumWidth = 110;
+            this.pass.Name = "pass";
+            this.pass.ReadOnly = true;
+            this.pass.Visible = false;
+            this.pass.Width = 110;
+            // 
+            // estadoValor
+            // 
+            this.estadoValor.DataPropertyName = "baja_user";
+            this.estadoValor.HeaderText = "baja_user";
+            this.estadoValor.MinimumWidth = 110;
+            this.estadoValor.Name = "estadoValor";
+            this.estadoValor.ReadOnly = true;
+            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estadoValor.Visible = false;
+            this.estadoValor.Width = 110;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.MinimumWidth = 110;
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estado.Width = 110;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "mail";
+            this.email.HeaderText = "E-Mail";
+            this.email.MinimumWidth = 110;
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 110;
+            // 
+            // Teléfono
+            // 
+            this.Teléfono.DataPropertyName = "telefono_user";
+            this.Teléfono.HeaderText = "Teléfono";
+            this.Teléfono.MinimumWidth = 110;
+            this.Teléfono.Name = "Teléfono";
+            this.Teléfono.ReadOnly = true;
+            this.Teléfono.Width = 110;
+            // 
+            // Dirección
+            // 
+            this.Dirección.DataPropertyName = "direccion_user";
+            this.Dirección.HeaderText = "Dirección";
+            this.Dirección.MinimumWidth = 110;
+            this.Dirección.Name = "Dirección";
+            this.Dirección.ReadOnly = true;
+            this.Dirección.Width = 110;
+            // 
+            // Localidad
+            // 
+            this.Localidad.DataPropertyName = "localidad_user";
+            this.Localidad.HeaderText = "Localidad";
+            this.Localidad.MinimumWidth = 110;
+            this.Localidad.Name = "Localidad";
+            this.Localidad.ReadOnly = true;
+            this.Localidad.Width = 110;
+            // 
+            // Provincia
+            // 
+            this.Provincia.DataPropertyName = "provincia_user";
+            this.Provincia.HeaderText = "Provincia";
+            this.Provincia.MinimumWidth = 110;
+            this.Provincia.Name = "Provincia";
+            this.Provincia.ReadOnly = true;
+            this.Provincia.Width = 110;
             // 
             // LayoutUsuarios
             // 
@@ -302,7 +443,7 @@
             this.TCUsuarios.Multiline = true;
             this.TCUsuarios.Name = "TCUsuarios";
             this.TCUsuarios.SelectedIndex = 0;
-            this.TCUsuarios.Size = new System.Drawing.Size(1136, 594);
+            this.TCUsuarios.Size = new System.Drawing.Size(1136, 394);
             this.TCUsuarios.TabIndex = 11;
             // 
             // tabPage1
@@ -312,14 +453,12 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1128, 461);
+            this.tabPage1.Size = new System.Drawing.Size(1128, 361);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Alta de Usuario";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.TIndice);
             this.panel2.Controls.Add(this.CBestado);
             this.panel2.Controls.Add(this.CBroles);
             this.panel2.Controls.Add(this.TProvincia);
@@ -350,50 +489,8 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1122, 455);
+            this.panel2.Size = new System.Drawing.Size(1122, 355);
             this.panel2.TabIndex = 0;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label9.Location = new System.Drawing.Point(19, 389);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 21);
-            this.label9.TabIndex = 79;
-            this.label9.Text = "Indice";
-            this.label9.Visible = false;
-            // 
-            // TIndice
-            // 
-            this.TIndice.BackgroundColor = System.Drawing.Color.White;
-            this.TIndice.Content = "-1";
-            this.TIndice.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TIndice.FocusBackgroundColor = System.Drawing.Color.White;
-            this.TIndice.FocusImageTint = System.Drawing.Color.White;
-            this.TIndice.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TIndice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TIndice.ForeColor = System.Drawing.Color.Gray;
-            this.TIndice.Image = null;
-            this.TIndice.ImageExpand = new System.Drawing.Point(0, 0);
-            this.TIndice.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TIndice.Location = new System.Drawing.Point(19, 414);
-            this.TIndice.Margin = new System.Windows.Forms.Padding(4);
-            this.TIndice.Multiline = false;
-            this.TIndice.Name = "TIndice";
-            this.TIndice.NormalImageTint = System.Drawing.Color.White;
-            this.TIndice.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TIndice.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
-            this.TIndice.PasswordChar = false;
-            this.TIndice.PlaceholderColor = System.Drawing.SystemColors.WindowText;
-            this.TIndice.PlaceholderText = "";
-            this.TIndice.Rounding = new System.Windows.Forms.Padding(8);
-            this.TIndice.Size = new System.Drawing.Size(51, 28);
-            this.TIndice.TabIndex = 78;
-            this.TIndice.TextOffset = new System.Drawing.Size(0, 0);
-            this.TIndice.UnderlinedStyle = true;
-            this.TIndice.Visible = false;
             // 
             // CBestado
             // 
@@ -919,7 +1016,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1128, 561);
+            this.tabPage2.Size = new System.Drawing.Size(1128, 361);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar Usuario";
             // 
@@ -959,7 +1056,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1122, 555);
+            this.panel3.Size = new System.Drawing.Size(1122, 355);
             this.panel3.TabIndex = 0;
             // 
             // label21
@@ -967,7 +1064,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label21.Location = new System.Drawing.Point(88, 389);
+            this.label21.Location = new System.Drawing.Point(83, 294);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(61, 21);
             this.label21.TabIndex = 110;
@@ -987,7 +1084,7 @@
             this.TModificarID_user.Image = null;
             this.TModificarID_user.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarID_user.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TModificarID_user.Location = new System.Drawing.Point(88, 414);
+            this.TModificarID_user.Location = new System.Drawing.Point(83, 319);
             this.TModificarID_user.Margin = new System.Windows.Forms.Padding(4);
             this.TModificarID_user.Multiline = false;
             this.TModificarID_user.Name = "TModificarID_user";
@@ -1009,7 +1106,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Location = new System.Drawing.Point(19, 389);
+            this.label2.Location = new System.Drawing.Point(14, 294);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 21);
             this.label2.TabIndex = 108;
@@ -1029,7 +1126,7 @@
             this.TModificarIndice.Image = null;
             this.TModificarIndice.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarIndice.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TModificarIndice.Location = new System.Drawing.Point(19, 414);
+            this.TModificarIndice.Location = new System.Drawing.Point(14, 319);
             this.TModificarIndice.Margin = new System.Windows.Forms.Padding(4);
             this.TModificarIndice.Multiline = false;
             this.TModificarIndice.Name = "TModificarIndice";
@@ -1565,149 +1662,6 @@
             this.label20.TabIndex = 80;
             this.label20.Text = "Usuario";
             // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.MinimumWidth = 110;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 112;
-            // 
-            // id_user
-            // 
-            this.id_user.DataPropertyName = "id_user";
-            this.id_user.HeaderText = "ID de Usuario";
-            this.id_user.MinimumWidth = 60;
-            this.id_user.Name = "id_user";
-            this.id_user.ReadOnly = true;
-            this.id_user.Visible = false;
-            this.id_user.Width = 110;
-            // 
-            // rol
-            // 
-            this.rol.DataPropertyName = "NombreRol";
-            this.rol.HeaderText = "Tipo de Rol";
-            this.rol.MinimumWidth = 110;
-            this.rol.Name = "rol";
-            this.rol.ReadOnly = true;
-            this.rol.Width = 110;
-            // 
-            // apellido
-            // 
-            this.apellido.DataPropertyName = "apellido";
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.MinimumWidth = 110;
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            this.apellido.Width = 110;
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 110;
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 110;
-            // 
-            // dni
-            // 
-            this.dni.DataPropertyName = "dni";
-            this.dni.HeaderText = "DNI";
-            this.dni.MinimumWidth = 110;
-            this.dni.Name = "dni";
-            this.dni.ReadOnly = true;
-            this.dni.Width = 110;
-            // 
-            // user
-            // 
-            this.user.DataPropertyName = "username";
-            this.user.HeaderText = "Usuario";
-            this.user.MinimumWidth = 110;
-            this.user.Name = "user";
-            this.user.ReadOnly = true;
-            this.user.Width = 110;
-            // 
-            // pass
-            // 
-            this.pass.DataPropertyName = "pass";
-            this.pass.HeaderText = "Contraseña";
-            this.pass.MinimumWidth = 110;
-            this.pass.Name = "pass";
-            this.pass.ReadOnly = true;
-            this.pass.Visible = false;
-            this.pass.Width = 110;
-            // 
-            // estadoValor
-            // 
-            this.estadoValor.DataPropertyName = "baja_user";
-            this.estadoValor.HeaderText = "baja_user";
-            this.estadoValor.MinimumWidth = 110;
-            this.estadoValor.Name = "estadoValor";
-            this.estadoValor.ReadOnly = true;
-            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.estadoValor.Visible = false;
-            this.estadoValor.Width = 110;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.MinimumWidth = 110;
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.estado.Width = 110;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "mail";
-            this.email.HeaderText = "E-Mail";
-            this.email.MinimumWidth = 110;
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            this.email.Width = 110;
-            // 
-            // Teléfono
-            // 
-            this.Teléfono.DataPropertyName = "telefono_user";
-            this.Teléfono.HeaderText = "Teléfono";
-            this.Teléfono.MinimumWidth = 110;
-            this.Teléfono.Name = "Teléfono";
-            this.Teléfono.ReadOnly = true;
-            this.Teléfono.Width = 110;
-            // 
-            // Dirección
-            // 
-            this.Dirección.DataPropertyName = "direccion_user";
-            this.Dirección.HeaderText = "Dirección";
-            this.Dirección.MinimumWidth = 110;
-            this.Dirección.Name = "Dirección";
-            this.Dirección.ReadOnly = true;
-            this.Dirección.Width = 110;
-            // 
-            // Localidad
-            // 
-            this.Localidad.DataPropertyName = "localidad_user";
-            this.Localidad.HeaderText = "Localidad";
-            this.Localidad.MinimumWidth = 110;
-            this.Localidad.Name = "Localidad";
-            this.Localidad.ReadOnly = true;
-            this.Localidad.Width = 110;
-            // 
-            // Provincia
-            // 
-            this.Provincia.DataPropertyName = "provincia_user";
-            this.Provincia.HeaderText = "Provincia";
-            this.Provincia.MinimumWidth = 110;
-            this.Provincia.Name = "Provincia";
-            this.Provincia.ReadOnly = true;
-            this.Provincia.Width = 110;
-            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1747,8 +1701,6 @@
         private System.Windows.Forms.TabControl TCUsuarios;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label9;
-        private CuoreUI.Controls.cuiTextBox TIndice;
         private System.Windows.Forms.ComboBox CBestado;
         private System.Windows.Forms.ComboBox CBroles;
         private CuoreUI.Controls.cuiTextBox TProvincia;
