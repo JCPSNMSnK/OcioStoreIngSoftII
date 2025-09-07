@@ -1,6 +1,6 @@
 ﻿using CapaEntidades;
 using CapaNegocio;
-using OcioStoreIngSoftII.Utillidades;
+using CapaEntidades.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

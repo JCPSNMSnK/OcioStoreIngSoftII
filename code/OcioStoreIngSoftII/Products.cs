@@ -1,7 +1,7 @@
 ﻿using CapaEntidades;
+using CapaEntidades.Utilidades;
 using CapaNegocio;
 using FontAwesome.Sharp;
-using OcioStoreIngSoftII.Utillidades;
 using System;
 using System.Collections.Generic;
 using System.Data;

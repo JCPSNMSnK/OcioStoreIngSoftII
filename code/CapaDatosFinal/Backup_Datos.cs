@@ -1,25 +1,26 @@
 using CapaEntidades;
+using CapaEntidades.Utilidades;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 
+
 namespace CapaDatos
 {
     public class Backup_Datos
     {
-        public bool RealizarBackup(string rutaDestino, out string mensaje)
+        public ResultadoOperacion RealizarBackup(string rutaDestino)
         {
-            mensaje = string.Empty;
-            bool exito = false;
+            var resultado = new ResultadoOperacion { Exito = false };
             string nombreBaseDeDatos = "ocio_store";
 
             // Validación de seguridad: Asegurar que la ruta no sea maliciosa.
             // Para un entorno de producción, es crucial validar la ruta.
             if (string.IsNullOrWhiteSpace(rutaDestino) || string.IsNullOrWhiteSpace(nombreBaseDeDatos))
             {
-                mensaje = "La ruta de destino y el nombre de la base de datos no pueden ser vacíos.";
-                return false;
+                resultado.Mensaje = "La ruta de destino y el nombre de la base de datos no pueden ser vacíos.";
+                return resultado;
             }
 
             try
@@ -33,17 +34,16 @@ namespace CapaDatos
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    mensaje = $"Backup de la base de datos '{nombreBaseDeDatos}' realizado exitosamente en: {rutaDestino}";
-                    exito = true;
+                    resultado.Exito = true;
+                    resultado.Mensaje = $"Backup de la base de datos '{nombreBaseDeDatos}' realizado exitosamente en: {rutaDestino}";
                 }
             }
             catch (Exception ex)
             {
-                mensaje = $"Error al realizar el backup: {ex.Message}";
-                exito = false;
+                resultado.Mensaje = "Error en la base de datos: " + ex.Message;
             }
 
-            return exito;
+            return resultado;
         }
 
         public List<HistorialBackup> ObtenerHistorialBackups()
