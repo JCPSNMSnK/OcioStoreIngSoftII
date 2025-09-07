@@ -27,6 +27,9 @@ namespace OcioStoreIngSoftII
             usuarioActual = objUser;
             InitializeComponent();
         }
+
+        private Producto_negocio objNegocioProducto = new Producto_negocio();
+
         private void Inicio_Load(object sender, EventArgs e)
         {
             List<Permiso> ListaPermisos = new Permiso_negocio().Listar(usuarioActual.id_user);
@@ -45,6 +48,10 @@ namespace OcioStoreIngSoftII
             LogOutButton.Visible = true;
 
             ReorganizarMenu();
+            if (usuarioActual.NombreRol == "Administrador" || usuarioActual.NombreRol == "Super Admin")
+            {
+                VerificarStockBajo();
+            } 
         }
 
         private void ReorganizarMenu()
@@ -63,7 +70,7 @@ namespace OcioStoreIngSoftII
                 "CategoriesButton",
                 "ReceiptsButton",
                 "StatsButton",
-                "RestoreButton",
+                //"RestoreButton", //Anulado puesto que no se debe de poder hacer desde la aplicación
                 "BackupButton"
 
                 // Agrega aquí los Nombres (Name) de todos tus botones en el orden que quieras
@@ -142,17 +149,16 @@ namespace OcioStoreIngSoftII
             }
         }
 
-
         private void HomeButton_Click(object sender, EventArgs e)
         {
             AbrirFormulario(null, null);
         }
 
-
         private void UsersButton_Click_1(object sender, EventArgs e)
         {
             AbrirFormulario((IconButton)sender, new Users());
         }
+
         private void ProductsButton_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconButton)sender, new Products());
@@ -161,11 +167,6 @@ namespace OcioStoreIngSoftII
         private void LogOutButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void RestoreButton_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void SellButton_Click(object sender, EventArgs e)
@@ -198,6 +199,20 @@ namespace OcioStoreIngSoftII
             AbrirFormulario((IconButton)sender, new Clientes());
         }
 
+        private void VerificarStockBajo()
+        {
+            List<Producto> productosConStockBajo = objNegocioProducto.ObtenerProductosConStockBajo();
 
+            if (productosConStockBajo.Count > 0)
+            {
+                // Construye el mensaje para la notificación
+                string mensaje = $"Hay {productosConStockBajo.Count} producto(s) con stock bajo o nulo.\n\n" +
+                                 $"Ejemplo: '{productosConStockBajo[0].nombre_producto}' necesita atención.";
+
+                // Crea y muestra el formulario de notificación
+                AvisoStockMinimo notificacion = new AvisoStockMinimo(mensaje);
+                notificacion.Show();
+            }
+        }
     }
 }

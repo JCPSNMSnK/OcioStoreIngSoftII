@@ -286,7 +286,39 @@ namespace CapaDatos
             return lista;
         }
 
+        public List<Producto> ListarProductosConStockBajo()
+        {
+            List<Producto> lista = new List<Producto>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    // Este SP debería seleccionar productos donde StockActual <= StockMinimo
+                    string query = "EXEC PROC_LISTAR_PRODUCTOS_STOCK_BAJO";
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
 
+                    oconexion.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new Producto()
+                            {
+                                nombre_producto = reader["nombre_producto"].ToString(),
+                                stock = Convert.ToInt32(reader["stock"]),
+                                stock_min = Convert.ToInt32(reader["stock_min"])
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Manejar el error
+                }
+            }
+            return lista;
+        }
     }
 }
 

@@ -169,21 +169,9 @@ namespace CapaNegocio
         }
 
         //Metodo para notificar cuando un producto llegó a stock minimo o por debajo.
-        public string VerificarStockMinimo(Producto objProducto)
+        public List<Producto> ObtenerProductosConStockBajo()
         {
-            if (objProducto == null)
-            {
-                return "Error: El objeto Producto es nulo.";
-            }
-
-            if (objProducto.stock <= objProducto.stock_min)
-            {
-                string mensaje = $"ALERTA DE STOCK BAJO: El producto '{objProducto.nombre_producto}' ha alcanzado o superado su stock mínimo. Stock actual: {objProducto.stock}, Stock mínimo: {objProducto.stock_min}.";
-                
-                return mensaje;
-            }
-
-            return string.Empty; // Retorna cadena vacía si el stock es adecuado
+            return _objProductoDatos.ListarProductosConStockBajo();
         }
 
         public List<Producto> BuscarProductosGeneral(string filtros)

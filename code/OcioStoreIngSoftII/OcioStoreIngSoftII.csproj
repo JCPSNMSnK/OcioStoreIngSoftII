@@ -289,6 +289,12 @@
     <Reference Include="XamlBuildTask" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvisoStockMinimo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AvisoStockMinimo.Designer.cs">
+      <DependentUpon>AvisoStockMinimo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Backup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,6 +384,9 @@
     <Compile Include="Ventas.Designer.cs">
       <DependentUpon>Ventas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AvisoStockMinimo.resx">
+      <DependentUpon>AvisoStockMinimo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>
     </EmbeddedResource>
