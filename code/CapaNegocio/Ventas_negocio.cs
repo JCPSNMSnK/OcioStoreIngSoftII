@@ -242,7 +242,7 @@ namespace CapaNegocio
                         return true;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                     mensaje = "Ocurrió un error inesperado al registrar la venta. Por favor, inténtelo de nuevo más tarde.";

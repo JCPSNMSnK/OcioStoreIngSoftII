@@ -31,10 +31,33 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BBuscar = new CuoreUI.Controls.cuiButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.productosDataGridView = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TCProductos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.PanelAltaProducts = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.TIndice = new System.Windows.Forms.TextBox();
             this.TID_prod = new System.Windows.Forms.TextBox();
             this.BRegisterProduct = new CuoreUI.Controls.cuiButton();
@@ -59,7 +82,9 @@
             this.LNombreProducto = new System.Windows.Forms.Label();
             this.LDescripcion = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnModificarCategorias = new CuoreUI.Controls.cuiButton();
+            this.TModificarCategorias = new System.Windows.Forms.TextBox();
             this.TBModificarIndice = new System.Windows.Forms.TextBox();
             this.TModificarID_prod = new System.Windows.Forms.TextBox();
             this.BModificarProducto = new CuoreUI.Controls.cuiButton();
@@ -68,7 +93,6 @@
             this.TModificarCodigo = new CuoreUI.Controls.cuiTextBox();
             this.LModificarCodigo = new System.Windows.Forms.Label();
             this.TModificarDescripcion = new CuoreUI.Controls.cuiTextBox();
-            this.CBModificarCategoria = new System.Windows.Forms.ComboBox();
             this.TModificarPrecioVenta = new CuoreUI.Controls.cuiTextBox();
             this.TModificarPrecioLista = new CuoreUI.Controls.cuiTextBox();
             this.TModificarNombreProducto = new CuoreUI.Controls.cuiTextBox();
@@ -83,43 +107,329 @@
             this.LModificarPrecioLista = new System.Windows.Forms.Label();
             this.LModificarNombreProducto = new System.Windows.Forms.Label();
             this.LModificarDescripcion = new System.Windows.Forms.Label();
-            this.productosDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BBuscar = new CuoreUI.Controls.cuiButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TCProductos.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.PanelAltaProducts.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NStockMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NStock)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NModificarStockMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NModificarStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).BeginInit();
+            this.TCProductos.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.PanelAltaProducts.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NStockMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NStock)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NModificarStockMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NModificarStock)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1127, 740);
+            this.panel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.productosDataGridView, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.TCProductos, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1127, 740);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.BBuscar);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.txtBuscar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1121, 94);
+            this.panel2.TabIndex = 58;
+            // 
+            // BBuscar
+            // 
+            this.BBuscar.CheckButton = false;
+            this.BBuscar.Checked = false;
+            this.BBuscar.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.BBuscar.CheckedForeColor = System.Drawing.Color.White;
+            this.BBuscar.CheckedImageTint = System.Drawing.Color.White;
+            this.BBuscar.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.BBuscar.Content = "Buscar";
+            this.BBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BBuscar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.BBuscar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.BBuscar.ForeColor = System.Drawing.Color.Black;
+            this.BBuscar.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.BBuscar.HoverForeColor = System.Drawing.Color.White;
+            this.BBuscar.HoverImageTint = System.Drawing.Color.White;
+            this.BBuscar.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BBuscar.Image = null;
+            this.BBuscar.ImageAutoCenter = true;
+            this.BBuscar.ImageExpand = new System.Drawing.Point(0, 0);
+            this.BBuscar.ImageOffset = new System.Drawing.Point(0, 0);
+            this.BBuscar.Location = new System.Drawing.Point(264, 40);
+            this.BBuscar.Name = "BBuscar";
+            this.BBuscar.NormalBackground = System.Drawing.Color.White;
+            this.BBuscar.NormalForeColor = System.Drawing.Color.Black;
+            this.BBuscar.NormalImageTint = System.Drawing.Color.White;
+            this.BBuscar.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BBuscar.OutlineThickness = 1F;
+            this.BBuscar.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.BBuscar.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.BBuscar.PressedImageTint = System.Drawing.Color.White;
+            this.BBuscar.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BBuscar.Rounding = new System.Windows.Forms.Padding(8);
+            this.BBuscar.Size = new System.Drawing.Size(91, 29);
+            this.BBuscar.TabIndex = 11;
+            this.BBuscar.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BBuscar.TextOffset = new System.Drawing.Point(0, 0);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label1.Location = new System.Drawing.Point(9, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Buscar";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.ForeColor = System.Drawing.Color.White;
+            this.txtBuscar.Location = new System.Drawing.Point(8, 40);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(232, 29);
+            this.txtBuscar.TabIndex = 5;
+            // 
+            // productosDataGridView
+            // 
+            this.productosDataGridView.AllowUserToAddRows = false;
+            this.productosDataGridView.AllowUserToDeleteRows = false;
+            this.productosDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.productosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.productosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.btnSeleccionar,
+            this.id_producto,
+            this.Codigo,
+            this.nombre_producto,
+            this.Categoria,
+            this.Descripcion,
+            this.PrecioLista,
+            this.PrecioVenta,
+            this.FechaIngreso,
+            this.Stock,
+            this.stock_min,
+            this.estado,
+            this.estadoValor,
+            this.Proveedor,
+            this.id_proveedor});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productosDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.productosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productosDataGridView.EnableHeadersVisualStyles = false;
+            this.productosDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.productosDataGridView.Location = new System.Drawing.Point(15, 103);
+            this.productosDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.productosDataGridView.Name = "productosDataGridView";
+            this.productosDataGridView.ReadOnly = true;
+            this.productosDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.productosDataGridView.RowHeadersVisible = false;
+            this.productosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productosDataGridView.Size = new System.Drawing.Size(1097, 394);
+            this.productosDataGridView.TabIndex = 57;
+            this.productosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productosDataGridView_CellContentClick_1);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.MinimumWidth = 110;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 112;
+            // 
+            // id_producto
+            // 
+            this.id_producto.DataPropertyName = "id_producto";
+            this.id_producto.HeaderText = "ID";
+            this.id_producto.Name = "id_producto";
+            this.id_producto.ReadOnly = true;
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "cod_producto";
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.MinimumWidth = 110;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 110;
+            // 
+            // nombre_producto
+            // 
+            this.nombre_producto.DataPropertyName = "nombre_producto";
+            this.nombre_producto.HeaderText = "Nombre";
+            this.nombre_producto.MinimumWidth = 110;
+            this.nombre_producto.Name = "nombre_producto";
+            this.nombre_producto.ReadOnly = true;
+            this.nombre_producto.Width = 110;
+            // 
+            // Categoria
+            // 
+            this.Categoria.DataPropertyName = "CategoriasConcatenadas";
+            this.Categoria.HeaderText = "Categorias";
+            this.Categoria.MinimumWidth = 200;
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 200;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "descripcion";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.MinimumWidth = 250;
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 250;
+            // 
+            // PrecioLista
+            // 
+            this.PrecioLista.DataPropertyName = "precioLista";
+            this.PrecioLista.HeaderText = "Precio Lista";
+            this.PrecioLista.MinimumWidth = 110;
+            this.PrecioLista.Name = "PrecioLista";
+            this.PrecioLista.ReadOnly = true;
+            this.PrecioLista.Width = 110;
+            // 
+            // PrecioVenta
+            // 
+            this.PrecioVenta.DataPropertyName = "precioVenta";
+            this.PrecioVenta.HeaderText = "Precio Venta";
+            this.PrecioVenta.MinimumWidth = 110;
+            this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.ReadOnly = true;
+            this.PrecioVenta.Width = 110;
+            // 
+            // FechaIngreso
+            // 
+            this.FechaIngreso.DataPropertyName = "fechaIngreso";
+            this.FechaIngreso.HeaderText = "FechaIngreso";
+            this.FechaIngreso.MinimumWidth = 110;
+            this.FechaIngreso.Name = "FechaIngreso";
+            this.FechaIngreso.ReadOnly = true;
+            this.FechaIngreso.Width = 110;
+            // 
+            // Stock
+            // 
+            this.Stock.DataPropertyName = "stock";
+            this.Stock.HeaderText = "Stock";
+            this.Stock.MinimumWidth = 110;
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 110;
+            // 
+            // stock_min
+            // 
+            this.stock_min.DataPropertyName = "stock_min";
+            this.stock_min.HeaderText = "Stock Mínimo";
+            this.stock_min.MinimumWidth = 110;
+            this.stock_min.Name = "stock_min";
+            this.stock_min.ReadOnly = true;
+            this.stock_min.Width = 110;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Dado de Baja?";
+            this.estado.MinimumWidth = 110;
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estado.Width = 110;
+            // 
+            // estadoValor
+            // 
+            this.estadoValor.DataPropertyName = "baja_producto";
+            this.estadoValor.HeaderText = "estadoValor";
+            this.estadoValor.MinimumWidth = 110;
+            this.estadoValor.Name = "estadoValor";
+            this.estadoValor.ReadOnly = true;
+            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estadoValor.Visible = false;
+            this.estadoValor.Width = 110;
+            // 
+            // Proveedor
+            // 
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.MinimumWidth = 110;
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.ReadOnly = true;
+            this.Proveedor.Width = 110;
+            // 
+            // id_proveedor
+            // 
+            this.id_proveedor.DataPropertyName = "id_proveedor";
+            this.id_proveedor.HeaderText = "id_proveedor";
+            this.id_proveedor.MinimumWidth = 110;
+            this.id_proveedor.Name = "id_proveedor";
+            this.id_proveedor.ReadOnly = true;
+            this.id_proveedor.Visible = false;
+            this.id_proveedor.Width = 110;
             // 
             // TCProductos
             // 
@@ -129,11 +439,11 @@
             this.TCProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCProductos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TCProductos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TCProductos.Location = new System.Drawing.Point(3, 335);
+            this.TCProductos.Location = new System.Drawing.Point(3, 503);
             this.TCProductos.Multiline = true;
             this.TCProductos.Name = "TCProductos";
             this.TCProductos.SelectedIndex = 0;
-            this.TCProductos.Size = new System.Drawing.Size(1121, 402);
+            this.TCProductos.Size = new System.Drawing.Size(1121, 394);
             this.TCProductos.TabIndex = 11;
             // 
             // tabPage1
@@ -143,7 +453,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1113, 369);
+            this.tabPage1.Size = new System.Drawing.Size(1113, 361);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Alta de Productos";
             // 
@@ -151,43 +461,43 @@
             // 
             this.PanelAltaProducts.AutoScroll = true;
             this.PanelAltaProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.PanelAltaProducts.Controls.Add(this.panel2);
+            this.PanelAltaProducts.Controls.Add(this.panel3);
             this.PanelAltaProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelAltaProducts.Location = new System.Drawing.Point(3, 3);
             this.PanelAltaProducts.Name = "PanelAltaProducts";
-            this.PanelAltaProducts.Size = new System.Drawing.Size(1107, 363);
+            this.PanelAltaProducts.Size = new System.Drawing.Size(1107, 355);
             this.PanelAltaProducts.TabIndex = 7;
             // 
-            // panel2
+            // panel3
             // 
-            this.panel2.Controls.Add(this.TIndice);
-            this.panel2.Controls.Add(this.TID_prod);
-            this.panel2.Controls.Add(this.BRegisterProduct);
-            this.panel2.Controls.Add(this.CBProveedor);
-            this.panel2.Controls.Add(this.LProveedor);
-            this.panel2.Controls.Add(this.TCodigo);
-            this.panel2.Controls.Add(this.LCodigo);
-            this.panel2.Controls.Add(this.TDescripcion);
-            this.panel2.Controls.Add(this.CBCategoria);
-            this.panel2.Controls.Add(this.TPrecioVenta);
-            this.panel2.Controls.Add(this.TPrecioLista);
-            this.panel2.Controls.Add(this.TNombreProducto);
-            this.panel2.Controls.Add(this.NStockMin);
-            this.panel2.Controls.Add(this.NStock);
-            this.panel2.Controls.Add(this.CBEstado);
-            this.panel2.Controls.Add(this.LStockMin);
-            this.panel2.Controls.Add(this.LStock);
-            this.panel2.Controls.Add(this.LEstado);
-            this.panel2.Controls.Add(this.LCategoria);
-            this.panel2.Controls.Add(this.LPrecioVenta);
-            this.panel2.Controls.Add(this.LPrecioLista);
-            this.panel2.Controls.Add(this.LNombreProducto);
-            this.panel2.Controls.Add(this.LDescripcion);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1107, 363);
-            this.panel2.TabIndex = 0;
+            this.panel3.Controls.Add(this.TIndice);
+            this.panel3.Controls.Add(this.TID_prod);
+            this.panel3.Controls.Add(this.BRegisterProduct);
+            this.panel3.Controls.Add(this.CBProveedor);
+            this.panel3.Controls.Add(this.LProveedor);
+            this.panel3.Controls.Add(this.TCodigo);
+            this.panel3.Controls.Add(this.LCodigo);
+            this.panel3.Controls.Add(this.TDescripcion);
+            this.panel3.Controls.Add(this.CBCategoria);
+            this.panel3.Controls.Add(this.TPrecioVenta);
+            this.panel3.Controls.Add(this.TPrecioLista);
+            this.panel3.Controls.Add(this.TNombreProducto);
+            this.panel3.Controls.Add(this.NStockMin);
+            this.panel3.Controls.Add(this.NStock);
+            this.panel3.Controls.Add(this.CBEstado);
+            this.panel3.Controls.Add(this.LStockMin);
+            this.panel3.Controls.Add(this.LStock);
+            this.panel3.Controls.Add(this.LEstado);
+            this.panel3.Controls.Add(this.LCategoria);
+            this.panel3.Controls.Add(this.LPrecioVenta);
+            this.panel3.Controls.Add(this.LPrecioLista);
+            this.panel3.Controls.Add(this.LNombreProducto);
+            this.panel3.Controls.Add(this.LDescripcion);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1107, 355);
+            this.panel3.TabIndex = 0;
             // 
             // TIndice
             // 
@@ -558,44 +868,93 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tabPage2.Controls.Add(this.panel3);
+            this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1113, 369);
+            this.tabPage2.Size = new System.Drawing.Size(1113, 361);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar Productos";
             // 
-            // panel3
+            // panel4
             // 
-            this.panel3.Controls.Add(this.TBModificarIndice);
-            this.panel3.Controls.Add(this.TModificarID_prod);
-            this.panel3.Controls.Add(this.BModificarProducto);
-            this.panel3.Controls.Add(this.CBModificarProveedor);
-            this.panel3.Controls.Add(this.LModificarProveedor);
-            this.panel3.Controls.Add(this.TModificarCodigo);
-            this.panel3.Controls.Add(this.LModificarCodigo);
-            this.panel3.Controls.Add(this.TModificarDescripcion);
-            this.panel3.Controls.Add(this.CBModificarCategoria);
-            this.panel3.Controls.Add(this.TModificarPrecioVenta);
-            this.panel3.Controls.Add(this.TModificarPrecioLista);
-            this.panel3.Controls.Add(this.TModificarNombreProducto);
-            this.panel3.Controls.Add(this.NModificarStockMin);
-            this.panel3.Controls.Add(this.NModificarStock);
-            this.panel3.Controls.Add(this.CBModificarEstado);
-            this.panel3.Controls.Add(this.LModificarStockMin);
-            this.panel3.Controls.Add(this.LModificarStock);
-            this.panel3.Controls.Add(this.LModificarEstado);
-            this.panel3.Controls.Add(this.LModificarCategoria);
-            this.panel3.Controls.Add(this.LModificarPrecioVenta);
-            this.panel3.Controls.Add(this.LModificarPrecioLista);
-            this.panel3.Controls.Add(this.LModificarNombreProducto);
-            this.panel3.Controls.Add(this.LModificarDescripcion);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1107, 363);
-            this.panel3.TabIndex = 0;
+            this.panel4.Controls.Add(this.btnModificarCategorias);
+            this.panel4.Controls.Add(this.TModificarCategorias);
+            this.panel4.Controls.Add(this.TBModificarIndice);
+            this.panel4.Controls.Add(this.TModificarID_prod);
+            this.panel4.Controls.Add(this.BModificarProducto);
+            this.panel4.Controls.Add(this.CBModificarProveedor);
+            this.panel4.Controls.Add(this.LModificarProveedor);
+            this.panel4.Controls.Add(this.TModificarCodigo);
+            this.panel4.Controls.Add(this.LModificarCodigo);
+            this.panel4.Controls.Add(this.TModificarDescripcion);
+            this.panel4.Controls.Add(this.TModificarPrecioVenta);
+            this.panel4.Controls.Add(this.TModificarPrecioLista);
+            this.panel4.Controls.Add(this.TModificarNombreProducto);
+            this.panel4.Controls.Add(this.NModificarStockMin);
+            this.panel4.Controls.Add(this.NModificarStock);
+            this.panel4.Controls.Add(this.CBModificarEstado);
+            this.panel4.Controls.Add(this.LModificarStockMin);
+            this.panel4.Controls.Add(this.LModificarStock);
+            this.panel4.Controls.Add(this.LModificarEstado);
+            this.panel4.Controls.Add(this.LModificarCategoria);
+            this.panel4.Controls.Add(this.LModificarPrecioVenta);
+            this.panel4.Controls.Add(this.LModificarPrecioLista);
+            this.panel4.Controls.Add(this.LModificarNombreProducto);
+            this.panel4.Controls.Add(this.LModificarDescripcion);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1107, 355);
+            this.panel4.TabIndex = 0;
+            // 
+            // btnModificarCategorias
+            // 
+            this.btnModificarCategorias.CheckButton = false;
+            this.btnModificarCategorias.Checked = false;
+            this.btnModificarCategorias.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnModificarCategorias.CheckedForeColor = System.Drawing.Color.White;
+            this.btnModificarCategorias.CheckedImageTint = System.Drawing.Color.White;
+            this.btnModificarCategorias.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnModificarCategorias.Content = "Modificar Categorias";
+            this.btnModificarCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificarCategorias.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnModificarCategorias.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarCategorias.ForeColor = System.Drawing.Color.White;
+            this.btnModificarCategorias.HoverBackground = System.Drawing.Color.White;
+            this.btnModificarCategorias.HoverForeColor = System.Drawing.Color.Black;
+            this.btnModificarCategorias.HoverImageTint = System.Drawing.Color.White;
+            this.btnModificarCategorias.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnModificarCategorias.Image = null;
+            this.btnModificarCategorias.ImageAutoCenter = true;
+            this.btnModificarCategorias.ImageExpand = new System.Drawing.Point(0, 0);
+            this.btnModificarCategorias.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnModificarCategorias.Location = new System.Drawing.Point(684, 227);
+            this.btnModificarCategorias.Name = "btnModificarCategorias";
+            this.btnModificarCategorias.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.btnModificarCategorias.NormalForeColor = System.Drawing.Color.White;
+            this.btnModificarCategorias.NormalImageTint = System.Drawing.Color.White;
+            this.btnModificarCategorias.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnModificarCategorias.OutlineThickness = 1F;
+            this.btnModificarCategorias.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.btnModificarCategorias.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnModificarCategorias.PressedImageTint = System.Drawing.Color.White;
+            this.btnModificarCategorias.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnModificarCategorias.Rounding = new System.Windows.Forms.Padding(8);
+            this.btnModificarCategorias.Size = new System.Drawing.Size(233, 32);
+            this.btnModificarCategorias.TabIndex = 153;
+            this.btnModificarCategorias.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnModificarCategorias.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnModificarCategorias.Click += new System.EventHandler(this.btnModificarCategorias_Click);
+            // 
+            // TModificarCategorias
+            // 
+            this.TModificarCategorias.Location = new System.Drawing.Point(684, 114);
+            this.TModificarCategorias.Multiline = true;
+            this.TModificarCategorias.Name = "TModificarCategorias";
+            this.TModificarCategorias.ReadOnly = true;
+            this.TModificarCategorias.Size = new System.Drawing.Size(233, 98);
+            this.TModificarCategorias.TabIndex = 152;
             // 
             // TBModificarIndice
             // 
@@ -752,14 +1111,6 @@
             this.TModificarDescripcion.TextOffset = new System.Drawing.Size(0, 0);
             this.TModificarDescripcion.UnderlinedStyle = true;
             // 
-            // CBModificarCategoria
-            // 
-            this.CBModificarCategoria.FormattingEnabled = true;
-            this.CBModificarCategoria.Location = new System.Drawing.Point(684, 184);
-            this.CBModificarCategoria.Name = "CBModificarCategoria";
-            this.CBModificarCategoria.Size = new System.Drawing.Size(233, 28);
-            this.CBModificarCategoria.TabIndex = 143;
-            // 
             // TModificarPrecioVenta
             // 
             this.TModificarPrecioVenta.BackgroundColor = System.Drawing.Color.White;
@@ -873,7 +1224,7 @@
             this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBModificarEstado.ForeColor = System.Drawing.Color.Black;
             this.CBModificarEstado.FormattingEnabled = true;
-            this.CBModificarEstado.Location = new System.Drawing.Point(684, 112);
+            this.CBModificarEstado.Location = new System.Drawing.Point(174, 256);
             this.CBModificarEstado.Name = "CBModificarEstado";
             this.CBModificarEstado.Size = new System.Drawing.Size(233, 29);
             this.CBModificarEstado.TabIndex = 137;
@@ -905,7 +1256,7 @@
             this.LModificarEstado.AutoSize = true;
             this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarEstado.Location = new System.Drawing.Point(695, 89);
+            this.LModificarEstado.Location = new System.Drawing.Point(185, 233);
             this.LModificarEstado.Name = "LModificarEstado";
             this.LModificarEstado.Size = new System.Drawing.Size(56, 21);
             this.LModificarEstado.TabIndex = 134;
@@ -916,11 +1267,11 @@
             this.LModificarCategoria.AutoSize = true;
             this.LModificarCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarCategoria.Location = new System.Drawing.Point(695, 160);
+            this.LModificarCategoria.Location = new System.Drawing.Point(695, 89);
             this.LModificarCategoria.Name = "LModificarCategoria";
-            this.LModificarCategoria.Size = new System.Drawing.Size(77, 21);
+            this.LModificarCategoria.Size = new System.Drawing.Size(84, 21);
             this.LModificarCategoria.TabIndex = 133;
-            this.LModificarCategoria.Text = "Categoria";
+            this.LModificarCategoria.Text = "Categorias";
             // 
             // LModificarPrecioVenta
             // 
@@ -966,333 +1317,53 @@
             this.LModificarDescripcion.TabIndex = 129;
             this.LModificarDescripcion.Text = "Descripcion";
             // 
-            // productosDataGridView
-            // 
-            this.productosDataGridView.AllowUserToAddRows = false;
-            this.productosDataGridView.AllowUserToDeleteRows = false;
-            this.productosDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.productosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.productosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnSeleccionar,
-            this.id_producto,
-            this.Codigo,
-            this.nombre_producto,
-            this.Categoria,
-            this.Descripcion,
-            this.PrecioLista,
-            this.PrecioVenta,
-            this.FechaIngreso,
-            this.Stock,
-            this.stock_min,
-            this.estado,
-            this.estadoValor,
-            this.Proveedor,
-            this.id_proveedor});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productosDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.productosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productosDataGridView.EnableHeadersVisualStyles = false;
-            this.productosDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.productosDataGridView.Location = new System.Drawing.Point(15, 86);
-            this.productosDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
-            this.productosDataGridView.Name = "productosDataGridView";
-            this.productosDataGridView.ReadOnly = true;
-            this.productosDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.productosDataGridView.RowHeadersVisible = false;
-            this.productosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productosDataGridView.Size = new System.Drawing.Size(1097, 243);
-            this.productosDataGridView.TabIndex = 57;
-            this.productosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productosDataGridView_CellContentClick_1);
-            this.productosDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.productosDataGridView_CellPainting);
-            this.productosDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.productosDataGridView_DataBindingComplete);
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.BBuscar);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtBuscar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1121, 77);
-            this.panel1.TabIndex = 58;
-            // 
-            // BBuscar
-            // 
-            this.BBuscar.CheckButton = false;
-            this.BBuscar.Checked = false;
-            this.BBuscar.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.BBuscar.CheckedForeColor = System.Drawing.Color.White;
-            this.BBuscar.CheckedImageTint = System.Drawing.Color.White;
-            this.BBuscar.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.BBuscar.Content = "Buscar";
-            this.BBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BBuscar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.BBuscar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.BBuscar.ForeColor = System.Drawing.Color.Black;
-            this.BBuscar.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.BBuscar.HoverForeColor = System.Drawing.Color.White;
-            this.BBuscar.HoverImageTint = System.Drawing.Color.White;
-            this.BBuscar.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.BBuscar.Image = null;
-            this.BBuscar.ImageAutoCenter = true;
-            this.BBuscar.ImageExpand = new System.Drawing.Point(0, 0);
-            this.BBuscar.ImageOffset = new System.Drawing.Point(0, 0);
-            this.BBuscar.Location = new System.Drawing.Point(264, 40);
-            this.BBuscar.Name = "BBuscar";
-            this.BBuscar.NormalBackground = System.Drawing.Color.White;
-            this.BBuscar.NormalForeColor = System.Drawing.Color.Black;
-            this.BBuscar.NormalImageTint = System.Drawing.Color.White;
-            this.BBuscar.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.BBuscar.OutlineThickness = 1F;
-            this.BBuscar.PressedBackground = System.Drawing.Color.WhiteSmoke;
-            this.BBuscar.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.BBuscar.PressedImageTint = System.Drawing.Color.White;
-            this.BBuscar.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.BBuscar.Rounding = new System.Windows.Forms.Padding(8);
-            this.BBuscar.Size = new System.Drawing.Size(91, 29);
-            this.BBuscar.TabIndex = 11;
-            this.BBuscar.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.BBuscar.TextOffset = new System.Drawing.Point(0, 0);
-            this.BBuscar.Click += new System.EventHandler(this.BBuscar_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(9, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Buscar";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.ForeColor = System.Drawing.Color.White;
-            this.txtBuscar.Location = new System.Drawing.Point(8, 40);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(232, 29);
-            this.txtBuscar.TabIndex = 5;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.productosDataGridView, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.TCProductos, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.35135F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.64865F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1127, 740);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 112;
-            // 
-            // id_producto
-            // 
-            this.id_producto.DataPropertyName = "id_producto";
-            this.id_producto.HeaderText = "ID";
-            this.id_producto.Name = "id_producto";
-            this.id_producto.ReadOnly = true;
-            // 
-            // Codigo
-            // 
-            this.Codigo.DataPropertyName = "cod_producto";
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 109;
-            // 
-            // nombre_producto
-            // 
-            this.nombre_producto.DataPropertyName = "nombre_producto";
-            this.nombre_producto.HeaderText = "Nombre";
-            this.nombre_producto.Name = "nombre_producto";
-            this.nombre_producto.ReadOnly = true;
-            // 
-            // Categoria
-            // 
-            this.Categoria.DataPropertyName = "CategoriasConcatenadas";
-            this.Categoria.HeaderText = "Categorias";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "descripcion";
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 109;
-            // 
-            // PrecioLista
-            // 
-            this.PrecioLista.DataPropertyName = "precioLista";
-            this.PrecioLista.HeaderText = "Precio Lista";
-            this.PrecioLista.Name = "PrecioLista";
-            this.PrecioLista.ReadOnly = true;
-            this.PrecioLista.Width = 109;
-            // 
-            // PrecioVenta
-            // 
-            this.PrecioVenta.DataPropertyName = "precioVenta";
-            this.PrecioVenta.HeaderText = "Precio Venta";
-            this.PrecioVenta.Name = "PrecioVenta";
-            this.PrecioVenta.ReadOnly = true;
-            this.PrecioVenta.Width = 109;
-            // 
-            // FechaIngreso
-            // 
-            this.FechaIngreso.DataPropertyName = "fechaIngreso";
-            this.FechaIngreso.HeaderText = "FechaIngreso";
-            this.FechaIngreso.Name = "FechaIngreso";
-            this.FechaIngreso.ReadOnly = true;
-            this.FechaIngreso.Width = 109;
-            // 
-            // Stock
-            // 
-            this.Stock.DataPropertyName = "stock";
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 110;
-            // 
-            // stock_min
-            // 
-            this.stock_min.DataPropertyName = "stock_min";
-            this.stock_min.HeaderText = "Stock Mínimo";
-            this.stock_min.Name = "stock_min";
-            this.stock_min.ReadOnly = true;
-            this.stock_min.Width = 109;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Dado de Baja?";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.estado.Width = 109;
-            // 
-            // estadoValor
-            // 
-            this.estadoValor.DataPropertyName = "baja_producto";
-            this.estadoValor.HeaderText = "estadoValor";
-            this.estadoValor.Name = "estadoValor";
-            this.estadoValor.ReadOnly = true;
-            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.estadoValor.Visible = false;
-            // 
-            // Proveedor
-            // 
-            this.Proveedor.HeaderText = "Proveedor";
-            this.Proveedor.Name = "Proveedor";
-            this.Proveedor.ReadOnly = true;
-            this.Proveedor.Width = 109;
-            // 
-            // id_proveedor
-            // 
-            this.id_proveedor.DataPropertyName = "id_proveedor";
-            this.id_proveedor.HeaderText = "id_proveedor";
-            this.id_proveedor.Name = "id_proveedor";
-            this.id_proveedor.ReadOnly = true;
-            this.id_proveedor.Visible = false;
-            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1127, 740);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.panel1);
             this.KeyPreview = true;
             this.Name = "Products";
             this.Text = "Products";
             this.Load += new System.EventHandler(this.Products_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Users_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).EndInit();
             this.TCProductos.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.PanelAltaProducts.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NStockMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NStock)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NModificarStockMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NModificarStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private DataSet1 dataSet1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel2;
+        private CuoreUI.Controls.cuiButton BBuscar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.DataGridView productosDataGridView;
         private System.Windows.Forms.TabControl TCProductos;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel PanelAltaProducts;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView productosDataGridView;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox TIndice;
         private System.Windows.Forms.TextBox TID_prod;
         private CuoreUI.Controls.cuiButton BRegisterProduct;
@@ -1316,7 +1387,8 @@
         private System.Windows.Forms.Label LPrecioLista;
         private System.Windows.Forms.Label LNombreProducto;
         private System.Windows.Forms.Label LDescripcion;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox TBModificarIndice;
         private System.Windows.Forms.TextBox TModificarID_prod;
         private CuoreUI.Controls.cuiButton BModificarProducto;
@@ -1325,7 +1397,6 @@
         private CuoreUI.Controls.cuiTextBox TModificarCodigo;
         private System.Windows.Forms.Label LModificarCodigo;
         private CuoreUI.Controls.cuiTextBox TModificarDescripcion;
-        private System.Windows.Forms.ComboBox CBModificarCategoria;
         private CuoreUI.Controls.cuiTextBox TModificarPrecioVenta;
         private CuoreUI.Controls.cuiTextBox TModificarPrecioLista;
         private CuoreUI.Controls.cuiTextBox TModificarNombreProducto;
@@ -1340,7 +1411,6 @@
         private System.Windows.Forms.Label LModificarPrecioLista;
         private System.Windows.Forms.Label LModificarNombreProducto;
         private System.Windows.Forms.Label LModificarDescripcion;
-        private CuoreUI.Controls.cuiButton BBuscar;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
@@ -1356,5 +1426,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
+        private System.Windows.Forms.TextBox TModificarCategorias;
+        private CuoreUI.Controls.cuiButton btnModificarCategorias;
     }
 }

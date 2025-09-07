@@ -327,6 +327,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet11.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GestionarCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionarCategorias.Designer.cs">
+      <DependentUpon>GestionarCategorias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Informes.cs">
       <SubType>Form</SubType>
     </Compile>

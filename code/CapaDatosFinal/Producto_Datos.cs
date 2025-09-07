@@ -64,7 +64,7 @@ namespace CapaDatos
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     lista = new List<Producto>();
                     throw;
@@ -173,6 +173,7 @@ namespace CapaDatos
             return id_producto_generado;
         }
 
+        
         public bool Editar(Producto obj, Categoria objCat, out string Mensaje)//modificarProducto
         {
             bool resultado = false;
@@ -215,6 +216,7 @@ namespace CapaDatos
 
             return resultado;
         }
+        
 
         public Producto obtenerProducto(int id_producto)
         {
@@ -279,72 +281,6 @@ namespace CapaDatos
         }
 
 
-        /*public List<Producto> BuscarProductosGeneral(string busqueda)
-        {
-            List<Producto> lista = new List<Producto>();
-            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("PROC_BUSCAR_PRODUCTOS", oconexion);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@busqueda_general", busqueda);
-
-                    oconexion.Open();
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            if (reader.Read())
-                            {
-                                lista.Add(new Producto()
-                                {
-                                    id_producto = Convert.ToInt32(reader["id_producto"]),
-                                    nombre_producto = reader["nombre_producto"].ToString(),
-                                    fechaIngreso = Convert.ToDateTime(reader["fechaIngreso"]),
-                                    precioLista = Convert.ToDecimal(reader["precioLista"]),
-                                    precioVenta = Convert.ToDecimal(reader["precioVenta"]),
-                                    baja_producto = Convert.ToBoolean(reader["baja_producto"]),
-                                    stock = Convert.ToInt32(reader["stock"]),
-                                    stock_min = Convert.ToInt32(reader["stock_min"]),
-                                    descripcion = reader["descripcion"].ToString(),
-                                    cod_producto = Convert.ToInt32(reader["cod_producto"]),
-                                    id_proveedor = Convert.ToInt32(reader["id_proveedor"]),
-
-                                    // Inicializar la lista de categorías
-                                    categoria = new List<Categoria>()
-                                });
-                            }
-                            // 2. Mover al siguiente conjunto de resultados (categorías)
-                            if (reader.NextResult())
-                            {
-                                while (reader.Read())
-                                {
-                                    // Agregar cada categoría a la lista del producto
-                                    lista.Last().categoria.Add(new Categoria()
-                                    {
-                                        id_categoria = Convert.ToInt32(reader["id_categoria"]),
-                                        nombre_categoria = reader["nombre_categoria"].ToString()
-                                    });
-                                }
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                    "Ocurrió un error al buscar los productos:\n\n" + ex.ToString(),
-                    "Error de Base de Datos",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                    lista = new List<Producto>();
-                }
-            }
-            return lista;
-        }*/
-
         public List<Producto> ListarProductosConStockBajo()
         {
             List<Producto> lista = new List<Producto>();
@@ -371,9 +307,10 @@ namespace CapaDatos
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    // Manejar el error
+                    MessageBox.Show("Error desconocido al generar notificación de Stock Bajo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return lista;
                 }
             }
             return lista;

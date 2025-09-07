@@ -152,6 +152,10 @@ namespace OcioStoreIngSoftII
         private void HomeButton_Click(object sender, EventArgs e)
         {
             AbrirFormulario(null, null);
+            if (usuarioActual.NombreRol == "Administrador" || usuarioActual.NombreRol == "Super Admin")
+            {
+                VerificarStockBajo();
+            }
         }
 
         private void UsersButton_Click_1(object sender, EventArgs e)

@@ -16,6 +16,8 @@ namespace OcioStoreIngSoftII
         private readonly Producto_negocio _productoNegocio;
         private readonly Categoria_negocio _categoriaNegocio;
         private readonly Proveedores_negocio _proveedorNegocio;
+        private Producto productoSeleccionado;
+
         public Products()
         {
             InitializeComponent();
@@ -29,15 +31,10 @@ namespace OcioStoreIngSoftII
             // Carga inicial de ComboBoxes (UI específica)
             CargarComboBoxEstados(CBEstado);
             CargarComboBoxEstados(CBModificarEstado); // Podría no tener selección inicial si se carga un producto
-            CargarComboBoxCategorias(CBCategoria);
-            CargarComboBoxCategorias(CBModificarCategoria); // Podría no tener selección inicial si se carga un producto
             CargarComboBoxProveedor(CBProveedor);
             CargarComboBoxProveedor(CBModificarProveedor); // Podría no tener selección inicial si se carga un producto
             // Establecer índices por defecto si hay elementos
             if (CBEstado.Items.Count > 0) CBEstado.SelectedIndex = 0;
-            // CBModificarEstado.SelectedIndex no se establece inicialmente si la idea es que muestre el estado del producto cargado
-            if (CBCategoria.Items.Count > 0) CBCategoria.SelectedIndex = 0;
-            // CBModificarCategoria.SelectedIndex no se establece inicialmente
 
             actualizarDatosTabla();
         }
@@ -49,27 +46,6 @@ namespace OcioStoreIngSoftII
             {
                 comboBox.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Baja" });
                 comboBox.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Alta" });
-                comboBox.DisplayMember = "Texto";
-                comboBox.ValueMember = "Valor";
-            }
-            catch (Exception ex)
-            {
-                // Si hay un error, lo mostraremos en un mensaje
-                MessageBox.Show("Ocurrió un error al cargar las categorías: \n" + ex.Message, "Error de Carga de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// Carga las categorías desde la capa de negocio en un ComboBox.
-        private void CargarComboBoxCategorias(ComboBox comboBox)
-        {
-            try
-            {
-                // La capa de presentación pide las categorías a la capa de negocio
-                List<Categoria> listaCategorias = _categoriaNegocio.Listar();
-                foreach (Categoria item in listaCategorias)
-                {
-                    comboBox.Items.Add(new OpcionSelect() { Valor = item.id_categoria, Texto = item.nombre_categoria });
-                }
                 comboBox.DisplayMember = "Texto";
                 comboBox.ValueMember = "Valor";
             }
@@ -136,7 +112,7 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        /// Vacía y reinicia los campos de entrada de la UI.
+        // Vacía y reinicia los campos de entrada de la UI.
         private void VaciarCampos()
         {
             // Campos de Registro
@@ -164,7 +140,7 @@ namespace OcioStoreIngSoftII
             // No se reinician los SelectedIndex de modificar, ya que se llenan al seleccionar una fila.
         }
 
-        // Lógica de UI: Cargar datos en el formulario de modificación al seleccionar una fila
+        // Cargar datos en el formulario de modificación al seleccionar una fila
         private void productosDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (productosDataGridView.Columns[e.ColumnIndex].Name == "btnSeleccionar")
@@ -173,31 +149,22 @@ namespace OcioStoreIngSoftII
 
                 if (indice >= 0)
                 {
+                    productoSeleccionado = (Producto)productosDataGridView.Rows[indice].DataBoundItem;
+
                     TCProductos.SelectedIndex = 1; // Cambia a la pestaña de modificación
 
                     TBModificarIndice.Text = indice.ToString(); // Guardar índice de la fila para futura actualización
 
                     // Cargar datos de la fila seleccionada a los controles de modificación
-                    TModificarID_prod.Text = productosDataGridView.Rows[indice].Cells["id_producto"].Value.ToString();
-                    TModificarNombreProducto.Text = productosDataGridView.Rows[indice].Cells["nombre_producto"].Value.ToString();
-                    TModificarDescripcion.Text = productosDataGridView.Rows[indice].Cells["descripcion"].Value.ToString();
-                    TModificarPrecioLista.Text = productosDataGridView.Rows[indice].Cells["precioLista"].Value.ToString();
-                    TModificarPrecioVenta.Text = productosDataGridView.Rows[indice].Cells["precioVenta"].Value.ToString();
-                    NModificarStock.Text = productosDataGridView.Rows[indice].Cells["stock"].Value.ToString();
-                    NModificarStockMin.Text = productosDataGridView.Rows[indice].Cells["stock_min"].Value.ToString();
+                    TModificarID_prod.Text = productoSeleccionado.id_producto.ToString();
+                    TModificarNombreProducto.Text = productoSeleccionado.nombre_producto.ToString();
+                    TModificarDescripcion.Text = productoSeleccionado.descripcion.ToString();
+                    TModificarPrecioLista.Text = productoSeleccionado.precioLista.ToString();
+                    TModificarPrecioVenta.Text = productoSeleccionado.precioVenta.ToString();
+                    NModificarStock.Text = productoSeleccionado.stock.ToString();
+                    NModificarStockMin.Text = productoSeleccionado.stock_min.ToString();
 
-                    // Seleccionar la categoría correcta en el ComboBox de modificación
-                    if (int.TryParse(productosDataGridView.Rows[indice].Cells["id_categoria"].Value.ToString(), out int selectedCategoryId))
-                    {
-                        foreach (OpcionSelect opcionSelect in CBModificarCategoria.Items)
-                        {
-                            if (Convert.ToInt32(opcionSelect.Valor) == selectedCategoryId)
-                            {
-                                CBModificarCategoria.SelectedItem = opcionSelect;
-                                break;
-                            }
-                        }
-                    }
+                    TModificarCategorias.Text = productoSeleccionado.CategoriasConcatenadas;
 
                     // Seleccionar el estado correcto en el ComboBox de modificación
                     if (productosDataGridView.Rows[indice].Cells["estadoValor"].Value is bool isAlta)
@@ -313,7 +280,6 @@ namespace OcioStoreIngSoftII
             int stockMin = int.Parse(NModificarStockMin.Text);
             bool bajaProducto = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1;
             int idCategoria = Convert.ToInt32(((OpcionSelect)CBModificarCategoria.SelectedItem).Valor);
-            string nombreCategoria = ((OpcionSelect)CBModificarCategoria.SelectedItem).Texto;
 
             // 3. Creación de objetos de entidad (Producto y Categoria)
             Producto objProducto = new Producto()
@@ -326,11 +292,7 @@ namespace OcioStoreIngSoftII
                 stock = stock,
                 stock_min = stockMin,
                 baja_producto = bajaProducto,
-            };
-            Categoria objCategoria = new Categoria()
-            {
-                id_categoria = idCategoria,
-                nombre_categoria = nombreCategoria
+                categorias = productoSeleccionado.categorias
             };
 
             string businessValidationMessage = string.Empty;
@@ -364,20 +326,47 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        /// Realiza validaciones de formato y obligatoriedad a nivel de UI para la modificación de productos.
+        private void btnModificarCategorias_Click(object sender, EventArgs e)
+        {
+            if (productoSeleccionado == null)
+            {
+                MessageBox.Show("Primero debe seleccionar un producto de la tabla.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 1. Obtén la lista de TODAS las categorías desde la capa de negocio
+            Categoria_negocio objNegocioCategoria = new Categoria_negocio();
+            List<Categoria> todasLasCategorias = objNegocioCategoria.Listar();
+            /*
+            // 2. Crea y muestra la ventana emergente, pasándole los datos necesarios
+            using (GestionarCategorias popup = new GestionarCategorias(todasLasCategorias, productoActual.categorias))
+            {
+                // Abre el formulario como un diálogo modal (bloquea la ventana padre)
+                var resultado = popup.ShowDialog();
+
+                // 3. Si el usuario hizo clic en "Guardar"
+                if (resultado == DialogResult.OK)
+                {
+                    // Actualiza la lista de categorías del producto con la nueva selección
+                    productoSeleccionado.categorias = popup.CategoriasSeleccionadas;
+                    TCategoriasModificar.Text = productoSeleccionado.CategoriasConcatenadas;
+                }
+            }
+            */
+
+        }
+
+        // Realiza validaciones de formato y obligatoriedad a nivel de UI para la modificación de productos.
         private bool ValidarCamposModificacion(out string mensaje)
         {
             mensaje = string.Empty;
 
             if (string.IsNullOrWhiteSpace(TModificarNombreProducto.Text)) { mensaje = "El nombre del producto no puede estar vacío."; return false; }
             if (string.IsNullOrWhiteSpace(TModificarDescripcion.Text)) { mensaje = "La descripción no puede estar vacía."; return false; }
-
             if (!decimal.TryParse(TModificarPrecioLista.Text, out decimal precioLista)) { mensaje = "El precio de lista debe ser un número válido."; return false; }
             if (!decimal.TryParse(TModificarPrecioVenta.Text, out decimal precioVenta)) { mensaje = "El precio de venta debe ser un número válido."; return false; }
             if (!int.TryParse(NModificarStock.Text, out int stock)) { mensaje = "El stock debe ser un número entero válido."; return false; }
             if (!int.TryParse(NModificarStockMin.Text, out int stockMin)) { mensaje = "El stock mínimo debe ser un número entero válido."; return false; }
-
-            if (CBModificarCategoria.SelectedItem == null) { mensaje = "Debe seleccionar una categoría."; return false; }
             if (CBModificarEstado.SelectedItem == null) { mensaje = "Debe seleccionar el estado."; return false; }
 
             return true;
@@ -392,27 +381,6 @@ namespace OcioStoreIngSoftII
             List<Producto> resultados = _productoNegocio.BuscarProductosGeneral(filtro);
             productosDataGridView.DataSource = null;
             productosDataGridView.DataSource = resultados;
-        }
-
-        private void productosDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            foreach (DataGridViewRow row in productosDataGridView.Rows)
-            {
-                if (row.IsNewRow) continue;
-
-                var valor = row.Cells["estadoValor"].Value;
-                if (valor != null && valor != DBNull.Value)
-                {
-                    bool estado = Convert.ToBoolean(valor);
-                    row.Cells["estado"].Value = estado ? "Baja" : "Alta";
-                }
-                else
-                {
-                    row.Cells["estado"].Value = "Desconocido";
-                }
-            }
-            productosDataGridView.ClearSelection();
-            productosDataGridView.CurrentCell = null;
         }
 
         //Que el enter sirva para buscar
