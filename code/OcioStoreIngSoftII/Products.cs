@@ -383,41 +383,14 @@ namespace OcioStoreIngSoftII
         }
 
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        //Buscar
+        private void BBuscar_Click(object sender, EventArgs e)
         {
             string filtro = txtBuscar.Text.Trim();
 
-            if (string.IsNullOrEmpty(filtro))
-            {
-                actualizarDatosTabla(); // Si el filtro está vacío, muestra todos los productos
-                return;
-            }
-
-            // Intenta buscar por id_producto si el texto es un número
-            if (int.TryParse(filtro, out int idVal))
-            {
-                this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
-                    this.dataSet1.PROC_BUSCAR_PRODUCTO,
-                    idVal, null, null, null, null, null, null, null, null, null, null
-                );
-                return;
-            }
-
-            // Si no es numérico, intenta buscar por nombre de producto
-            this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(
-                this.dataSet1.PROC_BUSCAR_PRODUCTO,
-                null, filtro, null, null, null, null, null, null, null, null, null // nombre_producto
-            );
-            // Si no se encuentran resultados por nombre, intenta por descripción
-            if (this.dataSet1.PROC_BUSCAR_PRODUCTO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_PRODUCTO, null, null, null, null, null, null, null, null, filtro, null, null); // descripcion
-            }
-            // Si sigue sin resultados, intenta por nombre de categoría
-            if (this.dataSet1.PROC_BUSCAR_PRODUCTO.Rows.Count == 0)
-            {
-                this.pROC_BUSCAR_PRODUCTOTableAdapter.Fill(this.dataSet1.PROC_BUSCAR_PRODUCTO, null, null, null, null, null, null, null, null, null, null, filtro); // nombre_categoria
-            }
+            List<Producto> resultados = _productoNegocio.BuscarProductosGeneral(filtro);
+            productosDataGridView.DataSource = null;
+            productosDataGridView.DataSource = resultados;
         }
 
         private void productosDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -439,6 +412,18 @@ namespace OcioStoreIngSoftII
             }
             productosDataGridView.ClearSelection();
             productosDataGridView.CurrentCell = null;
+        }
+
+        //Que el enter sirva para buscar
+        private void Users_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BBuscar_Click(BBuscar, EventArgs.Empty);
+
+                // Evita el sonido "ding" de Windows al presionar Enter en algunos contextos
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

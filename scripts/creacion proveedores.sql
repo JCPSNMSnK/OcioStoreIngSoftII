@@ -113,5 +113,26 @@ BEGIN
 END
 GO
 
+--4. OBTENER PROVEEDOR POR ID
+
+CREATE OR ALTER PROCEDURE PROC_OBTENER_PROVEEDOR_POR_ID
+    @id_proveedor INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        id_proveedor,
+        nombre_proveedor,
+        cuit,
+        telefono_contacto
+    FROM
+        Proveedores
+    WHERE
+        id_proveedor = @id_proveedor;
+END
+GO
+
+
 
 
