@@ -190,7 +190,7 @@ namespace OcioStoreIngSoftII
 
         private void BackupButton_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario((IconButton)sender, new Backup());
         }
 
         private void ClientsButton_Click(object sender, EventArgs e)

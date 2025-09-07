@@ -212,6 +212,8 @@
     <Compile Include="Reserva.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="Usuario.cs" />
+    <Compile Include="Utilidades\OpcionSelect.cs" />
+    <Compile Include="Utilidades\ResultadoOperacion.cs" />
     <Compile Include="VendedorConMasVentas.cs" />
     <Compile Include="VentaPorPeriodo.cs" />
     <Compile Include="Ventas.cs" />

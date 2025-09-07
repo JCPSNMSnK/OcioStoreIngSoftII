@@ -13,8 +13,7 @@ using CapaDatos;
 using CapaEntidades;
 using CapaNegocio;
 using CapaNegocio.Seguridad;
-
-using OcioStoreIngSoftII.Utillidades;
+using CapaEntidades.Utilidades;
 
 namespace OcioStoreIngSoftII
 {

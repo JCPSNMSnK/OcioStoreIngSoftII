@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OcioStoreIngSoftII.Utillidades
+namespace CapaEntidades.Utilidades
 {
-    internal class OpcionSelect
+    public class OpcionSelect
     {
         public string Texto { get; set; }
         public object Valor { get; set; }
