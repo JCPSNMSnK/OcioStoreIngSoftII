@@ -133,7 +133,9 @@ CREATE OR ALTER PROCEDURE PROC_BUSCAR_CLIENTE
     @telefono_cliente VARCHAR(20) = NULL,
     @email_cliente VARCHAR(50) = NULL,
     @localidad_cliente VARCHAR(50) = NULL,
-    @provincia_cliente VARCHAR(50) = NULL
+    @provincia_cliente VARCHAR(50) = NULL,
+    @busqueda_general VARCHAR(100) = NULL --  NUEVO PARÁMETRO
+
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -151,7 +153,12 @@ BEGIN
     FROM
         Clientes
     WHERE
-        (@dni_cliente IS NULL OR dni_cliente = @dni_cliente)
+        (@busqueda_general IS NULL OR
+            apellido_cliente LIKE '%' + @busqueda_general + '%' OR
+            nombre_cliente LIKE '%' + @busqueda_general + '%' OR
+            dni_cliente LIKE '%' + @busqueda_general + '%' OR
+            email_cliente LIKE '%' + @busqueda_general + '%')
+        AND (@dni_cliente IS NULL OR dni_cliente = @dni_cliente)
         AND (@nombre_cliente IS NULL OR nombre_cliente LIKE '%' + @nombre_cliente + '%')
         AND (@apellido_cliente IS NULL OR apellido_cliente LIKE '%' + @apellido_cliente + '%')
         AND (@telefono_cliente IS NULL OR telefono_cliente LIKE '%' + @telefono_cliente + '%')

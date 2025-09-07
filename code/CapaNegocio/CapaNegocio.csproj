@@ -203,7 +203,7 @@
     <Compile Include="Permiso_negocio.cs" />
     <Compile Include="Producto_negocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proveedor_negocio.cs" />
+    <Compile Include="Proveedores_negocio.cs" />
     <Compile Include="Reserva_negocio.cs" />
     <Compile Include="Roles_negocio.cs" />
     <Compile Include="Seguridad\PasswordHasher.cs" />

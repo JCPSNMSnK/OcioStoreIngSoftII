@@ -141,10 +141,10 @@ namespace CapaNegocio
 
         }
 
-        public List<Usuario> BuscarUsuarios(Usuario filtros)
+        /*public List<Usuario> BuscarUsuarios(Usuario filtros)
         {
             return objUser_datos.BuscarUsuarios(filtros);
-        }
+        }*/
 
         public List<Usuario> BuscarUsuariosGeneral(string filtros)
         {

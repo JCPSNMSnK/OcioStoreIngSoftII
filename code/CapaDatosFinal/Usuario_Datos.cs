@@ -132,7 +132,7 @@ namespace CapaDatos
             return lista;
         }
 
-        public List<Usuario> BuscarUsuarios(Usuario filtros)
+        /*public List<Usuario> BuscarUsuarios(Usuario filtros)
         {
             List<Usuario> lista = new List<Usuario>();
 
@@ -201,7 +201,7 @@ namespace CapaDatos
                 }
             }
             return lista;
-        }
+        }*/
 
         public List<Usuario> BuscarUsuariosGeneral(string busqueda)
         {
