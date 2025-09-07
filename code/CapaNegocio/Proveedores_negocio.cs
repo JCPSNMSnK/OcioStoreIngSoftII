@@ -102,5 +102,15 @@ namespace CapaNegocio
             // Se asume que la capa de datos tiene un método para esta validación.
             return objProveedorDatos.VerificarExistencia(cuit, idProveedor);
         }
+
+        public Proveedor ObtenerProveedorPorId(int idProveedor)
+        {
+            if (idProveedor <= 0)
+            {
+                return null;
+            }
+
+            return objProveedorDatos.ObtenerProveedorPorId(idProveedor);
+        }
     }
 }

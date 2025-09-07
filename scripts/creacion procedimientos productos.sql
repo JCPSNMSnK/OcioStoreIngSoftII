@@ -241,3 +241,74 @@ BEGIN
     END CATCH;
 END;
 GO
+
+--5. BUSCAR PRODUCTOS
+
+USE [ocio_store]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[PROC_BUSCAR_PRODUCTO]
+    @id_producto INT = NULL,
+    @nombre_producto VARCHAR(100) = NULL,
+    @fechaIngreso DATE = NULL,
+    @precioLista DECIMAL(10,2) = NULL,
+    @precioVenta DECIMAL(10,2) = NULL,
+    @baja_producto BIT = NULL,
+    @stock INT = NULL,
+    @stock_min INT = NULL,
+    @descripcion VARCHAR(250) = NULL,
+    @id_categoria INT = NULL,
+    @nombre_categoria VARCHAR(100) = NULL,
+    @cod_producto INT = NULL,
+    @id_proveedor INT = NULL,
+    @nombre_proveedor VARCHAR(100) = NULL,
+    @busqueda_general VARCHAR(100) = NULL -- NUEVO PARÁMETRO PARA BÚSQUEDA GENERAL
+AS
+BEGIN
+    SELECT 
+        p.id_producto,
+        p.nombre_producto,
+        p.fechaIngreso,
+        p.precioLista,
+        p.precioVenta,
+        p.baja_producto,
+        p.stock,
+        p.stock_min,
+        p.descripcion,
+        p.cod_producto, -- Nuevo campo
+        p.id_proveedor, -- Nuevo campo
+        pr.nombre_proveedor, -- Nombre del proveedor
+        c.id_categoria,
+        c.nombre_categoria
+    FROM Productos p
+    INNER JOIN ProductosCategorias pc ON p.id_producto = pc.id_producto
+    INNER JOIN Categorias c ON pc.id_categoria = c.id_categoria
+    INNER JOIN Proveedores pr ON p.id_proveedor = pr.id_proveedor -- Nuevo JOIN a Proveedores
+    WHERE
+        -- Lógica de búsqueda general
+        (@busqueda_general IS NULL OR
+            p.nombre_producto LIKE '%' + @busqueda_general + '%' OR
+            p.descripcion LIKE '%' + @busqueda_general + '%' OR
+            p.cod_producto LIKE '%' + @busqueda_general + '%' OR -- Búsqueda por código de producto
+            c.nombre_categoria LIKE '%' + @busqueda_general + '%' OR
+            pr.nombre_proveedor LIKE '%' + @busqueda_general + '%') -- Búsqueda por nombre de proveedor
+        AND
+        (@id_producto IS NULL OR p.id_producto = @id_producto) AND
+        (@nombre_producto IS NULL OR p.nombre_producto COLLATE Latin1_General_CI_AI LIKE '%' + @nombre_producto + '%' COLLATE Latin1_General_CI_AI) AND
+        (@fechaIngreso IS NULL OR p.fechaIngreso = @fechaIngreso) AND
+        (@precioLista IS NULL OR p.precioLista = @precioLista) AND
+        (@precioVenta IS NULL OR p.precioVenta = @precioVenta) AND
+        (@baja_producto IS NULL OR p.baja_producto = @baja_producto) AND
+        (@stock IS NULL OR p.stock = @stock) AND
+        (@stock_min IS NULL OR p.stock_min = @stock_min) AND
+        (@descripcion IS NULL OR p.descripcion COLLATE Latin1_General_CI_AI LIKE '%' + @descripcion + '%' COLLATE Latin1_General_CI_AI) AND
+        (@id_categoria IS NULL OR c.id_categoria = @id_categoria) AND
+        (@nombre_categoria IS NULL OR c.nombre_categoria COLLATE Latin1_General_CI_AI LIKE '%' + @nombre_categoria + '%' COLLATE Latin1_General_CI_AI) AND
+        (@cod_producto IS NULL OR p.cod_producto = @cod_producto) AND
+        (@id_proveedor IS NULL OR p.id_proveedor = @id_proveedor) AND
+        (@nombre_proveedor IS NULL OR pr.nombre_proveedor COLLATE Latin1_General_CI_AI LIKE '%' + @nombre_proveedor + '%' COLLATE Latin1_General_CI_AI)
+END

@@ -107,7 +107,7 @@ namespace CapaDatos
                     cmd.ExecuteNonQuery();
 
                     mensaje = cmd.Parameters["mensaje"].Value.ToString();
-                    resultado = mensaje.Contains("exitosamente"); 
+                    resultado = mensaje.Contains("exitosamente");
                 }
             }
             catch (Exception ex)
@@ -145,6 +145,47 @@ namespace CapaDatos
             }
 
             return existe;
+        }
+
+        public Proveedor ObtenerProveedorPorId(int idProveedor)
+        {
+            Proveedor proveedor = null;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_OBTENER_PROVEEDOR_POR_ID", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Agregar el parámetro con el ID del proveedor
+                    cmd.Parameters.AddWithValue("@id_proveedor", idProveedor);
+
+                    oconexion.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Leer la única fila que se espera del resultado
+                        if (reader.Read())
+                        {
+                            proveedor = new Proveedor()
+                            {
+                                id_proveedor = Convert.ToInt32(reader["id_proveedor"]),
+                                nombre_proveedor = reader["nombre_proveedor"].ToString(),
+                                cuit_proveedor = reader["cuit_proveedor"].ToString(),
+                                telefono_proveedor = reader["telefono_proveedor"].ToString()
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de excepciones: Puedes loguear el error o lanzarlo a una capa superior.
+                    // Aquí, simplemente devolvemos null para indicar que no se encontró el proveedor.
+                    proveedor = null;
+                }
+            }
+            return proveedor;
         }
     }
 }
