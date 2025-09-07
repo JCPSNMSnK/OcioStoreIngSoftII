@@ -337,3 +337,26 @@ BEGIN
 END
 GO
 
+
+	-- 8 ACTUALIZAR CATEGORIAS DE PRODUCTOS
+
+CREATE TYPE dbo.ListaDeIds AS TABLE (
+    ID INT
+);
+GO
+
+CREATE PROCEDURE PROC_ACTUALIZAR_CATEGORIAS_PRODUCTO
+    @id_producto INT,
+    @nuevas_categorias dbo.ListaDeIds READONLY -- Recibe la nueva lista de IDs
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    -- 1. Borramos las categorías viejas para este producto
+    DELETE FROM dbo.ProductosCategorias WHERE id_producto = @id_producto;
+
+    -- 2. Insertamos las nuevas categorías desde la tabla que recibimos
+    INSERT INTO dbo.ProductosCategorias (id_producto, id_categoria)
+    SELECT @id_producto, ID FROM @nuevas_categorias;
+END
+GO
