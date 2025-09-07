@@ -242,7 +242,7 @@ BEGIN
 END;
 GO
 
---5. BUSCAR PRODUCTOS
+--6. BUSCAR PRODUCTOS
 
 USE [ocio_store]
 GO
@@ -251,7 +251,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER PROCEDURE [dbo].[PROC_BUSCAR_PRODUCTO]
+CREATE OR ALTER PROCEDURE [dbo].[PROC_BUSCAR_PRODUCTO]
     @id_producto INT = NULL,
     @nombre_producto VARCHAR(100) = NULL,
     @fechaIngreso DATE = NULL,
@@ -312,3 +312,28 @@ BEGIN
         (@id_proveedor IS NULL OR p.id_proveedor = @id_proveedor) AND
         (@nombre_proveedor IS NULL OR pr.nombre_proveedor COLLATE Latin1_General_CI_AI LIKE '%' + @nombre_proveedor + '%' COLLATE Latin1_General_CI_AI)
 END
+GO
+
+	--7 LISTAR PRODUCTOS CON STOCK BAJO
+
+USE [ocio_store]
+GO
+
+CREATE PROCEDURE PROC_LISTAR_PRODUCTOS_STOCK_BAJO
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        nombre_producto,
+        stock,
+        stock_min
+    FROM 
+        dbo.Productos
+    WHERE 
+        stock <= stock_min
+    ORDER BY
+        stock ASC;
+END
+GO
+
