@@ -16,6 +16,7 @@ namespace CapaDatos
     {
         public List<Producto> BuscarProductosGeneral(string busqueda)
         {
+            var diccionarioProductos = new Dictionary<int, Producto>();
             List<Producto> lista = new List<Producto>();
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
@@ -26,34 +27,40 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@busqueda_general", string.IsNullOrEmpty(busqueda) ? (object)DBNull.Value : busqueda);
 
                     oconexion.Open();
-
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            Producto producto = new Producto()
-                            {
-                                id_producto = Convert.ToInt32(reader["id_producto"]),
-                                nombre_producto = reader["nombre_producto"].ToString(),
-                                fechaIngreso = Convert.ToDateTime(reader["fechaIngreso"]),
-                                precioLista = Convert.ToDecimal(reader["precioLista"]),
-                                precioVenta = Convert.ToDecimal(reader["precioVenta"]),
-                                baja_producto = Convert.ToBoolean(reader["baja_producto"]),
-                                stock = Convert.ToInt32(reader["stock"]),
-                                stock_min = Convert.ToInt32(reader["stock_min"]),
-                                descripcion = reader["descripcion"].ToString(),
-                                cod_producto = Convert.ToInt32(reader["cod_producto"]),
-                                id_proveedor = Convert.ToInt32(reader["id_proveedor"]),
-                                categorias = new List<Categoria>()
-                            };
+                            int idProducto = Convert.ToInt32(reader["id_producto"]);
+                            Producto productoExistente;
 
-                            producto.categorias.Add(new Categoria()
+                            if (!diccionarioProductos.TryGetValue(idProducto, out productoExistente))
                             {
-                                id_categoria = Convert.ToInt32(reader["id_categoria"]),
-                                nombre_categoria = reader["nombre_categoria"].ToString()
-                            });
-
-                            lista.Add(producto);
+                                productoExistente = new Producto()
+                                {
+                                    id_producto = Convert.ToInt32(reader["id_producto"]),
+                                    nombre_producto = reader["nombre_producto"].ToString(),
+                                    fechaIngreso = Convert.ToDateTime(reader["fechaIngreso"]),
+                                    precioLista = Convert.ToDecimal(reader["precioLista"]),
+                                    precioVenta = Convert.ToDecimal(reader["precioVenta"]),
+                                    baja_producto = Convert.ToBoolean(reader["baja_producto"]),
+                                    stock = Convert.ToInt32(reader["stock"]),
+                                    stock_min = Convert.ToInt32(reader["stock_min"]),
+                                    descripcion = reader["descripcion"].ToString(),
+                                    cod_producto = reader["cod_producto"] == DBNull.Value ? 0 : Convert.ToInt32(reader["cod_producto"]),
+                                    id_proveedor = reader["id_proveedor"] == DBNull.Value ? 0 : Convert.ToInt32(reader["id_proveedor"]),
+                                    categorias = new List<Categoria>()
+                                };
+                                diccionarioProductos.Add(idProducto, productoExistente);
+                            }
+                            if (reader["id_categoria"] != DBNull.Value)
+                            {
+                                productoExistente.categorias.Add(new Categoria()
+                                {
+                                    id_categoria = Convert.ToInt32(reader["id_categoria"]),
+                                    nombre_categoria = reader["nombre_categoria"].ToString()
+                                });
+                            }
                         }
                     }
                 }
@@ -63,10 +70,10 @@ namespace CapaDatos
                     throw;
                 }
             }
-            return lista;
+            return diccionarioProductos.Values.ToList();
         }
 
-        /*public List<Producto> Listar()//mostrarProductos
+        public List<Producto> Listar()//mostrarProductos
         {
             List<Producto> lista = new List<Producto>();
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
@@ -121,7 +128,7 @@ namespace CapaDatos
                 }
             }
             return lista;
-        }*/
+        }
 
         public int Registrar(Producto obj, Categoria objCat, out string Mensaje)//crearProducto
         {
@@ -243,7 +250,7 @@ namespace CapaDatos
                                 id_proveedor = Convert.ToInt32(dr["id_proveedor"]),
 
                                 // Inicializar la lista de categorías
-                                categoria = new List<Categoria>()
+                                categorias = new List<Categoria>()
                             };
                         }
 
@@ -253,7 +260,7 @@ namespace CapaDatos
                             while (dr.Read())
                             {
                                 // Agregar cada categoría a la lista del producto
-                                productoObtenido.categoria.Add(new Categoria()
+                                productoObtenido.categorias.Add(new Categoria()
                                 {
                                     id_categoria = Convert.ToInt32(dr["id_categoria"]),
                                     nombre_categoria = dr["nombre_categoria"].ToString()

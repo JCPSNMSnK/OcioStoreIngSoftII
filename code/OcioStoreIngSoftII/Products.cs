@@ -21,6 +21,7 @@ namespace OcioStoreIngSoftII
             InitializeComponent();
             _productoNegocio = new Producto_negocio();
             _categoriaNegocio = new Categoria_negocio();
+            _proveedorNegocio = new Proveedores_negocio();
         }
 
         private void Products_Load(object sender, EventArgs e)

@@ -31,6 +31,7 @@
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.btnCerrarNotificacion = new FontAwesome.Sharp.IconButton();
             this.lblMensaje = new CuoreUI.Controls.cuiLabel();
+            this.cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             // btnCerrarNotificacion
             // 
             this.btnCerrarNotificacion.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnCerrarNotificacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrarNotificacion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCerrarNotificacion.FlatAppearance.BorderSize = 0;
             this.btnCerrarNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -71,13 +73,24 @@
             this.lblMensaje.Content = "Notificación";
             this.lblMensaje.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.lblMensaje.Location = new System.Drawing.Point(61, 19);
+            this.lblMensaje.Location = new System.Drawing.Point(61, 32);
             this.lblMensaje.Margin = new System.Windows.Forms.Padding(10);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Padding = new System.Windows.Forms.Padding(10);
-            this.lblMensaje.Size = new System.Drawing.Size(280, 119);
+            this.lblMensaje.Size = new System.Drawing.Size(280, 101);
             this.lblMensaje.TabIndex = 2;
             this.lblMensaje.VerticalAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // cuiPanel1
+            // 
+            this.cuiPanel1.Location = new System.Drawing.Point(-9, 0);
+            this.cuiPanel1.Name = "cuiPanel1";
+            this.cuiPanel1.OutlineThickness = 1F;
+            this.cuiPanel1.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.cuiPanel1.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cuiPanel1.Rounding = new System.Windows.Forms.Padding(8);
+            this.cuiPanel1.Size = new System.Drawing.Size(396, 24);
+            this.cuiPanel1.TabIndex = 3;
             // 
             // AvisoStockMinimo
             // 
@@ -88,6 +101,7 @@
             this.Controls.Add(this.btnCerrarNotificacion);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.iconPictureBox1);
+            this.Controls.Add(this.cuiPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AvisoStockMinimo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -105,5 +119,6 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private FontAwesome.Sharp.IconButton btnCerrarNotificacion;
         private CuoreUI.Controls.cuiLabel lblMensaje;
+        private CuoreUI.Controls.cuiPanel cuiPanel1;
     }
 }

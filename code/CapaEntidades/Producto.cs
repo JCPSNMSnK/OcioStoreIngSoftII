@@ -17,9 +17,26 @@ namespace CapaEntidades
         public int stock { get; set; }
         public int stock_min { get; set; }
         public string descripcion { get; set; }
-        public List<Categoria> categoria { get; set; }
+        public List<Categoria> categorias { get; set; }
         public int cod_producto { get; set; }
         public int id_proveedor { get; set; }
+
+
+        //Para manejar las categorías - productos
+        public string CategoriasConcatenadas
+        {
+            get
+            {
+                // Si la lista de categorías no es nula y tiene elementos,
+                // une los nombres de las categorías con ", ". Si no, devuelve un string vacío.
+                if (categorias != null && categorias.Any())
+                {
+                    return string.Join(", ", categorias.Select(c => c.nombre_categoria));
+                }
+                return "";
+            }
+        }
+
 
         //constructor con ID por defecto y fecha de ahora, para registrar en DB y pasado a la capa de datos para su registro
         //no recibe el booleana de dado de baja y lo asigna como false
@@ -34,7 +51,7 @@ namespace CapaEntidades
             this.stock = stockInicial;
             this.stock_min = stockMinimo;
             this.descripcion = descripcionProducto;
-            this.categoria = categorias ?? new List<Categoria>(); // Asegura que la lista no sea null
+            this.categorias = categorias ?? new List<Categoria>(); // Asegura que la lista no sea null
             this.cod_producto = cod_producto;
             this.id_proveedor = id_proveedor;
         }
@@ -52,7 +69,7 @@ namespace CapaEntidades
             this.stock = stockInicial;
             this.stock_min = stockMinimo;
             this.descripcion = descripcionProducto;
-            this.categoria = categorias ?? new List<Categoria>();
+            this.categorias = categorias ?? new List<Categoria>();
             this.cod_producto = cod_producto;
             this.id_proveedor = id_proveedor;
         }
@@ -69,7 +86,7 @@ namespace CapaEntidades
             this.stock = stockActual;
             this.stock_min = stockMinimo;
             this.descripcion = descripcionProducto;
-            this.categoria = categorias ?? new List<Categoria>();
+            this.categorias = categorias ?? new List<Categoria>();
             this.cod_producto = cod_producto;
             this.id_proveedor = id_proveedor;
         }
