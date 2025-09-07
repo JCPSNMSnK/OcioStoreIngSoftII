@@ -285,9 +285,9 @@ BEGIN
         c.id_categoria,
         c.nombre_categoria
     FROM Productos p
-    INNER JOIN ProductosCategorias pc ON p.id_producto = pc.id_producto
-    INNER JOIN Categorias c ON pc.id_categoria = c.id_categoria
-    INNER JOIN Proveedores pr ON p.id_proveedor = pr.id_proveedor -- Nuevo JOIN a Proveedores
+    LEFT JOIN ProductosCategorias pc ON p.id_producto = pc.id_producto
+    LEFT JOIN Categorias c ON pc.id_categoria = c.id_categoria
+    LEFT JOIN Proveedores pr ON p.id_proveedor = pr.id_proveedor -- Nuevo JOIN a Proveedores
     WHERE
         -- Lógica de búsqueda general
         (@busqueda_general IS NULL OR
