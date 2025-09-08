@@ -130,7 +130,7 @@ namespace CapaDatos
             return lista;
         }
 
-        public int Registrar(Producto obj, Categoria objCat, out string Mensaje)//crearProducto
+        public int Registrar(Producto obj, out string Mensaje)//crearProducto
         {
             int id_producto_generado = 0;
             Mensaje = string.Empty;
@@ -148,7 +148,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("stock", obj.stock);
                     cmd.Parameters.AddWithValue("stock_min", obj.stock_min);
                     cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
-                    cmd.Parameters.AddWithValue("id_categoria", objCat.id_categoria);
+
                     cmd.Parameters.AddWithValue("cod_producto", obj.cod_producto);
                     cmd.Parameters.AddWithValue("id_proveedor", obj.id_proveedor);
 
@@ -159,6 +159,24 @@ namespace CapaDatos
 
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
+
+                    SqlCommand cmdCategorias = new SqlCommand("PROC_ACTUALIZAR_CATEGORIAS_PRODUCTO", oconexion);
+                    cmdCategorias.CommandType = CommandType.StoredProcedure;
+                    cmdCategorias.Parameters.AddWithValue("@id_producto", obj.id_producto);
+
+                    DataTable dtCategorias = new DataTable();
+                    dtCategorias.Columns.Add("ID", typeof(int));
+                    if (obj.categorias != null)
+                    {
+                        foreach (var cat in obj.categorias)
+                        {
+                            dtCategorias.Rows.Add(cat.id_categoria);
+                        }
+                    }
+                    SqlParameter paramCategorias = cmdCategorias.Parameters.AddWithValue("@nuevas_categorias", dtCategorias);
+                    paramCategorias.SqlDbType = SqlDbType.Structured;
+
+                    cmdCategorias.ExecuteNonQuery();
 
                     id_producto_generado = Convert.ToInt32(cmd.Parameters["id_producto_resultado"].Value);
                     Mensaje = cmd.Parameters["mensaje"].Value.ToString();
@@ -174,7 +192,7 @@ namespace CapaDatos
         }
 
         
-        public bool Editar(Producto obj, Categoria objCat, out string Mensaje)//modificarProducto
+        public bool Editar(Producto obj, out string Mensaje)//modificarProducto
         {
             bool resultado = false;
             Mensaje = string.Empty;
@@ -192,7 +210,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("stock", obj.stock);
                     cmd.Parameters.AddWithValue("stock_min", obj.stock_min);
                     cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
-                    cmd.Parameters.AddWithValue("id_categoria", objCat.id_categoria);
                     cmd.Parameters.AddWithValue("cod_producto", obj.cod_producto);
                     cmd.Parameters.AddWithValue("id_proveedor", obj.id_proveedor);
 
@@ -203,6 +220,26 @@ namespace CapaDatos
 
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
+
+                    SqlCommand cmdCategorias = new SqlCommand("PROC_ACTUALIZAR_CATEGORIAS_PRODUCTO", oconexion);
+                    cmdCategorias.CommandType = CommandType.StoredProcedure;
+                    cmdCategorias.Parameters.AddWithValue("@id_producto", obj.id_producto);
+
+                    //Crea tabla de ids 
+                    DataTable dtCategorias = new DataTable();
+                    dtCategorias.Columns.Add("ID", typeof(int));
+                    if (obj.categorias != null)
+                    {
+                        foreach (var cat in obj.categorias)
+                        {
+                            dtCategorias.Rows.Add(cat.id_categoria);
+                        }
+                    }
+                    // Lo pasamos como un parámetro de tipo tabla
+                    SqlParameter paramCategorias = cmdCategorias.Parameters.AddWithValue("@nuevas_categorias", dtCategorias);
+                    paramCategorias.SqlDbType = SqlDbType.Structured;
+
+                    cmdCategorias.ExecuteNonQuery();
 
                     resultado = Convert.ToBoolean(cmd.Parameters["respuesta"].Value);
                     Mensaje = cmd.Parameters["mensaje"].Value.ToString();

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace OcioStoreIngSoftII
@@ -17,6 +18,7 @@ namespace OcioStoreIngSoftII
         private readonly Categoria_negocio _categoriaNegocio;
         private readonly Proveedores_negocio _proveedorNegocio;
         private Producto productoSeleccionado;
+        private List<Categoria> categoriasNuevoProducto;
 
         public Products()
         {
@@ -24,6 +26,7 @@ namespace OcioStoreIngSoftII
             _productoNegocio = new Producto_negocio();
             _categoriaNegocio = new Categoria_negocio();
             _proveedorNegocio = new Proveedores_negocio();
+            categoriasNuevoProducto = new List<Categoria>();
         }
 
         private void Products_Load(object sender, EventArgs e)
@@ -56,7 +59,6 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        /// Carga las categorías desde la capa de negocio en un ComboBox.
         private void CargarComboBoxProveedor(ComboBox comboBox)
         {
             try
@@ -77,7 +79,6 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        /// Idealmente, esta carga de datos debería pasar por la capa de negocio xd
         private void actualizarDatosTabla(string filtros = null)
         {
             if (filtros == null)
@@ -90,6 +91,7 @@ namespace OcioStoreIngSoftII
             productosDataGridView.DataSource = null;
             productosDataGridView.DataSource = resultados;
         }
+
 
         // Lógica de dibujo de celdas - Pertenece a la capa de Presentación
         private void productosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -112,7 +114,8 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        // Vacía y reinicia los campos de entrada de la UI.
+
+        // Vacía y reinicia los campos de entrada
         private void VaciarCampos()
         {
             // Campos de Registro
@@ -124,9 +127,11 @@ namespace OcioStoreIngSoftII
             NStock.Text = string.Empty;
             NStockMin.Text = string.Empty;
             TCodigo.Content = "0"; //
-            if (CBCategoria.Items.Count > 0) CBCategoria.SelectedIndex = 0;
             if (CBEstado.Items.Count > 0) CBEstado.SelectedIndex = 0;
             if (CBProveedor.Items.Count > 0) CBProveedor.SelectedIndex = 0;
+            // Limpia la lista temporal y el TextBox de categorías
+            this.categoriasNuevoProducto.Clear();
+            TCategorias.Text = string.Empty;
 
             // Campos de Modificación
             TModificarID_prod.Text = "0"; // ID 0 para indicar que no hay producto cargado
@@ -139,6 +144,7 @@ namespace OcioStoreIngSoftII
             TModificarCodigo.Content = "0";
             // No se reinician los SelectedIndex de modificar, ya que se llenan al seleccionar una fila.
         }
+
 
         // Cargar datos en el formulario de modificación al seleccionar una fila
         private void productosDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -157,10 +163,11 @@ namespace OcioStoreIngSoftII
 
                     // Cargar datos de la fila seleccionada a los controles de modificación
                     TModificarID_prod.Text = productoSeleccionado.id_producto.ToString();
-                    TModificarNombreProducto.Text = productoSeleccionado.nombre_producto.ToString();
-                    TModificarDescripcion.Text = productoSeleccionado.descripcion.ToString();
-                    TModificarPrecioLista.Text = productoSeleccionado.precioLista.ToString();
-                    TModificarPrecioVenta.Text = productoSeleccionado.precioVenta.ToString();
+                    TModificarNombreProducto.Content = productoSeleccionado.nombre_producto.ToString();
+                    TModificarDescripcion.Content = productoSeleccionado.descripcion.ToString();
+                    TModificarPrecioLista.Content = productoSeleccionado.precioLista.ToString();
+                    TModificarPrecioVenta.Content = productoSeleccionado.precioVenta.ToString();
+                    TModificarCodigo.Content = productoSeleccionado.cod_producto.ToString();
                     NModificarStock.Text = productoSeleccionado.stock.ToString();
                     NModificarStockMin.Text = productoSeleccionado.stock_min.ToString();
 
@@ -182,12 +189,13 @@ namespace OcioStoreIngSoftII
             }
         }
 
+
         /// Evento Click para el botón de Registro de Producto.
         /// La capa de presentación se encarga de la captura, validación de formato y delegación.
         private void BRegisterProduct_Click_1(object sender, EventArgs e)
         {
             string uiValidationMessage;
-            // 1. Validaciones a nivel de UI (formato y obligatoriedad)
+
             // Estas validaciones evitan enviar datos mal formados a la capa de negocio.
             if (!ValidarCamposRegistro(out uiValidationMessage))
             {
@@ -195,16 +203,15 @@ namespace OcioStoreIngSoftII
                 return;
             }
 
-            // 2. Parseo de datos de la UI a tipos de datos adecuados
+            //  Parseo de datos de la UI a tipos de datos adecuados
             decimal precioLista = decimal.Parse(TPrecioLista.Text);
             decimal precioVenta = decimal.Parse(TPrecioVenta.Text);
             int stock = int.Parse(NStock.Text);
             int stockMin = int.Parse(NStockMin.Text);
             bool bajaProducto = Convert.ToInt32(((OpcionSelect)CBEstado.SelectedItem).Valor) == 1;
-            int idCategoria = Convert.ToInt32(((OpcionSelect)CBCategoria.SelectedItem).Valor);
-            string nombreCategoria = ((OpcionSelect)CBCategoria.SelectedItem).Texto;
 
-            // 3. Creación de objetos de entidad (Producto y Categoria)
+
+            //  Creación de objetos de entidad (Producto y Categoria)
             Producto objProducto = new Producto()
             {
                 id_producto = Convert.ToInt32(TID_prod.Text), // Asume 0 para nuevos registros
@@ -216,20 +223,14 @@ namespace OcioStoreIngSoftII
                 stock = stock,
                 stock_min = stockMin,
                 baja_producto = bajaProducto,
+                categorias = this.categoriasNuevoProducto
             };
-            Categoria objCategoria = new Categoria()
-            {
-                id_categoria = idCategoria,
-                nombre_categoria = nombreCategoria
-            };
-
             string businessValidationMessage = string.Empty; // Mensaje devuelto por la capa de negocio
 
-            // 4. Llamada a la Capa de Negocio para el registro
             // Aquí se valida la lógica de negocio (por ejemplo, precioVenta > precioLista)
-            int idRegistrado = _productoNegocio.Registrar(objProducto, objCategoria, out businessValidationMessage);
+            int idRegistrado = _productoNegocio.Registrar(objProducto, out businessValidationMessage);
 
-            // 5. Manejo del resultado de la operación
+
             if (idRegistrado != 0) // Éxito en el registro
             {
                 MessageBox.Show("Producto registrado exitosamente con ID: " + idRegistrado, "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -254,39 +255,37 @@ namespace OcioStoreIngSoftII
             if (!decimal.TryParse(TPrecioVenta.Text, out decimal precioVenta)) { mensaje = "El precio de venta debe ser un número válido."; return false; }
             if (!int.TryParse(NStock.Text, out int stock)) { mensaje = "El stock debe ser un número entero válido."; return false; }
             if (!int.TryParse(NStockMin.Text, out int stockMin)) { mensaje = "El stock mínimo debe ser un número entero válido."; return false; }
-
-            if (CBCategoria.SelectedItem == null) { mensaje = "Debe seleccionar una categoría."; return false; }
             if (CBEstado.SelectedItem == null) { mensaje = "Debe seleccionar un estado."; return false; }
 
             return true;
         }
+
 
         /// Evento Click para el botón de Modificar Producto.
         /// La capa de presentación se encarga de la captura, validación de formato y delegación.
         private void BModificar_Click_1(object sender, EventArgs e)
         {
             string uiValidationMessage;
-            // 1. Validaciones a nivel de UI (formato y obligatoriedad)
+            //  Validaciones a nivel de UI (formato y obligatoriedad)
             if (!ValidarCamposModificacion(out uiValidationMessage))
             {
                 MessageBox.Show(uiValidationMessage, "Error de Validación de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. Parseo de datos de la UI a tipos de datos adecuados
+            //  Parseo de datos de la UI a tipos de datos adecuados
             decimal precioLista = decimal.Parse(TModificarPrecioLista.Text);
             decimal precioVenta = decimal.Parse(TModificarPrecioVenta.Text);
             int stock = int.Parse(NModificarStock.Text);
             int stockMin = int.Parse(NModificarStockMin.Text);
             bool bajaProducto = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1;
-            int idCategoria = Convert.ToInt32(((OpcionSelect)CBModificarCategoria.SelectedItem).Valor);
 
-            // 3. Creación de objetos de entidad (Producto y Categoria)
+            //  Creación de objetos de entidad (Producto y Categoria)
             Producto objProducto = new Producto()
             {
                 id_producto = Convert.ToInt32(TModificarID_prod.Text),
-                nombre_producto = TModificarNombreProducto.Text,
-                descripcion = TModificarDescripcion.Text,
+                nombre_producto = TModificarNombreProducto.Content,
+                descripcion = TModificarDescripcion.Content,
                 precioLista = precioLista,
                 precioVenta = precioVenta,
                 stock = stock,
@@ -297,63 +296,21 @@ namespace OcioStoreIngSoftII
 
             string businessValidationMessage = string.Empty;
 
-            // 4. Llamada a la Capa de Negocio para la edición
-            bool resultado = _productoNegocio.Editar(objProducto, objCategoria, out businessValidationMessage);
+            //  Llamada a la Capa de Negocio para la edición
+            bool resultado = _productoNegocio.Editar(objProducto, out businessValidationMessage);
 
-            // 5. Manejo del resultado de la operación
+            //  Manejo del resultado de la operación
             if (resultado)
             {
                 MessageBox.Show("Producto modificado exitosamente.", "Modificación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Actualizar la fila específica en el DataGridView
-                DataGridViewRow row = productosDataGridView.Rows[Convert.ToInt32(TBModificarIndice.Text)];
-
-                row.Cells["nombre_producto"].Value = objProducto.nombre_producto;
-                row.Cells["descripcion"].Value = objProducto.descripcion;
-                row.Cells["precioLista"].Value = objProducto.precioLista;
-                row.Cells["precioVenta"].Value = objProducto.precioVenta;
-                row.Cells["stock"].Value = objProducto.stock;
-                row.Cells["stock_min"].Value = objProducto.stock_min;
-                row.Cells["id_categoria"].Value = objCategoria.id_categoria;
-                row.Cells["categoria"].Value = objCategoria.nombre_categoria;
-                row.Cells["estadoValor"].Value = objProducto.baja_producto;
-                row.Cells["estado"].Value = objProducto.baja_producto ? "Baja" : "Alta";
-
+                actualizarDatosTabla();
                 VaciarCampos();
             }
             else
             {
                 MessageBox.Show(businessValidationMessage, "Error al Modificar Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void btnModificarCategorias_Click(object sender, EventArgs e)
-        {
-            if (productoSeleccionado == null)
-            {
-                MessageBox.Show("Primero debe seleccionar un producto de la tabla.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // 1. Obtén la lista de TODAS las categorías desde la capa de negocio
-            Categoria_negocio objNegocioCategoria = new Categoria_negocio();
-            List<Categoria> todasLasCategorias = objNegocioCategoria.Listar();
-            /*
-            // 2. Crea y muestra la ventana emergente, pasándole los datos necesarios
-            using (GestionarCategorias popup = new GestionarCategorias(todasLasCategorias, productoActual.categorias))
-            {
-                // Abre el formulario como un diálogo modal (bloquea la ventana padre)
-                var resultado = popup.ShowDialog();
-
-                // 3. Si el usuario hizo clic en "Guardar"
-                if (resultado == DialogResult.OK)
-                {
-                    // Actualiza la lista de categorías del producto con la nueva selección
-                    productoSeleccionado.categorias = popup.CategoriasSeleccionadas;
-                    TCategoriasModificar.Text = productoSeleccionado.CategoriasConcatenadas;
-                }
-            }
-            */
-
         }
 
         // Realiza validaciones de formato y obligatoriedad a nivel de UI para la modificación de productos.
@@ -371,6 +328,58 @@ namespace OcioStoreIngSoftII
 
             return true;
         }
+
+
+        //-----------------------------------------------------------------------------
+        //BOTONES DE CATEGORIAS
+        //-----------------------------------------------------------------------------
+        private void btnModificarCategorias_Click(object sender, EventArgs e)
+        {
+            if (productoSeleccionado == null)
+            {
+                MessageBox.Show("Primero debe seleccionar un producto de la tabla.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //  Obtén la lista de TODAS las categorías desde la capa de negocio
+            Categoria_negocio objNegocioCategoria = new Categoria_negocio();
+            List<Categoria> todasLasCategorias = objNegocioCategoria.Listar();
+            
+            //  Crea y muestra la ventana emergente, pasándole los datos necesarios
+            using (GestionarCategorias popup = new GestionarCategorias(todasLasCategorias, productoSeleccionado.categorias))
+            {
+                // Abre el formulario como un diálogo modal (bloquea la ventana padre)
+                var resultado = popup.ShowDialog();
+
+                //  Si el usuario hizo clic en "Guardar"
+                if (resultado == DialogResult.OK)
+                {
+                    // Actualiza la lista de categorías del producto con la nueva selección
+                    productoSeleccionado.categorias = popup.CategoriasSeleccionadas;
+                    TModificarCategorias.Text = productoSeleccionado.CategoriasConcatenadas;
+                }
+            }            
+        }
+
+        private void btnElegirCategorias_Click(object sender, EventArgs e)
+        {
+            List<Categoria> todasLasCategorias = _categoriaNegocio.Listar();
+
+            using (GestionarCategorias popup = new GestionarCategorias(todasLasCategorias, categoriasNuevoProducto))
+            {
+                var resultado = popup.ShowDialog();
+
+                if (resultado == DialogResult.OK)
+                {
+                    categoriasNuevoProducto = popup.CategoriasSeleccionadas;
+
+                    TCategorias.Text = string.Join(", ", categoriasNuevoProducto.Select(c => c.nombre_categoria));
+                }
+            }
+        }
+        //-----------------------------------------------------------------------------
+        //
+        //-----------------------------------------------------------------------------
 
 
         //Buscar

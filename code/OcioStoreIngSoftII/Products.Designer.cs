@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,7 +66,6 @@
             this.TCodigo = new CuoreUI.Controls.cuiTextBox();
             this.LCodigo = new System.Windows.Forms.Label();
             this.TDescripcion = new CuoreUI.Controls.cuiTextBox();
-            this.CBCategoria = new System.Windows.Forms.ComboBox();
             this.TPrecioVenta = new CuoreUI.Controls.cuiTextBox();
             this.TPrecioLista = new CuoreUI.Controls.cuiTextBox();
             this.TNombreProducto = new CuoreUI.Controls.cuiTextBox();
@@ -107,6 +106,8 @@
             this.LModificarPrecioLista = new System.Windows.Forms.Label();
             this.LModificarNombreProducto = new System.Windows.Forms.Label();
             this.LModificarDescripcion = new System.Windows.Forms.Label();
+            this.btnElegirCategorias = new CuoreUI.Controls.cuiButton();
+            this.TCategorias = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -236,15 +237,15 @@
             this.productosDataGridView.AllowUserToDeleteRows = false;
             this.productosDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.productosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.productosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -262,14 +263,14 @@
             this.estadoValor,
             this.Proveedor,
             this.id_proveedor});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productosDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productosDataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             this.productosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productosDataGridView.EnableHeadersVisualStyles = false;
             this.productosDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
@@ -278,19 +279,20 @@
             this.productosDataGridView.Name = "productosDataGridView";
             this.productosDataGridView.ReadOnly = true;
             this.productosDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.productosDataGridView.RowHeadersVisible = false;
             this.productosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productosDataGridView.Size = new System.Drawing.Size(1097, 394);
             this.productosDataGridView.TabIndex = 57;
             this.productosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productosDataGridView_CellContentClick_1);
+            this.productosDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.productosDataGridView_CellPainting);
             // 
             // btnSeleccionar
             // 
@@ -470,6 +472,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnElegirCategorias);
+            this.panel3.Controls.Add(this.TCategorias);
             this.panel3.Controls.Add(this.TIndice);
             this.panel3.Controls.Add(this.TID_prod);
             this.panel3.Controls.Add(this.BRegisterProduct);
@@ -478,7 +482,6 @@
             this.panel3.Controls.Add(this.TCodigo);
             this.panel3.Controls.Add(this.LCodigo);
             this.panel3.Controls.Add(this.TDescripcion);
-            this.panel3.Controls.Add(this.CBCategoria);
             this.panel3.Controls.Add(this.TPrecioVenta);
             this.panel3.Controls.Add(this.TPrecioLista);
             this.panel3.Controls.Add(this.TNombreProducto);
@@ -546,7 +549,7 @@
             this.BRegisterProduct.ImageAutoCenter = true;
             this.BRegisterProduct.ImageExpand = new System.Drawing.Point(0, 0);
             this.BRegisterProduct.ImageOffset = new System.Drawing.Point(0, 0);
-            this.BRegisterProduct.Location = new System.Drawing.Point(468, 310);
+            this.BRegisterProduct.Location = new System.Drawing.Point(430, 310);
             this.BRegisterProduct.Name = "BRegisterProduct";
             this.BRegisterProduct.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.BRegisterProduct.NormalForeColor = System.Drawing.Color.White;
@@ -558,7 +561,7 @@
             this.BRegisterProduct.PressedImageTint = System.Drawing.Color.White;
             this.BRegisterProduct.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BRegisterProduct.Rounding = new System.Windows.Forms.Padding(8);
-            this.BRegisterProduct.Size = new System.Drawing.Size(143, 32);
+            this.BRegisterProduct.Size = new System.Drawing.Size(233, 32);
             this.BRegisterProduct.TabIndex = 105;
             this.BRegisterProduct.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BRegisterProduct.TextOffset = new System.Drawing.Point(0, 0);
@@ -590,8 +593,8 @@
             this.TCodigo.FocusBackgroundColor = System.Drawing.Color.White;
             this.TCodigo.FocusImageTint = System.Drawing.Color.White;
             this.TCodigo.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TCodigo.ForeColor = System.Drawing.Color.Gray;
+            this.TCodigo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCodigo.ForeColor = System.Drawing.Color.Black;
             this.TCodigo.Image = null;
             this.TCodigo.ImageExpand = new System.Drawing.Point(0, 0);
             this.TCodigo.ImageOffset = new System.Drawing.Point(0, 0);
@@ -601,7 +604,7 @@
             this.TCodigo.Name = "TCodigo";
             this.TCodigo.NormalImageTint = System.Drawing.Color.White;
             this.TCodigo.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TCodigo.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TCodigo.Padding = new System.Windows.Forms.Padding(20, 4, 20, 0);
             this.TCodigo.PasswordChar = false;
             this.TCodigo.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TCodigo.PlaceholderText = "";
@@ -630,8 +633,8 @@
             this.TDescripcion.FocusBackgroundColor = System.Drawing.Color.White;
             this.TDescripcion.FocusImageTint = System.Drawing.Color.White;
             this.TDescripcion.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TDescripcion.ForeColor = System.Drawing.Color.Gray;
+            this.TDescripcion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TDescripcion.ForeColor = System.Drawing.Color.Black;
             this.TDescripcion.Image = null;
             this.TDescripcion.ImageExpand = new System.Drawing.Point(0, 0);
             this.TDescripcion.ImageOffset = new System.Drawing.Point(0, 0);
@@ -641,7 +644,7 @@
             this.TDescripcion.Name = "TDescripcion";
             this.TDescripcion.NormalImageTint = System.Drawing.Color.White;
             this.TDescripcion.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TDescripcion.Padding = new System.Windows.Forms.Padding(15, 5, 15, 5);
+            this.TDescripcion.Padding = new System.Windows.Forms.Padding(20, 6, 20, 6);
             this.TDescripcion.PasswordChar = false;
             this.TDescripcion.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TDescripcion.PlaceholderText = "";
@@ -651,14 +654,6 @@
             this.TDescripcion.TextOffset = new System.Drawing.Size(0, 0);
             this.TDescripcion.UnderlinedStyle = true;
             // 
-            // CBCategoria
-            // 
-            this.CBCategoria.FormattingEnabled = true;
-            this.CBCategoria.Location = new System.Drawing.Point(687, 184);
-            this.CBCategoria.Name = "CBCategoria";
-            this.CBCategoria.Size = new System.Drawing.Size(233, 28);
-            this.CBCategoria.TabIndex = 99;
-            // 
             // TPrecioVenta
             // 
             this.TPrecioVenta.BackgroundColor = System.Drawing.Color.White;
@@ -667,18 +662,18 @@
             this.TPrecioVenta.FocusBackgroundColor = System.Drawing.Color.White;
             this.TPrecioVenta.FocusImageTint = System.Drawing.Color.White;
             this.TPrecioVenta.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TPrecioVenta.ForeColor = System.Drawing.Color.Gray;
+            this.TPrecioVenta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPrecioVenta.ForeColor = System.Drawing.Color.Black;
             this.TPrecioVenta.Image = null;
             this.TPrecioVenta.ImageExpand = new System.Drawing.Point(0, 0);
             this.TPrecioVenta.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TPrecioVenta.Location = new System.Drawing.Point(312, 113);
+            this.TPrecioVenta.Location = new System.Drawing.Point(312, 112);
             this.TPrecioVenta.Margin = new System.Windows.Forms.Padding(4);
             this.TPrecioVenta.Multiline = false;
             this.TPrecioVenta.Name = "TPrecioVenta";
             this.TPrecioVenta.NormalImageTint = System.Drawing.Color.White;
             this.TPrecioVenta.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TPrecioVenta.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TPrecioVenta.Padding = new System.Windows.Forms.Padding(20, 4, 20, 0);
             this.TPrecioVenta.PasswordChar = false;
             this.TPrecioVenta.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TPrecioVenta.PlaceholderText = "";
@@ -696,18 +691,18 @@
             this.TPrecioLista.FocusBackgroundColor = System.Drawing.Color.White;
             this.TPrecioLista.FocusImageTint = System.Drawing.Color.White;
             this.TPrecioLista.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TPrecioLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TPrecioLista.ForeColor = System.Drawing.Color.Gray;
+            this.TPrecioLista.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TPrecioLista.ForeColor = System.Drawing.Color.Black;
             this.TPrecioLista.Image = null;
             this.TPrecioLista.ImageExpand = new System.Drawing.Point(0, 0);
             this.TPrecioLista.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TPrecioLista.Location = new System.Drawing.Point(176, 113);
+            this.TPrecioLista.Location = new System.Drawing.Point(177, 112);
             this.TPrecioLista.Margin = new System.Windows.Forms.Padding(4);
             this.TPrecioLista.Multiline = false;
             this.TPrecioLista.Name = "TPrecioLista";
             this.TPrecioLista.NormalImageTint = System.Drawing.Color.White;
             this.TPrecioLista.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TPrecioLista.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TPrecioLista.Padding = new System.Windows.Forms.Padding(20, 4, 20, 0);
             this.TPrecioLista.PasswordChar = false;
             this.TPrecioLista.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TPrecioLista.PlaceholderText = "";
@@ -725,8 +720,8 @@
             this.TNombreProducto.FocusBackgroundColor = System.Drawing.Color.White;
             this.TNombreProducto.FocusImageTint = System.Drawing.Color.White;
             this.TNombreProducto.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TNombreProducto.ForeColor = System.Drawing.Color.Gray;
+            this.TNombreProducto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TNombreProducto.ForeColor = System.Drawing.Color.Black;
             this.TNombreProducto.Image = null;
             this.TNombreProducto.ImageExpand = new System.Drawing.Point(0, 0);
             this.TNombreProducto.ImageOffset = new System.Drawing.Point(0, 0);
@@ -736,7 +731,7 @@
             this.TNombreProducto.Name = "TNombreProducto";
             this.TNombreProducto.NormalImageTint = System.Drawing.Color.White;
             this.TNombreProducto.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TNombreProducto.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TNombreProducto.Padding = new System.Windows.Forms.Padding(20, 4, 20, 0);
             this.TNombreProducto.PasswordChar = false;
             this.TNombreProducto.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TNombreProducto.PlaceholderText = "";
@@ -751,9 +746,9 @@
             this.NStockMin.BackColor = System.Drawing.Color.WhiteSmoke;
             this.NStockMin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NStockMin.ForeColor = System.Drawing.Color.Black;
-            this.NStockMin.Location = new System.Drawing.Point(314, 183);
+            this.NStockMin.Location = new System.Drawing.Point(312, 183);
             this.NStockMin.Name = "NStockMin";
-            this.NStockMin.Size = new System.Drawing.Size(95, 29);
+            this.NStockMin.Size = new System.Drawing.Size(97, 29);
             this.NStockMin.TabIndex = 95;
             // 
             // NStock
@@ -772,7 +767,7 @@
             this.CBEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBEstado.ForeColor = System.Drawing.Color.Black;
             this.CBEstado.FormattingEnabled = true;
-            this.CBEstado.Location = new System.Drawing.Point(687, 112);
+            this.CBEstado.Location = new System.Drawing.Point(176, 256);
             this.CBEstado.Name = "CBEstado";
             this.CBEstado.Size = new System.Drawing.Size(233, 29);
             this.CBEstado.TabIndex = 93;
@@ -804,7 +799,7 @@
             this.LEstado.AutoSize = true;
             this.LEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEstado.Location = new System.Drawing.Point(692, 88);
+            this.LEstado.Location = new System.Drawing.Point(181, 232);
             this.LEstado.Name = "LEstado";
             this.LEstado.Size = new System.Drawing.Size(56, 21);
             this.LEstado.TabIndex = 90;
@@ -815,11 +810,11 @@
             this.LCategoria.AutoSize = true;
             this.LCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LCategoria.Location = new System.Drawing.Point(695, 160);
+            this.LCategoria.Location = new System.Drawing.Point(695, 87);
             this.LCategoria.Name = "LCategoria";
-            this.LCategoria.Size = new System.Drawing.Size(77, 21);
+            this.LCategoria.Size = new System.Drawing.Size(84, 21);
             this.LCategoria.TabIndex = 89;
-            this.LCategoria.Text = "Categoria";
+            this.LCategoria.Text = "Categorias";
             // 
             // LPrecioVenta
             // 
@@ -837,7 +832,7 @@
             this.LPrecioLista.AutoSize = true;
             this.LPrecioLista.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LPrecioLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPrecioLista.Location = new System.Drawing.Point(179, 90);
+            this.LPrecioLista.Location = new System.Drawing.Point(181, 90);
             this.LPrecioLista.Name = "LPrecioLista";
             this.LPrecioLista.Size = new System.Drawing.Size(89, 21);
             this.LPrecioLista.TabIndex = 87;
@@ -848,7 +843,7 @@
             this.LNombreProducto.AutoSize = true;
             this.LNombreProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombreProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LNombreProducto.Location = new System.Drawing.Point(185, 17);
+            this.LNombreProducto.Location = new System.Drawing.Point(181, 17);
             this.LNombreProducto.Name = "LNombreProducto";
             this.LNombreProducto.Size = new System.Drawing.Size(68, 21);
             this.LNombreProducto.TabIndex = 86;
@@ -1006,7 +1001,7 @@
             this.BModificarProducto.ImageAutoCenter = true;
             this.BModificarProducto.ImageExpand = new System.Drawing.Point(0, 0);
             this.BModificarProducto.ImageOffset = new System.Drawing.Point(0, 0);
-            this.BModificarProducto.Location = new System.Drawing.Point(468, 310);
+            this.BModificarProducto.Location = new System.Drawing.Point(428, 310);
             this.BModificarProducto.Name = "BModificarProducto";
             this.BModificarProducto.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.BModificarProducto.NormalForeColor = System.Drawing.Color.White;
@@ -1018,7 +1013,7 @@
             this.BModificarProducto.PressedImageTint = System.Drawing.Color.White;
             this.BModificarProducto.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BModificarProducto.Rounding = new System.Windows.Forms.Padding(8);
-            this.BModificarProducto.Size = new System.Drawing.Size(143, 32);
+            this.BModificarProducto.Size = new System.Drawing.Size(233, 32);
             this.BModificarProducto.TabIndex = 149;
             this.BModificarProducto.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BModificarProducto.TextOffset = new System.Drawing.Point(0, 0);
@@ -1050,8 +1045,8 @@
             this.TModificarCodigo.FocusBackgroundColor = System.Drawing.Color.White;
             this.TModificarCodigo.FocusImageTint = System.Drawing.Color.White;
             this.TModificarCodigo.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TModificarCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarCodigo.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarCodigo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarCodigo.ForeColor = System.Drawing.Color.Black;
             this.TModificarCodigo.Image = null;
             this.TModificarCodigo.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarCodigo.ImageOffset = new System.Drawing.Point(0, 0);
@@ -1061,7 +1056,7 @@
             this.TModificarCodigo.Name = "TModificarCodigo";
             this.TModificarCodigo.NormalImageTint = System.Drawing.Color.White;
             this.TModificarCodigo.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TModificarCodigo.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarCodigo.Padding = new System.Windows.Forms.Padding(20, 4, 20, 0);
             this.TModificarCodigo.PasswordChar = false;
             this.TModificarCodigo.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TModificarCodigo.PlaceholderText = "";
@@ -1090,8 +1085,8 @@
             this.TModificarDescripcion.FocusBackgroundColor = System.Drawing.Color.White;
             this.TModificarDescripcion.FocusImageTint = System.Drawing.Color.White;
             this.TModificarDescripcion.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TModificarDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarDescripcion.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarDescripcion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarDescripcion.ForeColor = System.Drawing.Color.Black;
             this.TModificarDescripcion.Image = null;
             this.TModificarDescripcion.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarDescripcion.ImageOffset = new System.Drawing.Point(0, 0);
@@ -1101,7 +1096,7 @@
             this.TModificarDescripcion.Name = "TModificarDescripcion";
             this.TModificarDescripcion.NormalImageTint = System.Drawing.Color.White;
             this.TModificarDescripcion.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TModificarDescripcion.Padding = new System.Windows.Forms.Padding(15, 5, 15, 5);
+            this.TModificarDescripcion.Padding = new System.Windows.Forms.Padding(20, 6, 20, 6);
             this.TModificarDescripcion.PasswordChar = false;
             this.TModificarDescripcion.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TModificarDescripcion.PlaceholderText = "";
@@ -1119,8 +1114,8 @@
             this.TModificarPrecioVenta.FocusBackgroundColor = System.Drawing.Color.White;
             this.TModificarPrecioVenta.FocusImageTint = System.Drawing.Color.White;
             this.TModificarPrecioVenta.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TModificarPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarPrecioVenta.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarPrecioVenta.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarPrecioVenta.ForeColor = System.Drawing.Color.Black;
             this.TModificarPrecioVenta.Image = null;
             this.TModificarPrecioVenta.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarPrecioVenta.ImageOffset = new System.Drawing.Point(0, 0);
@@ -1130,7 +1125,7 @@
             this.TModificarPrecioVenta.Name = "TModificarPrecioVenta";
             this.TModificarPrecioVenta.NormalImageTint = System.Drawing.Color.White;
             this.TModificarPrecioVenta.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TModificarPrecioVenta.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarPrecioVenta.Padding = new System.Windows.Forms.Padding(20, 4, 20, 0);
             this.TModificarPrecioVenta.PasswordChar = false;
             this.TModificarPrecioVenta.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TModificarPrecioVenta.PlaceholderText = "";
@@ -1148,8 +1143,8 @@
             this.TModificarPrecioLista.FocusBackgroundColor = System.Drawing.Color.White;
             this.TModificarPrecioLista.FocusImageTint = System.Drawing.Color.White;
             this.TModificarPrecioLista.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TModificarPrecioLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarPrecioLista.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarPrecioLista.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarPrecioLista.ForeColor = System.Drawing.Color.Black;
             this.TModificarPrecioLista.Image = null;
             this.TModificarPrecioLista.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarPrecioLista.ImageOffset = new System.Drawing.Point(0, 0);
@@ -1159,7 +1154,7 @@
             this.TModificarPrecioLista.Name = "TModificarPrecioLista";
             this.TModificarPrecioLista.NormalImageTint = System.Drawing.Color.White;
             this.TModificarPrecioLista.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TModificarPrecioLista.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarPrecioLista.Padding = new System.Windows.Forms.Padding(20, 4, 20, 0);
             this.TModificarPrecioLista.PasswordChar = false;
             this.TModificarPrecioLista.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TModificarPrecioLista.PlaceholderText = "";
@@ -1177,8 +1172,8 @@
             this.TModificarNombreProducto.FocusBackgroundColor = System.Drawing.Color.White;
             this.TModificarNombreProducto.FocusImageTint = System.Drawing.Color.White;
             this.TModificarNombreProducto.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TModificarNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarNombreProducto.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarNombreProducto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarNombreProducto.ForeColor = System.Drawing.Color.Black;
             this.TModificarNombreProducto.Image = null;
             this.TModificarNombreProducto.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarNombreProducto.ImageOffset = new System.Drawing.Point(0, 0);
@@ -1188,7 +1183,7 @@
             this.TModificarNombreProducto.Name = "TModificarNombreProducto";
             this.TModificarNombreProducto.NormalImageTint = System.Drawing.Color.White;
             this.TModificarNombreProducto.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TModificarNombreProducto.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarNombreProducto.Padding = new System.Windows.Forms.Padding(20, 4, 20, 0);
             this.TModificarNombreProducto.PasswordChar = false;
             this.TModificarNombreProducto.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TModificarNombreProducto.PlaceholderText = "";
@@ -1234,7 +1229,7 @@
             this.LModificarStockMin.AutoSize = true;
             this.LModificarStockMin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarStockMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarStockMin.Location = new System.Drawing.Point(317, 159);
+            this.LModificarStockMin.Location = new System.Drawing.Point(314, 159);
             this.LModificarStockMin.Name = "LModificarStockMin";
             this.LModificarStockMin.Size = new System.Drawing.Size(78, 21);
             this.LModificarStockMin.TabIndex = 136;
@@ -1256,7 +1251,7 @@
             this.LModificarEstado.AutoSize = true;
             this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarEstado.Location = new System.Drawing.Point(185, 233);
+            this.LModificarEstado.Location = new System.Drawing.Point(181, 232);
             this.LModificarEstado.Name = "LModificarEstado";
             this.LModificarEstado.Size = new System.Drawing.Size(56, 21);
             this.LModificarEstado.TabIndex = 134;
@@ -1300,7 +1295,7 @@
             this.LModificarNombreProducto.AutoSize = true;
             this.LModificarNombreProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarNombreProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarNombreProducto.Location = new System.Drawing.Point(185, 17);
+            this.LModificarNombreProducto.Location = new System.Drawing.Point(181, 15);
             this.LModificarNombreProducto.Name = "LModificarNombreProducto";
             this.LModificarNombreProducto.Size = new System.Drawing.Size(68, 21);
             this.LModificarNombreProducto.TabIndex = 130;
@@ -1316,6 +1311,54 @@
             this.LModificarDescripcion.Size = new System.Drawing.Size(91, 21);
             this.LModificarDescripcion.TabIndex = 129;
             this.LModificarDescripcion.Text = "Descripcion";
+            // 
+            // btnElegirCategorias
+            // 
+            this.btnElegirCategorias.CheckButton = false;
+            this.btnElegirCategorias.Checked = false;
+            this.btnElegirCategorias.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnElegirCategorias.CheckedForeColor = System.Drawing.Color.White;
+            this.btnElegirCategorias.CheckedImageTint = System.Drawing.Color.White;
+            this.btnElegirCategorias.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnElegirCategorias.Content = "Elegir Categorias";
+            this.btnElegirCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnElegirCategorias.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnElegirCategorias.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElegirCategorias.ForeColor = System.Drawing.Color.White;
+            this.btnElegirCategorias.HoverBackground = System.Drawing.Color.White;
+            this.btnElegirCategorias.HoverForeColor = System.Drawing.Color.Black;
+            this.btnElegirCategorias.HoverImageTint = System.Drawing.Color.White;
+            this.btnElegirCategorias.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnElegirCategorias.Image = null;
+            this.btnElegirCategorias.ImageAutoCenter = true;
+            this.btnElegirCategorias.ImageExpand = new System.Drawing.Point(0, 0);
+            this.btnElegirCategorias.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnElegirCategorias.Location = new System.Drawing.Point(687, 227);
+            this.btnElegirCategorias.Name = "btnElegirCategorias";
+            this.btnElegirCategorias.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.btnElegirCategorias.NormalForeColor = System.Drawing.Color.White;
+            this.btnElegirCategorias.NormalImageTint = System.Drawing.Color.White;
+            this.btnElegirCategorias.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnElegirCategorias.OutlineThickness = 1F;
+            this.btnElegirCategorias.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.btnElegirCategorias.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnElegirCategorias.PressedImageTint = System.Drawing.Color.White;
+            this.btnElegirCategorias.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnElegirCategorias.Rounding = new System.Windows.Forms.Padding(8);
+            this.btnElegirCategorias.Size = new System.Drawing.Size(233, 32);
+            this.btnElegirCategorias.TabIndex = 155;
+            this.btnElegirCategorias.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnElegirCategorias.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnElegirCategorias.Click += new System.EventHandler(this.btnElegirCategorias_Click);
+            // 
+            // TCategorias
+            // 
+            this.TCategorias.Location = new System.Drawing.Point(687, 114);
+            this.TCategorias.Multiline = true;
+            this.TCategorias.Name = "TCategorias";
+            this.TCategorias.ReadOnly = true;
+            this.TCategorias.Size = new System.Drawing.Size(233, 98);
+            this.TCategorias.TabIndex = 154;
             // 
             // Products
             // 
@@ -1372,7 +1415,6 @@
         private CuoreUI.Controls.cuiTextBox TCodigo;
         private System.Windows.Forms.Label LCodigo;
         private CuoreUI.Controls.cuiTextBox TDescripcion;
-        private System.Windows.Forms.ComboBox CBCategoria;
         private CuoreUI.Controls.cuiTextBox TPrecioVenta;
         private CuoreUI.Controls.cuiTextBox TPrecioLista;
         private CuoreUI.Controls.cuiTextBox TNombreProducto;
@@ -1428,5 +1470,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
         private System.Windows.Forms.TextBox TModificarCategorias;
         private CuoreUI.Controls.cuiButton btnModificarCategorias;
+        private CuoreUI.Controls.cuiButton btnElegirCategorias;
+        private System.Windows.Forms.TextBox TCategorias;
     }
 }
