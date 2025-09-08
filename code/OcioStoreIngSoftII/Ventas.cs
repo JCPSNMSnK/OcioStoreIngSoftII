@@ -23,7 +23,7 @@ namespace OcioStoreIngSoftII
 
         private CapaEntidades.Ventas _ventaActual;
         private Ventas_negocio _ventasNegocio = new Ventas_negocio();
-
+        private Cliente clienteParaVenta;
 
         public Ventas(Usuario objUser)
         {
@@ -49,6 +49,47 @@ namespace OcioStoreIngSoftII
 
             ActualizarDatosTabla();
         }
+
+
+        //--------------------------------------------
+        // BOTONES CLIENTE
+        //--------------------------------------------
+        private void btnSeleccionarCliente_Click(object sender, EventArgs e)
+        {
+            // Abrimos el formulario de búsqueda como un diálogo
+            using (BuscarCliente popup = new BuscarCliente())
+            {
+                var resultado = popup.ShowDialog();
+
+                if (resultado == DialogResult.OK)
+                {
+                    // Si el usuario seleccionó un cliente, lo guardamos
+                    this.clienteParaVenta = popup.ClienteSeleccionado;
+
+                    // Y mostramos su DNI en el TextBox
+                    txtClienteSeleccionado.Text = $"{clienteParaVenta.nombre_cliente} {clienteParaVenta.apellido_cliente} (DNI: {clienteParaVenta.dni_cliente})";
+                }
+            }
+        }
+
+        private void btnRegistrarCliente_Click(object sender, EventArgs e)
+        {
+            // Abrimos el formulario de registro de clientes
+            using (RegistrarClienteVenta popup = new RegistrarClienteVenta())
+            {
+                var resultado = popup.ShowDialog();
+
+                if (resultado == DialogResult.OK)
+                {
+                    this.clienteParaVenta = popup.ClienteRegistrado;
+                    txtClienteSeleccionado.Text = $"{clienteParaVenta.nombre_cliente} {clienteParaVenta.apellido_cliente} (DNI: {clienteParaVenta.dni_cliente})";
+                }
+            }
+        }
+        //-----------------------------------------------------------------------
+        //
+        //-------------------------------------------------------------------
+
         private void CargarComboBoxCategorias(ComboBox comboBox)
         {
             // La capa de presentación pide las categorías a la capa de negocio
@@ -58,19 +99,6 @@ namespace OcioStoreIngSoftII
             {
                 comboBox.Items.Add(new OpcionSelect() { Valor = item.id_categoria, Texto = item.nombre_categoria });
             }
-            comboBox.DisplayMember = "Texto";
-            comboBox.ValueMember = "Valor";
-        }
-        private void CargarComboBoxProductos(ComboBox comboBox)
-        {
-            comboBox.Items.Clear();
-            _listaProductos = _productoNegocio.Listar(); // Asignación aquí también
-
-            foreach (Producto item in _listaProductos)
-            {
-                comboBox.Items.Add(new OpcionSelect() { Valor = item.id_producto, Texto = item.nombre_producto });
-            }
-
             comboBox.DisplayMember = "Texto";
             comboBox.ValueMember = "Valor";
         }
