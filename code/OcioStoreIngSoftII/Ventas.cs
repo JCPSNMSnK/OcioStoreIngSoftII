@@ -46,14 +46,6 @@ namespace OcioStoreIngSoftII
 
             _listaProductos = _productoNegocio.Listar();
 
-            CargarComboBoxCategorias(CBCategoria);
-            CargarComboBoxProductos(CBProductos);
-
-            // Establecer índices por defecto si hay elementos
-            if (CBProductos.Items.Count > 0) CBProductos.SelectedIndex = 0;
-            // CBModificarEstado.SelectedIndex no se establece inicialmente si la idea es que muestre el estado del producto cargado
-            if (CBCategoria.Items.Count > 0) CBCategoria.SelectedIndex = 0;
-            // CBModificarCategoria.SelectedIndex no se establece inicialmente
 
             ActualizarDatosTabla();
         }
@@ -135,37 +127,12 @@ namespace OcioStoreIngSoftII
                     // Cargar datos de la fila seleccionada a los controles de modificación
                     TModificarID_prod.Text = productosDataGridView.Rows[indice].Cells["id_producto"].Value.ToString();
 
-                    // Seleccionar la categoría correcta en el ComboBox de modificación
-                    if (int.TryParse(productosDataGridView.Rows[indice].Cells["id_producto"].Value.ToString(), out int selectedProductId))
-                    {
-                        foreach (OpcionSelect opcionSelect in CBProductos.Items)
-                        {
-                            if (Convert.ToInt32(opcionSelect.Valor) == selectedProductId)
-                            {
-                                CBProductos.SelectedItem = opcionSelect;
-                                break;
-                            }
-                        }
-                    }
-
-                    // Seleccionar la categoría correcta en el ComboBox de modificación
-                    if (int.TryParse(productosDataGridView.Rows[indice].Cells["id_categoria"].Value.ToString(), out int selectedCategoryId))
-                    {
-                        foreach (OpcionSelect opcionSelect in CBCategoria.Items)
-                        {
-                            if (Convert.ToInt32(opcionSelect.Valor) == selectedCategoryId)
-                            {
-                                CBCategoria.SelectedItem = opcionSelect;
-                                break;
-                            }
-                        }
-                    }
 
                 }
             }
         }
 
-
+        /*
         private void BAddProduct_Click(object sender, EventArgs e)
         {
             var productoSeleccionado = CBProductos.SelectedItem as OpcionSelect;
@@ -224,7 +191,7 @@ namespace OcioStoreIngSoftII
                 VentaDataGridView.Rows.Add(idProducto, nombre, precio, cantidadNueva);
             }
         }
-
+        */
         private void VentaDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -245,7 +212,7 @@ namespace OcioStoreIngSoftII
                 e.Handled = true;
             }
         }
-
+        /*
         private void CBProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CBProductos.SelectedItem is OpcionSelect productoSeleccionado)
@@ -274,6 +241,7 @@ namespace OcioStoreIngSoftII
                 NCantidad.Value = 1;
             }
         }
+        */
 
         private void VentaDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
