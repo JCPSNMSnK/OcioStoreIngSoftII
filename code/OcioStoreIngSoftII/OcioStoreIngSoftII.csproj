@@ -419,6 +419,9 @@
     <EmbeddedResource Include="GestionarCategorias.resx">
       <DependentUpon>GestionarCategorias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Informes.resx">
+      <DependentUpon>Informes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>

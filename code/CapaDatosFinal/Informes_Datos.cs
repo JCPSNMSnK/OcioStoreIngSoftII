@@ -18,6 +18,68 @@ namespace CapaDatos
             public string nombre_cliente { get; set; }
         }
 
+        public List<Informe> ObtenerTodosLosInformes()
+        {
+            List<Informe> listaInformes = new List<Informe>();
+
+            // Usamos una consulta SQL con JOIN para traer los datos del usuario
+            string query = @"
+            SELECT 
+                i.id_informe,
+                i.titulo,
+                i.descripcion,
+                i.fechaGeneracion,
+                i.tipo_informe,
+                u.id_user,
+                u.nombre AS nombre,
+                u.apellido AS apellido
+            FROM 
+                Informes i
+            INNER JOIN
+                Users u ON i.id_user = u.id_user
+            ORDER BY
+                i.fecha_generacion DESC;";
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dataReader = cmd.ExecuteReader())
+                    {
+                        while (dataReader.Read())
+                        {
+                            Informe informe = new Informe()
+                            {
+                                id_informe = Convert.ToInt32(dataReader["id_informe"]),
+                                titulo = dataReader["titulo"].ToString(),
+                                descripcion = dataReader["descripcion"].ToString(),
+                                fecha_generacion = Convert.ToDateTime(dataReader["fechaGeneracion"]),
+                                tipo_informe = dataReader["tipo_informe"].ToString(),
+                                objUsuario = new Usuario()
+                                {
+                                    id_user = Convert.ToInt32(dataReader["id_user"]),
+                                    nombre = dataReader["nombre"].ToString(),
+                                    apellido = dataReader["apellido"].ToString()
+                                }
+                            };
+                            listaInformes.Add(informe);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Devolvemos una lista vacía en caso de error
+                    listaInformes = new List<Informe>();
+                }
+            }
+            return listaInformes;
+        }
+
         public bool RegistrarInforme(Informe informe, out string mensaje)
         {
             bool exito = false;
