@@ -53,6 +53,8 @@ CREATE OR ALTER PROCEDURE PROC_MODIFICAR_PROVEEDOR
     @id_proveedor INT,
     @nombre_proveedor VARCHAR(100) = NULL,
     @telefono_proveedor VARCHAR(20) = NULL,
+    @cuit_proveedor VARCHAR(20) = NULL,
+
     @mensaje VARCHAR(500) OUTPUT
 AS
 BEGIN
@@ -73,7 +75,8 @@ BEGIN
         UPDATE Proveedores
         SET
             nombre_proveedor = ISNULL(@nombre_proveedor, nombre_proveedor),
-            telefono_proveedor = ISNULL(@telefono_proveedor, telefono_proveedor)
+            telefono_proveedor = ISNULL(@telefono_proveedor, telefono_proveedor),
+            cuit_proveedor = ISNULL(@cuit_proveedor, cuit_proveedor)
         WHERE
             id_proveedor = @id_proveedor;
 

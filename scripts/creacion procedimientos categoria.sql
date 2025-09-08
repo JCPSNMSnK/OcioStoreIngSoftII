@@ -21,20 +21,6 @@ BEGIN
 END
 GO
 
---2. PROCEDIMIENTO MODIFICAR CATEGORIA
-CREATE OR ALTER PROCEDURE PROC_MODIFICAR_CATEGORIA
-    @id_categoria INT,
-    @nombre_categoria NVARCHAR(50)
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    UPDATE Categorias
-    SET nombre_categoria = @nombre_categoria
-    WHERE id_categoria = @id_categoria;
-END
-GO
-
 --3. PROCEDIMIENTO NOMBRE YA EXISTE
 CREATE OR ALTER PROCEDURE PROC_NOMBRE_CATEGORIA_EXISTE
     @id_categoria INT,
@@ -59,43 +45,7 @@ BEGIN
 END
 GO
 
---4. PROCEDIMIENTO BAJA CATEGORÍA
 
-CREATE OR ALTER PROCEDURE PROC_DAR_DE_BAJA_CATEGORIA
-    @id_categoria INT,
-    @mensaje NVARCHAR(100) OUTPUT
-AS
-BEGIN
-    SET NOCOUNT ON;
-    SET @mensaje = 'Operación completada exitosamente.';
-
-    -- Iniciar la transacción
-    BEGIN TRANSACTION;
-    BEGIN TRY
-        -- 1. Eliminar los vínculos de esta categoría con todos los productos
-        DELETE FROM ProductosCategorias
-        WHERE id_categoria = @id_categoria;
-
-        -- 2. Dar de baja los productos que se quedaron sin ninguna categoría
-        UPDATE Productos
-        SET baja_producto = 1
-        WHERE id_producto NOT IN (SELECT id_producto FROM ProductosCategorias);
-
-        -- 3. Finalmente, dar de baja la categoría en la tabla de Categorias
-        UPDATE Categorias
-        SET baja_categoria = 1
-        WHERE id_categoria = @id_categoria;
-
-        -- 4. Si todo fue exitoso, confirmar la transacción
-        COMMIT TRANSACTION;
-    END TRY
-    BEGIN CATCH
-        -- 5. Si algo falla, revertir la transacción y capturar el error
-        ROLLBACK TRANSACTION;
-        SET @mensaje = 'Error: No se pudo completar la operación. ' + ERROR_MESSAGE();
-    END CATCH
-END
-GO
 
 --5. BUSCAR CATEGORIA
 
@@ -136,64 +86,6 @@ BEGIN
         c.id_categoria, c.nombre_categoria
     ORDER BY
         cantidad_productos DESC, c.nombre_categoria ASC;
-END
-GO
-
---7. DAR DE ALTA CATEGORIA
-
-CREATE PROCEDURE PROC_DAR_DE_ALTA_CATEGORIA
-    -- Parámetro de entrada: ID de la categoría a dar de alta
-    @id_categoria INT,
-    
-    -- Parámetro de salida: Mensaje de confirmación o error
-    @mensaje NVARCHAR(100) OUTPUT
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    -- Usamos un bloque TRY-CATCH para manejar cualquier error que pueda ocurrir
-    BEGIN TRY
-        -- Declarar una variable para verificar si la operación de actualización fue exitosa
-        DECLARE @rows_affected INT;
-        
-        -- Iniciar una transacción para asegurar la integridad de los datos
-        BEGIN TRANSACTION;
-
-        -- Actualizar el estado de la categoría en la tabla
-        UPDATE Categorias
-        SET baja_categoria = 0
-        WHERE id_categoria = @id_categoria AND baja_categoria = 1;
-
-        -- Obtener el número de filas afectadas por la actualización
-        SET @rows_affected = @@ROWCOUNT;
-
-        -- Verificar si la actualización fue exitosa
-        IF @rows_affected > 0
-        BEGIN
-            SET @mensaje = 'Categoría dada de alta con éxito.';
-            COMMIT TRANSACTION;
-        END
-        ELSE
-        BEGIN
-            -- Si no se afectaron filas, la categoría no existe o ya estaba dada de alta
-            IF NOT EXISTS (SELECT 1 FROM Categorias WHERE id_categoria = @id_categoria)
-            BEGIN
-                SET @mensaje = 'Error: La categoría especificada no existe.';
-            END
-            ELSE
-            BEGIN
-                SET @mensaje = 'Error: La categoría ya está dada de alta.';
-            END
-            ROLLBACK TRANSACTION;
-        END
-    END TRY
-    BEGIN CATCH
-        -- Si ocurre un error, deshacer cualquier cambio y capturar el mensaje de error del sistema
-        IF @@TRANCOUNT > 0
-            ROLLBACK TRANSACTION;
-            
-        SET @mensaje = 'Error del sistema: ' + ERROR_MESSAGE();
-    END CATCH
 END
 GO
 
