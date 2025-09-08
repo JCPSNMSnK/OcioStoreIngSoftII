@@ -45,8 +45,7 @@ END;
 
 --3.MODIFICAR PRODUCTO
 
-CREATE OR ALTER PROCEDURE [dbo].[PROC_EDITAR_PRODUCTO]
-(
+ALTER PROCEDURE [dbo].[PROC_EDITAR_PRODUCTO]
     @id_producto INT,
     @nombre_producto VARCHAR(100),
     @precioLista DECIMAL(10,2),
@@ -55,52 +54,38 @@ CREATE OR ALTER PROCEDURE [dbo].[PROC_EDITAR_PRODUCTO]
     @stock INT,
     @stock_min INT,
     @descripcion TEXT,
-    @id_categoria INT,
-	@cod_producto INT,
-	@id_proveedor INT,
-
+    @cod_producto INT,
+    @id_proveedor INT,
+    @nuevas_categorias TipoIds READONLY, -- <-- RECIBE LA LISTA DE CATEGORÍAS
     @respuesta BIT OUTPUT,
     @mensaje VARCHAR(500) OUTPUT
-)
 AS
 BEGIN
     SET NOCOUNT ON;
     SET @respuesta = 0;
     SET @mensaje = '';
 
+    -- Iniciar una transacción para asegurar que todo se haga o nada se haga
+    BEGIN TRANSACTION;
+
     BEGIN TRY
-        -- Validar nombre repetido en otro producto activo
-        IF EXISTS (
-            SELECT 1 FROM Productos 
-            WHERE nombre_producto = @nombre_producto 
-              AND id_producto != @id_producto 
-              AND baja_producto = 0
-        )
+        -- 1. Validar nombre repetido en otro producto
+        IF EXISTS (SELECT 1 FROM Productos WHERE nombre_producto = @nombre_producto AND id_producto != @id_producto)
         BEGIN
-            SET @mensaje = 'Ya existe otro producto activo con ese nombre.';
+            SET @mensaje = 'Ya existe otro producto con ese nombre.';
+            ROLLBACK TRANSACTION;
             RETURN;
         END
 
-		-- Validar codigo repetido en otro producto activo
-        IF EXISTS (
-            SELECT 1 FROM Productos 
-            WHERE cod_producto = @cod_producto 
-              AND id_producto != @id_producto 
-              AND baja_producto = 0
-        )
+        -- 2. Validar código repetido en otro producto
+        IF EXISTS (SELECT 1 FROM Productos WHERE cod_producto = @cod_producto AND id_producto != @id_producto)
         BEGIN
-            SET @mensaje = 'Ya existe otro producto activo con ese nombre.';
+            SET @mensaje = 'Ya existe otro producto con ese código.';
+            ROLLBACK TRANSACTION;
             RETURN;
         END
 
-        -- Validar existencia de categoría
-        IF NOT EXISTS (SELECT 1 FROM Categorias WHERE id_categoria = @id_categoria)
-        BEGIN
-            SET @mensaje = 'La categoría indicada no existe.';
-            RETURN;
-        END
-
-        -- Actualizar producto
+        -- 3. Actualizar la tabla principal de Productos
         UPDATE Productos SET
             nombre_producto = @nombre_producto,
             precioLista = @precioLista,
@@ -109,36 +94,31 @@ BEGIN
             stock = @stock,
             stock_min = @stock_min,
             descripcion = @descripcion,
-			cod_producto = @cod_producto,
-			id_proveedor = @id_proveedor
-
+            cod_producto = @cod_producto,
+            id_proveedor = @id_proveedor
         WHERE id_producto = @id_producto;
 
-        -- Actualizar relación de categoría (si ya existe, actualizarla; si no, insertarla)
-        IF EXISTS (
-            SELECT 1 FROM ProductosCategorias 
-            WHERE id_producto = @id_producto
-        )
-        BEGIN
-            UPDATE ProductosCategorias
-            SET id_categoria = @id_categoria
-            WHERE id_producto = @id_producto;
-        END
-        ELSE
-        BEGIN
-            INSERT INTO ProductosCategorias (id_producto, id_categoria)
-            VALUES (@id_producto, @id_categoria);
-        END
+        -- 4. Sincronizar las categorías
+        --    Primero, borramos las categorías viejas para este producto.
+        DELETE FROM ProductosCategorias WHERE id_producto = @id_producto;
 
+        --    Segundo, insertamos las nuevas categorías desde la lista que recibimos.
+        INSERT INTO ProductosCategorias (id_producto, id_categoria)
+        SELECT @id_producto, ID FROM @nuevas_categorias;
+
+        -- Si todo salió bien, confirmamos los cambios
+        COMMIT TRANSACTION;
         SET @respuesta = 1;
         SET @mensaje = 'Producto actualizado correctamente.';
+
     END TRY
     BEGIN CATCH
-        SET @mensaje = ERROR_MESSAGE();
+        -- Si algo falla, revertimos todos los cambios
+        SET @mensaje = 'Error al actualizar el producto. Detalles: ' + ERROR_MESSAGE();
+        ROLLBACK TRANSACTION;
     END CATCH
 END
-GO
-
+		
 --4 OBTENER PRODUCTO POR ID
 CREATE OR ALTER PROCEDURE PROC_OBTENER_PRODUCTO_COMPLETO
     @id_producto INT
@@ -343,20 +323,4 @@ GO
 CREATE TYPE dbo.ListaDeIds AS TABLE (
     ID INT
 );
-GO
-
-CREATE OR ALTER PROCEDURE PROC_ACTUALIZAR_CATEGORIAS_PRODUCTO
-    @id_producto INT,
-    @nuevas_categorias dbo.ListaDeIds READONLY -- Recibe la nueva lista de IDs
-AS
-BEGIN
-    SET NOCOUNT ON;
-    
-    -- 1. Borramos las categorías viejas para este producto
-    DELETE FROM dbo.ProductosCategorias WHERE id_producto = @id_producto;
-
-    -- 2. Insertamos las nuevas categorías desde la tabla que recibimos
-    INSERT INTO dbo.ProductosCategorias (id_producto, id_categoria)
-    SELECT @id_producto, ID FROM @nuevas_categorias;
-END
 GO
