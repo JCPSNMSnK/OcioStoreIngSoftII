@@ -83,7 +83,7 @@ namespace CapaDatos
             return exito;
         }
 
-        //modificar categoría
+        // Método para modificar una categoría en la base de datos
         public bool ModificarCategoria(Categoria categoria, out string mensaje)
         {
             bool exito = false;
@@ -99,17 +99,25 @@ namespace CapaDatos
                     // Parámetros de entrada
                     cmd.Parameters.AddWithValue("@id_categoria", categoria.id_categoria);
                     cmd.Parameters.AddWithValue("@nombre_categoria", categoria.nombre_categoria);
+                    // Nuevo parámetro de entrada para el estado
+                    cmd.Parameters.AddWithValue("@baja_categoria", categoria.baja_categoria);
+
+                    // Parámetro de salida para el mensaje del procedimiento almacenado
+                    SqlParameter mensajeParam = new SqlParameter("@mensaje", SqlDbType.NVarChar, 100);
+                    mensajeParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(mensajeParam);
 
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    exito = true;
-                    mensaje = "Categoría modificada exitosamente.";
+                    // Obtener el mensaje devuelto por el procedimiento almacenado
+                    mensaje = mensajeParam.Value.ToString();
+                    exito = !mensaje.Contains("Error"); // Determinar el éxito en base al mensaje
                 }
                 catch (Exception ex)
                 {
                     exito = false;
-                    mensaje = "Error al modificar la categoría: " + ex.Message;
+                    mensaje = "Error en la capa de datos al modificar la categoría: " + ex.Message;
                 }
             }
             return exito;
@@ -146,41 +154,6 @@ namespace CapaDatos
                 }
             }
             return existe;
-        }
-
-        public bool DarDeBajaCategoria(int idCategoria, out string mensaje)
-        {
-            bool exito = false;
-            mensaje = string.Empty;
-
-            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("PROC_DAR_DE_BAJA_CATEGORIA", oconexion);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    // Parámetros de entrada
-                    cmd.Parameters.AddWithValue("@id_categoria", idCategoria);
-
-                    // Parámetro de salida para el mensaje del procedimiento
-                    SqlParameter mensajeParam = new SqlParameter("@mensaje", SqlDbType.NVarChar, 100);
-                    mensajeParam.Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add(mensajeParam);
-
-                    oconexion.Open();
-                    cmd.ExecuteNonQuery();
-
-                    exito = true;
-                    mensaje = mensajeParam.Value.ToString();
-                }
-                catch (Exception ex)
-                {
-                    exito = false;
-                    mensaje = "Error al dar de baja la categoría: " + ex.Message;
-                }
-            }
-            return exito;
         }
 
         public List<Categoria> BuscarCategoriasGeneral(string busqueda)

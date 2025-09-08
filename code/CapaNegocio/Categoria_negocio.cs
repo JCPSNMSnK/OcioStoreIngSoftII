@@ -63,14 +63,7 @@ namespace CapaNegocio
             return objCategoria_datos.ModificarCategoria(categoria, out mensaje);
         }
 
-        public bool DarDeBaja(int id_categoria, out string mensaje)
-        {
-            mensaje = string.Empty;
-
-            // Se delega toda la lógica de baja a la capa de datos.
-            return objCategoria_datos.DarDeBajaCategoria(id_categoria, out mensaje);
-        }
-
+     
         public List<Categoria> BuscarCategoriasGeneral(string filtros)
         {
             return objCategoria_datos.BuscarCategoriasGeneral(filtros);

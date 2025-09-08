@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.TCUsuarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -41,12 +41,6 @@
             this.categoriasDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BBuscar = new CuoreUI.Controls.cuiButton();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.baja_estado_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.baja_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.CBEstado = new System.Windows.Forms.ComboBox();
             this.LEstado = new System.Windows.Forms.Label();
@@ -63,6 +57,12 @@
             this.TIndice = new CuoreUI.Controls.cuiTextBox();
             this.BModificar = new CuoreUI.Controls.cuiButton();
             this.TModificarNombre = new CuoreUI.Controls.cuiTextBox();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.baja_estado_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.baja_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad_productos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.TCUsuarios.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -158,15 +158,15 @@
             this.categoriasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.categoriasDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.categoriasDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.categoriasDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.categoriasDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.categoriasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.categoriasDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -174,15 +174,15 @@
             this.baja_estado,
             this.nombre_categoria,
             this.id_categoria,
-            this.cantidad_categoria});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.categoriasDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.cantidad_productos});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.categoriasDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.categoriasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.categoriasDataGridView.EnableHeadersVisualStyles = false;
             this.categoriasDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
@@ -191,14 +191,14 @@
             this.categoriasDataGridView.Name = "categoriasDataGridView";
             this.categoriasDataGridView.ReadOnly = true;
             this.categoriasDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.categoriasDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.categoriasDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.categoriasDataGridView.RowHeadersVisible = false;
             this.categoriasDataGridView.Size = new System.Drawing.Size(1187, 334);
             this.categoriasDataGridView.TabIndex = 58;
@@ -262,49 +262,6 @@
             this.BBuscar.TextOffset = new System.Drawing.Point(0, 0);
             this.BBuscar.Click += new System.EventHandler(this.BBuscar_Click);
             this.BBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Users_KeyDown);
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 112;
-            // 
-            // baja_estado_valor
-            // 
-            this.baja_estado_valor.DataPropertyName = "baja_categoria";
-            this.baja_estado_valor.HeaderText = "baja_categoria";
-            this.baja_estado_valor.Name = "baja_estado_valor";
-            this.baja_estado_valor.ReadOnly = true;
-            this.baja_estado_valor.Visible = false;
-            // 
-            // baja_estado
-            // 
-            this.baja_estado.HeaderText = "Dado de baja?";
-            this.baja_estado.Name = "baja_estado";
-            this.baja_estado.ReadOnly = true;
-            // 
-            // nombre_categoria
-            // 
-            this.nombre_categoria.HeaderText = "Nombre de Categoria";
-            this.nombre_categoria.Name = "nombre_categoria";
-            this.nombre_categoria.ReadOnly = true;
-            // 
-            // id_categoria
-            // 
-            this.id_categoria.HeaderText = "id_categoria";
-            this.id_categoria.Name = "id_categoria";
-            this.id_categoria.ReadOnly = true;
-            this.id_categoria.Visible = false;
-            // 
-            // cantidad_categoria
-            // 
-            this.cantidad_categoria.HeaderText = "Cantidad de Productos";
-            this.cantidad_categoria.Name = "cantidad_categoria";
-            this.cantidad_categoria.ReadOnly = true;
             // 
             // panel2
             // 
@@ -498,7 +455,6 @@
             this.TBModificarIndice.TabIndex = 108;
             this.TBModificarIndice.TextOffset = new System.Drawing.Size(0, 0);
             this.TBModificarIndice.UnderlinedStyle = true;
-            this.TBModificarIndice.Visible = false;
             // 
             // TModificarID_user
             // 
@@ -528,7 +484,6 @@
             this.TModificarID_user.TabIndex = 110;
             this.TModificarID_user.TextOffset = new System.Drawing.Size(0, 0);
             this.TModificarID_user.UnderlinedStyle = true;
-            this.TModificarID_user.Visible = false;
             // 
             // TID_user
             // 
@@ -638,7 +593,7 @@
             this.TModificarNombre.FocusImageTint = System.Drawing.Color.White;
             this.TModificarNombre.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
             this.TModificarNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarNombre.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarNombre.ForeColor = System.Drawing.Color.Black;
             this.TModificarNombre.Image = null;
             this.TModificarNombre.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarNombre.ImageOffset = new System.Drawing.Point(0, 0);
@@ -657,6 +612,51 @@
             this.TModificarNombre.TabIndex = 112;
             this.TModificarNombre.TextOffset = new System.Drawing.Size(0, 0);
             this.TModificarNombre.UnderlinedStyle = true;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 112;
+            // 
+            // baja_estado_valor
+            // 
+            this.baja_estado_valor.DataPropertyName = "baja_categoria";
+            this.baja_estado_valor.HeaderText = "baja_categoria";
+            this.baja_estado_valor.Name = "baja_estado_valor";
+            this.baja_estado_valor.ReadOnly = true;
+            this.baja_estado_valor.Visible = false;
+            // 
+            // baja_estado
+            // 
+            this.baja_estado.HeaderText = "Dado de baja?";
+            this.baja_estado.Name = "baja_estado";
+            this.baja_estado.ReadOnly = true;
+            // 
+            // nombre_categoria
+            // 
+            this.nombre_categoria.DataPropertyName = "nombre_categoria";
+            this.nombre_categoria.HeaderText = "Nombre de Categoria";
+            this.nombre_categoria.Name = "nombre_categoria";
+            this.nombre_categoria.ReadOnly = true;
+            // 
+            // id_categoria
+            // 
+            this.id_categoria.DataPropertyName = "id_categoria";
+            this.id_categoria.HeaderText = "id_categoria";
+            this.id_categoria.Name = "id_categoria";
+            this.id_categoria.ReadOnly = true;
+            this.id_categoria.Visible = false;
+            // 
+            // cantidad_productos
+            // 
+            this.cantidad_productos.HeaderText = "cantidad_productos";
+            this.cantidad_productos.Name = "cantidad_productos";
+            this.cantidad_productos.ReadOnly = true;
             // 
             // Categories
             // 
@@ -695,12 +695,6 @@
         private System.Windows.Forms.DataGridView categoriasDataGridView;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private CuoreUI.Controls.cuiButton BBuscar;
-        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn baja_estado_valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn baja_estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad_categoria;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox CBEstado;
         private System.Windows.Forms.Label LEstado;
@@ -717,5 +711,11 @@
         private CuoreUI.Controls.cuiTextBox TModificarID_user;
         private CuoreUI.Controls.cuiButton BModificar;
         private CuoreUI.Controls.cuiTextBox TModificarNombre;
+        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn baja_estado_valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn baja_estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad_productos;
     }
 }

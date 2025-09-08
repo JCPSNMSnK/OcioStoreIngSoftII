@@ -39,7 +39,6 @@ namespace OcioStoreIngSoftII
 
             actualizarDatosTabla();
         }
-
         private void actualizarDatosTabla(string filtros = null)
         {
             if (filtros == null)
@@ -48,9 +47,28 @@ namespace OcioStoreIngSoftII
             }
 
             List<Categoria> resultados = categoria_Negocio.BuscarCategoriasGeneral(filtros);
+            Dictionary<int, int> cantidad_productos = categoria_Negocio.ContarProductosPorCategoria();
             categoriasDataGridView.AutoGenerateColumns = false;
             categoriasDataGridView.DataSource = null;
             categoriasDataGridView.DataSource = resultados;
+
+            if (categoriasDataGridView.Columns.Contains("cantidad_productos"))
+            {
+                foreach (DataGridViewRow row in categoriasDataGridView.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    Categoria categoria = (Categoria)row.DataBoundItem;
+                    if (categoria != null && cantidad_productos.ContainsKey(categoria.id_categoria))
+                    {
+                        row.Cells["cantidad_productos"].Value = cantidad_productos[categoria.id_categoria];
+                    }
+                    else
+                    {
+                        row.Cells["cantidad_productos"].Value = 0;
+                    }
+                }
+            }
         }
 
         //Buscar
@@ -67,21 +85,21 @@ namespace OcioStoreIngSoftII
         private void BModificar_Click(object sender, EventArgs e)
         {
             // Validar que se haya seleccionado una categoría
-            if (string.IsNullOrEmpty(TID_user.Text))
+            if (string.IsNullOrEmpty(TModificarNombre.Content))
             {
                 MessageBox.Show("Debe seleccionar una categoría para modificar.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Validaciones de los campos de la categoría
-            if (ValidacionesCategoria(TNombre.Text, out string mensajeError))
+            if (ValidacionesCategoria(TModificarNombre.Content, out string mensajeError))
             {
                 // Creación de un nuevo objeto Categoria
                 Categoria objCategoria = new Categoria()
                 {
-                    id_categoria = Convert.ToInt32(TID_user.Text),
-                    nombre_categoria = TNombre.Text,
-                    baja_categoria = Convert.ToInt32(((OpcionSelect)CBEstado.SelectedItem).Valor) == 1
+                    id_categoria = Convert.ToInt32(TModificarID_user.Content),
+                    nombre_categoria = TModificarNombre.Content,
+                    baja_categoria = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1
                 };
 
                 // Llamada a la capa de negocio para la edición
@@ -181,8 +199,8 @@ namespace OcioStoreIngSoftII
 
                     // Supongamos que tienes un TextBox para el ID y otro para el nombre
                     TBModificarIndice.Content = e.RowIndex.ToString();
-                    TModificarID_user.Text = categoriaSeleccionada.id_categoria.ToString();
-                    TModificarNombre.Text = categoriaSeleccionada.nombre_categoria;
+                    TModificarID_user.Content = categoriaSeleccionada.id_categoria.ToString();
+                    TModificarNombre.Content = categoriaSeleccionada.nombre_categoria;
 
                     // Para el ComboBox del estado (asumiendo que es un ComboBox)
                     // Puedes usar un OpcionSelect similar a como lo hiciste para Usuarios
