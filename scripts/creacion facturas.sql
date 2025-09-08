@@ -168,3 +168,14 @@ BEGIN
 END;
 GO
 
+
+
+CREATE OR ALTER PROCEDURE PROC_LISTAR_TIPOS_FACTURA
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT id_tipo_factura, nombre_tipo_factura 
+    FROM dbo.TiposFactura
+    ORDER BY nombre_tipo_factura;
+END
+GO
