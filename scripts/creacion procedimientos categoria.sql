@@ -63,7 +63,7 @@ BEGIN
         Categorias
     WHERE 
         (@busqueda_general IS NULL OR 
-        nombre_categoria COLLATE Latin1_General_CI_AI LIKE '%' + @busqueda_general + '%' COLLATE Latin1_General_CI_AI);
+        nombre_categoria LIKE '%' + @busqueda_general + '%');
 END
 GO
 
