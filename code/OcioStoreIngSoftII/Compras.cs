@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
 using CapaDatos;
+using FontAwesome.Sharp;
+using CapaEntidades.Utilidades;
 
 namespace OcioStoreIngSoftII
 {
@@ -36,6 +38,17 @@ namespace OcioStoreIngSoftII
 
             // NUEVA LÓGICA: Cargar la lista de proveedores en el ComboBox
             CargarProveedores();
+            // Agregar una columna oculta para el ID del producto
+            detallesDataGridView.Columns.Add("id_producto", "ID Producto");
+            detallesDataGridView.Columns["id_producto"].Visible = false;
+
+            // CÓDIGO ACTUALIZADO: Volvemos a la columna de botón de texto
+            DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.HeaderText = "Eliminar";
+            btnEliminar.Text = "X";
+            btnEliminar.UseColumnTextForButtonValue = true;
+            detallesDataGridView.Columns.Add(btnEliminar);
         }
 
         // NUEVO MÉTODO: Cargar proveedores en el ComboBox
@@ -45,6 +58,7 @@ namespace OcioStoreIngSoftII
             CBProveedor.DataSource = listaProveedores;
             CBProveedor.DisplayMember = "nombre_proveedor";
             CBProveedor.ValueMember = "id_proveedor";
+            CBProveedor.Refresh();
         }
 
         // Método para cargar la tabla de compras
@@ -94,17 +108,21 @@ namespace OcioStoreIngSoftII
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
+
                 string codigoProducto = TCodigoProducto.Content;
-                Producto productoEncontrado = productosNegocio.BuscarProductosGeneral(codigoProducto).First();
+                Producto productoEncontrado = productosNegocio.BuscarProductosGeneral(codigoProducto, 0).First();
 
                 if (productoEncontrado != null)
                 {
                     TNombreProducto.Content = productoEncontrado.nombre_producto;
+                    // Guardar el ID en la etiqueta para usarlo luego
+                    TB_Id_Producto_Oculto.Text = productoEncontrado.id_producto.ToString();
                 }
                 else
                 {
                     MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TNombreProducto.Content = string.Empty;
+                    TB_Id_Producto_Oculto.Text = string.Empty;
                 }
             }
         }
@@ -140,20 +158,22 @@ namespace OcioStoreIngSoftII
                 return;
             }
 
-            // Crear el objeto para el detalle de la compra
+            /// Crear el objeto para el detalle de la compra
             DetalleCompra detalle = new DetalleCompra()
             {
-                objProducto = new Producto() { nombre_producto = TNombreProducto.Content },
+                // Ahora usamos el ID del producto
+                objProducto = new Producto() { id_producto = Convert.ToInt32(TB_Id_Producto_Oculto.Text), nombre_producto = TNombreProducto.Text },
                 cantidad = cantidad,
                 precio_unitario = precioUnitario
             };
 
-            // Agregar el producto a la tabla de detalles
+            // Agregar el producto a la tabla de detalles, ahora con el orden correcto
             detallesDataGridView.Rows.Add(new object[] {
                 detalle.objProducto.nombre_producto,
                 detalle.precio_unitario,
                 detalle.cantidad,
-                // Puedes agregar un botón para eliminar la fila si lo necesitas
+                "X", // Botón de eliminar
+                detalle.objProducto.id_producto // ID del producto (oculto)
             });
 
             // Limpiar los campos para el siguiente producto
@@ -182,14 +202,14 @@ namespace OcioStoreIngSoftII
 
             foreach (DataGridViewRow fila in detallesDataGridView.Rows)
             {
-                if (fila.Cells.Count > 0) // Para evitar filas vacías
+                if (!fila.IsNewRow) // Evitar la fila vacía de la tabla
                 {
-                    // Asumiendo que el orden de las columnas es Nombre, Precio, Cantidad
+                    // Obtener los datos de la fila, incluyendo el ID del producto
                     DetalleCompra detalle = new DetalleCompra()
                     {
-                        objProducto = new Producto() { nombre_producto = fila.Cells[0].Value.ToString() },
-                        precio_unitario = Convert.ToDecimal(fila.Cells[1].Value),
-                        cantidad = Convert.ToInt32(fila.Cells[2].Value)
+                        objProducto = new Producto() { id_producto = Convert.ToInt32(fila.Cells["id_producto"].Value), nombre_producto = fila.Cells["nombre_producto"].Value.ToString() },
+                        precio_unitario = Convert.ToDecimal(fila.Cells["precio_unitario"].Value),
+                        cantidad = Convert.ToInt32(fila.Cells["cantidad"].Value)
                     };
                     detallesCompra.Add(detalle);
                     totalCompra += detalle.precio_unitario * detalle.cantidad;

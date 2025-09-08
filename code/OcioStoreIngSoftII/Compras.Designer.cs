@@ -35,36 +35,25 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CBProveedor = new System.Windows.Forms.ComboBox();
+            this.TNombreProducto = new CuoreUI.Controls.cuiTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TCodigoProducto = new CuoreUI.Controls.cuiTextBox();
+            this.BAgregar = new System.Windows.Forms.Button();
             this.BBuscar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.TPrecioUnitario = new CuoreUI.Controls.cuiTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TModificarID_prod = new System.Windows.Forms.TextBox();
+            this.TB_Id_Producto_Oculto = new System.Windows.Forms.TextBox();
             this.TBModificarIndice = new System.Windows.Forms.TextBox();
             this.NCantidad = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.LCantidad = new System.Windows.Forms.Label();
-            this.CBProveedor = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.LProveedor = new System.Windows.Forms.Label();
             this.LProducto = new System.Windows.Forms.Label();
             this.comprasDataGridView = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BRegistrarCompra = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.detallesDataGridView = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.BAgregar = new System.Windows.Forms.Button();
-            this.TCodigoProducto = new CuoreUI.Controls.cuiTextBox();
-            this.TNombreProducto = new CuoreUI.Controls.cuiTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.id_producto_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.id_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +61,15 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImprimirCompra = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.BRegistrarCompra = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.detallesDataGridView = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NCantidad)).BeginInit();
@@ -86,6 +84,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.panel1.Controls.Add(this.CBProveedor);
             this.panel1.Controls.Add(this.TNombreProducto);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.TCodigoProducto);
@@ -95,12 +94,11 @@
             this.panel1.Controls.Add(this.iconPictureBox1);
             this.panel1.Controls.Add(this.TPrecioUnitario);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.TModificarID_prod);
+            this.panel1.Controls.Add(this.TB_Id_Producto_Oculto);
             this.panel1.Controls.Add(this.TBModificarIndice);
             this.panel1.Controls.Add(this.NCantidad);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.LCantidad);
-            this.panel1.Controls.Add(this.CBProveedor);
             this.panel1.Controls.Add(this.txtBuscar);
             this.panel1.Controls.Add(this.LProveedor);
             this.panel1.Controls.Add(this.LProducto);
@@ -109,6 +107,100 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(866, 302);
             this.panel1.TabIndex = 58;
+            // 
+            // CBProveedor
+            // 
+            this.CBProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBProveedor.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.CBProveedor.FormattingEnabled = true;
+            this.CBProveedor.Location = new System.Drawing.Point(12, 127);
+            this.CBProveedor.Name = "CBProveedor";
+            this.CBProveedor.Size = new System.Drawing.Size(233, 28);
+            this.CBProveedor.TabIndex = 105;
+            // 
+            // TNombreProducto
+            // 
+            this.TNombreProducto.BackgroundColor = System.Drawing.Color.White;
+            this.TNombreProducto.Content = "";
+            this.TNombreProducto.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TNombreProducto.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TNombreProducto.FocusImageTint = System.Drawing.Color.White;
+            this.TNombreProducto.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TNombreProducto.ForeColor = System.Drawing.Color.Gray;
+            this.TNombreProducto.Image = null;
+            this.TNombreProducto.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TNombreProducto.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TNombreProducto.Location = new System.Drawing.Point(270, 192);
+            this.TNombreProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.TNombreProducto.Multiline = false;
+            this.TNombreProducto.Name = "TNombreProducto";
+            this.TNombreProducto.NormalImageTint = System.Drawing.Color.White;
+            this.TNombreProducto.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TNombreProducto.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TNombreProducto.PasswordChar = false;
+            this.TNombreProducto.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TNombreProducto.PlaceholderText = "";
+            this.TNombreProducto.Rounding = new System.Windows.Forms.Padding(2);
+            this.TNombreProducto.Size = new System.Drawing.Size(233, 29);
+            this.TNombreProducto.TabIndex = 71;
+            this.TNombreProducto.TextOffset = new System.Drawing.Size(0, 0);
+            this.TNombreProducto.UnderlinedStyle = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label4.Location = new System.Drawing.Point(273, 169);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(135, 21);
+            this.label4.TabIndex = 70;
+            this.label4.Text = "Nombre Producto";
+            // 
+            // TCodigoProducto
+            // 
+            this.TCodigoProducto.BackgroundColor = System.Drawing.Color.White;
+            this.TCodigoProducto.Content = "";
+            this.TCodigoProducto.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TCodigoProducto.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TCodigoProducto.FocusImageTint = System.Drawing.Color.White;
+            this.TCodigoProducto.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCodigoProducto.ForeColor = System.Drawing.Color.Gray;
+            this.TCodigoProducto.Image = null;
+            this.TCodigoProducto.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TCodigoProducto.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TCodigoProducto.Location = new System.Drawing.Point(270, 126);
+            this.TCodigoProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.TCodigoProducto.Multiline = false;
+            this.TCodigoProducto.Name = "TCodigoProducto";
+            this.TCodigoProducto.NormalImageTint = System.Drawing.Color.White;
+            this.TCodigoProducto.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TCodigoProducto.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TCodigoProducto.PasswordChar = false;
+            this.TCodigoProducto.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TCodigoProducto.PlaceholderText = "";
+            this.TCodigoProducto.Rounding = new System.Windows.Forms.Padding(2);
+            this.TCodigoProducto.Size = new System.Drawing.Size(233, 29);
+            this.TCodigoProducto.TabIndex = 69;
+            this.TCodigoProducto.TextOffset = new System.Drawing.Size(0, 0);
+            this.TCodigoProducto.UnderlinedStyle = true;
+            this.TCodigoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_Codigo_Producto_KeyPress);
+            // 
+            // BAgregar
+            // 
+            this.BAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            this.BAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BAgregar.ForeColor = System.Drawing.Color.White;
+            this.BAgregar.Location = new System.Drawing.Point(534, 189);
+            this.BAgregar.Name = "BAgregar";
+            this.BAgregar.Size = new System.Drawing.Size(214, 32);
+            this.BAgregar.TabIndex = 68;
+            this.BAgregar.Text = "Agregar Producto";
+            this.BAgregar.UseVisualStyleBackColor = false;
+            this.BAgregar.Click += new System.EventHandler(this.BAgregarProducto_Click);
             // 
             // BBuscar
             // 
@@ -194,19 +286,19 @@
             this.label2.TabIndex = 53;
             this.label2.Text = "Precio Unitario";
             // 
-            // TModificarID_prod
+            // TB_Id_Producto_Oculto
             // 
-            this.TModificarID_prod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TB_Id_Producto_Oculto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TModificarID_prod.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TModificarID_prod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TModificarID_prod.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarID_prod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TModificarID_prod.Location = new System.Drawing.Point(68, 177);
-            this.TModificarID_prod.Name = "TModificarID_prod";
-            this.TModificarID_prod.Size = new System.Drawing.Size(46, 29);
-            this.TModificarID_prod.TabIndex = 52;
-            this.TModificarID_prod.Visible = false;
+            this.TB_Id_Producto_Oculto.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TB_Id_Producto_Oculto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TB_Id_Producto_Oculto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_Id_Producto_Oculto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TB_Id_Producto_Oculto.Location = new System.Drawing.Point(68, 177);
+            this.TB_Id_Producto_Oculto.Name = "TB_Id_Producto_Oculto";
+            this.TB_Id_Producto_Oculto.Size = new System.Drawing.Size(46, 29);
+            this.TB_Id_Producto_Oculto.TabIndex = 52;
+            this.TB_Id_Producto_Oculto.Visible = false;
             // 
             // TBModificarIndice
             // 
@@ -256,19 +348,6 @@
             this.LCantidad.Size = new System.Drawing.Size(72, 21);
             this.LCantidad.TabIndex = 24;
             this.LCantidad.Text = "Cantidad";
-            // 
-            // CBProveedor
-            // 
-            this.CBProveedor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.CBProveedor.DisplayMember = "id_categoria";
-            this.CBProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBProveedor.FormattingEnabled = true;
-            this.CBProveedor.Location = new System.Drawing.Point(13, 127);
-            this.CBProveedor.Name = "CBProveedor";
-            this.CBProveedor.Size = new System.Drawing.Size(232, 29);
-            this.CBProveedor.TabIndex = 24;
-            this.CBProveedor.ValueMember = "id_categoria";
-            this.CBProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_Codigo_Producto_KeyPress);
             // 
             // txtBuscar
             // 
@@ -357,6 +436,61 @@
             this.comprasDataGridView.Size = new System.Drawing.Size(852, 500);
             this.comprasDataGridView.TabIndex = 60;
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 116;
+            // 
+            // id_compra
+            // 
+            this.id_compra.DataPropertyName = "id_compra";
+            this.id_compra.HeaderText = "Nro. Compra";
+            this.id_compra.Name = "id_compra";
+            this.id_compra.ReadOnly = true;
+            // 
+            // Proveedor
+            // 
+            this.Proveedor.DataPropertyName = "objProveedor.nombre_proveedor";
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.ReadOnly = true;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "fecha_compra";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "total";
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            // 
+            // id_proveedor
+            // 
+            this.id_proveedor.DataPropertyName = "id_proveedor";
+            this.id_proveedor.HeaderText = "id_proveedor";
+            this.id_proveedor.Name = "id_proveedor";
+            this.id_proveedor.ReadOnly = true;
+            this.id_proveedor.Visible = false;
+            // 
+            // btnImprimirCompra
+            // 
+            this.btnImprimirCompra.DataPropertyName = "btnImprimir";
+            this.btnImprimirCompra.HeaderText = "Imprimir";
+            this.btnImprimirCompra.Name = "btnImprimirCompra";
+            this.btnImprimirCompra.ReadOnly = true;
+            this.btnImprimirCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnImprimirCompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -434,11 +568,9 @@
             this.detallesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.detallesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.detallesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_producto_venta,
-            this.nombre,
-            this.precio,
-            this.cantidad,
-            this.btnEliminar});
+            this.nombre_producto,
+            this.precio_unitario,
+            this.cantidad});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -478,182 +610,23 @@
             this.panel3.Size = new System.Drawing.Size(320, 282);
             this.panel3.TabIndex = 63;
             // 
-            // BAgregar
+            // nombre_producto
             // 
-            this.BAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
-            this.BAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BAgregar.ForeColor = System.Drawing.Color.White;
-            this.BAgregar.Location = new System.Drawing.Point(534, 189);
-            this.BAgregar.Name = "BAgregar";
-            this.BAgregar.Size = new System.Drawing.Size(214, 32);
-            this.BAgregar.TabIndex = 68;
-            this.BAgregar.Text = "Agregar Producto";
-            this.BAgregar.UseVisualStyleBackColor = false;
-            this.BAgregar.Click += new System.EventHandler(this.BAgregarProducto_Click);
+            this.nombre_producto.HeaderText = "Nombre";
+            this.nombre_producto.Name = "nombre_producto";
+            this.nombre_producto.ReadOnly = true;
             // 
-            // TCodigoProducto
+            // precio_unitario
             // 
-            this.TCodigoProducto.BackgroundColor = System.Drawing.Color.White;
-            this.TCodigoProducto.Content = "";
-            this.TCodigoProducto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TCodigoProducto.FocusBackgroundColor = System.Drawing.Color.White;
-            this.TCodigoProducto.FocusImageTint = System.Drawing.Color.White;
-            this.TCodigoProducto.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TCodigoProducto.ForeColor = System.Drawing.Color.Gray;
-            this.TCodigoProducto.Image = null;
-            this.TCodigoProducto.ImageExpand = new System.Drawing.Point(0, 0);
-            this.TCodigoProducto.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TCodigoProducto.Location = new System.Drawing.Point(270, 126);
-            this.TCodigoProducto.Margin = new System.Windows.Forms.Padding(4);
-            this.TCodigoProducto.Multiline = false;
-            this.TCodigoProducto.Name = "TCodigoProducto";
-            this.TCodigoProducto.NormalImageTint = System.Drawing.Color.White;
-            this.TCodigoProducto.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TCodigoProducto.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
-            this.TCodigoProducto.PasswordChar = false;
-            this.TCodigoProducto.PlaceholderColor = System.Drawing.SystemColors.WindowText;
-            this.TCodigoProducto.PlaceholderText = "";
-            this.TCodigoProducto.Rounding = new System.Windows.Forms.Padding(2);
-            this.TCodigoProducto.Size = new System.Drawing.Size(233, 29);
-            this.TCodigoProducto.TabIndex = 69;
-            this.TCodigoProducto.TextOffset = new System.Drawing.Size(0, 0);
-            this.TCodigoProducto.UnderlinedStyle = true;
-            // 
-            // TNombreProducto
-            // 
-            this.TNombreProducto.BackgroundColor = System.Drawing.Color.White;
-            this.TNombreProducto.Content = "";
-            this.TNombreProducto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TNombreProducto.FocusBackgroundColor = System.Drawing.Color.White;
-            this.TNombreProducto.FocusImageTint = System.Drawing.Color.White;
-            this.TNombreProducto.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TNombreProducto.ForeColor = System.Drawing.Color.Gray;
-            this.TNombreProducto.Image = null;
-            this.TNombreProducto.ImageExpand = new System.Drawing.Point(0, 0);
-            this.TNombreProducto.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TNombreProducto.Location = new System.Drawing.Point(270, 192);
-            this.TNombreProducto.Margin = new System.Windows.Forms.Padding(4);
-            this.TNombreProducto.Multiline = false;
-            this.TNombreProducto.Name = "TNombreProducto";
-            this.TNombreProducto.NormalImageTint = System.Drawing.Color.White;
-            this.TNombreProducto.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TNombreProducto.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
-            this.TNombreProducto.PasswordChar = false;
-            this.TNombreProducto.PlaceholderColor = System.Drawing.SystemColors.WindowText;
-            this.TNombreProducto.PlaceholderText = "";
-            this.TNombreProducto.Rounding = new System.Windows.Forms.Padding(2);
-            this.TNombreProducto.Size = new System.Drawing.Size(233, 29);
-            this.TNombreProducto.TabIndex = 71;
-            this.TNombreProducto.TextOffset = new System.Drawing.Size(0, 0);
-            this.TNombreProducto.UnderlinedStyle = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label4.Location = new System.Drawing.Point(273, 169);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 21);
-            this.label4.TabIndex = 70;
-            this.label4.Text = "Nombre Producto";
-            // 
-            // id_producto_venta
-            // 
-            this.id_producto_venta.HeaderText = "id_producto_venta";
-            this.id_producto_venta.Name = "id_producto_venta";
-            this.id_producto_venta.ReadOnly = true;
-            this.id_producto_venta.Visible = false;
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // precio
-            // 
-            this.precio.DataPropertyName = "precio";
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
+            this.precio_unitario.HeaderText = "Precio";
+            this.precio_unitario.Name = "precio_unitario";
+            this.precio_unitario.ReadOnly = true;
             // 
             // cantidad
             // 
-            this.cantidad.DataPropertyName = "cantidad";
             this.cantidad.HeaderText = "Cantidad";
             this.cantidad.Name = "cantidad";
             this.cantidad.ReadOnly = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnEliminar.DataPropertyName = "btnEliminar";
-            this.btnEliminar.HeaderText = "Eliminar";
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.ReadOnly = true;
-            this.btnEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnEliminar.Width = 94;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 116;
-            // 
-            // id_compra
-            // 
-            this.id_compra.DataPropertyName = "id_compra";
-            this.id_compra.HeaderText = "Nro. Compra";
-            this.id_compra.Name = "id_compra";
-            this.id_compra.ReadOnly = true;
-            // 
-            // Proveedor
-            // 
-            this.Proveedor.DataPropertyName = "objProveedor.nombre_proveedor";
-            this.Proveedor.HeaderText = "Proveedor";
-            this.Proveedor.Name = "Proveedor";
-            this.Proveedor.ReadOnly = true;
-            // 
-            // Fecha
-            // 
-            this.Fecha.DataPropertyName = "fecha_compra";
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "total";
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            // 
-            // id_proveedor
-            // 
-            this.id_proveedor.DataPropertyName = "id_proveedor";
-            this.id_proveedor.HeaderText = "id_proveedor";
-            this.id_proveedor.Name = "id_proveedor";
-            this.id_proveedor.ReadOnly = true;
-            this.id_proveedor.Visible = false;
-            // 
-            // btnImprimirCompra
-            // 
-            this.btnImprimirCompra.DataPropertyName = "btnImprimir";
-            this.btnImprimirCompra.HeaderText = "Imprimir";
-            this.btnImprimirCompra.Name = "btnImprimirCompra";
-            this.btnImprimirCompra.ReadOnly = true;
-            this.btnImprimirCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnImprimirCompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Compras
             // 
@@ -664,6 +637,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Compras";
             this.Text = "Compras";
+            this.Load += new System.EventHandler(this.Compras_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
@@ -680,12 +654,11 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox TModificarID_prod;
+        private System.Windows.Forms.TextBox TB_Id_Producto_Oculto;
         private System.Windows.Forms.TextBox TBModificarIndice;
         private System.Windows.Forms.NumericUpDown NCantidad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LCantidad;
-        private System.Windows.Forms.ComboBox CBProveedor;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label LProveedor;
         private System.Windows.Forms.Label LProducto;
@@ -705,11 +678,6 @@
         private CuoreUI.Controls.cuiTextBox TCodigoProducto;
         private CuoreUI.Controls.cuiTextBox TNombreProducto;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_producto_venta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_compra;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
@@ -717,5 +685,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
         private System.Windows.Forms.DataGridViewButtonColumn btnImprimirCompra;
+        private System.Windows.Forms.ComboBox CBProveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio_unitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
     }
 }
