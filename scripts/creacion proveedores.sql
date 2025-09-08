@@ -124,8 +124,8 @@ BEGIN
     SELECT
         id_proveedor,
         nombre_proveedor,
-        cuit,
-        telefono_contacto
+        cuit_proveedor,
+        telefono_proveedor
     FROM
         Proveedores
     WHERE

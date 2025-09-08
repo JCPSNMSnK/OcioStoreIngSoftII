@@ -73,13 +73,13 @@ BEGIN
     BEGIN TRANSACTION;
     BEGIN TRY
         -- 1. Eliminar los vínculos de esta categoría con todos los productos
-        DELETE FROM Productos_Categorias
+        DELETE FROM ProductosCategorias
         WHERE id_categoria = @id_categoria;
 
         -- 2. Dar de baja los productos que se quedaron sin ninguna categoría
         UPDATE Productos
         SET baja_producto = 1
-        WHERE id_producto NOT IN (SELECT id_producto FROM Productos_Categorias);
+        WHERE id_producto NOT IN (SELECT id_producto FROM ProductosCategorias);
 
         -- 3. Finalmente, dar de baja la categoría en la tabla de Categorias
         UPDATE Categorias
@@ -97,3 +97,176 @@ BEGIN
 END
 GO
 
+--5. BUSCAR CATEGORIA
+
+CREATE OR ALTER PROCEDURE PROC_BUSCAR_CATEGORIA
+    @busqueda_general VARCHAR(100) = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        id_categoria,
+        nombre_categoria,
+        baja_categoria
+    FROM 
+        Categorias
+    WHERE 
+        (@busqueda_general IS NULL OR 
+        nombre_categoria COLLATE Latin1_General_CI_AI LIKE '%' + @busqueda_general + '%' COLLATE Latin1_General_CI_AI);
+END
+GO
+
+--6. CONTAR PRODUCTOS POR CATEGORIA
+
+CREATE OR ALTER PROCEDURE PROC_CONTAR_PRODUCTOS_POR_CATEGORIA
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        c.id_categoria,
+        c.nombre_categoria,
+        COUNT(pc.id_producto) AS cantidad_productos
+    FROM
+        Categorias AS c
+    INNER JOIN
+        ProductosCategorias AS pc ON c.id_categoria = pc.id_categoria
+    GROUP BY
+        c.id_categoria, c.nombre_categoria
+    ORDER BY
+        cantidad_productos DESC, c.nombre_categoria ASC;
+END
+GO
+
+--7. DAR DE ALTA CATEGORIA
+
+CREATE PROCEDURE PROC_DAR_DE_ALTA_CATEGORIA
+    -- Parámetro de entrada: ID de la categoría a dar de alta
+    @id_categoria INT,
+    
+    -- Parámetro de salida: Mensaje de confirmación o error
+    @mensaje NVARCHAR(100) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Usamos un bloque TRY-CATCH para manejar cualquier error que pueda ocurrir
+    BEGIN TRY
+        -- Declarar una variable para verificar si la operación de actualización fue exitosa
+        DECLARE @rows_affected INT;
+        
+        -- Iniciar una transacción para asegurar la integridad de los datos
+        BEGIN TRANSACTION;
+
+        -- Actualizar el estado de la categoría en la tabla
+        UPDATE Categorias
+        SET baja_categoria = 0
+        WHERE id_categoria = @id_categoria AND baja_categoria = 1;
+
+        -- Obtener el número de filas afectadas por la actualización
+        SET @rows_affected = @@ROWCOUNT;
+
+        -- Verificar si la actualización fue exitosa
+        IF @rows_affected > 0
+        BEGIN
+            SET @mensaje = 'Categoría dada de alta con éxito.';
+            COMMIT TRANSACTION;
+        END
+        ELSE
+        BEGIN
+            -- Si no se afectaron filas, la categoría no existe o ya estaba dada de alta
+            IF NOT EXISTS (SELECT 1 FROM Categorias WHERE id_categoria = @id_categoria)
+            BEGIN
+                SET @mensaje = 'Error: La categoría especificada no existe.';
+            END
+            ELSE
+            BEGIN
+                SET @mensaje = 'Error: La categoría ya está dada de alta.';
+            END
+            ROLLBACK TRANSACTION;
+        END
+    END TRY
+    BEGIN CATCH
+        -- Si ocurre un error, deshacer cualquier cambio y capturar el mensaje de error del sistema
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+            
+        SET @mensaje = 'Error del sistema: ' + ERROR_MESSAGE();
+    END CATCH
+END
+GO
+
+--8. NUEVO MODIFICAR
+
+CREATE OR ALTER PROCEDURE PROC_MODIFICAR_CATEGORIA
+    -- Parámetros de entrada
+    @id_categoria INT,
+    @nombre_categoria NVARCHAR(50),
+    @baja_categoria BIT, -- Nuevo parámetro para el estado (0 para alta, 1 para baja)
+    
+    -- Parámetro de salida
+    @mensaje NVARCHAR(100) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    BEGIN TRY
+        DECLARE @rows_affected INT;
+        DECLARE @current_baja_categoria BIT;
+
+        -- Obtener el estado actual de la categoría antes de la modificación
+        SELECT @current_baja_categoria = baja_categoria
+        FROM Categorias
+        WHERE id_categoria = @id_categoria;
+
+        BEGIN TRANSACTION;
+
+        -- Actualizar el estado de la categoría en la tabla
+        UPDATE Categorias
+        SET 
+            nombre_categoria = @nombre_categoria,
+            baja_categoria = @baja_categoria
+        WHERE id_categoria = @id_categoria;
+
+        SET @rows_affected = @@ROWCOUNT;
+
+        IF @rows_affected > 0
+        BEGIN
+            -- Si el estado se cambió a baja y antes no lo estaba
+            IF @baja_categoria = 1 AND @current_baja_categoria = 0
+            BEGIN
+                -- 1. Eliminar los vínculos de esta categoría con todos los productos
+                DELETE FROM ProductosCategorias
+                WHERE id_categoria = @id_categoria;
+
+                -- 2. Dar de baja los productos que se quedaron sin ninguna categoría
+                UPDATE Productos
+                SET baja_producto = 1
+                WHERE id_producto NOT IN (SELECT id_producto FROM ProductosCategorias);
+                
+                SET @mensaje = 'Categoría y sus productos desvinculados dados de baja con éxito.';
+            END
+            ELSE
+            BEGIN
+                SET @mensaje = 'Categoría modificada con éxito.';
+            END
+            
+            COMMIT TRANSACTION;
+        END
+        ELSE
+        BEGIN
+            -- Si no se afectaron filas, la categoría no existe
+            SET @mensaje = 'Error: La categoría especificada no existe.';
+            ROLLBACK TRANSACTION;
+        END
+    END TRY
+    BEGIN CATCH
+        -- Si ocurre un error, deshacer cualquier cambio y capturar el mensaje de error del sistema
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+            
+        SET @mensaje = 'Error del sistema: ' + ERROR_MESSAGE();
+    END CATCH
+END
+GO

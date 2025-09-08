@@ -2,11 +2,12 @@
 using CapaEntidades;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -82,7 +83,7 @@ namespace CapaDatos
             return exito;
         }
 
-        //modificar categoría
+        // Método para modificar una categoría en la base de datos
         public bool ModificarCategoria(Categoria categoria, out string mensaje)
         {
             bool exito = false;
@@ -98,17 +99,25 @@ namespace CapaDatos
                     // Parámetros de entrada
                     cmd.Parameters.AddWithValue("@id_categoria", categoria.id_categoria);
                     cmd.Parameters.AddWithValue("@nombre_categoria", categoria.nombre_categoria);
+                    // Nuevo parámetro de entrada para el estado
+                    cmd.Parameters.AddWithValue("@baja_categoria", categoria.baja_categoria);
+
+                    // Parámetro de salida para el mensaje del procedimiento almacenado
+                    SqlParameter mensajeParam = new SqlParameter("@mensaje", SqlDbType.NVarChar, 100);
+                    mensajeParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(mensajeParam);
 
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    exito = true;
-                    mensaje = "Categoría modificada exitosamente.";
+                    // Obtener el mensaje devuelto por el procedimiento almacenado
+                    mensaje = mensajeParam.Value.ToString();
+                    exito = !mensaje.Contains("Error"); // Determinar el éxito en base al mensaje
                 }
                 catch (Exception ex)
                 {
                     exito = false;
-                    mensaje = "Error al modificar la categoría: " + ex.Message;
+                    mensaje = "Error en la capa de datos al modificar la categoría: " + ex.Message;
                 }
             }
             return exito;
@@ -147,39 +156,78 @@ namespace CapaDatos
             return existe;
         }
 
-        public bool DarDeBajaCategoria(int idCategoria, out string mensaje)
+        public List<Categoria> BuscarCategoriasGeneral(string busqueda)
         {
-            bool exito = false;
-            mensaje = string.Empty;
+            List<Categoria> lista = new List<Categoria>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_BUSCAR_CATEGORIA", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@busqueda_general", busqueda);
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dataReader = cmd.ExecuteReader())
+                    {
+                        while (dataReader.Read())
+                        {
+                            lista.Add(new Categoria()
+                            {
+                                id_categoria = Convert.ToInt32(dataReader["id_categoria"]),
+                                nombre_categoria = dataReader["nombre_categoria"].ToString(),
+                                baja_categoria = Convert.ToBoolean(dataReader["baja_categoria"])
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                    "Ocurrió un error al buscar las categorias:\n\n" + ex.ToString(),
+                    "Error de Base de Datos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                    lista = new List<Categoria>();
+                }
+            }
+            return lista;
+        }
+
+        public Dictionary<int, int> ContarProductosPorCategoria()
+        {
+            Dictionary<int, int> conteoProductos = new Dictionary<int, int>();
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("PROC_DAR_DE_BAJA_CATEGORIA", oconexion);
+                    SqlCommand cmd = new SqlCommand("PROC_CONTAR_PRODUCTOS_POR_CATEGORIA", oconexion);
                     cmd.CommandType = CommandType.StoredProcedure;
-
-                    // Parámetros de entrada
-                    cmd.Parameters.AddWithValue("@id_categoria", idCategoria);
-
-                    // Parámetro de salida para el mensaje del procedimiento
-                    SqlParameter mensajeParam = new SqlParameter("@mensaje", SqlDbType.NVarChar, 100);
-                    mensajeParam.Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add(mensajeParam);
-
                     oconexion.Open();
-                    cmd.ExecuteNonQuery();
 
-                    exito = true;
-                    mensaje = mensajeParam.Value.ToString();
+                    using (SqlDataReader dataReader = cmd.ExecuteReader())
+                    {
+                        while (dataReader.Read())
+                        {
+                            // Se lee el ID de la categoría y la cantidad de productos
+                            int idCategoria = Convert.ToInt32(dataReader["id_categoria"]);
+                            int cantidadProductos = Convert.ToInt32(dataReader["cantidad_productos"]);
+
+                            // Se añade la pareja de valores al diccionario
+                            conteoProductos.Add(idCategoria, cantidadProductos);
+                        }
+                    }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    exito = false;
-                    mensaje = "Error al dar de baja la categoría: " + ex.Message;
+                    // En la capa de datos, es mejor lanzar la excepción
+                    // para que una capa superior (negocio o presentación) la maneje.
+                    throw;
                 }
             }
-            return exito;
+            return conteoProductos;
         }
     }
 
