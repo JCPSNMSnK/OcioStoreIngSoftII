@@ -161,4 +161,24 @@ BEGIN
         SET @mensaje = 'Error del sistema: ' + ERROR_MESSAGE();
     END CATCH
 END
+
+
+--9 LISTAR CATEGORIAS ACTIVAS PARA FILTROS Y CREACIÓN DE PRODUCTOS
+        
+CREATE PROCEDURE PROC_LISTAR_CATEGORIAS_ACTIVAS
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        id_categoria,
+        nombre_categoria
+    FROM 
+        dbo.Categorias
+    WHERE 
+        baja_categoria = 0 -- Solo trae las categorías activas
+    ORDER BY
+        nombre_categoria ASC;
+END
+GO
 GO
