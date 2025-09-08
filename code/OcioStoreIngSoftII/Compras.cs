@@ -12,6 +12,14 @@ using CapaNegocio;
 using CapaDatos;
 using FontAwesome.Sharp;
 using CapaEntidades.Utilidades;
+using System.IO;
+using iText.Layout;
+//using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iTextSharp.tool.xml;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
 
 namespace OcioStoreIngSoftII
 {
@@ -270,6 +278,79 @@ namespace OcioStoreIngSoftII
             }
         }
 
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
+            //corregir la condíción de control de ser necesario, aquello que vayamos a imprimir tiene que existir
+            if(btnSeleccionar.Text == "")
+            {
+                MessageBox.Show("No se encontró la compra para imprimir", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
+            string Texto_Html = Properties.Resources.PlantillaCompra.ToString(); //la plantilla HTML cargada en Recursos del Proyecto
+
+            Texto_Html = Texto_Html.Replace("@nombrenegocio", "Ocio Store");
+            Texto_Html = Texto_Html.Replace("@docnegocio", "Tienda de Juegos de Mesa");
+            Texto_Html = Texto_Html.Replace("@direcnegocio", "Avenida Corrientes 453");
+
+            Texto_Html = Texto_Html.Replace("@tipodocumento", "COMPROBANTE DE COMPRA");
+            Texto_Html = Texto_Html.Replace("@numerodocumento", "");//poner acá el ID de la Compra desde lo seleccionado
+
+            Texto_Html = Texto_Html.Replace("@docproveedor", ""); //poner acá el CUIT del PRoveedor de la compra
+            Texto_Html = Texto_Html.Replace("@nombreproveedor", ""); //poner acá el nombre del proveedor 
+            Texto_Html = Texto_Html.Replace("@fecharegistro", ""); //poner la fecha de la compra
+            Texto_Html = Texto_Html.Replace("@usuarioregistro", ""); //poner el nombre del usuario que generó el pdf de la compra
+
+            string filas = string.Empty;
+            foreach(DataGridViewRow row in comprasDataGridView.Rows)
+            {
+                filas += "<td>";
+                filas += "<td>" + row.Cells["Nombre Producto"].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells["Cantidad"].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells["Precio Unitario"].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells["Total"].Value.ToString() + "</td>";
+                filas += "</td>";
+            }
+
+            Texto_Html = Texto_Html.Replace("@filas", filas);
+            Texto_Html = Texto_Html.Replace("@montototal", ""); //colocar el total
+
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.FileName = string.Format("Compra_{0].pdf", btnSeleccionar.Text);
+            saveFile.Filter = "Pdf files|* .pdf";
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream stream = new FileStream(saveFile.FileName, FileMode.Create))
+                {
+                    iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(PageSize.A4, 25, 25, 25, 25);
+
+                    iTextSharp.text.pdf.PdfWriter writer = iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, stream);
+                    pdfDoc.Open();
+
+                    bool obtenido = true;
+                    byte[] byteImage = null; //poner la imagen acá, una ref a resources quizas
+
+                    if (obtenido)
+                    {
+                        iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(byteImage);
+                        img.ScaleToFit(60, 60);
+                        img.Alignment = iTextSharp.text.Image.UNDERLYING;
+                        img.SetAbsolutePosition(pdfDoc.GetLeft(20), pdfDoc.GetTop(51));
+                        pdfDoc.Add(img);
+                    }
+
+                    using(StringReader sr = new StringReader(Texto_Html))
+                    {
+                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    }
+
+                    pdfDoc.Close();
+                    stream.Close();
+                    MessageBox.Show("Documento Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+        }
     }
 }

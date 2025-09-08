@@ -91,6 +91,12 @@
     <Reference Include="itext.svg, Version=9.3.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext.9.3.0\lib\net461\itext.svg.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.4\lib\net461\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
     <Reference Include="LiveChartsCore, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc92a3e13d40c573, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveChartsCore.2.0.0-rc5.4\lib\net462\LiveChartsCore.dll</HintPath>
     </Reference>
@@ -407,6 +413,9 @@
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras.resx">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionarCategorias.resx">
       <DependentUpon>GestionarCategorias.cs</DependentUpon>
     </EmbeddedResource>
@@ -503,6 +512,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\floppy-disk-solid-full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlantillaCompra.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
