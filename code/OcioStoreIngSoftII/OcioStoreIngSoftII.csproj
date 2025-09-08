@@ -307,6 +307,12 @@
     <Compile Include="Backup.Designer.cs">
       <DependentUpon>Backup.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarCliente.Designer.cs">
+      <DependentUpon>BuscarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Categories.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -381,6 +387,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarClienteVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrarClienteVenta.Designer.cs">
+      <DependentUpon>RegistrarClienteVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stats.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -406,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarCliente.resx">
+      <DependentUpon>BuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Categories.resx">
       <DependentUpon>Categories.cs</DependentUpon>
@@ -436,6 +451,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrarClienteVenta.resx">
+      <DependentUpon>RegistrarClienteVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stats.resx">
       <DependentUpon>Stats.cs</DependentUpon>
