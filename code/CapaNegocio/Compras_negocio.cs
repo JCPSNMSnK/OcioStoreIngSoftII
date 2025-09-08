@@ -14,7 +14,7 @@ namespace CapaNegocio
             objComprasDatos = new Compras_Datos();
         }
 
-        public int RegistrarCompra(Compra objCompra, List<DetalleCompra> DetallesCompra,out string mensaje)
+        public int RegistrarCompra(Compra objCompra, List<DetalleCompra> DetallesCompra, out string mensaje)
         {
             mensaje = string.Empty;
             int idCompraGenerada = 0;
@@ -45,14 +45,46 @@ namespace CapaNegocio
 
             // Si todas las validaciones de negocio pasan, se delega a la capa de datos.
             // La capa de datos se encargará de la transacción completa (registro y stock).
+            objCompra.detalles = DetallesCompra;
             idCompraGenerada = objComprasDatos.Registrar(objCompra, out mensaje);
-            
+
             return idCompraGenerada;
         }
 
-        public List<Compra> ListarCompras()
+        // Método para listar todas las compras, ahora con filtros opcionales.
+        public List<Compra> ListarCompras(string fecha = null, int idProveedor = 0)
         {
-            return objComprasDatos.Listar();
+            return objComprasDatos.Listar(fecha, idProveedor);
+        }
+
+        // Nuevo método para la búsqueda general de compras.
+        public List<Compra> BuscarComprasGeneral(string filtro)
+        {
+            return objComprasDatos.BuscarComprasGeneral(filtro);
+        }
+
+        // Nuevo método para obtener los detalles de una compra específica.
+        public Compra ObtenerDetalleCompra(int idCompra, out string mensaje)
+        {
+            mensaje = string.Empty;
+            if (idCompra <= 0)
+            {
+                mensaje = "ID de compra no válido.";
+                return null;
+            }
+
+            return objComprasDatos.ObtenerDetalleCompra(idCompra, out mensaje);
+        }
+
+        // Nuevo método para obtener los productos de una compra específica.
+        public List<DetalleCompra> ObtenerProductosCompra(int idCompra)
+        {
+            if (idCompra <= 0)
+            {
+                return new List<DetalleCompra>();
+            }
+
+            return objComprasDatos.ObtenerProductosCompra(idCompra);
         }
     }
 }
