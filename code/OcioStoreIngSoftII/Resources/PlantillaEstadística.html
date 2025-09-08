@@ -62,7 +62,7 @@
 
         .report-details-grid {
             display: grid;
-            grid-template-columns: 220px 1fr;
+            grid-template-columns: 150px 1fr;
             gap: 10px 20px;
             font-size: 13px;
         }
@@ -98,26 +98,6 @@
             text-align: center;
         }
 
-        .summary-table {
-            width: 180px;
-            border-collapse: collapse;
-            font-size: 12px;
-            margin-top: 25px;
-            margin-left: auto;
-            border: 1px solid #cbd5e0;
-        }
-
-        .summary-table th, .summary-table td {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #cbd5e0;
-        }
-
-        .summary-table thead th {
-            background-color: #e2e8f0;
-            font-weight: bold;
-        }
-
     </style>
 </head>
 <body>
@@ -129,51 +109,38 @@
             <div class="detail">Dirección: @direcnegocio</div>
         </div>
         <div class="report-info">
-            <div class="info-header">@tipodocumento</div>
-            <div class="info-data">@numerodocumento</div>
+            <div class="info-header">@tipo_informe</div>
+            <div class="info-data">@id_informe</div>
         </div>
     </div>
     
     <hr class="section-divider" />
 
     <div class="report-details-grid">
-        <div class="label">CUIT Proveedor:</div>
-        <div>@docproveedor</div>
+        <div class="label">Informe Generado por:</div>
+        <div>@nombre_usuario</div>
         
-        <div class="label">Nombre Proveedor:</div>
-        <div>@nombreproveedor</div>
+        <div class="label">Tipo de Informe:</div>
+        <div>@tipo_informe</div>
         
-        <div class="label">Fecha Registro de la Compra:</div>
-        <div>@fecharegistro</div>
+        <div class="label">Fecha del Informe:</div>
+        <div>@fecha_generacion</div>
         
-        <div class="label">Usuario que Registró la Compra:</div>
-        <div>@usuarioregistro</div>
+        <div class="label">Descripción breve:</div>
+        <div>@descripcion</div>
     </div>
 
     <table class="data-table">
         <thead>
             <tr>
-                <th>Producto</th>
-                <th>Precio Compra</th>
-                <th>Cantidad</th>
-                <th>Sub Total</th>
+                <th>@parametro1</th>
+                <th>@parametro2</th>
+                <th>@parametro3</th>
+                <th>@parametro4</th>
             </tr>
         </thead>
         <tbody>
             @filas
-        </tbody>
-    </table>
-
-    <table class="summary-table">
-        <thead>
-            <tr>
-                <th>Monto Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@montototal</td>
-            </tr>
         </tbody>
     </table>
 </body>

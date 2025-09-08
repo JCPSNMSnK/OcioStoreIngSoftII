@@ -129,32 +129,35 @@
             <div class="detail">Dirección: @direcnegocio</div>
         </div>
         <div class="report-info">
-            <div class="info-header">@tipodocumento</div>
-            <div class="info-data">@numerodocumento</div>
+            <div class="info-header">@tiporeserva</div>
+            <div class="info-data">@numeroreserva</div>
         </div>
     </div>
     
     <hr class="section-divider" />
 
     <div class="report-details-grid">
-        <div class="label">CUIT Proveedor:</div>
-        <div>@docproveedor</div>
+        <div class="label">Documento Cliente:</div>
+        <div>@dni_cliente</div>
         
-        <div class="label">Nombre Proveedor:</div>
-        <div>@nombreproveedor</div>
+        <div class="label">Nombre Cliente:</div>
+        <div>@nombre_cliente</div>
         
-        <div class="label">Fecha Registro de la Compra:</div>
-        <div>@fecharegistro</div>
+        <div class="label">Fecha de la Reserva:</div>
+        <div>@fecha_emision</div>
         
-        <div class="label">Usuario que Registró la Compra:</div>
-        <div>@usuarioregistro</div>
+        <div class="label">Fecha Límite de Retiro de la Reserva:</div>
+        <div>@fecha_retiro</div>
+        
+        <div class="label">Usuario Vendedor:</div>
+        <div>@nombre_usuario</div>
     </div>
 
     <table class="data-table">
         <thead>
             <tr>
                 <th>Producto</th>
-                <th>Precio Compra</th>
+                <th>Precio</th>
                 <th>Cantidad</th>
                 <th>Sub Total</th>
             </tr>
@@ -172,7 +175,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>@montototal</td>
+                <td>@total_venta</td>
             </tr>
         </tbody>
     </table>

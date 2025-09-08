@@ -114,31 +114,127 @@ namespace OcioStoreIngSoftII.Properties {
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
         ///&lt;head&gt;
-        ///    &lt;title&gt;Web Page Design&lt;/title&gt;
+        ///    &lt;title&gt;OCIO STORE - DOCUMENTO GENERADO&lt;/title&gt;
         ///    &lt;style&gt;
-        ///        table.border {
-        ///            border-collapse: collapse;
+        ///        body {
+        ///            font-family: sans-serif;
+        ///            color: #4a5568;
+        ///            padding: 20px;
         ///        }
         ///
-        ///            table.border th {
-        ///                text-align: center;
-        ///                padding: 5px;
-        ///                border: 1px solid black;
-        ///            }
+        ///        .header-section {
+        ///            display: flex;
+        ///            justify-content: space-between;
+        ///            align-items: flex-start;
+        ///            margin-bottom: 25px;
+        ///        }
         ///
-        ///            table.border td {
-        ///                text-align: center;
-        ///                padding: 5px;
-        ///                border: 1px solid black;
-        ///            }
-        ///    &lt;/style&gt;
-        ///&lt;/head&gt;
-        ///&lt;body&gt;
-        ///    &lt;tab [resto de la cadena truncado]&quot;;.
+        ///        .business-info {
+        ///            text-align: center;
+        ///            flex-grow: 1;
+        ///        }
+        ///
+        ///       [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string PlantillaCompra {
             get {
                 return ResourceManager.GetString("PlantillaCompra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;OCIO STORE - DOCUMENTO GENERADO&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        body {
+        ///            font-family: sans-serif;
+        ///            color: #4a5568;
+        ///            padding: 20px;
+        ///        }
+        ///
+        ///        .header-section {
+        ///            display: flex;
+        ///            justify-content: space-between;
+        ///            align-items: flex-start;
+        ///            margin-bottom: 25px;
+        ///        }
+        ///
+        ///        .business-info {
+        ///            text-align: center;
+        ///            flex-grow: 1;
+        ///        }
+        ///
+        ///       [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaEstadística {
+            get {
+                return ResourceManager.GetString("PlantillaEstadística", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;OCIO STORE - DOCUMENTO GENERADO&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        body {
+        ///            font-family: sans-serif;
+        ///            color: #4a5568;
+        ///            padding: 20px;
+        ///        }
+        ///
+        ///        .header-section {
+        ///            display: flex;
+        ///            justify-content: space-between;
+        ///            align-items: flex-start;
+        ///            margin-bottom: 25px;
+        ///        }
+        ///
+        ///        .business-info {
+        ///            text-align: center;
+        ///            flex-grow: 1;
+        ///        }
+        ///
+        ///       [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaReserva {
+            get {
+                return ResourceManager.GetString("PlantillaReserva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;OCIO STORE - DOCUMENTO GENERADO&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        body {
+        ///            font-family: sans-serif;
+        ///            color: #4a5568;
+        ///            padding: 20px;
+        ///        }
+        ///
+        ///        .header-section {
+        ///            display: flex;
+        ///            justify-content: space-between;
+        ///            align-items: flex-start;
+        ///            margin-bottom: 25px;
+        ///        }
+        ///
+        ///        .business-info {
+        ///            text-align: center;
+        ///            flex-grow: 1;
+        ///        }
+        ///
+        ///       [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaVenta {
+            get {
+                return ResourceManager.GetString("PlantillaVenta", resourceCulture);
             }
         }
     }
