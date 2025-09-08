@@ -20,6 +20,7 @@ namespace CapaEntidades
         public List<Categoria> categorias { get; set; }
         public int cod_producto { get; set; }
         public int id_proveedor { get; set; }
+        public string nombre_proveedor { get; set; }
 
 
         //Para manejar las categorías - productos

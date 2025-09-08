@@ -17,6 +17,12 @@ namespace CapaNegocio
             return objCategoria_datos.Listar();
         }
 
+        public List<Categoria> ListarActivas()
+        {
+            // Simplemente llama al nuevo método de la capa de datos
+            return objCategoria_datos.ListarActivas();
+        }
+
         public bool Registrar(Categoria categoria, out string mensaje)
         {
             mensaje = string.Empty;
@@ -62,7 +68,6 @@ namespace CapaNegocio
             // Si las validaciones pasan, se llama a la capa de datos.
             return objCategoria_datos.ModificarCategoria(categoria, out mensaje);
         }
-
      
         public List<Categoria> BuscarCategoriasGeneral(string filtros)
         {

@@ -50,6 +50,7 @@ namespace CapaDatos
                                     descripcion = reader["descripcion"].ToString(),
                                     cod_producto = reader["cod_producto"] == DBNull.Value ? 0 : Convert.ToInt32(reader["cod_producto"]),
                                     id_proveedor = reader["id_proveedor"] == DBNull.Value ? 0 : Convert.ToInt32(reader["id_proveedor"]),
+                                    nombre_proveedor = reader["nombre_proveedor"].ToString(),
                                     categorias = new List<Categoria>()
                                 };
                                 diccionarioProductos.Add(idProducto, productoExistente);

@@ -89,7 +89,7 @@ namespace OcioStoreIngSoftII
             opciones.Add(new OpcionSelect() { Valor = 0, Texto = "Todas las Categorías" });
 
             // Obtenemos el resto de las categorías de la capa de negocio
-            List<Categoria> listaCategorias = _categoriaNegocio.Listar();
+            List<Categoria> listaCategorias = _categoriaNegocio.ListarActivas();
             foreach (var categoria in listaCategorias)
             {
                 opciones.Add(new OpcionSelect() { Valor = categoria.id_categoria, Texto = categoria.nombre_categoria });
@@ -134,6 +134,28 @@ namespace OcioStoreIngSoftII
                 e.Graphics.DrawImage(Properties.Resources.checkbox, new System.Drawing.Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        }
+
+        //DGV - Texto para la columna estado y proveedor
+        private void productosDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in productosDataGridView.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var valor = row.Cells["estadoValor"].Value;
+                if (valor != null && valor != DBNull.Value)
+                {
+                    bool estado = Convert.ToBoolean(valor);
+                    row.Cells["estado"].Value = estado ? "Dado de Baja" : "Alta";
+                }
+                else
+                {
+                    row.Cells["estado"].Value = "Desconocido";
+                }
+            }
+            productosDataGridView.ClearSelection();
+            productosDataGridView.CurrentCell = null;
         }
 
 
@@ -221,6 +243,9 @@ namespace OcioStoreIngSoftII
                             }
                         }
                     }
+
+                    TLayoutProducts.ScrollControlIntoView(TCProductos);
+
                 }
             }
         }
@@ -381,9 +406,9 @@ namespace OcioStoreIngSoftII
                 return;
             }
 
-            //  Obtén la lista de TODAS las categorías desde la capa de negocio
+
             Categoria_negocio objNegocioCategoria = new Categoria_negocio();
-            List<Categoria> todasLasCategorias = objNegocioCategoria.Listar();
+            List<Categoria> todasLasCategorias = objNegocioCategoria.ListarActivas();
             
             //  Crea y muestra la ventana emergente, pasándole los datos necesarios
             using (GestionarCategorias popup = new GestionarCategorias(todasLasCategorias, productoSeleccionado.categorias))
@@ -403,7 +428,7 @@ namespace OcioStoreIngSoftII
 
         private void btnElegirCategorias_Click(object sender, EventArgs e)
         {
-            List<Categoria> todasLasCategorias = _categoriaNegocio.Listar();
+            List<Categoria> todasLasCategorias = _categoriaNegocio.ListarActivas();
 
             using (GestionarCategorias popup = new GestionarCategorias(todasLasCategorias, categoriasNuevoProducto))
             {

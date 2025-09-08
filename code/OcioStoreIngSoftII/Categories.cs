@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace OcioStoreIngSoftII
@@ -16,7 +17,8 @@ namespace OcioStoreIngSoftII
     public partial class Categories : Form
     {
         private readonly Categoria_negocio categoria_Negocio;
-        
+        private Dictionary<int, int> cantidad_productos_diccionario;
+
         public Categories()
         {
             InitializeComponent();
@@ -39,6 +41,7 @@ namespace OcioStoreIngSoftII
 
             actualizarDatosTabla();
         }
+
         private void actualizarDatosTabla(string filtros = null)
         {
             if (filtros == null)
@@ -47,28 +50,10 @@ namespace OcioStoreIngSoftII
             }
 
             List<Categoria> resultados = categoria_Negocio.BuscarCategoriasGeneral(filtros);
-            Dictionary<int, int> cantidad_productos = categoria_Negocio.ContarProductosPorCategoria();
+            cantidad_productos_diccionario = categoria_Negocio.ContarProductosPorCategoria();
             categoriasDataGridView.AutoGenerateColumns = false;
             categoriasDataGridView.DataSource = null;
             categoriasDataGridView.DataSource = resultados;
-
-            if (categoriasDataGridView.Columns.Contains("cantidad_productos"))
-            {
-                foreach (DataGridViewRow row in categoriasDataGridView.Rows)
-                {
-                    if (row.IsNewRow) continue;
-
-                    Categoria categoria = (Categoria)row.DataBoundItem;
-                    if (categoria != null && cantidad_productos.ContainsKey(categoria.id_categoria))
-                    {
-                        row.Cells["cantidad_productos"].Value = cantidad_productos[categoria.id_categoria];
-                    }
-                    else
-                    {
-                        row.Cells["cantidad_productos"].Value = 0;
-                    }
-                }
-            }
         }
 
         //Buscar
@@ -76,7 +61,7 @@ namespace OcioStoreIngSoftII
         {
             string filtro = txtBuscar.Text.Trim();
 
-            List<Categoria> resultados = categoria_Negocio.Listar();
+            List<Categoria> resultados = categoria_Negocio.BuscarCategoriasGeneral(filtro);
             categoriasDataGridView.DataSource = null;
             categoriasDataGridView.DataSource = resultados;
         }
@@ -191,26 +176,31 @@ namespace OcioStoreIngSoftII
                 // y hacemos un 'cast' a la clase Categoria.
                 Categoria categoriaSeleccionada = (Categoria)categoriasDataGridView.Rows[e.RowIndex].DataBoundItem;
 
+                TCUsuarios.SelectedIndex = 1;
+
                 // Verificar que el objeto no sea nulo
                 if (categoriaSeleccionada != null)
                 {
-                    // Ejemplo de cómo llenar los campos de texto
-                    // (Ajustar los nombres de los controles de tu UI, ej: txtId, txtNombre, cbEstado)
-
-                    // Supongamos que tienes un TextBox para el ID y otro para el nombre
                     TBModificarIndice.Content = e.RowIndex.ToString();
                     TModificarID_user.Content = categoriaSeleccionada.id_categoria.ToString();
                     TModificarNombre.Content = categoriaSeleccionada.nombre_categoria;
 
-                    // Para el ComboBox del estado (asumiendo que es un ComboBox)
-                    // Puedes usar un OpcionSelect similar a como lo hiciste para Usuarios
-                    if (CBModificarEstado != null)
+                    // Seleccionar el estado correcto en el ComboBox de modificación
+                    if (categoriasDataGridView.Rows[e.RowIndex].Cells["baja_estado_valor"].Value is bool isAlta)
                     {
-                        CBModificarEstado.SelectedItem = categoriaSeleccionada.baja_categoria ? "Baja" : "Alta";
-                        // Puedes usar el SelectedValue si tienes los valores en el ComboBox
-                        CBModificarEstado.SelectedValue = categoriaSeleccionada.baja_categoria ? 1 : 0;
+                        foreach (OpcionSelect opcionSelect in CBModificarEstado.Items)
+                        {
+                            if ((Convert.ToInt32(opcionSelect.Valor) == 1 && isAlta) || (Convert.ToInt32(opcionSelect.Valor) == 0 && !isAlta))
+                            {
+                                CBModificarEstado.SelectedItem = opcionSelect;
+                                break;
+                            }
+                        }
                     }
                 }
+
+                TLayoutCategories.ScrollControlIntoView(TCUsuarios);
+
             }
         }
 
@@ -232,6 +222,25 @@ namespace OcioStoreIngSoftII
                     row.Cells["baja_estado"].Value = "Desconocido";
                 }
             }
+
+            if (categoriasDataGridView.Columns.Contains("cantidad_productos") && cantidad_productos_diccionario != null)
+            {
+                foreach (DataGridViewRow row in categoriasDataGridView.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    Categoria categoria = (Categoria)row.DataBoundItem;
+                    if (categoria != null && cantidad_productos_diccionario.ContainsKey(categoria.id_categoria))
+                    {
+                        row.Cells["cantidad_productos"].Value = cantidad_productos_diccionario[categoria.id_categoria];
+                    }
+                    else
+                    {
+                        row.Cells["cantidad_productos"].Value = 0;
+                    }
+                }
+            }
+
             categoriasDataGridView.ClearSelection();
             categoriasDataGridView.CurrentCell = null;
         }

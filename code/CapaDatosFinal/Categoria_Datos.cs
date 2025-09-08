@@ -51,6 +51,38 @@ namespace CapaDatos
             return lista;
         }
 
+        public List<Categoria> ListarActivas()
+        {
+            List<Categoria> lista = new List<Categoria>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    // Llamamos al nuevo procedimiento almacenado
+                    SqlCommand cmd = new SqlCommand("PROC_LISTAR_CATEGORIAS_ACTIVAS", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new Categoria()
+                            {
+                                id_categoria = Convert.ToInt32(reader["id_categoria"]),
+                                nombre_categoria = reader["nombre_categoria"].ToString(),
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Manejar el error
+                }
+                return lista;
+            }
+        }
+
         public bool registrarCategoria(Categoria categoria, out string mensaje)
         {
             bool exito = false;

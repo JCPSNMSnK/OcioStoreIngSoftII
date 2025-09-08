@@ -351,6 +351,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="ocio_storeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ocio_storeDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Payment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -443,6 +448,17 @@
     </None>
     <None Include="DataSet11.xss">
       <DependentUpon>DataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="ocio_storeDataSet.xsc">
+      <DependentUpon>ocio_storeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ocio_storeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ocio_storeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ocio_storeDataSet.xss">
+      <DependentUpon>ocio_storeDataSet.xsd</DependentUpon>
     </None>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
