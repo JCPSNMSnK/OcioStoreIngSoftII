@@ -17,7 +17,7 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT id_proveedor, nombre_proveedor, telefono_proveedor, cuit_proveedor, baja_proveedor FROM Proveedores", oconexion);
+                    SqlCommand cmd = new SqlCommand("SELECT id_proveedor, nombre_proveedor, telefono_proveedor, cuit_proveedor FROM Proveedores", oconexion);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();

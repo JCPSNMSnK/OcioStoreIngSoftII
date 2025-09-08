@@ -16,7 +16,6 @@ namespace CapaNegocio
 
         public List<Proveedor> ListarProveedores()
         {
-            // Este método asume que la capa de datos tiene un método para listar todos los proveedores.
             return objProveedorDatos.Listar();
         }
 

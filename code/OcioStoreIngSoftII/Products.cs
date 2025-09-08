@@ -156,6 +156,7 @@ namespace OcioStoreIngSoftII
                 if (indice >= 0)
                 {
                     productoSeleccionado = (Producto)productosDataGridView.Rows[indice].DataBoundItem;
+                    Proveedor objProveedor = _proveedorNegocio.ObtenerProveedorPorId(productoSeleccionado.id_proveedor);
 
                     TCProductos.SelectedIndex = 1; // Cambia a la pestaña de modificación
 
@@ -170,6 +171,7 @@ namespace OcioStoreIngSoftII
                     TModificarCodigo.Content = productoSeleccionado.cod_producto.ToString();
                     NModificarStock.Text = productoSeleccionado.stock.ToString();
                     NModificarStockMin.Text = productoSeleccionado.stock_min.ToString();
+                    CBModificarProveedor.SelectedValue = objProveedor.nombre_proveedor;
 
                     TModificarCategorias.Text = productoSeleccionado.CategoriasConcatenadas;
 
