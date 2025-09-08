@@ -195,6 +195,7 @@
             // 
             // CBestado
             // 
+            this.CBestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBestado.FormattingEnabled = true;
             this.CBestado.Location = new System.Drawing.Point(720, 153);
             this.CBestado.Name = "CBestado";
@@ -203,6 +204,7 @@
             // 
             // CBroles
             // 
+            this.CBroles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBroles.FormattingEnabled = true;
             this.CBroles.Location = new System.Drawing.Point(720, 97);
             this.CBroles.Name = "CBroles";
@@ -846,7 +848,9 @@
             // 
             // CBModificarEstado
             // 
+            this.CBModificarEstado.BackColor = System.Drawing.Color.White;
             this.CBModificarEstado.DisplayMember = "Valor";
+            this.CBModificarEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBModificarEstado.FormattingEnabled = true;
             this.CBModificarEstado.Location = new System.Drawing.Point(720, 153);
             this.CBModificarEstado.Name = "CBModificarEstado";
@@ -855,7 +859,9 @@
             // 
             // CBModificarRoles
             // 
+            this.CBModificarRoles.BackColor = System.Drawing.Color.White;
             this.CBModificarRoles.DisplayMember = "Valor";
+            this.CBModificarRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBModificarRoles.FormattingEnabled = true;
             this.CBModificarRoles.Location = new System.Drawing.Point(720, 97);
             this.CBModificarRoles.Name = "CBModificarRoles";

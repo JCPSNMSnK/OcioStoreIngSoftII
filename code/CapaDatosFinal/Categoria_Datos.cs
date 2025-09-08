@@ -220,11 +220,13 @@ namespace CapaDatos
                         }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    // En la capa de datos, es mejor lanzar la excepción
-                    // para que una capa superior (negocio o presentación) la maneje.
-                    throw;
+                    MessageBox.Show(
+                    "Ocurrió un error al buscar las categorias:\n\n" + ex.ToString(),
+                    "Error de Base de Datos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 }
             }
             return conteoProductos;

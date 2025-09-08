@@ -150,9 +150,9 @@ namespace CapaNegocio
             return _objProductoDatos.ListarProductosConStockBajo();
         }
 
-        public List<Producto> BuscarProductosGeneral(string filtros)
+        public List<Producto> BuscarProductosGeneral(string filtros, int idCategoria)
         {
-            return _objProductoDatos.BuscarProductosGeneral(filtros);
+            return _objProductoDatos.BuscarProductosGeneral(filtros, idCategoria);
         }
 
     }

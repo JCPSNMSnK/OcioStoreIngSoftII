@@ -33,9 +33,10 @@ namespace OcioStoreIngSoftII
         {
             // Carga inicial de ComboBoxes (UI específica)
             CargarComboBoxEstados(CBEstado);
-            CargarComboBoxEstados(CBModificarEstado); // Podría no tener selección inicial si se carga un producto
+            CargarComboBoxEstados(CBModificarEstado);
             CargarComboBoxProveedor(CBProveedor);
-            CargarComboBoxProveedor(CBModificarProveedor); // Podría no tener selección inicial si se carga un producto
+            CargarComboBoxProveedor(CBModificarProveedor); 
+            CargarComboBoxFiltroCat(CBFiltroCategoria);
             // Establecer índices por defecto si hay elementos
             if (CBEstado.Items.Count > 0) CBEstado.SelectedIndex = 0;
 
@@ -79,14 +80,35 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void actualizarDatosTabla(string filtros = null)
+        private void CargarComboBoxFiltroCat(ComboBox cbFiltroCategoria)
+        {
+            // Creamos una lista de opciones para el ComboBox
+            var opciones = new List<OpcionSelect>();
+
+            // ---  OPCIÓN "TODAS" ---
+            opciones.Add(new OpcionSelect() { Valor = 0, Texto = "Todas las Categorías" });
+
+            // Obtenemos el resto de las categorías de la capa de negocio
+            List<Categoria> listaCategorias = _categoriaNegocio.Listar();
+            foreach (var categoria in listaCategorias)
+            {
+                opciones.Add(new OpcionSelect() { Valor = categoria.id_categoria, Texto = categoria.nombre_categoria });
+            }
+
+            // Asignamos la lista completa al ComboBox
+            cbFiltroCategoria.DataSource = opciones;
+            cbFiltroCategoria.DisplayMember = "Texto";
+            cbFiltroCategoria.ValueMember = "Valor";
+        }
+
+        private void actualizarDatosTabla(string filtros = null, int idCategoria = 0)
         {
             if (filtros == null)
             {
                 filtros = "";
             }
 
-            List<Producto> resultados = _productoNegocio.BuscarProductosGeneral(filtros);
+            List<Producto> resultados = _productoNegocio.BuscarProductosGeneral(filtros, idCategoria);
             productosDataGridView.AutoGenerateColumns = false;
             productosDataGridView.DataSource = null;
             productosDataGridView.DataSource = resultados;
@@ -156,7 +178,6 @@ namespace OcioStoreIngSoftII
                 if (indice >= 0)
                 {
                     productoSeleccionado = (Producto)productosDataGridView.Rows[indice].DataBoundItem;
-                    Proveedor objProveedor = _proveedorNegocio.ObtenerProveedorPorId(productoSeleccionado.id_proveedor);
 
                     TCProductos.SelectedIndex = 1; // Cambia a la pestaña de modificación
 
@@ -171,9 +192,22 @@ namespace OcioStoreIngSoftII
                     TModificarCodigo.Content = productoSeleccionado.cod_producto.ToString();
                     NModificarStock.Text = productoSeleccionado.stock.ToString();
                     NModificarStockMin.Text = productoSeleccionado.stock_min.ToString();
-                    CBModificarProveedor.SelectedValue = objProveedor.nombre_proveedor;
-
                     TModificarCategorias.Text = productoSeleccionado.CategoriasConcatenadas;
+
+                    for (int i = 0; i < CBModificarProveedor.Items.Count; i++)
+                    {
+                        // Obtenemos el objeto OpcionSelect de la posición 'i'
+                        // Necesitamos castear 'Items[i]' de vuelta a OpcionSelect para acceder a su propiedad 'Valor'
+                        OpcionSelect opcion = (OpcionSelect)CBModificarProveedor.Items[i];
+
+                        // Comparamos su propiedad 'Valor' con el ID que buscamos
+                        if (Convert.ToInt32(opcion.Valor) == productoSeleccionado.id_proveedor)
+                        {
+                            // Si coinciden, establecemos el ComboBox en ese índice y salimos del bucle
+                            CBModificarProveedor.SelectedIndex = i;
+                            break;
+                        }
+                    }
 
                     // Seleccionar el estado correcto en el ComboBox de modificación
                     if (productosDataGridView.Rows[indice].Cells["estadoValor"].Value is bool isAlta)
@@ -193,7 +227,6 @@ namespace OcioStoreIngSoftII
 
 
         /// Evento Click para el botón de Registro de Producto.
-        /// La capa de presentación se encarga de la captura, validación de formato y delegación.
         private void BRegisterProduct_Click_1(object sender, EventArgs e)
         {
             string uiValidationMessage;
@@ -206,25 +239,26 @@ namespace OcioStoreIngSoftII
             }
 
             //  Parseo de datos de la UI a tipos de datos adecuados
-            decimal precioLista = decimal.Parse(TPrecioLista.Text);
-            decimal precioVenta = decimal.Parse(TPrecioVenta.Text);
+            decimal precioLista = decimal.Parse(TPrecioLista.Content);
+            decimal precioVenta = decimal.Parse(TPrecioVenta.Content);
             int stock = int.Parse(NStock.Text);
             int stockMin = int.Parse(NStockMin.Text);
             bool bajaProducto = Convert.ToInt32(((OpcionSelect)CBEstado.SelectedItem).Valor) == 1;
-
+            int codigoProducto = Convert.ToInt32(TCodigo);
 
             //  Creación de objetos de entidad (Producto y Categoria)
             Producto objProducto = new Producto()
             {
                 id_producto = Convert.ToInt32(TID_prod.Text), // Asume 0 para nuevos registros
-                nombre_producto = TNombreProducto.Text,
-                descripcion = TDescripcion.Text,
+                nombre_producto = TNombreProducto.Content,
+                descripcion = TDescripcion.Content,
                 fechaIngreso = DateTime.Now, // Podría ser generado en BLL/DAL
                 precioLista = precioLista,
                 precioVenta = precioVenta,
                 stock = stock,
                 stock_min = stockMin,
                 baja_producto = bajaProducto,
+                cod_producto = codigoProducto, 
                 categorias = this.categoriasNuevoProducto
             };
             string businessValidationMessage = string.Empty; // Mensaje devuelto por la capa de negocio
@@ -250,21 +284,21 @@ namespace OcioStoreIngSoftII
         {
             mensaje = string.Empty;
 
-            if (string.IsNullOrWhiteSpace(TNombreProducto.Text)) { mensaje = "El nombre del producto es obligatorio."; return false; }
-            if (string.IsNullOrWhiteSpace(TDescripcion.Text)) { mensaje = "La descripción es obligatoria."; return false; }
+            if (string.IsNullOrWhiteSpace(TNombreProducto.Content)) { mensaje = "El nombre del producto es obligatorio."; return false; }
+            if (string.IsNullOrWhiteSpace(TDescripcion.Content)) { mensaje = "La descripción es obligatoria."; return false; }
 
-            if (!decimal.TryParse(TPrecioLista.Text, out decimal precioLista)) { mensaje = "El precio de lista debe ser un número válido."; return false; }
-            if (!decimal.TryParse(TPrecioVenta.Text, out decimal precioVenta)) { mensaje = "El precio de venta debe ser un número válido."; return false; }
+            if (!decimal.TryParse(TPrecioLista.Content, out decimal precioLista)) { mensaje = "El precio de lista debe ser un número válido."; return false; }
+            if (!decimal.TryParse(TPrecioVenta.Content, out decimal precioVenta)) { mensaje = "El precio de venta debe ser un número válido."; return false; }
             if (!int.TryParse(NStock.Text, out int stock)) { mensaje = "El stock debe ser un número entero válido."; return false; }
             if (!int.TryParse(NStockMin.Text, out int stockMin)) { mensaje = "El stock mínimo debe ser un número entero válido."; return false; }
             if (CBEstado.SelectedItem == null) { mensaje = "Debe seleccionar un estado."; return false; }
+            if (CBProveedor.SelectedItem == null) { mensaje = "Debe seleccionar un proveedor."; return false; }
 
             return true;
         }
 
 
         /// Evento Click para el botón de Modificar Producto.
-        /// La capa de presentación se encarga de la captura, validación de formato y delegación.
         private void BModificar_Click_1(object sender, EventArgs e)
         {
             string uiValidationMessage;
@@ -276,24 +310,27 @@ namespace OcioStoreIngSoftII
             }
 
             //  Parseo de datos de la UI a tipos de datos adecuados
-            decimal precioLista = decimal.Parse(TModificarPrecioLista.Text);
-            decimal precioVenta = decimal.Parse(TModificarPrecioVenta.Text);
+            decimal precioLista = decimal.Parse(TModificarPrecioLista.Content);
+            decimal precioVenta = decimal.Parse(TModificarPrecioVenta.Content);
             int stock = int.Parse(NModificarStock.Text);
             int stockMin = int.Parse(NModificarStockMin.Text);
             bool bajaProducto = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1;
+            int idProveedor = Convert.ToInt32(((OpcionSelect)CBModificarProveedor.SelectedItem).Valor);
 
             //  Creación de objetos de entidad (Producto y Categoria)
             Producto objProducto = new Producto()
             {
                 id_producto = Convert.ToInt32(TModificarID_prod.Text),
                 nombre_producto = TModificarNombreProducto.Content,
+                cod_producto = Convert.ToInt32(TModificarCodigo.Content),
                 descripcion = TModificarDescripcion.Content,
                 precioLista = precioLista,
                 precioVenta = precioVenta,
                 stock = stock,
                 stock_min = stockMin,
                 baja_producto = bajaProducto,
-                categorias = productoSeleccionado.categorias
+                categorias = productoSeleccionado.categorias,
+                id_proveedor = idProveedor
             };
 
             string businessValidationMessage = string.Empty;
@@ -320,13 +357,14 @@ namespace OcioStoreIngSoftII
         {
             mensaje = string.Empty;
 
-            if (string.IsNullOrWhiteSpace(TModificarNombreProducto.Text)) { mensaje = "El nombre del producto no puede estar vacío."; return false; }
-            if (string.IsNullOrWhiteSpace(TModificarDescripcion.Text)) { mensaje = "La descripción no puede estar vacía."; return false; }
-            if (!decimal.TryParse(TModificarPrecioLista.Text, out decimal precioLista)) { mensaje = "El precio de lista debe ser un número válido."; return false; }
-            if (!decimal.TryParse(TModificarPrecioVenta.Text, out decimal precioVenta)) { mensaje = "El precio de venta debe ser un número válido."; return false; }
+            if (string.IsNullOrWhiteSpace(TModificarNombreProducto.Content)) { mensaje = "El nombre del producto no puede estar vacío."; return false; }
+            if (string.IsNullOrWhiteSpace(TModificarDescripcion.Content)) { mensaje = "La descripción no puede estar vacía."; return false; }
+            if (!decimal.TryParse(TModificarPrecioLista.Content, out decimal precioLista)) { mensaje = "El precio de lista debe ser un número válido."; return false; }
+            if (!decimal.TryParse(TModificarPrecioVenta.Content, out decimal precioVenta)) { mensaje = "El precio de venta debe ser un número válido."; return false; }
             if (!int.TryParse(NModificarStock.Text, out int stock)) { mensaje = "El stock debe ser un número entero válido."; return false; }
             if (!int.TryParse(NModificarStockMin.Text, out int stockMin)) { mensaje = "El stock mínimo debe ser un número entero válido."; return false; }
             if (CBModificarEstado.SelectedItem == null) { mensaje = "Debe seleccionar el estado."; return false; }
+            if (CBModificarProveedor.SelectedItem == null) { mensaje = "Debe seleccionar un proveedor."; return false; }
 
             return true;
         }
@@ -388,8 +426,9 @@ namespace OcioStoreIngSoftII
         private void BBuscar_Click(object sender, EventArgs e)
         {
             string filtro = txtBuscar.Text.Trim();
+            int idCategoria = Convert.ToInt32(((OpcionSelect)CBFiltroCategoria.SelectedItem).Valor);
 
-            List<Producto> resultados = _productoNegocio.BuscarProductosGeneral(filtro);
+            List<Producto> resultados = _productoNegocio.BuscarProductosGeneral(filtro, idCategoria);
             productosDataGridView.DataSource = null;
             productosDataGridView.DataSource = resultados;
         }
@@ -404,6 +443,13 @@ namespace OcioStoreIngSoftII
                 // Evita el sonido "ding" de Windows al presionar Enter en algunos contextos
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Text = "";
+            CBFiltroCategoria.SelectedIndex = 0;
+            actualizarDatosTabla();
         }
     }
 }

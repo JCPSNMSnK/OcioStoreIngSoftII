@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CBFiltroCategoria = new System.Windows.Forms.ComboBox();
             this.BBuscar = new CuoreUI.Controls.cuiButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -58,6 +60,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.PanelAltaProducts = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnElegirCategorias = new CuoreUI.Controls.cuiButton();
+            this.TCategorias = new System.Windows.Forms.TextBox();
             this.TIndice = new System.Windows.Forms.TextBox();
             this.TID_prod = new System.Windows.Forms.TextBox();
             this.BRegisterProduct = new CuoreUI.Controls.cuiButton();
@@ -106,8 +110,7 @@
             this.LModificarPrecioLista = new System.Windows.Forms.Label();
             this.LModificarNombreProducto = new System.Windows.Forms.Label();
             this.LModificarDescripcion = new System.Windows.Forms.Label();
-            this.btnElegirCategorias = new CuoreUI.Controls.cuiButton();
-            this.TCategorias = new System.Windows.Forms.TextBox();
+            this.btnLimpiarFiltros = new CuoreUI.Controls.cuiButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -160,6 +163,9 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnLimpiarFiltros);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.CBFiltroCategoria);
             this.panel2.Controls.Add(this.BBuscar);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txtBuscar);
@@ -169,6 +175,29 @@
             this.panel2.Size = new System.Drawing.Size(1121, 94);
             this.panel2.TabIndex = 58;
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label2.Location = new System.Drawing.Point(267, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(196, 25);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Seleccionar Categoría";
+            // 
+            // CBFiltroCategoria
+            // 
+            this.CBFiltroCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBFiltroCategoria.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBFiltroCategoria.FormattingEnabled = true;
+            this.CBFiltroCategoria.Location = new System.Drawing.Point(261, 40);
+            this.CBFiltroCategoria.Name = "CBFiltroCategoria";
+            this.CBFiltroCategoria.Size = new System.Drawing.Size(207, 28);
+            this.CBFiltroCategoria.TabIndex = 12;
+            // 
             // BBuscar
             // 
             this.BBuscar.CheckButton = false;
@@ -177,11 +206,11 @@
             this.BBuscar.CheckedForeColor = System.Drawing.Color.White;
             this.BBuscar.CheckedImageTint = System.Drawing.Color.White;
             this.BBuscar.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.BBuscar.Content = "Buscar";
+            this.BBuscar.Content = "Filtrar";
             this.BBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BBuscar.DialogResult = System.Windows.Forms.DialogResult.None;
             this.BBuscar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.BBuscar.ForeColor = System.Drawing.Color.Black;
+            this.BBuscar.ForeColor = System.Drawing.Color.White;
             this.BBuscar.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
             this.BBuscar.HoverForeColor = System.Drawing.Color.White;
             this.BBuscar.HoverImageTint = System.Drawing.Color.White;
@@ -190,22 +219,23 @@
             this.BBuscar.ImageAutoCenter = true;
             this.BBuscar.ImageExpand = new System.Drawing.Point(0, 0);
             this.BBuscar.ImageOffset = new System.Drawing.Point(0, 0);
-            this.BBuscar.Location = new System.Drawing.Point(264, 40);
+            this.BBuscar.Location = new System.Drawing.Point(491, 40);
             this.BBuscar.Name = "BBuscar";
-            this.BBuscar.NormalBackground = System.Drawing.Color.White;
-            this.BBuscar.NormalForeColor = System.Drawing.Color.Black;
+            this.BBuscar.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.BBuscar.NormalForeColor = System.Drawing.Color.White;
             this.BBuscar.NormalImageTint = System.Drawing.Color.White;
-            this.BBuscar.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BBuscar.NormalOutline = System.Drawing.Color.DarkBlue;
             this.BBuscar.OutlineThickness = 1F;
             this.BBuscar.PressedBackground = System.Drawing.Color.WhiteSmoke;
             this.BBuscar.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.BBuscar.PressedImageTint = System.Drawing.Color.White;
             this.BBuscar.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BBuscar.Rounding = new System.Windows.Forms.Padding(8);
-            this.BBuscar.Size = new System.Drawing.Size(91, 29);
+            this.BBuscar.Size = new System.Drawing.Size(110, 29);
             this.BBuscar.TabIndex = 11;
             this.BBuscar.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BBuscar.TextOffset = new System.Drawing.Point(0, 0);
+            this.BBuscar.Click += new System.EventHandler(this.BBuscar_Click);
             // 
             // label1
             // 
@@ -216,9 +246,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label1.Location = new System.Drawing.Point(9, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.Size = new System.Drawing.Size(214, 25);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Buscar";
+            this.label1.Text = "Filtrar por Palabra Clave";
             // 
             // txtBuscar
             // 
@@ -237,15 +267,15 @@
             this.productosDataGridView.AllowUserToDeleteRows = false;
             this.productosDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.productosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.productosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -263,14 +293,14 @@
             this.estadoValor,
             this.Proveedor,
             this.id_proveedor});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productosDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productosDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.productosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productosDataGridView.EnableHeadersVisualStyles = false;
             this.productosDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
@@ -280,14 +310,14 @@
             this.productosDataGridView.Name = "productosDataGridView";
             this.productosDataGridView.ReadOnly = true;
             this.productosDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.productosDataGridView.RowHeadersVisible = false;
             this.productosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productosDataGridView.Size = new System.Drawing.Size(1097, 394);
@@ -503,6 +533,54 @@
             this.panel3.Size = new System.Drawing.Size(1107, 355);
             this.panel3.TabIndex = 0;
             // 
+            // btnElegirCategorias
+            // 
+            this.btnElegirCategorias.CheckButton = false;
+            this.btnElegirCategorias.Checked = false;
+            this.btnElegirCategorias.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnElegirCategorias.CheckedForeColor = System.Drawing.Color.White;
+            this.btnElegirCategorias.CheckedImageTint = System.Drawing.Color.White;
+            this.btnElegirCategorias.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnElegirCategorias.Content = "Elegir Categorias";
+            this.btnElegirCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnElegirCategorias.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnElegirCategorias.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElegirCategorias.ForeColor = System.Drawing.Color.White;
+            this.btnElegirCategorias.HoverBackground = System.Drawing.Color.White;
+            this.btnElegirCategorias.HoverForeColor = System.Drawing.Color.Black;
+            this.btnElegirCategorias.HoverImageTint = System.Drawing.Color.White;
+            this.btnElegirCategorias.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnElegirCategorias.Image = null;
+            this.btnElegirCategorias.ImageAutoCenter = true;
+            this.btnElegirCategorias.ImageExpand = new System.Drawing.Point(0, 0);
+            this.btnElegirCategorias.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnElegirCategorias.Location = new System.Drawing.Point(687, 227);
+            this.btnElegirCategorias.Name = "btnElegirCategorias";
+            this.btnElegirCategorias.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.btnElegirCategorias.NormalForeColor = System.Drawing.Color.White;
+            this.btnElegirCategorias.NormalImageTint = System.Drawing.Color.White;
+            this.btnElegirCategorias.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnElegirCategorias.OutlineThickness = 1F;
+            this.btnElegirCategorias.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.btnElegirCategorias.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnElegirCategorias.PressedImageTint = System.Drawing.Color.White;
+            this.btnElegirCategorias.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnElegirCategorias.Rounding = new System.Windows.Forms.Padding(8);
+            this.btnElegirCategorias.Size = new System.Drawing.Size(233, 32);
+            this.btnElegirCategorias.TabIndex = 155;
+            this.btnElegirCategorias.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnElegirCategorias.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnElegirCategorias.Click += new System.EventHandler(this.btnElegirCategorias_Click);
+            // 
+            // TCategorias
+            // 
+            this.TCategorias.Location = new System.Drawing.Point(687, 114);
+            this.TCategorias.Multiline = true;
+            this.TCategorias.Name = "TCategorias";
+            this.TCategorias.ReadOnly = true;
+            this.TCategorias.Size = new System.Drawing.Size(233, 98);
+            this.TCategorias.TabIndex = 154;
+            // 
             // TIndice
             // 
             this.TIndice.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -566,9 +644,11 @@
             this.BRegisterProduct.TabIndex = 105;
             this.BRegisterProduct.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BRegisterProduct.TextOffset = new System.Drawing.Point(0, 0);
+            this.BRegisterProduct.Click += new System.EventHandler(this.BRegisterProduct_Click_1);
             // 
             // CBProveedor
             // 
+            this.CBProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBProveedor.FormattingEnabled = true;
             this.CBProveedor.Location = new System.Drawing.Point(687, 40);
             this.CBProveedor.Name = "CBProveedor";
@@ -765,6 +845,7 @@
             // CBEstado
             // 
             this.CBEstado.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CBEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBEstado.ForeColor = System.Drawing.Color.Black;
             this.CBEstado.FormattingEnabled = true;
@@ -1018,9 +1099,11 @@
             this.BModificarProducto.TabIndex = 149;
             this.BModificarProducto.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BModificarProducto.TextOffset = new System.Drawing.Point(0, 0);
+            this.BModificarProducto.Click += new System.EventHandler(this.BModificar_Click_1);
             // 
             // CBModificarProveedor
             // 
+            this.CBModificarProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBModificarProveedor.FormattingEnabled = true;
             this.CBModificarProveedor.Location = new System.Drawing.Point(684, 40);
             this.CBModificarProveedor.Name = "CBModificarProveedor";
@@ -1217,6 +1300,7 @@
             // CBModificarEstado
             // 
             this.CBModificarEstado.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CBModificarEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBModificarEstado.ForeColor = System.Drawing.Color.Black;
             this.CBModificarEstado.FormattingEnabled = true;
@@ -1313,53 +1397,44 @@
             this.LModificarDescripcion.TabIndex = 129;
             this.LModificarDescripcion.Text = "Descripcion";
             // 
-            // btnElegirCategorias
+            // btnLimpiarFiltros
             // 
-            this.btnElegirCategorias.CheckButton = false;
-            this.btnElegirCategorias.Checked = false;
-            this.btnElegirCategorias.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.btnElegirCategorias.CheckedForeColor = System.Drawing.Color.White;
-            this.btnElegirCategorias.CheckedImageTint = System.Drawing.Color.White;
-            this.btnElegirCategorias.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.btnElegirCategorias.Content = "Elegir Categorias";
-            this.btnElegirCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnElegirCategorias.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnElegirCategorias.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnElegirCategorias.ForeColor = System.Drawing.Color.White;
-            this.btnElegirCategorias.HoverBackground = System.Drawing.Color.White;
-            this.btnElegirCategorias.HoverForeColor = System.Drawing.Color.Black;
-            this.btnElegirCategorias.HoverImageTint = System.Drawing.Color.White;
-            this.btnElegirCategorias.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnElegirCategorias.Image = null;
-            this.btnElegirCategorias.ImageAutoCenter = true;
-            this.btnElegirCategorias.ImageExpand = new System.Drawing.Point(0, 0);
-            this.btnElegirCategorias.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnElegirCategorias.Location = new System.Drawing.Point(687, 227);
-            this.btnElegirCategorias.Name = "btnElegirCategorias";
-            this.btnElegirCategorias.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
-            this.btnElegirCategorias.NormalForeColor = System.Drawing.Color.White;
-            this.btnElegirCategorias.NormalImageTint = System.Drawing.Color.White;
-            this.btnElegirCategorias.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnElegirCategorias.OutlineThickness = 1F;
-            this.btnElegirCategorias.PressedBackground = System.Drawing.Color.WhiteSmoke;
-            this.btnElegirCategorias.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btnElegirCategorias.PressedImageTint = System.Drawing.Color.White;
-            this.btnElegirCategorias.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnElegirCategorias.Rounding = new System.Windows.Forms.Padding(8);
-            this.btnElegirCategorias.Size = new System.Drawing.Size(233, 32);
-            this.btnElegirCategorias.TabIndex = 155;
-            this.btnElegirCategorias.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnElegirCategorias.TextOffset = new System.Drawing.Point(0, 0);
-            this.btnElegirCategorias.Click += new System.EventHandler(this.btnElegirCategorias_Click);
-            // 
-            // TCategorias
-            // 
-            this.TCategorias.Location = new System.Drawing.Point(687, 114);
-            this.TCategorias.Multiline = true;
-            this.TCategorias.Name = "TCategorias";
-            this.TCategorias.ReadOnly = true;
-            this.TCategorias.Size = new System.Drawing.Size(233, 98);
-            this.TCategorias.TabIndex = 154;
+            this.btnLimpiarFiltros.CheckButton = false;
+            this.btnLimpiarFiltros.Checked = false;
+            this.btnLimpiarFiltros.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnLimpiarFiltros.CheckedForeColor = System.Drawing.Color.White;
+            this.btnLimpiarFiltros.CheckedImageTint = System.Drawing.Color.White;
+            this.btnLimpiarFiltros.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnLimpiarFiltros.Content = "Limpiar Filtros";
+            this.btnLimpiarFiltros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarFiltros.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnLimpiarFiltros.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnLimpiarFiltros.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiarFiltros.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnLimpiarFiltros.HoverForeColor = System.Drawing.Color.White;
+            this.btnLimpiarFiltros.HoverImageTint = System.Drawing.Color.White;
+            this.btnLimpiarFiltros.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnLimpiarFiltros.Image = null;
+            this.btnLimpiarFiltros.ImageAutoCenter = true;
+            this.btnLimpiarFiltros.ImageExpand = new System.Drawing.Point(0, 0);
+            this.btnLimpiarFiltros.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(620, 40);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.NormalBackground = System.Drawing.Color.White;
+            this.btnLimpiarFiltros.NormalForeColor = System.Drawing.Color.Black;
+            this.btnLimpiarFiltros.NormalImageTint = System.Drawing.Color.White;
+            this.btnLimpiarFiltros.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnLimpiarFiltros.OutlineThickness = 1F;
+            this.btnLimpiarFiltros.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.btnLimpiarFiltros.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnLimpiarFiltros.PressedImageTint = System.Drawing.Color.White;
+            this.btnLimpiarFiltros.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnLimpiarFiltros.Rounding = new System.Windows.Forms.Padding(8);
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(110, 29);
+            this.btnLimpiarFiltros.TabIndex = 14;
+            this.btnLimpiarFiltros.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnLimpiarFiltros.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
             // Products
             // 
@@ -1473,5 +1548,8 @@
         private CuoreUI.Controls.cuiButton btnModificarCategorias;
         private CuoreUI.Controls.cuiButton btnElegirCategorias;
         private System.Windows.Forms.TextBox TCategorias;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox CBFiltroCategoria;
+        private CuoreUI.Controls.cuiButton btnLimpiarFiltros;
     }
 }

@@ -14,7 +14,7 @@ namespace CapaDatos
 {
     public class Producto_Datos
     {
-        public List<Producto> BuscarProductosGeneral(string busqueda)
+        public List<Producto> BuscarProductosGeneral(string busqueda, int idCategoria)
         {
             var diccionarioProductos = new Dictionary<int, Producto>();
             List<Producto> lista = new List<Producto>();
@@ -25,6 +25,7 @@ namespace CapaDatos
                     SqlCommand cmd = new SqlCommand("PROC_BUSCAR_PRODUCTO", oconexion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@busqueda_general", string.IsNullOrEmpty(busqueda) ? (object)DBNull.Value : busqueda);
+                    cmd.Parameters.AddWithValue("@id_categoria", idCategoria == 0 ? (object)DBNull.Value : idCategoria);
 
                     oconexion.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -139,33 +140,22 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("PROC_REGISTRAR_PRODUCTO", oconexion);
+                    SqlCommand cmd = new SqlCommand("PROC_CREAR_PRODUCTO", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
                     cmd.Parameters.AddWithValue("nombre_producto", obj.nombre_producto);
                     cmd.Parameters.AddWithValue("fechaIngreso", obj.fechaIngreso);
                     cmd.Parameters.AddWithValue("precioLista", obj.precioLista);
                     cmd.Parameters.AddWithValue("precioVenta", obj.precioVenta);
-                    cmd.Parameters.AddWithValue("baja_producto", obj.baja_producto);
+                    cmd.Parameters.AddWithValue("eliminado", obj.baja_producto); 
                     cmd.Parameters.AddWithValue("stock", obj.stock);
                     cmd.Parameters.AddWithValue("stock_min", obj.stock_min);
                     cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
-
                     cmd.Parameters.AddWithValue("cod_producto", obj.cod_producto);
                     cmd.Parameters.AddWithValue("id_proveedor", obj.id_proveedor);
 
-                    cmd.Parameters.Add("id_producto_resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    oconexion.Open();
-                    cmd.ExecuteNonQuery();
-
-                    SqlCommand cmdCategorias = new SqlCommand("PROC_ACTUALIZAR_CATEGORIAS_PRODUCTO", oconexion);
-                    cmdCategorias.CommandType = CommandType.StoredProcedure;
-                    cmdCategorias.Parameters.AddWithValue("@id_producto", obj.id_producto);
-
                     DataTable dtCategorias = new DataTable();
-                    dtCategorias.Columns.Add("ID", typeof(int));
+                    dtCategorias.Columns.Add("id", typeof(int)); 
                     if (obj.categorias != null)
                     {
                         foreach (var cat in obj.categorias)
@@ -173,11 +163,17 @@ namespace CapaDatos
                             dtCategorias.Rows.Add(cat.id_categoria);
                         }
                     }
-                    SqlParameter paramCategorias = cmdCategorias.Parameters.AddWithValue("@nuevas_categorias", dtCategorias);
+                    // Pasamos el DataTable como un parámetro de tipo tabla estructurado
+                    SqlParameter paramCategorias = cmd.Parameters.AddWithValue("@id_categorias", dtCategorias);
                     paramCategorias.SqlDbType = SqlDbType.Structured;
 
-                    cmdCategorias.ExecuteNonQuery();
+                    // --- PARÁMETROS DE SALIDA ---
+                    cmd.Parameters.Add("id_producto_generado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+                    
                     id_producto_generado = Convert.ToInt32(cmd.Parameters["id_producto_resultado"].Value);
                     Mensaje = cmd.Parameters["mensaje"].Value.ToString();
                 }
@@ -202,30 +198,21 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     SqlCommand cmd = new SqlCommand("PROC_EDITAR_PRODUCTO", oconexion);
-                    cmd.Parameters.AddWithValue("id_producto", obj.id_producto);
-                    cmd.Parameters.AddWithValue("nombre_producto", obj.nombre_producto);
-                    cmd.Parameters.AddWithValue("precioLista", obj.precioLista);
-                    cmd.Parameters.AddWithValue("precioVenta", obj.precioVenta);
-                    cmd.Parameters.AddWithValue("baja_producto", obj.baja_producto);
-                    cmd.Parameters.AddWithValue("stock", obj.stock);
-                    cmd.Parameters.AddWithValue("stock_min", obj.stock_min);
-                    cmd.Parameters.AddWithValue("descripcion", obj.descripcion);
-                    cmd.Parameters.AddWithValue("cod_producto", obj.cod_producto);
-                    cmd.Parameters.AddWithValue("id_proveedor", obj.id_proveedor);
-
-                    cmd.Parameters.Add("respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    oconexion.Open();
-                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@id_producto", obj.id_producto);
+                    cmd.Parameters.AddWithValue("@nombre_producto", obj.nombre_producto);
+                    cmd.Parameters.AddWithValue("@precioLista", obj.precioLista);
+                    cmd.Parameters.AddWithValue("@precioVenta", obj.precioVenta);
+                    cmd.Parameters.AddWithValue("@baja_producto", obj.baja_producto);
+                    cmd.Parameters.AddWithValue("@stock", obj.stock);
+                    cmd.Parameters.AddWithValue("@stock_min", obj.stock_min);
+                    cmd.Parameters.AddWithValue("@descripcion", obj.descripcion);
 
-                    SqlCommand cmdCategorias = new SqlCommand("PROC_ACTUALIZAR_CATEGORIAS_PRODUCTO", oconexion);
-                    cmdCategorias.CommandType = CommandType.StoredProcedure;
-                    cmdCategorias.Parameters.AddWithValue("@id_producto", obj.id_producto);
+                    cmd.Parameters.AddWithValue("@cod_producto", obj.cod_producto);
+                    cmd.Parameters.AddWithValue("@id_proveedor", obj.id_proveedor);
 
-                    //Crea tabla de ids 
+                    // Añadimos la tabla de IDs de categoría
                     DataTable dtCategorias = new DataTable();
                     dtCategorias.Columns.Add("ID", typeof(int));
                     if (obj.categorias != null)
@@ -235,11 +222,15 @@ namespace CapaDatos
                             dtCategorias.Rows.Add(cat.id_categoria);
                         }
                     }
-                    // Lo pasamos como un parámetro de tipo tabla
-                    SqlParameter paramCategorias = cmdCategorias.Parameters.AddWithValue("@nuevas_categorias", dtCategorias);
+                    SqlParameter paramCategorias = cmd.Parameters.AddWithValue("@nuevas_categorias", dtCategorias);
                     paramCategorias.SqlDbType = SqlDbType.Structured;
 
-                    cmdCategorias.ExecuteNonQuery();
+                    // Parámetros de salida
+                    cmd.Parameters.Add("respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
 
                     resultado = Convert.ToBoolean(cmd.Parameters["respuesta"].Value);
                     Mensaje = cmd.Parameters["mensaje"].Value.ToString();
