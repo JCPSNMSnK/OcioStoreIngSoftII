@@ -9,6 +9,38 @@ namespace CapaDatos
 {
     public class Factura_Datos
     {
+        public List<FacturaTipo> ListarTiposFactura()
+        {
+            List<FacturaTipo> lista = new List<FacturaTipo>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    // Llamamos al nuevo procedimiento
+                    SqlCommand cmd = new SqlCommand("PROC_LISTAR_TIPOS_FACTURA", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new FacturaTipo()
+                            {
+                                id_tipo_factura = Convert.ToInt32(dr["id_tipo_factura"]),
+                                nombre_tipo_factura = dr["nombre_tipo_factura"].ToString()
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = new List<FacturaTipo>(); // Devuelve lista vacía en caso de error
+                }
+            }
+            return lista;
+        }
+
         // Método para generar una nueva factura
         public int GenerarFactura(int idVenta, int idTipoFactura, out string mensaje)
         {

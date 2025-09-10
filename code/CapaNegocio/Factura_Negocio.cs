@@ -55,5 +55,10 @@ namespace CapaNegocio
 
             return objFacturaDatos.BuscarFacturas(idCliente, fechaInicio, fechaFin, idTipoFactura);
         }
+
+        public List<FacturaTipo> ListarTiposFactura()
+        {
+            return objFacturaDatos.ListarTiposFactura();
+        }
     }
 }
