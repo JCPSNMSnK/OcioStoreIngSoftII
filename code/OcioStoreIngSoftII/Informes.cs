@@ -13,11 +13,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using CapaEntidades.Utilidades;
-using System.IO;
 using iText.Layout;
 //using iText.Kernel.Geom;
 using iText.Kernel.Pdf;
-using iTextSharp.tool.xml;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 

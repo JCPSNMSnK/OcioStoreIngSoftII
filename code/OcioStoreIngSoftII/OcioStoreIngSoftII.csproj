@@ -407,11 +407,11 @@
     <Compile Include="Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ventas.cs">
+    <Compile Include="Vender.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventas.Designer.cs">
-      <DependentUpon>Ventas.cs</DependentUpon>
+    <Compile Include="Vender.Designer.cs">
+      <DependentUpon>Vender.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AvisoStockMinimo.resx">
       <DependentUpon>AvisoStockMinimo.cs</DependentUpon>
@@ -465,8 +465,8 @@
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventas.resx">
-      <DependentUpon>Ventas.cs</DependentUpon>
+    <EmbeddedResource Include="Vender.resx">
+      <DependentUpon>Vender.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="DataSet11.xsc">

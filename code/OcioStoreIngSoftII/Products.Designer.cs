@@ -42,6 +42,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.productosDataGridView = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TCProductos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.PanelAltaProducts = new System.Windows.Forms.Panel();
@@ -96,21 +111,6 @@
             this.LModificarPrecioLista = new System.Windows.Forms.Label();
             this.LModificarNombreProducto = new System.Windows.Forms.Label();
             this.LModificarDescripcion = new System.Windows.Forms.Label();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             this.TLayoutProducts.SuspendLayout();
@@ -364,6 +364,147 @@
             this.productosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productosDataGridView_CellContentClick_1);
             this.productosDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.productosDataGridView_CellPainting);
             this.productosDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.productosDataGridView_DataBindingComplete);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.MinimumWidth = 110;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 112;
+            // 
+            // id_producto
+            // 
+            this.id_producto.DataPropertyName = "id_producto";
+            this.id_producto.HeaderText = "ID";
+            this.id_producto.Name = "id_producto";
+            this.id_producto.ReadOnly = true;
+            this.id_producto.Visible = false;
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "cod_producto";
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.MinimumWidth = 110;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 110;
+            // 
+            // nombre_producto
+            // 
+            this.nombre_producto.DataPropertyName = "nombre_producto";
+            this.nombre_producto.HeaderText = "Nombre";
+            this.nombre_producto.MinimumWidth = 110;
+            this.nombre_producto.Name = "nombre_producto";
+            this.nombre_producto.ReadOnly = true;
+            this.nombre_producto.Width = 110;
+            // 
+            // Categoria
+            // 
+            this.Categoria.DataPropertyName = "CategoriasConcatenadas";
+            this.Categoria.HeaderText = "Categorias";
+            this.Categoria.MinimumWidth = 200;
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 200;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "descripcion";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.MinimumWidth = 250;
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 250;
+            // 
+            // PrecioLista
+            // 
+            this.PrecioLista.DataPropertyName = "precioLista";
+            this.PrecioLista.HeaderText = "Precio Lista";
+            this.PrecioLista.MinimumWidth = 110;
+            this.PrecioLista.Name = "PrecioLista";
+            this.PrecioLista.ReadOnly = true;
+            this.PrecioLista.Width = 110;
+            // 
+            // PrecioVenta
+            // 
+            this.PrecioVenta.DataPropertyName = "precioVenta";
+            this.PrecioVenta.HeaderText = "Precio Venta";
+            this.PrecioVenta.MinimumWidth = 110;
+            this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.ReadOnly = true;
+            this.PrecioVenta.Width = 110;
+            // 
+            // FechaIngreso
+            // 
+            this.FechaIngreso.DataPropertyName = "fechaIngreso";
+            this.FechaIngreso.HeaderText = "Fecha Ingreso";
+            this.FechaIngreso.MinimumWidth = 110;
+            this.FechaIngreso.Name = "FechaIngreso";
+            this.FechaIngreso.ReadOnly = true;
+            this.FechaIngreso.Width = 110;
+            // 
+            // Stock
+            // 
+            this.Stock.DataPropertyName = "stock";
+            this.Stock.HeaderText = "Stock";
+            this.Stock.MinimumWidth = 110;
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 110;
+            // 
+            // stock_min
+            // 
+            this.stock_min.DataPropertyName = "stock_min";
+            this.stock_min.HeaderText = "Stock Mínimo";
+            this.stock_min.MinimumWidth = 110;
+            this.stock_min.Name = "stock_min";
+            this.stock_min.ReadOnly = true;
+            this.stock_min.Width = 110;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Dado de Baja?";
+            this.estado.MinimumWidth = 110;
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estado.Width = 110;
+            // 
+            // estadoValor
+            // 
+            this.estadoValor.DataPropertyName = "baja_producto";
+            this.estadoValor.HeaderText = "estadoValor";
+            this.estadoValor.MinimumWidth = 110;
+            this.estadoValor.Name = "estadoValor";
+            this.estadoValor.ReadOnly = true;
+            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estadoValor.Visible = false;
+            this.estadoValor.Width = 110;
+            // 
+            // Proveedor
+            // 
+            this.Proveedor.DataPropertyName = "nombre_proveedor";
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.MinimumWidth = 110;
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.ReadOnly = true;
+            this.Proveedor.Width = 110;
+            // 
+            // id_proveedor
+            // 
+            this.id_proveedor.DataPropertyName = "id_proveedor";
+            this.id_proveedor.HeaderText = "id_proveedor";
+            this.id_proveedor.MinimumWidth = 110;
+            this.id_proveedor.Name = "id_proveedor";
+            this.id_proveedor.ReadOnly = true;
+            this.id_proveedor.Visible = false;
+            this.id_proveedor.Width = 110;
             // 
             // TCProductos
             // 
@@ -961,7 +1102,6 @@
             this.TModificarID_prod.Name = "TModificarID_prod";
             this.TModificarID_prod.Size = new System.Drawing.Size(46, 29);
             this.TModificarID_prod.TabIndex = 150;
-            this.TModificarID_prod.Visible = false;
             // 
             // BModificarProducto
             // 
@@ -1297,147 +1437,6 @@
             this.LModificarDescripcion.Size = new System.Drawing.Size(91, 21);
             this.LModificarDescripcion.TabIndex = 129;
             this.LModificarDescripcion.Text = "Descripcion";
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.MinimumWidth = 110;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 112;
-            // 
-            // id_producto
-            // 
-            this.id_producto.DataPropertyName = "id_producto";
-            this.id_producto.HeaderText = "ID";
-            this.id_producto.Name = "id_producto";
-            this.id_producto.ReadOnly = true;
-            this.id_producto.Visible = false;
-            // 
-            // Codigo
-            // 
-            this.Codigo.DataPropertyName = "cod_producto";
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.MinimumWidth = 110;
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 110;
-            // 
-            // nombre_producto
-            // 
-            this.nombre_producto.DataPropertyName = "nombre_producto";
-            this.nombre_producto.HeaderText = "Nombre";
-            this.nombre_producto.MinimumWidth = 110;
-            this.nombre_producto.Name = "nombre_producto";
-            this.nombre_producto.ReadOnly = true;
-            this.nombre_producto.Width = 110;
-            // 
-            // Categoria
-            // 
-            this.Categoria.DataPropertyName = "CategoriasConcatenadas";
-            this.Categoria.HeaderText = "Categorias";
-            this.Categoria.MinimumWidth = 200;
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 200;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "descripcion";
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.MinimumWidth = 250;
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 250;
-            // 
-            // PrecioLista
-            // 
-            this.PrecioLista.DataPropertyName = "precioLista";
-            this.PrecioLista.HeaderText = "Precio Lista";
-            this.PrecioLista.MinimumWidth = 110;
-            this.PrecioLista.Name = "PrecioLista";
-            this.PrecioLista.ReadOnly = true;
-            this.PrecioLista.Width = 110;
-            // 
-            // PrecioVenta
-            // 
-            this.PrecioVenta.DataPropertyName = "precioVenta";
-            this.PrecioVenta.HeaderText = "Precio Venta";
-            this.PrecioVenta.MinimumWidth = 110;
-            this.PrecioVenta.Name = "PrecioVenta";
-            this.PrecioVenta.ReadOnly = true;
-            this.PrecioVenta.Width = 110;
-            // 
-            // FechaIngreso
-            // 
-            this.FechaIngreso.DataPropertyName = "fechaIngreso";
-            this.FechaIngreso.HeaderText = "Fecha Ingreso";
-            this.FechaIngreso.MinimumWidth = 110;
-            this.FechaIngreso.Name = "FechaIngreso";
-            this.FechaIngreso.ReadOnly = true;
-            this.FechaIngreso.Width = 110;
-            // 
-            // Stock
-            // 
-            this.Stock.DataPropertyName = "stock";
-            this.Stock.HeaderText = "Stock";
-            this.Stock.MinimumWidth = 110;
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 110;
-            // 
-            // stock_min
-            // 
-            this.stock_min.DataPropertyName = "stock_min";
-            this.stock_min.HeaderText = "Stock Mínimo";
-            this.stock_min.MinimumWidth = 110;
-            this.stock_min.Name = "stock_min";
-            this.stock_min.ReadOnly = true;
-            this.stock_min.Width = 110;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Dado de Baja?";
-            this.estado.MinimumWidth = 110;
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.estado.Width = 110;
-            // 
-            // estadoValor
-            // 
-            this.estadoValor.DataPropertyName = "baja_producto";
-            this.estadoValor.HeaderText = "estadoValor";
-            this.estadoValor.MinimumWidth = 110;
-            this.estadoValor.Name = "estadoValor";
-            this.estadoValor.ReadOnly = true;
-            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.estadoValor.Visible = false;
-            this.estadoValor.Width = 110;
-            // 
-            // Proveedor
-            // 
-            this.Proveedor.DataPropertyName = "nombre_proveedor";
-            this.Proveedor.HeaderText = "Proveedor";
-            this.Proveedor.MinimumWidth = 110;
-            this.Proveedor.Name = "Proveedor";
-            this.Proveedor.ReadOnly = true;
-            this.Proveedor.Width = 110;
-            // 
-            // id_proveedor
-            // 
-            this.id_proveedor.DataPropertyName = "id_proveedor";
-            this.id_proveedor.HeaderText = "id_proveedor";
-            this.id_proveedor.MinimumWidth = 110;
-            this.id_proveedor.Name = "id_proveedor";
-            this.id_proveedor.ReadOnly = true;
-            this.id_proveedor.Visible = false;
-            this.id_proveedor.Width = 110;
             // 
             // Products
             // 

@@ -175,7 +175,7 @@ namespace OcioStoreIngSoftII
 
         private void SellButton_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconButton)sender, new Ventas(usuarioActual));
+            AbrirFormulario((IconButton)sender, new Vender(usuarioActual));
         }
 
         private void CategoriesButton_Click(object sender, EventArgs e)

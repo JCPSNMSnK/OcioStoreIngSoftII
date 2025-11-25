@@ -18,16 +18,19 @@ namespace OcioStoreIngSoftII
     {
         private int pasoActual = 0;
         private CapaEntidades.Ventas _ventaActual;
+        private CapaEntidades.Factura _facturaActual;
         private readonly Ventas_negocio _ventasNegocio = new Ventas_negocio();
 
         private readonly MediosPago_negocio _mediosNegocio;
         private List<MediosPago> _listaMedios;
 
-        public Payment(CapaEntidades.Ventas objVenta)
+
+        public Payment(CapaEntidades.Ventas objVenta, CapaEntidades.Factura objFactura)
         {
             _ventasNegocio = new Ventas_negocio();
             _mediosNegocio = new MediosPago_negocio();
             _ventaActual = objVenta;
+            _facturaActual = objFactura;
             InitializeComponent();
         }
 

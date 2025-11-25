@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace OcioStoreIngSoftII
 {
-    public partial class Ventas : Form
+    public partial class Vender : Form
     {
         // Instancias de la capa de negocio
         private static Usuario usuarioActual;
@@ -29,7 +29,7 @@ namespace OcioStoreIngSoftII
         private List<CarritoItem> carrito = new List<CarritoItem>();
         private BindingSource carritoBindingSource = new BindingSource();
 
-        public Ventas(Usuario objUser)
+        public Vender(Usuario objUser)
         {
             InitializeComponent();
             usuarioActual = objUser;
@@ -352,46 +352,77 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void btnRegistrarVenta_Click(object sender, EventArgs e)
+
+        private void btnRegistrarVenta_Click_1(object sender, EventArgs e)
         {
-            List<DetalleVenta> listaDetalles = new List<DetalleVenta>();
-
-            foreach (DataGridViewRow fila in VentaDataGridView.Rows)
+            // 1. Validaciones Iniciales
+            if (clienteParaVenta == null)
             {
-                int idProducto = Convert.ToInt32(fila.Cells["id_producto_venta"].Value);
-                Producto prod = _listaProductos.FirstOrDefault(p => p.id_producto == idProducto);
-                int cantidad = Convert.ToInt32(fila.Cells["cantidad"].Value);
+                MessageBox.Show("Debe seleccionar un cliente para la venta.", "Falta Cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                if (prod != null)
+            if (carrito.Count == 0)
+            {
+                MessageBox.Show("El carrito está vacío.", "Carrito Vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbTipoFactura.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione un tipo de factura.", "Falta Dato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Crear el Objeto Venta (Preliminar)
+            Ventas nuevaVenta = new Ventas
+            {
+                objCliente = clienteParaVenta,
+                objUsuario = usuarioActual,
+                fecha_venta = DateTime.Now,
+                total = carrito.Sum(item => item.Subtotal), // Total bruto (sin intereses de tarjeta aún)
+
+                // Mapeamos los items del carrito a DetalleVenta
+                detalles = carrito.Select(item => new DetalleVenta
                 {
-                    listaDetalles.Add(new DetalleVenta()
+                    objProducto = new Producto
                     {
-                        objProducto = prod,
-                        cantidad = cantidad,
-                        subtotal = cantidad * prod.precioVenta
-                    });
+                        id_producto = item.IdProducto,
+                        nombre_producto = item.NombreProducto,
+                        precioVenta = item.Precio
+                    },
+                    cantidad = item.Cantidad,
+                    subtotal = item.Subtotal
+                }).ToList()
+            };
+
+            // 3. Crear el Objeto Factura
+            Factura nuevaFactura = new Factura
+            {
+                objVenta = nuevaVenta,
+                fecha_emision = DateTime.Now,
+                objTipoFactura = new FacturaTipo
+                {
+                    id_tipo_factura = Convert.ToInt32(((OpcionSelect)cbTipoFactura.SelectedItem).Valor)
                 }
-            }
+            };
 
-            string mensaje = "";
-            bool resultado = _ventasNegocio.ProcesarDetalles(_ventaActual, listaDetalles, out mensaje);
-
-            if (resultado)
+            // 4. Abrir la Pasarela de Pago
+            // Usamos 'using' para asegurar que el formulario se elimine de memoria al cerrar
+            using (Payment paymentForm = new Payment(nuevaVenta, nuevaFactura))
             {
-                MessageBox.Show("Detalles agregados. Total calculado: $" + _ventaActual.total.ToString("0.00"));
+                var resultado = paymentForm.ShowDialog();
 
-                // Mostrar la vista de pago
-                Payment paymentForm = new Payment(_ventaActual);  // Pasamos la venta actual
-                paymentForm.ShowDialog();
-                ActualizarDatosTabla();
+                // 5. Si el pago fue exitoso (Payment devolvió OK)
+                if (resultado == DialogResult.OK)
+                {
+                    ActualizarDatosTabla();
+                    MessageBox.Show("La venta se ha completado exitosamente.", "Venta Finalizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                // Si canceló o cerró, no hacemos nada, los datos siguen ahí para que pueda editar.
             }
-
-            else
-            {
-                MessageBox.Show("Error al procesar detalles:\n" + mensaje);
-            }
-
         }
+
     }
 }
 
