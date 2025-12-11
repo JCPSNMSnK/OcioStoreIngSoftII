@@ -63,17 +63,16 @@ namespace OcioStoreIngSoftII
         {
             try
             {
-                // 1. Pide la lista de tipos de factura a la capa de negocio
+                // Pide la lista de tipos de factura a la capa de negocio
                 List<FacturaTipo> listaTipos = facturaNegocio.ListarTiposFactura();
 
-                // 2. Transforma la lista a OpcionSelect
+                // Transforma la lista a OpcionSelect
                 var dataSource = listaTipos.Select(tipo => new OpcionSelect
                 {
                     Valor = tipo.id_tipo_factura,
                     Texto = tipo.nombre_tipo_factura
                 }).ToList();
 
-                // 3. Asigna la lista al DataSource del ComboBox
                 cbTipoFactura.DataSource = dataSource;
                 cbTipoFactura.DisplayMember = "Texto";
                 cbTipoFactura.ValueMember = "Valor";
@@ -157,6 +156,20 @@ namespace OcioStoreIngSoftII
             productosDataGridView.AutoGenerateColumns = false;
             productosDataGridView.DataSource = null;
             productosDataGridView.DataSource = resultados;
+        }
+
+        private void LimpiarFormularioVenta()
+        {
+            clienteParaVenta = null;
+            productoParaAgregar = null;
+            txtClienteSeleccionado.Text = "";
+            txtProducto.Text = "";
+            txtPrecio.Text = "";
+            NCantidad.Value = 1;
+            cbTipoFactura.SelectedIndex = -1;
+
+            carrito.Clear();
+            ActualizarCarrito(); // Esto dejará el grid vacío y el total en $0.00
         }
 
         private void productosDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -355,7 +368,7 @@ namespace OcioStoreIngSoftII
 
         private void btnRegistrarVenta_Click_1(object sender, EventArgs e)
         {
-            // 1. Validaciones Iniciales
+            // Validaciones Iniciales
             if (clienteParaVenta == null)
             {
                 MessageBox.Show("Debe seleccionar un cliente para la venta.", "Falta Cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -374,13 +387,15 @@ namespace OcioStoreIngSoftII
                 return;
             }
 
-            // 2. Crear el Objeto Venta (Preliminar)
+            OpcionSelect opcionTipoFactura = (OpcionSelect)cbTipoFactura.SelectedItem;
+
+            // Crear el Objeto Venta
             Ventas nuevaVenta = new Ventas
             {
                 objCliente = clienteParaVenta,
                 objUsuario = usuarioActual,
                 fecha_venta = DateTime.Now,
-                total = carrito.Sum(item => item.Subtotal), // Total bruto (sin intereses de tarjeta aún)
+                total = carrito.Sum(item => item.Subtotal), // Total bruto
 
                 // Mapeamos los items del carrito a DetalleVenta
                 detalles = carrito.Select(item => new DetalleVenta
@@ -396,30 +411,31 @@ namespace OcioStoreIngSoftII
                 }).ToList()
             };
 
-            // 3. Crear el Objeto Factura
+            // Crear el Objeto Factura
             Factura nuevaFactura = new Factura
             {
                 objVenta = nuevaVenta,
                 fecha_emision = DateTime.Now,
                 objTipoFactura = new FacturaTipo
                 {
-                    id_tipo_factura = Convert.ToInt32(((OpcionSelect)cbTipoFactura.SelectedItem).Valor)
+                    id_tipo_factura = Convert.ToInt32(((OpcionSelect)cbTipoFactura.SelectedItem).Valor),
+                    nombre_tipo_factura = opcionTipoFactura.Texto
                 }
             };
 
-            // 4. Abrir la Pasarela de Pago
+            // Pasarela de Pago
             // Usamos 'using' para asegurar que el formulario se elimine de memoria al cerrar
             using (Payment paymentForm = new Payment(nuevaVenta, nuevaFactura))
             {
                 var resultado = paymentForm.ShowDialog();
 
-                // 5. Si el pago fue exitoso (Payment devolvió OK)
                 if (resultado == DialogResult.OK)
                 {
-                    ActualizarDatosTabla();
                     MessageBox.Show("La venta se ha completado exitosamente.", "Venta Finalizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarFormularioVenta();
+                    ActualizarDatosTabla();
                 }
-                // Si canceló o cerró, no hacemos nada, los datos siguen ahí para que pueda editar.
+                // Si canceló o cerró, no hacemos nada, los datos siguen ahí para que se pueda editar.
             }
         }
 

@@ -56,9 +56,12 @@ namespace CapaNegocio
                     //isAuthenticated = password == usuario.pass;
                     //
                     //
+                    //usuarios con pass hasheada:
                     //admin - admin123
-                    //juanP - pass123
-                    //prueba - 123456
+                    //superadmin - 123456
+                    //analista - 123456
+                    //juanP - pass123 /vendedor
+                    //jcpsnmsnk - 123456
                     //
                 }
 

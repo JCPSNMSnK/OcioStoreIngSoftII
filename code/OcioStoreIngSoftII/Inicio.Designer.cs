@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.menu = new System.Windows.Forms.TableLayoutPanel();
-            this.LogOutButton = new FontAwesome.Sharp.IconButton();
             this.CategoriesButton = new FontAwesome.Sharp.IconButton();
             this.ReceiptsButton = new FontAwesome.Sharp.IconButton();
             this.StatsButton = new FontAwesome.Sharp.IconButton();
@@ -42,6 +41,10 @@
             this.SellButton = new FontAwesome.Sharp.IconButton();
             this.ProductsButton = new FontAwesome.Sharp.IconButton();
             this.HomeButton = new FontAwesome.Sharp.IconButton();
+            this.LogOutButton = new FontAwesome.Sharp.IconButton();
+            this.BuyButton = new FontAwesome.Sharp.IconButton();
+            this.InformsButton = new FontAwesome.Sharp.IconButton();
+            this.ProvidersButton = new FontAwesome.Sharp.IconButton();
             this.contenedor = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2.SuspendLayout();
             this.menu.SuspendLayout();
@@ -77,7 +80,6 @@
             this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
             this.menu.ColumnCount = 1;
             this.menu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.menu.Controls.Add(this.LogOutButton, 0, 10);
             this.menu.Controls.Add(this.CategoriesButton, 0, 4);
             this.menu.Controls.Add(this.ReceiptsButton, 0, 5);
             this.menu.Controls.Add(this.StatsButton, 0, 6);
@@ -88,10 +90,16 @@
             this.menu.Controls.Add(this.SellButton, 0, 2);
             this.menu.Controls.Add(this.ProductsButton, 0, 3);
             this.menu.Controls.Add(this.HomeButton, 0, 0);
+            this.menu.Controls.Add(this.LogOutButton, 0, 13);
+            this.menu.Controls.Add(this.BuyButton, 0, 10);
+            this.menu.Controls.Add(this.InformsButton, 0, 12);
+            this.menu.Controls.Add(this.ProvidersButton, 0, 11);
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Margin = new System.Windows.Forms.Padding(0);
             this.menu.Name = "menu";
-            this.menu.RowCount = 12;
+            this.menu.RowCount = 14;
+            this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -106,33 +114,6 @@
             this.menu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.menu.Size = new System.Drawing.Size(176, 688);
             this.menu.TabIndex = 5;
-            // 
-            // LogOutButton
-            // 
-            this.LogOutButton.AutoSize = true;
-            this.LogOutButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.LogOutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            this.LogOutButton.FlatAppearance.BorderSize = 0;
-            this.LogOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogOutButton.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.LogOutButton.ForeColor = System.Drawing.Color.AliceBlue;
-            this.LogOutButton.IconChar = FontAwesome.Sharp.IconChar.RightFromBracket;
-            this.LogOutButton.IconColor = System.Drawing.Color.AliceBlue;
-            this.LogOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.LogOutButton.IconSize = 25;
-            this.LogOutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LogOutButton.Location = new System.Drawing.Point(3, 513);
-            this.LogOutButton.MaximumSize = new System.Drawing.Size(250, 50);
-            this.LogOutButton.MinimumSize = new System.Drawing.Size(75, 37);
-            this.LogOutButton.Name = "LogOutButton";
-            this.LogOutButton.Padding = new System.Windows.Forms.Padding(5);
-            this.LogOutButton.Size = new System.Drawing.Size(170, 45);
-            this.LogOutButton.TabIndex = 41;
-            this.LogOutButton.Text = "Cerrar Sesión";
-            this.LogOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LogOutButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.LogOutButton.UseVisualStyleBackColor = false;
-            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
             // CategoriesButton
             // 
@@ -402,6 +383,114 @@
             this.HomeButton.UseVisualStyleBackColor = false;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
+            // LogOutButton
+            // 
+            this.LogOutButton.AutoSize = true;
+            this.LogOutButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.LogOutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.LogOutButton.FlatAppearance.BorderSize = 0;
+            this.LogOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogOutButton.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.LogOutButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.LogOutButton.IconChar = FontAwesome.Sharp.IconChar.RightFromBracket;
+            this.LogOutButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.LogOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LogOutButton.IconSize = 25;
+            this.LogOutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LogOutButton.Location = new System.Drawing.Point(3, 666);
+            this.LogOutButton.MaximumSize = new System.Drawing.Size(250, 50);
+            this.LogOutButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Padding = new System.Windows.Forms.Padding(5);
+            this.LogOutButton.Size = new System.Drawing.Size(170, 37);
+            this.LogOutButton.TabIndex = 41;
+            this.LogOutButton.Text = "Cerrar Sesión";
+            this.LogOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LogOutButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.LogOutButton.UseVisualStyleBackColor = false;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
+            // BuyButton
+            // 
+            this.BuyButton.AutoSize = true;
+            this.BuyButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BuyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.BuyButton.FlatAppearance.BorderSize = 0;
+            this.BuyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BuyButton.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.BuyButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.BuyButton.IconChar = FontAwesome.Sharp.IconChar.BoxesStacked;
+            this.BuyButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.BuyButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BuyButton.IconSize = 25;
+            this.BuyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BuyButton.Location = new System.Drawing.Point(3, 513);
+            this.BuyButton.MaximumSize = new System.Drawing.Size(250, 50);
+            this.BuyButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.BuyButton.Name = "BuyButton";
+            this.BuyButton.Padding = new System.Windows.Forms.Padding(5);
+            this.BuyButton.Size = new System.Drawing.Size(132, 45);
+            this.BuyButton.TabIndex = 42;
+            this.BuyButton.Text = "Compras";
+            this.BuyButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BuyButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BuyButton.UseVisualStyleBackColor = false;
+            this.BuyButton.Click += new System.EventHandler(this.BuyButton_Click);
+            // 
+            // InformsButton
+            // 
+            this.InformsButton.AutoSize = true;
+            this.InformsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.InformsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.InformsButton.FlatAppearance.BorderSize = 0;
+            this.InformsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InformsButton.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.InformsButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.InformsButton.IconChar = FontAwesome.Sharp.IconChar.Readme;
+            this.InformsButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.InformsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.InformsButton.IconSize = 25;
+            this.InformsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.InformsButton.Location = new System.Drawing.Point(3, 615);
+            this.InformsButton.MaximumSize = new System.Drawing.Size(250, 50);
+            this.InformsButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.InformsButton.Name = "InformsButton";
+            this.InformsButton.Padding = new System.Windows.Forms.Padding(5);
+            this.InformsButton.Size = new System.Drawing.Size(131, 45);
+            this.InformsButton.TabIndex = 43;
+            this.InformsButton.Text = "Informes";
+            this.InformsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.InformsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.InformsButton.UseVisualStyleBackColor = false;
+            this.InformsButton.Click += new System.EventHandler(this.InformsButton_Click);
+            // 
+            // ProvidersButton
+            // 
+            this.ProvidersButton.AutoSize = true;
+            this.ProvidersButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ProvidersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.ProvidersButton.FlatAppearance.BorderSize = 0;
+            this.ProvidersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProvidersButton.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.ProvidersButton.ForeColor = System.Drawing.Color.AliceBlue;
+            this.ProvidersButton.IconChar = FontAwesome.Sharp.IconChar.BoxesPacking;
+            this.ProvidersButton.IconColor = System.Drawing.Color.AliceBlue;
+            this.ProvidersButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ProvidersButton.IconSize = 25;
+            this.ProvidersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ProvidersButton.Location = new System.Drawing.Point(3, 564);
+            this.ProvidersButton.MaximumSize = new System.Drawing.Size(250, 50);
+            this.ProvidersButton.MinimumSize = new System.Drawing.Size(75, 37);
+            this.ProvidersButton.Name = "ProvidersButton";
+            this.ProvidersButton.Padding = new System.Windows.Forms.Padding(5);
+            this.ProvidersButton.Size = new System.Drawing.Size(162, 45);
+            this.ProvidersButton.TabIndex = 44;
+            this.ProvidersButton.Text = "Proveedores";
+            this.ProvidersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ProvidersButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ProvidersButton.UseVisualStyleBackColor = false;
+            this.ProvidersButton.Click += new System.EventHandler(this.ProvidersButton_Click);
+            // 
             // contenedor
             // 
             this.contenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("contenedor.BackgroundImage")));
@@ -447,5 +536,8 @@
         private System.Windows.Forms.Panel contenedor;
         private FontAwesome.Sharp.IconButton LogOutButton;
         private FontAwesome.Sharp.IconButton ClientsButton;
+        private FontAwesome.Sharp.IconButton BuyButton;
+        private FontAwesome.Sharp.IconButton InformsButton;
+        private FontAwesome.Sharp.IconButton ProvidersButton;
     }
 }

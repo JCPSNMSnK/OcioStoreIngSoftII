@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.proveedoresDataGridView = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -45,6 +45,10 @@
             this.TCUsuarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.TCUITProveedor = new CuoreUI.Controls.cuiTextBox();
+            this.LCUITProveedor = new System.Windows.Forms.Label();
+            this.TTelefonoProveedor = new CuoreUI.Controls.cuiTextBox();
+            this.LTelefonoProveedor = new System.Windows.Forms.Label();
             this.TIDProveedor = new CuoreUI.Controls.cuiTextBox();
             this.TIndice = new CuoreUI.Controls.cuiTextBox();
             this.TNombreProveedor = new CuoreUI.Controls.cuiTextBox();
@@ -52,13 +56,6 @@
             this.LNombreProveedor = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.TModificarIDProveedor = new CuoreUI.Controls.cuiTextBox();
-            this.TBModificarIndice = new CuoreUI.Controls.cuiTextBox();
-            this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
-            this.TCUITProveedor = new CuoreUI.Controls.cuiTextBox();
-            this.LCUITProveedor = new System.Windows.Forms.Label();
-            this.TTelefonoProveedor = new CuoreUI.Controls.cuiTextBox();
-            this.LTelefonoProveedor = new System.Windows.Forms.Label();
             this.TModificarCUITProveedor = new CuoreUI.Controls.cuiTextBox();
             this.LModificarCUITProveedor = new System.Windows.Forms.Label();
             this.TModificarTelefonoProveedor = new CuoreUI.Controls.cuiTextBox();
@@ -66,6 +63,9 @@
             this.TModificarNombreProveedor = new CuoreUI.Controls.cuiTextBox();
             this.BModificarrProveedor = new CuoreUI.Controls.cuiButton();
             this.LModificarNombreProveedor = new System.Windows.Forms.Label();
+            this.TModificarIDProveedor = new CuoreUI.Controls.cuiTextBox();
+            this.TBModificarIndice = new CuoreUI.Controls.cuiTextBox();
+            this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -92,7 +92,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.06395F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.5064F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.54481F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1284, 795);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1284, 749);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // proveedoresDataGridView
@@ -102,15 +102,15 @@
             this.proveedoresDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.proveedoresDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.proveedoresDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.proveedoresDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.proveedoresDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.proveedoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.proveedoresDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -118,32 +118,32 @@
             this.nombre_proveedor,
             this.cuit_proveedor,
             this.telefono_proveedor});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.proveedoresDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.proveedoresDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.proveedoresDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.proveedoresDataGridView.EnableHeadersVisualStyles = false;
             this.proveedoresDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.proveedoresDataGridView.Location = new System.Drawing.Point(15, 98);
+            this.proveedoresDataGridView.Location = new System.Drawing.Point(15, 93);
             this.proveedoresDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.proveedoresDataGridView.Name = "proveedoresDataGridView";
             this.proveedoresDataGridView.ReadOnly = true;
             this.proveedoresDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.proveedoresDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.proveedoresDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.proveedoresDataGridView.RowHeadersVisible = false;
-            this.proveedoresDataGridView.Size = new System.Drawing.Size(1254, 379);
+            this.proveedoresDataGridView.Size = new System.Drawing.Size(1254, 356);
             this.proveedoresDataGridView.TabIndex = 58;
             this.proveedoresDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.proveedoresDataGridView_CellContentClick);
             this.proveedoresDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.proveedoresDataGridView_CellPainting);
@@ -195,7 +195,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1278, 89);
+            this.panel1.Size = new System.Drawing.Size(1278, 84);
             this.panel1.TabIndex = 57;
             // 
             // BBuscar
@@ -270,11 +270,11 @@
             this.TCUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCUsuarios.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TCUsuarios.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TCUsuarios.Location = new System.Drawing.Point(3, 483);
+            this.TCUsuarios.Location = new System.Drawing.Point(3, 455);
             this.TCUsuarios.Multiline = true;
             this.TCUsuarios.Name = "TCUsuarios";
             this.TCUsuarios.SelectedIndex = 0;
-            this.TCUsuarios.Size = new System.Drawing.Size(1278, 309);
+            this.TCUsuarios.Size = new System.Drawing.Size(1278, 291);
             this.TCUsuarios.TabIndex = 11;
             // 
             // tabPage1
@@ -284,7 +284,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1270, 276);
+            this.tabPage1.Size = new System.Drawing.Size(1270, 258);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Alta de Proveedor";
             // 
@@ -302,8 +302,88 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1264, 270);
+            this.panel2.Size = new System.Drawing.Size(1264, 252);
             this.panel2.TabIndex = 0;
+            // 
+            // TCUITProveedor
+            // 
+            this.TCUITProveedor.BackgroundColor = System.Drawing.Color.White;
+            this.TCUITProveedor.Content = "";
+            this.TCUITProveedor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TCUITProveedor.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TCUITProveedor.FocusImageTint = System.Drawing.Color.White;
+            this.TCUITProveedor.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TCUITProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCUITProveedor.ForeColor = System.Drawing.Color.Black;
+            this.TCUITProveedor.Image = null;
+            this.TCUITProveedor.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TCUITProveedor.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TCUITProveedor.Location = new System.Drawing.Point(344, 153);
+            this.TCUITProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.TCUITProveedor.Multiline = false;
+            this.TCUITProveedor.Name = "TCUITProveedor";
+            this.TCUITProveedor.NormalImageTint = System.Drawing.Color.White;
+            this.TCUITProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TCUITProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TCUITProveedor.PasswordChar = false;
+            this.TCUITProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TCUITProveedor.PlaceholderText = "";
+            this.TCUITProveedor.Rounding = new System.Windows.Forms.Padding(8);
+            this.TCUITProveedor.Size = new System.Drawing.Size(233, 28);
+            this.TCUITProveedor.TabIndex = 118;
+            this.TCUITProveedor.TextOffset = new System.Drawing.Size(0, 0);
+            this.TCUITProveedor.UnderlinedStyle = true;
+            // 
+            // LCUITProveedor
+            // 
+            this.LCUITProveedor.AutoSize = true;
+            this.LCUITProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCUITProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LCUITProveedor.Location = new System.Drawing.Point(344, 129);
+            this.LCUITProveedor.Name = "LCUITProveedor";
+            this.LCUITProveedor.Size = new System.Drawing.Size(43, 21);
+            this.LCUITProveedor.TabIndex = 117;
+            this.LCUITProveedor.Text = "CUIT";
+            // 
+            // TTelefonoProveedor
+            // 
+            this.TTelefonoProveedor.BackgroundColor = System.Drawing.Color.White;
+            this.TTelefonoProveedor.Content = "";
+            this.TTelefonoProveedor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TTelefonoProveedor.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TTelefonoProveedor.FocusImageTint = System.Drawing.Color.White;
+            this.TTelefonoProveedor.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TTelefonoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TTelefonoProveedor.ForeColor = System.Drawing.Color.Black;
+            this.TTelefonoProveedor.Image = null;
+            this.TTelefonoProveedor.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TTelefonoProveedor.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TTelefonoProveedor.Location = new System.Drawing.Point(618, 80);
+            this.TTelefonoProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.TTelefonoProveedor.Multiline = false;
+            this.TTelefonoProveedor.Name = "TTelefonoProveedor";
+            this.TTelefonoProveedor.NormalImageTint = System.Drawing.Color.White;
+            this.TTelefonoProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TTelefonoProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TTelefonoProveedor.PasswordChar = false;
+            this.TTelefonoProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TTelefonoProveedor.PlaceholderText = "";
+            this.TTelefonoProveedor.Rounding = new System.Windows.Forms.Padding(8);
+            this.TTelefonoProveedor.Size = new System.Drawing.Size(233, 28);
+            this.TTelefonoProveedor.TabIndex = 116;
+            this.TTelefonoProveedor.TextOffset = new System.Drawing.Size(0, 0);
+            this.TTelefonoProveedor.UnderlinedStyle = true;
+            // 
+            // LTelefonoProveedor
+            // 
+            this.LTelefonoProveedor.AutoSize = true;
+            this.LTelefonoProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTelefonoProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LTelefonoProveedor.Location = new System.Drawing.Point(618, 56);
+            this.LTelefonoProveedor.Name = "LTelefonoProveedor";
+            this.LTelefonoProveedor.Size = new System.Drawing.Size(155, 21);
+            this.LTelefonoProveedor.TabIndex = 115;
+            this.LTelefonoProveedor.Text = "Teléfono de Contacto";
             // 
             // TIDProveedor
             // 
@@ -472,149 +552,6 @@
             this.panel3.Size = new System.Drawing.Size(1264, 270);
             this.panel3.TabIndex = 0;
             // 
-            // TModificarIDProveedor
-            // 
-            this.TModificarIDProveedor.BackgroundColor = System.Drawing.Color.White;
-            this.TModificarIDProveedor.Content = "0";
-            this.TModificarIDProveedor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TModificarIDProveedor.FocusBackgroundColor = System.Drawing.Color.White;
-            this.TModificarIDProveedor.FocusImageTint = System.Drawing.Color.White;
-            this.TModificarIDProveedor.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TModificarIDProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TModificarIDProveedor.ForeColor = System.Drawing.Color.Gray;
-            this.TModificarIDProveedor.Image = null;
-            this.TModificarIDProveedor.ImageExpand = new System.Drawing.Point(0, 0);
-            this.TModificarIDProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TModificarIDProveedor.Location = new System.Drawing.Point(78, 238);
-            this.TModificarIDProveedor.Margin = new System.Windows.Forms.Padding(4);
-            this.TModificarIDProveedor.Multiline = false;
-            this.TModificarIDProveedor.Name = "TModificarIDProveedor";
-            this.TModificarIDProveedor.NormalImageTint = System.Drawing.Color.White;
-            this.TModificarIDProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TModificarIDProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
-            this.TModificarIDProveedor.PasswordChar = false;
-            this.TModificarIDProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
-            this.TModificarIDProveedor.PlaceholderText = "";
-            this.TModificarIDProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.TModificarIDProveedor.Size = new System.Drawing.Size(51, 28);
-            this.TModificarIDProveedor.TabIndex = 110;
-            this.TModificarIDProveedor.TextOffset = new System.Drawing.Size(0, 0);
-            this.TModificarIDProveedor.UnderlinedStyle = true;
-            // 
-            // TBModificarIndice
-            // 
-            this.TBModificarIndice.BackgroundColor = System.Drawing.Color.White;
-            this.TBModificarIndice.Content = "-1";
-            this.TBModificarIndice.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TBModificarIndice.FocusBackgroundColor = System.Drawing.Color.White;
-            this.TBModificarIndice.FocusImageTint = System.Drawing.Color.White;
-            this.TBModificarIndice.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TBModificarIndice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBModificarIndice.ForeColor = System.Drawing.Color.Gray;
-            this.TBModificarIndice.Image = null;
-            this.TBModificarIndice.ImageExpand = new System.Drawing.Point(0, 0);
-            this.TBModificarIndice.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TBModificarIndice.Location = new System.Drawing.Point(7, 238);
-            this.TBModificarIndice.Margin = new System.Windows.Forms.Padding(4);
-            this.TBModificarIndice.Multiline = false;
-            this.TBModificarIndice.Name = "TBModificarIndice";
-            this.TBModificarIndice.NormalImageTint = System.Drawing.Color.White;
-            this.TBModificarIndice.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TBModificarIndice.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
-            this.TBModificarIndice.PasswordChar = false;
-            this.TBModificarIndice.PlaceholderColor = System.Drawing.SystemColors.WindowText;
-            this.TBModificarIndice.PlaceholderText = "";
-            this.TBModificarIndice.Rounding = new System.Windows.Forms.Padding(8);
-            this.TBModificarIndice.Size = new System.Drawing.Size(51, 28);
-            this.TBModificarIndice.TabIndex = 108;
-            this.TBModificarIndice.TextOffset = new System.Drawing.Size(0, 0);
-            this.TBModificarIndice.UnderlinedStyle = true;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // TCUITProveedor
-            // 
-            this.TCUITProveedor.BackgroundColor = System.Drawing.Color.White;
-            this.TCUITProveedor.Content = "";
-            this.TCUITProveedor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TCUITProveedor.FocusBackgroundColor = System.Drawing.Color.White;
-            this.TCUITProveedor.FocusImageTint = System.Drawing.Color.White;
-            this.TCUITProveedor.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TCUITProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TCUITProveedor.ForeColor = System.Drawing.Color.Black;
-            this.TCUITProveedor.Image = null;
-            this.TCUITProveedor.ImageExpand = new System.Drawing.Point(0, 0);
-            this.TCUITProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TCUITProveedor.Location = new System.Drawing.Point(344, 153);
-            this.TCUITProveedor.Margin = new System.Windows.Forms.Padding(4);
-            this.TCUITProveedor.Multiline = false;
-            this.TCUITProveedor.Name = "TCUITProveedor";
-            this.TCUITProveedor.NormalImageTint = System.Drawing.Color.White;
-            this.TCUITProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TCUITProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
-            this.TCUITProveedor.PasswordChar = false;
-            this.TCUITProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
-            this.TCUITProveedor.PlaceholderText = "";
-            this.TCUITProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.TCUITProveedor.Size = new System.Drawing.Size(233, 28);
-            this.TCUITProveedor.TabIndex = 118;
-            this.TCUITProveedor.TextOffset = new System.Drawing.Size(0, 0);
-            this.TCUITProveedor.UnderlinedStyle = true;
-            // 
-            // LCUITProveedor
-            // 
-            this.LCUITProveedor.AutoSize = true;
-            this.LCUITProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LCUITProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LCUITProveedor.Location = new System.Drawing.Point(344, 129);
-            this.LCUITProveedor.Name = "LCUITProveedor";
-            this.LCUITProveedor.Size = new System.Drawing.Size(43, 21);
-            this.LCUITProveedor.TabIndex = 117;
-            this.LCUITProveedor.Text = "CUIT";
-            // 
-            // TTelefonoProveedor
-            // 
-            this.TTelefonoProveedor.BackgroundColor = System.Drawing.Color.White;
-            this.TTelefonoProveedor.Content = "";
-            this.TTelefonoProveedor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TTelefonoProveedor.FocusBackgroundColor = System.Drawing.Color.White;
-            this.TTelefonoProveedor.FocusImageTint = System.Drawing.Color.White;
-            this.TTelefonoProveedor.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
-            this.TTelefonoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TTelefonoProveedor.ForeColor = System.Drawing.Color.Black;
-            this.TTelefonoProveedor.Image = null;
-            this.TTelefonoProveedor.ImageExpand = new System.Drawing.Point(0, 0);
-            this.TTelefonoProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TTelefonoProveedor.Location = new System.Drawing.Point(618, 80);
-            this.TTelefonoProveedor.Margin = new System.Windows.Forms.Padding(4);
-            this.TTelefonoProveedor.Multiline = false;
-            this.TTelefonoProveedor.Name = "TTelefonoProveedor";
-            this.TTelefonoProveedor.NormalImageTint = System.Drawing.Color.White;
-            this.TTelefonoProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TTelefonoProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
-            this.TTelefonoProveedor.PasswordChar = false;
-            this.TTelefonoProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
-            this.TTelefonoProveedor.PlaceholderText = "";
-            this.TTelefonoProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.TTelefonoProveedor.Size = new System.Drawing.Size(233, 28);
-            this.TTelefonoProveedor.TabIndex = 116;
-            this.TTelefonoProveedor.TextOffset = new System.Drawing.Size(0, 0);
-            this.TTelefonoProveedor.UnderlinedStyle = true;
-            // 
-            // LTelefonoProveedor
-            // 
-            this.LTelefonoProveedor.AutoSize = true;
-            this.LTelefonoProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTelefonoProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LTelefonoProveedor.Location = new System.Drawing.Point(618, 56);
-            this.LTelefonoProveedor.Name = "LTelefonoProveedor";
-            this.LTelefonoProveedor.Size = new System.Drawing.Size(155, 21);
-            this.LTelefonoProveedor.TabIndex = 115;
-            this.LTelefonoProveedor.Text = "Teléfono de Contacto";
-            // 
             // TModificarCUITProveedor
             // 
             this.TModificarCUITProveedor.BackgroundColor = System.Drawing.Color.White;
@@ -774,11 +711,74 @@
             this.LModificarNombreProveedor.TabIndex = 119;
             this.LModificarNombreProveedor.Text = "Nombre del Proveedor";
             // 
+            // TModificarIDProveedor
+            // 
+            this.TModificarIDProveedor.BackgroundColor = System.Drawing.Color.White;
+            this.TModificarIDProveedor.Content = "0";
+            this.TModificarIDProveedor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TModificarIDProveedor.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TModificarIDProveedor.FocusImageTint = System.Drawing.Color.White;
+            this.TModificarIDProveedor.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TModificarIDProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TModificarIDProveedor.ForeColor = System.Drawing.Color.Gray;
+            this.TModificarIDProveedor.Image = null;
+            this.TModificarIDProveedor.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TModificarIDProveedor.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TModificarIDProveedor.Location = new System.Drawing.Point(78, 238);
+            this.TModificarIDProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarIDProveedor.Multiline = false;
+            this.TModificarIDProveedor.Name = "TModificarIDProveedor";
+            this.TModificarIDProveedor.NormalImageTint = System.Drawing.Color.White;
+            this.TModificarIDProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TModificarIDProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarIDProveedor.PasswordChar = false;
+            this.TModificarIDProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TModificarIDProveedor.PlaceholderText = "";
+            this.TModificarIDProveedor.Rounding = new System.Windows.Forms.Padding(8);
+            this.TModificarIDProveedor.Size = new System.Drawing.Size(51, 28);
+            this.TModificarIDProveedor.TabIndex = 110;
+            this.TModificarIDProveedor.TextOffset = new System.Drawing.Size(0, 0);
+            this.TModificarIDProveedor.UnderlinedStyle = true;
+            // 
+            // TBModificarIndice
+            // 
+            this.TBModificarIndice.BackgroundColor = System.Drawing.Color.White;
+            this.TBModificarIndice.Content = "-1";
+            this.TBModificarIndice.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TBModificarIndice.FocusBackgroundColor = System.Drawing.Color.White;
+            this.TBModificarIndice.FocusImageTint = System.Drawing.Color.White;
+            this.TBModificarIndice.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.TBModificarIndice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBModificarIndice.ForeColor = System.Drawing.Color.Gray;
+            this.TBModificarIndice.Image = null;
+            this.TBModificarIndice.ImageExpand = new System.Drawing.Point(0, 0);
+            this.TBModificarIndice.ImageOffset = new System.Drawing.Point(0, 0);
+            this.TBModificarIndice.Location = new System.Drawing.Point(7, 238);
+            this.TBModificarIndice.Margin = new System.Windows.Forms.Padding(4);
+            this.TBModificarIndice.Multiline = false;
+            this.TBModificarIndice.Name = "TBModificarIndice";
+            this.TBModificarIndice.NormalImageTint = System.Drawing.Color.White;
+            this.TBModificarIndice.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TBModificarIndice.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TBModificarIndice.PasswordChar = false;
+            this.TBModificarIndice.PlaceholderColor = System.Drawing.SystemColors.WindowText;
+            this.TBModificarIndice.PlaceholderText = "";
+            this.TBModificarIndice.Rounding = new System.Windows.Forms.Padding(8);
+            this.TBModificarIndice.Size = new System.Drawing.Size(51, 28);
+            this.TBModificarIndice.TabIndex = 108;
+            this.TBModificarIndice.TextOffset = new System.Drawing.Size(0, 0);
+            this.TBModificarIndice.UnderlinedStyle = true;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 795);
+            this.ClientSize = new System.Drawing.Size(1284, 749);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Proveedores";
             this.Text = "Proveedores";

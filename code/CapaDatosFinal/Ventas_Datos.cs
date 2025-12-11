@@ -89,12 +89,11 @@ namespace CapaDatos
             return lista;
         }
 
-        public bool RegistrarVenta(Ventas obj, MediosPago objMetPago, out int idVentaRegistrada, out string Mensaje)//crearVenta ()
+        public bool RegistrarVenta(Ventas obj, MediosPago objMetPago, Factura objFactura, out int idVentaRegistrada, out string Mensaje)
         {
 
             idVentaRegistrada = 0;
             String mensajeSalida = string.Empty;
-
             bool exito = false;
             List<string> mensajesDetalle = new List<string>(); // Para recopilar mensajes de detalles
 
@@ -108,7 +107,7 @@ namespace CapaDatos
                 {
                     transaction = oconexion.BeginTransaction(); // Inicia la transacción
 
-                    // 1. REGISTRAR LA VENTA PRINCIPAL
+                    // REGISTRAR LA VENTA PRINCIPAL
                     using (SqlCommand cmdVenta = new SqlCommand("PROC_REGISTRAR_VENTA", oconexion, transaction)) // Asocia el comando a la transacción
                     {
                         cmdVenta.Parameters.AddWithValue("total", obj.total);
@@ -134,7 +133,7 @@ namespace CapaDatos
                         }
                     }
 
-                    // 2. REGISTRAR LOS DETALLES DE LA VENTA (AHORA CON TRANSACCIÓN)
+                    // REGISTRAR LOS DETALLES DE LA VENTA
                     if (obj.detalles != null && obj.detalles.Any()) // Asegurarse de que hay detalles
                     {
                         foreach (var detalle in obj.detalles)
@@ -145,14 +144,11 @@ namespace CapaDatos
                                 cmdDetalle.Parameters.AddWithValue("id_producto", detalle.objProducto.id_producto);
                                 cmdDetalle.Parameters.AddWithValue("cantidad", detalle.cantidad);
                                 cmdDetalle.Parameters.AddWithValue("subtotal", detalle.subtotal);
-
                                 cmdDetalle.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-
                                 cmdDetalle.CommandType = CommandType.StoredProcedure;
 
-                                // No es necesario un try-catch interno si un fallo de un detalle debe hacer rollback de todo
                                 // Si se desea loggear errores por detalle sin abortar la transacción inmediatamente,
-                                // se podría añadir un try-catch aquí y luego decidir si se hace rollback al final.
+                                // se podría añadir un try-catch acá y luego decidir si se hace rollback al final.
                                 cmdDetalle.ExecuteNonQuery();
 
                                 string mensajeActualDetalle = cmdDetalle.Parameters["mensaje"].Value.ToString();
@@ -173,10 +169,35 @@ namespace CapaDatos
                         mensajesDetalle.Add("La venta no tiene detalles de producto para registrar.");
                     }
 
-                    // Si llegamos hasta aquí, todas las operaciones fueron exitosas
-                    transaction.Commit(); // Confirma la transacción: todos los cambios se hacen permanentes
+                    using (SqlCommand cmdFactura = new SqlCommand("PROC_REGISTRAR_FACTURA", oconexion, transaction))
+                    {
+                        cmdFactura.CommandType = CommandType.StoredProcedure;
+                        cmdFactura.Parameters.AddWithValue("@id_venta", idVentaRegistrada);
+                        cmdFactura.Parameters.AddWithValue("@id_cliente", obj.objCliente.id_cliente);
+                        // Usamos el ID del tipo de factura que viene en el objeto Factura
+                        cmdFactura.Parameters.AddWithValue("@id_tipo_factura", objFactura.objTipoFactura.id_tipo_factura);
+                        cmdFactura.Parameters.AddWithValue("@fecha_emision", DateTime.Now); // O objFactura.fecha_emision
+
+                        cmdFactura.Parameters.Add("@id_factura_generada", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        cmdFactura.Parameters.Add("@mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                        cmdFactura.ExecuteNonQuery();
+
+                        int idFacturaGenerada = Convert.ToInt32(cmdFactura.Parameters["@id_factura_generada"].Value);
+                        string msgFactura = cmdFactura.Parameters["@mensaje"].Value.ToString();
+
+                        // Si la factura falla (ID 0), lanzamos excepción para deshacer todo (venta y detalles incluidos)
+                        if (idFacturaGenerada == 0)
+                        {
+                            throw new Exception($"Error al generar la factura: {msgFactura}");
+                        }
+                    }
+
+                    // Si llegamos aquí, Venta, Detalles y Factura están OK.
+                    transaction.Commit();
                     exito = true;
-                    mensajeSalida += Environment.NewLine + string.Join(Environment.NewLine, mensajesDetalle); // Agrega mensajes de detalles
+                    //mensajeSalida += Environment.NewLine + string.Join(Environment.NewLine, mensajesDetalle); // Agrega mensajes de detalles
+                    Mensaje = "Venta y Factura registradas con éxito. Nro Venta: " + idVentaRegistrada;
                 }
                 catch (SqlException sqlEx)
                 {
@@ -184,14 +205,14 @@ namespace CapaDatos
                     transaction?.Rollback(); // Deshace todos los cambios realizados en la transacción
                     mensajeSalida = $"Error de base de datos: {sqlEx.Message}";
                     idVentaRegistrada = 0; // Asegura que el ID de venta sea 0 en caso de fallo
-                                           // Se puede loggear sqlEx.Number, sqlEx.State para depuración
+                    exito = false;
                 }
                 catch (Exception ex)
                 {
-                    // Cualquier otro tipo de error
-                    transaction?.Rollback(); // Deshace todos los cambios
+                    transaction?.Rollback();
                     mensajeSalida = $"Error general al guardar la venta: {ex.Message}";
                     idVentaRegistrada = 0;
+                    exito = false;
                 }
                 finally
                 {

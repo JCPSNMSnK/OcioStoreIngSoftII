@@ -60,6 +60,7 @@
             this.LMedioPago = new System.Windows.Forms.Label();
             this.CBMediosPago = new System.Windows.Forms.ComboBox();
             this.panelPago = new System.Windows.Forms.Panel();
+            this.btnImprimir = new CuoreUI.Controls.cuiButton();
             this.panel1.SuspendLayout();
             this.panelConfirmar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentaDataGridView)).BeginInit();
@@ -135,6 +136,7 @@
             this.cuiSwitch1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.cuiSwitch1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cuiSwitch1.Location = new System.Drawing.Point(8, 8);
+            this.cuiSwitch1.MinimumSize = new System.Drawing.Size(12, 8);
             this.cuiSwitch1.Name = "cuiSwitch1";
             this.cuiSwitch1.OutlineThickness = 1F;
             this.cuiSwitch1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -158,6 +160,7 @@
             this.cuiSwitch2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.cuiSwitch2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cuiSwitch2.Location = new System.Drawing.Point(160, 8);
+            this.cuiSwitch2.MinimumSize = new System.Drawing.Size(12, 8);
             this.cuiSwitch2.Name = "cuiSwitch2";
             this.cuiSwitch2.OutlineThickness = 1F;
             this.cuiSwitch2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -181,6 +184,7 @@
             this.cuiSwitch3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.cuiSwitch3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cuiSwitch3.Location = new System.Drawing.Point(312, 8);
+            this.cuiSwitch3.MinimumSize = new System.Drawing.Size(12, 8);
             this.cuiSwitch3.Name = "cuiSwitch3";
             this.cuiSwitch3.OutlineThickness = 1F;
             this.cuiSwitch3.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -285,8 +289,8 @@
             this.btnAnterior.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnAnterior.ForeColor = System.Drawing.Color.White;
             this.btnAnterior.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
-            this.btnAnterior.HoverImageTint = System.Drawing.Color.White;
             this.btnAnterior.HoverForeColor = System.Drawing.Color.White;
+            this.btnAnterior.HoverImageTint = System.Drawing.Color.White;
             this.btnAnterior.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.btnAnterior.Image = null;
             this.btnAnterior.ImageAutoCenter = true;
@@ -324,8 +328,8 @@
             this.btnSiguiente.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnSiguiente.ForeColor = System.Drawing.Color.White;
             this.btnSiguiente.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
-            this.btnSiguiente.HoverImageTint = System.Drawing.Color.White;
             this.btnSiguiente.HoverForeColor = System.Drawing.Color.White;
+            this.btnSiguiente.HoverImageTint = System.Drawing.Color.White;
             this.btnSiguiente.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.btnSiguiente.Image = null;
             this.btnSiguiente.ImageAutoCenter = true;
@@ -483,12 +487,52 @@
             this.panelPago.Size = new System.Drawing.Size(600, 96);
             this.panelPago.TabIndex = 65;
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.CheckButton = false;
+            this.btnImprimir.Checked = false;
+            this.btnImprimir.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnImprimir.CheckedForeColor = System.Drawing.Color.White;
+            this.btnImprimir.CheckedImageTint = System.Drawing.Color.White;
+            this.btnImprimir.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnImprimir.Content = "Imprimir Factura";
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnImprimir.ForeColor = System.Drawing.Color.White;
+            this.btnImprimir.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            this.btnImprimir.HoverForeColor = System.Drawing.Color.White;
+            this.btnImprimir.HoverImageTint = System.Drawing.Color.White;
+            this.btnImprimir.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnImprimir.Image = null;
+            this.btnImprimir.ImageAutoCenter = true;
+            this.btnImprimir.ImageExpand = new System.Drawing.Point(0, 0);
+            this.btnImprimir.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnImprimir.Location = new System.Drawing.Point(49, 408);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.btnImprimir.NormalForeColor = System.Drawing.Color.White;
+            this.btnImprimir.NormalImageTint = System.Drawing.Color.White;
+            this.btnImprimir.NormalOutline = System.Drawing.Color.Black;
+            this.btnImprimir.OutlineThickness = 1F;
+            this.btnImprimir.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.btnImprimir.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnImprimir.PressedImageTint = System.Drawing.Color.White;
+            this.btnImprimir.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnImprimir.Rounding = new System.Windows.Forms.Padding(8);
+            this.btnImprimir.Size = new System.Drawing.Size(143, 32);
+            this.btnImprimir.TabIndex = 67;
+            this.btnImprimir.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnImprimir.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
             this.ClientSize = new System.Drawing.Size(1124, 452);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.panelPago);
             this.Controls.Add(this.panelConfirmar);
             this.Controls.Add(this.VentaDataGridView);
@@ -541,5 +585,6 @@
         private System.Windows.Forms.Label LMedioPago;
         private System.Windows.Forms.ComboBox CBMediosPago;
         private System.Windows.Forms.Panel panelPago;
+        private CuoreUI.Controls.cuiButton btnImprimir;
     }
 }

@@ -387,11 +387,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores.Designer.cs">
+      <DependentUpon>Proveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recibos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recibos.Designer.cs">
+      <DependentUpon>Recibos.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarClienteVenta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RegistrarClienteVenta.Designer.cs">
       <DependentUpon>RegistrarClienteVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte.Designer.cs">
+      <DependentUpon>Reporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Stats.cs">
       <SubType>Form</SubType>
@@ -455,6 +473,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores.resx">
+      <DependentUpon>Proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recibos.resx">
+      <DependentUpon>Recibos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarClienteVenta.resx">
       <DependentUpon>RegistrarClienteVenta.cs</DependentUpon>

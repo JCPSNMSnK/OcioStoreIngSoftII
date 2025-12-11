@@ -9,73 +9,85 @@
             padding: 20px;
         }
 
-        .header-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        /* ================= HEADER ================= */
+        .header-table {
+            width: 100%;
+            border: 0;
             margin-bottom: 25px;
         }
 
-        .business-info {
+        .business-info-cell {
             text-align: center;
-            flex-grow: 1;
+            vertical-align: top;
         }
 
-        .business-info .name {
+        .name {
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 5px;
             color: #2c5282;
         }
 
-        .business-info .detail {
+        .detail {
             font-size: 12px;
             margin: 2px 0;
+            display: block;
         }
 
-        .report-info {
+        /* Caja de Factura */
+        .box-table {
             width: 200px;
             border: 1px solid #cbd5e0;
-            border-radius: 8px;
-            overflow: hidden;
         }
 
-        .report-info .info-header {
+        .box-header {
             background-color: #e2e8f0;
             text-align: center;
             font-weight: bold;
             padding: 8px;
             font-size: 14px;
+            border-bottom: 1px solid #cbd5e0;
         }
 
-        .report-info .info-data {
+        .box-data {
             text-align: center;
             padding: 8px;
             font-size: 16px;
+            background-color: #ffffff;
         }
 
+        /* ================= DETALLES ================= */
         .section-divider {
             border: 0;
             border-top: 1px solid #cbd5e0;
             margin: 25px 0;
         }
 
-        .report-details-grid {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 10px 20px;
+        .details-table {
+            width: 100%;
             font-size: 13px;
         }
-        
-        .report-details-grid .label {
-            font-weight: bold;
+
+        .details-table td {
+            padding: 5px 0;
         }
 
+        .label {
+            font-weight: bold;
+            width: 220px;
+        }
+
+        /* ================= TABLA DE DATOS ================= */
         .data-table {
             width: 100%;
-            border-collapse: collapse;
             font-size: 12px;
             margin-top: 25px;
+            border: 1px solid #cbd5e0;
         }
 
         .data-table th, .data-table td {
@@ -98,60 +110,95 @@
             text-align: center;
         }
 
+        /* ================= TOTALES ================= */
         .summary-table {
-            width: 180px;
-            border-collapse: collapse;
+            width: 350px;
             font-size: 12px;
             margin-top: 25px;
-            margin-left: auto;
+            border: 1px solid #cbd5e0;
+            margin-left: auto; 
+        }
+
+        .summary-table td {
+            padding: 8px;
             border: 1px solid #cbd5e0;
         }
 
-        .summary-table th, .summary-table td {
-            padding: 10px;
+        /* Totales */
+        .label-cell {
+            background-color: #f4f4f4;
+            font-weight: bold;
+            text-align: right;
+        }
+        
+        .value-cell {
             text-align: center;
-            border: 1px solid #cbd5e0;
         }
 
-        .summary-table thead th {
+        .total-row .label-cell {
             background-color: #e2e8f0;
+        }
+        
+        .total-row .value-cell {
             font-weight: bold;
         }
 
     </style>
 </head>
 <body>
-    <div class="header-section">
-        <div style="width:15%"></div>
-        <div class="business-info">
-            <div class="name">@nombrenegocio</div>
-            <div class="detail">Razón Social: @docnegocio</div>
-            <div class="detail">Dirección: @direcnegocio</div>
-        </div>
-        <div class="report-info">
-            <div class="info-header">@tipofactura</div>
-            <div class="info-data">@numerofactura</div>
-        </div>
-    </div>
+
+    <table class="header-table">
+        <tr>
+            <td width="15%"></td>
+            <td class="business-info-cell">
+                <div class="name">@nombrenegocio</div>
+                <span class="detail">Razón Social: @docnegocio</span>
+                <span class="detail">Dirección: @direcnegocio</span>
+            </td>
+            <td width="25%" align="right" valign="top">
+                <table class="box-table">
+                    <tr>
+                        <td class="box-header">@tipofactura</td>
+                    </tr>
+                    <tr>
+                        <td class="box-data">
+                            <span style="font-size: 10px; color: #718096; display: block;">Nº Factura</span>
+                            @numerofactura
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
     
     <hr class="section-divider" />
 
-    <div class="report-details-grid">
-        <div class="label">Documento Cliente:</div>
-        <div>@dni_cliente</div>
-        
-        <div class="label">Nombre Cliente:</div>
-        <div>@nombre_cliente</div>
-        
-        <div class="label">Nro de Venta:</div>
-        <div>@id_venta</div>
-
-        <div class="label">Fecha de la Venta:</div>
-        <div>@fecha_emision</div>
-        
-        <div class="label">Usuario Vendedor:</div>
-        <div>@nombre_usuario</div>
-    </div>
+    <table class="details-table">
+        <tr>
+            <td class="label">Documento Cliente:</td>
+            <td>@dni_cliente</td>
+        </tr>
+        <tr>
+            <td class="label">Nombre Cliente:</td>
+            <td>@nombre_cliente</td>
+        </tr>
+        <tr>
+            <td class="label">Nro de Venta:</td>
+            <td>@id_venta</td>
+        </tr>
+        <tr>
+            <td class="label">Fecha de Emisión:</td>
+            <td>@fecha_emision</td>
+        </tr>
+        <tr>
+            <td class="label">Usuario Vendedor:</td>
+            <td>@nombre_usuario</td>
+        </tr>
+        <tr>
+            <td class="label">Medio de Pago:</td>
+            <td>@mediopago</td>
+        </tr>
+    </table>
 
     <table class="data-table">
         <thead>
@@ -167,17 +214,22 @@
         </tbody>
     </table>
 
-    <table class="summary-table">
-        <thead>
-            <tr>
-                <th>Monto Total</th>
-            </tr>
-        </thead>
+    <table class="summary-table" align="right">
         <tbody>
             <tr>
-                <td>@total_venta</td>
+                <td class="label-cell">Subtotal Neto:</td>
+                <td class="value-cell">@subtotal_neto</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Comisión/Recargo (@porcentaje_comision%):</td>
+                <td class="value-cell">@monto_comision</td>
+            </tr>
+            <tr class="total-row">
+                <td class="label-cell">MONTO TOTAL:</td>
+                <td class="value-cell">@total_venta</td>
             </tr>
         </tbody>
     </table>
+
 </body>
 </html>

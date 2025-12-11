@@ -70,10 +70,11 @@ namespace OcioStoreIngSoftII
                 "CategoriesButton",
                 "ReceiptsButton",
                 "StatsButton",
+                "BuyButton",
+                "ProvidersButton",
+                "InformsButton",
                 //"RestoreButton", //Anulado puesto que no se debe de poder hacer desde la aplicación
                 "BackupButton"
-
-                // Agrega aquí los Nombres (Name) de todos tus botones en el orden que quieras
             };
 
             var botonesVisiblesActuales = menu.Controls.OfType<IconButton>()
@@ -217,6 +218,21 @@ namespace OcioStoreIngSoftII
                 AvisoStockMinimo notificacion = new AvisoStockMinimo(mensaje);
                 notificacion.Show();
             }
+        }
+
+        private void BuyButton_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconButton)sender, new Compras());
+        }
+
+        private void ProvidersButton_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconButton)sender, new Proveedores());
+        }
+
+        private void InformsButton_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconButton)sender, new Informes());
         }
     }
 }

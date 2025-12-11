@@ -162,6 +162,7 @@ namespace CapaNegocio
             return true;
 
         }
+
         public bool SeleccionarMedioPagoYCalcular(Ventas ventaActual, MediosPago mediosPago, out string mensaje)
         {
             mensaje = string.Empty;
@@ -210,7 +211,7 @@ namespace CapaNegocio
             return true;
         }
 
-        public bool RegistrarVenta(Ventas objVenta, out int idVentaGenerada, out string mensaje) //se utiliza solo para persistencia en la DB
+        public bool RegistrarVenta(Ventas objVenta, Factura objFactura, out int idVentaGenerada, out string mensaje) //se utiliza solo para persistencia en la DB
         {
             idVentaGenerada = 0;
             mensaje = string.Empty;
@@ -229,7 +230,7 @@ namespace CapaNegocio
 
                     //Persistencia de la venta exitosa
                     // La capa de negocio invoca al método de la capa de datos que maneja la transacción
-                    bool registroExitoso = objVentas_datos.RegistrarVenta(objVenta, objVenta.objMediosPago, out idVentaGenerada, out mensaje);
+                    bool registroExitoso = objVentas_datos.RegistrarVenta(objVenta, objVenta.objMediosPago, objFactura, out idVentaGenerada, out mensaje);
 
                     if (!registroExitoso)
                     {
@@ -272,9 +273,10 @@ namespace CapaNegocio
             return verificado;
         }
 
-        public bool verificacionPago(Ventas ventaAVerificar, out string mensaje)
+        public bool verificacionPago(Ventas ventaAVerificar, Factura facturaAVerificar,out string mensaje, out int idGenerado)
         {
             mensaje = string.Empty;
+            idGenerado = 0;
 
             if (ventaAVerificar == null)
             {
@@ -296,213 +298,15 @@ namespace CapaNegocio
 
             if (resultadoVerifPago)
             {
-                RegistrarVenta(ventaAVerificar, out int idVentaRegistrada, out mensaje);
+                RegistrarVenta(ventaAVerificar, facturaAVerificar, out idGenerado, out mensaje);
                 mensaje = $"Pago de ${ventaAVerificar.total} con '{ventaAVerificar.objMediosPago.nombre_medio}' verificado exitosamente." +
-                $"\tLa venta nro {idVentaRegistrada} tuvo el siguiente mensaje al ser registrada en la DB: " + mensaje;
+                $"\nLa venta nro {idGenerado} tuvo el siguiente mensaje al ser registrada en la DB: " + mensaje;
                 return true;
             }
             else
             {
                 return false;
             }
-
-            /*try
-            {
-                // Simulación de una llamada a una API externa o POS
-                // Generamos un número aleatorio entre 0 y 99.
-                // Simulamos un 80% de éxito, 20% de fallo.
-                int resultadoSimulacion = _random.Next(100); // Genera un número entre 0 y 99
-
-                if (resultadoSimulacion < 80) // 80% de probabilidad de éxito
-                {
-                    RegistrarVenta(ventaAVerificar, out int idVentaRegistrada, out mensaje);
-                    mensaje = $"Pago de ${ventaAVerificar.total} con '{ventaAVerificar.objMediosPago.nombre_medio}' verificado exitosamente." +
-                    $"\tLa venta nro {idVentaRegistrada} tuvo el siguiente mensaje al ser registrada en la DB: " + mensaje;
-                    return true;
-                }
-                else
-                {
-                    // Simular diferentes razones de fallo
-                    if (resultadoSimulacion < 90)
-                    {
-                        mensaje = "Pago rechazado por la entidad bancaria. Fondos insuficientes.";
-                    }
-                    else if (resultadoSimulacion < 95)
-                    {
-                        mensaje = "Error de conexión con la pasarela de pagos. Intente de nuevo.";
-                    }
-                    else
-                    {
-                        mensaje = "Pago denegado. Tarjeta inválida o expirada.";
-                    }
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                mensaje = "Ocurrió un error interno al intentar verificar el pago: " + ex.Message;
-                return false;
-            }*/
         }
-
-        //public string ObtenerFacturaJson(Ventas venta, out string mensaje)
-        //{
-        //    mensaje = string.Empty;
-        //    try
-        //    {
-        //        // Ya no necesitamos buscarla en la base de datos, la recibimos directamente.
-        //        if (venta == null)
-        //        {
-        //            mensaje = "La instancia de Venta proporcionada es nula.";
-        //            return null;
-        //        }
-
-        //        // Serializamos directamente la instancia de Ventas a JSON
-        //        var options = new JsonSerializerOptions { WriteIndented = true };
-        //        string jsonString = JsonSerializer.Serialize(venta, options);
-
-        //        mensaje = "Datos de factura JSON generados exitosamente.";
-        //        return jsonString;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        mensaje = "Error al generar los datos de la factura en JSON: " + ex.Message;
-        //        // Loggear el error completo aquí
-        //        return null;
-        //    }
-        //}
-
-        //public string ObtenerFacturaXml(Ventas venta, out string mensaje)
-        //{
-        //    mensaje = string.Empty;
-        //    try
-        //    {
-        //        // Ya no necesitamos buscarla en la base de datos, la recibimos directamente.
-        //        if (venta == null)
-        //        {
-        //            mensaje = "La instancia de Venta proporcionada es nula.";
-        //            return null;
-        //        }
-
-        //        // Serializamos directamente la instancia de Ventas a XML
-        //        var serializer = new XmlSerializer(typeof(Ventas));
-        //        using (var writer = new StringWriter())
-        //        {
-        //            var settings = new XmlWriterSettings
-        //            {
-        //                Indent = true,
-        //                OmitXmlDeclaration = true
-        //            };
-
-        //            using (var xmlWriter = XmlWriter.Create(writer, settings))
-        //            {
-        //                serializer.Serialize(xmlWriter, venta);
-        //            }
-        //            mensaje = "Datos de factura XML generados exitosamente.";
-        //            return writer.ToString();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        mensaje = "Error al generar los datos de la factura en XML: " + ex.Message;
-        //        // Loggear el error completo aquí
-        //        return null;
-        //    }
-        //}
-
-        //public byte[] GenerarImagenVenta(Ventas venta, out string mensaje)
-        //{
-        //    mensaje = string.Empty;
-        //    try
-        //    {
-        //        // Ya no necesitamos buscarla en la base de datos, la recibimos directamente.
-        //        if (venta == null)
-        //        {
-        //            mensaje = "La instancia de Venta proporcionada es nula.";
-        //            return null;
-        //        }
-
-        //        // --- Parámetros de la imagen ---
-        //        int width = 600; // Ancho de la imagen en píxeles
-        //        int height = 800; // Alto de la imagen en píxeles (ajustar según el contenido)
-        //        int padding = 20; // Espaciado desde los bordes
-        //        int lineHeight = 20; // Altura aproximada de cada línea de texto
-
-        //        // Crear un Bitmap y un objeto Graphics para dibujar
-        //        using (Bitmap bitmap = new Bitmap(width, height))
-        //        {
-        //            using (Graphics graphics = Graphics.FromImage(bitmap))
-        //            {
-        //                graphics.FillRectangle(Brushes.White, 0, 0, width, height);
-
-        //                Font headerFont = new Font("Arial", 16, FontStyle.Bold);
-        //                Font bodyFont = new Font("Arial", 10);
-        //                Font totalFont = new Font("Arial", 12, FontStyle.Bold);
-        //                Brush textBrush = Brushes.Black;
-
-        //                int currentY = padding;
-
-        //                // --- Dibujar Encabezado ---
-        //                graphics.DrawString("FACTURA DE VENTA", headerFont, textBrush, new PointF(padding, currentY));
-        //                currentY += 40;
-
-        //                // Accede directamente a las propiedades de la entidad Ventas
-        //                graphics.DrawString($"ID de Venta: {venta.id_venta}", bodyFont, textBrush, new PointF(padding, currentY));
-        //                currentY += lineHeight;
-        //                graphics.DrawString($"Fecha: {venta.fecha_venta:dd/MM/yyyy HH:mm}", bodyFont, textBrush, new PointF(padding, currentY));
-        //                currentY += lineHeight;
-        //                graphics.DrawString($"Usuario: {venta.objUsuario?.username ?? "N/A"} (ID: {venta.objUsuario?.id_user.ToString() ?? "N/A"})", bodyFont, textBrush, new PointF(padding, currentY));
-        //                currentY += lineHeight * 2;
-
-        //                // --- Dibujar Detalles de Productos ---
-        //                graphics.DrawString("DETALLES:", totalFont, textBrush, new PointF(padding, currentY));
-        //                currentY += lineHeight + 5;
-
-        //                graphics.DrawString("Producto", bodyFont, textBrush, new PointF(padding, currentY));
-        //                graphics.DrawString("Cantidad", bodyFont, textBrush, new PointF(width - 250, currentY));
-        //                graphics.DrawString("P. Unit.", bodyFont, textBrush, new PointF(width - 150, currentY));
-        //                graphics.DrawString("Subtotal", bodyFont, textBrush, new PointF(width - 70, currentY));
-        //                currentY += lineHeight;
-        //                graphics.DrawLine(Pens.Black, padding, currentY, width - padding, currentY);
-        //                currentY += 5;
-
-        //                // Itera sobre la lista de detalles de la venta
-        //                foreach (var detalle in venta.Detalles)
-        //                {
-        //                    graphics.DrawString(detalle.ObjProducto?.nombre ?? "Producto Desconocido", bodyFont, textBrush, new PointF(padding, currentY));
-        //                    graphics.DrawString(detalle.Cantidad.ToString(), bodyFont, textBrush, new PointF(width - 250, currentY));
-        //                    // Asumiendo que DetalleVenta.ObjProducto tiene Precio_Unitario y DetalleVenta tiene Subtotal
-        //                    graphics.DrawString((detalle.ObjProducto?.precio_unitario ?? 0f).ToString("C"), bodyFont, textBrush, new PointF(width - 150, currentY));
-        //                    graphics.DrawString(detalle.Subtotal.ToString("C"), bodyFont, textBrush, new PointF(width - 70, currentY));
-        //                    currentY += lineHeight;
-        //                }
-        //                currentY += 5;
-        //                graphics.DrawLine(Pens.Black, padding, currentY, width - padding, currentY);
-        //                currentY += lineHeight;
-
-        //                // --- Dibujar Totales ---
-        //                graphics.DrawString($"Medio de Pago: {venta.objMediosPago?.nombre_medio ?? "N/A"} (Comisión: {(float)(venta.objMediosPago?.comision ?? 0m):P})", bodyFont, textBrush, new PointF(padding, currentY));
-        //                currentY += lineHeight;
-        //                graphics.DrawString($"TOTAL A PAGAR: {venta.total:C}", totalFont, textBrush, new PointF(width - 250, currentY));
-        //                currentY += lineHeight * 2;
-
-
-        //                // --- Convertir Bitmap a byte[] ---
-        //                using (MemoryStream ms = new MemoryStream())
-        //                {
-        //                    bitmap.Save(ms, ImageFormat.Png);
-        //                    mensaje = "Imagen de la factura generada exitosamente.";
-        //                    return ms.ToArray();
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        mensaje = "Error al generar la imagen de la venta: " + ex.Message;
-        //        // Loggear el error completo aquí
-        //        return null;
-        //    }
-        //}
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace OcioStoreIngSoftII
 {
-    partial class Informes
+    partial class Recibos
     {
         /// <summary>
         /// Required designer variable.
@@ -31,8 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.TLayoutCategories = new System.Windows.Forms.TableLayoutPanel();
             this.informesDataGridView = new System.Windows.Forms.DataGridView();
             this.Titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoInforme = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,41 +38,16 @@
             this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Informe = new System.Windows.Forms.DataGridViewButtonColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TLayoutCategories = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.TLayoutCategories.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.informesDataGridView)).BeginInit();
+            this.TLayoutCategories.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1335, 749);
-            this.panel1.TabIndex = 0;
-            // 
-            // TLayoutCategories
-            // 
-            this.TLayoutCategories.AutoScroll = true;
-            this.TLayoutCategories.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.TLayoutCategories.ColumnCount = 1;
-            this.TLayoutCategories.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TLayoutCategories.Controls.Add(this.informesDataGridView, 0, 1);
-            this.TLayoutCategories.Controls.Add(this.panel2, 0, 0);
-            this.TLayoutCategories.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TLayoutCategories.Location = new System.Drawing.Point(0, 0);
-            this.TLayoutCategories.Name = "TLayoutCategories";
-            this.TLayoutCategories.RowCount = 3;
-            this.TLayoutCategories.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TLayoutCategories.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.TLayoutCategories.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TLayoutCategories.Size = new System.Drawing.Size(1335, 749);
-            this.TLayoutCategories.TabIndex = 2;
             // 
             // informesDataGridView
             // 
@@ -167,6 +140,24 @@
             this.descripcion.ReadOnly = true;
             this.descripcion.Visible = false;
             // 
+            // TLayoutCategories
+            // 
+            this.TLayoutCategories.AutoScroll = true;
+            this.TLayoutCategories.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.TLayoutCategories.ColumnCount = 1;
+            this.TLayoutCategories.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TLayoutCategories.Controls.Add(this.informesDataGridView, 0, 1);
+            this.TLayoutCategories.Controls.Add(this.panel2, 0, 0);
+            this.TLayoutCategories.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TLayoutCategories.Location = new System.Drawing.Point(0, 0);
+            this.TLayoutCategories.Name = "TLayoutCategories";
+            this.TLayoutCategories.RowCount = 3;
+            this.TLayoutCategories.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TLayoutCategories.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.TLayoutCategories.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TLayoutCategories.Size = new System.Drawing.Size(1335, 749);
+            this.TLayoutCategories.TabIndex = 4;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -182,13 +173,13 @@
             // 
             this.cuiTextBox1.BackColor = System.Drawing.Color.Transparent;
             this.cuiTextBox1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cuiTextBox1.Content = "Informes";
+            this.cuiTextBox1.Content = "Recibos";
             this.cuiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.cuiTextBox1.FocusBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cuiTextBox1.FocusImageTint = System.Drawing.Color.White;
             this.cuiTextBox1.FocusOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
             this.cuiTextBox1.Font = new System.Drawing.Font("Segoe UI", 50F);
-            this.cuiTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.cuiTextBox1.ForeColor = System.Drawing.Color.White;
             this.cuiTextBox1.Image = null;
             this.cuiTextBox1.ImageExpand = new System.Drawing.Point(0, 0);
             this.cuiTextBox1.ImageOffset = new System.Drawing.Point(0, 0);
@@ -197,7 +188,7 @@
             this.cuiTextBox1.Multiline = false;
             this.cuiTextBox1.Name = "cuiTextBox1";
             this.cuiTextBox1.NormalImageTint = System.Drawing.Color.White;
-            this.cuiTextBox1.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.cuiTextBox1.OutlineColor = System.Drawing.Color.Transparent;
             this.cuiTextBox1.Padding = new System.Windows.Forms.Padding(89, 2, 89, 0);
             this.cuiTextBox1.PasswordChar = false;
             this.cuiTextBox1.PlaceholderColor = System.Drawing.SystemColors.WindowText;
@@ -211,9 +202,8 @@
             // iconPictureBox1
             // 
             this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.iconPictureBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 129;
             this.iconPictureBox1.Location = new System.Drawing.Point(360, 27);
@@ -222,18 +212,26 @@
             this.iconPictureBox1.TabIndex = 12;
             this.iconPictureBox1.TabStop = false;
             // 
-            // Informes
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1335, 749);
+            this.panel1.TabIndex = 3;
+            // 
+            // Recibos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1335, 749);
             this.Controls.Add(this.TLayoutCategories);
             this.Controls.Add(this.panel1);
-            this.Name = "Informes";
-            this.Text = "Informes";
-            this.Load += new System.EventHandler(this.Informes_Load);
-            this.TLayoutCategories.ResumeLayout(false);
+            this.Name = "Recibos";
+            this.Text = "Recibos";
             ((System.ComponentModel.ISupportInitialize)(this.informesDataGridView)).EndInit();
+            this.TLayoutCategories.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -242,17 +240,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel TLayoutCategories;
         private System.Windows.Forms.DataGridView informesDataGridView;
-        private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Titulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoInforme;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaGenerado;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
         private System.Windows.Forms.DataGridViewButtonColumn Informe;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.TableLayoutPanel TLayoutCategories;
+        private System.Windows.Forms.Panel panel2;
+        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -66,10 +66,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.detallesDataGridView = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NCantidad)).BeginInit();
@@ -105,7 +105,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(866, 302);
+            this.panel1.Size = new System.Drawing.Size(866, 273);
             this.panel1.TabIndex = 58;
             // 
             // CBProveedor
@@ -419,7 +419,7 @@
             this.comprasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comprasDataGridView.EnableHeadersVisualStyles = false;
             this.comprasDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.comprasDataGridView.Location = new System.Drawing.Point(10, 318);
+            this.comprasDataGridView.Location = new System.Drawing.Point(10, 289);
             this.comprasDataGridView.Margin = new System.Windows.Forms.Padding(10);
             this.comprasDataGridView.Name = "comprasDataGridView";
             this.comprasDataGridView.ReadOnly = true;
@@ -433,7 +433,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.comprasDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.comprasDataGridView.RowHeadersVisible = false;
-            this.comprasDataGridView.Size = new System.Drawing.Size(852, 500);
+            this.comprasDataGridView.Size = new System.Drawing.Size(852, 450);
             this.comprasDataGridView.TabIndex = 60;
             // 
             // btnSeleccionar
@@ -505,7 +505,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.31861F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.68138F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(872, 828);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(872, 749);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // BRegistrarCompra
@@ -529,7 +529,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(872, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(320, 828);
+            this.panel2.Size = new System.Drawing.Size(320, 749);
             this.panel2.TabIndex = 4;
             // 
             // tableLayoutPanel2
@@ -546,7 +546,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(320, 828);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(320, 749);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // detallesDataGridView
@@ -596,19 +596,9 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.detallesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.detallesDataGridView.RowHeadersVisible = false;
-            this.detallesDataGridView.Size = new System.Drawing.Size(320, 546);
+            this.detallesDataGridView.Size = new System.Drawing.Size(320, 494);
             this.detallesDataGridView.TabIndex = 62;
             this.detallesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.detallesDataGridView_CellContentClick);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.BRegistrarCompra);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 546);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(320, 282);
-            this.panel3.TabIndex = 63;
             // 
             // nombre_producto
             // 
@@ -628,11 +618,21 @@
             this.cantidad.Name = "cantidad";
             this.cantidad.ReadOnly = true;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BRegistrarCompra);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 494);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(320, 255);
+            this.panel3.TabIndex = 63;
+            // 
             // Compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1192, 828);
+            this.ClientSize = new System.Drawing.Size(1192, 749);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Compras";
