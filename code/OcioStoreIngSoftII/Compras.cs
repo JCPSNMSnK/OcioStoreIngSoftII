@@ -35,22 +35,33 @@ namespace OcioStoreIngSoftII
             InitializeComponent();
         }
 
-        // Evento que se ejecuta cuando el formulario se carga
         private void Compras_Load(object sender, EventArgs e)
         {
-            // Oculta las columnas que no se mostrarán al usuario
             OcultarColumnas();
-
-            // Llena la tabla con todas las compras al inicio
             CargarCompras();
-
-            // NUEVA LÓGICA: Cargar la lista de proveedores en el ComboBox
             CargarProveedores();
-            // Agregar una columna oculta para el ID del producto
-            detallesDataGridView.Columns.Add("id_producto", "ID Producto");
+
+            // 1. DEFINICIÓN DE COLUMNAS DE LA GRILLA (Ordenada)
+            // Limpiamos columnas previas si es necesario o aseguramos que el orden sea el correcto
+            detallesDataGridView.Columns.Clear();
+
+            // ID (Oculto - Fundamental para la base de datos)
+            detallesDataGridView.Columns.Add("id_producto", "ID");
             detallesDataGridView.Columns["id_producto"].Visible = false;
 
-            // CÓDIGO ACTUALIZADO: Volvemos a la columna de botón de texto
+            // CÓDIGO (Visible - Lo que pediste)
+            detallesDataGridView.Columns.Add("cod_producto", "Código");
+
+            // NOMBRE
+            detallesDataGridView.Columns.Add("nombre_producto", "Producto");
+
+            // PRECIO
+            detallesDataGridView.Columns.Add("precio_unitario", "Precio");
+
+            // CANTIDAD
+            detallesDataGridView.Columns.Add("cantidad", "Cantidad");
+
+            // BOTÓN ELIMINAR
             DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
             btnEliminar.Name = "btnEliminar";
             btnEliminar.HeaderText = "Eliminar";
@@ -93,7 +104,7 @@ namespace OcioStoreIngSoftII
         // Método para ocultar columnas en la tabla
         private void OcultarColumnas()
         {
-            
+
             if (comprasDataGridView.Columns.Contains("objUsuario"))
             {
                 comprasDataGridView.Columns["objUsuario"].Visible = false;
@@ -118,7 +129,7 @@ namespace OcioStoreIngSoftII
             {
 
                 string codigoProducto = TCodigoProducto.Content;
-                Producto productoEncontrado = productosNegocio.BuscarProductosGeneral(codigoProducto, 0).First();
+                Producto productoEncontrado = productosNegocio.BuscarProductosGeneral(codigoProducto, 0).FirstOrDefault();
 
                 if (productoEncontrado != null)
                 {
@@ -147,7 +158,12 @@ namespace OcioStoreIngSoftII
 
             if (string.IsNullOrEmpty(TNombreProducto.Content))
             {
-                MessageBox.Show("Debe ingresar un código de producto válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar un nombre de producto válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(TCodigoProducto.Content))
+            {
+                MessageBox.Show("Debe ingresar un codigo de producto válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -170,18 +186,30 @@ namespace OcioStoreIngSoftII
             DetalleCompra detalle = new DetalleCompra()
             {
                 // Ahora usamos el ID del producto
-                objProducto = new Producto() { id_producto = Convert.ToInt32(TB_Id_Producto_Oculto.Text), nombre_producto = TNombreProducto.Text },
+                objProducto = new Producto() { cod_producto = Convert.ToInt32(TCodigoProducto.Content), nombre_producto = Convert.ToString(TNombreProducto.Text) },
                 cantidad = cantidad,
                 precio_unitario = precioUnitario
             };
 
-            // Agregar el producto a la tabla de detalles, ahora con el orden correcto
+            // AGREGAR A LA GRILLA
+            // Asegúrate de respetar el orden de las columnas que definimos en el Load:
+            // 0: id_producto (Oculto)
+            // 1: cod_producto (Visible)
+            // 2: nombre_producto
+            // 3: precio_unitario
+            // 4: cantidad
+            // 5: btnEliminar
+
+            // Usamos el ID oculto que guardaste en el evento KeyPress
+            int idProductoReal = Convert.ToInt32(TB_Id_Producto_Oculto.Text);
+
             detallesDataGridView.Rows.Add(new object[] {
-                detalle.objProducto.nombre_producto,
-                detalle.precio_unitario,
-                detalle.cantidad,
-                "X", // Botón de eliminar
-                detalle.objProducto.id_producto // ID del producto (oculto)
+                idProductoReal,                     // id_producto (Oculto)
+                TCodigoProducto.Content,            // cod_producto (Visible) <-- AQUI AGREGAMOS EL CODIGO
+                TNombreProducto.Content,            // nombre_producto
+                TPrecioUnitario.Content,            // precio_unitario
+                NCantidad.Value,                    // cantidad
+                "X"                                 // Botón
             });
 
             // Limpiar los campos para el siguiente producto
@@ -201,29 +229,36 @@ namespace OcioStoreIngSoftII
                 return;
             }
 
-            // Obtener el proveedor seleccionado
             Proveedor proveedorSeleccionado = (Proveedor)CBProveedor.SelectedItem;
-
-            // Calcular el total de la compra y construir la lista de detalles
             decimal totalCompra = 0;
             List<DetalleCompra> detallesCompra = new List<DetalleCompra>();
 
             foreach (DataGridViewRow fila in detallesDataGridView.Rows)
             {
-                if (!fila.IsNewRow) // Evitar la fila vacía de la tabla
+                if (!fila.IsNewRow)
                 {
-                    // Obtener los datos de la fila, incluyendo el ID del producto
+                    // AQUI ESTA LA MAGIA: Mapeo correcto usando los nombres de columnas definidos en el Load
                     DetalleCompra detalle = new DetalleCompra()
                     {
-                        objProducto = new Producto() { id_producto = Convert.ToInt32(fila.Cells["id_producto"].Value), nombre_producto = fila.Cells["nombre_producto"].Value.ToString() },
+                        objProducto = new Producto()
+                        {
+                            // Usamos el ID oculto para la base de datos (clave foránea)
+                            id_producto = Convert.ToInt32(fila.Cells["id_producto"].Value),
+
+                            // Usamos el CÓDIGO visible que pediste
+                            cod_producto = Convert.ToInt32(fila.Cells["cod_producto"].Value),
+
+                            // Usamos el NOMBRE visible
+                            nombre_producto = Convert.ToString(fila.Cells["nombre_producto"].Value)
+                        },
                         precio_unitario = Convert.ToDecimal(fila.Cells["precio_unitario"].Value),
                         cantidad = Convert.ToInt32(fila.Cells["cantidad"].Value)
                     };
+
                     detallesCompra.Add(detalle);
                     totalCompra += detalle.precio_unitario * detalle.cantidad;
                 }
             }
-
             // Crear el objeto Compra
             Compra nuevaCompra = new Compra()
             {
@@ -281,7 +316,7 @@ namespace OcioStoreIngSoftII
         private void btnPDF_Click(object sender, EventArgs e)
         {
             //corregir la condíción de control de ser necesario, aquello que vayamos a imprimir tiene que existir
-            if(btnSeleccionar.Text == "")
+            if (btnSeleccionar.Text == "")
             {
                 MessageBox.Show("No se encontró la compra para imprimir", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -302,7 +337,7 @@ namespace OcioStoreIngSoftII
             Texto_Html = Texto_Html.Replace("@usuarioregistro", ""); //poner el nombre del usuario que generó el pdf de la compra
 
             string filas = string.Empty;
-            foreach(DataGridViewRow row in comprasDataGridView.Rows)
+            foreach (DataGridViewRow row in comprasDataGridView.Rows)
             {
                 filas += "<td>";
                 filas += "<td>" + row.Cells["Nombre Producto"].Value.ToString() + "</td>";
@@ -340,7 +375,7 @@ namespace OcioStoreIngSoftII
                         pdfDoc.Add(img);
                     }
 
-                    using(StringReader sr = new StringReader(Texto_Html))
+                    using (StringReader sr = new StringReader(Texto_Html))
                     {
                         XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
                     }

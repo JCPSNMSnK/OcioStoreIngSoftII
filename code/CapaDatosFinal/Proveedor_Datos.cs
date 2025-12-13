@@ -72,8 +72,7 @@ namespace CapaDatos
                                 id_proveedor = Convert.ToInt32(dr["id_proveedor"]),
                                 nombre_proveedor = dr["nombre_proveedor"].ToString(),
                                 telefono_proveedor = dr["telefono_proveedor"].ToString(),
-                                cuit_proveedor = dr["cuit_proveedor"].ToString(),
-                                baja_proveedor = Convert.ToBoolean(dr["baja_proveedor"]) // El SP lo devuelve
+                                cuit_proveedor = dr["cuit_proveedor"].ToString()
                             });
                         }
                     }

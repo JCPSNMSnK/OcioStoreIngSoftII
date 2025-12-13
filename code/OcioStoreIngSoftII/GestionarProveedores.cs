@@ -37,7 +37,7 @@ namespace OcioStoreIngSoftII
             // 3. Marca las casillas de los proveedores que el producto ya tiene
             for (int i = 0; i < CLBProveedores.Items.Count; i++)
             {
-                // **CORRECCIÓN 2: El elemento en la lista es de tipo Proveedor, no Categoria.**
+                
                 var proveedorEnLista = (Proveedor)CLBProveedores.Items[i];
 
                 // Comprueba si este proveedor está en la lista de proveedores actuales del producto
@@ -155,6 +155,7 @@ namespace OcioStoreIngSoftII
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnCancelar.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -193,6 +194,7 @@ namespace OcioStoreIngSoftII
             this.btnGuardar.TabIndex = 11;
             this.btnGuardar.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnGuardar.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cuiLabel1
             // 

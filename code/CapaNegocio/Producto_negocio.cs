@@ -160,5 +160,12 @@ namespace CapaNegocio
             return _objProductoDatos.BuscarProductosGeneral(filtros, idCategoria);
         }
 
+        // EN ProductoBLL.cs
+        public Producto ObtenerProductoPorCodigo(int codigo)
+        {
+            // Llama al método que acabamos de crear en la DAL
+            return _objProductoDatos.BuscarPorCodigo(codigo);
+        }
+
     }
 }

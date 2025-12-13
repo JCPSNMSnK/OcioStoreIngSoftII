@@ -493,6 +493,102 @@ namespace CapaDatos
             }
             return lista;
         }
+
+        public Producto BuscarPorCodigo(int codigo)
+        {
+            // Utilizamos un diccionario para garantizar que solo tengamos un objeto Producto.
+            // La clave es el id_producto y el valor es el objeto Producto.
+            Dictionary<int, Producto> productosEncontrados = new Dictionary<int, Producto>();
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    // Llamar al nuevo procedimiento almacenado
+                    SqlCommand cmd = new SqlCommand("PROC_BUSCAR_PRODUCTO_POR_CODIGO", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetro de entrada
+                    cmd.Parameters.AddWithValue("@cod_producto", codigo);
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            int idProducto = Convert.ToInt32(dr["id_producto"]);
+
+                            // --- 1. Mapeo del Producto (si aún no está en el diccionario) ---
+                            if (!productosEncontrados.ContainsKey(idProducto))
+                            {
+                                productosEncontrados.Add(idProducto, new Producto()
+                                {
+                                    id_producto = idProducto,
+                                    nombre_producto = dr["nombre_producto"].ToString(),
+                                    fechaIngreso = Convert.ToDateTime(dr["fechaIngreso"]),
+                                    descripcion = dr["descripcion"].ToString(),
+                                    precioLista = Convert.ToDecimal(dr["precioLista"]),
+                                    precioVenta = Convert.ToDecimal(dr["precioVenta"]),
+                                    stock = Convert.ToInt32(dr["stock"]),
+                                    stock_min = Convert.ToInt32(dr["stock_min"]),
+                                    baja_producto = Convert.ToBoolean(dr["baja_producto"]),
+                                    cod_producto = Convert.ToInt32(dr["cod_producto"]), // Mantenemos como string si el campo lo es
+
+                                    // Inicializar listas internas
+                                    categorias = new List<Categoria>(),
+                                    proveedores = new List<Proveedor>()
+                                });
+                            }
+
+                            Producto productoActual = productosEncontrados[idProducto];
+
+                            // --- 2. Mapeo de Categoría (Relación M:N) ---
+                            if (dr["id_categoria"] != DBNull.Value)
+                            {
+                                int idCategoria = Convert.ToInt32(dr["id_categoria"]);
+                                // Agregar si la categoría no ha sido agregada ya (evitando duplicados)
+                                if (!productoActual.categorias.Any(c => c.id_categoria == idCategoria))
+                                {
+                                    productoActual.categorias.Add(new Categoria()
+                                    {
+                                        id_categoria = idCategoria,
+                                        nombre_categoria = dr["nombre_categoria"].ToString()
+                                    });
+                                }
+                            }
+
+                            // --- 3. Mapeo de Proveedor (Relación M:N) ---
+                            if (dr["id_proveedor"] != DBNull.Value)
+                            {
+                                int idProveedor = Convert.ToInt32(dr["id_proveedor"]);
+                                // Agregar si el proveedor no ha sido agregado ya (evitando duplicados)
+                                if (!productoActual.proveedores.Any(pr => pr.id_proveedor == idProveedor))
+                                {
+                                    productoActual.proveedores.Add(new Proveedor()
+                                    {
+                                        id_proveedor = idProveedor,
+                                        nombre_proveedor = dr["nombre_proveedor"].ToString(),
+                                        // Nota: baja_proveedor es opcional aquí, pero útil para la validación
+                                        baja_proveedor = Convert.ToBoolean(dr["baja_proveedor"])
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // En caso de error, puedes loguear la excepción y retornar un producto nulo
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+
+            // El resultado del diccionario solo puede ser uno (o cero).
+            // Si se encontró, devuelve el único valor; si no, devuelve null.
+            return productosEncontrados.Values.FirstOrDefault();
+        }
     }
 }
 

@@ -217,6 +217,7 @@ namespace OcioStoreIngSoftII
                     NModificarStock.Text = productoSeleccionado.stock.ToString();
                     NModificarStockMin.Text = productoSeleccionado.stock_min.ToString();
                     TModificarCategorias.Text = productoSeleccionado.CategoriasConcatenadas;
+                    TModificarProveedores.Text = productoSeleccionado.ProveedoresConcatenados;
 
                     /*for (int i = 0; i < CBModificarProveedor.Items.Count; i++)
                     {
