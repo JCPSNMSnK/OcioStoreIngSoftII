@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.proveedoresDataGridView = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -66,6 +66,10 @@
             this.TModificarIDProveedor = new CuoreUI.Controls.cuiTextBox();
             this.TBModificarIndice = new CuoreUI.Controls.cuiTextBox();
             this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
+            this.CBEstado = new System.Windows.Forms.ComboBox();
+            this.LEstado = new System.Windows.Forms.Label();
+            this.LModificarEstado = new System.Windows.Forms.Label();
+            this.CBModificarEstado = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -102,15 +106,15 @@
             this.proveedoresDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.proveedoresDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.proveedoresDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.proveedoresDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.proveedoresDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.proveedoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.proveedoresDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -118,14 +122,14 @@
             this.nombre_proveedor,
             this.cuit_proveedor,
             this.telefono_proveedor});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.proveedoresDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.proveedoresDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.proveedoresDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.proveedoresDataGridView.EnableHeadersVisualStyles = false;
             this.proveedoresDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
@@ -134,14 +138,14 @@
             this.proveedoresDataGridView.Name = "proveedoresDataGridView";
             this.proveedoresDataGridView.ReadOnly = true;
             this.proveedoresDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.proveedoresDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.proveedoresDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.proveedoresDataGridView.RowHeadersVisible = false;
             this.proveedoresDataGridView.Size = new System.Drawing.Size(1254, 356);
             this.proveedoresDataGridView.TabIndex = 58;
@@ -290,6 +294,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.CBEstado);
+            this.panel2.Controls.Add(this.LEstado);
             this.panel2.Controls.Add(this.TCUITProveedor);
             this.panel2.Controls.Add(this.LCUITProveedor);
             this.panel2.Controls.Add(this.TTelefonoProveedor);
@@ -495,7 +501,7 @@
             this.BRegistrarProveedor.ImageAutoCenter = true;
             this.BRegistrarProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.BRegistrarProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.BRegistrarProveedor.Location = new System.Drawing.Point(650, 149);
+            this.BRegistrarProveedor.Location = new System.Drawing.Point(506, 217);
             this.BRegistrarProveedor.Name = "BRegistrarProveedor";
             this.BRegistrarProveedor.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.BRegistrarProveedor.NormalForeColor = System.Drawing.Color.White;
@@ -531,12 +537,14 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1270, 276);
+            this.tabPage2.Size = new System.Drawing.Size(1270, 258);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar Proveedor";
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.LModificarEstado);
+            this.panel3.Controls.Add(this.CBModificarEstado);
             this.panel3.Controls.Add(this.TModificarCUITProveedor);
             this.panel3.Controls.Add(this.LModificarCUITProveedor);
             this.panel3.Controls.Add(this.TModificarTelefonoProveedor);
@@ -549,7 +557,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1264, 270);
+            this.panel3.Size = new System.Drawing.Size(1264, 252);
             this.panel3.TabIndex = 0;
             // 
             // TModificarCUITProveedor
@@ -682,7 +690,7 @@
             this.BModificarrProveedor.ImageAutoCenter = true;
             this.BModificarrProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.BModificarrProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.BModificarrProveedor.Location = new System.Drawing.Point(646, 153);
+            this.BModificarrProveedor.Location = new System.Drawing.Point(506, 220);
             this.BModificarrProveedor.Name = "BModificarrProveedor";
             this.BModificarrProveedor.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.BModificarrProveedor.NormalForeColor = System.Drawing.Color.White;
@@ -774,6 +782,52 @@
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // CBEstado
+            // 
+            this.CBEstado.BackColor = System.Drawing.SystemColors.Window;
+            this.CBEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBEstado.FormattingEnabled = true;
+            this.CBEstado.Location = new System.Drawing.Point(618, 152);
+            this.CBEstado.Name = "CBEstado";
+            this.CBEstado.Size = new System.Drawing.Size(232, 29);
+            this.CBEstado.TabIndex = 62;
+            // 
+            // LEstado
+            // 
+            this.LEstado.AutoSize = true;
+            this.LEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LEstado.Location = new System.Drawing.Point(618, 128);
+            this.LEstado.Name = "LEstado";
+            this.LEstado.Size = new System.Drawing.Size(56, 21);
+            this.LEstado.TabIndex = 61;
+            this.LEstado.Text = "Estado";
+            // 
+            // LModificarEstado
+            // 
+            this.LModificarEstado.AutoSize = true;
+            this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarEstado.Location = new System.Drawing.Point(618, 133);
+            this.LModificarEstado.Name = "LModificarEstado";
+            this.LModificarEstado.Size = new System.Drawing.Size(56, 21);
+            this.LModificarEstado.TabIndex = 127;
+            this.LModificarEstado.Text = "Estado";
+            // 
+            // CBModificarEstado
+            // 
+            this.CBModificarEstado.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CBModificarEstado.DisplayMember = "estado";
+            this.CBModificarEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBModificarEstado.FormattingEnabled = true;
+            this.CBModificarEstado.Location = new System.Drawing.Point(618, 157);
+            this.CBModificarEstado.Name = "CBModificarEstado";
+            this.CBModificarEstado.Size = new System.Drawing.Size(232, 29);
+            this.CBModificarEstado.TabIndex = 126;
+            this.CBModificarEstado.ValueMember = "estado";
+            // 
             // Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -835,5 +889,9 @@
         private CuoreUI.Controls.cuiTextBox TModificarNombreProveedor;
         private CuoreUI.Controls.cuiButton BModificarrProveedor;
         private System.Windows.Forms.Label LModificarNombreProveedor;
+        private System.Windows.Forms.ComboBox CBEstado;
+        private System.Windows.Forms.Label LEstado;
+        private System.Windows.Forms.Label LModificarEstado;
+        private System.Windows.Forms.ComboBox CBModificarEstado;
     }
 }

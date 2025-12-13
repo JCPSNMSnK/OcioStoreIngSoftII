@@ -70,10 +70,10 @@ namespace CapaDatos
                     // Se utiliza una consulta JOIN para obtener los datos de compra, usuario y proveedor
                     StringBuilder sb = new StringBuilder();
                     sb.AppendLine("SELECT c.id_compra, c.fecha_compra, c.total_compra,");
-                    sb.AppendLine("p.id_proveedor, p.nombre_proveedor");
+                    sb.AppendLine("p.id_proveedor, p.nombre_proveedor, p.baja_proveedor"); // MODIFICACIÓN: AÑADIR baja_proveedor
                     sb.AppendLine("FROM Compras c");
                     sb.AppendLine("INNER JOIN Proveedores p ON c.id_proveedor = p.id_proveedor;");
-                    
+
                     SqlCommand cmd = new SqlCommand(sb.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -90,7 +90,8 @@ namespace CapaDatos
                                 objProveedor = new Proveedor()
                                 {
                                     id_proveedor = Convert.ToInt32(dr["id_proveedor"]),
-                                    nombre_proveedor = dr["nombre_proveedor"].ToString()
+                                    nombre_proveedor = dr["nombre_proveedor"].ToString(),
+                                    baja_proveedor = Convert.ToBoolean(dr["baja_proveedor"]) // MODIFICACIÓN: Leer y mapear el estado de baja
                                 }
                             });
                         }
@@ -113,10 +114,15 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     StringBuilder sb = new StringBuilder();
-                    sb.AppendLine("SELECT c.id_compra, c.fecha_compra, c.total_compra, u.nombre AS nombre_usuario, p.nombre_proveedor");
+
+                    // MODIFICACIÓN DE LA CONSULTA SQL: Añadir p.baja_proveedor
+                    sb.AppendLine("SELECT c.id_compra, c.fecha_compra, c.total_compra, u.nombre AS nombre_usuario,");
+                    sb.AppendLine("p.id_proveedor, p.nombre_proveedor, p.baja_proveedor"); // <-- AÑADIDO: id_proveedor y baja_proveedor
                     sb.AppendLine("FROM Compras c");
                     sb.AppendLine("INNER JOIN Usuarios u ON c.id_usuario = u.id_user");
                     sb.AppendLine("INNER JOIN Proveedores p ON c.id_proveedor = p.id_proveedor");
+
+                    // ... (Cláusula WHERE dinámica sigue igual) ...
 
                     // Construimos la cláusula WHERE dinámicamente
                     bool hayFiltro = false;
@@ -142,7 +148,7 @@ namespace CapaDatos
                     SqlCommand cmd = new SqlCommand(sb.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
-                    // Añadimos los parámetros de forma segura
+                    // ... (Añadimos los parámetros de forma segura sigue igual) ...
                     if (!string.IsNullOrEmpty(fecha))
                     {
                         cmd.Parameters.AddWithValue("@fecha", fecha);
@@ -158,15 +164,30 @@ namespace CapaDatos
                     {
                         while (dr.Read())
                         {
+                            // Nota: Si la entidad Compra tiene objUsuario, necesitarías mapearlo también.
+
                             lista.Add(new Compra()
                             {
                                 id_compra = Convert.ToInt32(dr["id_compra"]),
                                 fecha_compra = Convert.ToDateTime(dr["fecha_compra"]),
                                 total = Convert.ToDecimal(dr["total_compra"]),
+
+                                // Mapeo del Proveedor
                                 objProveedor = new Proveedor()
                                 {
-                                    nombre_proveedor = dr["nombre_proveedor"].ToString()
+                                    // CORRECCIÓN/AÑADIDO: Mapeamos el ID y la baja lógica
+                                    id_proveedor = Convert.ToInt32(dr["id_proveedor"]),
+                                    nombre_proveedor = dr["nombre_proveedor"].ToString(),
+                                    baja_proveedor = Convert.ToBoolean(dr["baja_proveedor"]) // <-- AÑADIDO: Lectura del estado de baja
                                 }
+
+                                // Si tu entidad Compra tiene un objeto Usuario:
+                                /*
+                                objUsuario = new Usuario()
+                                {
+                                    nombre = dr["nombre_usuario"].ToString()
+                                }
+                                */
                             });
                         }
                     }
@@ -178,7 +199,7 @@ namespace CapaDatos
             }
             return lista;
         }
-
+        // Nuevo método para buscar compras de forma general
         // Nuevo método para buscar compras de forma general
         public List<Compra> BuscarComprasGeneral(string filtro)
         {
@@ -188,7 +209,10 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     StringBuilder sb = new StringBuilder();
-                    sb.AppendLine("SELECT c.id_compra, c.fecha_compra, c.total_compra, u.nombre AS nombre_usuario, p.nombre_proveedor");
+
+                    // MODIFICACIÓN DE LA CONSULTA SQL: Añadir id_proveedor y baja_proveedor
+                    sb.AppendLine("SELECT c.id_compra, c.fecha_compra, c.total_compra, u.nombre AS nombre_usuario,");
+                    sb.AppendLine("p.id_proveedor, p.nombre_proveedor, p.baja_proveedor"); // <-- AÑADIDOS
                     sb.AppendLine("FROM Compras c");
                     sb.AppendLine("INNER JOIN Usuarios u ON c.id_usuario = u.id_user");
                     sb.AppendLine("INNER JOIN Proveedores p ON c.id_proveedor = p.id_proveedor");
@@ -196,6 +220,7 @@ namespace CapaDatos
                     // Si el filtro no está vacío, agregamos la cláusula WHERE
                     if (!string.IsNullOrEmpty(filtro))
                     {
+                        // NOTA: Se asume que el filtro debe ser LIKE '%' + @filtro + '%' para funcionar correctamente
                         sb.AppendLine("WHERE p.nombre_proveedor LIKE @filtro OR u.nombre LIKE @filtro");
                     }
 
@@ -221,8 +246,18 @@ namespace CapaDatos
                                 total = Convert.ToDecimal(dr["total_compra"]),
                                 objProveedor = new Proveedor()
                                 {
-                                    nombre_proveedor = dr["nombre_proveedor"].ToString()
+                                    // AÑADIDO: Mapeamos el ID y la Baja Lógica
+                                    id_proveedor = Convert.ToInt32(dr["id_proveedor"]),
+                                    nombre_proveedor = dr["nombre_proveedor"].ToString(),
+                                    baja_proveedor = Convert.ToBoolean(dr["baja_proveedor"]) // <-- AÑADIDO: Lectura del estado de baja
                                 }
+                                // Si tu entidad Compra tiene objUsuario, podrías mapearlo aquí
+                                /*
+                                objUsuario = new Usuario()
+                                {
+                                    nombre = dr["nombre_usuario"].ToString()
+                                }
+                                */
                             });
                         }
                     }
@@ -235,23 +270,41 @@ namespace CapaDatos
             return lista;
         }
 
+
+
         // Nuevo método para obtener los detalles de una compra específica
         public Compra ObtenerDetalleCompra(int idCompra, out string mensaje)
         {
-            Compra objCompra = new Compra();
+            // Inicializar a null si la compra no existe
+            Compra objCompra = null;
             mensaje = string.Empty;
 
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT c.id_compra, c.fecha_compra, c.total_compra, p.id_proveedor, p.nombre_proveedor FROM Compras c INNER JOIN Proveedores p ON c.id_proveedor = p.id_proveedor WHERE c.id_compra = @idCompra", oconexion);
+                    StringBuilder sb = new StringBuilder();
+
+                    // 1. PRIMERA CONSULTA: Cabecera de Compra y Proveedor (incluye baja_proveedor)
+                    sb.AppendLine("SELECT c.id_compra, c.fecha_compra, c.total_compra, ");
+                    sb.AppendLine("p.id_proveedor, p.nombre_proveedor, p.baja_proveedor "); // <-- AÑADIDO: baja_proveedor
+                    sb.AppendLine("FROM Compras c INNER JOIN Proveedores p ON c.id_proveedor = p.id_proveedor ");
+                    sb.AppendLine("WHERE c.id_compra = @idCompra;");
+
+                    // 2. SEGUNDA CONSULTA: Detalles de Compra y Producto
+                    // Asumimos que la tabla DetalleCompra tiene un campo id_producto que se une a Productos
+                    sb.AppendLine("SELECT dc.id_producto, dc.cantidad, dc.precio_unitario, pr.nombre_producto, pr.cod_producto ");
+                    sb.AppendLine("FROM DetalleCompra dc INNER JOIN Productos pr ON dc.id_producto = pr.id_producto ");
+                    sb.AppendLine("WHERE dc.id_compra = @idCompra;");
+
+                    SqlCommand cmd = new SqlCommand(sb.ToString(), oconexion);
                     cmd.Parameters.AddWithValue("@idCompra", idCompra);
                     cmd.CommandType = CommandType.Text;
                     oconexion.Open();
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
+                        // 1. Lectura del primer resultado (Cabecera y Proveedor)
                         if (dr.Read())
                         {
                             objCompra = new Compra()
@@ -262,16 +315,39 @@ namespace CapaDatos
                                 objProveedor = new Proveedor()
                                 {
                                     id_proveedor = Convert.ToInt32(dr["id_proveedor"]),
-                                    nombre_proveedor = dr["nombre_proveedor"].ToString()
-                                }
+                                    nombre_proveedor = dr["nombre_proveedor"].ToString(),
+                                    baja_proveedor = Convert.ToBoolean(dr["baja_proveedor"]) // Mapeo de la baja del proveedor
+                                },
+                                detalles = new List<DetalleCompra>() // Inicializar la lista de detalles
                             };
+                        }
+
+                        // 2. Mover al siguiente conjunto de resultados (Detalles de Compra)
+                        if (objCompra != null && dr.NextResult())
+                        {
+                            while (dr.Read())
+                            {
+                                objCompra.detalles.Add(new DetalleCompra()
+                                {
+                                    cantidad = Convert.ToInt32(dr["cantidad"]),
+                                    precio_unitario = Convert.ToDecimal(dr["precio_unitario"]),
+
+                                    // Mapeo del Producto asociado al detalle
+                                    objProducto = new Producto()
+                                    {
+                                        id_producto = Convert.ToInt32(dr["id_producto"]),
+                                        nombre_producto = dr["nombre_producto"].ToString(),
+                                        cod_producto = Convert.ToInt32(dr["cod_producto"])
+                                    }
+                                });
+                            }
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                objCompra = new Compra();
+                objCompra = null;
                 mensaje = "Error al obtener detalles de la compra: " + ex.Message;
             }
             return objCompra;

@@ -1,42 +1,100 @@
-﻿namespace OcioStoreIngSoftII
-{
-    partial class GestionarCategorias
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+﻿using CapaEntidades;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+namespace OcioStoreIngSoftII
+{
+    public partial class GestionarProveedores : Form
+    {
+        private CheckedListBox CLBProveedores;
+        private Panel panel1;
+        private Panel panel2;
+        private CuoreUI.Controls.cuiButton btnCancelar;
+        private CuoreUI.Controls.cuiButton btnGuardar;
+        private CuoreUI.Controls.cuiLabel cuiLabel1;
+
+        public List<Proveedor> ProveedoresSeleccionados { get; private set; }
+
+        public GestionarProveedores(List<Proveedor> todosLosProveedores, List<Proveedor> proveedoresActuales)
         {
-            if (disposing && (components != null))
+            InitializeComponent();
+            CLBProveedores.DisplayMember = "nombre_proveedor";
+
+            // 2. Llena el CheckedListBox con TODOS los proveedores disponibles
+            foreach (var proveedor in todosLosProveedores)
             {
-                components.Dispose();
+     
+                CLBProveedores.Items.Add(proveedor);
             }
-            base.Dispose(disposing);
+
+            // 3. Marca las casillas de los proveedores que el producto ya tiene
+            for (int i = 0; i < CLBProveedores.Items.Count; i++)
+            {
+                // **CORRECCIÓN 2: El elemento en la lista es de tipo Proveedor, no Categoria.**
+                var proveedorEnLista = (Proveedor)CLBProveedores.Items[i];
+
+                // Comprueba si este proveedor está en la lista de proveedores actuales del producto
+                if (proveedoresActuales != null && proveedoresActuales.Any(p => p.id_proveedor == proveedorEnLista.id_proveedor))
+                {
+                    CLBProveedores.SetItemChecked(i, true);
+                }
+
+                // NOTA: La validación 'p.id_proveedor == proveedorEnLista.id_proveedor' es correcta.
+            }
         }
 
-        #region Windows Form Designer generated code
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            // **CORRECCIÓN 3: Recolectar items como Proveedor, no Categoria.**
+            // Recolecta todos los proveedores que fueron marcados
+            this.ProveedoresSeleccionados = CLBProveedores.CheckedItems.OfType<Proveedor>().ToList();
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+            // Cierra el formulario indicando que se guardaron los cambios
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void GestionarProveedores_Load(object sender, EventArgs e)
+        {
+            // Lógica si es necesaria
+        }
+
         private void InitializeComponent()
         {
+            this.CLBProveedores = new System.Windows.Forms.CheckedListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.CLBCategorias = new System.Windows.Forms.CheckedListBox();
             this.btnCancelar = new CuoreUI.Controls.cuiButton();
             this.btnGuardar = new CuoreUI.Controls.cuiButton();
             this.cuiLabel1 = new CuoreUI.Controls.cuiLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // CLBProveedores
+            // 
+            this.CLBProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.CLBProveedores.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CLBProveedores.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CLBProveedores.ForeColor = System.Drawing.Color.White;
+            this.CLBProveedores.FormattingEnabled = true;
+            this.CLBProveedores.Location = new System.Drawing.Point(47, 12);
+            this.CLBProveedores.Name = "CLBProveedores";
+            this.CLBProveedores.Size = new System.Drawing.Size(691, 198);
+            this.CLBProveedores.TabIndex = 1;
             // 
             // panel1
             // 
@@ -49,28 +107,16 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(784, 361);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.AutoScroll = true;
-            this.panel2.Controls.Add(this.CLBCategorias);
+            this.panel2.Controls.Add(this.CLBProveedores);
             this.panel2.Location = new System.Drawing.Point(0, 70);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(784, 222);
             this.panel2.TabIndex = 12;
-            // 
-            // CLBCategorias
-            // 
-            this.CLBCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.CLBCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CLBCategorias.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CLBCategorias.ForeColor = System.Drawing.Color.White;
-            this.CLBCategorias.FormattingEnabled = true;
-            this.CLBCategorias.Location = new System.Drawing.Point(47, 12);
-            this.CLBCategorias.Name = "CLBCategorias";
-            this.CLBCategorias.Size = new System.Drawing.Size(691, 198);
-            this.CLBCategorias.TabIndex = 1;
             // 
             // btnCancelar
             // 
@@ -109,7 +155,6 @@
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnCancelar.TextOffset = new System.Drawing.Point(0, 0);
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -148,42 +193,31 @@
             this.btnGuardar.TabIndex = 11;
             this.btnGuardar.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnGuardar.TextOffset = new System.Drawing.Point(0, 0);
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cuiLabel1
             // 
-            this.cuiLabel1.Content = "Seleccionar\\ Categorias";
+            this.cuiLabel1.Content = "Seleccionar\\ Proveedores";
             this.cuiLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLabel1.ForeColor = System.Drawing.Color.White;
             this.cuiLabel1.HorizontalAlignment = System.Drawing.StringAlignment.Center;
-            this.cuiLabel1.Location = new System.Drawing.Point(234, 17);
+            this.cuiLabel1.Location = new System.Drawing.Point(214, 17);
             this.cuiLabel1.Name = "cuiLabel1";
-            this.cuiLabel1.Size = new System.Drawing.Size(301, 47);
+            this.cuiLabel1.Size = new System.Drawing.Size(356, 47);
             this.cuiLabel1.TabIndex = 1;
             this.cuiLabel1.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // GestionarCategorias
+            // GestionarProveedores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 361);
             this.Controls.Add(this.panel1);
-            this.Name = "GestionarCategorias";
-            this.Text = "GestionarCategorias";
-            this.Load += new System.EventHandler(this.GestionarCategorias_Load);
+            this.Name = "GestionarProveedores";
+            this.Text = "Gestionar Proveedores";
+            this.Load += new System.EventHandler(this.GestionarProveedores_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
-        #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private CuoreUI.Controls.cuiLabel cuiLabel1;
-        private CuoreUI.Controls.cuiButton btnCancelar;
-        private CuoreUI.Controls.cuiButton btnGuardar;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckedListBox CLBCategorias;
     }
 }

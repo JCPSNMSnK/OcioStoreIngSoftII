@@ -16,7 +16,7 @@ namespace OcioStoreIngSoftII
         // Instancias de la capa de negocio
         private readonly Producto_negocio _productoNegocio;
         private readonly Categoria_negocio _categoriaNegocio;
-        private readonly Proveedores_negocio _proveedorNegocio;
+        private List<Proveedor> proveedoresNuevoProducto;
         private Producto productoSeleccionado;
         private List<Categoria> categoriasNuevoProducto;
 
@@ -25,7 +25,7 @@ namespace OcioStoreIngSoftII
             InitializeComponent();
             _productoNegocio = new Producto_negocio();
             _categoriaNegocio = new Categoria_negocio();
-            _proveedorNegocio = new Proveedores_negocio();
+            proveedoresNuevoProducto = new List<Proveedor>();
             categoriasNuevoProducto = new List<Categoria>();
         }
 
@@ -34,8 +34,8 @@ namespace OcioStoreIngSoftII
             // Carga inicial de ComboBoxes (UI específica)
             CargarComboBoxEstados(CBEstado);
             CargarComboBoxEstados(CBModificarEstado);
-            CargarComboBoxProveedor(CBProveedor);
-            CargarComboBoxProveedor(CBModificarProveedor); 
+            //CargarComboBoxProveedor();
+            //CargarComboBoxProveedor(CBModificarProveedor); 
             CargarComboBoxFiltroCat(CBFiltroCategoria);
             // Establecer índices por defecto si hay elementos
             if (CBEstado.Items.Count > 0) CBEstado.SelectedIndex = 0;
@@ -60,12 +60,12 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        private void CargarComboBoxProveedor(ComboBox comboBox)
+        /*private void CargarComboBoxProveedor(ComboBox comboBox)
         {
             try
             {
                 // La capa de presentación pide las categorías a la capa de negocio
-                List<Proveedor> listaProveedores = _proveedorNegocio.ListarProveedores();
+                List<Proveedor> listaProveedores = _proveedorNegocio.ListarProveedoresActivos();
                 foreach (Proveedor item in listaProveedores)
                 {
                     comboBox.Items.Add(new OpcionSelect() { Valor = item.id_proveedor, Texto = item.nombre_proveedor });
@@ -78,7 +78,7 @@ namespace OcioStoreIngSoftII
                 // Si hay un error, lo mostraremos en un mensaje
                 MessageBox.Show("Ocurrió un error al cargar los proveedores: \n" + ex.Message, "Error de Carga de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }*/
 
         private void CargarComboBoxFiltroCat(ComboBox cbFiltroCategoria)
         {
@@ -172,7 +172,9 @@ namespace OcioStoreIngSoftII
             NStockMin.Text = string.Empty;
             TCodigo.Content = "0"; //
             if (CBEstado.Items.Count > 0) CBEstado.SelectedIndex = 0;
-            if (CBProveedor.Items.Count > 0) CBProveedor.SelectedIndex = 0;
+            // Limpia la lista temporal y el TextBox de proveedores
+            this.proveedoresNuevoProducto.Clear();
+            TProveedores.Text = string.Empty;
             // Limpia la lista temporal y el TextBox de categorías
             this.categoriasNuevoProducto.Clear();
             TCategorias.Text = string.Empty;
@@ -216,7 +218,7 @@ namespace OcioStoreIngSoftII
                     NModificarStockMin.Text = productoSeleccionado.stock_min.ToString();
                     TModificarCategorias.Text = productoSeleccionado.CategoriasConcatenadas;
 
-                    for (int i = 0; i < CBModificarProveedor.Items.Count; i++)
+                    /*for (int i = 0; i < CBModificarProveedor.Items.Count; i++)
                     {
                         // Obtenemos el objeto OpcionSelect de la posición 'i'
                         // Necesitamos castear 'Items[i]' de vuelta a OpcionSelect para acceder a su propiedad 'Valor'
@@ -229,7 +231,7 @@ namespace OcioStoreIngSoftII
                             CBModificarProveedor.SelectedIndex = i;
                             break;
                         }
-                    }
+                    }*/
 
                     // Seleccionar el estado correcto en el ComboBox de modificación
                     if (productosDataGridView.Rows[indice].Cells["estadoValor"].Value is bool isAlta)
@@ -284,7 +286,8 @@ namespace OcioStoreIngSoftII
                 stock_min = stockMin,
                 baja_producto = bajaProducto,
                 cod_producto = codigoProducto, 
-                categorias = this.categoriasNuevoProducto
+                categorias = this.categoriasNuevoProducto,
+                proveedores = this.proveedoresNuevoProducto
             };
             string businessValidationMessage = string.Empty; // Mensaje devuelto por la capa de negocio
 
@@ -317,7 +320,7 @@ namespace OcioStoreIngSoftII
             if (!int.TryParse(NStock.Text, out int stock)) { mensaje = "El stock debe ser un número entero válido."; return false; }
             if (!int.TryParse(NStockMin.Text, out int stockMin)) { mensaje = "El stock mínimo debe ser un número entero válido."; return false; }
             if (CBEstado.SelectedItem == null) { mensaje = "Debe seleccionar un estado."; return false; }
-            if (CBProveedor.SelectedItem == null) { mensaje = "Debe seleccionar un proveedor."; return false; }
+            
 
             return true;
         }
@@ -340,7 +343,6 @@ namespace OcioStoreIngSoftII
             int stock = int.Parse(NModificarStock.Text);
             int stockMin = int.Parse(NModificarStockMin.Text);
             bool bajaProducto = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1;
-            int idProveedor = Convert.ToInt32(((OpcionSelect)CBModificarProveedor.SelectedItem).Valor);
 
             //  Creación de objetos de entidad (Producto y Categoria)
             Producto objProducto = new Producto()
@@ -355,7 +357,7 @@ namespace OcioStoreIngSoftII
                 stock_min = stockMin,
                 baja_producto = bajaProducto,
                 categorias = productoSeleccionado.categorias,
-                id_proveedor = idProveedor
+                proveedores = productoSeleccionado.proveedores
             };
 
             string businessValidationMessage = string.Empty;
@@ -389,9 +391,72 @@ namespace OcioStoreIngSoftII
             if (!int.TryParse(NModificarStock.Text, out int stock)) { mensaje = "El stock debe ser un número entero válido."; return false; }
             if (!int.TryParse(NModificarStockMin.Text, out int stockMin)) { mensaje = "El stock mínimo debe ser un número entero válido."; return false; }
             if (CBModificarEstado.SelectedItem == null) { mensaje = "Debe seleccionar el estado."; return false; }
-            if (CBModificarProveedor.SelectedItem == null) { mensaje = "Debe seleccionar un proveedor."; return false; }
 
             return true;
+        }
+
+        //-----------------------------------------------------------------------------
+        // BOTONES DE PROVEEDORES (NUEVA LÓGICA M:N)
+        //-----------------------------------------------------------------------------
+
+        // Manejador del botón "Elegir Proveedores" (para el REGISTRO de un nuevo producto)
+        private void btnElegirProveedores_Click(object sender, EventArgs e)
+        {
+            // 1. Obtener la lista de proveedores ACTIVOS desde la BLL
+            // Usamos el nuevo método ListarProveedoresActivos() que creamos en la BLL.
+            Proveedores_negocio objNegocioProveedor = new Proveedores_negocio();
+            List<Proveedor> todosLosProveedoresActivos = objNegocioProveedor.ListarProveedoresActivos();
+
+            // 2. Abrir el formulario modal GestionarProveedores
+            using (GestionarProveedores popup = new GestionarProveedores(todosLosProveedoresActivos, proveedoresNuevoProducto))
+            {
+                var resultado = popup.ShowDialog();
+
+                // 3. Si se guardó la selección
+                if (resultado == DialogResult.OK)
+                {
+                    // Almacenar la nueva lista de proveedores seleccionada
+                    proveedoresNuevoProducto = popup.ProveedoresSeleccionados;
+
+                    // Mostrar los nombres concatenados en el campo de texto (TProveedores)
+                    TProveedores.Text = string.Join(", ", proveedoresNuevoProducto.Select(p => p.nombre_proveedor));
+                }
+            }
+        }
+
+        // Manejador del botón "Modificar Proveedores" (para la MODIFICACIÓN de un producto existente)
+        private void btnModificarProveedores_Click(object sender, EventArgs e)
+        {
+            if (productoSeleccionado == null)
+            {
+                MessageBox.Show("Primero debe seleccionar un producto de la tabla.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 1. Obtener la lista de proveedores ACTIVOS desde la BLL
+            Proveedores_negocio objNegocioProveedor = new Proveedores_negocio();
+            List<Proveedor> todosLosProveedoresActivos = objNegocioProveedor.ListarProveedoresActivos();
+
+            // 2. Abrir la ventana emergente, pasándole los proveedores actuales del producto
+            // Nota: productoSeleccionado.proveedores ya tiene la lista completa cargada desde la DAL.
+            using (GestionarProveedores popup = new GestionarProveedores(todosLosProveedoresActivos, productoSeleccionado.proveedores))
+            {
+                var resultado = popup.ShowDialog();
+
+                // 3. Si se guardó la selección
+                if (resultado == DialogResult.OK)
+                {
+                    // Actualiza la lista de proveedores del producto seleccionado
+                    productoSeleccionado.proveedores = popup.ProveedoresSeleccionados;
+
+                    // Actualiza el campo de texto con los nombres concatenados
+                    // Si has implementado la propiedad 'ProveedoresConcatenados' en la entidad Producto, úsala:
+                    // TModificarProveedores.Text = productoSeleccionado.ProveedoresConcatenados;
+
+                    // Si no tienes la propiedad, concatena manualmente:
+                    TModificarProveedores.Text = string.Join(", ", productoSeleccionado.proveedores.Select(p => p.nombre_proveedor));
+                }
+            }
         }
 
 

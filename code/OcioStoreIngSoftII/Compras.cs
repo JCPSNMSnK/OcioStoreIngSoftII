@@ -62,7 +62,7 @@ namespace OcioStoreIngSoftII
         // NUEVO MÉTODO: Cargar proveedores en el ComboBox
         private void CargarProveedores()
         {
-            List<Proveedor> listaProveedores = proveedoresNegocio.ListarProveedores();
+            List<Proveedor> listaProveedores = proveedoresNegocio.ListarProveedoresActivos();
             CBProveedor.DataSource = listaProveedores;
             CBProveedor.DisplayMember = "nombre_proveedor";
             CBProveedor.ValueMember = "id_proveedor";
