@@ -152,8 +152,8 @@ namespace OcioStoreIngSoftII
                 }
 
                 string mensaje;
-                int idVentaGenerada;
-                bool exito = _ventasNegocio.verificacionPago(_ventaActual, _facturaActual, out mensaje, out idVentaGenerada);
+                int idVentaGenerada, idFacturaGenerada;
+                bool exito = _ventasNegocio.verificacionPago(_ventaActual, _facturaActual, out mensaje, out idVentaGenerada, out idFacturaGenerada);
 
                 if (exito)
                 {
@@ -162,7 +162,7 @@ namespace OcioStoreIngSoftII
                     pasoActual++;
                     ActualizarBarraProgreso(pasoActual);
                     _ventaActual.id_venta = idVentaGenerada;
-                    _facturaActual.id_factura = idVentaGenerada;
+                    _facturaActual.id_factura = idFacturaGenerada;
                 }
                 else
                 {
@@ -199,18 +199,17 @@ namespace OcioStoreIngSoftII
                     string PaginaHTML_Texto = Properties.Resources.PlantillaVenta;
 
                     // DATOS DEL NEGOCIO
-                    // El usuario deberá de cambiar esto según corresponda.
-                    PaginaHTML_Texto = PaginaHTML_Texto.Replace("@nombrenegocio", "OCIO STORE"); // Nombre del negocio
-                    PaginaHTML_Texto = PaginaHTML_Texto.Replace("@docnegocio", "20-12345678-9"); // CUIT del negocio
-                    PaginaHTML_Texto = PaginaHTML_Texto.Replace("@direcnegocio", "Av. Siempre Viva 123"); // Dirección del negocio
+                    PaginaHTML_Texto = PaginaHTML_Texto.Replace("@nombrenegocio", Properties.Settings.Default.NombreNegocio);
+                    PaginaHTML_Texto = PaginaHTML_Texto.Replace("@docnegocio", Properties.Settings.Default.CUITNegocio);
+                    PaginaHTML_Texto = PaginaHTML_Texto.Replace("@direcnegocio", Properties.Settings.Default.DireccionNegocio);
 
                     // DATOS FACTURA
                     PaginaHTML_Texto = PaginaHTML_Texto.Replace("@tipofactura", _facturaActual.objTipoFactura.nombre_tipo_factura.ToUpper());
-                    PaginaHTML_Texto = PaginaHTML_Texto.Replace("@numerofactura", _facturaActual.id_factura.ToString("00000")); // O idVenta si idFactura es 0
+                    PaginaHTML_Texto = PaginaHTML_Texto.Replace("@numerofactura", _facturaActual.id_factura.ToString("00000"));
                     //DATOS CLIENTE Y VENTA
                     PaginaHTML_Texto = PaginaHTML_Texto.Replace("@dni_cliente", _ventaActual.objCliente.dni_cliente.ToString());
                     PaginaHTML_Texto = PaginaHTML_Texto.Replace("@nombre_cliente", $"{_ventaActual.objCliente.nombre_cliente} {_ventaActual.objCliente.apellido_cliente}");
-                    PaginaHTML_Texto = PaginaHTML_Texto.Replace("@id_venta", _ventaActual.id_venta.ToString()); // Asegúrate de actualizar este ID tras el registro en la BD
+                    PaginaHTML_Texto = PaginaHTML_Texto.Replace("@id_venta", _ventaActual.id_venta.ToString());
                     PaginaHTML_Texto = PaginaHTML_Texto.Replace("@fecha_emision", DateTime.Now.ToString("dd/MM/yyyy"));
                     PaginaHTML_Texto = PaginaHTML_Texto.Replace("@nombre_usuario", $"{_ventaActual.objUsuario.nombre} {_ventaActual.objUsuario.apellido}");
                     PaginaHTML_Texto = PaginaHTML_Texto.Replace("@mediopago", _ventaActual.objMediosPago.nombre_medio);
@@ -262,10 +261,12 @@ namespace OcioStoreIngSoftII
                         stream.Close();
                     }
 
-                    MessageBox.Show("Factura generada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult result = MessageBox.Show("Factura generada exitosamente.\n¿Desea abrir el archivo ahora?", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                    // Opcional: Abrir el PDF automáticamente
-                    // System.Diagnostics.Process.Start(savefile.FileName); 
+                    if (result == DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start(savefile.FileName);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -292,8 +293,6 @@ namespace OcioStoreIngSoftII
 
                         if (exito)
                         {
-                            // Asumiendo que _ventaActual tiene propiedad TotalConComision (o similar)
-                            // Si no, deberías acceder al total recalculado después de AsignarMedioPago
                             LListo.Text = $"Gracias por su compra.\n" +
                                           $"Total abonado (incluye comisión): ${_ventaActual.total:F2}\n" +
                                           $"Medio de pago: {_ventaActual.objMediosPago.nombre_medio}";

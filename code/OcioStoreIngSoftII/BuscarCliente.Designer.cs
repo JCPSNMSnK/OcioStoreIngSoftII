@@ -95,7 +95,7 @@
             this.ClientesDataGridView.EnableHeadersVisualStyles = false;
             this.ClientesDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientesDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.ClientesDataGridView.Margin = new System.Windows.Forms.Padding(25, 10, 25, 10);
+            this.ClientesDataGridView.Margin = new System.Windows.Forms.Padding(33, 12, 33, 12);
             this.ClientesDataGridView.MultiSelect = false;
             this.ClientesDataGridView.Name = "ClientesDataGridView";
             this.ClientesDataGridView.ReadOnly = true;
@@ -109,8 +109,9 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ClientesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.ClientesDataGridView.RowHeadersVisible = false;
+            this.ClientesDataGridView.RowHeadersWidth = 51;
             this.ClientesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ClientesDataGridView.Size = new System.Drawing.Size(777, 394);
+            this.ClientesDataGridView.Size = new System.Drawing.Size(1727, 485);
             this.ClientesDataGridView.TabIndex = 59;
             this.ClientesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClientesDataGridView_CellContentClick);
             this.ClientesDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.ClientesDataGridView_CellPainting);
@@ -124,7 +125,7 @@
             this.btnSeleccionar.ReadOnly = true;
             this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 128;
+            this.btnSeleccionar.Width = 156;
             // 
             // ID_Cliente
             // 
@@ -214,8 +215,9 @@
             this.panelScrollClientes.Controls.Add(this.LayoutClientes);
             this.panelScrollClientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelScrollClientes.Location = new System.Drawing.Point(0, 0);
+            this.panelScrollClientes.Margin = new System.Windows.Forms.Padding(4);
             this.panelScrollClientes.Name = "panelScrollClientes";
-            this.panelScrollClientes.Size = new System.Drawing.Size(800, 450);
+            this.panelScrollClientes.Size = new System.Drawing.Size(1735, 964);
             this.panelScrollClientes.TabIndex = 1;
             // 
             // LayoutClientes
@@ -228,12 +230,13 @@
             this.LayoutClientes.Controls.Add(this.panel2, 0, 1);
             this.LayoutClientes.Dock = System.Windows.Forms.DockStyle.Top;
             this.LayoutClientes.Location = new System.Drawing.Point(0, 0);
+            this.LayoutClientes.Margin = new System.Windows.Forms.Padding(4);
             this.LayoutClientes.Name = "LayoutClientes";
             this.LayoutClientes.RowCount = 2;
-            this.LayoutClientes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.LayoutClientes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.LayoutClientes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.LayoutClientes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.LayoutClientes.Size = new System.Drawing.Size(783, 500);
+            this.LayoutClientes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.LayoutClientes.Size = new System.Drawing.Size(1735, 616);
             this.LayoutClientes.TabIndex = 0;
             // 
             // panel1
@@ -242,9 +245,10 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtBuscar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(777, 94);
+            this.panel1.Size = new System.Drawing.Size(1727, 115);
             this.panel1.TabIndex = 0;
             // 
             // BBuscarCliente
@@ -268,7 +272,8 @@
             this.BBuscarCliente.ImageAutoCenter = true;
             this.BBuscarCliente.ImageExpand = new System.Drawing.Point(0, 0);
             this.BBuscarCliente.ImageOffset = new System.Drawing.Point(0, 0);
-            this.BBuscarCliente.Location = new System.Drawing.Point(272, 40);
+            this.BBuscarCliente.Location = new System.Drawing.Point(363, 49);
+            this.BBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.BBuscarCliente.Name = "BBuscarCliente";
             this.BBuscarCliente.NormalBackground = System.Drawing.Color.White;
             this.BBuscarCliente.NormalForeColor = System.Drawing.Color.Black;
@@ -280,7 +285,7 @@
             this.BBuscarCliente.PressedImageTint = System.Drawing.Color.White;
             this.BBuscarCliente.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BBuscarCliente.Rounding = new System.Windows.Forms.Padding(8);
-            this.BBuscarCliente.Size = new System.Drawing.Size(91, 29);
+            this.BBuscarCliente.Size = new System.Drawing.Size(121, 36);
             this.BBuscarCliente.TabIndex = 13;
             this.BBuscarCliente.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BBuscarCliente.TextOffset = new System.Drawing.Point(0, 0);
@@ -293,9 +298,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(21, 6);
+            this.label1.Location = new System.Drawing.Point(28, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 25);
+            this.label1.Size = new System.Drawing.Size(175, 32);
             this.label1.TabIndex = 12;
             this.label1.Text = "Buscar Clientes";
             // 
@@ -305,29 +311,34 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.White;
-            this.txtBuscar.Location = new System.Drawing.Point(17, 40);
+            this.txtBuscar.Location = new System.Drawing.Point(23, 49);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(232, 29);
+            this.txtBuscar.Size = new System.Drawing.Size(309, 34);
             this.txtBuscar.TabIndex = 11;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.ClientesDataGridView);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 103);
+            this.panel2.Location = new System.Drawing.Point(4, 127);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(777, 394);
+            this.panel2.Size = new System.Drawing.Size(1727, 485);
             this.panel2.TabIndex = 1;
             // 
             // BuscarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1388, 771);
             this.Controls.Add(this.panelScrollClientes);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BuscarCliente";
             this.Text = "BuscarCliente";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BuscarCliente_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ClientesDataGridView)).EndInit();
             this.panelScrollClientes.ResumeLayout(false);
             this.panelScrollClientes.PerformLayout();

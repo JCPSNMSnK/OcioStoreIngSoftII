@@ -32,6 +32,16 @@ namespace CapaNegocio
             }
         }
 
+        public List<Ventas> BuscarVentasConFiltros(DateTime inicio, DateTime fin, int idVendedor, int idCliente, int nroFactura)
+        {
+            return objVentas_datos.BuscarVentasConFiltros(inicio, fin, idVendedor, idCliente, nroFactura);
+        }
+
+        public Ventas ObtenerVentaCompleta(int idVenta)
+        {
+            return objVentas_datos.ObtenerVentaCompleta(idVenta);
+        }
+
         public Ventas IniciarVenta(Usuario usuario, out string mensaje)
         {
             mensaje = string.Empty;
@@ -211,9 +221,10 @@ namespace CapaNegocio
             return true;
         }
 
-        public bool RegistrarVenta(Ventas objVenta, Factura objFactura, out int idVentaGenerada, out string mensaje) //se utiliza solo para persistencia en la DB
+        public bool RegistrarVenta(Ventas objVenta, Factura objFactura, out int idVentaGenerada, out int idFacturaGenerada, out string mensaje) 
         {
             idVentaGenerada = 0;
+            idFacturaGenerada = 0;
             mensaje = string.Empty;
             List<string> errores = new List<string>();
 
@@ -227,10 +238,7 @@ namespace CapaNegocio
             {
                 try
                 {
-
-                    //Persistencia de la venta exitosa
-                    // La capa de negocio invoca al método de la capa de datos que maneja la transacción
-                    bool registroExitoso = objVentas_datos.RegistrarVenta(objVenta, objVenta.objMediosPago, objFactura, out idVentaGenerada, out mensaje);
+                    bool registroExitoso = objVentas_datos.RegistrarVenta(objVenta, objVenta.objMediosPago, objFactura, out idVentaGenerada, out idFacturaGenerada, out mensaje);
 
                     if (!registroExitoso)
                     {
@@ -273,10 +281,11 @@ namespace CapaNegocio
             return verificado;
         }
 
-        public bool verificacionPago(Ventas ventaAVerificar, Factura facturaAVerificar,out string mensaje, out int idGenerado)
+        public bool verificacionPago(Ventas ventaAVerificar, Factura facturaAVerificar,out string mensaje, out int idVentaGen, out int idFacturaGen)
         {
             mensaje = string.Empty;
-            idGenerado = 0;
+            idVentaGen = 0;
+            idFacturaGen = 0;
 
             if (ventaAVerificar == null)
             {
@@ -298,9 +307,10 @@ namespace CapaNegocio
 
             if (resultadoVerifPago)
             {
-                RegistrarVenta(ventaAVerificar, facturaAVerificar, out idGenerado, out mensaje);
-                mensaje = $"Pago de ${ventaAVerificar.total} con '{ventaAVerificar.objMediosPago.nombre_medio}' verificado exitosamente." +
-                $"\nLa venta nro {idGenerado} tuvo el siguiente mensaje al ser registrada en la DB: " + mensaje;
+                RegistrarVenta(ventaAVerificar, facturaAVerificar, out idVentaGen, out idFacturaGen, out mensaje);
+
+                mensaje = $"Pago de ${ventaAVerificar.total} verificado. Venta #{idVentaGen}, Factura #{idFacturaGen} \n " +
+                    $"Esto tuvo el siguiente mensaje al ser registrado en la DB: " + mensaje;
                 return true;
             }
             else

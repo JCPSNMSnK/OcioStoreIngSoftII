@@ -313,6 +313,12 @@
     <Compile Include="BuscarCliente.Designer.cs">
       <DependentUpon>BuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuscarVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarVendedor.Designer.cs">
+      <DependentUpon>BuscarVendedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Categories.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +336,12 @@
     </Compile>
     <Compile Include="Compras.Designer.cs">
       <DependentUpon>Compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfiguracionNegocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfiguracionNegocio.Designer.cs">
+      <DependentUpon>ConfiguracionNegocio.cs</DependentUpon>
     </Compile>
     <Compile Include="DataSet11.cs">
       <DependentUpon>DataSet11.xsd</DependentUpon>
@@ -440,6 +452,9 @@
     <EmbeddedResource Include="BuscarCliente.resx">
       <DependentUpon>BuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BuscarVendedor.resx">
+      <DependentUpon>BuscarVendedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Categories.resx">
       <DependentUpon>Categories.cs</DependentUpon>
     </EmbeddedResource>
@@ -448,6 +463,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras.resx">
       <DependentUpon>Compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfiguracionNegocio.resx">
+      <DependentUpon>ConfiguracionNegocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionarCategorias.resx">
       <DependentUpon>GestionarCategorias.cs</DependentUpon>
@@ -570,6 +588,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PlantillaVenta.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />

@@ -2,13 +2,17 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OcioStoreIngSoftII.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="cadena_conexion" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionString&gt;Data Source=DESKTOP-2FODA1E;Initial Catalog=ocio_store;Integrated Security=True;TrustServerCertificate=True&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=DESKTOP-2FODA1E;Initial Catalog=ocio_store;Integrated Security=True;TrustServerCertificate=True</Value>
+    <Setting Name="NombreNegocio" Type="System.String" Scope="User">
+      <Value Profile="(Default)">OCIO STORE</Value>
+    </Setting>
+    <Setting Name="CUITNegocio" Type="System.String" Scope="User">
+      <Value Profile="(Default)">20-12345678-9</Value>
+    </Setting>
+    <Setting Name="DireccionNegocio" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Av. Siempre Viva 123</Value>
+    </Setting>
+    <Setting Name="cadena_conexion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=COMPUPROGJJM\SQLEXPRESS;Initial Catalog=ocio_store;Integrated Security=True;TrustServerCertificate=True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

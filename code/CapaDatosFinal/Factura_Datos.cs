@@ -134,7 +134,7 @@ namespace CapaDatos
             return lista;
         }
 
-         public Factura ObtenerFacturaCompleta(int idFactura)
+        public Factura ObtenerFacturaCompleta(int idFactura)
         {
             Factura objFactura = null;
 
@@ -183,6 +183,46 @@ namespace CapaDatos
             }
 
             return objFactura;
+        }
+
+        public Factura ObtenerFacturaPorIdVenta(int idVenta)
+        {
+            Factura obj = null;
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    // CAMBIO: Ahora usamos el Procedimiento Almacenado
+                    SqlCommand cmd = new SqlCommand("PROC_BUSCAR_FACTURA_POR_VENTA", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_venta", idVenta);
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            obj = new Factura
+                            {
+                                id_factura = Convert.ToInt32(dr["id_factura"]),
+                                fecha_emision = Convert.ToDateTime(dr["fecha_emision"]),
+                                objTipoFactura = new FacturaTipo
+                                {
+                                    id_tipo_factura = Convert.ToInt32(dr["id_tipo_factura"]),
+                                    nombre_tipo_factura = dr["nombre_tipo_factura"].ToString()
+                                }
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    obj = null;
+                    // Opcional: Loggear el error 'ex'
+                }
+            }
+            return obj;
         }
     }
 }

@@ -15,6 +15,11 @@ namespace CapaEntidades
         public DateTime fecha_venta { get; set; }
         public List<DetalleVenta> detalles { get; set; }
         public Cliente objCliente { get; set; }
+
+        //Auxiliar
+        public int IdFacturaAsociada { get; set; }
+
+
         public Ventas(Usuario usuario)
         {
             this.id_venta = 0; // O un valor que indique que aún no tiene ID
