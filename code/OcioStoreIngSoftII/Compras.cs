@@ -37,6 +37,9 @@ namespace OcioStoreIngSoftII
 
         private void Compras_Load(object sender, EventArgs e)
         {
+            // EVITA que se generen columnas automáticas "feas"
+            comprasDataGridView.AutoGenerateColumns = false;
+
             OcultarColumnas();
             CargarCompras();
             CargarProveedores();
@@ -70,6 +73,26 @@ namespace OcioStoreIngSoftII
             detallesDataGridView.Columns.Add(btnEliminar);
         }
 
+        private void comprasDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Verifica si la fila tiene datos y si estamos en la columna que queremos (ej. "Proveedor")
+            // Nota: Asegúrate de que tu columna en el diseño se llame "nombre_columna_proveedor" o usa el índice.
+            // Supongamos que la columna del proveedor es la columna con índice 2 (ajústalo a tu diseño real)
+
+            if (comprasDataGridView.Columns[e.ColumnIndex].Name == "Proveedor") // O el nombre que le pusiste en el Diseñador
+            {
+                // Obtenemos el objeto Compra de la fila actual
+                var compraActual = (Compra)comprasDataGridView.Rows[e.RowIndex].DataBoundItem;
+
+                if (compraActual != null && compraActual.objProveedor != null)
+                {
+                    // Le decimos a la celda que muestre el nombre, no el objeto entero
+                    e.Value = compraActual.objProveedor.nombre_proveedor;
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
         // NUEVO MÉTODO: Cargar proveedores en el ComboBox
         private void CargarProveedores()
         {
@@ -95,6 +118,9 @@ namespace OcioStoreIngSoftII
                 // Si hay un filtro, se realiza la búsqueda general
                 listaCompras = comprasNegocio.BuscarComprasGeneral(filtro);
             }
+
+            // DEBUG TEMPORAL
+            MessageBox.Show("Se encontraron " + listaCompras.Count + " compras.");
 
             // Enlazar los datos a la tabla
             comprasDataGridView.DataSource = null;
@@ -131,15 +157,27 @@ namespace OcioStoreIngSoftII
                 string codigoProducto = TCodigoProducto.Content;
                 Producto productoEncontrado = productosNegocio.BuscarProductosGeneral(codigoProducto, 0).FirstOrDefault();
 
+
+
                 if (productoEncontrado != null)
                 {
+                    // SI EXISTE: Llenamos los datos
                     TNombreProducto.Content = productoEncontrado.nombre_producto;
-                    // Guardar el ID en la etiqueta para usarlo luego
                     TB_Id_Producto_Oculto.Text = productoEncontrado.id_producto.ToString();
+
+                    // Opcional: Validar baja
+                    if (productoEncontrado.baja_producto)
+                    {
+                        MessageBox.Show("El producto está dado de baja.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        LimpiarFormulario();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // NO EXISTE: Aquí capturamos el caso "Producto no registrado" al buscar
+                    MessageBox.Show("No se puede registrar la compra de un producto que no fue dado de alta.", "Producto No Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    // Limpiamos para evitar confusiones
                     TNombreProducto.Content = string.Empty;
                     TB_Id_Producto_Oculto.Text = string.Empty;
                 }
@@ -149,6 +187,21 @@ namespace OcioStoreIngSoftII
         // NUEVO EVENTO: Agregar producto a la lista de detalles
         private void BAgregarProducto_Click(object sender, EventArgs e)
         {
+            // 1. Validar que se haya realizado la búsqueda exitosa del producto
+            // Si el ID oculto está vacío o es 0, significa que el producto NO existe en la DB.
+            int idProductoValidado = 0;
+            bool tieneIdValido = int.TryParse(TB_Id_Producto_Oculto.Text, out idProductoValidado);
+
+            if (!tieneIdValido || idProductoValidado <= 0)
+            {
+                // AQUÍ MOSTRAMOS EL MENSAJE QUE PEDISTE
+                MessageBox.Show("No se puede registrar la compra de un producto que no fue dado de alta.\nPor favor, registre el producto en la sección 'Productos' o presione ENTER en el código para buscarlo.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Detenemos el proceso. No se agrega nada a la grilla.
+                TCodigoProducto.Focus();
+                return;
+            }
+
             // Validaciones
             if (CBProveedor.SelectedItem == null)
             {
