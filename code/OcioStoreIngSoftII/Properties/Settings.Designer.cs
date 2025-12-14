@@ -61,8 +61,8 @@ namespace OcioStoreIngSoftII.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=COMPUPROGJJM\\SQLEXPRESS;Initial Catalog=ocio_store;Integrated Securit" +
-            "y=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\SQLEXPRESS;Initial Catalog=ocio_store;Integrated Security=T" +
+            "rue;TrustServerCertificate=True")]
         public string cadena_conexion {
             get {
                 return ((string)(this["cadena_conexion"]));

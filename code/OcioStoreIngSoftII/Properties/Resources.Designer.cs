@@ -145,6 +145,7 @@ namespace OcioStoreIngSoftII.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
+        ///
         ///&lt;head&gt;
         ///    &lt;title&gt;OCIO STORE - DOCUMENTO GENERADO&lt;/title&gt;
         ///    &lt;style&gt;
@@ -166,7 +167,7 @@ namespace OcioStoreIngSoftII.Properties {
         ///            flex-grow: 1;
         ///        }
         ///
-        ///       [resto de la cadena truncado]&quot;;.
+        ///     [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string PlantillaEstadística {
             get {
@@ -244,6 +245,16 @@ namespace OcioStoreIngSoftII.Properties {
         internal static System.Drawing.Bitmap printer_icon {
             get {
                 object obj = ResourceManager.GetObject("printer_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap view {
+            get {
+                object obj = ResourceManager.GetObject("view", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

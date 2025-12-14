@@ -432,14 +432,15 @@
     <Compile Include="Stats.Designer.cs">
       <DependentUpon>Stats.cs</DependentUpon>
     </Compile>
-    <Compile Include="Themes\FabricaGraficos.cs" />
-    <Compile Include="Themes\PaletaColores.cs" />
+    <Compile Include="Utilidades\FabricaGraficos.cs" />
+    <Compile Include="Utilidades\PaletaColores.cs" />
     <Compile Include="Users.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades\ReportePDF.cs" />
     <Compile Include="Vender.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -600,6 +601,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\printer_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />

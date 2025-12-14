@@ -91,7 +91,7 @@ namespace OcioStoreIngSoftII
 
                 if (resultado == DialogResult.OK)
                 {
-                    // Si el usuario seleccionó un cliente, lo guardamos
+                    // Si el usuario seleccionó un vendedor, lo guardamos
                     _idVendedorFiltro = popup.VendedorSeleccionado.id_user;
 
                     // Y mostramos su DNI en el TextBox

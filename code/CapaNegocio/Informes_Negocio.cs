@@ -2,113 +2,101 @@ using CapaDatos;
 using CapaEntidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace CapaNegocio
 {
     public class Informes_Negocio
     {
+        private Informes_Datos objDatos = new Informes_Datos();
 
-        private Informes_Datos objInformes_datos = new Informes_Datos();
-
-        public List<ProductoVendido> ObtenerProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
+        public DataTable GenerarInforme(string tipoInforme, DateTime inicio, DateTime fin, int? idFiltro = null)
         {
-            if (fechaInicio > fechaFin)
+            // Si las fechas son inválidas y el reporte las requiere, devolvemos tabla vacía o null
+            if (tipoInforme != "StockBajo" && inicio > fin)
             {
-                return new List<ProductoVendido>();
-            }
-            List<ProductoVendido> resultados = objInformes_datos.ObtenerProductosMasVendidos(fechaInicio, fechaFin);
-
-            return resultados;
-        }
-
-        public bool GenerarYRegistrarProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin, Usuario usuario, out string mensaje)
-        {
-            List<ProductoVendido> resultados = this.ObtenerProductosMasVendidos(fechaInicio, fechaFin);
-
-            Informe informe = new Informe("Informe de Productos más vendidos", "Productos más vendidos",
-              $"Informe de productos más vendidos desde {fechaInicio.ToShortDateString()} hasta {fechaFin.ToShortDateString()}",
-              usuario);
-
-            return objInformes_datos.RegistrarInforme(informe, out mensaje);
-        }
-
-        public List<VentaPorPeriodo> ObtenerFluctuacionDeVentas(DateTime fechaInicio, DateTime fechaFin)
-        {
-            if (fechaInicio > fechaFin)
-            {
-                return new List<VentaPorPeriodo>();
+                throw new Exception("La fecha de inicio no puede ser mayor a la fecha de fin.");
             }
 
-            List<VentaPorPeriodo> resultados = objInformes_datos.ObtenerFluctuacionDeVentas(fechaInicio, fechaFin);
-            return resultados;
-        }
+            string spNombre = "";
+            bool usaFechas = true;
+            bool esReporteVendedor = false;
 
-        public bool GenerarYRegistrarFluctuacionDeVentas(DateTime fechaInicio, DateTime fechaFin, Usuario usuario, out string mensaje)
-        {
-            List<VentaPorPeriodo> resultados = this.ObtenerFluctuacionDeVentas(fechaInicio, fechaFin);
-
-            Informe informe = new Informe("Informe de Ventas por Periodo de Tiempo", "Total de Ventas Realizadas",
-                $"Ventas desde {fechaInicio.ToShortDateString()} hasta {fechaFin.ToShortDateString()}",
-                usuario);
-
-            return objInformes_datos.RegistrarInforme(informe, out mensaje);
-        }
-
-        public List<CategoriaMasVendida> ObtenerCategoriasMasVendidas(DateTime fechaInicio, DateTime fechaFin)
-        {
-            if (fechaInicio > fechaFin)
+            // Mapeo del "Tipo" seleccionado al "Stored Procedure"
+            switch (tipoInforme)
             {
-                return new List<CategoriaMasVendida>();
+                case "VendedoresDestacados":
+                    spNombre = "PROC_INFORME_VENDEDORES_MAS_VENTAS";
+                    break;
+                case "ProductosTop":
+                    spNombre = "PROC_INFORME_PRODUCTOS_MAS_VENDIDOS";
+                    break;
+                case "FluctuacionVentas":
+                    spNombre = "PROC_INFORME_FLUCTUACION_VENTAS";
+                    break;
+                case "CategoriasTop":
+                    spNombre = "PROC_INFORME_CATEGORIAS_MAS_VENDIDAS";
+                    break;
+                case "StockBajo":
+                    spNombre = "PROC_LISTAR_PRODUCTOS_STOCK_BAJO";
+                    usaFechas = false;
+                    break;
+                case "DetalleVendedor": 
+                    esReporteVendedor = true;
+                    break;
+
+                default:
+                    return new DataTable(); // Retorna vacío si no encuentra el tipo
             }
 
-            List<CategoriaMasVendida> resultados = objInformes_datos.ObtenerCategoriasMasVendidas(fechaInicio, fechaFin);
-            return resultados;
-        }
-
-        public bool GenerarYRegistrarCategoriasMasVendidas(DateTime fechaInicio, DateTime fechaFin, Usuario usuario, out string mensaje)
-        {
-            List<CategoriaMasVendida> resultados = this.ObtenerCategoriasMasVendidas(fechaInicio, fechaFin);
-            Informe informe = new Informe("Informe de Categorías más vendidas", "Categorías más vendidas",
-                $"Informe de categorías más vendidos desde {fechaInicio.ToShortDateString()} hasta {fechaFin.ToShortDateString()}",
-                usuario);
-            return objInformes_datos.RegistrarInforme(informe, out mensaje);
-        }
-
-        public List<VendedorConMasVentas> ObtenerVendedoresConMasVentas(DateTime fechaInicio, DateTime fechaFin)
-        {
-            if (fechaInicio > fechaFin)
+            if (esReporteVendedor)
             {
-                return new List<VendedorConMasVentas>();
+                // Si es null, lanzamos error o devolvemos vacío
+                if (idFiltro == null) throw new Exception("Se requiere un ID de vendedor.");
+                return objDatos.ObtenerVentasDeVendedor(idFiltro.Value, inicio, fin);
             }
-            List<VendedorConMasVentas> resultados = objInformes_datos.ObtenerVendedoresConMasVentas(fechaInicio, fechaFin);
-            return resultados;
-        }
-
-        public bool GenerarYRegistrarVendedoresConMasVentas(DateTime fechaInicio, DateTime fechaFin, Usuario usuario, out string mensaje)
-        {
-            List<VendedorConMasVentas> resultados = this.ObtenerVendedoresConMasVentas(fechaInicio, fechaFin);
-
-            Informe informe = new Informe("Informe de Vendedores con más ventas", "Vendedores",
-                $"Informe de mejores vendedores desde {fechaInicio.ToShortDateString()} hasta {fechaFin.ToShortDateString()}",
-                usuario);
-            return objInformes_datos.RegistrarInforme(informe, out mensaje);
-        }
-
-        public List<Informes_Datos.VentaDetalle> ObtenerVentasVendedor(int id_vendedor, DateTime fechaInicio, DateTime fechaFin)
-        {
-            // Validación de fechas
-            if (fechaInicio > fechaFin)
+            else if (usaFechas)
             {
-                // Devuelve una lista vacía si las fechas son inconsistentes
-                return new List<Informes_Datos.VentaDetalle>();
+                return objDatos.ObtenerDatosInforme(spNombre, inicio, fin);
             }
-
-            // Se invoca el método de la capa de datos con los parámetros correctos
-            List<Informes_Datos.VentaDetalle> resultados = objInformes_datos.ObtenerVentasVendedor(id_vendedor, fechaInicio, fechaFin);
-
-            return resultados;
+            else
+            {
+                return objDatos.ObtenerDatosInforme(spNombre, null, null);
+            }
         }
 
+        public DataTable ObtenerHistorial(DateTime inicio, DateTime fin, string tipo)
+        {
+            if (inicio > fin)
+                throw new Exception("La fecha de inicio no puede ser mayor a la fecha de fin.");
+
+            return objDatos.ListarHistorial(inicio, fin, tipo);
+        }
+
+        public void RegistrarAuditoriaInforme(string titulo, string tipo, int idUsuario)
+        {
+            // Generamos una descripción
+            string descripcion = $"Generación de reporte tipo '{tipo}' solicitada al sistema.";
+
+            objDatos.RegistrarInforme(titulo, descripcion, tipo, idUsuario);
+        }
+
+        public DataTable ObtenerVentasDeVendedorEspecifico(int idVendedor, DateTime inicio, DateTime fin)
+        {
+            if (inicio > fin) throw new Exception("Fechas incorrectas.");
+            return objDatos.ObtenerVentasDeVendedor(idVendedor, inicio, fin);
+        }
+
+        public int ObtenerCantidadVentasGlobal(DateTime inicio, DateTime fin)
+        {
+            DataTable dt = objDatos.ObtenerDatosInforme("PROC_COUNT_VENTAS_GLOBAL", inicio, fin);
+
+            if (dt.Rows.Count > 0 && dt.Columns.Contains("cantidad"))
+            {
+                return Convert.ToInt32(dt.Rows[0]["cantidad"]);
+            }
+            return 0;
+        }
     }
 }

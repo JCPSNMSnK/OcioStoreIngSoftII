@@ -45,6 +45,10 @@
             this.KPI_Ingresos = new CuoreUI.Controls.cuiLabel();
             this.cuiLabel2 = new CuoreUI.Controls.cuiLabel();
             this.cuiPanel4 = new CuoreUI.Controls.cuiPanel();
+            this.btnLimpiarVendedor = new CuoreUI.Controls.cuiButton();
+            this.txtVendedorSeleccionado = new System.Windows.Forms.TextBox();
+            this.lblVendedor = new System.Windows.Forms.Label();
+            this.btnBuscarVendedor = new CuoreUI.Controls.cuiButton();
             this.cuiLabel9 = new CuoreUI.Controls.cuiLabel();
             this.cuiLabel8 = new CuoreUI.Controls.cuiLabel();
             this.btnFiltrar = new CuoreUI.Controls.cuiButton();
@@ -66,7 +70,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1142, 749);
+            this.panel1.Size = new System.Drawing.Size(1379, 749);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanelStats
@@ -94,7 +98,7 @@
             this.tableLayoutPanelStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanelStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 480F));
             this.tableLayoutPanelStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 480F));
-            this.tableLayoutPanelStats.Size = new System.Drawing.Size(1125, 1210);
+            this.tableLayoutPanelStats.Size = new System.Drawing.Size(1362, 1210);
             this.tableLayoutPanelStats.TabIndex = 1;
             // 
             // cuiPanel3
@@ -102,7 +106,7 @@
             this.cuiPanel3.Controls.Add(this.KPI_PromedioVentas);
             this.cuiPanel3.Controls.Add(this.cuiLabel6);
             this.cuiPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cuiPanel3.Location = new System.Drawing.Point(764, 115);
+            this.cuiPanel3.Location = new System.Drawing.Point(922, 115);
             this.cuiPanel3.Margin = new System.Windows.Forms.Padding(15, 15, 15, 10);
             this.cuiPanel3.Name = "cuiPanel3";
             this.cuiPanel3.OutlineThickness = 1F;
@@ -110,7 +114,7 @@
             this.cuiPanel3.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.cuiPanel3.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
             this.cuiPanel3.Rounding = new System.Windows.Forms.Padding(8);
-            this.cuiPanel3.Size = new System.Drawing.Size(346, 125);
+            this.cuiPanel3.Size = new System.Drawing.Size(425, 125);
             this.cuiPanel3.TabIndex = 10;
             // 
             // KPI_PromedioVentas
@@ -145,7 +149,7 @@
             this.cuiPanel2.Controls.Add(this.KPI_CantVentas);
             this.cuiPanel2.Controls.Add(this.cuiLabel4);
             this.cuiPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cuiPanel2.Location = new System.Drawing.Point(389, 115);
+            this.cuiPanel2.Location = new System.Drawing.Point(468, 115);
             this.cuiPanel2.Margin = new System.Windows.Forms.Padding(15, 15, 15, 10);
             this.cuiPanel2.Name = "cuiPanel2";
             this.cuiPanel2.OutlineThickness = 1F;
@@ -153,7 +157,7 @@
             this.cuiPanel2.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(208)))), ((int)(((byte)(237)))));
             this.cuiPanel2.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(208)))), ((int)(((byte)(237)))));
             this.cuiPanel2.Rounding = new System.Windows.Forms.Padding(8);
-            this.cuiPanel2.Size = new System.Drawing.Size(345, 125);
+            this.cuiPanel2.Size = new System.Drawing.Size(424, 125);
             this.cuiPanel2.TabIndex = 9;
             // 
             // KPI_CantVentas
@@ -191,7 +195,7 @@
             this.GraphFluctuacionVentas.Margin = new System.Windows.Forms.Padding(15);
             this.GraphFluctuacionVentas.MatchAxesScreenDataRatio = false;
             this.GraphFluctuacionVentas.Name = "GraphFluctuacionVentas";
-            this.GraphFluctuacionVentas.Size = new System.Drawing.Size(1095, 450);
+            this.GraphFluctuacionVentas.Size = new System.Drawing.Size(1332, 450);
             this.GraphFluctuacionVentas.TabIndex = 3;
             this.GraphFluctuacionVentas.Load += new System.EventHandler(this.Stats_Load);
             // 
@@ -202,7 +206,7 @@
             this.GraphProductosMasVendidos.Margin = new System.Windows.Forms.Padding(10, 10, 10, 15);
             this.GraphProductosMasVendidos.MatchAxesScreenDataRatio = false;
             this.GraphProductosMasVendidos.Name = "GraphProductosMasVendidos";
-            this.GraphProductosMasVendidos.Size = new System.Drawing.Size(354, 455);
+            this.GraphProductosMasVendidos.Size = new System.Drawing.Size(433, 455);
             this.GraphProductosMasVendidos.TabIndex = 5;
             this.GraphProductosMasVendidos.Load += new System.EventHandler(this.Stats_Load);
             // 
@@ -211,13 +215,13 @@
             this.GraphVendedoresConMasVentas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GraphVendedoresConMasVentas.InitialRotation = 0D;
             this.GraphVendedoresConMasVentas.IsClockwise = true;
-            this.GraphVendedoresConMasVentas.Location = new System.Drawing.Point(384, 740);
+            this.GraphVendedoresConMasVentas.Location = new System.Drawing.Point(463, 740);
             this.GraphVendedoresConMasVentas.Margin = new System.Windows.Forms.Padding(10, 10, 10, 15);
             this.GraphVendedoresConMasVentas.MaxAngle = 360D;
             this.GraphVendedoresConMasVentas.MaxValue = double.NaN;
             this.GraphVendedoresConMasVentas.MinValue = 0D;
             this.GraphVendedoresConMasVentas.Name = "GraphVendedoresConMasVentas";
-            this.GraphVendedoresConMasVentas.Size = new System.Drawing.Size(355, 455);
+            this.GraphVendedoresConMasVentas.Size = new System.Drawing.Size(434, 455);
             this.GraphVendedoresConMasVentas.TabIndex = 6;
             this.GraphVendedoresConMasVentas.Load += new System.EventHandler(this.Stats_Load);
             // 
@@ -226,13 +230,13 @@
             this.GraphCategoriasMasVendidas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GraphCategoriasMasVendidas.InitialRotation = 0D;
             this.GraphCategoriasMasVendidas.IsClockwise = true;
-            this.GraphCategoriasMasVendidas.Location = new System.Drawing.Point(759, 740);
+            this.GraphCategoriasMasVendidas.Location = new System.Drawing.Point(917, 740);
             this.GraphCategoriasMasVendidas.Margin = new System.Windows.Forms.Padding(10, 10, 10, 15);
             this.GraphCategoriasMasVendidas.MaxAngle = 360D;
             this.GraphCategoriasMasVendidas.MaxValue = double.NaN;
             this.GraphCategoriasMasVendidas.MinValue = 0D;
             this.GraphCategoriasMasVendidas.Name = "GraphCategoriasMasVendidas";
-            this.GraphCategoriasMasVendidas.Size = new System.Drawing.Size(356, 455);
+            this.GraphCategoriasMasVendidas.Size = new System.Drawing.Size(435, 455);
             this.GraphCategoriasMasVendidas.TabIndex = 7;
             this.GraphCategoriasMasVendidas.Load += new System.EventHandler(this.Stats_Load);
             // 
@@ -249,7 +253,7 @@
             this.cuiPanel1.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.cuiPanel1.PanelOutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.cuiPanel1.Rounding = new System.Windows.Forms.Padding(8);
-            this.cuiPanel1.Size = new System.Drawing.Size(344, 125);
+            this.cuiPanel1.Size = new System.Drawing.Size(423, 125);
             this.cuiPanel1.TabIndex = 8;
             // 
             // KPI_Ingresos
@@ -283,6 +287,10 @@
             // 
             this.cuiPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tableLayoutPanelStats.SetColumnSpan(this.cuiPanel4, 3);
+            this.cuiPanel4.Controls.Add(this.btnLimpiarVendedor);
+            this.cuiPanel4.Controls.Add(this.txtVendedorSeleccionado);
+            this.cuiPanel4.Controls.Add(this.lblVendedor);
+            this.cuiPanel4.Controls.Add(this.btnBuscarVendedor);
             this.cuiPanel4.Controls.Add(this.cuiLabel9);
             this.cuiPanel4.Controls.Add(this.cuiLabel8);
             this.cuiPanel4.Controls.Add(this.btnFiltrar);
@@ -297,8 +305,106 @@
             this.cuiPanel4.PanelColor = System.Drawing.Color.Transparent;
             this.cuiPanel4.PanelOutlineColor = System.Drawing.Color.Transparent;
             this.cuiPanel4.Rounding = new System.Windows.Forms.Padding(8);
-            this.cuiPanel4.Size = new System.Drawing.Size(1122, 94);
+            this.cuiPanel4.Size = new System.Drawing.Size(1359, 94);
             this.cuiPanel4.TabIndex = 11;
+            // 
+            // btnLimpiarVendedor
+            // 
+            this.btnLimpiarVendedor.CheckButton = false;
+            this.btnLimpiarVendedor.Checked = false;
+            this.btnLimpiarVendedor.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnLimpiarVendedor.CheckedForeColor = System.Drawing.Color.White;
+            this.btnLimpiarVendedor.CheckedImageTint = System.Drawing.Color.White;
+            this.btnLimpiarVendedor.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnLimpiarVendedor.Content = "X";
+            this.btnLimpiarVendedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarVendedor.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnLimpiarVendedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarVendedor.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarVendedor.HoverBackground = System.Drawing.Color.White;
+            this.btnLimpiarVendedor.HoverForeColor = System.Drawing.Color.Black;
+            this.btnLimpiarVendedor.HoverImageTint = System.Drawing.Color.White;
+            this.btnLimpiarVendedor.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnLimpiarVendedor.Image = null;
+            this.btnLimpiarVendedor.ImageAutoCenter = true;
+            this.btnLimpiarVendedor.ImageExpand = new System.Drawing.Point(0, 0);
+            this.btnLimpiarVendedor.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnLimpiarVendedor.Location = new System.Drawing.Point(805, 44);
+            this.btnLimpiarVendedor.Name = "btnLimpiarVendedor";
+            this.btnLimpiarVendedor.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLimpiarVendedor.NormalForeColor = System.Drawing.Color.White;
+            this.btnLimpiarVendedor.NormalImageTint = System.Drawing.Color.White;
+            this.btnLimpiarVendedor.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnLimpiarVendedor.OutlineThickness = 1F;
+            this.btnLimpiarVendedor.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.btnLimpiarVendedor.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnLimpiarVendedor.PressedImageTint = System.Drawing.Color.White;
+            this.btnLimpiarVendedor.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnLimpiarVendedor.Rounding = new System.Windows.Forms.Padding(8);
+            this.btnLimpiarVendedor.Size = new System.Drawing.Size(38, 22);
+            this.btnLimpiarVendedor.TabIndex = 74;
+            this.btnLimpiarVendedor.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnLimpiarVendedor.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnLimpiarVendedor.Click += new System.EventHandler(this.btnLimpiarVendedor_Click);
+            // 
+            // txtVendedorSeleccionado
+            // 
+            this.txtVendedorSeleccionado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVendedorSeleccionado.Location = new System.Drawing.Point(608, 42);
+            this.txtVendedorSeleccionado.Name = "txtVendedorSeleccionado";
+            this.txtVendedorSeleccionado.ReadOnly = true;
+            this.txtVendedorSeleccionado.Size = new System.Drawing.Size(186, 27);
+            this.txtVendedorSeleccionado.TabIndex = 73;
+            // 
+            // lblVendedor
+            // 
+            this.lblVendedor.AutoSize = true;
+            this.lblVendedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVendedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblVendedor.Location = new System.Drawing.Point(604, 13);
+            this.lblVendedor.Name = "lblVendedor";
+            this.lblVendedor.Size = new System.Drawing.Size(190, 21);
+            this.lblVendedor.TabIndex = 72;
+            this.lblVendedor.Text = "Vendedor Seleccionado";
+            // 
+            // btnBuscarVendedor
+            // 
+            this.btnBuscarVendedor.CheckButton = false;
+            this.btnBuscarVendedor.Checked = false;
+            this.btnBuscarVendedor.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnBuscarVendedor.CheckedForeColor = System.Drawing.Color.White;
+            this.btnBuscarVendedor.CheckedImageTint = System.Drawing.Color.White;
+            this.btnBuscarVendedor.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnBuscarVendedor.Content = "Seleccionar  Vendedor";
+            this.btnBuscarVendedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarVendedor.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnBuscarVendedor.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnBuscarVendedor.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarVendedor.HoverBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnBuscarVendedor.HoverForeColor = System.Drawing.Color.White;
+            this.btnBuscarVendedor.HoverImageTint = System.Drawing.Color.White;
+            this.btnBuscarVendedor.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnBuscarVendedor.Image = null;
+            this.btnBuscarVendedor.ImageAutoCenter = true;
+            this.btnBuscarVendedor.ImageExpand = new System.Drawing.Point(0, 0);
+            this.btnBuscarVendedor.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnBuscarVendedor.Location = new System.Drawing.Point(412, 40);
+            this.btnBuscarVendedor.Name = "btnBuscarVendedor";
+            this.btnBuscarVendedor.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(53)))), ((int)(((byte)(147)))));
+            this.btnBuscarVendedor.NormalForeColor = System.Drawing.Color.White;
+            this.btnBuscarVendedor.NormalImageTint = System.Drawing.Color.White;
+            this.btnBuscarVendedor.NormalOutline = System.Drawing.Color.DarkBlue;
+            this.btnBuscarVendedor.OutlineThickness = 1F;
+            this.btnBuscarVendedor.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.btnBuscarVendedor.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnBuscarVendedor.PressedImageTint = System.Drawing.Color.White;
+            this.btnBuscarVendedor.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnBuscarVendedor.Rounding = new System.Windows.Forms.Padding(8);
+            this.btnBuscarVendedor.Size = new System.Drawing.Size(180, 29);
+            this.btnBuscarVendedor.TabIndex = 71;
+            this.btnBuscarVendedor.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnBuscarVendedor.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnBuscarVendedor.Click += new System.EventHandler(this.btnSeleccionarVendedor_Click);
             // 
             // cuiLabel9
             // 
@@ -307,7 +413,7 @@
             this.cuiLabel9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLabel9.ForeColor = System.Drawing.Color.White;
             this.cuiLabel9.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.cuiLabel9.Location = new System.Drawing.Point(856, 11);
+            this.cuiLabel9.Location = new System.Drawing.Point(1054, 6);
             this.cuiLabel9.Margin = new System.Windows.Forms.Padding(5);
             this.cuiLabel9.Name = "cuiLabel9";
             this.cuiLabel9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -322,7 +428,7 @@
             this.cuiLabel8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLabel8.ForeColor = System.Drawing.Color.White;
             this.cuiLabel8.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.cuiLabel8.Location = new System.Drawing.Point(676, 11);
+            this.cuiLabel8.Location = new System.Drawing.Point(874, 6);
             this.cuiLabel8.Margin = new System.Windows.Forms.Padding(5);
             this.cuiLabel8.Name = "cuiLabel8";
             this.cuiLabel8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -351,7 +457,7 @@
             this.btnFiltrar.ImageAutoCenter = true;
             this.btnFiltrar.ImageExpand = new System.Drawing.Point(0, 0);
             this.btnFiltrar.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnFiltrar.Location = new System.Drawing.Point(1032, 39);
+            this.btnFiltrar.Location = new System.Drawing.Point(1230, 34);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
             this.btnFiltrar.NormalForeColor = System.Drawing.Color.White;
@@ -379,7 +485,7 @@
             this.DtpFechaFin.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.DtpFechaFin.Icon = ((System.Drawing.Image)(resources.GetObject("DtpFechaFin.Icon")));
             this.DtpFechaFin.IconTint = System.Drawing.Color.Gray;
-            this.DtpFechaFin.Location = new System.Drawing.Point(856, 39);
+            this.DtpFechaFin.Location = new System.Drawing.Point(1054, 34);
             this.DtpFechaFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DtpFechaFin.Name = "DtpFechaFin";
             this.DtpFechaFin.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(128)))));
@@ -405,7 +511,7 @@
             this.DtpFechaInicio.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.DtpFechaInicio.Icon = ((System.Drawing.Image)(resources.GetObject("DtpFechaInicio.Icon")));
             this.DtpFechaInicio.IconTint = System.Drawing.Color.Gray;
-            this.DtpFechaInicio.Location = new System.Drawing.Point(676, 39);
+            this.DtpFechaInicio.Location = new System.Drawing.Point(874, 34);
             this.DtpFechaInicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DtpFechaInicio.Name = "DtpFechaInicio";
             this.DtpFechaInicio.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(128)))));
@@ -441,7 +547,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ClientSize = new System.Drawing.Size(1142, 749);
+            this.ClientSize = new System.Drawing.Size(1379, 749);
             this.Controls.Add(this.panel1);
             this.Name = "Stats";
             this.Text = "Stats";
@@ -452,6 +558,7 @@
             this.cuiPanel2.ResumeLayout(false);
             this.cuiPanel1.ResumeLayout(false);
             this.cuiPanel4.ResumeLayout(false);
+            this.cuiPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -479,5 +586,9 @@
         private CuoreUI.Controls.cuiButton btnFiltrar;
         private CuoreUI.Controls.cuiLabel cuiLabel9;
         private CuoreUI.Controls.cuiLabel cuiLabel8;
+        private System.Windows.Forms.TextBox txtVendedorSeleccionado;
+        private System.Windows.Forms.Label lblVendedor;
+        private CuoreUI.Controls.cuiButton btnBuscarVendedor;
+        private CuoreUI.Controls.cuiButton btnLimpiarVendedor;
     }
 }

@@ -1,46 +1,105 @@
-﻿using LiveChartsCore;
+﻿using CapaEntidades;
+using CapaNegocio;
+using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using LiveChartsCore.SkiaSharpView.VisualElements;
-using LiveChartsCore.SkiaSharpView.WinForms;
-using OcioStoreIngSoftII.Themes;
+using OcioStoreIngSoftII.Utilidades;
 using SkiaSharp;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static iText.Svg.SvgConstants;
-using CapaEntidades;
-using CapaNegocio;
 
 namespace OcioStoreIngSoftII
 {
     public partial class Stats : Form
     {
-        public Stats()
+        private Informes_Negocio objNegocio = new Informes_Negocio();
+
+        // Variables para control de permisos
+        private bool esAdmin = false;
+        private int? _idVendedorFiltro = null;
+        private static Usuario usuarioActual;
+
+        public Stats(Usuario objUser)
         {
             InitializeComponent();
+            usuarioActual = objUser;
         }
-
-        private Informes_Negocio objNegocio = new Informes_Negocio();
 
         private void Stats_Load(object sender, EventArgs e)
         {
+            // Fechas por defecto
             DtpFechaFin.Content = DateTime.Now;
             DtpFechaInicio.Content = DateTime.Now.AddMonths(-1);
 
+            ConfigurarPermisos();
             CargarDashboard();
         }
 
+        private void ConfigurarPermisos()
+        {
+            if (usuarioActual != null)
+            {
+                if (usuarioActual.NombreRol == "Administrador" || usuarioActual.NombreRol == "Analista de Ventas")
+                {
+                    esAdmin = true;
+
+                    // Admin: Puede buscar y limpiar
+                    btnBuscarVendedor.Visible = true;
+                    btnLimpiarVendedor.Visible = true;
+                    txtVendedorSeleccionado.Text = "Todos (Global)";
+                    _idVendedorFiltro = null;
+                }
+                else
+                {
+                    esAdmin = false;
+
+                    // Vendedor: Filtro fijo, botones ocultos
+                    btnBuscarVendedor.Visible = false;
+                    btnLimpiarVendedor.Visible = false;
+
+                    // Fijamos el ID y el Texto
+                    _idVendedorFiltro = usuarioActual.id_user;
+                    txtVendedorSeleccionado.Text = $"{usuarioActual.nombre} {usuarioActual.apellido} (DNI: {usuarioActual.dni})";
+                }
+            }
+        }
+
+
+        private void btnSeleccionarVendedor_Click(object sender, EventArgs e)
+        {
+            // Abrimos el formulario de búsqueda como un diálogo
+            using (BuscarVendedor popup = new BuscarVendedor())
+            {
+                var resultado = popup.ShowDialog();
+
+                if (resultado == DialogResult.OK)
+                {
+                    // Si el usuario seleccionó un vendedor, lo guardamos
+                    _idVendedorFiltro = popup.VendedorSeleccionado.id_user;
+
+                    // Y mostramos su DNI en el TextBox
+                    txtVendedorSeleccionado.Text = $"{popup.VendedorSeleccionado.nombre} {popup.VendedorSeleccionado.apellido} (DNI: {popup.VendedorSeleccionado.dni})";
+                    CargarDashboard();
+                }
+            }
+        }
+
+        private void btnLimpiarVendedor_Click(object sender, EventArgs e)
+        {
+            _idVendedorFiltro = null;
+            txtVendedorSeleccionado.Text = "Todos (Global)";
+            CargarDashboard();
+        }
+
+
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            // Valida las fechas antes de continuar
-            if (DtpFechaInicio.Content > DtpFechaFin.Content)
+            DateTime inicio = Convert.ToDateTime(DtpFechaInicio.Content);
+            DateTime fin = Convert.ToDateTime(DtpFechaFin.Content);
+            if (inicio > fin)
             {
                 MessageBox.Show("La fecha de inicio no puede ser posterior a la fecha de fin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -51,174 +110,205 @@ namespace OcioStoreIngSoftII
 
         private void CargarDashboard()
         {
-            DateTime fechaInicio = DtpFechaInicio.Content;
-            DateTime fechaFin = DtpFechaFin.Content;
+            DateTime inicio = DtpFechaInicio.Content;
+            DateTime fin = DtpFechaFin.Content;
 
-            CargarKPI(fechaInicio, fechaFin);
-            CargarGraficoFluctuacionVentas(fechaInicio, fechaFin);
-            CargarGraficoProductosMasVendidos(fechaInicio, fechaFin);
-            CargarGraficoCategoriasMasVendidas(fechaInicio, fechaFin);
-            CargarGraficoVendedoresMasVentas(fechaInicio, fechaFin);
+            try
+            {
+                CargarKPI(inicio, fin, _idVendedorFiltro);
+                CargarGraficoFluctuacion(inicio, fin, _idVendedorFiltro);
+                CargarGraficoProductos(inicio, fin, _idVendedorFiltro);
+                CargarGraficoCategorias(inicio, fin, _idVendedorFiltro);
+                CargarGraficoVendedores(inicio, fin);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar estadísticas: " + ex.Message);
+            }
         }
 
-        private void CargarKPI (DateTime fechaInicio, DateTime fechaFin)
-        {
-            List<VentaPorPeriodo> resultados = objNegocio.ObtenerFluctuacionDeVentas(fechaInicio, fechaFin);
-            int cantVentas = resultados.Count;
-            
+        // ----------------------------------------------------------------------
+        // LÓGICA DE CARGA DE DATOS
+        // ----------------------------------------------------------------------
 
-            if (resultados.Count == 0)
+        private void CargarKPI(DateTime inicio, DateTime fin, int? idVendedor)
+        {
+            DataTable dt;
+            if (idVendedor.HasValue)
             {
-                KPI_CantVentas.Content = "0";
-                KPI_Ingresos.Content = "$0";
-                KPI_PromedioVentas.Content = "$0";
-                return;
+                dt = objNegocio.GenerarInforme("DetalleVendedor", inicio, fin, idVendedor);
+                // El SP devuelve: Nro Venta, Fecha, Vendedor, Cliente, Medio Pago, Total
+
+                if (dt.Rows.Count == 0)
+                {
+                    PonerKPIsEnCero();
+                    return;
+                }
+
+                decimal totalIngresos = dt.AsEnumerable().Sum(row => Convert.ToDecimal(row["Total"]));
+                int cantVentas = dt.Rows.Count;
+                decimal promedio = cantVentas > 0 ? totalIngresos / cantVentas : 0;
+
+                KPI_CantVentas.Content = cantVentas.ToString();
+                KPI_Ingresos.Content = totalIngresos.ToString("C");
+                KPI_PromedioVentas.Content = promedio.ToString("C");
             }
             else
             {
-                decimal ingresos = 0;
-                for(int i = 0; i <cantVentas; i++)
-                {
-                    ingresos += resultados[i].total_ventas;
-                }
-                decimal promedioVentas = ingresos / cantVentas;
+                dt = objNegocio.GenerarInforme("FluctuacionVentas", inicio, fin);
+                decimal totalIngresos = 0;
 
+                if (dt.Rows.Count > 0)
+                    totalIngresos = dt.AsEnumerable().Sum(row => Convert.ToDecimal(row["total_ventas"]));
+
+                int cantVentas = objNegocio.ObtenerCantidadVentasGlobal(inicio, fin);
+                decimal promedio = cantVentas > 0 ? totalIngresos / cantVentas : 0;
 
                 KPI_CantVentas.Content = cantVentas.ToString();
-                KPI_Ingresos.Content = $"${ingresos:N2}";
-                KPI_PromedioVentas.Content = $"${promedioVentas:N2}";
+                KPI_Ingresos.Content = totalIngresos.ToString("C");
+                KPI_PromedioVentas.Content = promedio.ToString("C");
             }
         }
 
-        private void CargarGraficoFluctuacionVentas(DateTime fechaInicio, DateTime fechaFin)
+        private void PonerKPIsEnCero()
         {
-            List<VentaPorPeriodo> resultados = objNegocio.ObtenerFluctuacionDeVentas(fechaInicio, fechaFin);
+            KPI_CantVentas.Content = "0";
+            KPI_Ingresos.Content = "$0.00";
+            KPI_PromedioVentas.Content = "$0.00";
+        }
 
+        private void CargarGraficoFluctuacion(DateTime inicio, DateTime fin, int? idVendedor)
+        {
             var chart = GraphFluctuacionVentas;
+            DataTable dt;
 
-            if (resultados.Count == 0)
+            if (idVendedor.HasValue) // CASO VENDEDOR ESPECÍFICO
             {
-                chart.Series = new ISeries[0];
-                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay ventas en el periodo");
-                return;
+                dt = objNegocio.GenerarInforme("DetalleVendedor", inicio, fin, idVendedor);
+
+                if (dt.Rows.Count == 0) { LimpiarGrafico(chart); return; }
+
+                // Usamos LINQ para agrupar por Día y sumar los totales.
+                var agrupado = dt.AsEnumerable()
+                    .GroupBy(row => Convert.ToDateTime(row["Fecha"]).Date) // Agrupamos por fecha
+                    .Select(g => new
+                    {
+                        Fecha = g.Key,
+                        SumaTotal = g.Sum(r => Convert.ToDecimal(r["Total"]))
+                    })
+                    .OrderBy(x => x.Fecha) // Ordenamos cronológicamente
+                    .ToList();
+
+                if (!agrupado.Any()) { LimpiarGrafico(chart); return; }
+
+                var valores = agrupado.Select(x => x.SumaTotal).ToArray();
+                var etiquetas = agrupado.Select(x => x.Fecha.ToString("dd/MM")).ToArray();
+
+                ConfigurarLineaChart(chart, "Ventas Vendedor", valores, etiquetas);
             }
+            else // CASO GLOBAL
+            {
+                dt = objNegocio.GenerarInforme("FluctuacionVentas", inicio, fin);
 
-            var valores = resultados.Select(v => v.total_ventas).ToArray();
-            var etiquetas = resultados.Select(v => v.fecha_periodo.ToString("dd/MM/yy")).ToArray();
+                if (dt.Rows.Count == 0) { LimpiarGrafico(chart); return; }
+                var valores = dt.AsEnumerable().Select(r => Convert.ToDecimal(r["total_ventas"])).ToArray();
+                var etiquetas = dt.AsEnumerable().Select(r => Convert.ToDateTime(r["fecha_periodo"]).ToString("dd/MM")).ToArray();
 
+                ConfigurarLineaChart(chart, "Ventas Globales", valores, etiquetas);
+            }
+        }
+
+        private void ConfigurarLineaChart(LiveChartsCore.SkiaSharpView.WinForms.CartesianChart chart, string nombreSerie, decimal[] valores, string[] etiquetas)
+        {
             chart.Series = new ISeries[]
             {
                 new LineSeries<decimal>
                 {
-                    Name = "Total de Ventas",
+                    Name = nombreSerie,
                     Values = valores,
-                    Fill = null
+                    Fill = null,
+                    GeometrySize = 5,
+                    Stroke = new SolidColorPaint(SKColors.BlueViolet) { StrokeThickness = 3 }
                 }
             };
-
-            chart.XAxes = new[] { new Axis { Name = "Fecha", Labels = etiquetas } };
-            chart.YAxes = new[] { new Axis { Name = "Ingresos", MinLimit = 0 } };
-            chart.Title = FabricaGraficos.CrearTituloGrapf("Fluctuación de Ventas");
+            chart.XAxes = new[] { new Axis { Labels = etiquetas } };
+            chart.Title = new LabelVisual { Text = "Fluctuación Temporal" };
         }
-       
 
-        private void CargarGraficoProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
+        private void CargarGraficoProductos(DateTime inicio, DateTime fin, int? idVendedor)
         {
-            // Llama a la capa de negocio
-            List<ProductoVendido> resultados = objNegocio.ObtenerProductosMasVendidos(fechaInicio, fechaFin);
+            var chart = GraphProductosMasVendidos;
 
-            var chart = GraphProductosMasVendidos; 
+            DataTable dt = objNegocio.GenerarInforme("ProductosTop", inicio, fin);
 
-            if (resultados.Count == 0)
-            {
-                chart.Series = new ISeries[0];
-                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay ventas en el periodo");
-                return;
-            }
+            if (dt.Rows.Count == 0) { LimpiarGrafico(chart); return; }
 
-            // Adapta los datos para un gráfico de barras horizontales
-            var valores = resultados.Select(p => (double)p.cantidad_vendida).ToArray();
-            var etiquetas = resultados.Select(p => p.nombre_producto).ToArray();
+            // Tomamos solo el Top 10 para que no explote el gráfico
+            var top10 = dt.AsEnumerable().Take(10);
+
+            var valores = top10.Select(r => Convert.ToDouble(r["cantidad_vendida"])).ToArray();
+            var etiquetas = top10.Select(r => r["nombre_producto"].ToString()).ToArray();
 
             chart.Series = new ISeries[]
             {
                 new ColumnSeries<double>
                 {
-                    Name = "Cantidad",
-                    Values = valores
+                    Name = "Unidades",
+                    Values = valores,
+                    Fill = new SolidColorPaint(SKColors.CornflowerBlue)
                 }
             };
-
-            chart.XAxes = new[] { new Axis { Labels = etiquetas, LabelsRotation = 90 }  };
-            chart.YAxes = new[] { new Axis { MinLimit = 0 } };
-            chart.Title = FabricaGraficos.CrearTituloGrapf("Top Productos Vendidos");
-            chart.ZoomMode = LiveChartsCore.Measure.ZoomAndPanMode.X;
+            chart.XAxes = new[] { new Axis { Labels = etiquetas, LabelsRotation = 45 } };
+            chart.Title = new LabelVisual { Text = "Top Productos (Tienda)" };
         }
-        
 
-        private void CargarGraficoCategoriasMasVendidas(DateTime fechaInicio, DateTime fechaFin)
+        private void CargarGraficoCategorias(DateTime inicio, DateTime fin, int? idVendedor)
         {
-            List<CategoriaMasVendida> resultados = objNegocio.ObtenerCategoriasMasVendidas(fechaInicio, fechaFin);
+            // Usamos el global por ahora
+            var chart = GraphCategoriasMasVendidas;
+            DataTable dt = objNegocio.GenerarInforme("CategoriasTop", inicio, fin);
 
-            var chart = GraphCategoriasMasVendidas; 
+            if (dt.Rows.Count == 0) { LimpiarGrafico(chart); return; }
 
-            if (resultados.Count == 0)
+            var series = dt.AsEnumerable().Select(row => new PieSeries<double>
             {
-                chart.Series = new ISeries[0];
-                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay ventas en el periodo");
-                return;
-            }
-
-            var datos = resultados.Select(categoria => new PieSeries<double>
-            {
-                Values = new double[] { (double)categoria.cantidad_vendida },
-                Name = categoria.nombre_categoria
+                Values = new double[] { Convert.ToDouble(row["cantidad_vendida"]) },
+                Name = row["nombre_categoria"].ToString()
             }).ToArray();
 
-            chart.Title = FabricaGraficos.CrearTituloGrapf("Ventas por Categoría");
-
-            for (int i = 0; i < datos.Length; i++)
-            {
-                // Operador '%' para que los colores se repitan si hay más series que colores
-                datos[i].Fill = new SolidColorPaint(PaletaColores.OcioStore[i % PaletaColores.OcioStore.Length]);
-            }
-
-            chart.Series = datos;
-            chart.LegendPosition = LiveChartsCore.Measure.LegendPosition.Bottom;
+            chart.Series = series;
+            chart.Title = new LabelVisual { Text = "Categorías (Tienda)" };
         }
 
-
-        private void CargarGraficoVendedoresMasVentas(DateTime fechaInicio, DateTime fechaFin)
+        private void CargarGraficoVendedores(DateTime inicio, DateTime fin)
         {
-            List<VendedorConMasVentas> resultados = objNegocio.ObtenerVendedoresConMasVentas(fechaInicio, fechaFin);
-
             var chart = GraphVendedoresConMasVentas;
 
-            if (resultados.Count == 0)
+            if (!esAdmin)
             {
-                chart.Series = new ISeries[0];
-                chart.Title = FabricaGraficos.CrearTituloGrapf("No hay ventas en el periodo");
+                chart.Visible = false;
                 return;
             }
+            chart.Visible = true;
 
-            var datos = resultados.Select(VendedorConMasVentas => new PieSeries<double>
+            DataTable dt = objNegocio.GenerarInforme("VendedoresDestacados", inicio, fin);
+
+            if (dt.Rows.Count == 0) { LimpiarGrafico(chart); return; }
+
+            var series = dt.AsEnumerable().Select(row => new PieSeries<decimal>
             {
-                Values = new double[] { (double)VendedorConMasVentas.total_ventas },
-                Name = VendedorConMasVentas.nombre_vendedor,
-                MaxRadialColumnWidth = 50
+                Values = new decimal[] { Convert.ToDecimal(row["total_ventas"]) },
+                Name = row["nombre_vendedor"].ToString()
             }).ToArray();
 
-            chart.Title = FabricaGraficos.CrearTituloGrapf("Vendedores con mas Ventas");
-
-            for (int i = 0; i < datos.Length; i++)
-            {
-                // Operador '%' para que los colores se repitan si hay más series que colores
-                datos[i].Fill = new SolidColorPaint(PaletaColores.OcioStore[i % PaletaColores.OcioStore.Length]);
-            }
-
-            chart.Series = datos;
-            chart.LegendPosition = LiveChartsCore.Measure.LegendPosition.Bottom;
+            chart.Series = series;
+            chart.Title = new LabelVisual { Text = "Ranking Vendedores" };
         }
 
+        private void LimpiarGrafico(dynamic chart)
+        {
+            chart.Series = new ISeries[0];
+            chart.Title = new LabelVisual { Text = "Sin Datos" };
+        }
     }
 }

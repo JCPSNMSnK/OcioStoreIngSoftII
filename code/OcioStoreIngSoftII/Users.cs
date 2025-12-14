@@ -278,10 +278,11 @@ namespace OcioStoreIngSoftII
                        id_rol = Convert.ToInt32(((OpcionSelect)CBroles.SelectedItem).Valor),
                        descripcion = ((OpcionSelect)CBroles.SelectedItem).Texto
                    },
+                    TTelefono.Content,
                     TDireccion.Content,
                     TLocalidad.Content,
-                    TProvincia.Content,
-                    TTelefono.Content
+                    TProvincia.Content
+                    
                 );
 
                 int idusuarioregistrado = objUNegocio.Registrar(objUser, out string mensaje);

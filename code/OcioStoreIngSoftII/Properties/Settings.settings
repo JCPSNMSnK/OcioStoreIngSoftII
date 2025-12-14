@@ -12,7 +12,7 @@
       <Value Profile="(Default)">Av. Siempre Viva 123</Value>
     </Setting>
     <Setting Name="cadena_conexion" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=COMPUPROGJJM\SQLEXPRESS;Initial Catalog=ocio_store;Integrated Security=True;TrustServerCertificate=True</Value>
+      <Value Profile="(Default)">Data Source=localhost\SQLEXPRESS;Initial Catalog=ocio_store;Integrated Security=True;TrustServerCertificate=True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>OCIO STORE - DOCUMENTO GENERADO</title>
     <style>
@@ -66,7 +67,7 @@
             gap: 10px 20px;
             font-size: 13px;
         }
-        
+
         .report-details-grid .label {
             font-weight: bold;
         }
@@ -78,7 +79,8 @@
             margin-top: 25px;
         }
 
-        .data-table th, .data-table td {
+        .data-table th,
+        .data-table td {
             padding: 10px;
             text-align: left;
             border: 1px solid #cbd5e0;
@@ -97,9 +99,9 @@
         .data-table tbody td {
             text-align: center;
         }
-
     </style>
 </head>
+
 <body>
     <div class="header-section">
         <div style="width:15%"></div>
@@ -113,19 +115,19 @@
             <div class="info-data">@id_informe</div>
         </div>
     </div>
-    
+
     <hr class="section-divider" />
 
     <div class="report-details-grid">
         <div class="label">Informe Generado por:</div>
         <div>@nombre_usuario</div>
-        
+
         <div class="label">Tipo de Informe:</div>
         <div>@tipo_informe</div>
-        
+
         <div class="label">Fecha del Informe:</div>
         <div>@fecha_generacion</div>
-        
+
         <div class="label">Descripción breve:</div>
         <div>@descripcion</div>
     </div>
@@ -133,10 +135,7 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th>@parametro1</th>
-                <th>@parametro2</th>
-                <th>@parametro3</th>
-                <th>@parametro4</th>
+                @encabezados
             </tr>
         </thead>
         <tbody>
@@ -144,4 +143,5 @@
         </tbody>
     </table>
 </body>
+
 </html>
