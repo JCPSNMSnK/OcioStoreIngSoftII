@@ -228,7 +228,7 @@ namespace OcioStoreIngSoftII
 
         private void BuyButton_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconButton)sender, new Compras());
+            AbrirFormulario((IconButton)sender, new Compras(usuarioActual));
         }
 
         private void ProvidersButton_Click(object sender, EventArgs e)

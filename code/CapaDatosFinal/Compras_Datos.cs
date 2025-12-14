@@ -36,7 +36,7 @@ namespace CapaDatos
 
                     // Asignamos los parámetros del procedimiento almacenado
                     cmd.Parameters.AddWithValue("@id_proveedor", objCompra.objProveedor.id_proveedor);
-                    cmd.Parameters.AddWithValue("@total", objCompra.total);
+                    cmd.Parameters.AddWithValue("@total_compra", objCompra.total);
                     // Pasamos el DataTable como un parámetro de tipo tabla
                     cmd.Parameters.AddWithValue("@detalles_compra", dtDetalles);
 

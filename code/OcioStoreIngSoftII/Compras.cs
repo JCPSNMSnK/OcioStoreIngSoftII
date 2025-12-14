@@ -26,10 +26,12 @@ namespace OcioStoreIngSoftII
         private readonly Compras_negocio comprasNegocio = new Compras_negocio();
         private readonly Proveedores_negocio proveedoresNegocio = new Proveedores_negocio();
         private readonly Producto_negocio productosNegocio = new Producto_negocio();
+        private static Usuario usuarioActual;
 
-        public Compras()
+        public Compras(Usuario objUser)
         {
             InitializeComponent();
+            usuarioActual = objUser;
         }
 
         private void Compras_Load(object sender, EventArgs e)
@@ -37,15 +39,6 @@ namespace OcioStoreIngSoftII
             // EVITA que se generen columnas automáticas "feas"
             comprasDataGridView.AutoGenerateColumns = false;
 
-            // --- AGREGAR BOTÓN DE IMPRIMIR ---
-            DataGridViewButtonColumn btnImprimir = new DataGridViewButtonColumn();
-            btnImprimir.Name = "btnPDF"; // Este es el nombre que usaremos para identificar la columna
-            btnImprimir.HeaderText = "Imprimir";
-            btnImprimir.Text = "🖨️"; // Puedes poner texto "PDF" o un emoji
-            btnImprimir.UseColumnTextForButtonValue = true; // Para que el texto aparezca en todos los botones
-            comprasDataGridView.Columns.Add(btnImprimir);
-
-            OcultarColumnas();
             CargarCompras();
             CargarProveedores();
 
@@ -80,11 +73,7 @@ namespace OcioStoreIngSoftII
 
         private void comprasDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Verifica si la fila tiene datos y si estamos en la columna que queremos (ej. "Proveedor")
-            // Nota: Asegúrate de que tu columna en el diseño se llame "nombre_columna_proveedor" o usa el índice.
-            // Supongamos que la columna del proveedor es la columna con índice 2 (ajústalo a tu diseño real)
-
-            if (comprasDataGridView.Columns[e.ColumnIndex].Name == "Proveedor") // O el nombre que le pusiste en el Diseñador
+            if (comprasDataGridView.Columns[e.ColumnIndex].Name == "Proveedor")
             {
                 // Obtenemos el objeto Compra de la fila actual
                 var compraActual = (Compra)comprasDataGridView.Rows[e.RowIndex].DataBoundItem;
@@ -97,6 +86,28 @@ namespace OcioStoreIngSoftII
                 }
             }
         }
+
+        private void comprasDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs impresora)
+        {
+            //Botoncito de imprimir
+            if (impresora.RowIndex < 0) return;
+
+            // Solo pintamos la columna del botón "btnVerFactura"
+            if (comprasDataGridView.Columns[impresora.ColumnIndex].Name == "btnPDF")
+            {
+                impresora.Paint(impresora.CellBounds, DataGridViewPaintParts.All);
+                System.Drawing.Image icono = Properties.Resources.printer_icon;
+
+                int iconSize = 20;
+                // Calcular posición para centrar
+                var x = impresora.CellBounds.Left + (impresora.CellBounds.Width - iconSize) / 2;
+                var y = impresora.CellBounds.Top + (impresora.CellBounds.Height - iconSize) / 2;
+                impresora.Graphics.DrawImage(icono, new System.Drawing.Rectangle(x, y, iconSize, iconSize));
+                impresora.Handled = true;
+            }
+        }
+
+
 
         // NUEVO MÉTODO: Cargar proveedores en el ComboBox
         private void CargarProveedores()
@@ -124,26 +135,9 @@ namespace OcioStoreIngSoftII
                 listaCompras = comprasNegocio.BuscarComprasGeneral(filtro);
             }
 
-            // DEBUG TEMPORAL
-            MessageBox.Show("Se encontraron " + listaCompras.Count + " compras.");
-
             // Enlazar los datos a la tabla
             comprasDataGridView.DataSource = null;
             comprasDataGridView.DataSource = listaCompras;
-        }
-
-        // Método para ocultar columnas en la tabla
-        private void OcultarColumnas()
-        {
-
-            if (comprasDataGridView.Columns.Contains("objUsuario"))
-            {
-                comprasDataGridView.Columns["objUsuario"].Visible = false;
-            }
-            if (comprasDataGridView.Columns.Contains("detalles"))
-            {
-                comprasDataGridView.Columns["detalles"].Visible = false;
-            }
         }
 
         // Evento para el botón de búsqueda
@@ -249,16 +243,6 @@ namespace OcioStoreIngSoftII
                 precio_unitario = precioUnitario
             };
 
-            // AGREGAR A LA GRILLA
-            // Asegúrate de respetar el orden de las columnas que definimos en el Load:
-            // 0: id_producto (Oculto)
-            // 1: cod_producto (Visible)
-            // 2: nombre_producto
-            // 3: precio_unitario
-            // 4: cantidad
-            // 5: btnEliminar
-
-            // Usamos el ID oculto que guardaste en el evento KeyPress
             int idProductoReal = Convert.ToInt32(TB_Id_Producto_Oculto.Text);
 
             detallesDataGridView.Rows.Add(new object[] {
@@ -277,7 +261,6 @@ namespace OcioStoreIngSoftII
             TPrecioUnitario.Content = string.Empty;
         }
 
-        // NUEVO EVENTO: Registrar la compra completa
         private void BRegistrarCompra_Click(object sender, EventArgs e)
         {
             // Validación: Asegurarse de que haya al menos un producto en la lista
@@ -333,6 +316,7 @@ namespace OcioStoreIngSoftII
             {
                 MessageBox.Show("Compra registrada exitosamente. ID: " + idCompraGenerada, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarFormulario();
+                CargarCompras();
             }
             else
             {
@@ -340,7 +324,6 @@ namespace OcioStoreIngSoftII
             }
         }
 
-        // NUEVO MÉTODO: Limpiar todos los campos del formulario
         private void LimpiarFormulario()
         {
             // Limpiar los campos de registro de producto
@@ -355,7 +338,6 @@ namespace OcioStoreIngSoftII
             detallesDataGridView.Refresh();
         }
 
-        // NUEVO EVENTO: Manejar el clic del botón en la tabla de detalles para eliminar una fila
         private void detallesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == detallesDataGridView.Columns["btnEliminar"].Index && e.RowIndex >= 0)
@@ -367,81 +349,6 @@ namespace OcioStoreIngSoftII
                 {
                     // Eliminar la fila de la tabla
                     detallesDataGridView.Rows.RemoveAt(e.RowIndex);
-                }
-            }
-        }
-
-        private void btnPDF_Click(object sender, EventArgs e)
-        {
-            //corregir la condíción de control de ser necesario, aquello que vayamos a imprimir tiene que existir
-            if (btnSeleccionar.Text == "")
-            {
-                MessageBox.Show("No se encontró la compra para imprimir", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            string Texto_Html = Properties.Resources.PlantillaCompra.ToString(); //la plantilla HTML cargada en Recursos del Proyecto
-
-            Texto_Html = Texto_Html.Replace("@nombrenegocio", "Ocio Store");
-            Texto_Html = Texto_Html.Replace("@docnegocio", "Tienda de Juegos de Mesa");
-            Texto_Html = Texto_Html.Replace("@direcnegocio", "Avenida Corrientes 453");
-
-            Texto_Html = Texto_Html.Replace("@tipodocumento", "COMPROBANTE DE COMPRA");
-            Texto_Html = Texto_Html.Replace("@numerodocumento", "");//poner acá el ID de la Compra desde lo seleccionado
-
-            Texto_Html = Texto_Html.Replace("@docproveedor", ""); //poner acá el CUIT del PRoveedor de la compra
-            Texto_Html = Texto_Html.Replace("@nombreproveedor", ""); //poner acá el nombre del proveedor 
-            Texto_Html = Texto_Html.Replace("@fecharegistro", ""); //poner la fecha de la compra
-            Texto_Html = Texto_Html.Replace("@usuarioregistro", ""); //poner el nombre del usuario que generó el pdf de la compra
-
-            string filas = string.Empty;
-            foreach (DataGridViewRow row in comprasDataGridView.Rows)
-            {
-                filas += "<td>";
-                filas += "<td>" + row.Cells["Nombre Producto"].Value.ToString() + "</td>";
-                filas += "<td>" + row.Cells["Cantidad"].Value.ToString() + "</td>";
-                filas += "<td>" + row.Cells["Precio Unitario"].Value.ToString() + "</td>";
-                filas += "<td>" + row.Cells["Total"].Value.ToString() + "</td>";
-                filas += "</td>";
-            }
-
-            Texto_Html = Texto_Html.Replace("@filas", filas);
-            Texto_Html = Texto_Html.Replace("@montototal", ""); //colocar el total
-
-            SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.FileName = string.Format("Compra_{0].pdf", btnSeleccionar.Text);
-            saveFile.Filter = "Pdf files|* .pdf";
-
-            if (saveFile.ShowDialog() == DialogResult.OK)
-            {
-                using (FileStream stream = new FileStream(saveFile.FileName, FileMode.Create))
-                {
-                    iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(PageSize.A4, 25, 25, 25, 25);
-
-                    iTextSharp.text.pdf.PdfWriter writer = iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, stream);
-                    pdfDoc.Open();
-
-                    bool obtenido = true;
-                    byte[] byteImage = null; //poner la imagen acá, una ref a resources quizas
-
-                    if (obtenido)
-                    {
-                        iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(byteImage);
-                        img.ScaleToFit(60, 60);
-                        img.Alignment = iTextSharp.text.Image.UNDERLYING;
-                        img.SetAbsolutePosition(pdfDoc.GetLeft(20), pdfDoc.GetTop(51));
-                        pdfDoc.Add(img);
-                    }
-
-                    using (StringReader sr = new StringReader(Texto_Html))
-                    {
-                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
-                    }
-
-                    pdfDoc.Close();
-                    stream.Close();
-                    MessageBox.Show("Documento Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
         }
@@ -480,18 +387,18 @@ namespace OcioStoreIngSoftII
                 string Texto_Html = Properties.Resources.PlantillaCompra.ToString();
 
                 // 3. REEMPLAZAR DATOS DE CABECERA (Usando el objeto recuperado)
-                Texto_Html = Texto_Html.Replace("@nombrenegocio", "Ocio Store");
-                Texto_Html = Texto_Html.Replace("@docnegocio", "Tienda de Juegos de Mesa");
-                Texto_Html = Texto_Html.Replace("@direcnegocio", "Avenida Corrientes 453");
+                Texto_Html = Texto_Html.Replace("@nombrenegocio", Properties.Settings.Default.NombreNegocio);
+                Texto_Html = Texto_Html.Replace("@docnegocio", Properties.Settings.Default.CUITNegocio);
+                Texto_Html = Texto_Html.Replace("@direcnegocio", Properties.Settings.Default.DireccionNegocio);
 
                 Texto_Html = Texto_Html.Replace("@tipodocumento", "COMPROBANTE DE COMPRA");
                 Texto_Html = Texto_Html.Replace("@numerodocumento", compraEncontrada.id_compra.ToString());
 
                 // Datos del proveedor obtenidos del objeto
-                Texto_Html = Texto_Html.Replace("@docproveedor", ""); // Si tuvieras CUIT en el objeto Proveedor, iría aquí
+                Texto_Html = Texto_Html.Replace("@docproveedor", compraEncontrada.objProveedor.cuit_proveedor);
                 Texto_Html = Texto_Html.Replace("@nombreproveedor", compraEncontrada.objProveedor.nombre_proveedor);
                 Texto_Html = Texto_Html.Replace("@fecharegistro", compraEncontrada.fecha_compra.ToString("dd/MM/yyyy"));
-                Texto_Html = Texto_Html.Replace("@usuarioregistro", "Admin"); // O el usuario logueado si lo tienes
+                Texto_Html = Texto_Html.Replace("@usuarioregistro", $"{usuarioActual.apellido} {usuarioActual.nombre}"); // O el usuario logueado si lo tienes
 
                 // 4. GENERAR FILAS DE PRODUCTOS (Recorriendo la lista recuperada)
                 string filas = string.Empty;
@@ -500,8 +407,8 @@ namespace OcioStoreIngSoftII
                 {
                     filas += "<tr>";
                     filas += "<td>" + detalle.objProducto.nombre_producto + "</td>"; // Nombre
-                    filas += "<td>" + detalle.cantidad.ToString() + "</td>";         // Cantidad
                     filas += "<td>" + detalle.precio_unitario.ToString("0.00") + "</td>"; // Precio Unitario
+                    filas += "<td>" + detalle.cantidad.ToString() + "</td>";         // Cantidad
 
                     // Calculamos el subtotal de la fila (Cantidad * Precio)
                     decimal subtotal = detalle.cantidad * detalle.precio_unitario;
@@ -525,19 +432,6 @@ namespace OcioStoreIngSoftII
                         PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
                         pdfDoc.Open();
 
-                        // (Opcional) Imagen del logo si la tienes
-                        /*
-                        bool obtenido = true;
-                        byte[] byteImage = new Compras_negocio().ObtenerLogo(out obtenido); // Ejemplo si tuvieras logo
-                        if (obtenido) {
-                           Image img = Image.GetInstance(byteImage);
-                           img.ScaleToFit(60, 60);
-                           img.Alignment = Image.UNDERLYING;
-                           img.SetAbsolutePosition(pdfDoc.GetLeft(20), pdfDoc.GetTop(51));
-                           pdfDoc.Add(img);
-                        }
-                        */
-
                         using (StringReader sr = new StringReader(Texto_Html))
                         {
                             XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
@@ -545,7 +439,12 @@ namespace OcioStoreIngSoftII
 
                         pdfDoc.Close();
                         stream.Close();
-                        MessageBox.Show("Documento Generado Exitosamente", "Hecho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    DialogResult result = MessageBox.Show("Recibo de compra generado exitosamente.\n¿Desea abrir el archivo ahora?", "Éxito", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start(saveFile.FileName);
                     }
                 }
             }
