@@ -1,37 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\",
+  "WorkspaceRootPath": "C:\\Users\\joelm\\source\\repos\\code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|OcioStoreIngSoftII||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|c:\\users\\joelm\\source\\repos\\code\\ociostoreingsoftii\\proveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\proveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|c:\\users\\joelm\\source\\repos\\code\\capadatosfinal\\proveedor_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\proveedor_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\vender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\vender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|c:\\users\\joelm\\source\\repos\\code\\ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|c:\\users\\joelm\\source\\repos\\code\\ociostoreingsoftii\\proveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\proveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capanegocio\\ventas_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EDCDE2A-2715-473C-8DB7-23359F237791}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\ventas_negocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|c:\\users\\joelm\\source\\repos\\code\\ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\vender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\vender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|c:\\users\\joelm\\source\\repos\\code\\ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\capadatosfinal\\ventas_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D57CB6E-57F5-48B6-8310-059440516079}|CapaDatosFinal\\CapaDatos.csproj|solutionrelative:capadatosfinal\\ventas_datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|e:\\mio\\facu\\4to\\isii\\tpi\\codigo\\code\\ociostoreingsoftii\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+      "AbsoluteMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|C:\\Users\\joelm\\source\\repos\\code\\ociostoreingsoftii\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{340CE25B-85B8-439C-9C6D-A4E84BEE09CA}|OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj|solutionrelative:ociostoreingsoftii\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 24,
+          "SelectedChildIndex": 23,
           "Children": [
             {
               "$type": "Bookmark",
@@ -125,91 +122,92 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Vender.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Vender.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Vender.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Vender.cs",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Vender.cs",
-              "ViewState": "AgIAAJkBAAAAAAAAAIAwwKgBAAAOAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\Users.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Users.cs",
+              "ToolTip": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\Users.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Users.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAmwKAAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T03:41:26.904Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Ventas_Datos.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Ventas_Datos.cs",
-              "RelativeDocumentMoniker": "CapaDatosFinal\\Ventas_Datos.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaDatosFinal\\Ventas_Datos.cs",
-              "RelativeToolTip": "CapaDatosFinal\\Ventas_Datos.cs",
-              "ViewState": "AgIAAEUBAAAAAAAAAAAYwFsAAACIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T02:57:07.517Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Payment.cs [Design]",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Payment.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Payment.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Payment.cs [Design]",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Payment.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T02:22:20.65Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Payment.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Payment.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Payment.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Payment.cs",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Payment.cs",
-              "ViewState": "AgIAAPkAAAAAAAAAAAAwwP8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T02:22:34.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OcioStoreIngSoftII",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj*",
-              "RelativeToolTip": "OcioStoreIngSoftII\\OcioStoreIngSoftII.csproj*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-12-10T15:43:10.925Z",
+              "WhenOpened": "2025-12-14T07:28:30.188Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Ventas_negocio.cs",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Ventas_negocio.cs",
-              "RelativeDocumentMoniker": "CapaNegocio\\Ventas_negocio.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\CapaNegocio\\Ventas_negocio.cs",
-              "RelativeToolTip": "CapaNegocio\\Ventas_negocio.cs",
-              "ViewState": "AgIAABwBAAAAAAAAAAAgwCYBAAAAAAAAAAAAAA==",
+              "Title": "Users.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\Users.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Users.cs",
+              "ToolTip": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\Users.cs [Dise\u00F1o]",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Users.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T03:49:10.784Z",
+              "WhenOpened": "2025-12-14T07:28:27.691Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Proveedor_Datos.cs",
+              "DocumentMoniker": "C:\\Users\\joelm\\source\\repos\\code\\CapaDatosFinal\\Proveedor_Datos.cs",
+              "RelativeDocumentMoniker": "CapaDatosFinal\\Proveedor_Datos.cs",
+              "ToolTip": "C:\\Users\\joelm\\source\\repos\\code\\CapaDatosFinal\\Proveedor_Datos.cs",
+              "RelativeToolTip": "CapaDatosFinal\\Proveedor_Datos.cs",
+              "ViewState": "AgIAAOYAAAAAAAAAAAAAAOYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T05:52:12.748Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Vender.cs [Design]",
-              "DocumentMoniker": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Vender.cs",
-              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Vender.cs",
-              "ToolTip": "E:\\MIO\\Facu\\4to\\ISII\\TPI\\codigo\\code\\OcioStoreIngSoftII\\Vender.cs [Design]",
-              "RelativeToolTip": "OcioStoreIngSoftII\\Vender.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "Proveedores.cs",
+              "DocumentMoniker": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\Proveedores.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Proveedores.cs",
+              "ToolTip": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\Proveedores.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Proveedores.cs",
+              "ViewState": "AgIAAM0AAAAAAAAAAADwv+EAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T02:22:27.506Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-12-14T05:51:26.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Proveedores.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\Proveedores.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Proveedores.cs",
+              "ToolTip": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\Proveedores.cs [Dise\u00F1o]",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Proveedores.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T05:51:23.64Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Inicio.cs",
+              "DocumentMoniker": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\Inicio.cs",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\Inicio.cs",
+              "ToolTip": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\Inicio.cs",
+              "RelativeToolTip": "OcioStoreIngSoftII\\Inicio.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAQwEQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T03:31:54.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\App.config",
+              "RelativeDocumentMoniker": "OcioStoreIngSoftII\\App.config",
+              "ToolTip": "C:\\Users\\joelm\\source\\repos\\code\\OcioStoreIngSoftII\\App.config",
+              "RelativeToolTip": "OcioStoreIngSoftII\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-12-14T04:05:41.191Z",
+              "EditorCaption": ""
             }
           ]
         }
