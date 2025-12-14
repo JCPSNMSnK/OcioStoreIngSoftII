@@ -24,6 +24,12 @@ namespace CapaNegocio
             return objProveedorDatos.ListarActivos();
         }
 
+        public List<Proveedor> BuscarProveedores(string filtro, bool incluirInactivos)
+        {
+            // Simplemente pasamos ambos datos a la capa de datos
+            return objProveedorDatos.BuscarProveedores(filtro, incluirInactivos);
+        }
+
         public int RegistrarProveedor(Proveedor objProveedor, out string mensaje)
         {
             mensaje = string.Empty;

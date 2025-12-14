@@ -39,6 +39,7 @@ namespace OcioStoreIngSoftII
 
             actualizarDatosTabla();
         }
+
         private void actualizarDatosTabla(string filtros = null)
         {
             if (filtros == null)
@@ -46,10 +47,10 @@ namespace OcioStoreIngSoftII
                 filtros = "";
             }
 
-            List<Proveedor> resultados = proveedorNegocio.ListarProveedores();
-            //Dictionary<int, int> cantidad_productos = proveedorNegocio.ContarProductosPorProveedor();
+            bool verInactivos = chkIncluirInactivos.Checked;
+            List<Proveedor> resultados = proveedorNegocio.BuscarProveedores(filtros, verInactivos);
+
             proveedoresDataGridView.AutoGenerateColumns = false;
-            proveedoresDataGridView.DataSource = null;
             proveedoresDataGridView.DataSource = resultados;
         }
 
@@ -58,12 +59,10 @@ namespace OcioStoreIngSoftII
         {
             string filtro = txtBuscar.Text.Trim();
 
-            List<Proveedor> resultados = proveedorNegocio.ListarProveedores();
-            proveedoresDataGridView.DataSource = null;
-            proveedoresDataGridView.DataSource = resultados;
+            actualizarDatosTabla(filtro);
         }
 
-        // Modificar Categoría
+        // Modificar Proveedor
         private void BModificar_Click(object sender, EventArgs e)
         {
             // Validar que se haya seleccionado una proveedor
@@ -73,7 +72,7 @@ namespace OcioStoreIngSoftII
                 return;
             }
 
-            // Validaciones de los campos de la proveedor
+            // Validaciones de los campos del proveedor
             if (ValidacionesCategoria(TModificarNombreProveedor.Content, TModificarTelefonoProveedor.Content, TModificarCUITProveedor.Content, out string mensajeError))
             {
                 // Creación de un nuevo objeto proveedor
@@ -104,9 +103,10 @@ namespace OcioStoreIngSoftII
             {
                 MessageBox.Show(mensajeError, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            actualizarDatosTabla();
         }
 
-        // Registrar Categoría
+        // Registrar Proveedor
         private void BRegisterCategory_Click(object sender, EventArgs e)
         {
             if (ValidacionesCategoria(TNombreProveedor.Content, TTelefonoProveedor.Content, TCUITProveedor.Content,out string mensajeError))
@@ -135,6 +135,7 @@ namespace OcioStoreIngSoftII
             {
                 MessageBox.Show(mensajeError, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            actualizarDatosTabla();
         }
 
         // DGV - Dibujo del botón Seleccionar
@@ -180,10 +181,7 @@ namespace OcioStoreIngSoftII
                 // Verificar que el objeto no sea nulo
                 if (proveedorSeleccionada != null)
                 {
-                    // Ejemplo de cómo llenar los campos de texto
-                    // (Ajustar los nombres de los controles de tu UI, ej: txtId, txtNombre, cbEstado)
-
-                    // Supongamos que tienes un TextBox para el ID y otro para el nombre
+                    TCUsuarios.SelectedIndex = 1;
                     TBModificarIndice.Content = e.RowIndex.ToString();
                     TModificarIDProveedor.Content = proveedorSeleccionada.id_proveedor.ToString();
                     TModificarNombreProveedor.Content = proveedorSeleccionada.nombre_proveedor;
@@ -201,6 +199,8 @@ namespace OcioStoreIngSoftII
                             }
                         }
                     }
+
+                    tableLayoutPanel1.ScrollControlIntoView(TCUsuarios);
                 }
             }
         }
@@ -269,15 +269,9 @@ namespace OcioStoreIngSoftII
             //CUIT
             if(string.IsNullOrWhiteSpace(cuit))
             {
-                mensajeError = "El campo DNI es obligatorio.";
+                mensajeError = "El campo CUIT es obligatorio.";
                 return false;
             }
-            if (!cuit.All(char.IsDigit))
-            {
-                mensajeError = "El campo DNI solo puede contener números, sin puntos.";
-                return false;
-            }
-
 
             return true;
         }

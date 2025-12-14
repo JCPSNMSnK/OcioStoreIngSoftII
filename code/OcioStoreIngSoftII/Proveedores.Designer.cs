@@ -33,11 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.proveedoresDataGridView = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cuit_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BBuscar = new CuoreUI.Controls.cuiButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,6 +40,8 @@
             this.TCUsuarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.CBEstado = new System.Windows.Forms.ComboBox();
+            this.LEstado = new System.Windows.Forms.Label();
             this.TCUITProveedor = new CuoreUI.Controls.cuiTextBox();
             this.LCUITProveedor = new System.Windows.Forms.Label();
             this.TTelefonoProveedor = new CuoreUI.Controls.cuiTextBox();
@@ -56,6 +53,8 @@
             this.LNombreProveedor = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.LModificarEstado = new System.Windows.Forms.Label();
+            this.CBModificarEstado = new System.Windows.Forms.ComboBox();
             this.TModificarCUITProveedor = new CuoreUI.Controls.cuiTextBox();
             this.LModificarCUITProveedor = new System.Windows.Forms.Label();
             this.TModificarTelefonoProveedor = new CuoreUI.Controls.cuiTextBox();
@@ -66,10 +65,14 @@
             this.TModificarIDProveedor = new CuoreUI.Controls.cuiTextBox();
             this.TBModificarIndice = new CuoreUI.Controls.cuiTextBox();
             this.dataSet1 = new OcioStoreIngSoftII.DataSet1();
-            this.CBEstado = new System.Windows.Forms.ComboBox();
-            this.LEstado = new System.Windows.Forms.Label();
-            this.LModificarEstado = new System.Windows.Forms.Label();
-            this.CBModificarEstado = new System.Windows.Forms.ComboBox();
+            this.chkIncluirInactivos = new System.Windows.Forms.CheckBox();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.baja_estado_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.baja_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cuit_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -91,12 +94,13 @@
             this.tableLayoutPanel1.Controls.Add(this.TCUsuarios, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.06395F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.5064F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.54481F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1284, 749);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1712, 922);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // proveedoresDataGridView
@@ -118,8 +122,10 @@
             this.proveedoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.proveedoresDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
+            this.baja_estado_valor,
             this.id_proveedor,
             this.nombre_proveedor,
+            this.baja_estado,
             this.cuit_proveedor,
             this.telefono_proveedor});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
@@ -133,8 +139,8 @@
             this.proveedoresDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.proveedoresDataGridView.EnableHeadersVisualStyles = false;
             this.proveedoresDataGridView.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.proveedoresDataGridView.Location = new System.Drawing.Point(15, 93);
-            this.proveedoresDataGridView.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.proveedoresDataGridView.Location = new System.Drawing.Point(20, 115);
+            this.proveedoresDataGridView.Margin = new System.Windows.Forms.Padding(20, 4, 20, 4);
             this.proveedoresDataGridView.Name = "proveedoresDataGridView";
             this.proveedoresDataGridView.ReadOnly = true;
             this.proveedoresDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -147,59 +153,24 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.proveedoresDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.proveedoresDataGridView.RowHeadersVisible = false;
-            this.proveedoresDataGridView.Size = new System.Drawing.Size(1254, 356);
+            this.proveedoresDataGridView.Size = new System.Drawing.Size(1672, 438);
             this.proveedoresDataGridView.TabIndex = 58;
             this.proveedoresDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.proveedoresDataGridView_CellContentClick);
             this.proveedoresDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.proveedoresDataGridView_CellPainting);
             this.proveedoresDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.proveedorsDataGridView_DataBindingComplete);
             // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 112;
-            // 
-            // id_proveedor
-            // 
-            this.id_proveedor.DataPropertyName = "id_proveedor";
-            this.id_proveedor.HeaderText = "Cod. Proveedor";
-            this.id_proveedor.Name = "id_proveedor";
-            this.id_proveedor.ReadOnly = true;
-            // 
-            // nombre_proveedor
-            // 
-            this.nombre_proveedor.DataPropertyName = "nombre_proveedor";
-            this.nombre_proveedor.HeaderText = "Nombre de Proveedor";
-            this.nombre_proveedor.Name = "nombre_proveedor";
-            this.nombre_proveedor.ReadOnly = true;
-            // 
-            // cuit_proveedor
-            // 
-            this.cuit_proveedor.DataPropertyName = "cuit_proveedor";
-            this.cuit_proveedor.HeaderText = "CUIT";
-            this.cuit_proveedor.Name = "cuit_proveedor";
-            this.cuit_proveedor.ReadOnly = true;
-            // 
-            // telefono_proveedor
-            // 
-            this.telefono_proveedor.HeaderText = "Teléfono";
-            this.telefono_proveedor.Name = "telefono_proveedor";
-            this.telefono_proveedor.ReadOnly = true;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.panel1.Controls.Add(this.chkIncluirInactivos);
             this.panel1.Controls.Add(this.BBuscar);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtBuscar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1278, 84);
+            this.panel1.Size = new System.Drawing.Size(1704, 103);
             this.panel1.TabIndex = 57;
             // 
             // BBuscar
@@ -223,7 +194,8 @@
             this.BBuscar.ImageAutoCenter = true;
             this.BBuscar.ImageExpand = new System.Drawing.Point(0, 0);
             this.BBuscar.ImageOffset = new System.Drawing.Point(0, 0);
-            this.BBuscar.Location = new System.Drawing.Point(266, 40);
+            this.BBuscar.Location = new System.Drawing.Point(546, 45);
+            this.BBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.BBuscar.Name = "BBuscar";
             this.BBuscar.NormalBackground = System.Drawing.Color.White;
             this.BBuscar.NormalForeColor = System.Drawing.Color.Black;
@@ -235,7 +207,7 @@
             this.BBuscar.PressedImageTint = System.Drawing.Color.White;
             this.BBuscar.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BBuscar.Rounding = new System.Windows.Forms.Padding(8);
-            this.BBuscar.Size = new System.Drawing.Size(91, 29);
+            this.BBuscar.Size = new System.Drawing.Size(121, 36);
             this.BBuscar.TabIndex = 11;
             this.BBuscar.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BBuscar.TextOffset = new System.Drawing.Point(0, 0);
@@ -249,7 +221,8 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(9, 6);
+            this.label1.Location = new System.Drawing.Point(12, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 25);
             this.label1.TabIndex = 6;
@@ -261,9 +234,10 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.White;
-            this.txtBuscar.Location = new System.Drawing.Point(8, 40);
+            this.txtBuscar.Location = new System.Drawing.Point(11, 49);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(232, 29);
+            this.txtBuscar.Size = new System.Drawing.Size(309, 29);
             this.txtBuscar.TabIndex = 5;
             // 
             // TCUsuarios
@@ -274,11 +248,12 @@
             this.TCUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCUsuarios.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TCUsuarios.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TCUsuarios.Location = new System.Drawing.Point(3, 455);
+            this.TCUsuarios.Location = new System.Drawing.Point(4, 561);
+            this.TCUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.TCUsuarios.Multiline = true;
             this.TCUsuarios.Name = "TCUsuarios";
             this.TCUsuarios.SelectedIndex = 0;
-            this.TCUsuarios.Size = new System.Drawing.Size(1278, 291);
+            this.TCUsuarios.Size = new System.Drawing.Size(1704, 357);
             this.TCUsuarios.TabIndex = 11;
             // 
             // tabPage1
@@ -286,9 +261,10 @@
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1270, 258);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1696, 324);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Alta de Proveedor";
             // 
@@ -306,10 +282,35 @@
             this.panel2.Controls.Add(this.BRegistrarProveedor);
             this.panel2.Controls.Add(this.LNombreProveedor);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Location = new System.Drawing.Point(4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1264, 252);
+            this.panel2.Size = new System.Drawing.Size(1688, 316);
             this.panel2.TabIndex = 0;
+            // 
+            // CBEstado
+            // 
+            this.CBEstado.BackColor = System.Drawing.SystemColors.Window;
+            this.CBEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBEstado.FormattingEnabled = true;
+            this.CBEstado.Location = new System.Drawing.Point(824, 187);
+            this.CBEstado.Margin = new System.Windows.Forms.Padding(4);
+            this.CBEstado.Name = "CBEstado";
+            this.CBEstado.Size = new System.Drawing.Size(308, 29);
+            this.CBEstado.TabIndex = 62;
+            // 
+            // LEstado
+            // 
+            this.LEstado.AutoSize = true;
+            this.LEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LEstado.Location = new System.Drawing.Point(824, 158);
+            this.LEstado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LEstado.Name = "LEstado";
+            this.LEstado.Size = new System.Drawing.Size(56, 21);
+            this.LEstado.TabIndex = 61;
+            this.LEstado.Text = "Estado";
             // 
             // TCUITProveedor
             // 
@@ -324,18 +325,18 @@
             this.TCUITProveedor.Image = null;
             this.TCUITProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.TCUITProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TCUITProveedor.Location = new System.Drawing.Point(344, 153);
-            this.TCUITProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.TCUITProveedor.Location = new System.Drawing.Point(459, 188);
+            this.TCUITProveedor.Margin = new System.Windows.Forms.Padding(5);
             this.TCUITProveedor.Multiline = false;
             this.TCUITProveedor.Name = "TCUITProveedor";
             this.TCUITProveedor.NormalImageTint = System.Drawing.Color.White;
             this.TCUITProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TCUITProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TCUITProveedor.Padding = new System.Windows.Forms.Padding(15, 10, 15, 0);
             this.TCUITProveedor.PasswordChar = false;
             this.TCUITProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TCUITProveedor.PlaceholderText = "";
             this.TCUITProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.TCUITProveedor.Size = new System.Drawing.Size(233, 28);
+            this.TCUITProveedor.Size = new System.Drawing.Size(311, 34);
             this.TCUITProveedor.TabIndex = 118;
             this.TCUITProveedor.TextOffset = new System.Drawing.Size(0, 0);
             this.TCUITProveedor.UnderlinedStyle = true;
@@ -345,7 +346,8 @@
             this.LCUITProveedor.AutoSize = true;
             this.LCUITProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCUITProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LCUITProveedor.Location = new System.Drawing.Point(344, 129);
+            this.LCUITProveedor.Location = new System.Drawing.Point(459, 159);
+            this.LCUITProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LCUITProveedor.Name = "LCUITProveedor";
             this.LCUITProveedor.Size = new System.Drawing.Size(43, 21);
             this.LCUITProveedor.TabIndex = 117;
@@ -364,18 +366,18 @@
             this.TTelefonoProveedor.Image = null;
             this.TTelefonoProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.TTelefonoProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TTelefonoProveedor.Location = new System.Drawing.Point(618, 80);
-            this.TTelefonoProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.TTelefonoProveedor.Location = new System.Drawing.Point(824, 98);
+            this.TTelefonoProveedor.Margin = new System.Windows.Forms.Padding(5);
             this.TTelefonoProveedor.Multiline = false;
             this.TTelefonoProveedor.Name = "TTelefonoProveedor";
             this.TTelefonoProveedor.NormalImageTint = System.Drawing.Color.White;
             this.TTelefonoProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TTelefonoProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TTelefonoProveedor.Padding = new System.Windows.Forms.Padding(15, 10, 15, 0);
             this.TTelefonoProveedor.PasswordChar = false;
             this.TTelefonoProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TTelefonoProveedor.PlaceholderText = "";
             this.TTelefonoProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.TTelefonoProveedor.Size = new System.Drawing.Size(233, 28);
+            this.TTelefonoProveedor.Size = new System.Drawing.Size(311, 34);
             this.TTelefonoProveedor.TabIndex = 116;
             this.TTelefonoProveedor.TextOffset = new System.Drawing.Size(0, 0);
             this.TTelefonoProveedor.UnderlinedStyle = true;
@@ -385,7 +387,8 @@
             this.LTelefonoProveedor.AutoSize = true;
             this.LTelefonoProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LTelefonoProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LTelefonoProveedor.Location = new System.Drawing.Point(618, 56);
+            this.LTelefonoProveedor.Location = new System.Drawing.Point(824, 69);
+            this.LTelefonoProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LTelefonoProveedor.Name = "LTelefonoProveedor";
             this.LTelefonoProveedor.Size = new System.Drawing.Size(155, 21);
             this.LTelefonoProveedor.TabIndex = 115;
@@ -404,18 +407,18 @@
             this.TIDProveedor.Image = null;
             this.TIDProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.TIDProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TIDProveedor.Location = new System.Drawing.Point(84, 229);
-            this.TIDProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.TIDProveedor.Location = new System.Drawing.Point(112, 282);
+            this.TIDProveedor.Margin = new System.Windows.Forms.Padding(5);
             this.TIDProveedor.Multiline = false;
             this.TIDProveedor.Name = "TIDProveedor";
             this.TIDProveedor.NormalImageTint = System.Drawing.Color.White;
             this.TIDProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TIDProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TIDProveedor.Padding = new System.Windows.Forms.Padding(15, 10, 15, 0);
             this.TIDProveedor.PasswordChar = false;
             this.TIDProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TIDProveedor.PlaceholderText = "";
             this.TIDProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.TIDProveedor.Size = new System.Drawing.Size(51, 28);
+            this.TIDProveedor.Size = new System.Drawing.Size(68, 34);
             this.TIDProveedor.TabIndex = 112;
             this.TIDProveedor.TextOffset = new System.Drawing.Size(0, 0);
             this.TIDProveedor.UnderlinedStyle = true;
@@ -434,18 +437,18 @@
             this.TIndice.Image = null;
             this.TIndice.ImageExpand = new System.Drawing.Point(0, 0);
             this.TIndice.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TIndice.Location = new System.Drawing.Point(13, 229);
-            this.TIndice.Margin = new System.Windows.Forms.Padding(4);
+            this.TIndice.Location = new System.Drawing.Point(17, 282);
+            this.TIndice.Margin = new System.Windows.Forms.Padding(5);
             this.TIndice.Multiline = false;
             this.TIndice.Name = "TIndice";
             this.TIndice.NormalImageTint = System.Drawing.Color.White;
             this.TIndice.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TIndice.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TIndice.Padding = new System.Windows.Forms.Padding(15, 10, 15, 0);
             this.TIndice.PasswordChar = false;
             this.TIndice.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TIndice.PlaceholderText = "";
             this.TIndice.Rounding = new System.Windows.Forms.Padding(8);
-            this.TIndice.Size = new System.Drawing.Size(51, 28);
+            this.TIndice.Size = new System.Drawing.Size(68, 34);
             this.TIndice.TabIndex = 111;
             this.TIndice.TextOffset = new System.Drawing.Size(0, 0);
             this.TIndice.UnderlinedStyle = true;
@@ -464,18 +467,18 @@
             this.TNombreProveedor.Image = null;
             this.TNombreProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.TNombreProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TNombreProveedor.Location = new System.Drawing.Point(344, 80);
-            this.TNombreProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.TNombreProveedor.Location = new System.Drawing.Point(459, 98);
+            this.TNombreProveedor.Margin = new System.Windows.Forms.Padding(5);
             this.TNombreProveedor.Multiline = false;
             this.TNombreProveedor.Name = "TNombreProveedor";
             this.TNombreProveedor.NormalImageTint = System.Drawing.Color.White;
             this.TNombreProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TNombreProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TNombreProveedor.Padding = new System.Windows.Forms.Padding(15, 10, 15, 0);
             this.TNombreProveedor.PasswordChar = false;
             this.TNombreProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TNombreProveedor.PlaceholderText = "";
             this.TNombreProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.TNombreProveedor.Size = new System.Drawing.Size(233, 28);
+            this.TNombreProveedor.Size = new System.Drawing.Size(311, 34);
             this.TNombreProveedor.TabIndex = 64;
             this.TNombreProveedor.TextOffset = new System.Drawing.Size(0, 0);
             this.TNombreProveedor.UnderlinedStyle = true;
@@ -501,7 +504,8 @@
             this.BRegistrarProveedor.ImageAutoCenter = true;
             this.BRegistrarProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.BRegistrarProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.BRegistrarProveedor.Location = new System.Drawing.Point(506, 217);
+            this.BRegistrarProveedor.Location = new System.Drawing.Point(675, 267);
+            this.BRegistrarProveedor.Margin = new System.Windows.Forms.Padding(4);
             this.BRegistrarProveedor.Name = "BRegistrarProveedor";
             this.BRegistrarProveedor.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.BRegistrarProveedor.NormalForeColor = System.Drawing.Color.White;
@@ -513,7 +517,7 @@
             this.BRegistrarProveedor.PressedImageTint = System.Drawing.Color.White;
             this.BRegistrarProveedor.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BRegistrarProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.BRegistrarProveedor.Size = new System.Drawing.Size(168, 32);
+            this.BRegistrarProveedor.Size = new System.Drawing.Size(224, 39);
             this.BRegistrarProveedor.TabIndex = 63;
             this.BRegistrarProveedor.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BRegistrarProveedor.TextOffset = new System.Drawing.Point(0, 0);
@@ -524,7 +528,8 @@
             this.LNombreProveedor.AutoSize = true;
             this.LNombreProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombreProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LNombreProveedor.Location = new System.Drawing.Point(344, 56);
+            this.LNombreProveedor.Location = new System.Drawing.Point(459, 69);
+            this.LNombreProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LNombreProveedor.Name = "LNombreProveedor";
             this.LNombreProveedor.Size = new System.Drawing.Size(169, 21);
             this.LNombreProveedor.TabIndex = 56;
@@ -535,9 +540,10 @@
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1270, 258);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1696, 324);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar Proveedor";
             // 
@@ -555,10 +561,37 @@
             this.panel3.Controls.Add(this.TModificarIDProveedor);
             this.panel3.Controls.Add(this.TBModificarIndice);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Location = new System.Drawing.Point(4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1264, 252);
+            this.panel3.Size = new System.Drawing.Size(1688, 316);
             this.panel3.TabIndex = 0;
+            // 
+            // LModificarEstado
+            // 
+            this.LModificarEstado.AutoSize = true;
+            this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LModificarEstado.Location = new System.Drawing.Point(824, 164);
+            this.LModificarEstado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LModificarEstado.Name = "LModificarEstado";
+            this.LModificarEstado.Size = new System.Drawing.Size(56, 21);
+            this.LModificarEstado.TabIndex = 127;
+            this.LModificarEstado.Text = "Estado";
+            // 
+            // CBModificarEstado
+            // 
+            this.CBModificarEstado.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CBModificarEstado.DisplayMember = "estado";
+            this.CBModificarEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBModificarEstado.FormattingEnabled = true;
+            this.CBModificarEstado.Location = new System.Drawing.Point(824, 193);
+            this.CBModificarEstado.Margin = new System.Windows.Forms.Padding(4);
+            this.CBModificarEstado.Name = "CBModificarEstado";
+            this.CBModificarEstado.Size = new System.Drawing.Size(308, 29);
+            this.CBModificarEstado.TabIndex = 126;
+            this.CBModificarEstado.ValueMember = "estado";
             // 
             // TModificarCUITProveedor
             // 
@@ -573,18 +606,18 @@
             this.TModificarCUITProveedor.Image = null;
             this.TModificarCUITProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarCUITProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TModificarCUITProveedor.Location = new System.Drawing.Point(340, 157);
-            this.TModificarCUITProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarCUITProveedor.Location = new System.Drawing.Point(453, 193);
+            this.TModificarCUITProveedor.Margin = new System.Windows.Forms.Padding(5);
             this.TModificarCUITProveedor.Multiline = false;
             this.TModificarCUITProveedor.Name = "TModificarCUITProveedor";
             this.TModificarCUITProveedor.NormalImageTint = System.Drawing.Color.White;
             this.TModificarCUITProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TModificarCUITProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarCUITProveedor.Padding = new System.Windows.Forms.Padding(20, 9, 20, 0);
             this.TModificarCUITProveedor.PasswordChar = false;
             this.TModificarCUITProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TModificarCUITProveedor.PlaceholderText = "";
             this.TModificarCUITProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.TModificarCUITProveedor.Size = new System.Drawing.Size(233, 28);
+            this.TModificarCUITProveedor.Size = new System.Drawing.Size(311, 34);
             this.TModificarCUITProveedor.TabIndex = 125;
             this.TModificarCUITProveedor.TextOffset = new System.Drawing.Size(0, 0);
             this.TModificarCUITProveedor.UnderlinedStyle = true;
@@ -594,7 +627,8 @@
             this.LModificarCUITProveedor.AutoSize = true;
             this.LModificarCUITProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarCUITProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarCUITProveedor.Location = new System.Drawing.Point(340, 133);
+            this.LModificarCUITProveedor.Location = new System.Drawing.Point(453, 164);
+            this.LModificarCUITProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LModificarCUITProveedor.Name = "LModificarCUITProveedor";
             this.LModificarCUITProveedor.Size = new System.Drawing.Size(43, 21);
             this.LModificarCUITProveedor.TabIndex = 124;
@@ -613,18 +647,18 @@
             this.TModificarTelefonoProveedor.Image = null;
             this.TModificarTelefonoProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarTelefonoProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TModificarTelefonoProveedor.Location = new System.Drawing.Point(614, 84);
-            this.TModificarTelefonoProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarTelefonoProveedor.Location = new System.Drawing.Point(819, 103);
+            this.TModificarTelefonoProveedor.Margin = new System.Windows.Forms.Padding(5);
             this.TModificarTelefonoProveedor.Multiline = false;
             this.TModificarTelefonoProveedor.Name = "TModificarTelefonoProveedor";
             this.TModificarTelefonoProveedor.NormalImageTint = System.Drawing.Color.White;
             this.TModificarTelefonoProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TModificarTelefonoProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarTelefonoProveedor.Padding = new System.Windows.Forms.Padding(20, 9, 20, 0);
             this.TModificarTelefonoProveedor.PasswordChar = false;
             this.TModificarTelefonoProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TModificarTelefonoProveedor.PlaceholderText = "";
             this.TModificarTelefonoProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.TModificarTelefonoProveedor.Size = new System.Drawing.Size(233, 28);
+            this.TModificarTelefonoProveedor.Size = new System.Drawing.Size(311, 34);
             this.TModificarTelefonoProveedor.TabIndex = 123;
             this.TModificarTelefonoProveedor.TextOffset = new System.Drawing.Size(0, 0);
             this.TModificarTelefonoProveedor.UnderlinedStyle = true;
@@ -634,7 +668,8 @@
             this.LModificarTelefonoProveedor.AutoSize = true;
             this.LModificarTelefonoProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarTelefonoProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarTelefonoProveedor.Location = new System.Drawing.Point(614, 60);
+            this.LModificarTelefonoProveedor.Location = new System.Drawing.Point(819, 74);
+            this.LModificarTelefonoProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LModificarTelefonoProveedor.Name = "LModificarTelefonoProveedor";
             this.LModificarTelefonoProveedor.Size = new System.Drawing.Size(155, 21);
             this.LModificarTelefonoProveedor.TabIndex = 122;
@@ -653,18 +688,18 @@
             this.TModificarNombreProveedor.Image = null;
             this.TModificarNombreProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarNombreProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TModificarNombreProveedor.Location = new System.Drawing.Point(340, 84);
-            this.TModificarNombreProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarNombreProveedor.Location = new System.Drawing.Point(453, 103);
+            this.TModificarNombreProveedor.Margin = new System.Windows.Forms.Padding(5);
             this.TModificarNombreProveedor.Multiline = false;
             this.TModificarNombreProveedor.Name = "TModificarNombreProveedor";
             this.TModificarNombreProveedor.NormalImageTint = System.Drawing.Color.White;
             this.TModificarNombreProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TModificarNombreProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarNombreProveedor.Padding = new System.Windows.Forms.Padding(20, 9, 20, 0);
             this.TModificarNombreProveedor.PasswordChar = false;
             this.TModificarNombreProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TModificarNombreProveedor.PlaceholderText = "";
             this.TModificarNombreProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.TModificarNombreProveedor.Size = new System.Drawing.Size(233, 28);
+            this.TModificarNombreProveedor.Size = new System.Drawing.Size(311, 34);
             this.TModificarNombreProveedor.TabIndex = 121;
             this.TModificarNombreProveedor.TextOffset = new System.Drawing.Size(0, 0);
             this.TModificarNombreProveedor.UnderlinedStyle = true;
@@ -690,7 +725,8 @@
             this.BModificarrProveedor.ImageAutoCenter = true;
             this.BModificarrProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.BModificarrProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.BModificarrProveedor.Location = new System.Drawing.Point(506, 220);
+            this.BModificarrProveedor.Location = new System.Drawing.Point(675, 271);
+            this.BModificarrProveedor.Margin = new System.Windows.Forms.Padding(4);
             this.BModificarrProveedor.Name = "BModificarrProveedor";
             this.BModificarrProveedor.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.BModificarrProveedor.NormalForeColor = System.Drawing.Color.White;
@@ -702,7 +738,7 @@
             this.BModificarrProveedor.PressedImageTint = System.Drawing.Color.White;
             this.BModificarrProveedor.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.BModificarrProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.BModificarrProveedor.Size = new System.Drawing.Size(168, 32);
+            this.BModificarrProveedor.Size = new System.Drawing.Size(224, 39);
             this.BModificarrProveedor.TabIndex = 120;
             this.BModificarrProveedor.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BModificarrProveedor.TextOffset = new System.Drawing.Point(0, 0);
@@ -713,7 +749,8 @@
             this.LModificarNombreProveedor.AutoSize = true;
             this.LModificarNombreProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarNombreProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarNombreProveedor.Location = new System.Drawing.Point(340, 60);
+            this.LModificarNombreProveedor.Location = new System.Drawing.Point(453, 74);
+            this.LModificarNombreProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LModificarNombreProveedor.Name = "LModificarNombreProveedor";
             this.LModificarNombreProveedor.Size = new System.Drawing.Size(169, 21);
             this.LModificarNombreProveedor.TabIndex = 119;
@@ -732,18 +769,18 @@
             this.TModificarIDProveedor.Image = null;
             this.TModificarIDProveedor.ImageExpand = new System.Drawing.Point(0, 0);
             this.TModificarIDProveedor.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TModificarIDProveedor.Location = new System.Drawing.Point(78, 238);
-            this.TModificarIDProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.TModificarIDProveedor.Location = new System.Drawing.Point(104, 293);
+            this.TModificarIDProveedor.Margin = new System.Windows.Forms.Padding(5);
             this.TModificarIDProveedor.Multiline = false;
             this.TModificarIDProveedor.Name = "TModificarIDProveedor";
             this.TModificarIDProveedor.NormalImageTint = System.Drawing.Color.White;
             this.TModificarIDProveedor.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TModificarIDProveedor.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TModificarIDProveedor.Padding = new System.Windows.Forms.Padding(20, 9, 20, 0);
             this.TModificarIDProveedor.PasswordChar = false;
             this.TModificarIDProveedor.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TModificarIDProveedor.PlaceholderText = "";
             this.TModificarIDProveedor.Rounding = new System.Windows.Forms.Padding(8);
-            this.TModificarIDProveedor.Size = new System.Drawing.Size(51, 28);
+            this.TModificarIDProveedor.Size = new System.Drawing.Size(68, 34);
             this.TModificarIDProveedor.TabIndex = 110;
             this.TModificarIDProveedor.TextOffset = new System.Drawing.Size(0, 0);
             this.TModificarIDProveedor.UnderlinedStyle = true;
@@ -761,18 +798,18 @@
             this.TBModificarIndice.Image = null;
             this.TBModificarIndice.ImageExpand = new System.Drawing.Point(0, 0);
             this.TBModificarIndice.ImageOffset = new System.Drawing.Point(0, 0);
-            this.TBModificarIndice.Location = new System.Drawing.Point(7, 238);
-            this.TBModificarIndice.Margin = new System.Windows.Forms.Padding(4);
+            this.TBModificarIndice.Location = new System.Drawing.Point(9, 293);
+            this.TBModificarIndice.Margin = new System.Windows.Forms.Padding(5);
             this.TBModificarIndice.Multiline = false;
             this.TBModificarIndice.Name = "TBModificarIndice";
             this.TBModificarIndice.NormalImageTint = System.Drawing.Color.White;
             this.TBModificarIndice.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.TBModificarIndice.Padding = new System.Windows.Forms.Padding(15, 7, 15, 0);
+            this.TBModificarIndice.Padding = new System.Windows.Forms.Padding(20, 9, 20, 0);
             this.TBModificarIndice.PasswordChar = false;
             this.TBModificarIndice.PlaceholderColor = System.Drawing.SystemColors.WindowText;
             this.TBModificarIndice.PlaceholderText = "";
             this.TBModificarIndice.Rounding = new System.Windows.Forms.Padding(8);
-            this.TBModificarIndice.Size = new System.Drawing.Size(51, 28);
+            this.TBModificarIndice.Size = new System.Drawing.Size(68, 34);
             this.TBModificarIndice.TabIndex = 108;
             this.TBModificarIndice.TextOffset = new System.Drawing.Size(0, 0);
             this.TBModificarIndice.UnderlinedStyle = true;
@@ -782,60 +819,80 @@
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // CBEstado
+            // chkIncluirInactivos
             // 
-            this.CBEstado.BackColor = System.Drawing.SystemColors.Window;
-            this.CBEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBEstado.FormattingEnabled = true;
-            this.CBEstado.Location = new System.Drawing.Point(618, 152);
-            this.CBEstado.Name = "CBEstado";
-            this.CBEstado.Size = new System.Drawing.Size(232, 29);
-            this.CBEstado.TabIndex = 62;
+            this.chkIncluirInactivos.AutoSize = true;
+            this.chkIncluirInactivos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkIncluirInactivos.ForeColor = System.Drawing.Color.White;
+            this.chkIncluirInactivos.Location = new System.Drawing.Point(347, 51);
+            this.chkIncluirInactivos.Name = "chkIncluirInactivos";
+            this.chkIncluirInactivos.Size = new System.Drawing.Size(137, 25);
+            this.chkIncluirInactivos.TabIndex = 12;
+            this.chkIncluirInactivos.Text = "Incluir Inactivos";
+            this.chkIncluirInactivos.UseVisualStyleBackColor = true;
             // 
-            // LEstado
+            // btnSeleccionar
             // 
-            this.LEstado.AutoSize = true;
-            this.LEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEstado.Location = new System.Drawing.Point(618, 128);
-            this.LEstado.Name = "LEstado";
-            this.LEstado.Size = new System.Drawing.Size(56, 21);
-            this.LEstado.TabIndex = 61;
-            this.LEstado.Text = "Estado";
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 112;
             // 
-            // LModificarEstado
+            // baja_estado_valor
             // 
-            this.LModificarEstado.AutoSize = true;
-            this.LModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LModificarEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarEstado.Location = new System.Drawing.Point(618, 133);
-            this.LModificarEstado.Name = "LModificarEstado";
-            this.LModificarEstado.Size = new System.Drawing.Size(56, 21);
-            this.LModificarEstado.TabIndex = 127;
-            this.LModificarEstado.Text = "Estado";
+            this.baja_estado_valor.DataPropertyName = "baja_proveedor";
+            this.baja_estado_valor.HeaderText = "Bool Baja_Estado";
+            this.baja_estado_valor.Name = "baja_estado_valor";
+            this.baja_estado_valor.ReadOnly = true;
+            this.baja_estado_valor.Visible = false;
             // 
-            // CBModificarEstado
+            // id_proveedor
             // 
-            this.CBModificarEstado.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.CBModificarEstado.DisplayMember = "estado";
-            this.CBModificarEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBModificarEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBModificarEstado.FormattingEnabled = true;
-            this.CBModificarEstado.Location = new System.Drawing.Point(618, 157);
-            this.CBModificarEstado.Name = "CBModificarEstado";
-            this.CBModificarEstado.Size = new System.Drawing.Size(232, 29);
-            this.CBModificarEstado.TabIndex = 126;
-            this.CBModificarEstado.ValueMember = "estado";
+            this.id_proveedor.DataPropertyName = "id_proveedor";
+            this.id_proveedor.HeaderText = "Cod. Proveedor";
+            this.id_proveedor.Name = "id_proveedor";
+            this.id_proveedor.ReadOnly = true;
+            // 
+            // nombre_proveedor
+            // 
+            this.nombre_proveedor.DataPropertyName = "nombre_proveedor";
+            this.nombre_proveedor.HeaderText = "Nombre de Proveedor";
+            this.nombre_proveedor.Name = "nombre_proveedor";
+            this.nombre_proveedor.ReadOnly = true;
+            // 
+            // baja_estado
+            // 
+            this.baja_estado.HeaderText = "Estado";
+            this.baja_estado.Name = "baja_estado";
+            this.baja_estado.ReadOnly = true;
+            // 
+            // cuit_proveedor
+            // 
+            this.cuit_proveedor.DataPropertyName = "cuit_proveedor";
+            this.cuit_proveedor.HeaderText = "CUIT";
+            this.cuit_proveedor.Name = "cuit_proveedor";
+            this.cuit_proveedor.ReadOnly = true;
+            // 
+            // telefono_proveedor
+            // 
+            this.telefono_proveedor.DataPropertyName = "telefono_proveedor";
+            this.telefono_proveedor.HeaderText = "Teléfono";
+            this.telefono_proveedor.Name = "telefono_proveedor";
+            this.telefono_proveedor.ReadOnly = true;
             // 
             // Proveedores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 749);
+            this.ClientSize = new System.Drawing.Size(1712, 922);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Proveedores";
             this.Text = "Proveedores";
+            this.Load += new System.EventHandler(this.Proveedores_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -873,11 +930,6 @@
         private CuoreUI.Controls.cuiTextBox TModificarIDProveedor;
         private CuoreUI.Controls.cuiTextBox TBModificarIndice;
         private DataSet1 dataSet1;
-        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cuit_proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono_proveedor;
         private CuoreUI.Controls.cuiTextBox TCUITProveedor;
         private System.Windows.Forms.Label LCUITProveedor;
         private CuoreUI.Controls.cuiTextBox TTelefonoProveedor;
@@ -893,5 +945,13 @@
         private System.Windows.Forms.Label LEstado;
         private System.Windows.Forms.Label LModificarEstado;
         private System.Windows.Forms.ComboBox CBModificarEstado;
+        private System.Windows.Forms.CheckBox chkIncluirInactivos;
+        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn baja_estado_valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn baja_estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cuit_proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono_proveedor;
     }
 }

@@ -194,6 +194,74 @@ namespace CapaDatos
             return existe;
         }
 
+        public List<Proveedor> BuscarProveedores(string busqueda, bool incluirInactivos)
+        {
+            List<Proveedor> lista = new List<Proveedor>();
+
+            using (SqlConnection oConexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_BUSCAR_PROVEEDORES", oConexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    string textoBuscar = busqueda?.Trim();
+
+                    if (string.IsNullOrWhiteSpace(textoBuscar))
+                    {
+                        // Si está vacío, mandamos todo en NULL para que traiga todo
+                        cmd.Parameters.AddWithValue("@nombre_proveedor", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@cuit_proveedor", DBNull.Value);
+                    }
+                    else
+                    {
+                        // Verificamos si parece un CUIT (solo números y guiones)
+                        // Quitamos los guiones para ver si lo que queda son solo números
+                        string soloNumeros = textoBuscar.Replace("-", "");
+                        bool esNumeroOCuit = long.TryParse(soloNumeros, out _);
+
+                        if (esNumeroOCuit)
+                        {
+                            // Lo mandamos al parámetro de CUIT
+                            cmd.Parameters.AddWithValue("@cuit_proveedor", textoBuscar);
+                            cmd.Parameters.AddWithValue("@nombre_proveedor", DBNull.Value); // Nombre en NULL
+                        }
+                        else
+                        {
+                            // Lo mandamos al parámetro de Nombre
+                            cmd.Parameters.AddWithValue("@nombre_proveedor", textoBuscar);
+                            cmd.Parameters.AddWithValue("@cuit_proveedor", DBNull.Value); // Cuit en NULL
+                        }
+                    }
+                    cmd.Parameters.AddWithValue("@telefono_proveedor", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@incluir_inactivos", incluirInactivos);
+
+                    oConexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Proveedor()
+                            {
+                                id_proveedor = Convert.ToInt32(dr["id_proveedor"]),
+                                nombre_proveedor = dr["nombre_proveedor"].ToString(),
+                                telefono_proveedor = dr["telefono_proveedor"].ToString(),
+                                cuit_proveedor = dr["cuit_proveedor"].ToString(),
+                                baja_proveedor = Convert.ToBoolean(dr["baja_proveedor"])
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = new List<Proveedor>();
+                    throw ex;
+                }
+            }
+            return lista;
+        }
+
         public Proveedor ObtenerProveedorPorId(int idProveedor)
         {
             Proveedor proveedor = null;
