@@ -53,5 +53,10 @@ namespace OcioStoreIngSoftII
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void GestionarCategorias_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

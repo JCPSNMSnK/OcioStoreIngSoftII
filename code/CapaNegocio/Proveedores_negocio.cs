@@ -19,6 +19,11 @@ namespace CapaNegocio
             return objProveedorDatos.Listar();
         }
 
+        public List<Proveedor> ListarProveedoresActivos()
+        {
+            return objProveedorDatos.ListarActivos();
+        }
+
         public int RegistrarProveedor(Proveedor objProveedor, out string mensaje)
         {
             mensaje = string.Empty;
@@ -111,5 +116,6 @@ namespace CapaNegocio
 
             return objProveedorDatos.ObtenerProveedorPorId(idProveedor);
         }
+
     }
 }

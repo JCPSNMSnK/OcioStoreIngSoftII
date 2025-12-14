@@ -54,6 +54,16 @@
             this.LProveedor = new System.Windows.Forms.Label();
             this.LProducto = new System.Windows.Forms.Label();
             this.comprasDataGridView = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.BRegistrarCompra = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.detallesDataGridView = new System.Windows.Forms.DataGridView();
+            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cod_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.id_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,15 +71,6 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImprimirCompra = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BRegistrarCompra = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.detallesDataGridView = new System.Windows.Forms.DataGridView();
-            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NCantidad)).BeginInit();
@@ -435,61 +436,7 @@
             this.comprasDataGridView.RowHeadersVisible = false;
             this.comprasDataGridView.Size = new System.Drawing.Size(852, 450);
             this.comprasDataGridView.TabIndex = 60;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 116;
-            // 
-            // id_compra
-            // 
-            this.id_compra.DataPropertyName = "id_compra";
-            this.id_compra.HeaderText = "Nro. Compra";
-            this.id_compra.Name = "id_compra";
-            this.id_compra.ReadOnly = true;
-            // 
-            // Proveedor
-            // 
-            this.Proveedor.DataPropertyName = "objProveedor.nombre_proveedor";
-            this.Proveedor.HeaderText = "Proveedor";
-            this.Proveedor.Name = "Proveedor";
-            this.Proveedor.ReadOnly = true;
-            // 
-            // Fecha
-            // 
-            this.Fecha.DataPropertyName = "fecha_compra";
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "total";
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            // 
-            // id_proveedor
-            // 
-            this.id_proveedor.DataPropertyName = "id_proveedor";
-            this.id_proveedor.HeaderText = "id_proveedor";
-            this.id_proveedor.Name = "id_proveedor";
-            this.id_proveedor.ReadOnly = true;
-            this.id_proveedor.Visible = false;
-            // 
-            // btnImprimirCompra
-            // 
-            this.btnImprimirCompra.DataPropertyName = "btnImprimir";
-            this.btnImprimirCompra.HeaderText = "Imprimir";
-            this.btnImprimirCompra.Name = "btnImprimirCompra";
-            this.btnImprimirCompra.ReadOnly = true;
-            this.btnImprimirCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnImprimirCompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.comprasDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.comprasDataGridView_CellFormatting);
             // 
             // tableLayoutPanel1
             // 
@@ -569,6 +516,7 @@
             this.detallesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.detallesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre_producto,
+            this.cod_producto,
             this.precio_unitario,
             this.cantidad});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
@@ -602,18 +550,28 @@
             // 
             // nombre_producto
             // 
+            this.nombre_producto.DataPropertyName = "nombre_producto";
             this.nombre_producto.HeaderText = "Nombre";
             this.nombre_producto.Name = "nombre_producto";
             this.nombre_producto.ReadOnly = true;
             // 
+            // cod_producto
+            // 
+            this.cod_producto.DataPropertyName = "cod_producto";
+            this.cod_producto.HeaderText = "Código";
+            this.cod_producto.Name = "cod_producto";
+            this.cod_producto.ReadOnly = true;
+            // 
             // precio_unitario
             // 
+            this.precio_unitario.DataPropertyName = "precio_unitario";
             this.precio_unitario.HeaderText = "Precio";
             this.precio_unitario.Name = "precio_unitario";
             this.precio_unitario.ReadOnly = true;
             // 
             // cantidad
             // 
+            this.cantidad.DataPropertyName = "cantidad";
             this.cantidad.HeaderText = "Cantidad";
             this.cantidad.Name = "cantidad";
             this.cantidad.ReadOnly = true;
@@ -627,6 +585,60 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(320, 255);
             this.panel3.TabIndex = 63;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 116;
+            // 
+            // id_compra
+            // 
+            this.id_compra.DataPropertyName = "id_compra";
+            this.id_compra.HeaderText = "Nro. Compra";
+            this.id_compra.Name = "id_compra";
+            this.id_compra.ReadOnly = true;
+            // 
+            // Proveedor
+            // 
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.ReadOnly = true;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "fecha_compra";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "total";
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            // 
+            // id_proveedor
+            // 
+            this.id_proveedor.DataPropertyName = "id_proveedor";
+            this.id_proveedor.HeaderText = "id_proveedor";
+            this.id_proveedor.Name = "id_proveedor";
+            this.id_proveedor.ReadOnly = true;
+            this.id_proveedor.Visible = false;
+            // 
+            // btnImprimirCompra
+            // 
+            this.btnImprimirCompra.DataPropertyName = "btnImprimir";
+            this.btnImprimirCompra.HeaderText = "Imprimir";
+            this.btnImprimirCompra.Name = "btnImprimirCompra";
+            this.btnImprimirCompra.ReadOnly = true;
+            this.btnImprimirCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnImprimirCompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Compras
             // 
@@ -678,6 +690,11 @@
         private CuoreUI.Controls.cuiTextBox TCodigoProducto;
         private CuoreUI.Controls.cuiTextBox TNombreProducto;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox CBProveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio_unitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_compra;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
@@ -685,9 +702,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
         private System.Windows.Forms.DataGridViewButtonColumn btnImprimirCompra;
-        private System.Windows.Forms.ComboBox CBProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio_unitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
     }
 }

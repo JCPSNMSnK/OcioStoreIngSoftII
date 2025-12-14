@@ -25,6 +25,18 @@ namespace OcioStoreIngSoftII
 
         private void Proveedores_Load(object sender, EventArgs e)
         {
+            // Llenar el ComboBox de estados
+            CBEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Alta" });
+            CBEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Baja" });
+            CBEstado.DisplayMember = "Texto";
+            CBEstado.ValueMember = "Valor";
+            CBEstado.SelectedIndex = 0;
+
+            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 0, Texto = "Alta" });
+            CBModificarEstado.Items.Add(new OpcionSelect() { Valor = 1, Texto = "Baja" });
+            CBModificarEstado.DisplayMember = "Texto";
+            CBModificarEstado.ValueMember = "Valor";
+
             actualizarDatosTabla();
         }
         private void actualizarDatosTabla(string filtros = null)
@@ -70,7 +82,8 @@ namespace OcioStoreIngSoftII
                     id_proveedor = Convert.ToInt32(TModificarIDProveedor.Content),
                     nombre_proveedor = TModificarNombreProveedor.Content,
                     cuit_proveedor = TModificarCUITProveedor.Content,
-                    telefono_proveedor = TModificarTelefonoProveedor.Content
+                    telefono_proveedor = TModificarTelefonoProveedor.Content,
+                    baja_proveedor = Convert.ToInt32(((OpcionSelect)CBModificarEstado.SelectedItem).Valor) == 1
                 };
 
                 // Llamada a la capa de negocio para la edición
@@ -103,7 +116,8 @@ namespace OcioStoreIngSoftII
                 {
                     nombre_proveedor = TNombreProveedor.Content,
                     telefono_proveedor = TTelefonoProveedor.Content,
-                    cuit_proveedor = TCUITProveedor.Content
+                    cuit_proveedor = TCUITProveedor.Content,
+                    baja_proveedor = Convert.ToInt32(((OpcionSelect)CBEstado.SelectedItem).Valor) == 1
                 };
 
                 if (proveedorNegocio.RegistrarProveedor(objProveedor, out string mensaje) > 0)
@@ -175,6 +189,18 @@ namespace OcioStoreIngSoftII
                     TModificarNombreProveedor.Content = proveedorSeleccionada.nombre_proveedor;
                     TModificarCUITProveedor.Content = proveedorSeleccionada.cuit_proveedor;
                     TModificarTelefonoProveedor.Content = proveedorSeleccionada.telefono_proveedor;
+
+                    if(proveedoresDataGridView.Rows[e.RowIndex].Cells["baja_estado_valor"].Value is bool isAlta)
+                    {
+                        foreach (OpcionSelect opcionSelect in CBModificarEstado.Items)
+                        {
+                            if ((Convert.ToInt32(opcionSelect.Valor) == 1 && isAlta) || (Convert.ToInt32(opcionSelect.Valor) == 0 && !isAlta))
+                            {
+                                CBModificarEstado.SelectedItem = opcionSelect;
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -182,6 +208,22 @@ namespace OcioStoreIngSoftII
         // DGV - Completa la lógica de la tabla una vez que el enlace de datos está completo
         private void proveedorsDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
+            foreach (DataGridViewRow row in proveedoresDataGridView.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var valor = row.Cells["baja_estado_valor"].Value;
+                if (valor != null && valor != DBNull.Value)
+                {
+                    bool estado = Convert.ToBoolean(valor);
+                    row.Cells["baja_estado"].Value = estado ? "Baja" : "Alta";
+                }
+                else
+                {
+                    row.Cells["baja_estado"].Value = "Desconocido";
+                }
+            }
+
             proveedoresDataGridView.ClearSelection();
             proveedoresDataGridView.CurrentCell = null;
         }
@@ -247,6 +289,7 @@ namespace OcioStoreIngSoftII
             TNombreProveedor.Content = string.Empty;
             TTelefonoProveedor.Content = string.Empty;
             TCUITProveedor.Content = string.Empty;
+            CBEstado.SelectedIndex = 0;
         }
 
         private void Users_KeyDown(object sender, KeyEventArgs e)

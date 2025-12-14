@@ -42,31 +42,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.productosDataGridView = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TCProductos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.PanelAltaProducts = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnElegirProveedores = new CuoreUI.Controls.cuiButton();
+            this.TProveedores = new System.Windows.Forms.TextBox();
             this.btnElegirCategorias = new CuoreUI.Controls.cuiButton();
             this.TCategorias = new System.Windows.Forms.TextBox();
             this.TIndice = new System.Windows.Forms.TextBox();
             this.TID_prod = new System.Windows.Forms.TextBox();
             this.BRegisterProduct = new CuoreUI.Controls.cuiButton();
-            this.CBProveedor = new System.Windows.Forms.ComboBox();
             this.LProveedor = new System.Windows.Forms.Label();
             this.TCodigo = new CuoreUI.Controls.cuiTextBox();
             this.LCodigo = new System.Windows.Forms.Label();
@@ -87,12 +73,13 @@
             this.LDescripcion = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnModificarProveedores = new CuoreUI.Controls.cuiButton();
+            this.TModificarProveedores = new System.Windows.Forms.TextBox();
             this.btnModificarCategorias = new CuoreUI.Controls.cuiButton();
             this.TModificarCategorias = new System.Windows.Forms.TextBox();
             this.TBModificarIndice = new System.Windows.Forms.TextBox();
             this.TModificarID_prod = new System.Windows.Forms.TextBox();
             this.BModificarProducto = new CuoreUI.Controls.cuiButton();
-            this.CBModificarProveedor = new System.Windows.Forms.ComboBox();
             this.LModificarProveedor = new System.Windows.Forms.Label();
             this.TModificarCodigo = new CuoreUI.Controls.cuiTextBox();
             this.LModificarCodigo = new System.Windows.Forms.Label();
@@ -111,6 +98,21 @@
             this.LModificarPrecioLista = new System.Windows.Forms.Label();
             this.LModificarNombreProducto = new System.Windows.Forms.Label();
             this.LModificarDescripcion = new System.Windows.Forms.Label();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioLista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock_min = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             this.TLayoutProducts.SuspendLayout();
@@ -140,7 +142,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1127, 740);
+            this.panel1.Size = new System.Drawing.Size(1128, 740);
             this.panel1.TabIndex = 0;
             // 
             // TLayoutProducts
@@ -158,7 +160,7 @@
             this.TLayoutProducts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.TLayoutProducts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
             this.TLayoutProducts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
-            this.TLayoutProducts.Size = new System.Drawing.Size(1127, 740);
+            this.TLayoutProducts.Size = new System.Drawing.Size(1128, 740);
             this.TLayoutProducts.TabIndex = 1;
             // 
             // panel2
@@ -172,7 +174,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1121, 94);
+            this.panel2.Size = new System.Drawing.Size(1122, 94);
             this.panel2.TabIndex = 58;
             // 
             // btnLimpiarFiltros
@@ -359,152 +361,11 @@
             this.productosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.productosDataGridView.RowHeadersVisible = false;
             this.productosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productosDataGridView.Size = new System.Drawing.Size(1097, 394);
+            this.productosDataGridView.Size = new System.Drawing.Size(1098, 394);
             this.productosDataGridView.TabIndex = 57;
             this.productosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productosDataGridView_CellContentClick_1);
             this.productosDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.productosDataGridView_CellPainting);
             this.productosDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.productosDataGridView_DataBindingComplete);
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.btnSeleccionar.HeaderText = "Seleccionar";
-            this.btnSeleccionar.MinimumWidth = 110;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 112;
-            // 
-            // id_producto
-            // 
-            this.id_producto.DataPropertyName = "id_producto";
-            this.id_producto.HeaderText = "ID";
-            this.id_producto.Name = "id_producto";
-            this.id_producto.ReadOnly = true;
-            this.id_producto.Visible = false;
-            // 
-            // Codigo
-            // 
-            this.Codigo.DataPropertyName = "cod_producto";
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.MinimumWidth = 110;
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 110;
-            // 
-            // nombre_producto
-            // 
-            this.nombre_producto.DataPropertyName = "nombre_producto";
-            this.nombre_producto.HeaderText = "Nombre";
-            this.nombre_producto.MinimumWidth = 110;
-            this.nombre_producto.Name = "nombre_producto";
-            this.nombre_producto.ReadOnly = true;
-            this.nombre_producto.Width = 110;
-            // 
-            // Categoria
-            // 
-            this.Categoria.DataPropertyName = "CategoriasConcatenadas";
-            this.Categoria.HeaderText = "Categorias";
-            this.Categoria.MinimumWidth = 200;
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 200;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "descripcion";
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.MinimumWidth = 250;
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 250;
-            // 
-            // PrecioLista
-            // 
-            this.PrecioLista.DataPropertyName = "precioLista";
-            this.PrecioLista.HeaderText = "Precio Lista";
-            this.PrecioLista.MinimumWidth = 110;
-            this.PrecioLista.Name = "PrecioLista";
-            this.PrecioLista.ReadOnly = true;
-            this.PrecioLista.Width = 110;
-            // 
-            // PrecioVenta
-            // 
-            this.PrecioVenta.DataPropertyName = "precioVenta";
-            this.PrecioVenta.HeaderText = "Precio Venta";
-            this.PrecioVenta.MinimumWidth = 110;
-            this.PrecioVenta.Name = "PrecioVenta";
-            this.PrecioVenta.ReadOnly = true;
-            this.PrecioVenta.Width = 110;
-            // 
-            // FechaIngreso
-            // 
-            this.FechaIngreso.DataPropertyName = "fechaIngreso";
-            this.FechaIngreso.HeaderText = "Fecha Ingreso";
-            this.FechaIngreso.MinimumWidth = 110;
-            this.FechaIngreso.Name = "FechaIngreso";
-            this.FechaIngreso.ReadOnly = true;
-            this.FechaIngreso.Width = 110;
-            // 
-            // Stock
-            // 
-            this.Stock.DataPropertyName = "stock";
-            this.Stock.HeaderText = "Stock";
-            this.Stock.MinimumWidth = 110;
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 110;
-            // 
-            // stock_min
-            // 
-            this.stock_min.DataPropertyName = "stock_min";
-            this.stock_min.HeaderText = "Stock Mínimo";
-            this.stock_min.MinimumWidth = 110;
-            this.stock_min.Name = "stock_min";
-            this.stock_min.ReadOnly = true;
-            this.stock_min.Width = 110;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Dado de Baja?";
-            this.estado.MinimumWidth = 110;
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.estado.Width = 110;
-            // 
-            // estadoValor
-            // 
-            this.estadoValor.DataPropertyName = "baja_producto";
-            this.estadoValor.HeaderText = "estadoValor";
-            this.estadoValor.MinimumWidth = 110;
-            this.estadoValor.Name = "estadoValor";
-            this.estadoValor.ReadOnly = true;
-            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.estadoValor.Visible = false;
-            this.estadoValor.Width = 110;
-            // 
-            // Proveedor
-            // 
-            this.Proveedor.DataPropertyName = "nombre_proveedor";
-            this.Proveedor.HeaderText = "Proveedor";
-            this.Proveedor.MinimumWidth = 110;
-            this.Proveedor.Name = "Proveedor";
-            this.Proveedor.ReadOnly = true;
-            this.Proveedor.Width = 110;
-            // 
-            // id_proveedor
-            // 
-            this.id_proveedor.DataPropertyName = "id_proveedor";
-            this.id_proveedor.HeaderText = "id_proveedor";
-            this.id_proveedor.MinimumWidth = 110;
-            this.id_proveedor.Name = "id_proveedor";
-            this.id_proveedor.ReadOnly = true;
-            this.id_proveedor.Visible = false;
-            this.id_proveedor.Width = 110;
             // 
             // TCProductos
             // 
@@ -518,7 +379,7 @@
             this.TCProductos.Multiline = true;
             this.TCProductos.Name = "TCProductos";
             this.TCProductos.SelectedIndex = 0;
-            this.TCProductos.Size = new System.Drawing.Size(1121, 394);
+            this.TCProductos.Size = new System.Drawing.Size(1122, 394);
             this.TCProductos.TabIndex = 11;
             // 
             // tabPage1
@@ -528,7 +389,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1113, 361);
+            this.tabPage1.Size = new System.Drawing.Size(1114, 361);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Alta de Productos";
             // 
@@ -540,17 +401,18 @@
             this.PanelAltaProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelAltaProducts.Location = new System.Drawing.Point(3, 3);
             this.PanelAltaProducts.Name = "PanelAltaProducts";
-            this.PanelAltaProducts.Size = new System.Drawing.Size(1107, 355);
+            this.PanelAltaProducts.Size = new System.Drawing.Size(1108, 355);
             this.PanelAltaProducts.TabIndex = 7;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnElegirProveedores);
+            this.panel3.Controls.Add(this.TProveedores);
             this.panel3.Controls.Add(this.btnElegirCategorias);
             this.panel3.Controls.Add(this.TCategorias);
             this.panel3.Controls.Add(this.TIndice);
             this.panel3.Controls.Add(this.TID_prod);
             this.panel3.Controls.Add(this.BRegisterProduct);
-            this.panel3.Controls.Add(this.CBProveedor);
             this.panel3.Controls.Add(this.LProveedor);
             this.panel3.Controls.Add(this.TCodigo);
             this.panel3.Controls.Add(this.LCodigo);
@@ -572,8 +434,56 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1107, 355);
+            this.panel3.Size = new System.Drawing.Size(1108, 355);
             this.panel3.TabIndex = 0;
+            // 
+            // btnElegirProveedores
+            // 
+            this.btnElegirProveedores.CheckButton = false;
+            this.btnElegirProveedores.Checked = false;
+            this.btnElegirProveedores.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnElegirProveedores.CheckedForeColor = System.Drawing.Color.White;
+            this.btnElegirProveedores.CheckedImageTint = System.Drawing.Color.White;
+            this.btnElegirProveedores.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnElegirProveedores.Content = "Elegir Proveedores";
+            this.btnElegirProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnElegirProveedores.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnElegirProveedores.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElegirProveedores.ForeColor = System.Drawing.Color.White;
+            this.btnElegirProveedores.HoverBackground = System.Drawing.Color.White;
+            this.btnElegirProveedores.HoverForeColor = System.Drawing.Color.Black;
+            this.btnElegirProveedores.HoverImageTint = System.Drawing.Color.White;
+            this.btnElegirProveedores.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnElegirProveedores.Image = null;
+            this.btnElegirProveedores.ImageAutoCenter = true;
+            this.btnElegirProveedores.ImageExpand = new System.Drawing.Point(0, 0);
+            this.btnElegirProveedores.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnElegirProveedores.Location = new System.Drawing.Point(687, 106);
+            this.btnElegirProveedores.Name = "btnElegirProveedores";
+            this.btnElegirProveedores.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.btnElegirProveedores.NormalForeColor = System.Drawing.Color.White;
+            this.btnElegirProveedores.NormalImageTint = System.Drawing.Color.White;
+            this.btnElegirProveedores.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnElegirProveedores.OutlineThickness = 1F;
+            this.btnElegirProveedores.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.btnElegirProveedores.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnElegirProveedores.PressedImageTint = System.Drawing.Color.White;
+            this.btnElegirProveedores.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnElegirProveedores.Rounding = new System.Windows.Forms.Padding(8);
+            this.btnElegirProveedores.Size = new System.Drawing.Size(233, 32);
+            this.btnElegirProveedores.TabIndex = 158;
+            this.btnElegirProveedores.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnElegirProveedores.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnElegirProveedores.Click += new System.EventHandler(this.btnElegirProveedores_Click);
+            // 
+            // TProveedores
+            // 
+            this.TProveedores.Location = new System.Drawing.Point(687, 40);
+            this.TProveedores.Multiline = true;
+            this.TProveedores.Name = "TProveedores";
+            this.TProveedores.ReadOnly = true;
+            this.TProveedores.Size = new System.Drawing.Size(233, 48);
+            this.TProveedores.TabIndex = 157;
             // 
             // btnElegirCategorias
             // 
@@ -596,7 +506,7 @@
             this.btnElegirCategorias.ImageAutoCenter = true;
             this.btnElegirCategorias.ImageExpand = new System.Drawing.Point(0, 0);
             this.btnElegirCategorias.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnElegirCategorias.Location = new System.Drawing.Point(687, 227);
+            this.btnElegirCategorias.Location = new System.Drawing.Point(687, 253);
             this.btnElegirCategorias.Name = "btnElegirCategorias";
             this.btnElegirCategorias.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.btnElegirCategorias.NormalForeColor = System.Drawing.Color.White;
@@ -616,11 +526,11 @@
             // 
             // TCategorias
             // 
-            this.TCategorias.Location = new System.Drawing.Point(687, 114);
+            this.TCategorias.Location = new System.Drawing.Point(687, 187);
             this.TCategorias.Multiline = true;
             this.TCategorias.Name = "TCategorias";
             this.TCategorias.ReadOnly = true;
-            this.TCategorias.Size = new System.Drawing.Size(233, 98);
+            this.TCategorias.Size = new System.Drawing.Size(233, 48);
             this.TCategorias.TabIndex = 154;
             // 
             // TIndice
@@ -687,15 +597,6 @@
             this.BRegisterProduct.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BRegisterProduct.TextOffset = new System.Drawing.Point(0, 0);
             this.BRegisterProduct.Click += new System.EventHandler(this.BRegisterProduct_Click_1);
-            // 
-            // CBProveedor
-            // 
-            this.CBProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBProveedor.FormattingEnabled = true;
-            this.CBProveedor.Location = new System.Drawing.Point(687, 40);
-            this.CBProveedor.Name = "CBProveedor";
-            this.CBProveedor.Size = new System.Drawing.Size(233, 28);
-            this.CBProveedor.TabIndex = 104;
             // 
             // LProveedor
             // 
@@ -934,7 +835,7 @@
             this.LCategoria.AutoSize = true;
             this.LCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LCategoria.Location = new System.Drawing.Point(695, 87);
+            this.LCategoria.Location = new System.Drawing.Point(695, 159);
             this.LCategoria.Name = "LCategoria";
             this.LCategoria.Size = new System.Drawing.Size(84, 21);
             this.LCategoria.TabIndex = 89;
@@ -991,18 +892,19 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1113, 361);
+            this.tabPage2.Size = new System.Drawing.Size(1114, 361);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar Productos";
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnModificarProveedores);
+            this.panel4.Controls.Add(this.TModificarProveedores);
             this.panel4.Controls.Add(this.btnModificarCategorias);
             this.panel4.Controls.Add(this.TModificarCategorias);
             this.panel4.Controls.Add(this.TBModificarIndice);
             this.panel4.Controls.Add(this.TModificarID_prod);
             this.panel4.Controls.Add(this.BModificarProducto);
-            this.panel4.Controls.Add(this.CBModificarProveedor);
             this.panel4.Controls.Add(this.LModificarProveedor);
             this.panel4.Controls.Add(this.TModificarCodigo);
             this.panel4.Controls.Add(this.LModificarCodigo);
@@ -1024,8 +926,56 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1107, 355);
+            this.panel4.Size = new System.Drawing.Size(1108, 355);
             this.panel4.TabIndex = 0;
+            // 
+            // btnModificarProveedores
+            // 
+            this.btnModificarProveedores.CheckButton = false;
+            this.btnModificarProveedores.Checked = false;
+            this.btnModificarProveedores.CheckedBackground = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnModificarProveedores.CheckedForeColor = System.Drawing.Color.White;
+            this.btnModificarProveedores.CheckedImageTint = System.Drawing.Color.White;
+            this.btnModificarProveedores.CheckedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
+            this.btnModificarProveedores.Content = "Modificar Proveedores";
+            this.btnModificarProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificarProveedores.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnModificarProveedores.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarProveedores.ForeColor = System.Drawing.Color.White;
+            this.btnModificarProveedores.HoverBackground = System.Drawing.Color.White;
+            this.btnModificarProveedores.HoverForeColor = System.Drawing.Color.Black;
+            this.btnModificarProveedores.HoverImageTint = System.Drawing.Color.White;
+            this.btnModificarProveedores.HoverOutline = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnModificarProveedores.Image = null;
+            this.btnModificarProveedores.ImageAutoCenter = true;
+            this.btnModificarProveedores.ImageExpand = new System.Drawing.Point(0, 0);
+            this.btnModificarProveedores.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnModificarProveedores.Location = new System.Drawing.Point(684, 110);
+            this.btnModificarProveedores.Name = "btnModificarProveedores";
+            this.btnModificarProveedores.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
+            this.btnModificarProveedores.NormalForeColor = System.Drawing.Color.White;
+            this.btnModificarProveedores.NormalImageTint = System.Drawing.Color.White;
+            this.btnModificarProveedores.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnModificarProveedores.OutlineThickness = 1F;
+            this.btnModificarProveedores.PressedBackground = System.Drawing.Color.WhiteSmoke;
+            this.btnModificarProveedores.PressedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.btnModificarProveedores.PressedImageTint = System.Drawing.Color.White;
+            this.btnModificarProveedores.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnModificarProveedores.Rounding = new System.Windows.Forms.Padding(8);
+            this.btnModificarProveedores.Size = new System.Drawing.Size(233, 32);
+            this.btnModificarProveedores.TabIndex = 155;
+            this.btnModificarProveedores.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnModificarProveedores.TextOffset = new System.Drawing.Point(0, 0);
+            this.btnModificarProveedores.Click += new System.EventHandler(this.btnModificarProveedores_Click);
+            // 
+            // TModificarProveedores
+            // 
+            this.TModificarProveedores.Location = new System.Drawing.Point(684, 40);
+            this.TModificarProveedores.Multiline = true;
+            this.TModificarProveedores.Name = "TModificarProveedores";
+            this.TModificarProveedores.ReadOnly = true;
+            this.TModificarProveedores.Size = new System.Drawing.Size(233, 51);
+            this.TModificarProveedores.TabIndex = 154;
             // 
             // btnModificarCategorias
             // 
@@ -1048,7 +998,7 @@
             this.btnModificarCategorias.ImageAutoCenter = true;
             this.btnModificarCategorias.ImageExpand = new System.Drawing.Point(0, 0);
             this.btnModificarCategorias.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnModificarCategorias.Location = new System.Drawing.Point(684, 227);
+            this.btnModificarCategorias.Location = new System.Drawing.Point(684, 253);
             this.btnModificarCategorias.Name = "btnModificarCategorias";
             this.btnModificarCategorias.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(127)))), ((int)(((byte)(191)))));
             this.btnModificarCategorias.NormalForeColor = System.Drawing.Color.White;
@@ -1068,11 +1018,11 @@
             // 
             // TModificarCategorias
             // 
-            this.TModificarCategorias.Location = new System.Drawing.Point(684, 114);
+            this.TModificarCategorias.Location = new System.Drawing.Point(684, 183);
             this.TModificarCategorias.Multiline = true;
             this.TModificarCategorias.Name = "TModificarCategorias";
             this.TModificarCategorias.ReadOnly = true;
-            this.TModificarCategorias.Size = new System.Drawing.Size(233, 98);
+            this.TModificarCategorias.Size = new System.Drawing.Size(233, 51);
             this.TModificarCategorias.TabIndex = 152;
             // 
             // TBModificarIndice
@@ -1085,7 +1035,7 @@
             this.TBModificarIndice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TBModificarIndice.Location = new System.Drawing.Point(1, 332);
             this.TBModificarIndice.Name = "TBModificarIndice";
-            this.TBModificarIndice.Size = new System.Drawing.Size(45, 29);
+            this.TBModificarIndice.Size = new System.Drawing.Size(46, 29);
             this.TBModificarIndice.TabIndex = 151;
             this.TBModificarIndice.Text = "-1";
             this.TBModificarIndice.Visible = false;
@@ -1100,7 +1050,7 @@
             this.TModificarID_prod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TModificarID_prod.Location = new System.Drawing.Point(52, 332);
             this.TModificarID_prod.Name = "TModificarID_prod";
-            this.TModificarID_prod.Size = new System.Drawing.Size(46, 29);
+            this.TModificarID_prod.Size = new System.Drawing.Size(47, 29);
             this.TModificarID_prod.TabIndex = 150;
             // 
             // BModificarProducto
@@ -1141,15 +1091,6 @@
             this.BModificarProducto.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BModificarProducto.TextOffset = new System.Drawing.Point(0, 0);
             this.BModificarProducto.Click += new System.EventHandler(this.BModificar_Click_1);
-            // 
-            // CBModificarProveedor
-            // 
-            this.CBModificarProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBModificarProveedor.FormattingEnabled = true;
-            this.CBModificarProveedor.Location = new System.Drawing.Point(684, 40);
-            this.CBModificarProveedor.Name = "CBModificarProveedor";
-            this.CBModificarProveedor.Size = new System.Drawing.Size(233, 28);
-            this.CBModificarProveedor.TabIndex = 148;
             // 
             // LModificarProveedor
             // 
@@ -1388,7 +1329,7 @@
             this.LModificarCategoria.AutoSize = true;
             this.LModificarCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LModificarCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LModificarCategoria.Location = new System.Drawing.Point(695, 89);
+            this.LModificarCategoria.Location = new System.Drawing.Point(687, 159);
             this.LModificarCategoria.Name = "LModificarCategoria";
             this.LModificarCategoria.Size = new System.Drawing.Size(84, 21);
             this.LModificarCategoria.TabIndex = 133;
@@ -1438,12 +1379,153 @@
             this.LModificarDescripcion.TabIndex = 129;
             this.LModificarDescripcion.Text = "Descripcion";
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnSeleccionar.HeaderText = "Seleccionar";
+            this.btnSeleccionar.MinimumWidth = 110;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 112;
+            // 
+            // id_producto
+            // 
+            this.id_producto.DataPropertyName = "id_producto";
+            this.id_producto.HeaderText = "ID";
+            this.id_producto.Name = "id_producto";
+            this.id_producto.ReadOnly = true;
+            this.id_producto.Visible = false;
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "cod_producto";
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.MinimumWidth = 110;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 110;
+            // 
+            // nombre_producto
+            // 
+            this.nombre_producto.DataPropertyName = "nombre_producto";
+            this.nombre_producto.HeaderText = "Nombre";
+            this.nombre_producto.MinimumWidth = 110;
+            this.nombre_producto.Name = "nombre_producto";
+            this.nombre_producto.ReadOnly = true;
+            this.nombre_producto.Width = 110;
+            // 
+            // Categoria
+            // 
+            this.Categoria.DataPropertyName = "CategoriasConcatenadas";
+            this.Categoria.HeaderText = "Categorias";
+            this.Categoria.MinimumWidth = 200;
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 200;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "descripcion";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.MinimumWidth = 250;
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 250;
+            // 
+            // PrecioLista
+            // 
+            this.PrecioLista.DataPropertyName = "precioLista";
+            this.PrecioLista.HeaderText = "Precio Lista";
+            this.PrecioLista.MinimumWidth = 110;
+            this.PrecioLista.Name = "PrecioLista";
+            this.PrecioLista.ReadOnly = true;
+            this.PrecioLista.Width = 110;
+            // 
+            // PrecioVenta
+            // 
+            this.PrecioVenta.DataPropertyName = "precioVenta";
+            this.PrecioVenta.HeaderText = "Precio Venta";
+            this.PrecioVenta.MinimumWidth = 110;
+            this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.ReadOnly = true;
+            this.PrecioVenta.Width = 110;
+            // 
+            // FechaIngreso
+            // 
+            this.FechaIngreso.DataPropertyName = "fechaIngreso";
+            this.FechaIngreso.HeaderText = "Fecha Ingreso";
+            this.FechaIngreso.MinimumWidth = 110;
+            this.FechaIngreso.Name = "FechaIngreso";
+            this.FechaIngreso.ReadOnly = true;
+            this.FechaIngreso.Width = 110;
+            // 
+            // Stock
+            // 
+            this.Stock.DataPropertyName = "stock";
+            this.Stock.HeaderText = "Stock";
+            this.Stock.MinimumWidth = 110;
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 110;
+            // 
+            // stock_min
+            // 
+            this.stock_min.DataPropertyName = "stock_min";
+            this.stock_min.HeaderText = "Stock Mínimo";
+            this.stock_min.MinimumWidth = 110;
+            this.stock_min.Name = "stock_min";
+            this.stock_min.ReadOnly = true;
+            this.stock_min.Width = 110;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Dado de Baja?";
+            this.estado.MinimumWidth = 110;
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            this.estado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estado.Width = 110;
+            // 
+            // estadoValor
+            // 
+            this.estadoValor.DataPropertyName = "baja_producto";
+            this.estadoValor.HeaderText = "estadoValor";
+            this.estadoValor.MinimumWidth = 110;
+            this.estadoValor.Name = "estadoValor";
+            this.estadoValor.ReadOnly = true;
+            this.estadoValor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.estadoValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.estadoValor.Visible = false;
+            this.estadoValor.Width = 110;
+            // 
+            // Proveedor
+            // 
+            this.Proveedor.DataPropertyName = "ProveedoresConcatenados";
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.MinimumWidth = 110;
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.ReadOnly = true;
+            this.Proveedor.Width = 110;
+            // 
+            // id_proveedor
+            // 
+            this.id_proveedor.DataPropertyName = "id_proveedor";
+            this.id_proveedor.HeaderText = "id_proveedor";
+            this.id_proveedor.MinimumWidth = 110;
+            this.id_proveedor.Name = "id_proveedor";
+            this.id_proveedor.ReadOnly = true;
+            this.id_proveedor.Visible = false;
+            this.id_proveedor.Width = 110;
+            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ClientSize = new System.Drawing.Size(1127, 740);
+            this.ClientSize = new System.Drawing.Size(1128, 740);
             this.Controls.Add(this.panel1);
             this.KeyPreview = true;
             this.Name = "Products";
@@ -1488,7 +1570,6 @@
         private System.Windows.Forms.TextBox TIndice;
         private System.Windows.Forms.TextBox TID_prod;
         private CuoreUI.Controls.cuiButton BRegisterProduct;
-        private System.Windows.Forms.ComboBox CBProveedor;
         private System.Windows.Forms.Label LProveedor;
         private CuoreUI.Controls.cuiTextBox TCodigo;
         private System.Windows.Forms.Label LCodigo;
@@ -1512,7 +1593,6 @@
         private System.Windows.Forms.TextBox TBModificarIndice;
         private System.Windows.Forms.TextBox TModificarID_prod;
         private CuoreUI.Controls.cuiButton BModificarProducto;
-        private System.Windows.Forms.ComboBox CBModificarProveedor;
         private System.Windows.Forms.Label LModificarProveedor;
         private CuoreUI.Controls.cuiTextBox TModificarCodigo;
         private System.Windows.Forms.Label LModificarCodigo;
@@ -1538,6 +1618,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CBFiltroCategoria;
         private CuoreUI.Controls.cuiButton btnLimpiarFiltros;
+        private CuoreUI.Controls.cuiButton btnElegirProveedores;
+        private System.Windows.Forms.TextBox TProveedores;
+        private CuoreUI.Controls.cuiButton btnModificarProveedores;
+        private System.Windows.Forms.TextBox TModificarProveedores;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;

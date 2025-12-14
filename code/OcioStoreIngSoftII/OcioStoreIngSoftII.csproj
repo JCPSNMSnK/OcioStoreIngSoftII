@@ -357,6 +357,9 @@
     <Compile Include="GestionarCategorias.Designer.cs">
       <DependentUpon>GestionarCategorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionarProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Informes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -469,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestionarCategorias.resx">
       <DependentUpon>GestionarCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionarProveedores.resx">
+      <DependentUpon>GestionarProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Informes.resx">
       <DependentUpon>Informes.cs</DependentUpon>
