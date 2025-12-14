@@ -67,7 +67,6 @@ namespace OcioStoreIngSoftII
                 "ProductsButton",
                 "ClientsButton",
                 "SellButton",
-                "ProductsButton",
                 "CategoriesButton",
                 "ReceiptsButton",
                 "StatsButton",
