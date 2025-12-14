@@ -70,7 +70,7 @@
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnImprimirCompra = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnPDFcompra = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NCantidad)).BeginInit();
@@ -408,7 +408,7 @@
             this.Fecha,
             this.Total,
             this.id_proveedor,
-            this.btnImprimirCompra});
+            this.btnPDFcompra});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -436,6 +436,7 @@
             this.comprasDataGridView.RowHeadersVisible = false;
             this.comprasDataGridView.Size = new System.Drawing.Size(852, 450);
             this.comprasDataGridView.TabIndex = 60;
+            this.comprasDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.comprasDataGridView_CellContentClick);
             this.comprasDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.comprasDataGridView_CellFormatting);
             // 
             // tableLayoutPanel1
@@ -631,14 +632,14 @@
             this.id_proveedor.ReadOnly = true;
             this.id_proveedor.Visible = false;
             // 
-            // btnImprimirCompra
+            // btnPDFcompra
             // 
-            this.btnImprimirCompra.DataPropertyName = "btnImprimir";
-            this.btnImprimirCompra.HeaderText = "Imprimir";
-            this.btnImprimirCompra.Name = "btnImprimirCompra";
-            this.btnImprimirCompra.ReadOnly = true;
-            this.btnImprimirCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnImprimirCompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnPDFcompra.DataPropertyName = "btnPDF";
+            this.btnPDFcompra.HeaderText = "Imprimir";
+            this.btnPDFcompra.Name = "btnPDFcompra";
+            this.btnPDFcompra.ReadOnly = true;
+            this.btnPDFcompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnPDFcompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Compras
             // 
@@ -701,6 +702,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
-        private System.Windows.Forms.DataGridViewButtonColumn btnImprimirCompra;
+        private System.Windows.Forms.DataGridViewButtonColumn btnPDFcompra;
     }
 }

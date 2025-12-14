@@ -13,9 +13,6 @@ using CapaDatos;
 using FontAwesome.Sharp;
 using CapaEntidades.Utilidades;
 using System.IO;
-using iText.Layout;
-//using iText.Kernel.Geom;
-using iText.Kernel.Pdf;
 using iTextSharp.tool.xml;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -39,6 +36,14 @@ namespace OcioStoreIngSoftII
         {
             // EVITA que se generen columnas automáticas "feas"
             comprasDataGridView.AutoGenerateColumns = false;
+
+            // --- AGREGAR BOTÓN DE IMPRIMIR ---
+            DataGridViewButtonColumn btnImprimir = new DataGridViewButtonColumn();
+            btnImprimir.Name = "btnPDF"; // Este es el nombre que usaremos para identificar la columna
+            btnImprimir.HeaderText = "Imprimir";
+            btnImprimir.Text = "🖨️"; // Puedes poner texto "PDF" o un emoji
+            btnImprimir.UseColumnTextForButtonValue = true; // Para que el texto aparezca en todos los botones
+            comprasDataGridView.Columns.Add(btnImprimir);
 
             OcultarColumnas();
             CargarCompras();
@@ -440,5 +445,115 @@ namespace OcioStoreIngSoftII
                 }
             }
         }
+
+        private void comprasDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Validar clic en el botón "btnPDF"
+            if (comprasDataGridView.Columns[e.ColumnIndex].Name == "btnPDF" && e.RowIndex >= 0)
+            {
+                // Solo necesitamos el ID para buscar todo lo demás
+                int idCompra = Convert.ToInt32(comprasDataGridView.Rows[e.RowIndex].Cells["id_compra"].Value);
+
+                // Llamamos a la función
+                ImprimirFactura(idCompra);
+            }
+        }
+
+        private void ImprimirFactura(int idCompra)
+        {
+            string mensaje = string.Empty;
+
+            // 1. OBTENER DATOS REALES DE LA BD
+            // Usamos tu nuevo método de negocio
+            Compra compraEncontrada = comprasNegocio.ObtenerDetalleCompra(idCompra, out mensaje);
+
+            // Validar si trajo datos
+            if (compraEncontrada == null)
+            {
+                MessageBox.Show("No se pudieron obtener los detalles de la compra.\n" + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // 2. CARGAR PLANTILLA
+                string Texto_Html = Properties.Resources.PlantillaCompra.ToString();
+
+                // 3. REEMPLAZAR DATOS DE CABECERA (Usando el objeto recuperado)
+                Texto_Html = Texto_Html.Replace("@nombrenegocio", "Ocio Store");
+                Texto_Html = Texto_Html.Replace("@docnegocio", "Tienda de Juegos de Mesa");
+                Texto_Html = Texto_Html.Replace("@direcnegocio", "Avenida Corrientes 453");
+
+                Texto_Html = Texto_Html.Replace("@tipodocumento", "COMPROBANTE DE COMPRA");
+                Texto_Html = Texto_Html.Replace("@numerodocumento", compraEncontrada.id_compra.ToString());
+
+                // Datos del proveedor obtenidos del objeto
+                Texto_Html = Texto_Html.Replace("@docproveedor", ""); // Si tuvieras CUIT en el objeto Proveedor, iría aquí
+                Texto_Html = Texto_Html.Replace("@nombreproveedor", compraEncontrada.objProveedor.nombre_proveedor);
+                Texto_Html = Texto_Html.Replace("@fecharegistro", compraEncontrada.fecha_compra.ToString("dd/MM/yyyy"));
+                Texto_Html = Texto_Html.Replace("@usuarioregistro", "Admin"); // O el usuario logueado si lo tienes
+
+                // 4. GENERAR FILAS DE PRODUCTOS (Recorriendo la lista recuperada)
+                string filas = string.Empty;
+
+                foreach (DetalleCompra detalle in compraEncontrada.detalles)
+                {
+                    filas += "<tr>";
+                    filas += "<td>" + detalle.objProducto.nombre_producto + "</td>"; // Nombre
+                    filas += "<td>" + detalle.cantidad.ToString() + "</td>";         // Cantidad
+                    filas += "<td>" + detalle.precio_unitario.ToString("0.00") + "</td>"; // Precio Unitario
+
+                    // Calculamos el subtotal de la fila (Cantidad * Precio)
+                    decimal subtotal = detalle.cantidad * detalle.precio_unitario;
+                    filas += "<td>" + subtotal.ToString("0.00") + "</td>"; // Total Fila
+                    filas += "</tr>";
+                }
+
+                Texto_Html = Texto_Html.Replace("@filas", filas);
+                Texto_Html = Texto_Html.Replace("@montototal", compraEncontrada.total.ToString("0.00"));
+
+                // 5. GUARDAR Y GENERAR PDF (Código iTextSharp estándar)
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.FileName = string.Format("Compra_{0}_{1}.pdf", idCompra, DateTime.Now.ToString("yyyyMMdd"));
+                saveFile.Filter = "Pdf files|*.pdf";
+
+                if (saveFile.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream stream = new FileStream(saveFile.FileName, FileMode.Create))
+                    {
+                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+
+                        // (Opcional) Imagen del logo si la tienes
+                        /*
+                        bool obtenido = true;
+                        byte[] byteImage = new Compras_negocio().ObtenerLogo(out obtenido); // Ejemplo si tuvieras logo
+                        if (obtenido) {
+                           Image img = Image.GetInstance(byteImage);
+                           img.ScaleToFit(60, 60);
+                           img.Alignment = Image.UNDERLYING;
+                           img.SetAbsolutePosition(pdfDoc.GetLeft(20), pdfDoc.GetTop(51));
+                           pdfDoc.Add(img);
+                        }
+                        */
+
+                        using (StringReader sr = new StringReader(Texto_Html))
+                        {
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        }
+
+                        pdfDoc.Close();
+                        stream.Close();
+                        MessageBox.Show("Documento Generado Exitosamente", "Hecho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el PDF: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

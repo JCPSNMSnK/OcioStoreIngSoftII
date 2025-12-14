@@ -272,7 +272,7 @@ namespace CapaDatos
                     // 2. SEGUNDA CONSULTA: Detalles de Compra y Producto
                     // Asumimos que la tabla DetalleCompra tiene un campo id_producto que se une a Productos
                     sb.AppendLine("SELECT dc.id_producto, dc.cantidad, dc.precio_unitario, pr.nombre_producto, pr.cod_producto ");
-                    sb.AppendLine("FROM DetalleCompra dc INNER JOIN Productos pr ON dc.id_producto = pr.id_producto ");
+                    sb.AppendLine("FROM DetallesCompras dc INNER JOIN Productos pr ON dc.id_producto = pr.id_producto ");
                     sb.AppendLine("WHERE dc.id_compra = @idCompra;");
 
                     SqlCommand cmd = new SqlCommand(sb.ToString(), oconexion);
@@ -341,7 +341,7 @@ namespace CapaDatos
                 {
                     StringBuilder sb = new StringBuilder();
                     sb.AppendLine("SELECT dc.id_producto, dc.cantidad, dc.precio_unitario, p.nombre_producto");
-                    sb.AppendLine("FROM DetalleCompra dc");
+                    sb.AppendLine("FROM DetallesCompras dc");
                     sb.AppendLine("INNER JOIN Productos p ON dc.id_producto = p.id_producto");
                     sb.AppendLine("WHERE dc.id_compra = @idCompra");
 
