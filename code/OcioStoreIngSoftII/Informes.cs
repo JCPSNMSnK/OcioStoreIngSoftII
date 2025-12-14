@@ -232,24 +232,69 @@ namespace OcioStoreIngSoftII
         {
             if (dgvHistorial.Columns[e.ColumnIndex].Name == "btnVer" && e.RowIndex >= 0)
             {
-                string tipoInforme = dgvHistorial.Rows[e.RowIndex].Cells["tipo_informe"].Value.ToString();
+                DataRowView fila = (DataRowView)dgvHistorial.Rows[e.RowIndex].DataBoundItem;
 
-                // Buscamos ese tipo en el combo de la Tab 1
-                foreach (var item in cbTipoReporte.Items)
+                string tipo = fila["tipo_informe"].ToString();
+                string desc = fila["descripcion"].ToString(); // Para las fechas
+
+                // Llamamos al método de limpieza y carga
+                CargarDatosDesdeHistorial(tipo, desc);
+
+                MessageBox.Show("Se han cargado los parámetros del historial.\n\n" +
+                                "1. Verifique las fechas recuperadas.\n" +
+                                "2. Haga clic en 'Ver Datos' para ver los datos actualizados.",
+                                "Parámetros Cargados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Cambiamos de pestaña
+                tabControl1.SelectedIndex = 0;
+            }
+        }
+
+
+        private void CargarDatosDesdeHistorial(string tipoInforme, string descripcion)
+        {
+            dgvVistaPrevia.DataSource = null;
+            datosVistaPrevia = null;
+
+            foreach (var item in cbTipoReporte.Items)
+            {
+                dynamic obj = item;
+                if (obj.Valor == tipoInforme)
                 {
-                    dynamic obj = item;
-                    if (obj.Valor == tipoInforme)
+                    cbTipoReporte.SelectedItem = item;
+                    break;
+                }
+            }
+            try
+            {
+                if (descripcion.Contains("Rango: "))
+                {
+                    // Cortamos el string para quedarnos con lo que está después de "Rango: "
+                    string rangoFechas = descripcion.Split(new string[] { "Rango: " }, StringSplitOptions.None)[1];
+
+                    // Separamos por el guion " - "
+                    string[] fechas = rangoFechas.Split(new string[] { " - " }, StringSplitOptions.None);
+
+                    if (fechas.Length == 2)
                     {
-                        cbTipoReporte.SelectedItem = item;
-                        break;
+                        DateTime fInicio = DateTime.Parse(fechas[0].Trim());
+                        DateTime fFin = DateTime.Parse(fechas[1].Trim());
+
+                        // Asignamos a los controles (usando .Content o .Value según tu control)
+                        dtpInicio.Content = fInicio;
+                        dtpFin.Content = fFin;
                     }
                 }
-
-                MessageBox.Show("Se han cargado los parámetros de este informe histórico en la pestaña 'Generar'.\n\nPor favor, verifique las fechas y haga clic en 'Vista Previa' o 'Generar PDF' nuevamente.", "Regenerar Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Movemos al usuario a la primera pestaña para que lo genere
-                
-                tabControl1.SelectedIndex = 0; 
+                else if (descripcion.Contains("Al día de la fecha")) // Para Stock Bajo
+                {
+                    dtpInicio.Content = DateTime.Now;
+                    dtpFin.Content = DateTime.Now;
+                }
+            }
+            catch
+            {
+                // Si falla el parseo (por formato distinto), no hacemos nada y dejamos las fechas que estaban.
+                // No queremos que el programa explote por esto.
             }
         }
     }
