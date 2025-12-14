@@ -50,6 +50,7 @@ namespace OcioStoreIngSoftII
             cbFiltroTipo.SelectedIndex = 0;
             dtpHistorialInicio.Content = DateTime.Now.AddDays(-30);
             dtpHistorialFin.Content = DateTime.Now;
+            dgvHistorial.AutoGenerateColumns = false;
 
             ConfigurarGridHistorial();
         }
@@ -224,9 +225,6 @@ namespace OcioStoreIngSoftII
 
             dgvHistorial.DataSource = null;
             dgvHistorial.DataSource = dtHistorial;
-
-            // Ocultamos columnas técnicas si quieres
-            if (dgvHistorial.Columns["id_informe"] != null) dgvHistorial.Columns["id_informe"].Visible = false;
         }
 
 
