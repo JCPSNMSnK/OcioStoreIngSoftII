@@ -89,10 +89,86 @@ namespace CapaDatos
             return lista;
         }
 
-        public bool RegistrarVenta(Ventas obj, MediosPago objMetPago, Factura objFactura, out int idVentaRegistrada, out string Mensaje)
+
+        public List<Ventas> BuscarVentasConFiltros(DateTime inicio, DateTime fin, int idVendedor, int idCliente, int nroFactura)
+        {
+            List<Ventas> lista = new List<Ventas>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("PROC_LISTAR_VENTAS_FILTRADAS", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@fecha_inicio", inicio);
+                    cmd.Parameters.AddWithValue("@fecha_fin", fin);
+                    cmd.Parameters.AddWithValue("@id_vendedor", idVendedor);
+                    cmd.Parameters.AddWithValue("@id_cliente", idCliente);
+                    cmd.Parameters.AddWithValue("@nro_factura", nroFactura);
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Ventas()
+                            {
+                                id_venta = Convert.ToInt32(dr["id_venta"]),
+                                total = Convert.ToDecimal(dr["total"]),
+                                fecha_venta = Convert.ToDateTime(dr["fecha_venta"]),
+                                IdFacturaAsociada = dr["id_factura"] != DBNull.Value ? Convert.ToInt32(dr["id_factura"]) : 0,
+
+                                objMediosPago = new MediosPago()
+                                {
+                                    id_medioPago = Convert.ToInt32(dr["id_medio"]),
+                                    nombre_medio = dr["nombre_medio"].ToString(),
+                                    comision = Convert.ToDecimal(dr["comision"])
+                                },
+
+                                objUsuario = new Usuario()
+                                {
+                                    id_user = Convert.ToInt32(dr["id_user"]),
+                                    nombre = dr["nombre"].ToString(),
+                                    apellido = dr["apellido"].ToString(),
+                                    dni = Convert.ToInt32(dr["dni"]),
+                                    mail = dr["mail"].ToString(),
+                                    username = dr["username"].ToString(),
+                                    
+                                    objRoles = new Roles()
+                                    {
+                                        id_rol = Convert.ToInt32(dr["id_rol"]),
+                                        nombre_rol = dr["nombre_rol"].ToString()
+                                    }
+                                },
+
+                                objCliente = new Cliente()
+                                {
+                                    id_cliente = Convert.ToInt32(dr["id_cliente"]),
+                                    nombre_cliente = dr["nombre_cliente"].ToString(),
+                                    apellido_cliente = dr["apellido_cliente"].ToString(),
+                                    dni_cliente = Convert.ToInt32(dr["dni_cliente"]),
+                                    email_cliente = dr["email_cliente"].ToString()
+                                }
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Error en BD: " + ex.Message);
+                    lista = new List<Ventas>();
+                }
+            }
+            return lista;
+        }
+
+
+        public bool RegistrarVenta(Ventas obj, MediosPago objMetPago, Factura objFactura, out int idVentaRegistrada, out int idFacturaRegistrada, out string Mensaje)
         {
 
             idVentaRegistrada = 0;
+            idFacturaRegistrada = 0;
             String mensajeSalida = string.Empty;
             bool exito = false;
             List<string> mensajesDetalle = new List<string>(); // Para recopilar mensajes de detalles
@@ -155,10 +231,6 @@ namespace CapaDatos
                                 if (!string.IsNullOrEmpty(mensajeActualDetalle))
                                 {
                                     mensajesDetalle.Add($"Detalle Producto ID {detalle.objProducto.id_producto}: {mensajeActualDetalle}");
-                                    // Si el procedimiento de detalle devuelve un mensaje de error, podrías lanzar una excepción
-                                    // o marcar un flag para un rollback posterior.
-                                    // Por simplicidad, aquí asumimos que un mensaje no vacío podría ser un error si el Proc Almac lo indica.
-                                    // Si el Proc Almac de detalle retorna '0' o un flag para error, úsalo.
                                 }
                             }
 
@@ -249,9 +321,9 @@ namespace CapaDatos
                                 objProducto = new Producto()
                                 {
                                     id_producto = Convert.ToInt32(dr["id_producto"]),
-                                    cod_producto = Convert.ToInt32(dr["codigo"]),
+                                    cod_producto = dr["cod_producto"] != DBNull.Value ? Convert.ToInt32(dr["cod_producto"]) : 0, //Esto puesto que pueden haber productos sin código
                                     nombre_producto = dr["nombre_producto"].ToString(),
-                                    precioVenta = Convert.ToDecimal(dr["precio_venta"])
+                                    precioVenta = Convert.ToDecimal(dr["precioVenta"])
                                 },
                                 cantidad = Convert.ToInt32(dr["cantidad"]),
                                 subtotal = Convert.ToDecimal(dr["subtotal"])
@@ -269,6 +341,7 @@ namespace CapaDatos
                                     id_venta = Convert.ToInt32(dr["id_venta"]),
                                     total = Convert.ToDecimal(dr["total"]),
                                     fecha_venta = Convert.ToDateTime(dr["fecha_venta"]),
+
                                     objCliente = new Cliente()
                                     {
                                         id_cliente = Convert.ToInt32(dr["id_cliente"]),
@@ -276,6 +349,21 @@ namespace CapaDatos
                                         nombre_cliente = dr["nombre_cliente"].ToString(),
                                         apellido_cliente = dr["apellido_cliente"].ToString()
                                     },
+
+                                    objMediosPago = new MediosPago()
+                                    {
+                                        id_medioPago = Convert.ToInt32(dr["id_medio"]),
+                                        nombre_medio = dr["nombre_medio"].ToString(),
+                                        comision = Convert.ToDecimal(dr["comision"])
+                                    },
+
+                                    objUsuario = new Usuario()
+                                    {
+                                        id_user = Convert.ToInt32(dr["id_user"]),
+                                        nombre = dr["nombre_usuario"].ToString(),
+                                        apellido = dr["apellido_usuario"].ToString()
+                                    },
+
                                     detalles = detalles
                                 };
                             }
@@ -283,9 +371,10 @@ namespace CapaDatos
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 objVenta = null;
+                throw new Exception("Error al obtener venta: " + ex.Message);
             }
 
             return objVenta;

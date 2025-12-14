@@ -22,7 +22,7 @@ namespace OcioStoreIngSoftII
         private static Form FormularioActivo = null;
 
 
-        public Inicio(Usuario objUser) //Usuario objUser
+        public Inicio(Usuario objUser)
         {
             usuarioActual = objUser;
             InitializeComponent();
@@ -62,6 +62,7 @@ namespace OcioStoreIngSoftII
             string[] ordenDeseado = new string[]
             {
                 "HomeButton",
+                "ConfigurationButton",
                 "UserButton",
                 "ProductsButton",
                 "ClientsButton",
@@ -184,9 +185,14 @@ namespace OcioStoreIngSoftII
             AbrirFormulario((IconButton)sender, new Categories());
         }
 
+        private void ConfigurationButton_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconButton)sender, new ConfiguracionNegocio());
+        }
+
         private void ReceiptsButton_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario((IconButton)sender, new Recibos(usuarioActual));
         }
 
         private void StatsButton_Click(object sender, EventArgs e)

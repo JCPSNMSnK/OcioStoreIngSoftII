@@ -50,15 +50,17 @@ namespace CapaNegocio
         // Método para delegar la búsqueda de facturas a la capa de datos.
         public List<Factura> BuscarFacturas(int idCliente, DateTime fechaInicio, DateTime fechaFin, int idTipoFactura)
         {
-            // Puedes agregar aquí validaciones de negocio adicionales si las necesitas.
-            // Por ejemplo, que el rango de fechas sea lógico.
-
             return objFacturaDatos.BuscarFacturas(idCliente, fechaInicio, fechaFin, idTipoFactura);
         }
 
         public List<FacturaTipo> ListarTiposFactura()
         {
             return objFacturaDatos.ListarTiposFactura();
+        }
+
+        public Factura ObtenerFacturaPorIdVenta(int idVenta)
+        {
+            return objFacturaDatos.ObtenerFacturaPorIdVenta(idVenta);
         }
     }
 }

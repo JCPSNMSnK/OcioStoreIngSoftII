@@ -20,7 +20,7 @@ namespace OcioStoreIngSoftII
         public BuscarCliente()
         {
             InitializeComponent();
-                   actualizarDatosTabla();
+            actualizarDatosTabla();
         }
 
         private void actualizarDatosTabla(string filtros = null)
@@ -84,5 +84,15 @@ namespace OcioStoreIngSoftII
             }
         }
 
+        private void BuscarCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BBuscarCliente_Click(BBuscarCliente, EventArgs.Empty);
+
+                // Evita el sonido "ding" de Windows al presionar Enter en algunos contextos
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }
